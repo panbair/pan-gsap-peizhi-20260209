@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GSAP 基础滚动触发动画教学</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .demo-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .section {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 20px 0;
+            border-radius: 15px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .box {
+            width: 150px;
+            height: 150px;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        /* 不同颜色的主题 */
+        .section1 { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .section2 { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); }
+        .section3 { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); }
+        .section4 { background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); }
+        .section5 { background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); }
+
+        /* 教学说明区域 */
+        .tutorial-section {
+            background: #f8f9fa;
+            padding: 40px;
+            margin: 40px 0;
+            border-radius: 15px;
+            border-left: 5px solid #4f46e5;
+        }
+
+        .tutorial-title {
+            color: #4f46e5;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        .tutorial-content {
+            line-height: 1.8;
+        }
+
+        .code-block {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            overflow-x: auto;
+        }
+
+        .highlight {
+            background: #fff3cd;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+
+        /* 控制面板 */
+        .control-panel {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+
+        .control-btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            background: #4f46e5;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .control-btn:hover {
+            background: #667eea;
+        }
+
+        /* 进度条 */
+        .progress-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: rgba(0,0,0,0.1);
+            z-index: 1001;
+        }
+
+        .progress-bar {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, #4f46e5, #667eea);
+            transition: width 0.1s ease;
+        }
+    </style>
+</head>
+<body>
+    <!-- 控制面板 -->
+    <div class="control-panel">
+        <h3>控制面板</h3>
+        <button class="control-btn" onclick="resetAnimations()">重置动画</button>
+        <button class="control-btn" onclick="toggleMarkers()">切换标记</button>
+        <button class="control-btn" onclick="scrollToSection(1)">跳转到第1节</button>
+        <button class="control-btn" onclick="scrollToSection(2)">跳转到第2节</button>
+        <button class="control-btn" onclick="scrollToSection(3)">跳转到第3节</button>
+    </div>
+
+    <!-- 进度条 -->
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <div class="demo-container">
+        <!-- 教学说明 -->
+        <div class="tutorial-section">
+            <h2 class="tutorial-title">🎯 GSAP 滚动触发动画入门教程</h2>
+            <div class="tutorial-content">
+                <p>这是一个专门为 Three.js 新手设计的 GSAP 滚动动画教学示例。</p>
+                <p>当你向下滚动页面时，会看到不同的动画效果被触发：</p>
+                <ul>
+                    <li><span class="highlight">淡入效果</span> - 元素从透明变为可见</li>
+                    <li><span class="highlight">位移动画</span> - 元素从不同方向滑入</li>
+                    <li><span class="highlight">缩放效果</span> - 元素从小变大出现</li>
+                    <li><span class="highlight">旋转动画</span> - 元素带有旋转效果</li>
+                </ul>
+                <p>右侧的控制面板可以帮你测试不同的功能。</p>
+            </div>
+        </div>
+
+        <!-- 第一节：基础淡入动画 -->
+        <section class="section section1" id="section1">
+            <div>
+                <h2 class="section-title">第一节：基础淡入动画</h2>
+                <div class="box" id="box1">Box 1</div>
+            </div>
+        </section>
+
+        <div class="tutorial-section">
+            <h3 class="tutorial-title">📘 代码解析 - 基础淡入</h3>
+            <div class="code-block">
+// 基础淡入动画示例
+gsap.from('#box1', {
+    opacity: 0,           // 初始透明度为0
+    y: 50,               // 向下偏移50像素
+    duration: 1,         // 动画持续1秒
+    ease: 'power3.out',  // 缓动函数
+    scrollTrigger: {
+        trigger: '#section1',  // 触发元素
+        start: 'top 80%',      // 当触发元素顶部到达视口80%位置时开始
+        toggleActions: 'play none none reverse'  // 进入播放，离开反向
+    }
+});
+            </div>
+            <p><span class="highlight">关键参数说明：</span></p>
+            <ul>
+                <li><code>trigger</code>: 指定哪个元素触发动画</li>
+                <li><code>start</code>: 定义触发时机 ('top 80%' 表示元素顶部到达视口80%位置)</li>
+                <li><code>toggleActions</code>: 定义进入/离开时的行为</li>
+            </ul>
+        </div>
+
+        <!-- 第二节：位移滑入动画 -->
+        <section class="section section2" id="section2">
+            <div>
+                <h2 class="section-title">第二节：位移滑入动画</h2>
+                <div class="box" id="box2">Box 2</div>
+            </div>
+        </section>
+
+        <div class="tutorial-section">
+            <h3 class="tutorial-title">📘 代码解析 - 位移滑入</h3>
+            <div class="code-block">
+// 从左侧滑入动画
+gsap.from('#box2', {
+    x: -100,             // 从左側100像素开始
+    opacity: 0,          // 初始透明
+    duration: 0.8,
+    ease: 'back.out(1.7)', // 弹性缓动效果
+    scrollTrigger: {
+        trigger: '#section2',
+        start: 'center bottom',  // 当触发元素中心到达视口底部时开始
+        markers: true            // 显示调试标记（开发时很有用）
+    }
+});
+            </div>
+        </div>
+
+        <!-- 第三节：缩放动画 -->
+        <section class="section section3" id="section3">
+            <div>
+                <h2 class="section-title">第三节：缩放动画</h2>
+                <div class="box" id="box3">Box 3</div>
+            </div>
+        </section>
+
+        <div class="tutorial-section">
+            <h3 class="tutorial-title">📘 代码解析 - 缩放效果</h3>
+            <div class="code-block">
+// 缩放淡入动画
+gsap.from('#box3', {
+    scale: 0,            // 从0倍缩放开始
+    opacity: 0,
+    duration: 1,
+    ease: 'elastic.out(1, 0.3)', // 弹性效果
+    scrollTrigger: {
+        trigger: '#section3',
+        start: 'top center',     // 当触发元素顶部到达视口中心时开始
+        end: 'bottom center',    // 当触发元素底部到达视口中心时结束
+        toggleActions: 'play pause resume reverse'
+    }
+});
+            </div>
+        </div>
+
+        <!-- 第四节：旋转动画 -->
+        <section class="section section4" id="section4">
+            <div>
+                <h2 class="section-title">第四节：旋转动画</h2>
+                <div class="box" id="box4">Box 4</div>
+            </div>
+        </section>
+
+        <div class="tutorial-section">
+            <h3 class="tutorial-title">📘 代码解析 - 旋转效果</h3>
+            <div class="code-block">
+// 旋转+淡入动画
+gsap.from('#box4', {
+    rotation: 180,       // 旋转180度
+    opacity: 0,
+    duration: 1.2,
+    ease: 'power2.out',
+    scrollTrigger: {
+        trigger: '#section4',
+        start: 'top 70%',
+        scrub: 1             // 平滑跟随滚动
+    }
+});
+            </div>
+        </div>
+
+        <!-- 第五节：复合动画 -->
+        <section class="section section5" id="section5">
+            <div>
+                <h2 class="section-title">第五节：复合动画序列</h2>
+                <div class="box" id="box5">Box 5</div>
+            </div>
+        </section>
+
+        <div class="tutorial-section">
+            <h3 class="tutorial-title">📘 代码解析 - 复合动画</h3>
+            <div class="code-block">
+// 创建动画时间线
+const tl = gsap.timeline({
+    scrollTrigger: {
+        trigger: '#section5',
+        start: 'top 80%',
+        toggleActions: 'play none none reverse'
+    }
+});
+
+// 按顺序添加多个动画
+tl.from('#box5', { opacity: 0, y: 50, duration: 0.5 })
+  .to('#box5', { x: 100, duration: 0.5 })     // 相对移动
+  .to('#box5', { rotation: 360, duration: 1 }) // 旋转一圈
+  .to('#box5', { scale: 1.5, duration: 0.5 })  // 放大
+  .to('#box5', { scale: 1, duration: 0.3 });   // 恢复原大小
+            </div>
+        </div>
+
+        <!-- 总结 -->
+        <div class="tutorial-section">
+            <h2 class="tutorial-title">🎓 学习总结</h2>
+            <div class="tutorial-content">
+                <h3>核心概念：</h3>
+                <ol>
+                    <li><span class="highlight">ScrollTrigger</span> 是 GSAP 的滚动触发插件</li>
+                    <li><span class="highlight">trigger</span> 指定哪个元素触发动画</li>
+                    <li><span class="highlight">start/end</span> 定义触发时机</li>
+                    <li><span class="highlight">toggleActions</span> 控制进入/离开行为</li>
+                    <li><span class="highlight">scrub</span> 实现平滑跟随滚动效果</li>
+                </ol>
+                
+                <h3>实用技巧：</h3>
+                <ul>
+                    <li>使用 <code>markers: true</code> 调试动画触发点</li>
+                    <li>合理选择 <code>start</code> 和 <code>end</code> 参数</li>
+                    <li>善用 <code>timeline</code> 创建复杂动画序列</li>
+                    <li>注意性能优化，避免过度复杂的动画</li>
+                </ul>
+                
+                <p style="margin-top: 20px; font-weight: bold;">
+                    💡 现在你已经掌握了 GSAP 滚动动画的基础知识！可以尝试修改代码创建自己的动画效果。
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 注册插件
+        gsap.registerPlugin(ScrollTrigger);
+
+        // 全局变量
+        let markersEnabled = false;
+
+        // 第一节：基础淡入动画
+        gsap.from('#box1', {
+            opacity: 0,
+            y: 50,
+            duration: 1,
+            ease: 'power3.out',
+            scrollTrigger: {
+                trigger: '#section1',
+                start: 'top 80%',
+                toggleActions: 'play none none reverse',
+                markers: markersEnabled
+            }
+        });
+
+        // 第二节：位移滑入动画
+        gsap.from('#box2', {
+            x: -100,
+            opacity: 0,
+            duration: 0.8,
+            ease: 'back.out(1.7)',
+            scrollTrigger: {
+                trigger: '#section2',
+                start: 'center bottom',
+                markers: markersEnabled
+            }
+        });
+
+        // 第三节：缩放动画
+        gsap.from('#box3', {
+            scale: 0,
+            opacity: 0,
+            duration: 1,
+            ease: 'elastic.out(1, 0.3)',
+            scrollTrigger: {
+                trigger: '#section3',
+                start: 'top center',
+                end: 'bottom center',
+                toggleActions: 'play pause resume reverse',
+                markers: markersEnabled
+            }
+        });
+
+        // 第四节：旋转动画
+        gsap.from('#box4', {
+            rotation: 180,
+            opacity: 0,
+            duration: 1.2,
+            ease: 'power2.out',
+            scrollTrigger: {
+                trigger: '#section4',
+                start: 'top 70%',
+                scrub: 1,  // 平滑跟随滚动
+                markers: markersEnabled
+            }
+        });
+
+        // 第五节：复合动画序列
+        const tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: '#section5',
+                start: 'top 80%',
+                toggleActions: 'play none none reverse',
+                markers: markersEnabled
+            }
+        });
+
+        tl.from('#box5', { opacity: 0, y: 50, duration: 0.5 })
+          .to('#box5', { x: 100, duration: 0.5 })
+          .to('#box5', { rotation: 360, duration: 1 })
+          .to('#box5', { scale: 1.5, duration: 0.5 })
+          .to('#box5', { scale: 1, duration: 0.3 });
+
+        // 滚动进度条
+        gsap.to('#progressBar', {
+            width: '100%',
+            ease: 'none',
+            scrollTrigger: {
+                trigger: '.demo-container',
+                start: 'top top',
+                end: 'bottom bottom',
+                scrub: 0.3
+            }
+        });
+
+        // 控制面板功能
+        function resetAnimations() {
+            // 重置所有元素到初始状态
+            gsap.set(['#box1', '#box2', '#box3', '#box4', '#box5'], {
+                opacity: 1,
+                x: 0,
+                y: 0,
+                scale: 1,
+                rotation: 0
+            });
+            
+            // 刷新 ScrollTrigger
+            ScrollTrigger.refresh();
+            
+            alert('动画已重置！');
+        }
+
+        function toggleMarkers() {
+            markersEnabled = !markersEnabled;
+            ScrollTrigger.getAll().forEach(trigger => {
+                if (markersEnabled) {
+                    trigger.enable();
+                } else {
+                    trigger.disable();
+                }
+            });
+            alert(`标记${markersEnabled ? '已开启' : '已关闭'}`);
+        }
+
+        function scrollToSection(sectionNum) {
+            const section = document.getElementById(`section${sectionNum}`);
+            if (section) {
+                section.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // 页面加载完成后的初始化
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('GSAP 滚动动画教学页面加载完成！');
+            console.log('可用的控制功能：');
+            console.log('- 右侧控制面板可以测试各种功能');
+            console.log('- 滚动页面查看不同动画效果');
+            console.log('- 查看代码块了解实现原理');
+        });
+    </script>
+</body>
+</html>
