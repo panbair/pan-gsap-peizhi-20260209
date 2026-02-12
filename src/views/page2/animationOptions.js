@@ -146,5 +146,28 @@ export const animationOptions = [
       { value: 'glowDiffusion', label: '✨ 光晕扩散' },
       { value: 'neonFlow', label: '💡 霓虹流光' }
     ]
+  },
+  {
+    label: 'V7 超越极限',
+    options: [
+      { value: 'springEntrance', label: '🎯 弹簧进场' },
+      { value: 'staggerWave', label: '🌊 交错波浪' },
+      { value: 'elastic3DFold', label: '📦 3D弹性折叠' },
+      { value: 'elasticDeform', label: '🎨 弹性形变' },
+      { value: 'springPulse', label: '💓 弹簧脉冲' },
+      { value: 'elasticSpiral', label: '🌀 弹性螺旋' },
+      { value: 'elasticFlip', label: '🔄 弹性翻转' },
+      { value: 'elasticPendulum', label: '🕰️ 弹性摆动' },
+      { value: 'elasticScale', label: '🔍 弹性缩放' },
+      { value: 'elasticRotate', label: '🔄 弹性旋转' },
+      { value: 'elasticBounce', label: '🏀 弹性弹跳' },
+      { value: 'elasticSlide', label: '➡️ 弹性滑入' },
+      { value: 'elasticExpand', label: '💥 弹性膨胀' },
+      { value: 'elasticContract', label: '📉 弹性收缩' },
+      { value: 'elasticMorph', label: '🔷 弹性变形' },
+      { value: 'elasticShake', label: '📳 弹性震动' },
+      { value: 'elasticFlyIn', label: '🚀 弹性飞入' },
+      { value: 'elasticPullOut', label: '⬅️ 弹性拉出' }
+    ]
   }
 ]
