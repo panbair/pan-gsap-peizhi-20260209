@@ -112,7 +112,39 @@ export const animationOptions = [
       { value: 'warpSpeed', label: '💨 曲速飞行' },
       { value: 'blackholeSingularity', label: '🕳️ 奇点奇观' },
       { value: 'stellarGenesis', label: '✨ 恒星创生' },
-      { value: 'hyperDimensional', label: '🌀 超维度穿越' }
+      { value: 'hyperDimensional', label: '🌀 超维度穿越' },
+      { value: 'dimensionalCollapse', label: '🌌 维度崩塌' }
+    ]
+  },
+  {
+    label: 'VISVISE AI动画管线',
+    options: [
+      { value: 'aiSkeletonBinding', label: '🦴 AI骨骼绑定' },
+      { value: 'aiSkinning', label: '🎨 AI智能蒙皮' },
+      { value: 'aiAnimationGen', label: '🎬 AI动画生成' },
+      { value: 'aiInterpolation', label: '📈 AI智能插帧' },
+      { value: 'visvisePipeline', label: '🚀 VISVISE全流程' }
+    ]
+  },
+  {
+    label: 'V6 光影特效',
+    options: [
+      { value: 'sunRayPenetration', label: '☀️ 阳光穿透' },
+      { value: 'twilightScatter', label: '🌅 暮光散射' },
+      { value: 'neonPulsar', label: '💫 荧光脉冲' },
+      { value: 'laserSweep', label: '🔦 激光扫射' },
+      { value: 'haloGlow', label: '✨ 光晕辉光' },
+      { value: 'mirrorReflection', label: '🪞 镜面反射' },
+      { value: 'glassRefraction', label: '💎 玻璃折射' },
+      { value: 'fireGlimmer', label: '🔥 火焰光辉' },
+      { value: 'auroraFlow', label: '🌌 极光流光' },
+      { value: 'stardustTwinkle', label: '⭐ 星尘闪烁' },
+      { value: 'lightWaveRipple', label: '🌊 光波涟漪' },
+      { value: 'prismRainbow', label: '🌈 彩虹折射' },
+      { value: 'magicAura', label: '🔮 魔法光辉' },
+      { value: 'flashBurst', label: '💥 闪光爆发' },
+      { value: 'glowDiffusion', label: '✨ 光晕扩散' },
+      { value: 'neonFlow', label: '💡 霓虹流光' }
     ]
   }
 ]

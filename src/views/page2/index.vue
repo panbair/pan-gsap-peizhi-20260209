@@ -126,10 +126,6 @@ const toggleDropdown = () => {
   isDropdownOpen.value = !isDropdownOpen.value
 }
 
-const closeDropdown = () => {
-  isDropdownOpen.value = false
-}
-
 const selectAnimation = (value: string) => {
   selectedAnimation.value = value
   // isDropdownOpen.value = false
