@@ -34,6 +34,16 @@ const routes: RouteRecordRaw[] = [
         component: () => import('@/views/page2/index.vue'),
         meta: {title: 'page2动画'}
     },
+
+    {
+        path: '/page1',
+        name: 'page1',
+        component: () => import('@/views/page1/index.vue'),
+        meta: {title: 'page1动画'}
+    },
+
+
+
     {
         path: '/:pathMatch(.*)*',
         name: 'NotFound',
