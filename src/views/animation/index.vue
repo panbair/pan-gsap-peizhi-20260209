@@ -2,6 +2,35 @@
   <div class="home-container">
     <div class="animation-demo">
       <h1>🎨 CSS 动画演示 (184+ 特效)</h1>
+
+      <!-- 新工具导航 -->
+      <div class="tools-navigation">
+        <router-link to="/animator" class="tool-link">
+          <span class="tool-icon">🎨</span>
+          <span class="tool-name">可视化构建器</span>
+        </router-link>
+        <router-link to="/preview" class="tool-link">
+          <span class="tool-icon">🎬</span>
+          <span class="tool-name">预览调试器</span>
+        </router-link>
+        <router-link to="/performance" class="tool-link">
+          <span class="tool-icon">⚡</span>
+          <span class="tool-name">性能分析器</span>
+        </router-link>
+        <router-link to="/browser-test" class="tool-link">
+          <span class="tool-icon">🌐</span>
+          <span class="tool-name">浏览器测试</span>
+        </router-link>
+        <router-link to="/components" class="tool-link">
+          <span class="tool-icon">🧩</span>
+          <span class="tool-name">组件库</span>
+        </router-link>
+        <router-link to="/page2" class="tool-link">
+          <span class="tool-icon">🚀</span>
+          <span class="tool-name">GSAP动画</span>
+        </router-link>
+      </div>
+
       <div class="animation-main">
         <div class="sidebar">
           <div class="sidebar-header">

@@ -1,8 +1,9 @@
 {
-  "name": "@universal-animations/css",
+  "name": "@universal-animations/gsap",
   "version": "2.0.0",
-  "description": "Universal Animation Library - CSS Edition. 184+ animations across 11 versions including V8 Quantum Dimension, V9 Time-Space Illusion, V10 Ultra-Visual Glitch, and V11 Explosion Destruction Effects",
-  "main": "dist/index.css",
+  "description": "Universal Animation Library - GSAP Edition. 168+ GSAP timeline animations across 11 versions with 10-stage orchestration, including spring physics, particle systems, glitch art, and explosion effects",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
   "files": [
     "dist",
@@ -10,31 +11,31 @@
     "LICENSE"
   ],
   "keywords": [
+    "gsap",
     "animation",
-    "css-animation",
-    "css",
+    "greensock",
+    "timeline",
+    "motion",
+    "transition",
     "ui",
     "frontend",
     "web",
     "animation-library",
-    "transitions",
-    "keyframes",
     "vue",
     "react",
     "angular",
     "svelte",
     "javascript",
     "typescript",
-    "gsap",
-    "spring-animation",
+    "spring-physics",
+    "stagger",
     "glitch",
     "explosion",
     "particle",
     "quantum",
     "cyberpunk",
     "vfx",
-    "visual-effects",
-    "motion-design"
+    "visual-effects"
   ],
   "author": "Universal Animation Library Contributors",
   "license": "MIT",
@@ -51,18 +52,15 @@
     "prepublishOnly": "npm run build",
     "test": "echo \"No tests yet\" && exit 0"
   },
-  "devDependencies": {
-    "cssnano": "^7.0.6",
-    "postcss": "^8.4.49",
-    "postcss-cli": "^11.0.0"
+  "peerDependencies": {
+    "gsap": ">=3.12.0"
   },
-  "browserslist": [
-    ">= 0.5%",
-    "last 2 versions",
-    "not dead",
-    "Chrome >= 87",
-    "Firefox >= 78",
-    "Safari >= 14",
-    "Edge >= 88"
-  ]
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "esbuild": "^0.20.0",
+    "typescript": "^5.4.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
 }

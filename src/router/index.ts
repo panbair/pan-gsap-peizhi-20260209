@@ -47,6 +47,36 @@ const routes: RouteRecordRaw[] = [
         component: () => import('@/views/page2/index.vue'),
         meta: {title: 'page2动画'}
     },
+    {
+        path: '/animator',
+        name: 'animator',
+        component: () => import('@/views/animator/index.vue'),
+        meta: {title: '可视化动画构建器'}
+    },
+    {
+        path: '/preview',
+        name: 'preview',
+        component: () => import('@/views/preview/index.vue'),
+        meta: {title: '动画预览调试器'}
+    },
+    {
+        path: '/performance',
+        name: 'performance',
+        component: () => import('@/views/performance/index.vue'),
+        meta: {title: '性能分析器'}
+    },
+    {
+        path: '/browser-test',
+        name: 'browser-test',
+        component: () => import('@/views/browser-test/index.vue'),
+        meta: {title: '浏览器兼容性测试'}
+    },
+    {
+        path: '/components',
+        name: 'components',
+        component: () => import('@/views/components/index.vue'),
+        meta: {title: '交互式组件库'}
+    },
 
     {
         path: '/optimized-scroll-demo',
