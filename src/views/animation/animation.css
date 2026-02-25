@@ -10227,3 +10227,4596 @@
     backface-visibility: hidden;
 }
 
+/* ========================================
+   V8 量子维度系列 - 超越视觉边界的终极动画
+   融合量子物理、多维空间、时空扭曲、粒子物理
+   ======================================== */
+
+:root {
+    --ua-v8-duration: 3s;
+    --ua-v8-ease-quantum: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --ua-v8-ease-warp: cubic-bezier(0.68, -0.6, 0.32, 1.6);
+    --ua-v8-ease-cascade: cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+.ua-v8-animated {
+    animation-duration: var(--ua-v8-duration);
+    animation-fill-mode: both;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+}
+
+/* ====================
+   ⚛️ 量子实体化 - 量子态到物质态的转换
+   ==================== */
+@keyframes ua-v8-quantumMaterialize {
+    0% {
+        opacity: 0;
+        transform: perspective(2000px) scale(0) rotateX(0deg) rotateY(0deg);
+        filter: blur(50px) brightness(3) hue-rotate(0deg) saturate(0);
+        box-shadow: 0 0 100px rgba(102, 126, 234, 0);
+    }
+    12.5% {
+        opacity: 0.2;
+        transform: perspective(2000px) scale(0.3) rotateX(45deg) rotateY(45deg);
+        filter: blur(30px) brightness(2.5) hue-rotate(45deg) saturate(0.3);
+        box-shadow: 0 0 60px rgba(102, 126, 234, 0.3);
+    }
+    25% {
+        opacity: 0.4;
+        transform: perspective(2000px) scale(0.6) rotateX(-30deg) rotateY(-30deg);
+        filter: blur(20px) brightness(2) hue-rotate(90deg) saturate(0.6);
+        box-shadow: 0 0 40px rgba(118, 75, 162, 0.4);
+    }
+    37.5% {
+        opacity: 0.65;
+        transform: perspective(2000px) scale(0.85) rotateX(20deg) rotateY(20deg);
+        filter: blur(12px) brightness(1.8) hue-rotate(135deg) saturate(0.85);
+        box-shadow: 0 0 25px rgba(139, 92, 246, 0.5);
+    }
+    50% {
+        opacity: 0.85;
+        transform: perspective(2000px) scale(1.1) rotateX(-10deg) rotateY(-10deg);
+        filter: blur(6px) brightness(1.5) hue-rotate(180deg) saturate(1.2);
+        box-shadow: 0 0 15px rgba(99, 102, 241, 0.6);
+    }
+    62.5% {
+        opacity: 0.9;
+        transform: perspective(2000px) scale(0.98) rotateX(5deg) rotateY(5deg);
+        filter: blur(3px) brightness(1.2) hue-rotate(220deg) saturate(1.5);
+        box-shadow: 0 0 10px rgba(168, 85, 247, 0.7);
+    }
+    75% {
+        opacity: 0.95;
+        transform: perspective(2000px) scale(1.02) rotateX(-2deg) rotateY(-2deg);
+        filter: blur(1px) brightness(1.1) hue-rotate(250deg) saturate(1.8);
+        box-shadow: 0 0 8px rgba(102, 126, 234, 0.8);
+    }
+    87.5% {
+        opacity: 0.98;
+        transform: perspective(2000px) scale(0.99) rotateX(1deg) rotateY(1deg);
+        filter: blur(0.5px) brightness(1.05) hue-rotate(280deg) saturate(2);
+        box-shadow: 0 0 6px rgba(118, 75, 162, 0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: perspective(2000px) scale(1) rotateX(0deg) rotateY(0deg);
+        filter: blur(0px) brightness(1) hue-rotate(0deg) saturate(1);
+        box-shadow: 0 0 4px rgba(139, 92, 246, 1);
+    }
+}
+
+.ua-v8-quantumMaterialize {
+    animation-name: ua-v8-quantumMaterialize;
+    animation-timing-function: var(--ua-v8-ease-quantum);
+    animation-duration: var(--ua-v8-duration);
+}
+
+/* ====================
+   🌀 维度相位 - 多维度交错显现
+   ==================== */
+@keyframes ua-v8-dimensionalPhase {
+    0% {
+        opacity: 0;
+        transform: perspective(2500px) scale(2) rotateX(90deg) rotateY(90deg) translateZ(-500px);
+        filter: blur(40px) brightness(0.5);
+        clip-path: polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%);
+    }
+    14.28% {
+        opacity: 0.25;
+        transform: perspective(2500px) scale(1.5) rotateX(45deg) rotateY(45deg) translateZ(-250px);
+        filter: blur(25px) brightness(0.8);
+        clip-path: polygon(30% 30%, 70% 30%, 70% 70%, 30% 70%);
+    }
+    28.56% {
+        opacity: 0.5;
+        transform: perspective(2500px) scale(1.2) rotateX(0deg) rotateY(0deg) translateZ(0px);
+        filter: blur(15px) brightness(1.2);
+        clip-path: polygon(15% 15%, 85% 15%, 85% 85%, 15% 85%);
+    }
+    42.84% {
+        opacity: 0.75;
+        transform: perspective(2500px) scale(0.9) rotateX(-20deg) rotateY(-20deg) translateZ(100px);
+        filter: blur(8px) brightness(1.1);
+        clip-path: polygon(8% 8%, 92% 8%, 92% 92%, 8% 92%);
+    }
+    57.12% {
+        opacity: 0.9;
+        transform: perspective(2500px) scale(1.05) rotateX(10deg) rotateY(10deg) translateZ(-50px);
+        filter: blur(4px) brightness(1.05);
+        clip-path: polygon(4% 4%, 96% 4%, 96% 96%, 4% 96%);
+    }
+    71.4% {
+        opacity: 0.95;
+        transform: perspective(2500px) scale(0.98) rotateX(-5deg) rotateY(-5deg) translateZ(25px);
+        filter: blur(2px) brightness(1.02);
+        clip-path: polygon(2% 2%, 98% 2%, 98% 98%, 2% 98%);
+    }
+    85.68% {
+        opacity: 0.98;
+        transform: perspective(2500px) scale(1.01) rotateX(2deg) rotateY(2deg) translateZ(-12px);
+        filter: blur(1px) brightness(1.01);
+        clip-path: polygon(1% 1%, 99% 1%, 99% 99%, 1% 99%);
+    }
+    100% {
+        opacity: 1;
+        transform: perspective(2500px) scale(1) rotateX(0deg) rotateY(0deg) translateZ(0px);
+        filter: blur(0px) brightness(1);
+        clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    }
+}
+
+.ua-v8-dimensionalPhase {
+    animation-name: ua-v8-dimensionalPhase;
+    animation-timing-function: var(--ua-v8-ease-cascade);
+    animation-duration: var(--ua-v8-duration);
+}
+
+/* ====================
+   🧠 神经脉冲 - 神经元信号传递
+   ==================== */
+@keyframes ua-v8-neuroPulse {
+    0% {
+        opacity: 0;
+        transform: scale(0.2);
+        filter: blur(30px) brightness(2) saturate(0);
+        box-shadow: 0 0 0 rgba(102, 126, 234, 0);
+    }
+    10% {
+        opacity: 1;
+        transform: scale(1.5);
+        filter: blur(5px) brightness(1.5) saturate(0.5);
+        box-shadow: 0 0 30px rgba(102, 126, 234, 0.8);
+    }
+    20% {
+        opacity: 0.3;
+        transform: scale(0.7);
+        filter: blur(20px) brightness(0.8) saturate(0.2);
+        box-shadow: 0 0 10px rgba(118, 75, 162, 0.3);
+    }
+    30% {
+        opacity: 1;
+        transform: scale(1.3);
+        filter: blur(3px) brightness(1.3) saturate(0.7);
+        box-shadow: 0 0 25px rgba(139, 92, 246, 0.7);
+    }
+    40% {
+        opacity: 0.5;
+        transform: scale(0.85);
+        filter: blur(10px) brightness(0.9) saturate(0.4);
+        box-shadow: 0 0 15px rgba(99, 102, 241, 0.4);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.15);
+        filter: blur(2px) brightness(1.2) saturate(0.85);
+        box-shadow: 0 0 20px rgba(168, 85, 247, 0.6);
+    }
+    60% {
+        opacity: 0.7;
+        transform: scale(0.95);
+        filter: blur(5px) brightness(1) saturate(0.6);
+        box-shadow: 0 0 12px rgba(102, 126, 234, 0.5);
+    }
+    70% {
+        opacity: 1;
+        transform: scale(1.05);
+        filter: blur(1px) brightness(1.1) saturate(0.9);
+        box-shadow: 0 0 18px rgba(118, 75, 162, 0.55);
+    }
+    80% {
+        opacity: 0.85;
+        transform: scale(0.98);
+        filter: blur(2px) brightness(1.05) saturate(0.75);
+        box-shadow: 0 0 10px rgba(139, 92, 246, 0.5);
+    }
+    90% {
+        opacity: 0.95;
+        transform: scale(1.02);
+        filter: blur(0.5px) brightness(1.02) saturate(0.95);
+        box-shadow: 0 0 8px rgba(99, 102, 241, 0.45);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+        filter: blur(0px) brightness(1) saturate(1);
+        box-shadow: 0 0 6px rgba(168, 85, 247, 0.4);
+    }
+}
+
+.ua-v8-neuroPulse {
+    animation-name: ua-v8-neuroPulse;
+    animation-timing-function: var(--ua-v8-ease-warp);
+    animation-duration: 2.5s;
+}
+
+/* ====================
+   🔮 全息材质 - 全息投影的材质变化
+   ==================== */
+@keyframes ua-v8-hologramMaterial {
+    0% {
+        opacity: 0;
+        transform: scale(1.5);
+        filter: blur(20px) brightness(2) saturate(0.5) hue-rotate(0deg);
+        background: linear-gradient(45deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+        border-color: rgba(102, 126, 234, 0);
+    }
+    14.28% {
+        opacity: 0.4;
+        transform: scale(1.2);
+        filter: blur(12px) brightness(1.8) saturate(1) hue-rotate(36deg);
+        background: linear-gradient(45deg, rgba(102, 126, 234, 0.3), rgba(118, 75, 162, 0.3));
+        border-color: rgba(102, 126, 234, 0.3);
+    }
+    28.56% {
+        opacity: 0.7;
+        transform: scale(0.9);
+        filter: blur(6px) brightness(1.5) saturate(1.5) hue-rotate(72deg);
+        background: linear-gradient(45deg, rgba(118, 75, 162, 0.5), rgba(139, 92, 246, 0.5));
+        border-color: rgba(118, 75, 162, 0.5);
+    }
+    42.84% {
+        opacity: 0.9;
+        transform: scale(1.05);
+        filter: blur(3px) brightness(1.3) saturate(2) hue-rotate(108deg);
+        background: linear-gradient(45deg, rgba(139, 92, 246, 0.7), rgba(99, 102, 241, 0.7));
+        border-color: rgba(139, 92, 246, 0.7);
+    }
+    57.12% {
+        opacity: 0.6;
+        transform: scale(0.98);
+        filter: blur(8px) brightness(1.6) saturate(1.2) hue-rotate(144deg);
+        background: linear-gradient(45deg, rgba(99, 102, 241, 0.4), rgba(168, 85, 247, 0.4));
+        border-color: rgba(99, 102, 241, 0.4);
+    }
+    71.4% {
+        opacity: 1;
+        transform: scale(1.02);
+        filter: blur(2px) brightness(1.2) saturate(1.8) hue-rotate(180deg);
+        background: linear-gradient(45deg, rgba(168, 85, 247, 0.6), rgba(102, 126, 234, 0.6));
+        border-color: rgba(168, 85, 247, 0.6);
+    }
+    85.68% {
+        opacity: 0.7;
+        transform: scale(0.99);
+        filter: blur(4px) brightness(1.4) saturate(1.5) hue-rotate(216deg);
+        background: linear-gradient(45deg, rgba(102, 126, 234, 0.5), rgba(118, 75, 162, 0.5));
+        border-color: rgba(102, 126, 234, 0.5);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+        filter: blur(0px) brightness(1) saturate(1) hue-rotate(0deg);
+        background: initial;
+        border-color: initial;
+    }
+}
+
+.ua-v8-hologramMaterial {
+    animation-name: ua-v8-hologramMaterial;
+    animation-timing-function: var(--ua-v8-ease-quantum);
+    animation-duration: var(--ua-v8-duration);
+}
+
+/* ====================
+   ⏰ 时间通量 - 时间扭曲效果
+   ==================== */
+@keyframes ua-v8-temporalFlux {
+    0% {
+        opacity: 0;
+        transform: scale(0.5) rotate(0deg) translateX(0);
+        filter: blur(30px) brightness(0.8) hue-rotate(0deg);
+        box-shadow: 0 0 0 rgba(102, 126, 234, 0);
+    }
+    12.5% {
+        opacity: 0.5;
+        transform: scale(1.2) rotate(180deg) translateX(100px);
+        filter: blur(15px) brightness(1.5) hue-rotate(45deg);
+        box-shadow: 20px 0 40px rgba(102, 126, 234, 0.6);
+    }
+    25% {
+        opacity: 0.2;
+        transform: scale(0.6) rotate(360deg) translateX(-80px);
+        filter: blur(25px) brightness(0.9) hue-rotate(90deg);
+        box-shadow: -15px 0 30px rgba(118, 75, 162, 0.4);
+    }
+    37.5% {
+        opacity: 0.8;
+        transform: scale(1.3) rotate(540deg) translateX(60px);
+        filter: blur(8px) brightness(1.6) hue-rotate(135deg);
+        box-shadow: 12px 0 25px rgba(139, 92, 246, 0.7);
+    }
+    50% {
+        opacity: 0.4;
+        transform: scale(0.8) rotate(720deg) translateX(-40px);
+        filter: blur(12px) brightness(1.3) hue-rotate(180deg);
+        box-shadow: -8px 0 20px rgba(99, 102, 241, 0.5);
+    }
+    62.5% {
+        opacity: 1;
+        transform: scale(1.1) rotate(810deg) translateX(20px);
+        filter: blur(4px) brightness(1.5) hue-rotate(225deg);
+        box-shadow: 5px 0 15px rgba(168, 85, 247, 0.6);
+    }
+    75% {
+        opacity: 0.6;
+        transform: scale(0.95) rotate(870deg) translateX(-10px);
+        filter: blur(6px) brightness(1.4) hue-rotate(270deg);
+        box-shadow: -3px 0 12px rgba(102, 126, 234, 0.55);
+    }
+    87.5% {
+        opacity: 0.9;
+        transform: scale(1.02) rotate(905deg) translateX(5px);
+        filter: blur(2px) brightness(1.3) hue-rotate(315deg);
+        box-shadow: 2px 0 10px rgba(118, 75, 162, 0.5);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) rotate(900deg) translateX(0);
+        filter: blur(0px) brightness(1) hue-rotate(0deg);
+        box-shadow: 0 0 8px rgba(139, 92, 246, 0.4);
+    }
+}
+
+.ua-v8-temporalFlux {
+    animation-name: ua-v8-temporalFlux;
+    animation-timing-function: var(--ua-v8-ease-warp);
+    animation-duration: var(--ua-v8-duration);
+}
+
+/* ====================
+   ⚡ 能量级联 - 能量波动传递
+   ==================== */
+@keyframes ua-v8-energyCascade {
+    0% {
+        opacity: 0;
+        transform: scale(0);
+        filter: blur(50px) brightness(3) saturate(0);
+        box-shadow: 0 0 0 rgba(102, 126, 234, 0),
+                    inset 0 0 0 rgba(102, 126, 234, 0);
+    }
+    10% {
+        opacity: 1;
+        transform: scale(2);
+        filter: blur(20px) brightness(2) saturate(0.3);
+        box-shadow: 0 0 50px rgba(102, 126, 234, 0.8),
+                    inset 0 0 20px rgba(102, 126, 234, 0.3);
+    }
+    20% {
+        opacity: 0.6;
+        transform: scale(0.5);
+        filter: blur(35px) brightness(1.5) saturate(0.6);
+        box-shadow: 0 0 30px rgba(118, 75, 162, 0.5),
+                    inset 0 0 15px rgba(118, 75, 162, 0.2);
+    }
+    30% {
+        opacity: 1;
+        transform: scale(1.5);
+        filter: blur(10px) brightness(1.8) saturate(0.8);
+        box-shadow: 0 0 40px rgba(139, 92, 246, 0.7),
+                    inset 0 0 18px rgba(139, 92, 246, 0.28);
+    }
+    40% {
+        opacity: 0.7;
+        transform: scale(0.8);
+        filter: blur(18px) brightness(1.3) saturate(0.5);
+        box-shadow: 0 0 25px rgba(99, 102, 241, 0.4),
+                    inset 0 0 12px rgba(99, 102, 241, 0.16);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.2);
+        filter: blur(5px) brightness(1.5) saturate(0.9);
+        box-shadow: 0 0 35px rgba(168, 85, 247, 0.6),
+                    inset 0 0 16px rgba(168, 85, 247, 0.24);
+    }
+    60% {
+        opacity: 0.85;
+        transform: scale(0.95);
+        filter: blur(8px) brightness(1.2) saturate(0.7);
+        box-shadow: 0 0 20px rgba(102, 126, 234, 0.5),
+                    inset 0 0 10px rgba(102, 126, 234, 0.2);
+    }
+    70% {
+        opacity: 1;
+        transform: scale(1.05);
+        filter: blur(3px) brightness(1.4) saturate(0.85);
+        box-shadow: 0 0 28px rgba(118, 75, 162, 0.55),
+                    inset 0 0 14px rgba(118, 75, 162, 0.22);
+    }
+    80% {
+        opacity: 0.9;
+        transform: scale(0.98);
+        filter: blur(4px) brightness(1.3) saturate(0.75);
+        box-shadow: 0 0 15px rgba(139, 92, 246, 0.45),
+                    inset 0 0 8px rgba(139, 92, 246, 0.18);
+    }
+    90% {
+        opacity: 0.95;
+        transform: scale(1.02);
+        filter: blur(1px) brightness(1.2) saturate(0.9);
+        box-shadow: 0 0 20px rgba(99, 102, 241, 0.5),
+                    inset 0 0 10px rgba(99, 102, 241, 0.2);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+        filter: blur(0px) brightness(1) saturate(1);
+        box-shadow: 0 0 12px rgba(168, 85, 247, 0.4),
+                    inset 0 0 6px rgba(168, 85, 247, 0.16);
+    }
+}
+
+.ua-v8-energyCascade {
+    animation-name: ua-v8-energyCascade;
+    animation-timing-function: var(--ua-v8-ease-cascade);
+    animation-duration: 2.8s;
+}
+
+/* ====================
+   ✨ 形态本质 - 物质形态的本质变化
+   ==================== */
+@keyframes ua-v8-morphEssence {
+    0% {
+        opacity: 0;
+        transform: scale(0.3) rotate(0deg);
+        filter: blur(40px) brightness(2);
+        border-radius: 50%;
+        box-shadow: 0 0 60px rgba(102, 126, 234, 0.8);
+    }
+    11.11% {
+        opacity: 0.4;
+        transform: scale(0.6) rotate(40deg);
+        filter: blur(25px) brightness(1.8);
+        border-radius: 45%;
+        box-shadow: 0 0 45px rgba(118, 75, 162, 0.6);
+    }
+    22.22% {
+        opacity: 0.7;
+        transform: scale(1.2) rotate(80deg);
+        filter: blur(12px) brightness(1.6);
+        border-radius: 30%;
+        box-shadow: 0 0 35px rgba(139, 92, 246, 0.5);
+    }
+    33.33% {
+        opacity: 0.9;
+        transform: scale(0.85) rotate(120deg);
+        filter: blur(6px) brightness(1.4);
+        border-radius: 20%;
+        box-shadow: 0 0 25px rgba(99, 102, 241, 0.4);
+    }
+    44.44% {
+        opacity: 0.6;
+        transform: scale(1.1) rotate(160deg);
+        filter: blur(8px) brightness(1.5);
+        border-radius: 35%;
+        box-shadow: 0 0 30px rgba(168, 85, 247, 0.45);
+    }
+    55.55% {
+        opacity: 0.9;
+        transform: scale(0.95) rotate(200deg);
+        filter: blur(4px) brightness(1.3);
+        border-radius: 25%;
+        box-shadow: 0 0 20px rgba(102, 126, 234, 0.35);
+    }
+    66.66% {
+        opacity: 0.7;
+        transform: scale(1.05) rotate(240deg);
+        filter: blur(5px) brightness(1.35);
+        border-radius: 28%;
+        box-shadow: 0 0 22px rgba(118, 75, 162, 0.38);
+    }
+    77.77% {
+        opacity: 0.95;
+        transform: scale(0.98) rotate(280deg);
+        filter: blur(2px) brightness(1.25);
+        border-radius: 22%;
+        box-shadow: 0 0 15px rgba(139, 92, 246, 0.3);
+    }
+    88.88% {
+        opacity: 0.98;
+        transform: scale(1.01) rotate(320deg);
+        filter: blur(1px) brightness(1.15);
+        border-radius: 21%;
+        box-shadow: 0 0 12px rgba(99, 102, 241, 0.25);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) rotate(360deg);
+        filter: blur(0px) brightness(1);
+        border-radius: 20px;
+        box-shadow: 0 0 10px rgba(168, 85, 247, 0.2);
+    }
+}
+
+.ua-v8-morphEssence {
+    animation-name: ua-v8-morphEssence;
+    animation-timing-function: var(--ua-v8-ease-warp);
+    animation-duration: var(--ua-v8-duration);
+}
+
+/* ====================
+   🌊 共振场域 - 共振波扩散
+   ==================== */
+@keyframes ua-v8-resonanceField {
+    0% {
+        opacity: 0;
+        transform: scale(0);
+        filter: blur(30px) brightness(1.5);
+    }
+    8% {
+        opacity: 1;
+        transform: scale(1.8);
+        filter: blur(5px) brightness(1.3);
+    }
+    16% {
+        opacity: 0.3;
+        transform: scale(0.5);
+        filter: blur(20px) brightness(0.8);
+    }
+    24% {
+        opacity: 1;
+        transform: scale(1.4);
+        filter: blur(3px) brightness(1.2);
+    }
+    32% {
+        opacity: 0.5;
+        transform: scale(0.75);
+        filter: blur(12px) brightness(0.9);
+    }
+    40% {
+        opacity: 1;
+        transform: scale(1.2);
+        filter: blur(2px) brightness(1.1);
+    }
+    48% {
+        opacity: 0.7;
+        transform: scale(0.9);
+        filter: blur(6px) brightness(1);
+    }
+    56% {
+        opacity: 1;
+        transform: scale(1.15);
+        filter: blur(1px) brightness(1.05);
+    }
+    64% {
+        opacity: 0.8;
+        transform: scale(0.95);
+        filter: blur(3px) brightness(1.02);
+    }
+    72% {
+        opacity: 1;
+        transform: scale(1.08);
+        filter: blur(0.5px) brightness(1.01);
+    }
+    80% {
+        opacity: 0.9;
+        transform: scale(0.98);
+        filter: blur(1px) brightness(1);
+    }
+    88% {
+        opacity: 0.95;
+        transform: scale(1.02);
+        filter: blur(0.5px) brightness(1);
+    }
+    96% {
+        opacity: 0.98;
+        transform: scale(0.99);
+        filter: blur(0.2px) brightness(1);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+        filter: blur(0px) brightness(1);
+    }
+}
+
+.ua-v8-resonanceField {
+    animation-name: ua-v8-resonanceField;
+    animation-timing-function: var(--ua-v8-ease-quantum);
+    animation-duration: 2.5s;
+}
+
+/* ====================
+   ⚛️ 量子纠缠 - 双向纠缠动画
+   ==================== */
+@keyframes ua-v8-quantumEntangle {
+    0% {
+        opacity: 0;
+        transform: scale(0) rotate(0deg) translateX(0);
+        filter: blur(40px) brightness(2);
+        box-shadow: 0 0 0 rgba(102, 126, 234, 0),
+                    -0 0 0 rgba(118, 75, 162, 0);
+    }
+    10% {
+        opacity: 1;
+        transform: scale(1.5) rotate(180deg) translateX(80px);
+        filter: blur(10px) brightness(1.5);
+        box-shadow: 40px 0 30px rgba(102, 126, 234, 0.6),
+                    -40px 0 30px rgba(118, 75, 162, 0.6);
+    }
+    20% {
+        opacity: 0.4;
+        transform: scale(0.6) rotate(360deg) translateX(-60px);
+        filter: blur(25px) brightness(1);
+        box-shadow: -30px 0 20px rgba(118, 75, 162, 0.4),
+                    30px 0 20px rgba(102, 126, 234, 0.4);
+    }
+    30% {
+        opacity: 1;
+        transform: scale(1.3) rotate(540deg) translateX(40px);
+        filter: blur(5px) brightness(1.3);
+        box-shadow: 20px 0 25px rgba(139, 92, 246, 0.5),
+                    -20px 0 25px rgba(99, 102, 241, 0.5);
+    }
+    40% {
+        opacity: 0.5;
+        transform: scale(0.85) rotate(630deg) translateX(-25px);
+        filter: blur(12px) brightness(1.1);
+        box-shadow: -12px 0 15px rgba(99, 102, 241, 0.3),
+                    12px 0 15px rgba(168, 85, 247, 0.3);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.15) rotate(720deg) translateX(15px);
+        filter: blur(3px) brightness(1.2);
+        box-shadow: 7px 0 18px rgba(168, 85, 247, 0.4),
+                    -7px 0 18px rgba(102, 126, 234, 0.4);
+    }
+    60% {
+        opacity: 0.7;
+        transform: scale(0.95) rotate(765deg) translateX(-8px);
+        filter: blur(5px) brightness(1.1);
+        box-shadow: -4px 0 12px rgba(102, 126, 234, 0.35),
+                    4px 0 12px rgba(118, 75, 162, 0.35);
+    }
+    70% {
+        opacity: 1;
+        transform: scale(1.02) rotate(810deg) translateX(4px);
+        filter: blur(2px) brightness(1.05);
+        box-shadow: 2px 0 10px rgba(118, 75, 162, 0.3),
+                    -2px 0 10px rgba(139, 92, 246, 0.3);
+    }
+    80% {
+        opacity: 0.85;
+        transform: scale(0.99) rotate(825deg) translateX(-2px);
+        filter: blur(1px) brightness(1.02);
+        box-shadow: -1px 0 8px rgba(139, 92, 246, 0.25),
+                    1px 0 8px rgba(99, 102, 241, 0.25);
+    }
+    90% {
+        opacity: 0.95;
+        transform: scale(1.01) rotate(835deg) translateX(1px);
+        filter: blur(0.5px) brightness(1.01);
+        box-shadow: 0.5px 0 6px rgba(99, 102, 241, 0.2),
+                    -0.5px 0 6px rgba(168, 85, 247, 0.2);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) rotate(0deg) translateX(0);
+        filter: blur(0px) brightness(1);
+        box-shadow: 0 0 5px rgba(168, 85, 247, 0.15),
+                    0 0 5px rgba(102, 126, 234, 0.15);
+    }
+}
+
+.ua-v8-quantumEntangle {
+    animation-name: ua-v8-quantumEntangle;
+    animation-timing-function: var(--ua-v8-ease-warp);
+    animation-duration: 3.2s;
+}
+
+/* ====================
+   🌀 维度跃迁 - 跨维度穿越
+   ==================== */
+@keyframes ua-v8-dimensionShift {
+    0% {
+        opacity: 0;
+        transform: perspective(3000px) scale(0.2) rotateX(180deg) rotateY(180deg) translateZ(-800px);
+        filter: blur(60px) brightness(0.5) hue-rotate(0deg);
+    }
+    8% {
+        opacity: 0.5;
+        transform: perspective(3000px) scale(0.8) rotateX(90deg) rotateY(90deg) translateZ(-400px);
+        filter: blur(30px) brightness(0.8) hue-rotate(36deg);
+    }
+    16% {
+        opacity: 0.2;
+        transform: perspective(3000px) scale(1.4) rotateX(45deg) rotateY(45deg) translateZ(-200px);
+        filter: blur(45px) brightness(0.6) hue-rotate(72deg);
+    }
+    24% {
+        opacity: 0.8;
+        transform: perspective(3000px) scale(0.7) rotateX(22deg) rotateY(22deg) translateZ(100px);
+        filter: blur(15px) brightness(1.2) hue-rotate(108deg);
+    }
+    32% {
+        opacity: 0.4;
+        transform: perspective(3000px) scale(1.2) rotateX(11deg) rotateY(11deg) translateZ(-50px);
+        filter: blur(22px) brightness(0.9) hue-rotate(144deg);
+    }
+    40% {
+        opacity: 0.9;
+        transform: perspective(3000px) scale(0.9) rotateX(5deg) rotateY(5deg) translateZ(25px);
+        filter: blur(8px) brightness(1.1) hue-rotate(180deg);
+    }
+    48% {
+        opacity: 0.6;
+        transform: perspective(3000px) scale(1.05) rotateX(2deg) rotateY(2deg) translateZ(-12px);
+        filter: blur(12px) brightness(1) hue-rotate(216deg);
+    }
+    56% {
+        opacity: 0.95;
+        transform: perspective(3000px) scale(0.98) rotateX(1deg) rotateY(1deg) translateZ(6px);
+        filter: blur(4px) brightness(1.05) hue-rotate(252deg);
+    }
+    64% {
+        opacity: 0.8;
+        transform: perspective(3000px) scale(1.01) rotateX(0.5deg) rotateY(0.5deg) translateZ(-3px);
+        filter: blur(6px) brightness(1.02) hue-rotate(288deg);
+    }
+    72% {
+        opacity: 0.98;
+        transform: perspective(3000px) scale(0.99) rotateX(0.25deg) rotateY(0.25deg) translateZ(1.5px);
+        filter: blur(2px) brightness(1.01) hue-rotate(324deg);
+    }
+    80% {
+        opacity: 0.9;
+        transform: perspective(3000px) scale(1.005) rotateX(0.12deg) rotateY(0.12deg) translateZ(-0.75px);
+        filter: blur(1px) brightness(1) hue-rotate(340deg);
+    }
+    88% {
+        opacity: 0.96;
+        transform: perspective(3000px) scale(0.998) rotateX(0.06deg) rotateY(0.06deg) translateZ(0.38px);
+        filter: blur(0.5px) brightness(1) hue-rotate(352deg);
+    }
+    96% {
+        opacity: 0.99;
+        transform: perspective(3000px) scale(1.001) rotateX(0.03deg) rotateY(0.03deg) translateZ(-0.19px);
+        filter: blur(0.25px) brightness(1) hue-rotate(358deg);
+    }
+    100% {
+        opacity: 1;
+        transform: perspective(3000px) scale(1) rotateX(0deg) rotateY(0deg) translateZ(0px);
+        filter: blur(0px) brightness(1) hue-rotate(0deg);
+    }
+}
+
+.ua-v8-dimensionShift {
+    animation-name: ua-v8-dimensionShift;
+    animation-timing-function: var(--ua-v8-ease-cascade);
+    animation-duration: 3.5s;
+}
+
+/* ====================
+   ☢️ 等离子核心 - 等离子能量核心
+   ==================== */
+@keyframes ua-v8-plasmaCore {
+    0% {
+        opacity: 0;
+        transform: scale(0);
+        filter: blur(80px) brightness(5) saturate(2) hue-rotate(0deg);
+        box-shadow: 0 0 0 rgba(102, 126, 234, 0),
+                    inset 0 0 0 rgba(102, 126, 234, 0);
+        background: radial-gradient(circle, rgba(102, 126, 234, 0) 0%, rgba(102, 126, 234, 0) 100%);
+    }
+    9% {
+        opacity: 1;
+        transform: scale(2.5);
+        filter: blur(20px) brightness(3) saturate(3) hue-rotate(30deg);
+        box-shadow: 0 0 80px rgba(102, 126, 234, 0.9),
+                    inset 0 0 40px rgba(102, 126, 234, 0.3);
+        background: radial-gradient(circle, rgba(102, 126, 234, 0.5) 0%, rgba(118, 75, 162, 0.3) 100%);
+    }
+    18% {
+        opacity: 0.3;
+        transform: scale(0.5);
+        filter: blur(50px) brightness(2) saturate(1.5) hue-rotate(60deg);
+        box-shadow: 0 0 40px rgba(118, 75, 162, 0.5),
+                    inset 0 0 20px rgba(118, 75, 162, 0.2);
+        background: radial-gradient(circle, rgba(118, 75, 162, 0.3) 0%, rgba(139, 92, 246, 0.2) 100%);
+    }
+    27% {
+        opacity: 1;
+        transform: scale(1.8);
+        filter: blur(10px) brightness(2.5) saturate(2.5) hue-rotate(90deg);
+        box-shadow: 0 0 60px rgba(139, 92, 246, 0.8),
+                    inset 0 0 30px rgba(139, 92, 246, 0.28);
+        background: radial-gradient(circle, rgba(139, 92, 246, 0.4) 0%, rgba(99, 102, 241, 0.3) 100%);
+    }
+    36% {
+        opacity: 0.5;
+        transform: scale(0.7);
+        filter: blur(30px) brightness(1.8) saturate(1.8) hue-rotate(120deg);
+        box-shadow: 0 0 35px rgba(99, 102, 241, 0.4),
+                    inset 0 0 18px rgba(99, 102, 241, 0.16);
+        background: radial-gradient(circle, rgba(99, 102, 241, 0.25) 0%, rgba(168, 85, 247, 0.15) 100%);
+    }
+    45% {
+        opacity: 1;
+        transform: scale(1.4);
+        filter: blur(5px) brightness(2.2) saturate(2.2) hue-rotate(150deg);
+        box-shadow: 0 0 50px rgba(168, 85, 247, 0.7),
+                    inset 0 0 25px rgba(168, 85, 247, 0.24);
+        background: radial-gradient(circle, rgba(168, 85, 247, 0.35) 0%, rgba(102, 126, 234, 0.25) 100%);
+    }
+    54% {
+        opacity: 0.7;
+        transform: scale(0.85);
+        filter: blur(15px) brightness(2) saturate(2) hue-rotate(180deg);
+        box-shadow: 0 0 28px rgba(102, 126, 234, 0.5),
+                    inset 0 0 14px rgba(102, 126, 234, 0.2);
+        background: radial-gradient(circle, rgba(102, 126, 234, 0.3) 0%, rgba(118, 75, 162, 0.2) 100%);
+    }
+    63% {
+        opacity: 1;
+        transform: scale(1.2);
+        filter: blur(4px) brightness(2.1) saturate(2.1) hue-rotate(210deg);
+        box-shadow: 0 0 45px rgba(118, 75, 162, 0.65),
+                    inset 0 0 22px rgba(118, 75, 162, 0.26);
+        background: radial-gradient(circle, rgba(118, 75, 162, 0.38) 0%, rgba(139, 92, 246, 0.28) 100%);
+    }
+    72% {
+        opacity: 0.8;
+        transform: scale(0.95);
+        filter: blur(6px) brightness(2) saturate(2) hue-rotate(240deg);
+        box-shadow: 0 0 22px rgba(139, 92, 246, 0.45),
+                    inset 0 0 11px rgba(139, 92, 246, 0.18);
+        background: radial-gradient(circle, rgba(139, 92, 246, 0.32) 0%, rgba(99, 102, 241, 0.22) 100%);
+    }
+    81% {
+        opacity: 0.95;
+        transform: scale(1.05);
+        filter: blur(2px) brightness(2.05) saturate(2.05) hue-rotate(270deg);
+        box-shadow: 0 0 38px rgba(99, 102, 241, 0.55),
+                    inset 0 0 19px rgba(99, 102, 241, 0.22);
+        background: radial-gradient(circle, rgba(99, 102, 241, 0.36) 0%, rgba(168, 85, 247, 0.26) 100%);
+    }
+    90% {
+        opacity: 0.98;
+        transform: scale(1.02);
+        filter: blur(1px) brightness(2.02) saturate(2.02) hue-rotate(300deg);
+        box-shadow: 0 0 30px rgba(168, 85, 247, 0.5),
+                    inset 0 0 15px rgba(168, 85, 247, 0.2);
+        background: radial-gradient(circle, rgba(168, 85, 247, 0.34) 0%, rgba(102, 126, 234, 0.24) 100%);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+        filter: blur(0px) brightness(1) saturate(1) hue-rotate(0deg);
+        box-shadow: 0 0 15px rgba(102, 126, 234, 0.4),
+                    inset 0 0 8px rgba(102, 126, 234, 0.16);
+        background: initial;
+    }
+}
+
+.ua-v8-plasmaCore {
+    animation-name: ua-v8-plasmaCore;
+    animation-timing-function: var(--ua-v8-ease-warp);
+    animation-duration: 3.8s;
+}
+
+/* ====================
+   🌊 引力波 - 引力波纹扩散
+   ==================== */
+@keyframes ua-v8-gravityWave {
+    0% {
+        opacity: 0;
+        transform: scale(0.1) rotate(0deg);
+        filter: blur(50px) brightness(1.2);
+        box-shadow: 0 0 0 rgba(102, 126, 234, 0),
+                    0 0 0 rgba(118, 75, 162, 0),
+                    0 0 0 rgba(139, 92, 246, 0);
+    }
+    8.33% {
+        opacity: 1;
+        transform: scale(2) rotate(30deg);
+        filter: blur(8px) brightness(1.5);
+        box-shadow: 0 0 40px rgba(102, 126, 234, 0.6),
+                    0 0 80px rgba(102, 126, 234, 0.4),
+                    0 0 120px rgba(102, 126, 234, 0.2);
+    }
+    16.66% {
+        opacity: 0.4;
+        transform: scale(0.6) rotate(60deg);
+        filter: blur(30px) brightness(0.9);
+        box-shadow: 0 0 20px rgba(118, 75, 162, 0.3),
+                    0 0 40px rgba(118, 75, 162, 0.2),
+                    0 0 60px rgba(118, 75, 162, 0.1);
+    }
+    25% {
+        opacity: 1;
+        transform: scale(1.5) rotate(90deg);
+        filter: blur(4px) brightness(1.3);
+        box-shadow: 0 0 35px rgba(139, 92, 246, 0.5),
+                    0 0 70px rgba(139, 92, 246, 0.35),
+                    0 0 105px rgba(139, 92, 246, 0.2);
+    }
+    33.33% {
+        opacity: 0.5;
+        transform: scale(0.8) rotate(120deg);
+        filter: blur(15px) brightness(1);
+        box-shadow: 0 0 25px rgba(99, 102, 241, 0.35),
+                    0 0 50px rgba(99, 102, 241, 0.25),
+                    0 0 75px rgba(99, 102, 241, 0.15);
+    }
+    41.66% {
+        opacity: 1;
+        transform: scale(1.2) rotate(150deg);
+        filter: blur(2px) brightness(1.2);
+        box-shadow: 0 0 30px rgba(168, 85, 247, 0.45),
+                    0 0 60px rgba(168, 85, 247, 0.3),
+                    0 0 90px rgba(168, 85, 247, 0.15);
+    }
+    50% {
+        opacity: 0.7;
+        transform: scale(0.95) rotate(180deg);
+        filter: blur(5px) brightness(1.1);
+        box-shadow: 0 0 22px rgba(102, 126, 234, 0.4),
+                    0 0 44px rgba(102, 126, 234, 0.28),
+                    0 0 66px rgba(102, 126, 234, 0.16);
+    }
+    58.33% {
+        opacity: 1;
+        transform: scale(1.1) rotate(210deg);
+        filter: blur(1px) brightness(1.15);
+        box-shadow: 0 0 28px rgba(118, 75, 162, 0.42),
+                    0 0 56px rgba(118, 75, 162, 0.3),
+                    0 0 84px rgba(118, 75, 162, 0.18);
+    }
+    66.66% {
+        opacity: 0.85;
+        transform: scale(0.98) rotate(240deg);
+        filter: blur(2px) brightness(1.08);
+        box-shadow: 0 0 20px rgba(139, 92, 246, 0.38),
+                    0 0 40px rgba(139, 92, 246, 0.26),
+                    0 0 60px rgba(139, 92, 246, 0.14);
+    }
+    75% {
+        opacity: 1;
+        transform: scale(1.02) rotate(270deg);
+        filter: blur(0.5px) brightness(1.12);
+        box-shadow: 0 0 24px rgba(99, 102, 241, 0.4),
+                    0 0 48px rgba(99, 102, 241, 0.28),
+                    0 0 72px rgba(99, 102, 241, 0.16);
+    }
+    83.33% {
+        opacity: 0.9;
+        transform: scale(0.99) rotate(300deg);
+        filter: blur(1px) brightness(1.06);
+        box-shadow: 0 0 18px rgba(168, 85, 247, 0.35),
+                    0 0 36px rgba(168, 85, 247, 0.24),
+                    0 0 54px rgba(168, 85, 247, 0.12);
+    }
+    91.66% {
+        opacity: 0.95;
+        transform: scale(1.01) rotate(330deg);
+        filter: blur(0.5px) brightness(1.03);
+        box-shadow: 0 0 22px rgba(102, 126, 234, 0.38),
+                    0 0 44px rgba(102, 126, 234, 0.26),
+                    0 0 66px rgba(102, 126, 234, 0.14);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) rotate(360deg);
+        filter: blur(0px) brightness(1);
+        box-shadow: 0 0 15px rgba(118, 75, 162, 0.3),
+                    0 0 30px rgba(118, 75, 162, 0.2),
+                    0 0 45px rgba(118, 75, 162, 0.1);
+    }
+}
+
+.ua-v8-gravityWave {
+    animation-name: ua-v8-gravityWave;
+    animation-timing-function: var(--ua-v8-ease-quantum);
+    animation-duration: 3s;
+}
+
+/* ====================
+   💫 星尘构成 - 星尘粒子凝聚
+   ==================== */
+@keyframes ua-v8-stardustForm {
+    0% {
+        opacity: 0;
+        transform: scale(0) rotate(0deg) translateY(100px);
+        filter: blur(60px) brightness(2) saturate(0);
+        clip-path: polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%, 50% 50%, 50% 50%, 50% 50%, 50% 50%);
+    }
+    10% {
+        opacity: 0.6;
+        transform: scale(0.8) rotate(36deg) translateY(60px);
+        filter: blur(20px) brightness(1.8) saturate(0.2);
+        clip-path: polygon(30% 30%, 70% 30%, 85% 45%, 85% 70%, 70% 85%, 30% 85%, 15% 70%, 15% 45%);
+    }
+    20% {
+        opacity: 0.3;
+        transform: scale(0.4) rotate(72deg) translateY(40px);
+        filter: blur(40px) brightness(1.5) saturate(0.4);
+        clip-path: polygon(20% 20%, 80% 20%, 90% 40%, 90% 80%, 80% 90%, 20% 90%, 10% 80%, 10% 40%);
+    }
+    30% {
+        opacity: 0.8;
+        transform: scale(1.2) rotate(108deg) translateY(25px);
+        filter: blur(10px) brightness(1.6) saturate(0.6);
+        clip-path: polygon(15% 15%, 85% 15%, 95% 35%, 95% 85%, 85% 95%, 15% 95%, 5% 85%, 5% 35%);
+    }
+    40% {
+        opacity: 0.5;
+        transform: scale(0.7) rotate(144deg) translateY(15px);
+        filter: blur(25px) brightness(1.4) saturate(0.5);
+        clip-path: polygon(10% 10%, 90% 10%, 95% 30%, 95% 90%, 90% 95%, 10% 95%, 5% 90%, 5% 30%);
+    }
+    50% {
+        opacity: 0.9;
+        transform: scale(1.1) rotate(180deg) translateY(8px);
+        filter: blur(5px) brightness(1.5) saturate(0.75);
+        clip-path: polygon(8% 8%, 92% 8%, 96% 28%, 96% 92%, 92% 96%, 8% 96%, 4% 92%, 4% 28%);
+    }
+    60% {
+        opacity: 0.7;
+        transform: scale(0.95) rotate(216deg) translateY(4px);
+        filter: blur(12px) brightness(1.45) saturate(0.65);
+        clip-path: polygon(6% 6%, 94% 6%, 97% 26%, 97% 94%, 94% 97%, 6% 97%, 3% 94%, 3% 26%);
+    }
+    70% {
+        opacity: 0.95;
+        transform: scale(1.02) rotate(252deg) translateY(2px);
+        filter: blur(3px) brightness(1.48) saturate(0.85);
+        clip-path: polygon(4% 4%, 96% 4%, 98% 24%, 98% 96%, 96% 98%, 4% 98%, 2% 96%, 2% 24%);
+    }
+    80% {
+        opacity: 0.85;
+        transform: scale(0.98) rotate(288deg) translateY(1px);
+        filter: blur(6px) brightness(1.46) saturate(0.78);
+        clip-path: polygon(3% 3%, 97% 3%, 98.5% 23%, 98.5% 97%, 97% 98.5%, 3% 98.5%, 1.5% 97%, 1.5% 23%);
+    }
+    90% {
+        opacity: 0.98;
+        transform: scale(1.01) rotate(324deg) translateY(0.5px);
+        filter: blur(1px) brightness(1.47) saturate(0.92);
+        clip-path: polygon(2% 2%, 98% 2%, 99% 22%, 99% 98%, 98% 99%, 2% 99%, 1% 98%, 1% 22%);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) rotate(360deg) translateY(0);
+        filter: blur(0px) brightness(1) saturate(1);
+        clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    }
+}
+
+.ua-v8-stardustForm {
+    animation-name: ua-v8-stardustForm;
+    animation-timing-function: var(--ua-v8-ease-cascade);
+    animation-duration: 3.2s;
+}
+
+/* ====================
+   💡 霓虹通量 - 霓虹光流动
+   ==================== */
+@keyframes ua-v8-neonFlux {
+    0% {
+        opacity: 0;
+        transform: scale(0.3);
+        filter: blur(30px) brightness(3) hue-rotate(0deg) saturate(0);
+        text-shadow: 0 0 0 currentColor;
+        box-shadow: 0 0 0 currentColor;
+    }
+    8.33% {
+        opacity: 1;
+        transform: scale(1.5);
+        filter: blur(8px) brightness(2.5) hue-rotate(60deg) saturate(0.5);
+        text-shadow: 0 0 20px currentColor, 0 0 40px currentColor;
+        box-shadow: 0 0 20px currentColor, 0 0 40px currentColor;
+    }
+    16.66% {
+        opacity: 0.4;
+        transform: scale(0.7);
+        filter: blur(20px) brightness(2) hue-rotate(120deg) saturate(0.3);
+        text-shadow: 0 0 10px currentColor;
+        box-shadow: 0 0 10px currentColor;
+    }
+    25% {
+        opacity: 1;
+        transform: scale(1.3);
+        filter: blur(4px) brightness(2.2) hue-rotate(180deg) saturate(0.8);
+        text-shadow: 0 0 25px currentColor, 0 0 50px currentColor;
+        box-shadow: 0 0 25px currentColor, 0 0 50px currentColor;
+    }
+    33.33% {
+        opacity: 0.5;
+        transform: scale(0.85);
+        filter: blur(12px) brightness(2) hue-rotate(240deg) saturate(0.5);
+        text-shadow: 0 0 12px currentColor;
+        box-shadow: 0 0 12px currentColor;
+    }
+    41.66% {
+        opacity: 1;
+        transform: scale(1.15);
+        filter: blur(2px) brightness(2.1) hue-rotate(300deg) saturate(0.9);
+        text-shadow: 0 0 22px currentColor, 0 0 44px currentColor;
+        box-shadow: 0 0 22px currentColor, 0 0 44px currentColor;
+    }
+    50% {
+        opacity: 0.8;
+        transform: scale(0.98);
+        filter: blur(5px) brightness(2.05) hue-rotate(360deg) saturate(0.7);
+        text-shadow: 0 0 15px currentColor;
+        box-shadow: 0 0 15px currentColor;
+    }
+    58.33% {
+        opacity: 1;
+        transform: scale(1.02);
+        filter: blur(1px) brightness(2.08) hue-rotate(420deg) saturate(0.85);
+        text-shadow: 0 0 20px currentColor, 0 0 40px currentColor;
+        box-shadow: 0 0 20px currentColor, 0 0 40px currentColor;
+    }
+    66.66% {
+        opacity: 0.9;
+        transform: scale(0.99);
+        filter: blur(2px) brightness(2.06) hue-rotate(480deg) saturate(0.78);
+        text-shadow: 0 0 12px currentColor;
+        box-shadow: 0 0 12px currentColor;
+    }
+    75% {
+        opacity: 0.95;
+        transform: scale(1.01);
+        filter: blur(0.5px) brightness(2.07) hue-rotate(540deg) saturate(0.92);
+        text-shadow: 0 0 18px currentColor, 0 0 36px currentColor;
+        box-shadow: 0 0 18px currentColor, 0 0 36px currentColor;
+    }
+    83.33% {
+        opacity: 0.98;
+        transform: scale(1);
+        filter: blur(0.2px) brightness(2.05) hue-rotate(600deg) saturate(0.88);
+        text-shadow: 0 0 10px currentColor;
+        box-shadow: 0 0 10px currentColor;
+    }
+    91.66% {
+        opacity: 0.99;
+        transform: scale(1.005);
+        filter: blur(0.1px) brightness(2.06) hue-rotate(660deg) saturate(0.95);
+        text-shadow: 0 0 16px currentColor, 0 0 32px currentColor;
+        box-shadow: 0 0 16px currentColor, 0 0 32px currentColor;
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+        filter: blur(0px) brightness(1) hue-rotate(0deg) saturate(1);
+        text-shadow: 0 0 5px currentColor;
+        box-shadow: 0 0 5px currentColor;
+    }
+}
+
+.ua-v8-neonFlux {
+    animation-name: ua-v8-neonFlux;
+    animation-timing-function: var(--ua-v8-ease-quantum);
+    animation-duration: 3.6s;
+}
+
+/* ====================
+   💎 晶体矩阵 - 晶体矩阵展开
+   ==================== */
+@keyframes ua-v8-crystalMatrix {
+    0% {
+        opacity: 0;
+        transform: scale(0) rotate(0deg) skewX(0deg) skewY(0deg);
+        filter: blur(50px) brightness(1.5);
+        clip-path: polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%, 50% 50%, 50% 50%);
+    }
+    9% {
+        opacity: 0.3;
+        transform: scale(0.5) rotate(45deg) skewX(15deg) skewY(-15deg);
+        filter: blur(25px) brightness(1.8);
+        clip-path: polygon(25% 25%, 75% 25%, 85% 50%, 75% 75%, 25% 75%, 15% 50%);
+    }
+    18% {
+        opacity: 0.6;
+        transform: scale(1.2) rotate(-30deg) skewX(-10deg) skewY(10deg);
+        filter: blur(12px) brightness(1.4);
+        clip-path: polygon(15% 15%, 85% 15%, 92% 50%, 85% 85%, 15% 85%, 8% 50%);
+    }
+    27% {
+        opacity: 0.85;
+        transform: scale(0.8) rotate(20deg) skewX(5deg) skewY(-5deg);
+        filter: blur(6px) brightness(1.2);
+        clip-path: polygon(10% 10%, 90% 10%, 95% 50%, 90% 90%, 10% 90%, 5% 50%);
+    }
+    36% {
+        opacity: 0.5;
+        transform: scale(1.1) rotate(-10deg) skewX(-2.5deg) skewY(2.5deg);
+        filter: blur(8px) brightness(1.3);
+        clip-path: polygon(8% 8%, 92% 8%, 96% 50%, 92% 92%, 8% 92%, 4% 50%);
+    }
+    45% {
+        opacity: 0.9;
+        transform: scale(0.95) rotate(5deg) skewX(1.25deg) skewY(-1.25deg);
+        filter: blur(3px) brightness(1.15);
+        clip-path: polygon(6% 6%, 94% 6%, 97% 50%, 94% 94%, 6% 94%, 3% 50%);
+    }
+    54% {
+        opacity: 0.75;
+        transform: scale(1.02) rotate(-2deg) skewX(-0.63deg) skewY(0.63deg);
+        filter: blur(4px) brightness(1.2);
+        clip-path: polygon(4% 4%, 96% 4%, 98% 50%, 96% 96%, 4% 96%, 2% 50%);
+    }
+    63% {
+        opacity: 0.95;
+        transform: scale(0.99) rotate(1deg) skewX(0.31deg) skewY(-0.31deg);
+        filter: blur(1px) brightness(1.1);
+        clip-path: polygon(3% 3%, 97% 3%, 98.5% 50%, 97% 97%, 3% 97%, 1.5% 50%);
+    }
+    72% {
+        opacity: 0.85;
+        transform: scale(1.01) rotate(-0.5deg) skewX(-0.16deg) skewY(0.16deg);
+        filter: blur(2px) brightness(1.12);
+        clip-path: polygon(2% 2%, 98% 2%, 99% 50%, 98% 98%, 2% 98%, 1% 50%);
+    }
+    81% {
+        opacity: 0.98;
+        transform: scale(0.998) rotate(0.25deg) skewX(0.08deg) skewY(-0.08deg);
+        filter: blur(0.5px) brightness(1.08);
+        clip-path: polygon(1.5% 1.5%, 98.5% 1.5%, 99.25% 50%, 98.5% 98.5%, 1.5% 98.5%, 0.75% 50%);
+    }
+    90% {
+        opacity: 0.95;
+        transform: scale(1.001) rotate(-0.12deg) skewX(-0.04deg) skewY(0.04deg);
+        filter: blur(0.3px) brightness(1.06);
+        clip-path: polygon(1% 1%, 99% 1%, 99.5% 50%, 99% 99%, 1% 99%, 0.5% 50%);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) rotate(0deg) skewX(0deg) skewY(0deg);
+        filter: blur(0px) brightness(1);
+        clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    }
+}
+
+.ua-v8-crystalMatrix {
+    animation-name: ua-v8-crystalMatrix;
+    animation-timing-function: var(--ua-v8-ease-warp);
+    animation-duration: 3.4s;
+}
+
+/* ====================
+   🕳️ 虚空传送门 - 虚空传送门开启
+   ==================== */
+@keyframes ua-v8-voidPortal {
+    0% {
+        opacity: 0;
+        transform: scale(0);
+        filter: blur(80px) brightness(5) contrast(2);
+        border-radius: 50%;
+        box-shadow: 0 0 0 rgba(0, 0, 0, 0),
+                    inset 0 0 0 rgba(102, 126, 234, 0);
+        background: radial-gradient(circle, rgba(0, 0, 0, 1) 0%, rgba(102, 126, 234, 0) 100%);
+    }
+    7.14% {
+        opacity: 0.4;
+        transform: scale(3);
+        filter: blur(30px) brightness(3) contrast(1.5);
+        border-radius: 50%;
+        box-shadow: 0 0 100px rgba(0, 0, 0, 0.8),
+                    inset 0 0 50px rgba(102, 126, 234, 0.3);
+        background: radial-gradient(circle, rgba(0, 0, 0, 0.8) 0%, rgba(102, 126, 234, 0.2) 100%);
+    }
+    14.28% {
+        opacity: 0.2;
+        transform: scale(0.5);
+        filter: blur(50px) brightness(2) contrast(1.8);
+        border-radius: 50%;
+        box-shadow: 0 0 50px rgba(0, 0, 0, 0.6),
+                    inset 0 0 25px rgba(118, 75, 162, 0.2);
+        background: radial-gradient(circle, rgba(0, 0, 0, 0.6) 0%, rgba(118, 75, 162, 0.15) 100%);
+    }
+    21.42% {
+        opacity: 0.7;
+        transform: scale(1.5);
+        filter: blur(15px) brightness(2.5) contrast(1.2);
+        border-radius: 40%;
+        box-shadow: 0 0 60px rgba(0, 0, 0, 0.7),
+                    inset 0 0 30px rgba(139, 92, 246, 0.4);
+        background: radial-gradient(circle, rgba(0, 0, 0, 0.5) 0%, rgba(139, 92, 246, 0.25) 100%);
+    }
+    28.56% {
+        opacity: 0.3;
+        transform: scale(0.8);
+        filter: blur(25px) brightness(1.8) contrast(1.4);
+        border-radius: 45%;
+        box-shadow: 0 0 35px rgba(0, 0, 0, 0.5),
+                    inset 0 0 18px rgba(99, 102, 241, 0.25);
+        background: radial-gradient(circle, rgba(0, 0, 0, 0.4) 0%, rgba(99, 102, 241, 0.18) 100%);
+    }
+    35.7% {
+        opacity: 0.9;
+        transform: scale(1.2);
+        filter: blur(8px) brightness(2.2) contrast(1.1);
+        border-radius: 35%;
+        box-shadow: 0 0 45px rgba(0, 0, 0, 0.6),
+                    inset 0 0 22px rgba(168, 85, 247, 0.35);
+        background: radial-gradient(circle, rgba(0, 0, 0, 0.45) 0%, rgba(168, 85, 247, 0.22) 100%);
+    }
+    42.84% {
+        opacity: 0.6;
+        transform: scale(0.95);
+        filter: blur(12px) brightness(2) contrast(1.15);
+        border-radius: 38%;
+        box-shadow: 0 0 28px rgba(0, 0, 0, 0.5),
+                    inset 0 0 14px rgba(102, 126, 234, 0.3);
+        background: radial-gradient(circle, rgba(0, 0, 0, 0.42) 0%, rgba(102, 126, 234, 0.2) 100%);
+    }
+    49.98% {
+        opacity: 0.95;
+        transform: scale(1.05);
+        filter: blur(4px) brightness(2.1) contrast(1.08);
+        border-radius: 32%;
+        box-shadow: 0 0 35px rgba(0, 0, 0, 0.55),
+                    inset 0 0 18px rgba(118, 75, 162, 0.32);
+        background: radial-gradient(circle, rgba(0, 0, 0, 0.48) 0%, rgba(118, 75, 162, 0.24) 100%);
+    }
+    57.12% {
+        opacity: 0.7;
+        transform: scale(0.98);
+        filter: blur(6px) brightness(2.05) contrast(1.12);
+        border-radius: 34%;
+        box-shadow: 0 0 22px rgba(0, 0, 0, 0.48),
+                    inset 0 0 11px rgba(139, 92, 246, 0.28);
+        background: radial-gradient(circle, rgba(0, 0, 0, 0.45) 0%, rgba(139, 92, 246, 0.21) 100%);
+    }
+    64.26% {
+        opacity: 0.98;
+        transform: scale(1.02);
+        filter: blur(2px) brightness(2.08) contrast(1.06);
+        border-radius: 30%;
+        box-shadow: 0 0 30px rgba(0, 0, 0, 0.52),
+                    inset 0 0 15px rgba(99, 102, 241, 0.3);
+        background: radial-gradient(circle, rgba(0, 0, 0, 0.5) 0%, rgba(99, 102, 241, 0.23) 100%);
+    }
+    71.4% {
+        opacity: 0.85;
+        transform: scale(0.99);
+        filter: blur(3px) brightness(2.06) contrast(1.09);
+        border-radius: 31%;
+        box-shadow: 0 0 18px rgba(0, 0, 0, 0.46),
+                    inset 0 0 9px rgba(168, 85, 247, 0.26);
+        background: radial-gradient(circle, rgba(0, 0, 0, 0.47) 0%, rgba(168, 85, 247, 0.22) 100%);
+    }
+    78.54% {
+        opacity: 0.99;
+        transform: scale(1.01);
+        filter: blur(1px) brightness(2.07) contrast(1.05);
+        border-radius: 29%;
+        box-shadow: 0 0 25px rgba(0, 0, 0, 0.5),
+                    inset 0 0 12px rgba(102, 126, 234, 0.28);
+        background: radial-gradient(circle, rgba(0, 0, 0, 0.49) 0%, rgba(102, 126, 234, 0.24) 100%);
+    }
+    85.68% {
+        opacity: 0.92;
+        transform: scale(0.998);
+        filter: blur(0.5px) brightness(2.06) contrast(1.07);
+        border-radius: 28%;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.47),
+                    inset 0 0 8px rgba(118, 75, 162, 0.25);
+        background: radial-gradient(circle, rgba(0, 0, 0, 0.48) 0%, rgba(118, 75, 162, 0.23) 100%);
+    }
+    92.82% {
+        opacity: 0.98;
+        transform: scale(1.001);
+        filter: blur(0.2px) brightness(2.07) contrast(1.04);
+        border-radius: 27%;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.49),
+                    inset 0 0 10px rgba(139, 92, 246, 0.27);
+        background: radial-gradient(circle, rgba(0, 0, 0, 0.5) 0%, rgba(139, 92, 246, 0.24) 100%);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+        filter: blur(0px) brightness(1) contrast(1);
+        border-radius: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.4),
+                    inset 0 0 5px rgba(168, 85, 247, 0.15);
+        background: initial;
+    }
+}
+
+.ua-v8-voidPortal {
+    animation-name: ua-v8-voidPortal;
+    animation-timing-function: var(--ua-v8-ease-cascade);
+    animation-duration: 3.8s;
+}
+
+/* ====================
+   🔦 激光构建 - 激光线框构建
+   ==================== */
+@keyframes ua-v8-laserConstruct {
+    0% {
+        opacity: 0;
+        transform: scale(0);
+        filter: blur(40px) brightness(4) saturate(0);
+        box-shadow: 0 0 0 currentColor;
+        outline: 0px solid currentColor;
+    }
+    7.14% {
+        opacity: 1;
+        transform: scale(1.3);
+        filter: blur(0px) brightness(2) saturate(0.5);
+        box-shadow: 0 0 30px currentColor, 0 0 60px currentColor;
+        outline: 2px solid currentColor;
+    }
+    14.28% {
+        opacity: 0.2;
+        transform: scale(0.6);
+        filter: blur(30px) brightness(1.5) saturate(0.2);
+        box-shadow: 0 0 10px currentColor;
+        outline: 0px solid currentColor;
+    }
+    21.42% {
+        opacity: 1;
+        transform: scale(1.2);
+        filter: blur(0px) brightness(1.8) saturate(0.7);
+        box-shadow: 0 0 25px currentColor, 0 0 50px currentColor;
+        outline: 1.5px solid currentColor;
+    }
+    28.56% {
+        opacity: 0.3;
+        transform: scale(0.8);
+        filter: blur(20px) brightness(1.6) saturate(0.4);
+        box-shadow: 0 0 12px currentColor;
+        outline: 0.5px solid currentColor;
+    }
+    35.7% {
+        opacity: 1;
+        transform: scale(1.1);
+        filter: blur(0px) brightness(1.7) saturate(0.85);
+        box-shadow: 0 0 22px currentColor, 0 0 44px currentColor;
+        outline: 1px solid currentColor;
+    }
+    42.84% {
+        opacity: 0.5;
+        transform: scale(0.9);
+        filter: blur(10px) brightness(1.65) saturate(0.6);
+        box-shadow: 0 0 14px currentColor;
+        outline: 0.7px solid currentColor;
+    }
+    49.98% {
+        opacity: 1;
+        transform: scale(1.05);
+        filter: blur(0px) brightness(1.68) saturate(0.9);
+        box-shadow: 0 0 20px currentColor, 0 0 40px currentColor;
+        outline: 0.8px solid currentColor;
+    }
+    57.12% {
+        opacity: 0.7;
+        transform: scale(0.95);
+        filter: blur(5px) brightness(1.66) saturate(0.75);
+        box-shadow: 0 0 16px currentColor;
+        outline: 0.6px solid currentColor;
+    }
+    64.26% {
+        opacity: 1;
+        transform: scale(1.02);
+        filter: blur(0px) brightness(1.67) saturate(0.95);
+        box-shadow: 0 0 18px currentColor, 0 0 36px currentColor;
+        outline: 0.5px solid currentColor;
+    }
+    71.4% {
+        opacity: 0.8;
+        transform: scale(0.98);
+        filter: blur(2px) brightness(1.665) saturate(0.82);
+        box-shadow: 0 0 12px currentColor;
+        outline: 0.4px solid currentColor;
+    }
+    78.54% {
+        opacity: 1;
+        transform: scale(1.01);
+        filter: blur(0px) brightness(1.666) saturate(0.98);
+        box-shadow: 0 0 15px currentColor, 0 0 30px currentColor;
+        outline: 0.3px solid currentColor;
+    }
+    85.68% {
+        opacity: 0.9;
+        transform: scale(0.99);
+        filter: blur(1px) brightness(1.6655) saturate(0.88);
+        box-shadow: 0 0 10px currentColor;
+        outline: 0.2px solid currentColor;
+    }
+    92.82% {
+        opacity: 0.98;
+        transform: scale(1.005);
+        filter: blur(0px) brightness(1.666) saturate(1);
+        box-shadow: 0 0 12px currentColor, 0 0 24px currentColor;
+        outline: 0.1px solid currentColor;
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+        filter: blur(0px) brightness(1) saturate(1);
+        box-shadow: 0 0 5px currentColor;
+        outline: 0px solid currentColor;
+    }
+}
+
+.ua-v8-laserConstruct {
+    animation-name: ua-v8-laserConstruct;
+    animation-timing-function: var(--ua-v8-ease-cascade);
+    animation-duration: 3s;
+}
+
+/* ====================
+   💨 空气动力学 - 流体动力学运动
+   ==================== */
+@keyframes ua-v8-aeroDynamic {
+    0% {
+        opacity: 0;
+        transform: translateY(-200px) scale(0.3) rotate(0deg) skewX(0deg);
+        filter: blur(20px) brightness(0.8);
+    }
+    10% {
+        opacity: 0.4;
+        transform: translateY(-80px) scale(0.7) rotate(15deg) skewX(5deg);
+        filter: blur(12px) brightness(1.2);
+    }
+    20% {
+        opacity: 0.7;
+        transform: translateY(50px) scale(1.2) rotate(-10deg) skewX(-3deg);
+        filter: blur(6px) brightness(1.4);
+    }
+    30% {
+        opacity: 0.9;
+        transform: translateY(-30px) scale(0.85) rotate(6deg) skewX(2deg);
+        filter: blur(3px) brightness(1.2);
+    }
+    40% {
+        opacity: 0.6;
+        transform: translateY(15px) scale(1.1) rotate(-3deg) skewX(-1deg);
+        filter: blur(5px) brightness(1.3);
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(-8px) scale(0.95) rotate(1.5deg) skewX(0.5deg);
+        filter: blur(2px) brightness(1.2);
+    }
+    60% {
+        opacity: 0.8;
+        transform: translateY(4px) scale(1.04) rotate(-0.75deg) skewX(-0.25deg);
+        filter: blur(1px) brightness(1.25);
+    }
+    70% {
+        opacity: 1;
+        transform: translateY(-2px) scale(0.98) rotate(0.38deg) skewX(0.12deg);
+        filter: blur(0.5px) brightness(1.22);
+    }
+    80% {
+        opacity: 0.9;
+        transform: translateY(1px) scale(1.01) rotate(-0.19deg) skewX(-0.06deg);
+        filter: blur(0.3px) brightness(1.23);
+    }
+    90% {
+        opacity: 0.98;
+        transform: translateY(-0.5px) scale(0.995) rotate(0.1deg) skewX(0.03deg);
+        filter: blur(0.1px) brightness(1.21);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1) rotate(0deg) skewX(0deg);
+        filter: blur(0px) brightness(1);
+    }
+}
+
+.ua-v8-aeroDynamic {
+    animation-name: ua-v8-aeroDynamic;
+    animation-timing-function: var(--ua-v8-ease-quantum);
+    animation-duration: 2.8s;
+}
+
+/* ====================
+   🔮 液态铬 - 液态金属流动
+   ==================== */
+@keyframes ua-v8-liquidChrome {
+    0% {
+        opacity: 0;
+        transform: scale(0.2);
+        filter: blur(50px) brightness(2) saturate(0.5);
+        border-radius: 50%;
+        background: linear-gradient(45deg, rgba(192, 192, 192, 0.1), rgba(169, 169, 169, 0.1));
+    }
+    10% {
+        opacity: 0.5;
+        transform: scale(1.8);
+        filter: blur(15px) brightness(1.8) saturate(1.2);
+        border-radius: 50%;
+        background: linear-gradient(45deg, rgba(192, 192, 192, 0.3), rgba(169, 169, 169, 0.3));
+    }
+    20% {
+        opacity: 0.3;
+        transform: scale(0.6);
+        filter: blur(35px) brightness(1.5) saturate(0.8);
+        border-radius: 50%;
+        background: linear-gradient(45deg, rgba(192, 192, 192, 0.2), rgba(169, 169, 169, 0.2));
+    }
+    30% {
+        opacity: 0.8;
+        transform: scale(1.4);
+        filter: blur(8px) brightness(1.6) saturate(1.5);
+        border-radius: 40%;
+        background: linear-gradient(45deg, rgba(192, 192, 192, 0.4), rgba(169, 169, 169, 0.4));
+    }
+    40% {
+        opacity: 0.4;
+        transform: scale(0.8);
+        filter: blur(18px) brightness(1.4) saturate(1);
+        border-radius: 45%;
+        background: linear-gradient(45deg, rgba(192, 192, 192, 0.25), rgba(169, 169, 169, 0.25));
+    }
+    50% {
+        opacity: 0.9;
+        transform: scale(1.2);
+        filter: blur(4px) brightness(1.5) saturate(1.8);
+        border-radius: 35%;
+        background: linear-gradient(45deg, rgba(192, 192, 192, 0.5), rgba(169, 169, 169, 0.5));
+    }
+    60% {
+        opacity: 0.6;
+        transform: scale(0.95);
+        filter: blur(8px) brightness(1.45) saturate(1.4);
+        border-radius: 38%;
+        background: linear-gradient(45deg, rgba(192, 192, 192, 0.35), rgba(169, 169, 169, 0.35));
+    }
+    70% {
+        opacity: 0.95;
+        transform: scale(1.05);
+        filter: blur(2px) brightness(1.48) saturate(1.6);
+        border-radius: 32%;
+        background: linear-gradient(45deg, rgba(192, 192, 192, 0.45), rgba(169, 169, 169, 0.45));
+    }
+    80% {
+        opacity: 0.7;
+        transform: scale(0.98);
+        filter: blur(4px) brightness(1.46) saturate(1.5);
+        border-radius: 34%;
+        background: linear-gradient(45deg, rgba(192, 192, 192, 0.4), rgba(169, 169, 169, 0.4));
+    }
+    90% {
+        opacity: 0.98;
+        transform: scale(1.02);
+        filter: blur(1px) brightness(1.47) saturate(1.55);
+        border-radius: 30%;
+        background: linear-gradient(45deg, rgba(192, 192, 192, 0.48), rgba(169, 169, 169, 0.48));
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+        filter: blur(0px) brightness(1) saturate(1);
+        border-radius: 20px;
+        background: initial;
+    }
+}
+
+.ua-v8-liquidChrome {
+    animation-name: ua-v8-liquidChrome;
+    animation-timing-function: var(--ua-v8-ease-quantum);
+    animation-duration: 3.2s;
+}
+
+/* ====================
+   🌈 棱镜光谱 - 彩虹光谱折射
+   ==================== */
+@keyframes ua-v8-prismSpectrum {
+    0% {
+        opacity: 0;
+        transform: scale(0) rotate(0deg);
+        filter: blur(40px) brightness(2) hue-rotate(0deg) saturate(0);
+        background: linear-gradient(45deg, rgba(255, 0, 0, 0), rgba(0, 255, 0, 0), rgba(0, 0, 255, 0));
+        box-shadow: 0 0 0 rgba(255, 0, 0, 0), 0 0 0 rgba(0, 255, 0, 0), 0 0 0 rgba(0, 0, 255, 0);
+    }
+    8.33% {
+        opacity: 0.4;
+        transform: scale(1.5) rotate(60deg);
+        filter: blur(10px) brightness(2.5) hue-rotate(60deg) saturate(0.5);
+        background: linear-gradient(45deg, rgba(255, 0, 0, 0.3), rgba(0, 255, 0, 0.3), rgba(0, 0, 255, 0.3));
+        box-shadow: 20px 0 30px rgba(255, 0, 0, 0.6), -20px 0 30px rgba(0, 0, 255, 0.6);
+    }
+    16.66% {
+        opacity: 0.2;
+        transform: scale(0.5) rotate(120deg);
+        filter: blur(25px) brightness(1.8) hue-rotate(120deg) saturate(0.3);
+        background: linear-gradient(45deg, rgba(255, 0, 0, 0.15), rgba(0, 255, 0, 0.15), rgba(0, 0, 255, 0.15));
+        box-shadow: 10px 0 15px rgba(255, 0, 0, 0.3), -10px 0 15px rgba(0, 0, 255, 0.3);
+    }
+    25% {
+        opacity: 0.7;
+        transform: scale(1.3) rotate(180deg);
+        filter: blur(5px) brightness(2.2) hue-rotate(180deg) saturate(0.8);
+        background: linear-gradient(45deg, rgba(255, 0, 0, 0.5), rgba(0, 255, 0, 0.5), rgba(0, 0, 255, 0.5));
+        box-shadow: 15px 0 25px rgba(255, 0, 0, 0.5), -15px 0 25px rgba(0, 0, 255, 0.5);
+    }
+    33.33% {
+        opacity: 0.35;
+        transform: scale(0.8) rotate(240deg);
+        filter: blur(15px) brightness(1.9) hue-rotate(240deg) saturate(0.4);
+        background: linear-gradient(45deg, rgba(255, 0, 0, 0.25), rgba(0, 255, 0, 0.25), rgba(0, 0, 255, 0.25));
+        box-shadow: 8px 0 12px rgba(255, 0, 0, 0.35), -8px 0 12px rgba(0, 0, 255, 0.35);
+    }
+    41.66% {
+        opacity: 0.9;
+        transform: scale(1.15) rotate(300deg);
+        filter: blur(3px) brightness(2.1) hue-rotate(300deg) saturate(0.9);
+        background: linear-gradient(45deg, rgba(255, 0, 0, 0.6), rgba(0, 255, 0, 0.6), rgba(0, 0, 255, 0.6));
+        box-shadow: 12px 0 20px rgba(255, 0, 0, 0.55), -12px 0 20px rgba(0, 0, 255, 0.55);
+    }
+    50% {
+        opacity: 0.6;
+        transform: scale(0.98) rotate(360deg);
+        filter: blur(6px) brightness(2.05) hue-rotate(360deg) saturate(0.5);
+        background: linear-gradient(45deg, rgba(255, 0, 0, 0.35), rgba(0, 255, 0, 0.35), rgba(0, 0, 255, 0.35));
+        box-shadow: 6px 0 10px rgba(255, 0, 0, 0.4), -6px 0 10px rgba(0, 0, 255, 0.4);
+    }
+    58.33% {
+        opacity: 0.95;
+        transform: scale(1.02) rotate(420deg);
+        filter: blur(1px) brightness(2.08) hue-rotate(420deg) saturate(0.95);
+        background: linear-gradient(45deg, rgba(255, 0, 0, 0.7), rgba(0, 255, 0, 0.7), rgba(0, 0, 255, 0.7));
+        box-shadow: 9px 0 15px rgba(255, 0, 0, 0.5), -9px 0 15px rgba(0, 0, 255, 0.5);
+    }
+    66.66% {
+        opacity: 0.7;
+        transform: scale(0.99) rotate(480deg);
+        filter: blur(2px) brightness(2.06) hue-rotate(480deg) saturate(0.6);
+        background: linear-gradient(45deg, rgba(255, 0, 0, 0.4), rgba(0, 255, 0, 0.4), rgba(0, 0, 255, 0.4));
+        box-shadow: 4px 0 8px rgba(255, 0, 0, 0.45), -4px 0 8px rgba(0, 0, 255, 0.45);
+    }
+    75% {
+        opacity: 0.98;
+        transform: scale(1.01) rotate(540deg);
+        filter: blur(0.5px) brightness(2.07) hue-rotate(540deg) saturate(0.98);
+        background: linear-gradient(45deg, rgba(255, 0, 0, 0.75), rgba(0, 255, 0, 0.75), rgba(0, 0, 255, 0.75));
+        box-shadow: 7px 0 12px rgba(255, 0, 0, 0.48), -7px 0 12px rgba(0, 0, 255, 0.48);
+    }
+    83.33% {
+        opacity: 0.85;
+        transform: scale(1) rotate(600deg);
+        filter: blur(1px) brightness(2.06) hue-rotate(600deg) saturate(0.75);
+        background: linear-gradient(45deg, rgba(255, 0, 0, 0.45), rgba(0, 255, 0, 0.45), rgba(0, 0, 255, 0.45));
+        box-shadow: 3px 0 6px rgba(255, 0, 0, 0.42), -3px 0 6px rgba(0, 0, 255, 0.42);
+    }
+    91.66% {
+        opacity: 0.99;
+        transform: scale(1.005) rotate(660deg);
+        filter: blur(0.2px) brightness(2.07) hue-rotate(660deg) saturate(1);
+        background: linear-gradient(45deg, rgba(255, 0, 0, 0.8), rgba(0, 255, 0, 0.8), rgba(0, 0, 255, 0.8));
+        box-shadow: 5px 0 10px rgba(255, 0, 0, 0.46), -5px 0 10px rgba(0, 0, 255, 0.46);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) rotate(720deg);
+        filter: blur(0px) brightness(1) hue-rotate(0deg) saturate(1);
+        background: initial;
+        box-shadow: 0 0 8px rgba(102, 126, 234, 0.4);
+    }
+}
+
+.ua-v8-prismSpectrum {
+    animation-name: ua-v8-prismSpectrum;
+    animation-timing-function: var(--ua-v8-ease-warp);
+    animation-duration: 3.6s;
+}
+
+/* ==========================================
+   V9 时空幻境系列 - 20个创新动画
+   ========================================== */
+
+.ua-v9-animated {
+    animation-fill-mode: both;
+    animation-duration: 4s;
+}
+
+/* V9 1. 时间膨胀 - 时间扭曲效果 */
+@keyframes ua-v9-timeDilation {
+    0% {
+        opacity: 0;
+        transform: scale(0.1) skew(0deg, 0deg);
+        filter: blur(60px) brightness(3) hue-rotate(0deg);
+    }
+    11.11% {
+        opacity: 0.3;
+        transform: scale(0.5) skew(15deg, 15deg);
+        filter: blur(25px) brightness(2) hue-rotate(45deg);
+    }
+    22.22% {
+        opacity: 0.15;
+        transform: scale(0.3) skew(25deg, -20deg);
+        filter: blur(40px) brightness(1.5) hue-rotate(90deg);
+    }
+    33.33% {
+        opacity: 0.6;
+        transform: scale(1.4) skew(10deg, 10deg);
+        filter: blur(10px) brightness(2.2) hue-rotate(135deg);
+    }
+    44.44% {
+        opacity: 0.35;
+        transform: scale(0.8) skew(-5deg, -5deg);
+        filter: blur(20px) brightness(1.8) hue-rotate(180deg);
+    }
+    55.55% {
+        opacity: 0.85;
+        transform: scale(1.2) skew(3deg, 3deg);
+        filter: blur(5px) brightness(2.1) hue-rotate(225deg);
+    }
+    66.66% {
+        opacity: 0.55;
+        transform: scale(0.95);
+        filter: blur(8px) brightness(2) hue-rotate(270deg);
+    }
+    77.77% {
+        opacity: 0.98;
+        transform: scale(1.02);
+        filter: blur(3px) brightness(2.05) hue-rotate(315deg);
+    }
+    88.88% {
+        opacity: 0.85;
+        transform: scale(0.99);
+        filter: blur(5px) brightness(2.03) hue-rotate(345deg);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) skew(0deg, 0deg);
+        filter: blur(0px) brightness(1) hue-rotate(0deg);
+    }
+}
+
+/* V9 2. 空间折叠 - 维度折叠效果 */
+@keyframes ua-v9-spatialFold {
+    0% {
+        opacity: 0;
+        transform: perspective(1000px) scale(0) rotateX(0deg) rotateY(0deg) translateZ(0);
+        filter: blur(50px) brightness(3);
+    }
+    10% {
+        opacity: 0.4;
+        transform: perspective(1000px) scale(0.3) rotateX(180deg) rotateY(0deg) translateZ(-200px);
+        filter: blur(20px) brightness(2.5);
+    }
+    20% {
+        opacity: 0.2;
+        transform: perspective(1000px) scale(0.8) rotateX(180deg) rotateY(90deg) translateZ(100px);
+        filter: blur(35px) brightness(1.8);
+    }
+    30% {
+        opacity: 0.7;
+        transform: perspective(1000px) scale(0.5) rotateX(360deg) rotateY(90deg) translateZ(-150px);
+        filter: blur(10px) brightness(2.2);
+    }
+    40% {
+        opacity: 0.35;
+        transform: perspective(1000px) scale(1.3) rotateX(360deg) rotateY(180deg) translateZ(80px);
+        filter: blur(18px) brightness(1.9);
+    }
+    50% {
+        opacity: 0.9;
+        transform: perspective(1000px) scale(0.7) rotateX(540deg) rotateY(180deg) translateZ(-100px);
+        filter: blur(5px) brightness(2.1);
+    }
+    60% {
+        opacity: 0.6;
+        transform: perspective(1000px) scale(1.1) rotateX(540deg) rotateY(270deg);
+        filter: blur(8px) brightness(2);
+    }
+    70% {
+        opacity: 0.95;
+        transform: perspective(1000px) scale(0.95) rotateX(630deg) rotateY(315deg);
+        filter: blur(3px) brightness(2.05);
+    }
+    80% {
+        opacity: 0.88;
+        transform: perspective(1000px) scale(1.02) rotateX(684deg) rotateY(342deg);
+        filter: blur(4px) brightness(2.03);
+    }
+    100% {
+        opacity: 1;
+        transform: perspective(1000px) scale(1) rotateX(720deg) rotateY(360deg) translateZ(0);
+        filter: blur(0px) brightness(1);
+    }
+}
+
+/* V9 3. 量子叠加 - 多态叠加 */
+@keyframes ua-v9-quantumSuperposition {
+    0% {
+        opacity: 0;
+        transform: scale(0) rotate(0deg);
+        filter: blur(40px) brightness(2) saturate(0);
+    }
+    12.5% {
+        opacity: 0.5;
+        transform: scale(1.5) rotate(45deg);
+        filter: blur(15px) brightness(3) saturate(0.5);
+    }
+    25% {
+        opacity: 0.25;
+        transform: scale(0.6) rotate(90deg);
+        filter: blur(30px) brightness(2) saturate(0.3);
+    }
+    37.5% {
+        opacity: 0.7;
+        transform: scale(1.3) rotate(135deg);
+        filter: blur(8px) brightness(2.5) saturate(0.7);
+    }
+    50% {
+        opacity: 0.35;
+        transform: scale(0.85) rotate(180deg);
+        filter: blur(18px) brightness(2.2) saturate(0.5);
+    }
+    62.5% {
+        opacity: 0.9;
+        transform: scale(1.15) rotate(225deg);
+        filter: blur(4px) brightness(2.3) saturate(0.8);
+    }
+    75% {
+        opacity: 0.6;
+        transform: scale(0.98) rotate(270deg);
+        filter: blur(10px) brightness(2.25) saturate(0.6);
+    }
+    87.5% {
+        opacity: 0.98;
+        transform: scale(1.01) rotate(315deg);
+        filter: blur(2px) brightness(2.12) saturate(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) rotate(360deg);
+        filter: blur(0px) brightness(1) saturate(1);
+    }
+}
+
+/* V9 4. 时间回响 - 回声效果 */
+@keyframes ua-v9-temporalEcho {
+    0% {
+        opacity: 0;
+        transform: scale(0) translateX(0);
+        filter: blur(30px) brightness(2);
+    }
+    10% {
+        opacity: 0.8;
+        transform: scale(1) translateX(-30px);
+        filter: blur(5px) brightness(2.5);
+    }
+    20% {
+        opacity: 0;
+        transform: scale(1) translateX(-30px);
+        filter: blur(30px) brightness(1);
+    }
+    28% {
+        opacity: 0.7;
+        transform: scale(1) translateX(30px);
+        filter: blur(5px) brightness(2.3);
+    }
+    38% {
+        opacity: 0;
+        transform: scale(1) translateX(30px);
+        filter: blur(30px) brightness(1);
+    }
+    46% {
+        opacity: 0.6;
+        transform: scale(1) translateX(-15px);
+        filter: blur(5px) brightness(2.2);
+    }
+    54% {
+        opacity: 0;
+        transform: scale(1) translateX(-15px);
+        filter: blur(30px) brightness(1);
+    }
+    62% {
+        opacity: 0.85;
+        transform: scale(1) translateX(7px);
+        filter: blur(3px) brightness(2.4);
+    }
+    70% {
+        opacity: 0;
+        transform: scale(1) translateX(7px);
+        filter: blur(30px) brightness(1);
+    }
+    80% {
+        opacity: 0.98;
+        transform: scale(1) translateX(0);
+        filter: blur(1px) brightness(2.2);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) translateX(0);
+        filter: blur(0px) brightness(1);
+    }
+}
+
+/* V9 5. 维度破碎 - 破碎重组 */
+@keyframes ua-v9-dimensionalFracture {
+    0% {
+        opacity: 0;
+        transform: scale(0) rotate(0deg) skew(0deg, 0deg);
+        filter: blur(50px) contrast(3);
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+    10% {
+        opacity: 1;
+        transform: scale(1.5) rotate(30deg) skew(20deg, -15deg);
+        filter: blur(0px) contrast(1.5);
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+    20% {
+        opacity: 0.3;
+        transform: scale(0.5) rotate(-20deg) skew(-25deg, 30deg);
+        filter: blur(40px) contrast(2.5);
+        clip-path: polygon(10% 10%, 90% 5%, 95% 95%, 5% 90%);
+    }
+    30% {
+        opacity: 1;
+        transform: scale(1.3) rotate(15deg) skew(12deg, -8deg);
+        filter: blur(0px) contrast(1.3);
+        clip-path: polygon(5% 5%, 95% 0%, 100% 100%, 0% 95%);
+    }
+    40% {
+        opacity: 0.4;
+        transform: scale(0.7) rotate(-10deg) skew(-15deg, 20deg);
+        filter: blur(35px) contrast(2.2);
+        clip-path: polygon(15% 15%, 85% 10%, 90% 90%, 10% 85%);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.15) rotate(8deg) skew(7deg, -5deg);
+        filter: blur(0px) contrast(1.2);
+        clip-path: polygon(8% 8%, 92% 2%, 98% 98%, 2% 92%);
+    }
+    60% {
+        opacity: 0.5;
+        transform: scale(0.9);
+        filter: blur(25px) contrast(2);
+        clip-path: polygon(12% 12%, 88% 8%, 92% 92%, 8% 88%);
+    }
+    70% {
+        opacity: 1;
+        transform: scale(1.05);
+        filter: blur(0px) contrast(1.1);
+        clip-path: polygon(5% 5%, 95% 3%, 97% 97%, 3% 95%);
+    }
+    80% {
+        opacity: 0.95;
+        transform: scale(1.01);
+        filter: blur(2px) contrast(1.05);
+        clip-path: polygon(2% 2%, 98% 1%, 99% 99%, 1% 98%);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) rotate(0deg) skew(0deg, 0deg);
+        filter: blur(0px) contrast(1);
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+}
+
+/* V9 6. 虚空构建 - 从虚空中构建 */
+@keyframes ua-v9-voidConstruct {
+    0% {
+        opacity: 0;
+        transform: scale(0);
+        border-radius: 50%;
+        filter: blur(60px) brightness(0) invert(1);
+        background: radial-gradient(circle, rgba(0,0,0,1) 0%, rgba(255,255,255,0) 70%);
+    }
+    11.11% {
+        opacity: 0.6;
+        transform: scale(2.5);
+        border-radius: 50%;
+        filter: blur(15px) brightness(3) invert(0.5);
+        background: radial-gradient(circle, rgba(100,100,255,0.5) 0%, rgba(0,0,0,0) 70%);
+    }
+    22.22% {
+        opacity: 0.3;
+        transform: scale(0.8);
+        border-radius: 50%;
+        filter: blur(35px) brightness(1) invert(1);
+        background: radial-gradient(circle, rgba(50,50,150,0.3) 0%, rgba(0,0,0,0) 70%);
+    }
+    33.33% {
+        opacity: 0.8;
+        transform: scale(1.8);
+        border-radius: 30%;
+        filter: blur(8px) brightness(2.5) invert(0.3);
+        background: radial-gradient(circle, rgba(150,150,255,0.7) 0%, rgba(0,0,0,0) 70%);
+    }
+    44.44% {
+        opacity: 0.4;
+        transform: scale(0.9);
+        border-radius: 40%;
+        filter: blur(20px) brightness(1.5) invert(0.7);
+        background: radial-gradient(circle, rgba(80,80,200,0.4) 0%, rgba(0,0,0,0) 70%);
+    }
+    55.55% {
+        opacity: 0.9;
+        transform: scale(1.3);
+        border-radius: 25%;
+        filter: blur(4px) brightness(2.2) invert(0.2);
+        background: radial-gradient(circle, rgba(180,180,255,0.8) 0%, rgba(0,0,0,0) 70%);
+    }
+    66.66% {
+        opacity: 0.6;
+        transform: scale(0.95);
+        filter: blur(10px) brightness(1.8) invert(0.4);
+        background: radial-gradient(circle, rgba(120,120,220,0.5) 0%, rgba(0,0,0,0) 70%);
+    }
+    77.77% {
+        opacity: 0.95;
+        transform: scale(1.05);
+        filter: blur(3px) brightness(2.1) invert(0.15);
+        background: radial-gradient(circle, rgba(200,200,255,0.9) 0%, rgba(0,0,0,0) 70%);
+    }
+    88.88% {
+        opacity: 0.88;
+        transform: scale(1.01);
+        filter: blur(2px) brightness(2.05) invert(0.08);
+        background: radial-gradient(circle, rgba(220,220,255,0.95) 0%, rgba(0,0,0,0) 70%);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+        border-radius: 20px;
+        filter: blur(0px) brightness(1) invert(0);
+        background: initial;
+    }
+}
+
+/* V9 7. 以太显化 - 能量显化 */
+@keyframes ua-v9-aetherManifest {
+    0% {
+        opacity: 0;
+        transform: scale(0.1);
+        filter: blur(70px) brightness(4) saturate(0);
+        box-shadow: 0 0 0 rgba(100, 150, 255, 0);
+    }
+    10% {
+        opacity: 0.7;
+        transform: scale(2);
+        filter: blur(20px) brightness(3) saturate(0.5);
+        box-shadow: 0 0 80px rgba(100, 150, 255, 0.8);
+    }
+    20% {
+        opacity: 0.35;
+        transform: scale(0.5);
+        filter: blur(45px) brightness(2) saturate(0.25);
+        box-shadow: 0 0 40px rgba(100, 150, 255, 0.5);
+    }
+    30% {
+        opacity: 0.85;
+        transform: scale(1.6);
+        filter: blur(8px) brightness(2.8) saturate(0.7);
+        box-shadow: 0 0 60px rgba(100, 150, 255, 0.9);
+    }
+    40% {
+        opacity: 0.45;
+        transform: scale(0.85);
+        filter: blur(25px) brightness(2.3) saturate(0.4);
+        box-shadow: 0 0 50px rgba(100, 150, 255, 0.6);
+    }
+    50% {
+        opacity: 0.95;
+        transform: scale(1.25);
+        filter: blur(4px) brightness(2.6) saturate(0.8);
+        box-shadow: 0 0 70px rgba(100, 150, 255, 0.95);
+    }
+    60% {
+        opacity: 0.65;
+        transform: scale(0.98);
+        filter: blur(12px) brightness(2.5) saturate(0.6);
+        box-shadow: 0 0 55px rgba(100, 150, 255, 0.7);
+    }
+    70% {
+        opacity: 0.98;
+        transform: scale(1.02);
+        filter: blur(2px) brightness(2.55) saturate(0.9);
+        box-shadow: 0 0 65px rgba(100, 150, 255, 0.92);
+    }
+    80% {
+        opacity: 0.92;
+        transform: scale(1.005);
+        filter: blur(1px) brightness(2.52) saturate(0.95);
+        box-shadow: 0 0 62px rgba(100, 150, 255, 0.88);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+        filter: blur(0px) brightness(1) saturate(1);
+        box-shadow: 0 0 8px rgba(102, 126, 234, 0.4);
+    }
+}
+
+/* V9 8. 混沌理论 - 随机混沌 */
+@keyframes ua-v9-chaosTheory {
+    0% {
+        opacity: 0;
+        transform: scale(0) translate(0, 0) rotate(0deg) skew(0deg, 0deg);
+        filter: blur(50px);
+    }
+    10% {
+        opacity: 0.8;
+        transform: scale(1.3) translate(-50px, 30px) rotate(45deg) skew(15deg, -10deg);
+        filter: blur(10px);
+    }
+    20% {
+        opacity: 0.3;
+        transform: scale(0.6) translate(40px, -35px) rotate(-30deg) skew(-20deg, 25deg);
+        filter: blur(35px);
+    }
+    30% {
+        opacity: 0.7;
+        transform: scale(1.4) translate(-25px, 20px) rotate(20deg) skew(12deg, -8deg);
+        filter: blur(8px);
+    }
+    40% {
+        opacity: 0.4;
+        transform: scale(0.75) translate(18px, -15px) rotate(-15deg) skew(-10deg, 15deg);
+        filter: blur(22px);
+    }
+    50% {
+        opacity: 0.9;
+        transform: scale(1.2) translate(-10px, 8px) rotate(10deg) skew(6deg, -5deg);
+        filter: blur(5px);
+    }
+    60% {
+        opacity: 0.55;
+        transform: scale(0.95) translate(5px, -4px) rotate(-5deg) skew(-3deg, 4deg);
+        filter: blur(12px);
+    }
+    70% {
+        opacity: 0.95;
+        transform: scale(1.05) translate(-3px, 2px) rotate(3deg) skew(2deg, -1deg);
+        filter: blur(4px);
+    }
+    80% {
+        opacity: 0.88;
+        transform: scale(1.02) translate(2px, -1px) rotate(-1deg) skew(-1deg, 1deg);
+        filter: blur(2px);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) translate(0, 0) rotate(0deg) skew(0deg, 0deg);
+        filter: blur(0px);
+    }
+}
+
+/* V9 9. 熵增衰变 - 熵值变化 */
+@keyframes ua-v9-entropicDecay {
+    0% {
+        opacity: 0;
+        transform: scale(1.5);
+        filter: blur(0px) brightness(1) contrast(1) saturate(1);
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+    10% {
+        opacity: 0.9;
+        transform: scale(1.3);
+        filter: blur(5px) brightness(1.2) contrast(1.1) saturate(0.9);
+        clip-path: polygon(2% 2%, 98% 0%, 100% 98%, 0% 100%);
+    }
+    20% {
+        opacity: 0.8;
+        transform: scale(1.2);
+        filter: blur(10px) brightness(1.3) contrast(1.2) saturate(0.8);
+        clip-path: polygon(5% 5%, 95% 3%, 97% 97%, 3% 95%);
+    }
+    30% {
+        opacity: 0.7;
+        transform: scale(1.1);
+        filter: blur(15px) brightness(1.4) contrast(1.3) saturate(0.7);
+        clip-path: polygon(8% 8%, 92% 6%, 94% 94%, 6% 92%);
+    }
+    40% {
+        opacity: 0.6;
+        transform: scale(1.05);
+        filter: blur(20px) brightness(1.5) contrast(1.4) saturate(0.6);
+        clip-path: polygon(12% 12%, 88% 10%, 90% 90%, 10% 88%);
+    }
+    50% {
+        opacity: 0.8;
+        transform: scale(1.08);
+        filter: blur(12px) brightness(1.3) contrast(1.3) saturate(0.8);
+        clip-path: polygon(6% 6%, 94% 4%, 96% 96%, 4% 94%);
+    }
+    60% {
+        opacity: 0.9;
+        transform: scale(1.02);
+        filter: blur(6px) brightness(1.2) contrast(1.1) saturate(0.9);
+        clip-path: polygon(3% 3%, 97% 2%, 98% 98%, 2% 97%);
+    }
+    70% {
+        opacity: 0.95;
+        transform: scale(1.01);
+        filter: blur(3px) brightness(1.15) contrast(1.05) saturate(0.95);
+        clip-path: polygon(1.5% 1.5%, 98.5% 1%, 99% 98.5%, 1% 98.5%);
+    }
+    80% {
+        opacity: 0.98;
+        transform: scale(1.005);
+        filter: blur(1.5px) brightness(1.08) contrast(1.02) saturate(0.98);
+        clip-path: polygon(0.8% 0.8%, 99.2% 0.5%, 99.5% 99.2%, 0.5% 99.2%);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+        filter: blur(0px) brightness(1) contrast(1) saturate(1);
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+}
+
+/* V9 10. 弦理论 - 震动频率 */
+@keyframes ua-v9-stringTheory {
+    0% {
+        opacity: 0;
+        transform: scale(0.1) skew(0deg, 0deg);
+        filter: blur(60px) brightness(2);
+    }
+    11.11% {
+        opacity: 0.5;
+        transform: scale(1.5) skew(30deg, 20deg);
+        filter: blur(15px) brightness(2.5);
+    }
+    22.22% {
+        opacity: 0.25;
+        transform: scale(0.7) skew(-25deg, -18deg);
+        filter: blur(30px) brightness(2);
+    }
+    33.33% {
+        opacity: 0.75;
+        transform: scale(1.3) skew(20deg, 15deg);
+        filter: blur(8px) brightness(2.3);
+    }
+    44.44% {
+        opacity: 0.35;
+        transform: scale(0.85) skew(-15deg, -12deg);
+        filter: blur(20px) brightness(2.2);
+    }
+    55.55% {
+        opacity: 0.9;
+        transform: scale(1.15) skew(10deg, 8deg);
+        filter: blur(5px) brightness(2.4);
+    }
+    66.66% {
+        opacity: 0.55;
+        transform: scale(0.98) skew(-5deg, -4deg);
+        filter: blur(12px) brightness(2.3);
+    }
+    77.77% {
+        opacity: 0.95;
+        transform: scale(1.02) skew(3deg, 2deg);
+        filter: blur(3px) brightness(2.35);
+    }
+    88.88% {
+        opacity: 0.88;
+        transform: scale(1.01) skew(-1.5deg, -1deg);
+        filter: blur(2px) brightness(2.33);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) skew(0deg, 0deg);
+        filter: blur(0px) brightness(1);
+    }
+}
+
+/* V9 11. 多元宇宙 - 多重显现 */
+@keyframes ua-v9-multiverse {
+    0% {
+        opacity: 0;
+        transform: scale(0) rotate(0deg);
+        filter: blur(50px) brightness(2) hue-rotate(0deg);
+    }
+    10% {
+        opacity: 0.6;
+        transform: scale(1.2) rotate(120deg);
+        filter: blur(15px) brightness(2.5) hue-rotate(60deg);
+    }
+    15% {
+        opacity: 0;
+        transform: scale(1) rotate(120deg);
+        filter: blur(50px) brightness(1) hue-rotate(60deg);
+    }
+    23% {
+        opacity: 0.7;
+        transform: scale(1.3) rotate(240deg);
+        filter: blur(12px) brightness(2.6) hue-rotate(120deg);
+    }
+    28% {
+        opacity: 0;
+        transform: scale(1) rotate(240deg);
+        filter: blur(50px) brightness(1) hue-rotate(120deg);
+    }
+    35% {
+        opacity: 0.8;
+        transform: scale(1.15) rotate(360deg);
+        filter: blur(8px) brightness(2.7) hue-rotate(180deg);
+    }
+    40% {
+        opacity: 0;
+        transform: scale(1) rotate(360deg);
+        filter: blur(50px) brightness(1) hue-rotate(180deg);
+    }
+    48% {
+        opacity: 0.9;
+        transform: scale(1.08) rotate(480deg);
+        filter: blur(5px) brightness(2.8) hue-rotate(240deg);
+    }
+    55% {
+        opacity: 0;
+        transform: scale(1) rotate(480deg);
+        filter: blur(50px) brightness(1) hue-rotate(240deg);
+    }
+    65% {
+        opacity: 0.95;
+        transform: scale(1.04) rotate(600deg);
+        filter: blur(3px) brightness(2.9) hue-rotate(300deg);
+    }
+    72% {
+        opacity: 0;
+        transform: scale(1) rotate(600deg);
+        filter: blur(50px) brightness(1) hue-rotate(300deg);
+    }
+    85% {
+        opacity: 0.98;
+        transform: scale(1.02) rotate(720deg);
+        filter: blur(1px) brightness(2.95) hue-rotate(360deg);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) rotate(0deg);
+        filter: blur(0px) brightness(1) hue-rotate(0deg);
+    }
+}
+
+/* V9 12. 平行世界 - 双重显现 */
+@keyframes ua-v9-parallelWorld {
+    0% {
+        opacity: 0;
+        transform: scale(0) translateX(0);
+        filter: blur(40px) brightness(2) invert(0);
+    }
+    12.5% {
+        opacity: 0.8;
+        transform: scale(1.2) translateX(-40px);
+        filter: blur(8px) brightness(2.3) invert(0.3);
+    }
+    25% {
+        opacity: 0.3;
+        transform: scale(0.6) translateX(-40px);
+        filter: blur(25px) brightness(1.5) invert(0.7);
+    }
+    37.5% {
+        opacity: 0.9;
+        transform: scale(1.3) translateX(40px);
+        filter: blur(6px) brightness(2.5) invert(0.2);
+    }
+    50% {
+        opacity: 0.4;
+        transform: scale(0.7) translateX(40px);
+        filter: blur(20px) brightness(1.8) invert(0.6);
+    }
+    62.5% {
+        opacity: 0.95;
+        transform: scale(1.1) translateX(-15px);
+        filter: blur(4px) brightness(2.6) invert(0.1);
+    }
+    75% {
+        opacity: 0.5;
+        transform: scale(0.9) translateX(-15px);
+        filter: blur(15px) brightness(2.2) invert(0.5);
+    }
+    87.5% {
+        opacity: 0.98;
+        transform: scale(1.02) translateX(8px);
+        filter: blur(2px) brightness(2.55) invert(0.05);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) translateX(0);
+        filter: blur(0px) brightness(1) invert(0);
+    }
+}
+
+/* V9 13. 时间线分叉 - 分叉效果 */
+@keyframes ua-v9-timelineSplit {
+    0% {
+        opacity: 0;
+        transform: scale(1) translateX(0) skew(0deg);
+        filter: blur(30px) brightness(1.5);
+    }
+    10% {
+        opacity: 0.7;
+        transform: scale(1.1) translateX(0) skew(0deg);
+        filter: blur(5px) brightness(2);
+    }
+    15% {
+        opacity: 1;
+        transform: scale(1) translateX(0) skew(0deg);
+        filter: blur(0px) brightness(2.5);
+    }
+    22% {
+        opacity: 0.8;
+        transform: scale(0.95) translateX(-20px) skew(10deg);
+        filter: blur(10px) brightness(2.2);
+    }
+    30% {
+        opacity: 0.9;
+        transform: scale(1.05) translateX(20px) skew(-10deg);
+        filter: blur(8px) brightness(2.4);
+    }
+    37% {
+        opacity: 0.7;
+        transform: scale(0.98) translateX(-10px) skew(5deg);
+        filter: blur(12px) brightness(2.3);
+    }
+    45% {
+        opacity: 1;
+        transform: scale(1.02) translateX(10px) skew(-5deg);
+        filter: blur(10px) brightness(2.5);
+    }
+    55% {
+        opacity: 0.85;
+        transform: scale(0.99) translateX(-5px) skew(2.5deg);
+        filter: blur(6px) brightness(2.4);
+    }
+    65% {
+        opacity: 0.98;
+        transform: scale(1.01) translateX(5px) skew(-2.5deg);
+        filter: blur(4px) brightness(2.55);
+    }
+    75% {
+        opacity: 0.92;
+        transform: scale(1.005) translateX(-2px) skew(1deg);
+        filter: blur(2px) brightness(2.48);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) translateX(0) skew(0deg);
+        filter: blur(0px) brightness(1);
+    }
+}
+
+/* V9 14. 现实扭曲 - 扭曲变形 */
+@keyframes ua-v9-realityWarp {
+    0% {
+        opacity: 0;
+        transform: perspective(1000px) scale(0.2) rotateX(0deg) rotateY(0deg);
+        filter: blur(50px) brightness(2) contrast(1.5);
+    }
+    10% {
+        opacity: 0.6;
+        transform: perspective(1000px) scale(1.5) rotateX(30deg) rotateY(45deg);
+        filter: blur(15px) brightness(2.8) contrast(0.8);
+    }
+    20% {
+        opacity: 0.3;
+        transform: perspective(1000px) scale(0.7) rotateX(-20deg) rotateY(-30deg);
+        filter: blur(35px) brightness(1.8) contrast(2);
+    }
+    30% {
+        opacity: 0.8;
+        transform: perspective(1000px) scale(1.3) rotateX(15deg) rotateY(22deg);
+        filter: blur(8px) brightness(2.6) contrast(0.9);
+    }
+    40% {
+        opacity: 0.4;
+        transform: perspective(1000px) scale(0.85) rotateX(-10deg) rotateY(-15deg);
+        filter: blur(22px) brightness(2.2) contrast(1.8);
+    }
+    50% {
+        opacity: 0.9;
+        transform: perspective(1000px) scale(1.15) rotateX(5deg) rotateY(7deg);
+        filter: blur(4px) brightness(2.5) contrast(0.95);
+    }
+    60% {
+        opacity: 0.6;
+        transform: perspective(1000px) scale(0.98) rotateX(-2deg) rotateY(-3deg);
+        filter: blur(10px) brightness(2.4) contrast(1.5);
+    }
+    70% {
+        opacity: 0.95;
+        transform: perspective(1000px) scale(1.02) rotateX(1deg) rotateY(1.5deg);
+        filter: blur(3px) brightness(2.48) contrast(1.08);
+    }
+    80% {
+        opacity: 0.88;
+        transform: perspective(1000px) scale(1.01) rotateX(-0.5deg) rotateY(-0.75deg);
+        filter: blur(2px) brightness(2.45) contrast(1.03);
+    }
+    100% {
+        opacity: 1;
+        transform: perspective(1000px) scale(1) rotateX(0deg) rotateY(0deg);
+        filter: blur(0px) brightness(1) contrast(1);
+    }
+}
+
+/* V9 15. 幻象破除 - 真相揭露 */
+@keyframes ua-v9-illusionBreak {
+    0% {
+        opacity: 0;
+        transform: scale(1.2);
+        filter: blur(0px) brightness(1) hue-rotate(0deg) saturate(0.5);
+    }
+    10% {
+        opacity: 0.8;
+        transform: scale(1.15);
+        filter: blur(3px) brightness(1.5) hue-rotate(45deg) saturate(0.8);
+    }
+    20% {
+        opacity: 0.6;
+        transform: scale(1.1);
+        filter: blur(6px) brightness(2) hue-rotate(90deg) saturate(1.2);
+    }
+    30% {
+        opacity: 0.4;
+        transform: scale(1.05);
+        filter: blur(10px) brightness(2.5) hue-rotate(135deg) saturate(1.5);
+    }
+    40% {
+        opacity: 0.6;
+        transform: scale(1.08);
+        filter: blur(15px) brightness(2.8) hue-rotate(180deg) saturate(1.8);
+    }
+    50% {
+        opacity: 0.7;
+        transform: scale(1.12);
+        filter: blur(18px) brightness(2.95) hue-rotate(225deg) saturate(1.6);
+    }
+    60% {
+        opacity: 0.8;
+        transform: scale(1.04);
+        filter: blur(8px) brightness(2.3) hue-rotate(270deg) saturate(1.3);
+    }
+    70% {
+        opacity: 0.9;
+        transform: scale(1.02);
+        filter: blur(4px) brightness(1.8) hue-rotate(315deg) saturate(0.9);
+    }
+    80% {
+        opacity: 0.95;
+        transform: scale(1.01);
+        filter: blur(2px) brightness(1.4) hue-rotate(345deg) saturate(0.7);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+        filter: blur(0px) brightness(1) hue-rotate(0deg) saturate(1);
+    }
+}
+
+/* V9 16. 梦境投影 - 梦幻效果 */
+@keyframes ua-v9-dreamscape {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+        filter: blur(60px) brightness(1.5) saturate(0.5);
+        box-shadow: 0 0 0 rgba(255, 150, 200, 0);
+    }
+    12.5% {
+        opacity: 0.7;
+        transform: scale(1.4);
+        filter: blur(20px) brightness(2) saturate(0.8);
+        box-shadow: 0 0 60px rgba(255, 150, 200, 0.6);
+    }
+    25% {
+        opacity: 0.4;
+        transform: scale(0.8);
+        filter: blur(40px) brightness(1.7) saturate(0.6);
+        box-shadow: 0 0 40px rgba(255, 150, 200, 0.4);
+    }
+    37.5% {
+        opacity: 0.8;
+        transform: scale(1.2);
+        filter: blur(12px) brightness(2.2) saturate(1);
+        box-shadow: 0 0 50px rgba(255, 150, 200, 0.7);
+    }
+    50% {
+        opacity: 0.5;
+        transform: scale(0.95);
+        filter: blur(25px) brightness(1.9) saturate(0.7);
+        box-shadow: 0 0 35px rgba(255, 150, 200, 0.45);
+    }
+    62.5% {
+        opacity: 0.9;
+        transform: scale(1.1);
+        filter: blur(6px) brightness(2.4) saturate(1.2);
+        box-shadow: 0 0 55px rgba(255, 150, 200, 0.85);
+    }
+    75% {
+        opacity: 0.65;
+        transform: scale(1.02);
+        filter: blur(15px) brightness(2.1) saturate(0.9);
+        box-shadow: 0 0 45px rgba(255, 150, 200, 0.6);
+    }
+    87.5% {
+        opacity: 0.95;
+        transform: scale(1.01);
+        filter: blur(3px) brightness(2.3) saturate(1.05);
+        box-shadow: 0 0 48px rgba(255, 150, 200, 0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+        filter: blur(0px) brightness(1) saturate(1);
+        box-shadow: 0 0 8px rgba(102, 126, 234, 0.4);
+    }
+}
+
+/* V9 17. 意识上传 - 数字化转化 */
+@keyframes ua-v9-consciousness {
+    0% {
+        opacity: 0;
+        transform: scale(1);
+        filter: blur(0px) brightness(1) contrast(1) saturate(1);
+    }
+    10% {
+        opacity: 0.9;
+        transform: scale(1.05);
+        filter: blur(2px) brightness(1.2) contrast(1.1) saturate(1.1);
+    }
+    18% {
+        opacity: 0.7;
+        transform: scale(1.1);
+        filter: blur(4px) brightness(1.4) contrast(1.3) saturate(0.8);
+    }
+    25% {
+        opacity: 0.5;
+        transform: scale(1.15);
+        filter: blur(8px) brightness(1.6) contrast(1.5) saturate(0.6);
+    }
+    35% {
+        opacity: 0.7;
+        transform: scale(1.12);
+        filter: blur(6px) brightness(1.8) contrast(1.4) saturate(0.8);
+    }
+    45% {
+        opacity: 0.85;
+        transform: scale(1.08);
+        filter: blur(4px) brightness(2) contrast(1.2) saturate(1);
+    }
+    55% {
+        opacity: 0.95;
+        transform: scale(1.04);
+        filter: blur(2px) brightness(1.5) contrast(1.1) saturate(1.1);
+    }
+    65% {
+        opacity: 0.98;
+        transform: scale(1.02);
+        filter: blur(1px) brightness(1.3) contrast(1.05) saturate(1.05);
+    }
+    75% {
+        opacity: 1;
+        transform: scale(1.01);
+        filter: blur(0.5px) brightness(1.15) contrast(1.02) saturate(1.02);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+        filter: blur(0px) brightness(1) contrast(1) saturate(1);
+    }
+}
+
+/* V9 18. 记忆痕迹 - 残影效果 */
+@keyframes ua-v9-memoryTrace {
+    0% {
+        opacity: 0;
+        transform: scale(0.9) translateX(0);
+        filter: blur(40px) brightness(1);
+    }
+    8% {
+        opacity: 1;
+        transform: scale(1) translateX(0);
+        filter: blur(0px) brightness(1.5);
+    }
+    14% {
+        opacity: 0.5;
+        transform: scale(1) translateX(-15px);
+        filter: blur(15px) brightness(1.2);
+    }
+    19% {
+        opacity: 0.3;
+        transform: scale(1) translateX(-15px);
+        filter: blur(25px) brightness(1);
+    }
+    24% {
+        opacity: 0.6;
+        transform: scale(1) translateX(12px);
+        filter: blur(10px) brightness(1.3);
+    }
+    29% {
+        opacity: 0.35;
+        transform: scale(1) translateX(12px);
+        filter: blur(20px) brightness(1.1);
+    }
+    34% {
+        opacity: 0.8;
+        transform: scale(1) translateX(-8px);
+        filter: blur(6px) brightness(1.4);
+    }
+    40% {
+        opacity: 0.45;
+        transform: scale(1) translateX(-8px);
+        filter: blur(15px) brightness(1.2);
+    }
+    48% {
+        opacity: 0.9;
+        transform: scale(1) translateX(5px);
+        filter: blur(3px) brightness(1.45);
+    }
+    55% {
+        opacity: 0.5;
+        transform: scale(1) translateX(5px);
+        filter: blur(10px) brightness(1.25);
+    }
+    65% {
+        opacity: 0.95;
+        transform: scale(1) translateX(-3px);
+        filter: blur(2px) brightness(1.48);
+    }
+    75% {
+        opacity: 0.6;
+        transform: scale(1) translateX(-3px);
+        filter: blur(5px) brightness(1.3);
+    }
+    88% {
+        opacity: 0.98;
+        transform: scale(1) translateX(0);
+        filter: blur(1px) brightness(1.5);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) translateX(0);
+        filter: blur(0px) brightness(1);
+    }
+}
+
+/* V9 19. 灵魂碎片 - 碎裂重组 */
+@keyframes ua-v9-soulFragment {
+    0% {
+        opacity: 0;
+        transform: perspective(1000px) scale(0) rotateX(0deg) rotateY(0deg) translateZ(0);
+        filter: blur(60px) brightness(3);
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+    10% {
+        opacity: 0.6;
+        transform: perspective(1000px) scale(0.4) rotateX(45deg) rotateY(60deg) translateZ(-100px);
+        filter: blur(25px) brightness(2.5);
+        clip-path: polygon(10% 10%, 90% 5%, 95% 95%, 5% 90%);
+    }
+    20% {
+        opacity: 0.3;
+        transform: perspective(1000px) scale(0.8) rotateX(-30deg) rotateY(-45deg) translateZ(80px);
+        filter: blur(40px) brightness(1.8);
+        clip-path: polygon(5% 5%, 95% 0%, 100% 100%, 0% 95%);
+    }
+    30% {
+        opacity: 0.7;
+        transform: perspective(1000px) scale(0.6) rotateX(20deg) rotateY(30deg) translateZ(-120px);
+        filter: blur(12px) brightness(2.2);
+        clip-path: polygon(15% 15%, 85% 10%, 90% 90%, 10% 85%);
+    }
+    40% {
+        opacity: 0.35;
+        transform: perspective(1000px) scale(1.2) rotateX(-15deg) rotateY(-22deg) translateZ(60px);
+        filter: blur(22px) brightness(1.9);
+        clip-path: polygon(8% 8%, 92% 4%, 96% 96%, 4% 92%);
+    }
+    50% {
+        opacity: 0.85;
+        transform: perspective(1000px) scale(0.8) rotateX(10deg) rotateY(15deg) translateZ(-80px);
+        filter: blur(6px) brightness(2.1);
+        clip-path: polygon(12% 12%, 88% 8%, 92% 92%, 8% 88%);
+    }
+    60% {
+        opacity: 0.5;
+        transform: perspective(1000px) scale(1.1) rotateX(-5deg) rotateY(-7deg);
+        filter: blur(10px) brightness(2);
+        clip-path: polygon(6% 6%, 94% 3%, 97% 97%, 3% 94%);
+    }
+    70% {
+        opacity: 0.95;
+        transform: perspective(1000px) scale(0.95) rotateX(3deg) rotateY(4deg);
+        filter: blur(3px) brightness(2.05);
+        clip-path: polygon(3% 3%, 97% 2%, 98% 98%, 2% 97%);
+    }
+    80% {
+        opacity: 0.88;
+        transform: perspective(1000px) scale(1.02) rotateX(-1.5deg) rotateY(-2deg);
+        filter: blur(2px) brightness(2.03);
+        clip-path: polygon(1.5% 1.5%, 98.5% 1%, 99% 99%, 1% 98.5%);
+    }
+    100% {
+        opacity: 1;
+        transform: perspective(1000px) scale(1) rotateX(0deg) rotateY(0deg) translateZ(0);
+        filter: blur(0px) brightness(1);
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+}
+
+/* V9 20. 超越 - 升华效果 */
+@keyframes ua-v9-transcendence {
+    0% {
+        opacity: 0;
+        transform: scale(0.1) translateY(50px);
+        filter: blur(70px) brightness(4) hue-rotate(0deg) saturate(0);
+        box-shadow: 0 0 0 rgba(255, 255, 255, 0);
+    }
+    10% {
+        opacity: 0.6;
+        transform: scale(0.5) translateY(30px);
+        filter: blur(30px) brightness(3) hue-rotate(60deg) saturate(0.5);
+        box-shadow: 0 0 50px rgba(255, 200, 255, 0.6);
+    }
+    18% {
+        opacity: 0.3;
+        transform: scale(1.2) translateY(10px);
+        filter: blur(15px) brightness(2) hue-rotate(120deg) saturate(1);
+        box-shadow: 0 0 30px rgba(255, 200, 255, 0.4);
+    }
+    25% {
+        opacity: 0.75;
+        transform: scale(0.8) translateY(-10px);
+        filter: blur(8px) brightness(2.5) hue-rotate(180deg) saturate(1.2);
+        box-shadow: 0 0 40px rgba(255, 200, 255, 0.7);
+    }
+    32% {
+        opacity: 0.4;
+        transform: scale(1.1) translateY(-25px);
+        filter: blur(18px) brightness(2.2) hue-rotate(240deg) saturate(1);
+        box-shadow: 0 0 35px rgba(255, 200, 255, 0.5);
+    }
+    40% {
+        opacity: 0.9;
+        transform: scale(0.9) translateY(-35px);
+        filter: blur(4px) brightness(2.8) hue-rotate(300deg) saturate(1.3);
+        box-shadow: 0 0 45px rgba(255, 200, 255, 0.85);
+    }
+    47% {
+        opacity: 0.6;
+        transform: scale(1.02) translateY(-40px);
+        filter: blur(10px) brightness(2.5) hue-rotate(330deg) saturate(1.1);
+        box-shadow: 0 0 38px rgba(255, 200, 255, 0.65);
+    }
+    55% {
+        opacity: 0.95;
+        transform: scale(0.98) translateY(-42px);
+        filter: blur(3px) brightness(2.7) hue-rotate(345deg) saturate(1.2);
+        box-shadow: 0 0 42px rgba(255, 200, 255, 0.9);
+    }
+    65% {
+        opacity: 0.88;
+        transform: scale(1.01) translateY(-38px);
+        filter: blur(2px) brightness(2.6) hue-rotate(352deg) saturate(1.05);
+        box-shadow: 0 0 40px rgba(255, 200, 255, 0.88);
+    }
+    75% {
+        opacity: 0.98;
+        transform: scale(0.995) translateY(-30px);
+        filter: blur(1px) brightness(2.55) hue-rotate(356deg) saturate(1.02);
+        box-shadow: 0 0 38px rgba(255, 200, 255, 0.95);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+        filter: blur(0px) brightness(1) hue-rotate(0deg) saturate(1);
+        box-shadow: 0 0 8px rgba(102, 126, 234, 0.4);
+    }
+}
+
+.ua-v9-timeDilation { animation-name: ua-v9-timeDilation; animation-duration: 4.5s; }
+.ua-v9-spatialFold { animation-name: ua-v9-spatialFold; animation-duration: 4s; }
+.ua-v9-quantumSuperposition { animation-name: ua-v9-quantumSuperposition; animation-duration: 3.2s; }
+.ua-v9-temporalEcho { animation-name: ua-v9-temporalEcho; animation-duration: 5s; }
+.ua-v9-dimensionalFracture { animation-name: ua-v9-dimensionalFracture; animation-duration: 4.2s; }
+.ua-v9-voidConstruct { animation-name: ua-v9-voidConstruct; animation-duration: 4.5s; }
+.ua-v9-aetherManifest { animation-name: ua-v9-aetherManifest; animation-duration: 4s; }
+.ua-v9-chaosTheory { animation-name: ua-v9-chaosTheory; animation-duration: 4s; }
+.ua-v9-entropicDecay { animation-name: ua-v9-entropicDecay; animation-duration: 5s; }
+.ua-v9-stringTheory { animation-name: ua-v9-stringTheory; animation-duration: 3.6s; }
+.ua-v9-multiverse { animation-name: ua-v9-multiverse; animation-duration: 5.5s; }
+.ua-v9-parallelWorld { animation-name: ua-v9-parallelWorld; animation-duration: 3.2s; }
+.ua-v9-timelineSplit { animation-name: ua-v9-timelineSplit; animation-duration: 4s; }
+.ua-v9-realityWarp { animation-name: ua-v9-realityWarp; animation-duration: 4s; }
+.ua-v9-illusionBreak { animation-name: ua-v9-illusionBreak; animation-duration: 4.5s; }
+.ua-v9-dreamscape { animation-name: ua-v9-dreamscape; animation-duration: 3.2s; }
+.ua-v9-consciousness { animation-name: ua-v9-consciousness; animation-duration: 4.5s; }
+.ua-v9-memoryTrace { animation-name: ua-v9-memoryTrace; animation-duration: 5s; }
+.ua-v9-soulFragment { animation-name: ua-v9-soulFragment; animation-duration: 4s; }
+.ua-v9-transcendence { animation-name: ua-v9-transcendence; animation-duration: 4.5s; }
+
+/* V10 超视觉系列 - Glitch故障艺术效果 */
+
+/* V10 1. 像素故障 - 高频抖动效果 */
+@keyframes ua-v10-pixelGlitch {
+    0%, 100% {
+        opacity: 0;
+        transform: translate(0, 0) scale(1);
+        filter: blur(0px) contrast(1);
+    }
+    10% {
+        opacity: 1;
+        transform: translate(-5px, 2px) scale(1.02);
+        filter: blur(2px) contrast(1.2) hue-rotate(90deg);
+    }
+    20% {
+        opacity: 0.8;
+        transform: translate(3px, -4px) scale(0.98);
+        filter: blur(1px) contrast(1.1) hue-rotate(-90deg);
+    }
+    30% {
+        opacity: 1;
+        transform: translate(-2px, 1px) scale(1.01);
+        filter: blur(3px) contrast(1.3) hue-rotate(45deg);
+    }
+    40% {
+        opacity: 0.7;
+        transform: translate(4px, -2px) scale(0.99);
+        filter: blur(1px) contrast(1.2) hue-rotate(-45deg);
+    }
+    50% {
+        opacity: 1;
+        transform: translate(-3px, 3px) scale(1.02);
+        filter: blur(2px) contrast(1.15) hue-rotate(180deg);
+    }
+    60% {
+        opacity: 0.85;
+        transform: translate(2px, -1px) scale(0.98);
+        filter: blur(1px) contrast(1.1);
+    }
+    70% {
+        opacity: 1;
+        transform: translate(-1px, 2px) scale(1);
+        filter: blur(0.5px) contrast(1.05);
+    }
+    80% {
+        opacity: 0.95;
+        transform: translate(1px, -0.5px) scale(1.01);
+        filter: blur(0px) contrast(1);
+    }
+    90% {
+        opacity: 1;
+        transform: translate(0, 0) scale(1);
+        filter: blur(0px) contrast(1);
+    }
+}
+
+/* V10 2. 色差分裂 - RGB色差分离效果 */
+@keyframes ua-v10-chromaticAberration {
+    0%, 100% {
+        opacity: 0;
+        transform: translateX(0) scale(1);
+        filter: blur(0px);
+        text-shadow: none;
+    }
+    10% {
+        opacity: 1;
+        transform: translateX(-10px) scale(1.05);
+        filter: blur(5px);
+        text-shadow: 5px 0 0 rgba(255, 0, 0, 0.8), -5px 0 0 rgba(0, 255, 255, 0.8);
+    }
+    20% {
+        opacity: 0.7;
+        transform: translateX(8px) scale(0.95);
+        filter: blur(3px);
+        text-shadow: -3px 0 0 rgba(255, 0, 0, 0.6), 3px 0 0 rgba(0, 255, 255, 0.6);
+    }
+    30% {
+        opacity: 1;
+        transform: translateX(-6px) scale(1.03);
+        filter: blur(4px);
+        text-shadow: 4px 0 0 rgba(255, 0, 0, 0.7), -4px 0 0 rgba(0, 255, 255, 0.7);
+    }
+    40% {
+        opacity: 0.8;
+        transform: translateX(4px) scale(0.98);
+        filter: blur(2px);
+        text-shadow: -2px 0 0 rgba(255, 0, 0, 0.5), 2px 0 0 rgba(0, 255, 255, 0.5);
+    }
+    50% {
+        opacity: 1;
+        transform: translateX(-3px) scale(1.01);
+        filter: blur(1px);
+        text-shadow: 1px 0 0 rgba(255, 0, 0, 0.3), -1px 0 0 rgba(0, 255, 255, 0.3);
+    }
+    60% {
+        opacity: 0.9;
+        transform: translateX(2px) scale(0.99);
+        filter: blur(0.5px);
+        text-shadow: 0.5px 0 0 rgba(255, 0, 0, 0.2), -0.5px 0 0 rgba(0, 255, 255, 0.2);
+    }
+    70% {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+        filter: blur(0px);
+        text-shadow: none;
+    }
+}
+
+/* V10 3. 数字噪点 - 数字信号噪点效果 */
+@keyframes ua-v10-digitalNoise {
+    0%, 100% {
+        opacity: 0;
+        transform: scale(1);
+        filter: blur(0px) contrast(1);
+    }
+    10% {
+        opacity: 1;
+        transform: scale(1.1) skewX(2deg);
+        filter: blur(8px) contrast(1.5) brightness(1.3);
+    }
+    20% {
+        opacity: 0.6;
+        transform: scale(0.9) skewX(-2deg);
+        filter: blur(5px) contrast(1.3) brightness(0.8);
+    }
+    30% {
+        opacity: 1;
+        transform: scale(1.05) skewX(1deg);
+        filter: blur(6px) contrast(1.4) brightness(1.2);
+    }
+    40% {
+        opacity: 0.7;
+        transform: scale(0.95) skewX(-1deg);
+        filter: blur(4px) contrast(1.2) brightness(0.9);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.02) skewX(0.5deg);
+        filter: blur(3px) contrast(1.3) brightness(1.1);
+    }
+    60% {
+        opacity: 0.85;
+        transform: scale(0.98) skewX(-0.5deg);
+        filter: blur(2px) contrast(1.1);
+    }
+    70% {
+        opacity: 1;
+        transform: scale(1.01);
+        filter: blur(1px) contrast(1.05);
+    }
+    80% {
+        opacity: 0.95;
+        transform: scale(0.99);
+        filter: blur(0.5px) contrast(1.02);
+    }
+    90% {
+        opacity: 1;
+        transform: scale(1);
+        filter: blur(0px) contrast(1);
+    }
+}
+
+/* V10 4. 扫描线扭曲 - CRT扫描线效果 */
+@keyframes ua-v10-scanlineDistort {
+    0%, 100% {
+        opacity: 0;
+        transform: scaleY(1);
+        filter: blur(0px) contrast(1);
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+    10% {
+        opacity: 1;
+        transform: scaleY(1.1);
+        filter: blur(4px) contrast(1.3);
+        clip-path: polygon(0 5%, 100% 3%, 100% 95%, 0 97%);
+    }
+    20% {
+        opacity: 0.7;
+        transform: scaleY(0.9);
+        filter: blur(3px) contrast(1.2);
+        clip-path: polygon(0 8%, 100% 6%, 100% 92%, 0 94%);
+    }
+    30% {
+        opacity: 1;
+        transform: scaleY(1.05);
+        filter: blur(2px) contrast(1.25);
+        clip-path: polygon(0 3%, 100% 4%, 100% 96%, 0 97%);
+    }
+    40% {
+        opacity: 0.8;
+        transform: scaleY(0.95);
+        filter: blur(1.5px) contrast(1.15);
+        clip-path: polygon(0 6%, 100% 5%, 100% 93%, 0 95%);
+    }
+    50% {
+        opacity: 1;
+        transform: scaleY(1.02);
+        filter: blur(1px) contrast(1.1);
+        clip-path: polygon(0 2%, 100% 3%, 100% 98%, 0 97%);
+    }
+    60% {
+        opacity: 0.9;
+        transform: scaleY(0.98);
+        filter: blur(0.5px) contrast(1.05);
+        clip-path: polygon(0 4%, 100% 2%, 100% 97%, 0 99%);
+    }
+    70% {
+        opacity: 1;
+        transform: scaleY(1.01);
+        filter: blur(0px) contrast(1.02);
+        clip-path: polygon(0 1%, 100% 1%, 100% 99%, 0 99%);
+    }
+    80% {
+        opacity: 0.98;
+        transform: scaleY(1);
+        filter: blur(0px) contrast(1);
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+}
+
+/* V10 5. 信号干扰 - 信号波动效果 */
+@keyframes ua-v10-signalInterference {
+    0%, 100% {
+        opacity: 0;
+        transform: translateY(0);
+        filter: blur(0px) saturate(1);
+    }
+    10% {
+        opacity: 1;
+        transform: translateY(-15px);
+        filter: blur(6px) saturate(0.3);
+    }
+    20% {
+        opacity: 0.5;
+        transform: translateY(10px);
+        filter: blur(4px) saturate(0.5);
+    }
+    30% {
+        opacity: 1;
+        transform: translateY(-8px);
+        filter: blur(5px) saturate(0.2);
+    }
+    40% {
+        opacity: 0.6;
+        transform: translateY(6px);
+        filter: blur(3px) saturate(0.4);
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(-4px);
+        filter: blur(2px) saturate(0.6);
+    }
+    60% {
+        opacity: 0.8;
+        transform: translateY(3px);
+        filter: blur(1px) saturate(0.8);
+    }
+    70% {
+        opacity: 1;
+        transform: translateY(-2px);
+        filter: blur(0.5px) saturate(0.9);
+    }
+    80% {
+        opacity: 0.95;
+        transform: translateY(1px);
+        filter: blur(0px) saturate(0.95);
+    }
+    90% {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0px) saturate(1);
+    }
+}
+
+/* V10 6. 数据损坏 - 数据损坏效果 */
+@keyframes ua-v10-dataCorruption {
+    0%, 100% {
+        opacity: 0;
+        transform: rotate(0deg) scale(1);
+        filter: blur(0px) invert(0) grayscale(0);
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+    10% {
+        opacity: 1;
+        transform: rotate(5deg) scale(1.1);
+        filter: blur(8px) invert(0.5) grayscale(0.8);
+        clip-path: polygon(10% 5%, 90% 10%, 85% 95%, 15% 90%);
+    }
+    20% {
+        opacity: 0.6;
+        transform: rotate(-3deg) scale(0.9);
+        filter: blur(4px) invert(0.3) grayscale(0.5);
+        clip-path: polygon(5% 8%, 95% 5%, 90% 92%, 10% 95%);
+    }
+    30% {
+        opacity: 1;
+        transform: rotate(2deg) scale(1.05);
+        filter: blur(6px) invert(0.4) grayscale(0.7);
+        clip-path: polygon(12% 3%, 88% 7%, 92% 97%, 8% 93%);
+    }
+    40% {
+        opacity: 0.7;
+        transform: rotate(-1deg) scale(0.95);
+        filter: blur(3px) invert(0.2) grayscale(0.4);
+        clip-path: polygon(8% 6%, 92% 4%, 88% 94%, 12% 96%);
+    }
+    50% {
+        opacity: 1;
+        transform: rotate(0.5deg) scale(1.02);
+        filter: blur(2px) invert(0.1) grayscale(0.2);
+        clip-path: polygon(4% 2%, 96% 3%, 94% 98%, 6% 97%);
+    }
+    60% {
+        opacity: 0.85;
+        transform: rotate(-0.3deg) scale(0.99);
+        filter: blur(1px) invert(0.05) grayscale(0.1);
+        clip-path: polygon(2% 1%, 98% 2%, 97% 99%, 3% 98%);
+    }
+    70% {
+        opacity: 1;
+        transform: rotate(0deg) scale(1.01);
+        filter: blur(0px) invert(0) grayscale(0);
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+}
+
+/* V10 7. 赛博故障 - 赛博朋克故障效果 */
+@keyframes ua-v10-cyberGlitch {
+    0%, 100% {
+        opacity: 0;
+        transform: translate(0, 0) scale(1);
+        filter: blur(0px) contrast(1);
+        box-shadow: none;
+    }
+    10% {
+        opacity: 1;
+        transform: translate(-8px, 4px) scale(1.08);
+        filter: blur(5px) contrast(1.5) hue-rotate(30deg);
+        box-shadow: -4px 4px 0 rgba(0, 255, 255, 0.8), 4px -4px 0 rgba(255, 0, 255, 0.8);
+    }
+    20% {
+        opacity: 0.65;
+        transform: translate(6px, -3px) scale(0.92);
+        filter: blur(3px) contrast(1.3) hue-rotate(-30deg);
+        box-shadow: 3px -3px 0 rgba(0, 255, 255, 0.6), -3px 3px 0 rgba(255, 0, 255, 0.6);
+    }
+    30% {
+        opacity: 1;
+        transform: translate(-5px, 2px) scale(1.05);
+        filter: blur(4px) contrast(1.4) hue-rotate(60deg);
+        box-shadow: -2px 2px 0 rgba(0, 255, 255, 0.7), 2px -2px 0 rgba(255, 0, 255, 0.7);
+    }
+    40% {
+        opacity: 0.7;
+        transform: translate(4px, -2px) scale(0.97);
+        filter: blur(2px) contrast(1.2) hue-rotate(-60deg);
+        box-shadow: 2px -2px 0 rgba(0, 255, 255, 0.5), -2px 2px 0 rgba(255, 0, 255, 0.5);
+    }
+    50% {
+        opacity: 1;
+        transform: translate(-2px, 1px) scale(1.02);
+        filter: blur(1px) contrast(1.15) hue-rotate(30deg);
+        box-shadow: -1px 1px 0 rgba(0, 255, 255, 0.3), 1px -1px 0 rgba(255, 0, 255, 0.3);
+    }
+    60% {
+        opacity: 0.9;
+        transform: translate(1px, -0.5px) scale(0.99);
+        filter: blur(0.5px) contrast(1.08);
+        box-shadow: 0.5px -0.5px 0 rgba(0, 255, 255, 0.2), -0.5px 0.5px 0 rgba(255, 0, 255, 0.2);
+    }
+    70% {
+        opacity: 1;
+        transform: translate(0, 0) scale(1);
+        filter: blur(0px) contrast(1);
+        box-shadow: none;
+    }
+}
+
+/* V10 8. 静态雪花 - 电视雪花效果 */
+@keyframes ua-v10-staticSnow {
+    0%, 100% {
+        opacity: 0;
+        transform: scale(1);
+        filter: blur(0px) contrast(1) brightness(1);
+    }
+    10% {
+        opacity: 1;
+        transform: scale(1.15);
+        filter: blur(10px) contrast(1.8) brightness(1.5);
+    }
+    20% {
+        opacity: 0.5;
+        transform: scale(0.85);
+        filter: blur(6px) contrast(1.4) brightness(0.7);
+    }
+    30% {
+        opacity: 1;
+        transform: scale(1.1);
+        filter: blur(8px) contrast(1.6) brightness(1.3);
+    }
+    40% {
+        opacity: 0.6;
+        transform: scale(0.9);
+        filter: blur(5px) contrast(1.3) brightness(0.85);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.05);
+        filter: blur(4px) contrast(1.5) brightness(1.15);
+    }
+    60% {
+        opacity: 0.75;
+        transform: scale(0.95);
+        filter: blur(3px) contrast(1.25) brightness(0.95);
+    }
+    70% {
+        opacity: 1;
+        transform: scale(1.02);
+        filter: blur(2px) contrast(1.15) brightness(1.05);
+    }
+    80% {
+        opacity: 0.9;
+        transform: scale(0.98);
+        filter: blur(1px) contrast(1.08) brightness(1);
+    }
+    90% {
+        opacity: 1;
+        transform: scale(1.01);
+        filter: blur(0.5px) contrast(1.03);
+    }
+}
+
+/* V10 9. 像素排序 - 像素排序效果 */
+@keyframes ua-v10-pixelSort {
+    0%, 100% {
+        opacity: 0;
+        transform: translateY(0);
+        filter: blur(0px) hue-rotate(0deg);
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+    10% {
+        opacity: 1;
+        transform: translateY(-20px);
+        filter: blur(7px) hue-rotate(45deg);
+        clip-path: polygon(0 15%, 20% 10%, 40% 18%, 60% 12%, 80% 16%, 100% 14%, 100% 100%, 0 100%);
+    }
+    20% {
+        opacity: 0.6;
+        transform: translateY(15px);
+        filter: blur(4px) hue-rotate(-45deg);
+        clip-path: polygon(0 12%, 20% 14%, 40% 10%, 60% 16%, 80% 11%, 100% 13%, 100% 100%, 0 100%);
+    }
+    30% {
+        opacity: 1;
+        transform: translateY(-12px);
+        filter: blur(5px) hue-rotate(90deg);
+        clip-path: polygon(0 8%, 20% 12%, 40% 14%, 60% 9%, 80% 13%, 100% 11%, 100% 100%, 0 100%);
+    }
+    40% {
+        opacity: 0.7;
+        transform: translateY(8px);
+        filter: blur(3px) hue-rotate(-90deg);
+        clip-path: polygon(0 10%, 20% 8%, 40% 12%, 60% 14%, 80% 9%, 100% 12%, 100% 100%, 0 100%);
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(-5px);
+        filter: blur(2px) hue-rotate(135deg);
+        clip-path: polygon(0 5%, 20% 7%, 40% 9%, 60% 6%, 80% 8%, 100% 7%, 100% 100%, 0 100%);
+    }
+    60% {
+        opacity: 0.85;
+        transform: translateY(3px);
+        filter: blur(1px) hue-rotate(-135deg);
+        clip-path: polygon(0 3%, 20% 4%, 40% 5%, 60% 3%, 80% 4%, 100% 5%, 100% 100%, 0 100%);
+    }
+    70% {
+        opacity: 1;
+        transform: translateY(-2px);
+        filter: blur(0.5px) hue-rotate(180deg);
+        clip-path: polygon(0 2%, 20% 3%, 40% 2%, 60% 3%, 80% 2%, 100% 3%, 100% 100%, 0 100%);
+    }
+    80% {
+        opacity: 0.95;
+        transform: translateY(0);
+        filter: blur(0px) hue-rotate(90deg);
+        clip-path: polygon(0 1%, 20% 1%, 40% 1%, 60% 1%, 80% 1%, 100% 1%, 100% 100%, 0 100%);
+    }
+}
+
+/* V10 10. 比特腐烂 - 比特衰减效果 */
+@keyframes ua-v10-bitRot {
+    0%, 100% {
+        opacity: 0;
+        transform: scale(1);
+        filter: blur(0px) contrast(1) grayscale(0);
+    }
+    10% {
+        opacity: 1;
+        transform: scale(1.2) rotateX(10deg);
+        filter: blur(8px) contrast(1.6) grayscale(0.8);
+    }
+    20% {
+        opacity: 0.5;
+        transform: scale(0.8) rotateX(-10deg);
+        filter: blur(4px) contrast(1.4) grayscale(0.5);
+    }
+    30% {
+        opacity: 1;
+        transform: scale(1.1) rotateX(5deg);
+        filter: blur(6px) contrast(1.5) grayscale(0.7);
+    }
+    40% {
+        opacity: 0.6;
+        transform: scale(0.9) rotateX(-5deg);
+        filter: blur(3px) contrast(1.3) grayscale(0.4);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.05) rotateX(2deg);
+        filter: blur(2px) contrast(1.25) grayscale(0.3);
+    }
+    60% {
+        opacity: 0.8;
+        transform: scale(0.95) rotateX(-2deg);
+        filter: blur(1px) contrast(1.15) grayscale(0.2);
+    }
+    70% {
+        opacity: 1;
+        transform: scale(1.02) rotateX(1deg);
+        filter: blur(0.5px) contrast(1.08) grayscale(0.1);
+    }
+    80% {
+        opacity: 0.9;
+        transform: scale(0.98);
+        filter: blur(0px) contrast(1.05) grayscale(0.05);
+    }
+    90% {
+        opacity: 1;
+        transform: scale(1);
+        filter: blur(0px) contrast(1) grayscale(0);
+    }
+}
+
+.ua-v10-pixelGlitch { animation-name: ua-v10-pixelGlitch; animation-duration: 3.5s; }
+.ua-v10-chromaticAberration { animation-name: ua-v10-chromaticAberration; animation-duration: 2.8s; }
+.ua-v10-digitalNoise { animation-name: ua-v10-digitalNoise; animation-duration: 3.2s; }
+.ua-v10-scanlineDistort { animation-name: ua-v10-scanlineDistort; animation-duration: 3.8s; }
+.ua-v10-signalInterference { animation-name: ua-v10-signalInterference; animation-duration: 4s; }
+.ua-v10-dataCorruption { animation-name: ua-v10-dataCorruption; animation-duration: 3.5s; }
+.ua-v10-cyberGlitch { animation-name: ua-v10-cyberGlitch; animation-duration: 3s; }
+.ua-v10-staticSnow { animation-name: ua-v10-staticSnow; animation-duration: 4.2s; }
+.ua-v10-pixelSort { animation-name: ua-v10-pixelSort; animation-duration: 3.6s; }
+.ua-v10-bitRot { animation-name: ua-v10-bitRot; animation-duration: 3.8s; }
+
+/* V11 爆炸破坏特效系列 */
+
+/* V11 1. 核爆震撼 - 剧烈核爆效果 */
+@keyframes ua-v11-nuclearExplosion {
+    0%, 100% {
+        opacity: 0;
+        transform: scale(1);
+        filter: blur(0px) brightness(1);
+        box-shadow: none;
+    }
+    10% {
+        opacity: 1;
+        transform: scale(1.8);
+        filter: blur(20px) brightness(6);
+        box-shadow: 0 0 80px rgba(255, 200, 100, 0.9);
+    }
+    20% {
+        opacity: 0.6;
+        transform: scale(2.5);
+        filter: blur(50px) brightness(4);
+        box-shadow: 0 0 120px rgba(255, 150, 50, 0.7);
+    }
+    30% {
+        opacity: 1;
+        transform: scale(1.5);
+        filter: blur(10px) brightness(8);
+        box-shadow: 0 0 60px rgba(255, 180, 80, 0.85);
+    }
+    40% {
+        opacity: 0.7;
+        transform: scale(3);
+        filter: blur(40px) brightness(3);
+        box-shadow: 0 0 100px rgba(255, 120, 40, 0.6);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.3);
+        filter: blur(5px) brightness(7);
+        box-shadow: 0 0 40px rgba(255, 160, 70, 0.8);
+    }
+    60% {
+        opacity: 0.8;
+        transform: scale(2);
+        filter: blur(15px) brightness(4);
+        box-shadow: 0 0 50px rgba(255, 140, 60, 0.7);
+    }
+    70% {
+        opacity: 1;
+        transform: scale(1.1);
+        filter: blur(2px) brightness(6);
+        box-shadow: 0 0 25px rgba(255, 170, 75, 0.75);
+    }
+    80% {
+        opacity: 0.95;
+        transform: scale(1.05);
+        filter: blur(1px) brightness(5);
+        box-shadow: 0 0 15px rgba(255, 165, 72, 0.5);
+    }
+    90% {
+        opacity: 1;
+        transform: scale(1);
+        filter: blur(0px) brightness(1);
+        box-shadow: none;
+    }
+}
+
+/* V11 2. 玻璃碎裂 - 玻璃破碎效果 */
+@keyframes ua-v11-glassShatter {
+    0%, 100% {
+        opacity: 0;
+        transform: rotate(0deg) scale(1);
+        filter: blur(0px);
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+    10% {
+        opacity: 1;
+        transform: rotate(5deg) scale(1.05);
+        filter: blur(2px);
+        clip-path: polygon(10% 5%, 90% 8%, 95% 92%, 5% 95%);
+    }
+    20% {
+        opacity: 0.8;
+        transform: rotate(-8deg) scale(1.15);
+        filter: blur(5px);
+        clip-path: polygon(15% 3%, 88% 10%, 92% 90%, 8% 97%);
+    }
+    30% {
+        opacity: 1;
+        transform: rotate(12deg) scale(1.08);
+        filter: blur(3px);
+        clip-path: polygon(8% 7%, 92% 5%, 97% 93%, 3% 90%);
+    }
+    40% {
+        opacity: 0.75;
+        transform: rotate(-15deg) scale(1.2);
+        filter: blur(8px);
+        clip-path: polygon(20% 2%, 85% 8%, 90% 95%, 10% 92%);
+    }
+    50% {
+        opacity: 1;
+        transform: rotate(8deg) scale(1.06);
+        filter: blur(4px);
+        clip-path: polygon(5% 4%, 95% 6%, 93% 94%, 7% 96%);
+    }
+    60% {
+        opacity: 0.85;
+        transform: rotate(-10deg) scale(1.12);
+        filter: blur(6px);
+        clip-path: polygon(12% 3%, 88% 7%, 95% 92%, 5% 95%);
+    }
+    70% {
+        opacity: 1;
+        transform: rotate(5deg) scale(1.03);
+        filter: blur(2px);
+        clip-path: polygon(3% 2%, 97% 4%, 98% 96%, 2% 98%);
+    }
+    80% {
+        opacity: 0.95;
+        transform: rotate(-3deg) scale(1.05);
+        filter: blur(1px);
+        clip-path: polygon(2% 1%, 98% 2%, 99% 98%, 1% 99%);
+    }
+    90% {
+        opacity: 1;
+        transform: rotate(0deg) scale(1);
+        filter: blur(0px);
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+}
+
+/* V11 3. 晶体爆炸 - 晶体裂变效果 */
+@keyframes ua-v11-crystalExplosion {
+    0%, 100% {
+        opacity: 0;
+        transform: scale(1);
+        filter: blur(0px) brightness(1);
+        box-shadow: none;
+    }
+    10% {
+        opacity: 1;
+        transform: scale(1.5) skewX(5deg) skewY(3deg);
+        filter: blur(15px) brightness(4);
+        box-shadow: 0 0 50px rgba(200, 255, 255, 0.8);
+    }
+    20% {
+        opacity: 0.6;
+        transform: scale(2.2) skewX(-8deg) skewY(-5deg);
+        filter: blur(35px) brightness(2);
+        box-shadow: 0 0 80px rgba(150, 255, 255, 0.6);
+    }
+    30% {
+        opacity: 1;
+        transform: scale(1.3) skewX(6deg) skewY(4deg);
+        filter: blur(8px) brightness(5);
+        box-shadow: 0 0 40px rgba(180, 255, 255, 0.75);
+    }
+    40% {
+        opacity: 0.7;
+        transform: scale(1.8) skewX(-10deg) skewY(-6deg);
+        filter: blur(25px) brightness(2.5);
+        box-shadow: 0 0 60px rgba(170, 250, 255, 0.65);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.1) skewX(4deg) skewY(2deg);
+        filter: blur(4px) brightness(4.5);
+        box-shadow: 0 0 30px rgba(190, 255, 255, 0.7);
+    }
+    60% {
+        opacity: 0.85;
+        transform: scale(1.4) skewX(-6deg) skewY(-3deg);
+        filter: blur(12px) brightness(3);
+        box-shadow: 0 0 45px rgba(185, 252, 255, 0.68);
+    }
+    70% {
+        opacity: 1;
+        transform: scale(1.02) skewX(2deg) skewY(1deg);
+        filter: blur(2px) brightness(4);
+        box-shadow: 0 0 20px rgba(192, 255, 255, 0.6);
+    }
+    80% {
+        opacity: 0.95;
+        transform: scale(1.05) skewX(-1deg) skewY(-0.5deg);
+        filter: blur(1px) brightness(3.5);
+        box-shadow: 0 0 12px rgba(190, 254, 255, 0.4);
+    }
+    90% {
+        opacity: 1;
+        transform: scale(1) skewX(0deg) skewY(0deg);
+        filter: blur(0px) brightness(1);
+        box-shadow: none;
+    }
+}
+
+/* V11 4. 像素爆裂 - 像素爆发效果 */
+@keyframes ua-v11-pixelBurst {
+    0%, 100% {
+        opacity: 0;
+        transform: scale(1);
+        filter: blur(0px) contrast(1);
+    }
+    10% {
+        opacity: 1;
+        transform: scale(1.4);
+        filter: blur(8px) contrast(2.5);
+    }
+    20% {
+        opacity: 0.5;
+        transform: scale(2);
+        filter: blur(18px) contrast(3.5);
+    }
+    30% {
+        opacity: 1;
+        transform: scale(1.15);
+        filter: blur(4px) contrast(2);
+    }
+    40% {
+        opacity: 0.6;
+        transform: scale(1.8);
+        filter: blur(14px) contrast(4);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.08);
+        filter: blur(2px) contrast(1.8);
+    }
+    60% {
+        opacity: 0.7;
+        transform: scale(1.4);
+        filter: blur(8px) contrast(2.5);
+    }
+    70% {
+        opacity: 1;
+        transform: scale(1.03);
+        filter: blur(1px) contrast(1.5);
+    }
+    80% {
+        opacity: 0.9;
+        transform: scale(1.1);
+        filter: blur(0.5px) contrast(1.2);
+    }
+    90% {
+        opacity: 1;
+        transform: scale(1);
+        filter: blur(0px) contrast(1);
+    }
+}
+
+/* V11 5. 碎片撕裂 - 碎片分离效果 */
+@keyframes ua-v11-fragmentShred {
+    0%, 100% {
+        opacity: 0;
+        transform: rotate(0deg) scale(1);
+        filter: blur(0px);
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+    10% {
+        opacity: 1;
+        transform: rotate(15deg) scale(1.15);
+        filter: blur(3px);
+        clip-path: polygon(15% 10%, 90% 5%, 95% 90%, 10% 95%);
+    }
+    20% {
+        opacity: 0.7;
+        transform: rotate(-12deg) scale(1.35);
+        filter: blur(8px);
+        clip-path: polygon(20% 5%, 85% 8%, 92% 95%, 8% 92%);
+    }
+    30% {
+        opacity: 1;
+        transform: rotate(25deg) scale(1.2);
+        filter: blur(4px);
+        clip-path: polygon(8% 12%, 92% 8%, 95% 88%, 5% 90%);
+    }
+    40% {
+        opacity: 0.65;
+        transform: rotate(-20deg) scale(1.5);
+        filter: blur(12px);
+        clip-path: polygon(25% 3%, 80% 10%, 90% 92%, 10% 85%);
+    }
+    50% {
+        opacity: 1;
+        transform: rotate(12deg) scale(1.08);
+        filter: blur(2px);
+        clip-path: polygon(5% 5%, 95% 6%, 93% 94%, 7% 95%);
+    }
+    60% {
+        opacity: 0.8;
+        transform: rotate(-8deg) scale(1.2);
+        filter: blur(6px);
+        clip-path: polygon(10% 4%, 90% 7%, 95% 93%, 5% 96%);
+    }
+    70% {
+        opacity: 1;
+        transform: rotate(5deg) scale(1.03);
+        filter: blur(1px);
+        clip-path: polygon(3% 2%, 97% 4%, 98% 96%, 2% 98%);
+    }
+    80% {
+        opacity: 0.95;
+        transform: rotate(-2deg) scale(1.05);
+        filter: blur(0.5px);
+        clip-path: polygon(2% 1%, 98% 2%, 99% 98%, 1% 99%);
+    }
+    90% {
+        opacity: 1;
+        transform: rotate(0deg) scale(1);
+        filter: blur(0px);
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+}
+
+/* V11 6. 等离子爆炸 - 等离子爆发效果 */
+@keyframes ua-v11-plasmaDetonation {
+    0%, 100% {
+        opacity: 0;
+        transform: scale(1);
+        filter: blur(0px) brightness(1) hue-rotate(0deg);
+        box-shadow: none;
+    }
+    10% {
+        opacity: 1;
+        transform: scale(2);
+        filter: blur(25px) brightness(6) hue-rotate(180deg);
+        box-shadow: 0 0 100px rgba(0, 255, 255, 0.9);
+    }
+    20% {
+        opacity: 0.5;
+        transform: scale(3.5);
+        filter: blur(50px) brightness(3) hue-rotate(200deg);
+        box-shadow: 0 0 150px rgba(0, 200, 255, 0.7);
+    }
+    30% {
+        opacity: 1;
+        transform: scale(1.4);
+        filter: blur(12px) brightness(7) hue-rotate(170deg);
+        box-shadow: 0 0 70px rgba(0, 240, 255, 0.85);
+    }
+    40% {
+        opacity: 0.6;
+        transform: scale(2.8);
+        filter: blur(35px) brightness(4) hue-rotate(190deg);
+        box-shadow: 0 0 120px rgba(0, 220, 255, 0.65);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.2);
+        filter: blur(5px) brightness(6.5) hue-rotate(175deg);
+        box-shadow: 0 0 50px rgba(0, 235, 255, 0.8);
+    }
+    60% {
+        opacity: 0.75;
+        transform: scale(2);
+        filter: blur(18px) brightness(4.5) hue-rotate(185deg);
+        box-shadow: 0 0 80px rgba(0, 230, 255, 0.7);
+    }
+    70% {
+        opacity: 1;
+        transform: scale(1.05);
+        filter: blur(2px) brightness(5.5) hue-rotate(180deg);
+        box-shadow: 0 0 30px rgba(0, 238, 255, 0.6);
+    }
+    80% {
+        opacity: 0.9;
+        transform: scale(1.15);
+        filter: blur(4px) brightness(2) hue-rotate(183deg);
+        box-shadow: 0 0 20px rgba(0, 236, 255, 0.3);
+    }
+    90% {
+        opacity: 1;
+        transform: scale(1);
+        filter: blur(0px) brightness(1) hue-rotate(0deg);
+        box-shadow: none;
+    }
+}
+
+/* V11 7. 能量冲击波 - 冲击波扩散效果 */
+@keyframes ua-v11-energyShockwave {
+    0%, 100% {
+        opacity: 0;
+        transform: scale(1);
+        filter: blur(0px) brightness(1) hue-rotate(0deg);
+        box-shadow: none;
+    }
+    10% {
+        opacity: 1;
+        transform: scale(2.5);
+        filter: blur(20px) brightness(5) hue-rotate(60deg);
+        box-shadow: 0 0 120px rgba(255, 200, 0, 0.9);
+    }
+    20% {
+        opacity: 0.6;
+        transform: scale(4);
+        filter: blur(40px) brightness(3) hue-rotate(80deg);
+        box-shadow: 0 0 180px rgba(255, 150, 0, 0.7);
+    }
+    30% {
+        opacity: 1;
+        transform: scale(1.6);
+        filter: blur(8px) brightness(6) hue-rotate(55deg);
+        box-shadow: 0 0 80px rgba(255, 190, 0, 0.85);
+    }
+    40% {
+        opacity: 0.7;
+        transform: scale(3);
+        filter: blur(25px) brightness(2.5) hue-rotate(70deg);
+        box-shadow: 0 0 140px rgba(255, 160, 0, 0.65);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.3);
+        filter: blur(4px) brightness(5.5) hue-rotate(62deg);
+        box-shadow: 0 0 60px rgba(255, 185, 0, 0.8);
+    }
+    60% {
+        opacity: 0.8;
+        transform: scale(2.2);
+        filter: blur(12px) brightness(3) hue-rotate(68deg);
+        box-shadow: 0 0 100px rgba(255, 170, 0, 0.7);
+    }
+    70% {
+        opacity: 1;
+        transform: scale(1.08);
+        filter: blur(2px) brightness(4.5) hue-rotate(65deg);
+        box-shadow: 0 0 40px rgba(255, 180, 0, 0.6);
+    }
+    80% {
+        opacity: 0.92;
+        transform: scale(1.18);
+        filter: blur(3px) brightness(2) hue-rotate(66deg);
+        box-shadow: 0 0 25px rgba(255, 175, 0, 0.3);
+    }
+    90% {
+        opacity: 1;
+        transform: scale(1);
+        filter: blur(0px) brightness(1) hue-rotate(0deg);
+        box-shadow: none;
+    }
+}
+
+/* V11 8. 物质坍塌 - 坍塌吞噬效果 */
+@keyframes ua-v11-matterCollapse {
+    0%, 100% {
+        opacity: 0;
+        transform: scale(1);
+        filter: blur(0px) brightness(1);
+        box-shadow: none;
+    }
+    10% {
+        opacity: 1;
+        transform: scale(1.8);
+        filter: blur(30px) brightness(4);
+        box-shadow: 0 0 60px rgba(0, 0, 0, 0.8);
+    }
+    20% {
+        opacity: 0.4;
+        transform: scale(0.6);
+        filter: blur(50px) brightness(2);
+        box-shadow: 0 0 100px rgba(0, 0, 0, 0.6);
+    }
+    30% {
+        opacity: 1;
+        transform: scale(2.5);
+        filter: blur(20px) brightness(5);
+        box-shadow: 0 0 40px rgba(0, 0, 0, 0.75);
+    }
+    40% {
+        opacity: 0.5;
+        transform: scale(0.8);
+        filter: blur(40px) brightness(2.5);
+        box-shadow: 0 0 80px rgba(0, 0, 0, 0.5);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(2);
+        filter: blur(10px) brightness(4.5);
+        box-shadow: 0 0 30px rgba(0, 0, 0, 0.7);
+    }
+    60% {
+        opacity: 0.6;
+        transform: scale(0.9);
+        filter: blur(25px) brightness(3);
+        box-shadow: 0 0 50px rgba(0, 0, 0, 0.55);
+    }
+    70% {
+        opacity: 1;
+        transform: scale(1.5);
+        filter: blur(5px) brightness(4);
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.65);
+    }
+    80% {
+        opacity: 0.85;
+        transform: scale(1.1);
+        filter: blur(10px) brightness(2.5);
+        box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
+    }
+    90% {
+        opacity: 1;
+        transform: scale(1);
+        filter: blur(0px) brightness(1);
+        box-shadow: none;
+    }
+}
+
+/* V11 9. 超新星爆发 - 恒星爆炸效果 */
+@keyframes ua-v11-stellarSupernova {
+    0%, 100% {
+        opacity: 0;
+        transform: scale(1);
+        filter: blur(0px) brightness(1) hue-rotate(0deg);
+        box-shadow: none;
+    }
+    10% {
+        opacity: 1;
+        transform: scale(3.5);
+        filter: blur(40px) brightness(12) hue-rotate(300deg);
+        box-shadow: 0 0 150px rgba(255, 100, 200, 0.95);
+    }
+    20% {
+        opacity: 0.5;
+        transform: scale(5.5);
+        filter: blur(70px) brightness(7) hue-rotate(320deg);
+        box-shadow: 0 0 250px rgba(255, 50, 150, 0.8);
+    }
+    30% {
+        opacity: 1;
+        transform: scale(2.2);
+        filter: blur(15px) brightness(14) hue-rotate(290deg);
+        box-shadow: 0 0 100px rgba(255, 120, 220, 0.9);
+    }
+    40% {
+        opacity: 0.6;
+        transform: scale(4.5);
+        filter: blur(40px) brightness(8) hue-rotate(310deg);
+        box-shadow: 0 0 200px rgba(255, 70, 180, 0.75);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.6);
+        filter: blur(6px) brightness(13) hue-rotate(295deg);
+        box-shadow: 0 0 70px rgba(255, 110, 210, 0.85);
+    }
+    60% {
+        opacity: 0.7;
+        transform: scale(3);
+        filter: blur(22px) brightness(9) hue-rotate(305deg);
+        box-shadow: 0 0 150px rgba(255, 80, 190, 0.7);
+    }
+    70% {
+        opacity: 1;
+        transform: scale(1.2);
+        filter: blur(3px) brightness(12) hue-rotate(298deg);
+        box-shadow: 0 0 50px rgba(255, 105, 205, 0.8);
+    }
+    80% {
+        opacity: 0.85;
+        transform: scale(1.6);
+        filter: blur(8px) brightness(7) hue-rotate(302deg);
+        box-shadow: 0 0 30px rgba(255, 90, 195, 0.5);
+    }
+    90% {
+        opacity: 1;
+        transform: scale(1);
+        filter: blur(0px) brightness(1) hue-rotate(0deg);
+        box-shadow: none;
+    }
+}
+
+/* V11 10. 原子解体 - 解体消散效果 */
+@keyframes ua-v11-disintegration {
+    0%, 100% {
+        opacity: 0;
+        transform: scale(1);
+        filter: blur(0px) hue-rotate(0deg);
+    }
+    10% {
+        opacity: 1;
+        transform: scale(1.1);
+        filter: blur(2px) hue-rotate(0deg);
+    }
+    20% {
+        opacity: 0.7;
+        transform: scale(1.15);
+        filter: blur(5px) hue-rotate(45deg);
+    }
+    30% {
+        opacity: 1;
+        transform: scale(1.1);
+        filter: blur(3px) hue-rotate(90deg);
+    }
+    40% {
+        opacity: 0.6;
+        transform: scale(1.2);
+        filter: blur(8px) hue-rotate(135deg);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.15);
+        filter: blur(4px) hue-rotate(180deg);
+    }
+    60% {
+        opacity: 0.75;
+        transform: scale(1.18);
+        filter: blur(6px) hue-rotate(225deg);
+    }
+    70% {
+        opacity: 1;
+        transform: scale(1.08);
+        filter: blur(2px) hue-rotate(270deg);
+    }
+    80% {
+        opacity: 0.9;
+        transform: scale(1.1);
+        filter: blur(1px) hue-rotate(315deg);
+    }
+    90% {
+        opacity: 1;
+        transform: scale(1);
+        filter: blur(0px) hue-rotate(0deg);
+    }
+}
+
+/* V11 11. 连锁反应 - 连锁爆炸效果 */
+@keyframes ua-v11-chainReaction {
+    0%, 100% {
+        opacity: 0;
+        transform: scale(1);
+        filter: blur(0px) brightness(1);
+        box-shadow: none;
+    }
+    10% {
+        opacity: 1;
+        transform: scale(1.2);
+        filter: blur(5px) brightness(1.8);
+        box-shadow: 0 0 30px rgba(255, 200, 100, 0.7);
+    }
+    20% {
+        opacity: 0.6;
+        transform: scale(0.8);
+        filter: blur(18px) brightness(0.8);
+        box-shadow: 0 0 50px rgba(255, 150, 50, 0.5);
+    }
+    30% {
+        opacity: 1;
+        transform: scale(1.35);
+        filter: blur(3px) brightness(2);
+        box-shadow: 0 0 35px rgba(255, 180, 80, 0.65);
+    }
+    40% {
+        opacity: 0.65;
+        transform: scale(0.9);
+        filter: blur(15px) brightness(0.9);
+        box-shadow: 0 0 45px rgba(255, 160, 60, 0.55);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.2);
+        filter: blur(2px) brightness(1.8);
+        box-shadow: 0 0 32px rgba(255, 175, 75, 0.6);
+    }
+    60% {
+        opacity: 0.7;
+        transform: scale(0.95);
+        filter: blur(10px) brightness(1);
+        box-shadow: 0 0 40px rgba(255, 170, 70, 0.5);
+    }
+    70% {
+        opacity: 1;
+        transform: scale(1.1);
+        filter: blur(1px) brightness(1.6);
+        box-shadow: 0 0 28px rgba(255, 172, 73, 0.55);
+    }
+    80% {
+        opacity: 0.88;
+        transform: scale(1.05);
+        filter: blur(0.5px) brightness(1.3);
+        box-shadow: 0 0 15px rgba(255, 165, 70, 0.3);
+    }
+    90% {
+        opacity: 1;
+        transform: scale(1);
+        filter: blur(0px) brightness(1);
+        box-shadow: none;
+    }
+}
+
+/* V11 12. 冲击撞击 - 撞击震动效果 */
+@keyframes ua-v11-shockwaveImpact {
+    0%, 100% {
+        opacity: 0;
+        transform: scale(1);
+        filter: blur(0px) brightness(1);
+        box-shadow: none;
+    }
+    10% {
+        opacity: 1;
+        transform: scale(2.5);
+        filter: blur(20px) brightness(6);
+        box-shadow: 0 0 100px rgba(255, 100, 50, 0.9);
+    }
+    20% {
+        opacity: 0.5;
+        transform: scale(3.5);
+        filter: blur(40px) brightness(3);
+        box-shadow: 0 0 150px rgba(255, 50, 0, 0.7);
+    }
+    30% {
+        opacity: 1;
+        transform: scale(1.6);
+        filter: blur(8px) brightness(7);
+        box-shadow: 0 0 70px rgba(255, 80, 30, 0.85);
+    }
+    40% {
+        opacity: 0.6;
+        transform: scale(3);
+        filter: blur(25px) brightness(2.5);
+        box-shadow: 0 0 120px rgba(255, 60, 10, 0.65);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.3);
+        filter: blur(4px) brightness(6.5);
+        box-shadow: 0 0 50px rgba(255, 70, 20, 0.8);
+    }
+    60% {
+        opacity: 0.7;
+        transform: scale(2.2);
+        filter: blur(12px) brightness(3.5);
+        box-shadow: 0 0 90px rgba(255, 65, 15, 0.7);
+    }
+    70% {
+        opacity: 1;
+        transform: scale(1.1);
+        filter: blur(2px) brightness(5.5);
+        box-shadow: 0 0 40px rgba(255, 68, 18, 0.6);
+    }
+    80% {
+        opacity: 0.9;
+        transform: scale(1.2);
+        filter: blur(3px) brightness(2);
+        box-shadow: 0 0 25px rgba(255, 62, 14, 0.3);
+    }
+    90% {
+        opacity: 1;
+        transform: scale(1);
+        filter: blur(0px) brightness(1);
+        box-shadow: none;
+    }
+}
+
+/* V11 13. 碎片飞溅 - 碎片四散效果 */
+@keyframes ua-v11-debrisScatter {
+    0%, 100% {
+        opacity: 0;
+        transform: rotate(0deg) scale(1);
+        filter: blur(0px);
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+    10% {
+        opacity: 1;
+        transform: rotate(8deg) scale(1.25);
+        filter: blur(4px);
+        clip-path: polygon(12% 8%, 90% 6%, 95% 92%, 8% 94%);
+    }
+    20% {
+        opacity: 0.7;
+        transform: rotate(-10deg) scale(1.4);
+        filter: blur(10px);
+        clip-path: polygon(18% 5%, 88% 9%, 93% 93%, 7% 91%);
+    }
+    30% {
+        opacity: 1;
+        transform: rotate(15deg) scale(1.18);
+        filter: blur(5px);
+        clip-path: polygon(8% 10%, 92% 7%, 96% 90%, 4% 93%);
+    }
+    40% {
+        opacity: 0.65;
+        transform: rotate(-18deg) scale(1.55);
+        filter: blur(14px);
+        clip-path: polygon(22% 4%, 83% 11%, 91% 93%, 9% 89%);
+    }
+    50% {
+        opacity: 1;
+        transform: rotate(6deg) scale(1.08);
+        filter: blur(3px);
+        clip-path: polygon(5% 6%, 95% 7%, 94% 94%, 6% 95%);
+    }
+    60% {
+        opacity: 0.75;
+        transform: rotate(-12deg) scale(1.3);
+        filter: blur(8px);
+        clip-path: polygon(10% 5%, 90% 8%, 95% 93%, 5% 96%);
+    }
+    70% {
+        opacity: 1;
+        transform: rotate(4deg) scale(1.04);
+        filter: blur(1px);
+        clip-path: polygon(3% 3%, 97% 5%, 98% 97%, 2% 98%);
+    }
+    80% {
+        opacity: 0.92;
+        transform: rotate(-2deg) scale(1.08);
+        filter: blur(0.5px);
+        clip-path: polygon(2% 2%, 98% 3%, 99% 98%, 1% 99%);
+    }
+    90% {
+        opacity: 1;
+        transform: rotate(0deg) scale(1);
+        filter: blur(0px);
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+}
+
+/* V11 14. 等离子爆破 - 等离子爆发效果 */
+@keyframes ua-v11-plasmaBlast {
+    0%, 100% {
+        opacity: 0;
+        transform: scale(1);
+        filter: blur(0px) brightness(1) hue-rotate(0deg);
+        box-shadow: none;
+    }
+    10% {
+        opacity: 1;
+        transform: scale(1.8);
+        filter: blur(22px) brightness(6) hue-rotate(120deg);
+        box-shadow: 0 0 90px rgba(0, 255, 200, 0.9);
+    }
+    20% {
+        opacity: 0.55;
+        transform: scale(3);
+        filter: blur(45px) brightness(3.5) hue-rotate(140deg);
+        box-shadow: 0 0 140px rgba(0, 220, 180, 0.7);
+    }
+    30% {
+        opacity: 1;
+        transform: scale(1.35);
+        filter: blur(10px) brightness(6.5) hue-rotate(110deg);
+        box-shadow: 0 0 65px rgba(0, 240, 195, 0.85);
+    }
+    40% {
+        opacity: 0.65;
+        transform: scale(2.5);
+        filter: blur(30px) brightness(3.8) hue-rotate(130deg);
+        box-shadow: 0 0 110px rgba(0, 230, 188, 0.65);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.15);
+        filter: blur(4px) brightness(6) hue-rotate(115deg);
+        box-shadow: 0 0 50px rgba(0, 238, 192, 0.8);
+    }
+    60% {
+        opacity: 0.7;
+        transform: scale(1.8);
+        filter: blur(16px) brightness(4) hue-rotate(125deg);
+        box-shadow: 0 0 80px rgba(0, 235, 190, 0.7);
+    }
+    70% {
+        opacity: 1;
+        transform: scale(1.03);
+        filter: blur(2px) brightness(5.5) hue-rotate(118deg);
+        box-shadow: 0 0 30px rgba(0, 237, 191, 0.6);
+    }
+    80% {
+        opacity: 0.88;
+        transform: scale(1.15);
+        filter: blur(4px) brightness(2.5) hue-rotate(122deg);
+        box-shadow: 0 0 20px rgba(0, 236, 190, 0.3);
+    }
+    90% {
+        opacity: 1;
+        transform: scale(1);
+        filter: blur(0px) brightness(1) hue-rotate(0deg);
+        box-shadow: none;
+    }
+}
+
+/* V11 15. 量子爆炸 - 量子爆发效果 */
+@keyframes ua-v11-quantumExplosion {
+    0%, 100% {
+        opacity: 0;
+        transform: scale(1);
+        filter: blur(0px) brightness(1) hue-rotate(0deg) saturate(1);
+        box-shadow: none;
+    }
+    10% {
+        opacity: 1;
+        transform: scale(2.5);
+        filter: blur(28px) brightness(7) hue-rotate(240deg) saturate(2.5);
+        box-shadow: 0 0 120px rgba(150, 0, 255, 0.95);
+    }
+    20% {
+        opacity: 0.45;
+        transform: scale(4);
+        filter: blur(55px) brightness(4) hue-rotate(260deg) saturate(3);
+        box-shadow: 0 0 180px rgba(100, 0, 255, 0.8);
+    }
+    30% {
+        opacity: 1;
+        transform: scale(1.7);
+        filter: blur(12px) brightness(8) hue-rotate(230deg) saturate(2.2);
+        box-shadow: 0 0 80px rgba(130, 0, 255, 0.9);
+    }
+    40% {
+        opacity: 0.55;
+        transform: scale(3.2);
+        filter: blur(38px) brightness(4.5) hue-rotate(250deg) saturate(2.8);
+        box-shadow: 0 0 150px rgba(110, 0, 255, 0.75);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.3);
+        filter: blur(6px) brightness(7.5) hue-rotate(235deg) saturate(2.3);
+        box-shadow: 0 0 60px rgba(140, 0, 255, 0.85);
+    }
+    60% {
+        opacity: 0.65;
+        transform: scale(2.2);
+        filter: blur(20px) brightness(5) hue-rotate(245deg) saturate(2.6);
+        box-shadow: 0 0 100px rgba(125, 0, 255, 0.7);
+    }
+    70% {
+        opacity: 1;
+        transform: scale(1.05);
+        filter: blur(3px) brightness(7) hue-rotate(238deg) saturate(2.4);
+        box-shadow: 0 0 40px rgba(135, 0, 255, 0.65);
+    }
+    80% {
+        opacity: 0.85;
+        transform: scale(1.18);
+        filter: blur(5px) brightness(3) hue-rotate(242deg) saturate(2.5);
+        box-shadow: 0 0 25px rgba(128, 0, 255, 0.4);
+    }
+    90% {
+        opacity: 1;
+        transform: scale(1);
+        filter: blur(0px) brightness(1) hue-rotate(0deg) saturate(1);
+        box-shadow: none;
+    }
+}
+
+/* V11 16. 反物质爆裂 - 反物质爆炸效果 */
+@keyframes ua-v11-antiMatterBlast {
+    0%, 100% {
+        opacity: 0;
+        transform: scale(1);
+        filter: blur(0px) brightness(1) invert(0);
+        box-shadow: none;
+    }
+    10% {
+        opacity: 1;
+        transform: scale(2.8);
+        filter: blur(35px) brightness(10) invert(0.5);
+        box-shadow: 0 0 150px rgba(255, 255, 255, 0.9);
+    }
+    20% {
+        opacity: 0.4;
+        transform: scale(4.5);
+        filter: blur(60px) brightness(5) invert(0.6);
+        box-shadow: 0 0 220px rgba(200, 200, 200, 0.75);
+    }
+    30% {
+        opacity: 1;
+        transform: scale(1.9);
+        filter: blur(16px) brightness(11) invert(0.45);
+        box-shadow: 0 0 100px rgba(230, 230, 230, 0.88);
+    }
+    40% {
+        opacity: 0.5;
+        transform: scale(4);
+        filter: blur(45px) brightness(4) invert(0.55);
+        box-shadow: 0 0 180px rgba(210, 210, 210, 0.7);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.4);
+        filter: blur(6px) brightness(10.5) invert(0.48);
+        box-shadow: 0 0 70px rgba(225, 225, 225, 0.82);
+    }
+    60% {
+        opacity: 0.6;
+        transform: scale(3);
+        filter: blur(25px) brightness(4.5) invert(0.52);
+        box-shadow: 0 0 130px rgba(215, 215, 215, 0.72);
+    }
+    70% {
+        opacity: 1;
+        transform: scale(1.08);
+        filter: blur(3px) brightness(9.5) invert(0.5);
+        box-shadow: 0 0 50px rgba(220, 220, 220, 0.65);
+    }
+    80% {
+        opacity: 0.85;
+        transform: scale(1.2);
+        filter: blur(5px) brightness(3) invert(0.51);
+        box-shadow: 0 0 30px rgba(218, 218, 218, 0.35);
+    }
+    90% {
+        opacity: 1;
+        transform: scale(1);
+        filter: blur(0px) brightness(1) invert(0);
+        box-shadow: none;
+    }
+}
+
+.ua-v11-nuclearExplosion { animation-name: ua-v11-nuclearExplosion; animation-duration: 4.5s; }
+.ua-v11-glassShatter { animation-name: ua-v11-glassShatter; animation-duration: 3.8s; }
+.ua-v11-crystalExplosion { animation-name: ua-v11-crystalExplosion; animation-duration: 4.2s; }
+.ua-v11-pixelBurst { animation-name: ua-v11-pixelBurst; animation-duration: 3.5s; }
+.ua-v11-fragmentShred { animation-name: ua-v11-fragmentShred; animation-duration: 4s; }
+.ua-v11-plasmaDetonation { animation-name: ua-v11-plasmaDetonation; animation-duration: 4.8s; }
+.ua-v11-energyShockwave { animation-name: ua-v11-energyShockwave; animation-duration: 5s; }
+.ua-v11-matterCollapse { animation-name: ua-v11-matterCollapse; animation-duration: 4.5s; }
+.ua-v11-stellarSupernova { animation-name: ua-v11-stellarSupernova; animation-duration: 5.5s; }
+.ua-v11-disintegration { animation-name: ua-v11-disintegration; animation-duration: 3.8s; }
+.ua-v11-chainReaction { animation-name: ua-v11-chainReaction; animation-duration: 4s; }
+.ua-v11-shockwaveImpact { animation-name: ua-v11-shockwaveImpact; animation-duration: 4.8s; }
+.ua-v11-debrisScatter { animation-name: ua-v11-debrisScatter; animation-duration: 4.2s; }
+.ua-v11-plasmaBlast { animation-name: ua-v11-plasmaBlast; animation-duration: 4.5s; }
+.ua-v11-quantumExplosion { animation-name: ua-v11-quantumExplosion; animation-duration: 5.2s; }
+.ua-v11-antiMatterBlast { animation-name: ua-v11-antiMatterBlast; animation-duration: 5.5s; }
+

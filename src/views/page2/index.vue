@@ -1,12 +1,33 @@
 <template>
   <div class="home-container">
     <div class="animation-demo">
-      <h1>🎨 GSAP 炫酷动画库 (92+ 特效)</h1>
+      <h1>🎨 GSAP 炫酷动画库 (168+ 特效)</h1>
       <div class="animation-main">
         <div class="sidebar">
           <div class="sidebar-header">
             <h3>🎬 动画控制台</h3>
           </div>
+          <div class="control-group">
+            <label class="control-label">动画速度</label>
+            <div class="speed-controls">
+              <button
+                  v-for="speed in speeds"
+                  :key="speed.value"
+                  :class="['speed-btn', { active: currentSpeed === speed.value }]"
+                  @click="setSpeed(speed.value)"
+              >
+                {{ speed.label }}
+              </button>
+            </div>
+          </div>
+          <button class="play-btn" @click="triggerAnimation">
+            <span class="play-icon">▶</span>
+            <span class="play-text">播放动画</span>
+          </button>
+          <button class="reset-btn" @click="resetAnimation">
+            <span class="reset-icon">↻</span>
+            <span class="reset-text">重置</span>
+          </button>
           <div class="control-group">
             <label class="control-label">选择动画</label>
             <div class="dropdown-wrapper" ref="dropdownRef">
@@ -34,27 +55,6 @@
               </div>
             </div>
           </div>
-          <div class="control-group">
-            <label class="control-label">动画速度</label>
-            <div class="speed-controls">
-              <button
-                v-for="speed in speeds"
-                :key="speed.value"
-                :class="['speed-btn', { active: currentSpeed === speed.value }]"
-                @click="setSpeed(speed.value)"
-              >
-                {{ speed.label }}
-              </button>
-            </div>
-          </div>
-          <button class="play-btn" @click="triggerAnimation">
-            <span class="play-icon">▶</span>
-            <span class="play-text">播放动画</span>
-          </button>
-          <button class="reset-btn" @click="resetAnimation">
-            <span class="reset-icon">↻</span>
-            <span class="reset-text">重置</span>
-          </button>
         </div>
         <div class="preview-area">
           <div class="preview-header">
@@ -380,7 +380,7 @@ h1 {
   font-size: 12px;
   font-weight: 700;
   color: #667eea;
-  background: #f8f9fa;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.08) 0%, rgba(118, 75, 162, 0.08) 100%);
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }

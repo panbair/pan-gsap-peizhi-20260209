@@ -1572,5 +1572,1206 @@ export const config = {
       { scale: 0.99, scaleX: 1.01, scaleY: 0.99, rotation: 0.25, duration: 0.05, ease: 'power2.out' },
       { scale: 1, scaleX: 1, scaleY: 1, rotation: 0, duration: 0.12, ease: 'elastic.out(1, 0.5)' }
     ]
+  },
+
+  // V8 量子维度系列
+
+  // 量子实体化 - 从量子态到实体的渐进过程
+  quantumMaterialize: {
+    type: 'timeline',
+    animations: [
+      { opacity: 0, scale: 0, rotation: 0, filter: 'blur(50px) brightness(3) hue-rotate(0deg)', duration: 0 },
+      { opacity: 0.2, scale: 0.3, rotation: 45, filter: 'blur(30px) brightness(2.5) hue-rotate(45deg)', duration: 0.2, ease: 'power2.out' },
+      { opacity: 0.4, scale: 0.6, rotation: -30, filter: 'blur(20px) brightness(2) hue-rotate(90deg)', duration: 0.15, ease: 'power2.in' },
+      { opacity: 0.65, scale: 0.85, rotation: 20, filter: 'blur(12px) brightness(1.8) hue-rotate(135deg)', duration: 0.12, ease: 'power2.out' },
+      { opacity: 0.85, scale: 1.1, rotation: -10, filter: 'blur(6px) brightness(1.5) hue-rotate(180deg)', duration: 0.1, ease: 'power2.in' },
+      { opacity: 1, scale: 0.98, rotation: 5, filter: 'blur(3px) brightness(1.2) hue-rotate(220deg)', duration: 0.08, ease: 'power2.out' },
+      { scale: 1.02, rotation: -2, filter: 'blur(1px) brightness(1.1) hue-rotate(250deg)', duration: 0.06, ease: 'power2.in' },
+      { scale: 1, rotation: 0, filter: 'blur(0px) brightness(1) hue-rotate(0deg)', duration: 0.15, ease: 'elastic.out(1, 0.4)' }
+    ]
+  },
+
+  // 维度相位 - 多维度交错显现
+  dimensionalPhase: {
+    type: 'timeline',
+    animations: [
+      { opacity: 0, scale: 2, rotationX: 90, rotationY: 90, z: -500, filter: 'blur(40px)', duration: 0 },
+      { opacity: 0.25, scale: 1.5, rotationX: 45, rotationY: 45, z: -250, filter: 'blur(25px)', duration: 0.18, ease: 'power2.out' },
+      { opacity: 0.5, scale: 1.2, rotationX: 0, rotationY: 0, z: 0, filter: 'blur(15px)', duration: 0.15, ease: 'power2.in' },
+      { opacity: 0.75, scale: 0.9, rotationX: -20, rotationY: -20, z: 100, filter: 'blur(8px)', duration: 0.12, ease: 'power2.out' },
+      { opacity: 0.9, scale: 1.05, rotationX: 10, rotationY: 10, z: -50, filter: 'blur(4px)', duration: 0.1, ease: 'power2.in' },
+      { opacity: 1, scale: 0.98, rotationX: -5, rotationY: -5, z: 25, filter: 'blur(2px)', duration: 0.08, ease: 'power2.out' },
+      { rotationX: 2, rotationY: 2, z: -12, filter: 'blur(1px)', duration: 0.06, ease: 'power2.in' },
+      { rotationX: 0, rotationY: 0, z: 0, filter: 'blur(0px)', duration: 0.12, ease: 'elastic.out(1, 0.3)' }
+    ]
+  },
+
+  // 神经脉冲 - 模拟神经元信号传递
+  neuroPulse: {
+    type: 'timeline',
+    animations: [
+      { opacity: 0, scale: 0.2, filter: 'blur(30px) brightness(2)', duration: 0 },
+      { opacity: 1, scale: 1.5, filter: 'blur(5px) brightness(1.5)', duration: 0.1, ease: 'power4.out' },
+      { opacity: 0.3, scale: 0.7, filter: 'blur(20px) brightness(0.8)', duration: 0.15, ease: 'power2.in' },
+      { opacity: 1, scale: 1.3, filter: 'blur(3px) brightness(1.3)', duration: 0.08, ease: 'power4.out' },
+      { opacity: 0.5, scale: 0.85, filter: 'blur(10px) brightness(0.9)', duration: 0.12, ease: 'power2.in' },
+      { opacity: 1, scale: 1.15, filter: 'blur(2px) brightness(1.2)', duration: 0.06, ease: 'power4.out' },
+      { opacity: 0.7, scale: 0.95, filter: 'blur(5px) brightness(1)', duration: 0.08, ease: 'power2.in' },
+      { opacity: 1, scale: 1, filter: 'blur(0px) brightness(1)', duration: 0.1, ease: 'elastic.out(1, 0.5)' }
+    ]
+  },
+
+  // 全息材质 - 全息投影的材质变化
+  hologramMaterial: {
+    type: 'timeline',
+    animations: [
+      { opacity: 0, scale: 1.5, filter: 'blur(20px) brightness(2) saturate(0.5)', duration: 0 },
+      { opacity: 0.4, scale: 1.2, filter: 'blur(12px) brightness(1.8) saturate(1)', duration: 0.2, ease: 'power2.out' },
+      { opacity: 0.7, scale: 0.9, filter: 'blur(6px) brightness(1.5) saturate(1.5)', duration: 0.15, ease: 'power2.in' },
+      { opacity: 0.9, scale: 1.05, filter: 'blur(3px) brightness(1.3) saturate(2)', duration: 0.1, ease: 'power2.out' },
+      { opacity: 0.6, scale: 0.98, filter: 'blur(8px) brightness(1.6) saturate(1.2)', duration: 0.08, ease: 'power2.in' },
+      { opacity: 1, scale: 1.02, filter: 'blur(2px) brightness(1.2) saturate(1.8)', duration: 0.06, ease: 'power2.out' },
+      { filter: 'blur(1px) brightness(1) saturate(1.5)', duration: 0.05, ease: 'power2.in' },
+      { filter: 'blur(0px) brightness(1) saturate(1)', duration: 0.15, ease: 'elastic.out(1, 0.4)' }
+    ]
+  },
+
+  // 时间通量 - 时间扭曲效果
+  temporalFlux: {
+    type: 'timeline',
+    animations: [
+      { opacity: 0, scale: 0.5, rotation: 0, x: 0, filter: 'blur(30px)', duration: 0 },
+      { opacity: 0.5, scale: 1.2, rotation: 180, x: 100, filter: 'blur(15px)', duration: 0.25, ease: 'power3.inOut' },
+      { opacity: 0.2, scale: 0.6, rotation: 360, x: -80, filter: 'blur(25px)', duration: 0.2, ease: 'power3.inOut' },
+      { opacity: 0.8, scale: 1.3, rotation: 540, x: 60, filter: 'blur(8px)', duration: 0.15, ease: 'power3.inOut' },
+      { opacity: 0.4, scale: 0.8, rotation: 720, x: -40, filter: 'blur(12px)', duration: 0.12, ease: 'power3.inOut' },
+      { opacity: 1, scale: 1.1, rotation: 810, x: 20, filter: 'blur(4px)', duration: 0.1, ease: 'power3.inOut' },
+      { scale: 0.95, rotation: 870, x: -10, filter: 'blur(2px)', duration: 0.08, ease: 'power3.inOut' },
+      { scale: 1, rotation: 900, x: 0, filter: 'blur(0px)', duration: 0.12, ease: 'elastic.out(1, 0.3)' }
+    ]
+  },
+
+  // 能量级联 - 能量波动传递
+  energyCascade: {
+    type: 'timeline',
+    animations: [
+      { opacity: 0, scale: 0, filter: 'blur(50px) brightness(3)', duration: 0 },
+      { opacity: 1, scale: 2, filter: 'blur(20px) brightness(2)', duration: 0.15, ease: 'power4.out' },
+      { opacity: 0.6, scale: 0.5, filter: 'blur(35px) brightness(1.5)', duration: 0.12, ease: 'power4.in' },
+      { opacity: 1, scale: 1.5, filter: 'blur(10px) brightness(1.8)', duration: 0.1, ease: 'power4.out' },
+      { opacity: 0.7, scale: 0.8, filter: 'blur(18px) brightness(1.3)', duration: 0.08, ease: 'power4.in' },
+      { opacity: 1, scale: 1.2, filter: 'blur(5px) brightness(1.5)', duration: 0.06, ease: 'power4.out' },
+      { opacity: 0.85, scale: 0.95, filter: 'blur(8px) brightness(1.2)', duration: 0.05, ease: 'power4.in' },
+      { opacity: 1, scale: 1, filter: 'blur(0px) brightness(1)', duration: 0.1, ease: 'elastic.out(1, 0.4)' }
+    ]
+  },
+
+  // 形态本质 - 物质形态的本质变化
+  morphEssence: {
+    type: 'timeline',
+    animations: [
+      { opacity: 0, scale: 0.3, borderRadius: '50%', rotation: 0, filter: 'blur(40px)', duration: 0 },
+      { opacity: 0.4, scale: 0.6, borderRadius: '50%', rotation: 120, filter: 'blur(25px)', duration: 0.2, ease: 'power2.out' },
+      { opacity: 0.7, scale: 1.2, borderRadius: '30%', rotation: 240, filter: 'blur(12px)', duration: 0.15, ease: 'power2.in' },
+      { opacity: 0.9, scale: 0.85, borderRadius: '10%', rotation: 360, filter: 'blur(6px)', duration: 0.12, ease: 'power2.out' },
+      { opacity: 0.6, scale: 1.1, borderRadius: '40%', rotation: 420, filter: 'blur(8px)', duration: 0.1, ease: 'power2.in' },
+      { opacity: 1, scale: 0.95, borderRadius: '20%', rotation: 450, filter: 'blur(3px)', duration: 0.08, ease: 'power2.out' },
+      { borderRadius: '25%', rotation: 465, filter: 'blur(1px)', duration: 0.06, ease: 'power2.in' },
+      { borderRadius: '20px', rotation: 0, filter: 'blur(0px)', duration: 0.12, ease: 'elastic.out(1, 0.5)' }
+    ]
+  },
+
+  // 共振场域 - 共振波扩散
+  resonanceField: {
+    type: 'timeline',
+    animations: [
+      { opacity: 0, scale: 0, filter: 'blur(30px)', duration: 0 },
+      { opacity: 1, scale: 1.8, filter: 'blur(5px)', duration: 0.12, ease: 'power2.out' },
+      { opacity: 0.3, scale: 0.5, filter: 'blur(20px)', duration: 0.1, ease: 'power2.in' },
+      { opacity: 1, scale: 1.4, filter: 'blur(3px)', duration: 0.08, ease: 'power2.out' },
+      { opacity: 0.5, scale: 0.75, filter: 'blur(12px)', duration: 0.07, ease: 'power2.in' },
+      { opacity: 1, scale: 1.2, filter: 'blur(2px)', duration: 0.06, ease: 'power2.out' },
+      { opacity: 0.7, scale: 0.9, filter: 'blur(6px)', duration: 0.05, ease: 'power2.in' },
+      { opacity: 1, scale: 1, filter: 'blur(0px)', duration: 0.1, ease: 'elastic.out(1, 0.6)' }
+    ]
+  },
+
+  // 量子纠缠 - 双向纠缠动画
+  quantumEntangle: {
+    type: 'timeline',
+    animations: [
+      { opacity: 0, scale: 0, rotation: 0, x: 0, filter: 'blur(40px)', duration: 0 },
+      { opacity: 1, scale: 1.5, rotation: 180, x: 80, filter: 'blur(10px)', duration: 0.2, ease: 'power2.out' },
+      { opacity: 0.4, scale: 0.6, rotation: 360, x: -60, filter: 'blur(25px)', duration: 0.15, ease: 'power2.in' },
+      { opacity: 1, scale: 1.3, rotation: 540, x: 40, filter: 'blur(5px)', duration: 0.12, ease: 'power2.out' },
+      { opacity: 0.5, scale: 0.85, rotation: 630, x: -25, filter: 'blur(12px)', duration: 0.1, ease: 'power2.in' },
+      { opacity: 1, scale: 1.15, rotation: 720, x: 15, filter: 'blur(3px)', duration: 0.08, ease: 'power2.out' },
+      { opacity: 0.7, scale: 0.95, rotation: 765, x: -8, filter: 'blur(5px)', duration: 0.06, ease: 'power2.in' },
+      { opacity: 1, scale: 1, rotation: 0, x: 0, filter: 'blur(0px)', duration: 0.12, ease: 'elastic.out(1, 0.4)' }
+    ]
+  },
+
+  // 维度跃迁 - 跨维度穿越
+  dimensionShift: {
+    type: 'timeline',
+    animations: [
+      { opacity: 0, scale: 0.2, rotationX: 180, rotationY: 180, z: -800, filter: 'blur(60px)', duration: 0 },
+      { opacity: 0.5, scale: 0.8, rotationX: 90, rotationY: 90, z: -400, filter: 'blur(30px)', duration: 0.22, ease: 'power3.out' },
+      { opacity: 0.2, scale: 1.4, rotationX: 45, rotationY: 45, z: -200, filter: 'blur(45px)', duration: 0.18, ease: 'power3.in' },
+      { opacity: 0.8, scale: 0.7, rotationX: 22, rotationY: 22, z: 100, filter: 'blur(15px)', duration: 0.15, ease: 'power3.out' },
+      { opacity: 0.4, scale: 1.2, rotationX: 11, rotationY: 11, z: -50, filter: 'blur(22px)', duration: 0.12, ease: 'power3.in' },
+      { opacity: 0.9, scale: 0.9, rotationX: 5, rotationY: 5, z: 25, filter: 'blur(8px)', duration: 0.1, ease: 'power3.out' },
+      { opacity: 0.6, scale: 1.05, rotationX: 2, rotationY: 2, z: -12, filter: 'blur(12px)', duration: 0.08, ease: 'power3.in' },
+      { opacity: 1, scale: 1, rotationX: 0, rotationY: 0, z: 0, filter: 'blur(0px)', duration: 0.14, ease: 'elastic.out(1, 0.35)' }
+    ]
+  },
+
+  // 等离子核心 - 等离子能量核心
+  plasmaCore: {
+    type: 'timeline',
+    animations: [
+      { opacity: 0, scale: 0, filter: 'blur(80px) brightness(5) saturate(2)', duration: 0 },
+      { opacity: 1, scale: 2.5, filter: 'blur(20px) brightness(3) saturate(3)', duration: 0.18, ease: 'power4.out' },
+      { opacity: 0.3, scale: 0.5, filter: 'blur(50px) brightness(2) saturate(1.5)', duration: 0.15, ease: 'power4.in' },
+      { opacity: 1, scale: 1.8, filter: 'blur(10px) brightness(2.5) saturate(2.5)', duration: 0.12, ease: 'power4.out' },
+      { opacity: 0.5, scale: 0.7, filter: 'blur(30px) brightness(1.8) saturate(1.8)', duration: 0.1, ease: 'power4.in' },
+      { opacity: 1, scale: 1.4, filter: 'blur(5px) brightness(2.2) saturate(2.2)', duration: 0.08, ease: 'power4.out' },
+      { opacity: 0.7, scale: 0.85, filter: 'blur(15px) brightness(2) saturate(2)', duration: 0.06, ease: 'power4.in' },
+      { opacity: 1, scale: 1, filter: 'blur(0px) brightness(1) saturate(1)', duration: 0.12, ease: 'elastic.out(1, 0.45)' }
+    ]
+  },
+
+  // 引力波 - 引力波纹扩散
+  gravityWave: {
+    type: 'timeline',
+    animations: [
+      { opacity: 0, scale: 0.1, rotation: 0, filter: 'blur(50px)', duration: 0 },
+      { opacity: 1, scale: 2, rotation: 90, filter: 'blur(8px)', duration: 0.2, ease: 'power2.out' },
+      { opacity: 0.4, scale: 0.6, rotation: 180, filter: 'blur(30px)', duration: 0.15, ease: 'power2.in' },
+      { opacity: 1, scale: 1.5, rotation: 270, filter: 'blur(4px)', duration: 0.12, ease: 'power2.out' },
+      { opacity: 0.5, scale: 0.8, rotation: 315, filter: 'blur(15px)', duration: 0.1, ease: 'power2.in' },
+      { opacity: 1, scale: 1.2, rotation: 337, filter: 'blur(2px)', duration: 0.08, ease: 'power2.out' },
+      { opacity: 0.7, scale: 0.95, rotation: 348, filter: 'blur(5px)', duration: 0.06, ease: 'power2.in' },
+      { opacity: 1, scale: 1, rotation: 0, filter: 'blur(0px)', duration: 0.12, ease: 'elastic.out(1, 0.5)' }
+    ]
+  },
+
+  // 星尘构成 - 星尘粒子凝聚
+  stardustForm: {
+    type: 'timeline',
+    animations: [
+      { opacity: 0, scale: 0, filter: 'blur(60px) brightness(2)', duration: 0 },
+      { opacity: 0.6, scale: 0.8, filter: 'blur(20px) brightness(1.8)', duration: 0.2, ease: 'power2.out' },
+      { opacity: 0.3, scale: 0.4, filter: 'blur(40px) brightness(1.5)', duration: 0.15, ease: 'power2.in' },
+      { opacity: 0.8, scale: 1.2, filter: 'blur(10px) brightness(1.6)', duration: 0.12, ease: 'power2.out' },
+      { opacity: 0.5, scale: 0.7, filter: 'blur(25px) brightness(1.4)', duration: 0.1, ease: 'power2.in' },
+      { opacity: 0.9, scale: 1.1, filter: 'blur(5px) brightness(1.5)', duration: 0.08, ease: 'power2.out' },
+      { opacity: 0.7, scale: 0.95, filter: 'blur(12px) brightness(1.45)', duration: 0.06, ease: 'power2.in' },
+      { opacity: 1, scale: 1, filter: 'blur(0px) brightness(1)', duration: 0.14, ease: 'elastic.out(1, 0.4)' }
+    ]
+  },
+
+  // 霓虹通量 - 霓虹光流动
+  neonFlux: {
+    type: 'timeline',
+    animations: [
+      { opacity: 0, scale: 0.3, filter: 'blur(30px) brightness(3) hue-rotate(0deg)', duration: 0 },
+      { opacity: 1, scale: 1.5, filter: 'blur(8px) brightness(2.5) hue-rotate(60deg)', duration: 0.18, ease: 'power2.out' },
+      { opacity: 0.4, scale: 0.7, filter: 'blur(20px) brightness(2) hue-rotate(120deg)', duration: 0.14, ease: 'power2.in' },
+      { opacity: 1, scale: 1.3, filter: 'blur(4px) brightness(2.2) hue-rotate(180deg)', duration: 0.12, ease: 'power2.out' },
+      { opacity: 0.5, scale: 0.85, filter: 'blur(12px) brightness(2) hue-rotate(240deg)', duration: 0.1, ease: 'power2.in' },
+      { opacity: 1, scale: 1.15, filter: 'blur(2px) brightness(2.1) hue-rotate(300deg)', duration: 0.08, ease: 'power2.out' },
+      { opacity: 0.8, scale: 0.98, filter: 'blur(5px) brightness(2.05) hue-rotate(330deg)', duration: 0.06, ease: 'power2.in' },
+      { opacity: 1, scale: 1, filter: 'blur(0px) brightness(1) hue-rotate(0deg)', duration: 0.12, ease: 'elastic.out(1, 0.45)' }
+    ]
+  },
+
+  // 晶体矩阵 - 晶体矩阵展开
+  crystalMatrix: {
+    type: 'timeline',
+    animations: [
+      { opacity: 0, scale: 0, rotation: 0, skewX: 0, skewY: 0, filter: 'blur(50px)', duration: 0 },
+      { opacity: 0.3, scale: 0.5, rotation: 45, skewX: 15, skewY: -15, filter: 'blur(25px)', duration: 0.15, ease: 'power2.out' },
+      { opacity: 0.6, scale: 1.2, rotation: -30, skewX: -10, skewY: 10, filter: 'blur(12px)', duration: 0.12, ease: 'power2.in' },
+      { opacity: 0.85, scale: 0.8, rotation: 20, skewX: 5, skewY: -5, filter: 'blur(6px)', duration: 0.1, ease: 'power2.out' },
+      { opacity: 0.5, scale: 1.1, rotation: -10, skewX: -2.5, skewY: 2.5, filter: 'blur(8px)', duration: 0.08, ease: 'power2.in' },
+      { opacity: 0.9, scale: 0.95, rotation: 5, skewX: 1.25, skewY: -1.25, filter: 'blur(3px)', duration: 0.06, ease: 'power2.out' },
+      { opacity: 0.75, scale: 1.02, rotation: -2, skewX: -0.63, skewY: 0.63, filter: 'blur(4px)', duration: 0.05, ease: 'power2.in' },
+      { opacity: 1, scale: 1, rotation: 0, skewX: 0, skewY: 0, filter: 'blur(0px)', duration: 0.12, ease: 'elastic.out(1, 0.5)' }
+    ]
+  },
+
+  // 虚空传送门 - 虚空传送门开启
+  voidPortal: {
+    type: 'timeline',
+    animations: [
+      { opacity: 0, scale: 0, borderRadius: '50%', filter: 'blur(80px) brightness(5)', duration: 0 },
+      { opacity: 0.4, scale: 3, borderRadius: '50%', filter: 'blur(30px) brightness(3)', duration: 0.2, ease: 'power4.out' },
+      { opacity: 0.2, scale: 0.5, borderRadius: '50%', filter: 'blur(50px) brightness(2)', duration: 0.15, ease: 'power4.in' },
+      { opacity: 0.7, scale: 1.5, borderRadius: '30%', filter: 'blur(15px) brightness(2.5)', duration: 0.12, ease: 'power4.out' },
+      { opacity: 0.3, scale: 0.8, borderRadius: '40%', filter: 'blur(25px) brightness(1.8)', duration: 0.1, ease: 'power4.in' },
+      { opacity: 0.9, scale: 1.2, borderRadius: '25%', filter: 'blur(8px) brightness(2.2)', duration: 0.08, ease: 'power4.out' },
+      { opacity: 0.6, scale: 0.95, borderRadius: '28%', filter: 'blur(12px) brightness(2)', duration: 0.06, ease: 'power4.in' },
+      { opacity: 1, scale: 1, borderRadius: '20px', filter: 'blur(0px) brightness(1)', duration: 0.14, ease: 'elastic.out(1, 0.4)' }
+    ]
+  },
+
+  // 激光构建 - 激光线框构建
+  laserConstruct: {
+    type: 'timeline',
+    animations: [
+      { opacity: 0, scale: 0, filter: 'blur(40px) brightness(4)', duration: 0 },
+      { opacity: 1, scale: 1.3, filter: 'blur(0px) brightness(2)', duration: 0.1, ease: 'power4.out' },
+      { opacity: 0.2, scale: 0.6, filter: 'blur(30px) brightness(1.5)', duration: 0.08, ease: 'power4.in' },
+      { opacity: 1, scale: 1.2, filter: 'blur(0px) brightness(1.8)', duration: 0.06, ease: 'power4.out' },
+      { opacity: 0.3, scale: 0.8, filter: 'blur(20px) brightness(1.6)', duration: 0.05, ease: 'power4.in' },
+      { opacity: 1, scale: 1.1, filter: 'blur(0px) brightness(1.7)', duration: 0.04, ease: 'power4.out' },
+      { opacity: 0.5, scale: 0.9, filter: 'blur(10px) brightness(1.65)', duration: 0.04, ease: 'power4.in' },
+      { opacity: 1, scale: 1, filter: 'blur(0px) brightness(1)', duration: 0.1, ease: 'elastic.out(1, 0.5)' }
+    ]
+  },
+
+  // 空气动力学 - 流体动力学运动
+  aeroDynamic: {
+    type: 'timeline',
+    animations: [
+      { opacity: 0, scale: 0.3, y: -200, rotation: 0, skewX: 0, filter: 'blur(20px)', duration: 0 },
+      { opacity: 0.4, scale: 0.7, y: -80, rotation: 15, skewX: 5, filter: 'blur(12px)', duration: 0.2, ease: 'power2.out' },
+      { opacity: 0.7, scale: 1.2, y: 50, rotation: -10, skewX: -3, filter: 'blur(6px)', duration: 0.15, ease: 'power2.in' },
+      { opacity: 0.9, scale: 0.85, y: -30, rotation: 6, skewX: 2, filter: 'blur(3px)', duration: 0.12, ease: 'power2.out' },
+      { opacity: 0.6, scale: 1.1, y: 15, rotation: -3, skewX: -1, filter: 'blur(5px)', duration: 0.1, ease: 'power2.in' },
+      { opacity: 1, scale: 0.95, y: -8, rotation: 1.5, skewX: 0.5, filter: 'blur(2px)', duration: 0.08, ease: 'power2.out' },
+      { y: 4, rotation: -0.75, skewX: -0.25, filter: 'blur(1px)', duration: 0.06, ease: 'power2.in' },
+      { y: 0, rotation: 0, skewX: 0, filter: 'blur(0px)', duration: 0.12, ease: 'elastic.out(1, 0.45)' }
+    ]
+  },
+
+  // 液态铬 - 液态金属流动
+  liquidChrome: {
+    type: 'timeline',
+    animations: [
+      { opacity: 0, scale: 0.2, borderRadius: '50%', filter: 'blur(50px) brightness(2)', duration: 0 },
+      { opacity: 0.5, scale: 1.8, borderRadius: '50%', filter: 'blur(15px) brightness(1.8)', duration: 0.22, ease: 'power3.out' },
+      { opacity: 0.3, scale: 0.6, borderRadius: '50%', filter: 'blur(35px) brightness(1.5)', duration: 0.18, ease: 'power3.in' },
+      { opacity: 0.8, scale: 1.4, borderRadius: '30%', filter: 'blur(8px) brightness(1.6)', duration: 0.15, ease: 'power3.out' },
+      { opacity: 0.4, scale: 0.8, borderRadius: '40%', filter: 'blur(18px) brightness(1.4)', duration: 0.12, ease: 'power3.in' },
+      { opacity: 0.9, scale: 1.2, borderRadius: '25%', filter: 'blur(4px) brightness(1.5)', duration: 0.1, ease: 'power3.out' },
+      { opacity: 0.6, scale: 0.95, borderRadius: '28%', filter: 'blur(8px) brightness(1.45)', duration: 0.08, ease: 'power3.in' },
+      { opacity: 1, scale: 1, borderRadius: '20px', filter: 'blur(0px) brightness(1)', duration: 0.14, ease: 'elastic.out(1, 0.4)' }
+    ]
+  },
+
+  // 棱镜光谱 - 彩虹光谱折射
+  prismSpectrum: {
+    type: 'timeline',
+    animations: [
+      { opacity: 0, scale: 0, rotation: 0, filter: 'blur(40px) brightness(2) hue-rotate(0deg)', duration: 0 },
+      { opacity: 0.4, scale: 1.5, rotation: 60, filter: 'blur(10px) brightness(2.5) hue-rotate(60deg)', duration: 0.18, ease: 'power2.out' },
+      { opacity: 0.2, scale: 0.5, rotation: 120, filter: 'blur(25px) brightness(1.8) hue-rotate(120deg)', duration: 0.14, ease: 'power2.in' },
+      { opacity: 0.7, scale: 1.3, rotation: 180, filter: 'blur(5px) brightness(2.2) hue-rotate(180deg)', duration: 0.12, ease: 'power2.out' },
+      { opacity: 0.35, scale: 0.8, rotation: 240, filter: 'blur(15px) brightness(1.9) hue-rotate(240deg)', duration: 0.1, ease: 'power2.in' },
+      { opacity: 0.9, scale: 1.15, rotation: 300, filter: 'blur(3px) brightness(2.1) hue-rotate(300deg)', duration: 0.08, ease: 'power2.out' },
+      { opacity: 0.6, scale: 0.98, filter: 'blur(6px) brightness(2) hue-rotate(330deg)', duration: 0.06, ease: 'power2.in' },
+      { opacity: 1, scale: 1, rotation: 360, filter: 'blur(0px) brightness(1) hue-rotate(0deg)', duration: 0.12, ease: 'elastic.out(1, 0.45)' }
+    ]
+  },
+
+  // V9 时空幻境系列
+  // 时间膨胀 - 时间扭曲效果
+  timeDilation: {
+    type: 'timeline',
+    animations: [
+      { opacity: 0, scale: 0.1, rotation: 0, skewX: 0, skewY: 0, filter: 'blur(60px) brightness(3) hue-rotate(0deg)', duration: 0 },
+      { opacity: 0.3, scale: 0.5, rotation: 180, skewX: 15, skewY: 15, filter: 'blur(25px) brightness(2) hue-rotate(45deg)', duration: 0.3, ease: 'power2.out' },
+      { opacity: 0.15, scale: 0.3, rotation: 360, skewX: 25, skewY: -20, filter: 'blur(40px) brightness(1.5) hue-rotate(90deg)', duration: 0.2, ease: 'power2.in' },
+      { opacity: 0.6, scale: 1.4, rotation: 540, skewX: 10, skewY: 10, filter: 'blur(10px) brightness(2.2) hue-rotate(135deg)', duration: 0.16, ease: 'power2.out' },
+      { opacity: 0.35, scale: 0.8, rotation: 720, skewX: -5, skewY: -5, filter: 'blur(20px) brightness(1.8) hue-rotate(180deg)', duration: 0.12, ease: 'power2.in' },
+      { opacity: 0.85, scale: 1.2, rotation: 810, skewX: 3, skewY: 3, filter: 'blur(5px) brightness(2.1) hue-rotate(225deg)', duration: 0.1, ease: 'power2.out' },
+      { opacity: 0.55, scale: 0.95, filter: 'blur(8px) brightness(2) hue-rotate(270deg)', duration: 0.08, ease: 'power2.in' },
+      { opacity: 1, scale: 1, rotation: 1080, skewX: 0, skewY: 0, filter: 'blur(0px) brightness(1) hue-rotate(0deg)', duration: 0.15, ease: 'elastic.out(1, 0.5)' }
+    ]
+  },
+
+  // 空间折叠 - 维度折叠效果
+  spatialFold: {
+    type: 'timeline',
+    animations: [
+      { opacity: 0, scale: 0, rotateX: 0, rotateY: 0, translateZ: 0, filter: 'blur(50px) brightness(3)', duration: 0 },
+      { opacity: 0.4, scale: 0.3, rotateX: 180, rotateY: 0, translateZ: -200, filter: 'blur(20px) brightness(2.5)', duration: 0.18, ease: 'power4.out' },
+      { opacity: 0.2, scale: 0.8, rotateX: 180, rotateY: 90, translateZ: 100, filter: 'blur(35px) brightness(1.8)', duration: 0.14, ease: 'power4.in' },
+      { opacity: 0.7, scale: 0.5, rotateX: 360, rotateY: 90, translateZ: -150, filter: 'blur(10px) brightness(2.2)', duration: 0.12, ease: 'power4.out' },
+      { opacity: 0.35, scale: 1.3, rotateX: 360, rotateY: 180, translateZ: 80, filter: 'blur(18px) brightness(1.9)', duration: 0.1, ease: 'power4.in' },
+      { opacity: 0.9, scale: 0.7, rotateX: 540, rotateY: 180, translateZ: -100, filter: 'blur(5px) brightness(2.1)', duration: 0.08, ease: 'power4.out' },
+      { opacity: 0.6, scale: 1.1, rotateX: 540, rotateY: 270, filter: 'blur(8px) brightness(2)', duration: 0.06, ease: 'power4.in' },
+      { opacity: 1, scale: 1, rotateX: 720, rotateY: 360, translateZ: 0, filter: 'blur(0px) brightness(1)', duration: 0.14, ease: 'elastic.out(1, 0.4)' }
+    ]
+  },
+
+  // 量子叠加 - 多态叠加
+  quantumSuperposition: {
+    type: 'timeline',
+    animations: [
+      { opacity: 0, scale: 0, rotation: 0, filter: 'blur(40px) brightness(2) saturate(0)', duration: 0 },
+      { opacity: 0.5, scale: 1.5, rotation: 45, filter: 'blur(15px) brightness(3) saturate(0.5)', duration: 0.12, ease: 'power2.out' },
+      { opacity: 0.25, scale: 0.6, rotation: 90, filter: 'blur(30px) brightness(2) saturate(0.3)', duration: 0.1, ease: 'power2.in' },
+      { opacity: 0.7, scale: 1.3, rotation: 135, filter: 'blur(8px) brightness(2.5) saturate(0.7)', duration: 0.08, ease: 'power2.out' },
+      { opacity: 0.35, scale: 0.85, rotation: 180, filter: 'blur(18px) brightness(2.2) saturate(0.5)', duration: 0.07, ease: 'power2.in' },
+      { opacity: 0.9, scale: 1.15, rotation: 225, filter: 'blur(4px) brightness(2.3) saturate(0.8)', duration: 0.06, ease: 'power2.out' },
+      { opacity: 0.6, scale: 0.98, rotation: 270, filter: 'blur(10px) brightness(2.25) saturate(0.6)', duration: 0.05, ease: 'power2.in' },
+      { opacity: 1, scale: 1, rotation: 360, filter: 'blur(0px) brightness(1) saturate(1)', duration: 0.12, ease: 'elastic.out(1, 0.5)' }
+    ]
+  },
+
+  // 时间回响 - 回声效果
+  temporalEcho: {
+    type: 'timeline',
+    animations: [
+      { opacity: 0, scale: 0, x: 0, filter: 'blur(30px) brightness(2)', duration: 0 },
+      { opacity: 0.8, scale: 1, x: -30, filter: 'blur(5px) brightness(2.5)', duration: 0.1, ease: 'power2.out' },
+      { opacity: 0, scale: 1, x: -30, filter: 'blur(30px) brightness(1)', duration: 0.08, ease: 'power2.in' },
+      { opacity: 0.7, scale: 1, x: 30, filter: 'blur(5px) brightness(2.3)', duration: 0.08, ease: 'power2.out' },
+      { opacity: 0, scale: 1, x: 30, filter: 'blur(30px) brightness(1)', duration: 0.06, ease: 'power2.in' },
+      { opacity: 0.6, scale: 1, x: -15, filter: 'blur(5px) brightness(2.2)', duration: 0.06, ease: 'power2.out' },
+      { opacity: 0, scale: 1, x: -15, filter: 'blur(30px) brightness(1)', duration: 0.05, ease: 'power2.in' },
+      { opacity: 1, scale: 1, x: 0, filter: 'blur(0px) brightness(1)', duration: 0.12, ease: 'elastic.out(1, 0.5)' }
+    ]
+  },
+
+  // 维度破碎 - 破碎重组
+  dimensionalFracture: {
+    type: 'timeline',
+    animations: [
+      { opacity: 0, scale: 0, rotation: 0, skewX: 0, skewY: 0, filter: 'blur(50px) contrast(3)', duration: 0 },
+      { opacity: 1, scale: 1.5, rotation: 30, skewX: 20, skewY: -15, filter: 'blur(0px) contrast(1.5)', duration: 0.08, ease: 'power4.out' },
+      { opacity: 0.3, scale: 0.5, rotation: -20, skewX: -25, skewY: 30, filter: 'blur(40px) contrast(2.5)', duration: 0.06, ease: 'power4.in' },
+      { opacity: 1, scale: 1.3, rotation: 15, skewX: 12, skewY: -8, filter: 'blur(0px) contrast(1.3)', duration: 0.05, ease: 'power4.out' },
+      { opacity: 0.4, scale: 0.7, rotation: -10, skewX: -15, skewY: 20, filter: 'blur(35px) contrast(2.2)', duration: 0.04, ease: 'power4.in' },
+      { opacity: 1, scale: 1.15, rotation: 8, skewX: 7, skewY: -5, filter: 'blur(0px) contrast(1.2)', duration: 0.04, ease: 'power4.out' },
+      { opacity: 0.5, scale: 0.9, filter: 'blur(25px) contrast(2)', duration: 0.03, ease: 'power4.in' },
+      { opacity: 1, scale: 1, rotation: 0, skewX: 0, skewY: 0, filter: 'blur(0px) contrast(1)', duration: 0.1, ease: 'elastic.out(1, 0.4)' }
+    ]
+  },
+
+  // 虚空构建 - 从虚空中构建
+  voidConstruct: {
+    type: 'timeline',
+    animations: [
+      { opacity: 0, scale: 0, borderRadius: '50%', filter: 'blur(60px) brightness(0) invert(1)', duration: 0 },
+      { opacity: 0.6, scale: 2.5, borderRadius: '50%', filter: 'blur(15px) brightness(3) invert(0.5)', duration: 0.25, ease: 'power3.out' },
+      { opacity: 0.3, scale: 0.8, borderRadius: '50%', filter: 'blur(35px) brightness(1) invert(1)', duration: 0.2, ease: 'power3.in' },
+      { opacity: 0.8, scale: 1.8, borderRadius: '30%', filter: 'blur(8px) brightness(2.5) invert(0.3)', duration: 0.16, ease: 'power3.out' },
+      { opacity: 0.4, scale: 0.9, borderRadius: '40%', filter: 'blur(20px) brightness(1.5) invert(0.7)', duration: 0.13, ease: 'power3.in' },
+      { opacity: 0.9, scale: 1.3, borderRadius: '25%', filter: 'blur(4px) brightness(2.2) invert(0.2)', duration: 0.1, ease: 'power3.out' },
+      { opacity: 0.6, scale: 0.95, filter: 'blur(10px) brightness(1.8) invert(0.4)', duration: 0.08, ease: 'power3.in' },
+      { opacity: 1, scale: 1, borderRadius: '20px', filter: 'blur(0px) brightness(1) invert(0)', duration: 0.14, ease: 'elastic.out(1, 0.45)' }
+    ]
+  },
+
+  // 以太显化 - 能量显化
+  aetherManifest: {
+    type: 'timeline',
+    animations: [
+      { opacity: 0, scale: 0.1, filter: 'blur(70px) brightness(4) saturate(0)', duration: 0 },
+      { opacity: 0.7, scale: 2, filter: 'blur(20px) brightness(3) saturate(0.5)', duration: 0.22, ease: 'power2.out' },
+      { opacity: 0.35, scale: 0.5, filter: 'blur(45px) brightness(2) saturate(0.25)', duration: 0.18, ease: 'power2.in' },
+      { opacity: 0.85, scale: 1.6, filter: 'blur(8px) brightness(2.8) saturate(0.7)', duration: 0.14, ease: 'power2.out' },
+      { opacity: 0.45, scale: 0.85, filter: 'blur(25px) brightness(2.3) saturate(0.4)', duration: 0.11, ease: 'power2.in' },
+      { opacity: 0.95, scale: 1.25, filter: 'blur(4px) brightness(2.6) saturate(0.8)', duration: 0.09, ease: 'power2.out' },
+      { opacity: 0.65, scale: 0.98, filter: 'blur(12px) brightness(2.5) saturate(0.6)', duration: 0.07, ease: 'power2.in' },
+      { opacity: 1, scale: 1, filter: 'blur(0px) brightness(1) saturate(1)', duration: 0.15, ease: 'elastic.out(1, 0.5)' }
+    ]
+  },
+
+  // 混沌理论 - 随机混沌
+  chaosTheory: {
+    type: 'timeline',
+    animations: [
+      { opacity: 0, scale: 0, x: 0, y: 0, rotation: 0, skewX: 0, skewY: 0, filter: 'blur(50px)', duration: 0 },
+      { opacity: 0.8, scale: 1.3, x: -50, y: 30, rotation: 45, skewX: 15, skewY: -10, filter: 'blur(10px)', duration: 0.1, ease: 'power3.out' },
+      { opacity: 0.3, scale: 0.6, x: 40, y: -35, rotation: -30, skewX: -20, skewY: 25, filter: 'blur(35px)', duration: 0.08, ease: 'power3.in' },
+      { opacity: 0.7, scale: 1.4, x: -25, y: 20, rotation: 20, skewX: 12, skewY: -8, filter: 'blur(8px)', duration: 0.07, ease: 'power3.out' },
+      { opacity: 0.4, scale: 0.75, x: 18, y: -15, rotation: -15, skewX: -10, skewY: 15, filter: 'blur(22px)', duration: 0.06, ease: 'power3.in' },
+      { opacity: 0.9, scale: 1.2, x: -10, y: 8, rotation: 10, skewX: 6, skewY: -5, filter: 'blur(5px)', duration: 0.05, ease: 'power3.out' },
+      { opacity: 0.55, scale: 0.95, x: 5, y: -4, filter: 'blur(12px)', duration: 0.04, ease: 'power3.in' },
+      { opacity: 1, scale: 1, x: 0, y: 0, rotation: 0, skewX: 0, skewY: 0, filter: 'blur(0px)', duration: 0.1, ease: 'elastic.out(1, 0.45)' }
+    ]
+  },
+
+  // 熵增衰变 - 熵值变化
+  entropicDecay: {
+    type: 'timeline',
+    animations: [
+      { opacity: 0, scale: 1.5, filter: 'blur(0px) brightness(1) contrast(1) saturate(1)', duration: 0 },
+      { opacity: 0.9, scale: 1.3, filter: 'blur(5px) brightness(1.2) contrast(1.1) saturate(0.9)', duration: 0.15, ease: 'power1.out' },
+      { opacity: 0.8, scale: 1.2, filter: 'blur(10px) brightness(1.3) contrast(1.2) saturate(0.8)', duration: 0.12, ease: 'power1.out' },
+      { opacity: 0.7, scale: 1.1, filter: 'blur(15px) brightness(1.4) contrast(1.3) saturate(0.7)', duration: 0.1, ease: 'power1.out' },
+      { opacity: 0.6, scale: 1.05, filter: 'blur(20px) brightness(1.5) contrast(1.4) saturate(0.6)', duration: 0.08, ease: 'power1.out' },
+      { opacity: 0.8, scale: 1.08, filter: 'blur(12px) brightness(1.3) contrast(1.3) saturate(0.8)', duration: 0.12, ease: 'power1.in' },
+      { opacity: 0.9, scale: 1.02, filter: 'blur(6px) brightness(1.2) contrast(1.1) saturate(0.9)', duration: 0.08, ease: 'power1.in' },
+      { opacity: 1, scale: 1, filter: 'blur(0px) brightness(1) contrast(1) saturate(1)', duration: 0.15, ease: 'power2.out' }
+    ]
+  },
+
+  // 弦理论 - 震动频率
+  stringTheory: {
+    type: 'timeline',
+    animations: [
+      { opacity: 0, scale: 0.1, skewX: 0, skewY: 0, filter: 'blur(60px) brightness(2)', duration: 0 },
+      { opacity: 0.5, scale: 1.5, skewX: 30, skewY: 20, filter: 'blur(15px) brightness(2.5)', duration: 0.1, ease: 'elastic.out(1, 0.3)' },
+      { opacity: 0.25, scale: 0.7, skewX: -25, skewY: -18, filter: 'blur(30px) brightness(2)', duration: 0.08, ease: 'elastic.in(1, 0.3)' },
+      { opacity: 0.75, scale: 1.3, skewX: 20, skewY: 15, filter: 'blur(8px) brightness(2.3)', duration: 0.07, ease: 'elastic.out(1, 0.35)' },
+      { opacity: 0.35, scale: 0.85, skewX: -15, skewY: -12, filter: 'blur(20px) brightness(2.2)', duration: 0.06, ease: 'elastic.in(1, 0.35)' },
+      { opacity: 0.9, scale: 1.15, skewX: 10, skewY: 8, filter: 'blur(5px) brightness(2.4)', duration: 0.05, ease: 'elastic.out(1, 0.4)' },
+      { opacity: 0.55, scale: 0.98, filter: 'blur(12px) brightness(2.3)', duration: 0.04, ease: 'elastic.in(1, 0.4)' },
+      { opacity: 1, scale: 1, skewX: 0, skewY: 0, filter: 'blur(0px) brightness(1)', duration: 0.12, ease: 'elastic.out(1, 0.5)' }
+    ]
+  },
+
+  // 多元宇宙 - 多重显现
+  multiverse: {
+    type: 'timeline',
+    animations: [
+      { opacity: 0, scale: 0, rotation: 0, filter: 'blur(50px) brightness(2) hue-rotate(0deg)', duration: 0 },
+      { opacity: 0.6, scale: 1.2, rotation: 120, filter: 'blur(15px) brightness(2.5) hue-rotate(60deg)', duration: 0.1, ease: 'power2.out' },
+      { opacity: 0, scale: 1, rotation: 120, filter: 'blur(50px) brightness(1) hue-rotate(60deg)', duration: 0.05, ease: 'power2.in' },
+      { opacity: 0.7, scale: 1.3, rotation: 240, filter: 'blur(12px) brightness(2.6) hue-rotate(120deg)', duration: 0.08, ease: 'power2.out' },
+      { opacity: 0, scale: 1, rotation: 240, filter: 'blur(50px) brightness(1) hue-rotate(120deg)', duration: 0.04, ease: 'power2.in' },
+      { opacity: 0.8, scale: 1.15, rotation: 360, filter: 'blur(8px) brightness(2.7) hue-rotate(180deg)', duration: 0.07, ease: 'power2.out' },
+      { opacity: 0, scale: 1, rotation: 360, filter: 'blur(50px) brightness(1) hue-rotate(180deg)', duration: 0.04, ease: 'power2.in' },
+      { opacity: 1, scale: 1, rotation: 0, filter: 'blur(0px) brightness(1) hue-rotate(0deg)', duration: 0.12, ease: 'elastic.out(1, 0.5)' }
+    ]
+  },
+
+  // 平行世界 - 双重显现
+  parallelWorld: {
+    type: 'timeline',
+    animations: [
+      { opacity: 0, scale: 0, x: 0, filter: 'blur(40px) brightness(2) invert(0)', duration: 0 },
+      { opacity: 0.8, scale: 1.2, x: -40, filter: 'blur(8px) brightness(2.3) invert(0.3)', duration: 0.12, ease: 'power2.out' },
+      { opacity: 0.3, scale: 0.6, x: -40, filter: 'blur(25px) brightness(1.5) invert(0.7)', duration: 0.08, ease: 'power2.in' },
+      { opacity: 0.9, scale: 1.3, x: 40, filter: 'blur(6px) brightness(2.5) invert(0.2)', duration: 0.1, ease: 'power2.out' },
+      { opacity: 0.4, scale: 0.7, x: 40, filter: 'blur(20px) brightness(1.8) invert(0.6)', duration: 0.07, ease: 'power2.in' },
+      { opacity: 0.95, scale: 1.1, x: -15, filter: 'blur(4px) brightness(2.6) invert(0.1)', duration: 0.06, ease: 'power2.out' },
+      { opacity: 0.5, scale: 0.9, x: -15, filter: 'blur(15px) brightness(2.2) invert(0.5)', duration: 0.05, ease: 'power2.in' },
+      { opacity: 1, scale: 1, x: 0, filter: 'blur(0px) brightness(1) invert(0)', duration: 0.12, ease: 'elastic.out(1, 0.5)' }
+    ]
+  },
+
+  // 时间线分叉 - 分叉效果
+  timelineSplit: {
+    type: 'timeline',
+    animations: [
+      { opacity: 0, scale: 1, x: 0, skewX: 0, filter: 'blur(30px) brightness(1.5)', duration: 0 },
+      { opacity: 0.7, scale: 1.1, x: 0, skewX: 0, filter: 'blur(5px) brightness(2)', duration: 0.08, ease: 'power2.out' },
+      { opacity: 1, scale: 1, x: 0, skewX: 0, filter: 'blur(0px) brightness(2.5)', duration: 0.05, ease: 'power2.out' },
+      { opacity: 0.8, scale: 0.95, x: -20, skewX: 10, filter: 'blur(10px) brightness(2.2)', duration: 0.07, ease: 'power2.in' },
+      { opacity: 0.9, scale: 1.05, x: 20, skewX: -10, filter: 'blur(8px) brightness(2.4)', duration: 0.07, ease: 'power2.in' },
+      { opacity: 0.7, scale: 0.98, x: -10, skewX: 5, filter: 'blur(12px) brightness(2.3)', duration: 0.06, ease: 'power2.out' },
+      { opacity: 1, scale: 1.02, x: 10, skewX: -5, filter: 'blur(10px) brightness(2.5)', duration: 0.06, ease: 'power2.out' },
+      { opacity: 1, scale: 1, x: 0, skewX: 0, filter: 'blur(0px) brightness(1)', duration: 0.1, ease: 'elastic.out(1, 0.5)' }
+    ]
+  },
+
+  // 现实扭曲 - 扭曲变形
+  realityWarp: {
+    type: 'timeline',
+    animations: [
+      { opacity: 0, scale: 0.2, rotateX: 0, rotateY: 0, filter: 'blur(50px) brightness(2) contrast(1.5)', duration: 0 },
+      { opacity: 0.6, scale: 1.5, rotateX: 30, rotateY: 45, filter: 'blur(15px) brightness(2.8) contrast(0.8)', duration: 0.18, ease: 'power3.out' },
+      { opacity: 0.3, scale: 0.7, rotateX: -20, rotateY: -30, filter: 'blur(35px) brightness(1.8) contrast(2)', duration: 0.14, ease: 'power3.in' },
+      { opacity: 0.8, scale: 1.3, rotateX: 15, rotateY: 22, filter: 'blur(8px) brightness(2.6) contrast(0.9)', duration: 0.12, ease: 'power3.out' },
+      { opacity: 0.4, scale: 0.85, rotateX: -10, rotateY: -15, filter: 'blur(22px) brightness(2.2) contrast(1.8)', duration: 0.1, ease: 'power3.in' },
+      { opacity: 0.9, scale: 1.15, rotateX: 5, rotateY: 7, filter: 'blur(4px) brightness(2.5) contrast(0.95)', duration: 0.08, ease: 'power3.out' },
+      { opacity: 0.6, scale: 0.98, filter: 'blur(10px) brightness(2.4) contrast(1.5)', duration: 0.06, ease: 'power3.in' },
+      { opacity: 1, scale: 1, rotateX: 0, rotateY: 0, filter: 'blur(0px) brightness(1) contrast(1)', duration: 0.14, ease: 'elastic.out(1, 0.45)' }
+    ]
+  },
+
+  // 幻象破除 - 真相揭露
+  illusionBreak: {
+    type: 'timeline',
+    animations: [
+      { opacity: 0, scale: 1.2, filter: 'blur(0px) brightness(1) hue-rotate(0deg) saturate(0.5)', duration: 0 },
+      { opacity: 0.8, scale: 1.15, filter: 'blur(3px) brightness(1.5) hue-rotate(45deg) saturate(0.8)', duration: 0.12, ease: 'power1.out' },
+      { opacity: 0.6, scale: 1.1, filter: 'blur(6px) brightness(2) hue-rotate(90deg) saturate(1.2)', duration: 0.1, ease: 'power1.out' },
+      { opacity: 0.4, scale: 1.05, filter: 'blur(10px) brightness(2.5) hue-rotate(135deg) saturate(1.5)', duration: 0.08, ease: 'power1.out' },
+      { opacity: 0.6, scale: 1.08, filter: 'blur(15px) brightness(2.8) hue-rotate(180deg) saturate(1.8)', duration: 0.12, ease: 'power1.in' },
+      { opacity: 0.8, scale: 1.04, filter: 'blur(8px) brightness(2.3) hue-rotate(225deg) saturate(1.3)', duration: 0.1, ease: 'power1.in' },
+      { opacity: 0.9, scale: 1.02, filter: 'blur(4px) brightness(1.8) hue-rotate(270deg) saturate(0.9)', duration: 0.08, ease: 'power1.in' },
+      { opacity: 1, scale: 1, filter: 'blur(0px) brightness(1) hue-rotate(0deg) saturate(1)', duration: 0.12, ease: 'power2.out' }
+    ]
+  },
+
+  // 梦境投影 - 梦幻效果
+  dreamscape: {
+    type: 'timeline',
+    animations: [
+      { opacity: 0, scale: 0.5, filter: 'blur(60px) brightness(1.5) saturate(0.5)', duration: 0 },
+      { opacity: 0.7, scale: 1.4, filter: 'blur(20px) brightness(2) saturate(0.8)', duration: 0.2, ease: 'sine.out' },
+      { opacity: 0.4, scale: 0.8, filter: 'blur(40px) brightness(1.7) saturate(0.6)', duration: 0.15, ease: 'sine.in' },
+      { opacity: 0.8, scale: 1.2, filter: 'blur(12px) brightness(2.2) saturate(1)', duration: 0.12, ease: 'sine.out' },
+      { opacity: 0.5, scale: 0.95, filter: 'blur(25px) brightness(1.9) saturate(0.7)', duration: 0.1, ease: 'sine.in' },
+      { opacity: 0.9, scale: 1.1, filter: 'blur(6px) brightness(2.4) saturate(1.2)', duration: 0.08, ease: 'sine.out' },
+      { opacity: 0.65, scale: 1.02, filter: 'blur(15px) brightness(2.1) saturate(0.9)', duration: 0.06, ease: 'sine.in' },
+      { opacity: 1, scale: 1, filter: 'blur(0px) brightness(1) saturate(1)', duration: 0.15, ease: 'elastic.out(1, 0.4)' }
+    ]
+  },
+
+  // 意识上传 - 数字化转化
+  consciousness: {
+    type: 'timeline',
+    animations: [
+      { opacity: 0, scale: 1, filter: 'blur(0px) brightness(1) contrast(1) saturate(1)', duration: 0 },
+      { opacity: 0.9, scale: 1.05, filter: 'blur(2px) brightness(1.2) contrast(1.1) saturate(1.1)', duration: 0.1, ease: 'power2.out' },
+      { opacity: 0.7, scale: 1.1, filter: 'blur(4px) brightness(1.4) contrast(1.3) saturate(0.8)', duration: 0.08, ease: 'power2.out' },
+      { opacity: 0.5, scale: 1.15, filter: 'blur(8px) brightness(1.6) contrast(1.5) saturate(0.6)', duration: 0.07, ease: 'power2.out' },
+      { opacity: 0.7, scale: 1.12, filter: 'blur(6px) brightness(1.8) contrast(1.4) saturate(0.8)', duration: 0.1, ease: 'power2.in' },
+      { opacity: 0.85, scale: 1.08, filter: 'blur(4px) brightness(2) contrast(1.2) saturate(1)', duration: 0.08, ease: 'power2.in' },
+      { opacity: 0.95, scale: 1.04, filter: 'blur(2px) brightness(1.5) contrast(1.1) saturate(1.1)', duration: 0.06, ease: 'power2.in' },
+      { opacity: 1, scale: 1, filter: 'blur(0px) brightness(1) contrast(1) saturate(1)', duration: 0.1, ease: 'elastic.out(1, 0.5)' }
+    ]
+  },
+
+  // 记忆痕迹 - 残影效果
+  memoryTrace: {
+    type: 'timeline',
+    animations: [
+      { opacity: 0, scale: 0.9, x: 0, filter: 'blur(40px) brightness(1) opacity(0.5)', duration: 0 },
+      { opacity: 1, scale: 1, x: 0, filter: 'blur(0px) brightness(1.5)', duration: 0.08, ease: 'power2.out' },
+      { opacity: 0.5, scale: 1, x: -15, filter: 'blur(15px) brightness(1.2)', duration: 0.06, ease: 'power2.out' },
+      { opacity: 0.3, scale: 1, x: -15, filter: 'blur(25px) brightness(1)', duration: 0.05, ease: 'power2.in' },
+      { opacity: 0.6, scale: 1, x: 12, filter: 'blur(10px) brightness(1.3)', duration: 0.05, ease: 'power2.out' },
+      { opacity: 0.35, scale: 1, x: 12, filter: 'blur(20px) brightness(1.1)', duration: 0.04, ease: 'power2.in' },
+      { opacity: 0.8, scale: 1, x: -8, filter: 'blur(6px) brightness(1.4)', duration: 0.04, ease: 'power2.out' },
+      { opacity: 1, scale: 1, x: 0, filter: 'blur(0px) brightness(1)', duration: 0.1, ease: 'elastic.out(1, 0.5)' }
+    ]
+  },
+
+  // 灵魂碎片 - 碎裂重组
+  soulFragment: {
+    type: 'timeline',
+    animations: [
+      { opacity: 0, scale: 0, rotateX: 0, rotateY: 0, translateZ: 0, filter: 'blur(60px) brightness(3)', duration: 0 },
+      { opacity: 0.6, scale: 0.4, rotateX: 45, rotateY: 60, translateZ: -100, filter: 'blur(25px) brightness(2.5)', duration: 0.15, ease: 'power4.out' },
+      { opacity: 0.3, scale: 0.8, rotateX: -30, rotateY: -45, translateZ: 80, filter: 'blur(40px) brightness(1.8)', duration: 0.12, ease: 'power4.in' },
+      { opacity: 0.7, scale: 0.6, rotateX: 20, rotateY: 30, translateZ: -120, filter: 'blur(12px) brightness(2.2)', duration: 0.1, ease: 'power4.out' },
+      { opacity: 0.35, scale: 1.2, rotateX: -15, rotateY: -22, translateZ: 60, filter: 'blur(22px) brightness(1.9)', duration: 0.08, ease: 'power4.in' },
+      { opacity: 0.85, scale: 0.8, rotateX: 10, rotateY: 15, translateZ: -80, filter: 'blur(6px) brightness(2.1)', duration: 0.07, ease: 'power4.out' },
+      { opacity: 0.5, scale: 1.1, filter: 'blur(10px) brightness(2)', duration: 0.06, ease: 'power4.in' },
+      { opacity: 1, scale: 1, rotateX: 0, rotateY: 0, translateZ: 0, filter: 'blur(0px) brightness(1)', duration: 0.12, ease: 'elastic.out(1, 0.4)' }
+    ]
+  },
+
+  // 超越 - 升华效果
+  transcendence: {
+    type: 'timeline',
+    animations: [
+      { opacity: 0, scale: 0.1, y: 50, filter: 'blur(70px) brightness(4) hue-rotate(0deg) saturate(0)', duration: 0 },
+      { opacity: 0.6, scale: 0.5, y: 30, filter: 'blur(30px) brightness(3) hue-rotate(60deg) saturate(0.5)', duration: 0.2, ease: 'power2.out' },
+      { opacity: 0.3, scale: 1.2, y: 10, filter: 'blur(15px) brightness(2) hue-rotate(120deg) saturate(1)', duration: 0.15, ease: 'power2.in' },
+      { opacity: 0.75, scale: 0.8, y: -10, filter: 'blur(8px) brightness(2.5) hue-rotate(180deg) saturate(1.2)', duration: 0.12, ease: 'power2.out' },
+      { opacity: 0.4, scale: 1.1, y: -25, filter: 'blur(18px) brightness(2.2) hue-rotate(240deg) saturate(1)', duration: 0.1, ease: 'power2.in' },
+      { opacity: 0.9, scale: 0.9, y: -35, filter: 'blur(4px) brightness(2.8) hue-rotate(300deg) saturate(1.3)', duration: 0.08, ease: 'power2.out' },
+      { opacity: 0.6, scale: 1.02, y: -40, filter: 'blur(10px) brightness(2.5) hue-rotate(330deg) saturate(1.1)', duration: 0.06, ease: 'power2.in' },
+      { opacity: 1, scale: 1, y: 0, filter: 'blur(0px) brightness(1) hue-rotate(0deg) saturate(1)', duration: 0.15, ease: 'elastic.out(1, 0.5)' }
+    ]
+  },
+
+  // V10 超视觉系列 - 20个高级动画
+  // 像素故障 - 经典glitch效果
+  pixelGlitch: {
+    type: 'timeline',
+    animations: [
+      { opacity: 0, scale: 1, x: 0, filter: 'blur(20px) contrast(2) hue-rotate(0deg)', duration: 0 },
+      { opacity: 1, scale: 1.05, x: -10, filter: 'blur(5px) contrast(3) hue-rotate(90deg)', duration: 0.03, ease: 'power1.inOut' },
+      { opacity: 0.8, scale: 0.95, x: 15, filter: 'blur(8px) contrast(1.5) hue-rotate(180deg)', duration: 0.02, ease: 'power1.inOut' },
+      { opacity: 1, scale: 1.08, x: -8, filter: 'blur(3px) contrast(2.5) hue-rotate(270deg)', duration: 0.03, ease: 'power1.inOut' },
+      { opacity: 0.6, scale: 0.92, x: 12, filter: 'blur(10px) contrast(1.8) hue-rotate(360deg)', duration: 0.02, ease: 'power1.inOut' },
+      { opacity: 1, scale: 1.03, x: -5, filter: 'blur(2px) contrast(2.2) hue-rotate(45deg)', duration: 0.03, ease: 'power1.inOut' },
+      { opacity: 0.9, scale: 0.98, x: 6, filter: 'blur(6px) contrast(2) hue-rotate(90deg)', duration: 0.02, ease: 'power1.inOut' },
+      { opacity: 1, scale: 1.01, x: -3, filter: 'blur(1px) contrast(2.1) hue-rotate(0deg)', duration: 0.03, ease: 'power1.inOut' },
+      { opacity: 0.95, scale: 0.995, x: 2, filter: 'blur(3px) contrast(2.05)', duration: 0.02, ease: 'power1.inOut' },
+      { opacity: 1, scale: 1, x: 0, filter: 'blur(0px) contrast(1)', duration: 0.05, ease: 'power2.out' }
+    ]
+  },
+
+  // 色差分裂 - RGB分离效果
+  chromaticAberration: {
+    type: 'timeline',
+    animations: [
+      { opacity: 0, scale: 0.8, filter: 'blur(30px) hue-rotate(0deg) saturate(0)', duration: 0 },
+      { opacity: 0.6, scale: 1.1, filter: 'blur(15px) hue-rotate(30deg) saturate(0.5)', duration: 0.08, ease: 'power2.out' },
+      { opacity: 0.3, scale: 0.9, filter: 'blur(25px) hue-rotate(60deg) saturate(0.3)', duration: 0.06, ease: 'power2.in' },
+      { opacity: 0.8, scale: 1.2, filter: 'blur(8px) hue-rotate(90deg) saturate(0.8)', duration: 0.07, ease: 'power2.out' },
+      { opacity: 0.5, scale: 0.95, filter: 'blur(18px) hue-rotate(120deg) saturate(0.5)', duration: 0.05, ease: 'power2.in' },
+      { opacity: 0.9, scale: 1.05, filter: 'blur(4px) hue-rotate(150deg) saturate(0.9)', duration: 0.06, ease: 'power2.out' },
+      { opacity: 0.7, scale: 0.98, filter: 'blur(10px) hue-rotate(180deg) saturate(0.7)', duration: 0.05, ease: 'power2.in' },
+      { opacity: 1, scale: 1.02, filter: 'blur(2px) hue-rotate(210deg) saturate(1)', duration: 0.04, ease: 'power2.out' },
+      { opacity: 0.9, scale: 1, filter: 'blur(5px) hue-rotate(240deg) saturate(0.95)', duration: 0.04, ease: 'power2.in' },
+      { opacity: 1, scale: 1, filter: 'blur(0px) hue-rotate(0deg) saturate(1)', duration: 0.08, ease: 'elastic.out(1, 0.5)' }
+    ]
+  },
+
+  // 数字噪点 - 随机噪声效果
+  digitalNoise: {
+    type: 'timeline',
+    animations: [
+      { opacity: 0, scale: 0.5, filter: 'blur(40px) contrast(3) grayscale(1)', duration: 0 },
+      { opacity: 0.7, scale: 1.3, filter: 'blur(20px) contrast(2) grayscale(0.7)', duration: 0.05, ease: 'power1.inOut' },
+      { opacity: 0.4, scale: 0.8, filter: 'blur(35px) contrast(2.5) grayscale(0.9)', duration: 0.04, ease: 'power1.inOut' },
+      { opacity: 0.8, scale: 1.2, filter: 'blur(12px) contrast(1.8) grayscale(0.6)', duration: 0.05, ease: 'power1.inOut' },
+      { opacity: 0.5, scale: 0.9, filter: 'blur(28px) contrast(2.2) grayscale(0.8)', duration: 0.04, ease: 'power1.inOut' },
+      { opacity: 0.9, scale: 1.1, filter: 'blur(6px) contrast(1.5) grayscale(0.5)', duration: 0.05, ease: 'power1.inOut' },
+      { opacity: 0.6, scale: 0.95, filter: 'blur(15px) contrast(1.9) grayscale(0.7)', duration: 0.04, ease: 'power1.inOut' },
+      { opacity: 0.95, scale: 1.03, filter: 'blur(3px) contrast(1.4) grayscale(0.4)', duration: 0.05, ease: 'power1.inOut' },
+      { opacity: 0.85, scale: 1.01, filter: 'blur(8px) contrast(1.6) grayscale(0.55)', duration: 0.04, ease: 'power1.inOut' },
+      { opacity: 1, scale: 1, filter: 'blur(0px) contrast(1) grayscale(0)', duration: 0.1, ease: 'power2.out' }
+    ]
+  },
+
+  // 扫描线扭曲 - CRT显示器效果
+  scanlineDistort: {
+    type: 'timeline',
+    animations: [
+      { opacity: 0, scale: 0.1, y: 0, filter: 'blur(50px) brightness(2) contrast(1.5)', duration: 0 },
+      { opacity: 0.5, scale: 0.6, y: -100, filter: 'blur(25px) brightness(2.5) contrast(2)', duration: 0.12, ease: 'power2.out' },
+      { opacity: 0.3, scale: 0.4, y: 50, filter: 'blur(40px) brightness(1.5) contrast(1.8)', duration: 0.08, ease: 'power2.in' },
+      { opacity: 0.7, scale: 0.8, y: -50, filter: 'blur(15px) brightness(3) contrast(2.2)', duration: 0.1, ease: 'power2.out' },
+      { opacity: 0.4, scale: 0.6, y: 30, filter: 'blur(30px) brightness(2) contrast(1.9)', duration: 0.07, ease: 'power2.in' },
+      { opacity: 0.9, scale: 0.95, y: -20, filter: 'blur(8px) brightness(2.8) contrast(2.1)', duration: 0.08, ease: 'power2.out' },
+      { opacity: 0.55, scale: 0.85, y: 15, filter: 'blur(20px) brightness(2.3) contrast(2)', duration: 0.06, ease: 'power2.in' },
+      { opacity: 0.95, scale: 1.02, y: -8, filter: 'blur(3px) brightness(2.6) contrast(2.05)', duration: 0.07, ease: 'power2.out' },
+      { opacity: 0.8, scale: 0.98, y: 5, filter: 'blur(10px) brightness(2.4) contrast(2.02)', duration: 0.05, ease: 'power2.in' },
+      { opacity: 1, scale: 1, y: 0, filter: 'blur(0px) brightness(1) contrast(1)', duration: 0.12, ease: 'elastic.out(1, 0.45)' }
+    ]
+  },
+
+  // 信号干扰 - 无线干扰效果
+  signalInterference: {
+    type: 'timeline',
+    animations: [
+      { opacity: 0, scale: 1, x: 0, skewX: 0, filter: 'blur(30px) brightness(3) hue-rotate(0deg)', duration: 0 },
+      { opacity: 0.8, scale: 1.1, x: -20, skewX: -15, filter: 'blur(15px) brightness(2.5) hue-rotate(45deg)', duration: 0.04, ease: 'power1.inOut' },
+      { opacity: 0.4, scale: 0.9, x: 25, skewX: 20, filter: 'blur(25px) brightness(1.8) hue-rotate(90deg)', duration: 0.03, ease: 'power1.inOut' },
+      { opacity: 0.9, scale: 1.08, x: -12, skewX: -10, filter: 'blur(10px) brightness(2.8) hue-rotate(135deg)', duration: 0.04, ease: 'power1.inOut' },
+      { opacity: 0.5, scale: 0.92, x: 18, skewX: 15, filter: 'blur(18px) brightness(2) hue-rotate(180deg)', duration: 0.03, ease: 'power1.inOut' },
+      { opacity: 0.95, scale: 1.04, x: -8, skewX: -6, filter: 'blur(5px) brightness(2.6) hue-rotate(225deg)', duration: 0.04, ease: 'power1.inOut' },
+      { opacity: 0.6, scale: 0.97, x: 10, skewX: 8, filter: 'blur(12px) brightness(2.3) hue-rotate(270deg)', duration: 0.03, ease: 'power1.inOut' },
+      { opacity: 1, scale: 1.02, x: -4, skewX: -3, filter: 'blur(2px) brightness(2.5) hue-rotate(315deg)', duration: 0.04, ease: 'power1.inOut' },
+      { opacity: 0.9, scale: 1.01, x: 2, skewX: 2, filter: 'blur(6px) brightness(2.4) hue-rotate(0deg)', duration: 0.03, ease: 'power1.inOut' },
+      { opacity: 1, scale: 1, x: 0, skewX: 0, filter: 'blur(0px) brightness(1)', duration: 0.08, ease: 'power2.out' }
+    ]
+  },
+
+  // 数据损坏 - 文件损坏效果
+  dataCorruption: {
+    type: 'timeline',
+    animations: [
+      { opacity: 0, scale: 1, rotateX: 0, rotateY: 0, filter: 'blur(60px) brightness(4) contrast(2)', duration: 0 },
+      { opacity: 0.5, scale: 1.2, rotateX: 45, rotateY: 30, filter: 'blur(25px) brightness(3) contrast(2.5)', duration: 0.1, ease: 'power3.out' },
+      { opacity: 0.2, scale: 0.8, rotateX: -30, rotateY: -45, filter: 'blur(50px) brightness(1.5) contrast(3)', duration: 0.08, ease: 'power3.in' },
+      { opacity: 0.7, scale: 1.15, rotateX: 20, rotateY: 25, filter: 'blur(12px) brightness(3.5) contrast(2.2)', duration: 0.09, ease: 'power3.out' },
+      { opacity: 0.35, scale: 0.85, rotateX: -15, rotateY: -20, filter: 'blur(35px) brightness(2) contrast(2.8)', duration: 0.07, ease: 'power3.in' },
+      { opacity: 0.85, scale: 1.08, rotateX: 10, rotateY: 12, filter: 'blur(6px) brightness(3.8) contrast(2.1)', duration: 0.08, ease: 'power3.out' },
+      { opacity: 0.5, scale: 0.95, rotateX: -8, rotateY: -10, filter: 'blur(18px) brightness(2.5) contrast(2.5)', duration: 0.06, ease: 'power3.in' },
+      { opacity: 0.95, scale: 1.03, rotateX: 4, rotateY: 5, filter: 'blur(3px) brightness(3.6) contrast(2.05)', duration: 0.07, ease: 'power3.out' },
+      { opacity: 0.8, scale: 1.01, rotateX: -2, rotateY: -2, filter: 'blur(8px) brightness(3) contrast(2.02)', duration: 0.05, ease: 'power3.in' },
+      { opacity: 1, scale: 1, rotateX: 0, rotateY: 0, filter: 'blur(0px) brightness(1) contrast(1)', duration: 0.1, ease: 'elastic.out(1, 0.4)' }
+    ]
+  },
+
+  // 赛博故障 - 未来感glitch
+  cyberGlitch: {
+    type: 'timeline',
+    animations: [
+      { opacity: 0, scale: 0.3, x: 0, y: 0, filter: 'blur(50px) brightness(5) saturate(0)', duration: 0 },
+      { opacity: 0.7, scale: 1.4, x: -30, y: 20, filter: 'blur(20px) brightness(3) saturate(0.8)', duration: 0.05, ease: 'power1.inOut' },
+      { opacity: 0.3, scale: 0.7, x: 35, y: -25, filter: 'blur(40px) brightness(2) saturate(0.4)', duration: 0.04, ease: 'power1.inOut' },
+      { opacity: 0.9, scale: 1.25, x: -20, y: 15, filter: 'blur(10px) brightness(4) saturate(1.2)', duration: 0.05, ease: 'power1.inOut' },
+      { opacity: 0.4, scale: 0.8, x: 25, y: -18, filter: 'blur(25px) brightness(2.5) saturate(0.6)', duration: 0.04, ease: 'power1.inOut' },
+      { opacity: 0.95, scale: 1.12, x: -12, y: 10, filter: 'blur(5px) brightness(4.5) saturate(1.4)', duration: 0.05, ease: 'power1.inOut' },
+      { opacity: 0.55, scale: 0.9, x: 15, y: -8, filter: 'blur(15px) brightness(3) saturate(0.9)', duration: 0.04, ease: 'power1.inOut' },
+      { opacity: 0.98, scale: 1.05, x: -6, y: 5, filter: 'blur(2px) brightness(4.2) saturate(1.3)', duration: 0.05, ease: 'power1.inOut' },
+      { opacity: 0.88, scale: 1.02, x: 4, y: -3, filter: 'blur(8px) brightness(3.5) saturate(1.1)', duration: 0.04, ease: 'power1.inOut' },
+      { opacity: 1, scale: 1, x: 0, y: 0, filter: 'blur(0px) brightness(1) saturate(1)', duration: 0.1, ease: 'elastic.out(1, 0.5)' }
+    ]
+  },
+
+  // 静态雪花 - 电视雪花效果
+  staticSnow: {
+    type: 'timeline',
+    animations: [
+      { opacity: 0, scale: 1, filter: 'blur(70px) contrast(3) grayscale(1)', duration: 0 },
+      { opacity: 0.6, scale: 1.05, filter: 'blur(40px) contrast(2.5) grayscale(0.8)', duration: 0.06, ease: 'power1.inOut' },
+      { opacity: 0.3, scale: 0.98, filter: 'blur(55px) contrast(2.8) grayscale(0.9)', duration: 0.05, ease: 'power1.inOut' },
+      { opacity: 0.7, scale: 1.08, filter: 'blur(25px) contrast(2.2) grayscale(0.6)', duration: 0.06, ease: 'power1.inOut' },
+      { opacity: 0.4, scale: 0.95, filter: 'blur(45px) contrast(2.5) grayscale(0.8)', duration: 0.05, ease: 'power1.inOut' },
+      { opacity: 0.85, scale: 1.04, filter: 'blur(15px) contrast(2) grayscale(0.5)', duration: 0.06, ease: 'power1.inOut' },
+      { opacity: 0.5, scale: 0.99, filter: 'blur(30px) contrast(2.3) grayscale(0.7)', duration: 0.05, ease: 'power1.inOut' },
+      { opacity: 0.95, scale: 1.02, filter: 'blur(8px) contrast(1.8) grayscale(0.4)', duration: 0.06, ease: 'power1.inOut' },
+      { opacity: 0.8, scale: 1.01, filter: 'blur(18px) contrast(2.1) grayscale(0.55)', duration: 0.05, ease: 'power1.inOut' },
+      { opacity: 1, scale: 1, filter: 'blur(0px) contrast(1) grayscale(0)', duration: 0.12, ease: 'power2.out' }
+    ]
+  },
+
+  // 像素排序 - 艺术像素效果
+  pixelSort: {
+    type: 'timeline',
+    animations: [
+      { opacity: 0, scale: 0.2, filter: 'blur(60px) brightness(3) contrast(2) hue-rotate(0deg)', duration: 0 },
+      { opacity: 0.5, scale: 1.5, filter: 'blur(30px) brightness(2.5) contrast(2.5) hue-rotate(60deg)', duration: 0.15, ease: 'power2.out' },
+      { opacity: 0.25, scale: 0.5, filter: 'blur(50px) brightness(1.8) contrast(1.8) hue-rotate(120deg)', duration: 0.12, ease: 'power2.in' },
+      { opacity: 0.7, scale: 1.3, filter: 'blur(15px) brightness(3) contrast(2.2) hue-rotate(180deg)', duration: 0.13, ease: 'power2.out' },
+      { opacity: 0.35, scale: 0.7, filter: 'blur(35px) brightness(2) contrast(2) hue-rotate(240deg)', duration: 0.1, ease: 'power2.in' },
+      { opacity: 0.85, scale: 1.15, filter: 'blur(8px) brightness(3.5) contrast(2.1) hue-rotate(300deg)', duration: 0.11, ease: 'power2.out' },
+      { opacity: 0.5, scale: 0.9, filter: 'blur(20px) brightness(2.5) contrast(2.05) hue-rotate(360deg)', duration: 0.09, ease: 'power2.in' },
+      { opacity: 0.95, scale: 1.05, filter: 'blur(4px) brightness(3.2) contrast(2.02) hue-rotate(420deg)', duration: 0.1, ease: 'power2.out' },
+      { opacity: 0.75, scale: 0.98, filter: 'blur(10px) brightness(2.8) contrast(2.01) hue-rotate(390deg)', duration: 0.08, ease: 'power2.in' },
+      { opacity: 1, scale: 1, filter: 'blur(0px) brightness(1) contrast(1) hue-rotate(0deg)', duration: 0.15, ease: 'elastic.out(1, 0.45)' }
+    ]
+  },
+
+  // 比特腐烂 - 数字衰减效果
+  bitRot: {
+    type: 'timeline',
+    animations: [
+      { opacity: 0, scale: 1, filter: 'blur(80px) brightness(4) contrast(3) invert(0)', duration: 0 },
+      { opacity: 0.4, scale: 1.1, filter: 'blur(40px) brightness(3) contrast(2.5) invert(0.2)', duration: 0.2, ease: 'power1.out' },
+      { opacity: 0.6, scale: 0.95, filter: 'blur(60px) brightness(2) contrast(2.8) invert(0.4)', duration: 0.15, ease: 'power1.in' },
+      { opacity: 0.3, scale: 1.08, filter: 'blur(30px) brightness(3.5) contrast(2.2) invert(0.6)', duration: 0.18, ease: 'power1.out' },
+      { opacity: 0.7, scale: 0.9, filter: 'blur(50px) brightness(1.8) contrast(2.6) invert(0.8)', duration: 0.12, ease: 'power1.in' },
+      { opacity: 0.5, scale: 1.04, filter: 'blur(20px) brightness(3.8) contrast(2) invert(0.5)', duration: 0.15, ease: 'power1.out' },
+      { opacity: 0.8, scale: 0.97, filter: 'blur(40px) brightness(2.2) contrast(2.4) invert(0.3)', duration: 0.1, ease: 'power1.in' },
+      { opacity: 0.6, scale: 1.02, filter: 'blur(10px) brightness(3.2) contrast(2.1) invert(0.15)', duration: 0.12, ease: 'power1.out' },
+      { opacity: 0.9, scale: 1.01, filter: 'blur(25px) brightness(2.5) contrast(2.05) invert(0.08)', duration: 0.1, ease: 'power1.in' },
+      { opacity: 1, scale: 1, filter: 'blur(0px) brightness(1) contrast(1) invert(0)', duration: 0.15, ease: 'power2.out' }
+    ]
+  },
+
+  // 波形失真 - 音频波形效果
+  waveDistortion: {
+    type: 'timeline',
+    animations: [
+      { opacity: 0, scale: 0.5, skewX: 0, filter: 'blur(50px) brightness(3)', duration: 0 },
+      { opacity: 0.7, scale: 1.2, skewX: 25, filter: 'blur(20px) brightness(2.5)', duration: 0.1, ease: 'power2.out' },
+      { opacity: 0.35, scale: 0.8, skewX: -20, filter: 'blur(40px) brightness(1.8)', duration: 0.08, ease: 'power2.in' },
+      { opacity: 0.8, scale: 1.15, skewX: 18, filter: 'blur(10px) brightness(2.8)', duration: 0.09, ease: 'power2.out' },
+      { opacity: 0.45, scale: 0.85, skewX: -15, filter: 'blur(25px) brightness(2)', duration: 0.07, ease: 'power2.in' },
+      { opacity: 0.9, scale: 1.08, skewX: 12, filter: 'blur(5px) brightness(3.2)', duration: 0.08, ease: 'power2.out' },
+      { opacity: 0.55, scale: 0.92, skewX: -10, filter: 'blur(15px) brightness(2.4)', duration: 0.06, ease: 'power2.in' },
+      { opacity: 0.95, scale: 1.03, skewX: 8, filter: 'blur(3px) brightness(2.9)', duration: 0.07, ease: 'power2.out' },
+      { opacity: 0.8, scale: 0.99, skewX: -5, filter: 'blur(8px) brightness(2.6)', duration: 0.05, ease: 'power2.in' },
+      { opacity: 1, scale: 1, skewX: 0, filter: 'blur(0px) brightness(1)', duration: 0.12, ease: 'elastic.out(1, 0.4)' }
+    ]
+  },
+
+  // 碎片爆炸 - 粒子爆炸效果
+  fragmentExplosion: {
+    type: 'timeline',
+    animations: [
+      { opacity: 0, scale: 0.1, filter: 'blur(100px) brightness(5)', duration: 0 },
+      { opacity: 0.9, scale: 2.5, filter: 'blur(20px) brightness(4)', duration: 0.08, ease: 'power4.out' },
+      { opacity: 0.4, scale: 0.3, filter: 'blur(80px) brightness(2)', duration: 0.06, ease: 'power4.in' },
+      { opacity: 1, scale: 1.8, filter: 'blur(10px) brightness(4.5)', duration: 0.07, ease: 'power4.out' },
+      { opacity: 0.5, scale: 0.5, filter: 'blur(60px) brightness(2.5)', duration: 0.05, ease: 'power4.in' },
+      { opacity: 0.95, scale: 1.3, filter: 'blur(5px) brightness(4.8)', duration: 0.06, ease: 'power4.out' },
+      { opacity: 0.6, scale: 0.7, filter: 'blur(40px) brightness(3)', duration: 0.04, ease: 'power4.in' },
+      { opacity: 1, scale: 1.1, filter: 'blur(2px) brightness(4.6)', duration: 0.05, ease: 'power4.out' },
+      { opacity: 0.8, scale: 0.9, filter: 'blur(15px) brightness(3.5)', duration: 0.04, ease: 'power4.in' },
+      { opacity: 1, scale: 1, filter: 'blur(0px) brightness(1)', duration: 0.1, ease: 'elastic.out(1, 0.5)' }
+    ]
+  },
+
+  // 粒子群集 - 粒子聚集效果
+  particleSwarm: {
+    type: 'timeline',
+    animations: [
+      { opacity: 0, scale: 0.1, filter: 'blur(60px) brightness(4) saturate(0)', duration: 0 },
+      { opacity: 0.8, scale: 1.5, filter: 'blur(25px) brightness(3) saturate(0.5)', duration: 0.2, ease: 'power3.out' },
+      { opacity: 0.3, scale: 0.6, filter: 'blur(50px) brightness(2) saturate(0.25)', duration: 0.15, ease: 'power3.in' },
+      { opacity: 0.85, scale: 1.3, filter: 'blur(12px) brightness(3.5) saturate(0.75)', duration: 0.18, ease: 'power3.out' },
+      { opacity: 0.4, scale: 0.75, filter: 'blur(35px) brightness(2.3) saturate(0.4)', duration: 0.13, ease: 'power3.in' },
+      { opacity: 0.95, scale: 1.15, filter: 'blur(6px) brightness(4) saturate(0.9)', duration: 0.15, ease: 'power3.out' },
+      { opacity: 0.5, scale: 0.9, filter: 'blur(20px) brightness(2.8) saturate(0.6)', duration: 0.11, ease: 'power3.in' },
+      { opacity: 0.98, scale: 1.05, filter: 'blur(3px) brightness(3.8) saturate(0.95)', duration: 0.13, ease: 'power3.out' },
+      { opacity: 0.75, scale: 0.98, filter: 'blur(10px) brightness(3.2) saturate(0.8)', duration: 0.1, ease: 'power3.in' },
+      { opacity: 1, scale: 1, filter: 'blur(0px) brightness(1) saturate(1)', duration: 0.15, ease: 'elastic.out(1, 0.45)' }
+    ]
+  },
+
+  // 数字消融 - 像素消融效果
+  digitalDissolve: {
+    type: 'timeline',
+    animations: [
+      { opacity: 0, scale: 1, filter: 'blur(0px) contrast(1)', duration: 0 },
+      { opacity: 0.9, scale: 1.02, filter: 'blur(5px) contrast(1.5)', duration: 0.05, ease: 'power1.out' },
+      { opacity: 0.8, scale: 1.05, filter: 'blur(10px) contrast(2)', duration: 0.05, ease: 'power1.out' },
+      { opacity: 0.7, scale: 1.08, filter: 'blur(15px) contrast(2.5)', duration: 0.05, ease: 'power1.out' },
+      { opacity: 0.6, scale: 1.1, filter: 'blur(20px) contrast(3)', duration: 0.05, ease: 'power1.out' },
+      { opacity: 0.8, scale: 1.05, filter: 'blur(12px) contrast(2.2)', duration: 0.08, ease: 'power1.in' },
+      { opacity: 0.9, scale: 1.03, filter: 'blur(8px) contrast(1.8)', duration: 0.06, ease: 'power1.in' },
+      { opacity: 0.95, scale: 1.02, filter: 'blur(4px) contrast(1.5)', duration: 0.05, ease: 'power1.in' },
+      { opacity: 0.98, scale: 1.01, filter: 'blur(2px) contrast(1.2)', duration: 0.04, ease: 'power1.in' },
+      { opacity: 1, scale: 1, filter: 'blur(0px) contrast(1)', duration: 0.1, ease: 'power2.out' }
+    ]
+  },
+
+  // 全息闪烁 - 不稳定全息效果
+  hologramFlicker: {
+    type: 'timeline',
+    animations: [
+      { opacity: 0, scale: 0.8, filter: 'blur(40px) brightness(3) hue-rotate(180deg)', duration: 0 },
+      { opacity: 0.9, scale: 1.1, filter: 'blur(8px) brightness(2.5) hue-rotate(90deg)', duration: 0.02, ease: 'power1.inOut' },
+      { opacity: 0.5, scale: 0.95, filter: 'blur(25px) brightness(3.5) hue-rotate(270deg)', duration: 0.015, ease: 'power1.inOut' },
+      { opacity: 1, scale: 1.05, filter: 'blur(4px) brightness(2) hue-rotate(45deg)', duration: 0.02, ease: 'power1.inOut' },
+      { opacity: 0.6, scale: 0.98, filter: 'blur(15px) brightness(3) hue-rotate(135deg)', duration: 0.015, ease: 'power1.inOut' },
+      { opacity: 0.95, scale: 1.03, filter: 'blur(3px) brightness(2.3) hue-rotate(225deg)', duration: 0.02, ease: 'power1.inOut' },
+      { opacity: 0.7, scale: 1.01, filter: 'blur(8px) brightness(2.8) hue-rotate(315deg)', duration: 0.015, ease: 'power1.inOut' },
+      { opacity: 1, scale: 1.02, filter: 'blur(2px) brightness(2.1) hue-rotate(0deg)', duration: 0.02, ease: 'power1.inOut' },
+      { opacity: 0.85, scale: 1.01, filter: 'blur(5px) brightness(2.4) hue-rotate(180deg)', duration: 0.015, ease: 'power1.inOut' },
+      { opacity: 1, scale: 1, filter: 'blur(0px) brightness(1) hue-rotate(0deg)', duration: 0.08, ease: 'power2.out' }
+    ]
+  },
+
+  // 信号衰变 - 信号逐渐衰弱
+  signalDecay: {
+    type: 'timeline',
+    animations: [
+      { opacity: 0, scale: 0.5, filter: 'blur(30px) brightness(2)', duration: 0 },
+      { opacity: 0.95, scale: 1.1, filter: 'blur(5px) brightness(2.5)', duration: 0.1, ease: 'power2.out' },
+      { opacity: 0.85, scale: 1.05, filter: 'blur(10px) brightness(2.3)', duration: 0.08, ease: 'power1.in' },
+      { opacity: 0.9, scale: 1.08, filter: 'blur(8px) brightness(2.4)', duration: 0.09, ease: 'power2.out' },
+      { opacity: 0.75, scale: 1.02, filter: 'blur(15px) brightness(2.1)', duration: 0.07, ease: 'power1.in' },
+      { opacity: 0.88, scale: 1.04, filter: 'blur(12px) brightness(2.2)', duration: 0.08, ease: 'power2.out' },
+      { opacity: 0.8, scale: 1.01, filter: 'blur(18px) brightness(2)', duration: 0.06, ease: 'power1.in' },
+      { opacity: 0.92, scale: 1.02, filter: 'blur(10px) brightness(2.15)', duration: 0.07, ease: 'power2.out' },
+      { opacity: 0.85, scale: 1, filter: 'blur(14px) brightness(2.05)', duration: 0.05, ease: 'power1.in' },
+      { opacity: 1, scale: 1, filter: 'blur(0px) brightness(1)', duration: 0.12, ease: 'elastic.out(1, 0.4)' }
+    ]
+  },
+
+  // 像素变形 - 动态像素变换
+  pixelMorph: {
+    type: 'timeline',
+    animations: [
+      { opacity: 0, scale: 0.2, filter: 'blur(50px) brightness(3) contrast(2)', duration: 0 },
+      { opacity: 0.7, scale: 1.6, filter: 'blur(20px) brightness(2.5) contrast(2.5)', duration: 0.12, ease: 'power3.out' },
+      { opacity: 0.35, scale: 0.6, filter: 'blur(40px) brightness(1.8) contrast(3)', duration: 0.1, ease: 'power3.in' },
+      { opacity: 0.85, scale: 1.4, filter: 'blur(10px) brightness(3) contrast(2.2)', duration: 0.11, ease: 'power3.out' },
+      { opacity: 0.45, scale: 0.75, filter: 'blur(30px) brightness(2) contrast(2.8)', duration: 0.09, ease: 'power3.in' },
+      { opacity: 0.92, scale: 1.2, filter: 'blur(5px) brightness(3.5) contrast(2)', duration: 0.1, ease: 'power3.out' },
+      { opacity: 0.55, scale: 0.85, filter: 'blur(18px) brightness(2.3) contrast(2.5)', duration: 0.08, ease: 'power3.in' },
+      { opacity: 0.96, scale: 1.08, filter: 'blur(3px) brightness(3.2) contrast(2.1)', duration: 0.09, ease: 'power3.out' },
+      { opacity: 0.75, scale: 0.95, filter: 'blur(10px) brightness(2.6) contrast(2.3)', duration: 0.07, ease: 'power3.in' },
+      { opacity: 1, scale: 1, filter: 'blur(0px) brightness(1) contrast(1)', duration: 0.15, ease: 'elastic.out(1, 0.5)' }
+    ]
+  },
+
+  // 赛博脉冲 - 能量脉冲效果
+  cyberPulse: {
+    type: 'timeline',
+    animations: [
+      { opacity: 0, scale: 0.1, filter: 'blur(80px) brightness(5) hue-rotate(0deg)', duration: 0 },
+      { opacity: 0.8, scale: 1.8, filter: 'blur(25px) brightness(4) hue-rotate(60deg)', duration: 0.06, ease: 'power4.out' },
+      { opacity: 0.3, scale: 0.4, filter: 'blur(60px) brightness(2) hue-rotate(120deg)', duration: 0.04, ease: 'power4.in' },
+      { opacity: 0.9, scale: 1.5, filter: 'blur(12px) brightness(4.5) hue-rotate(180deg)', duration: 0.05, ease: 'power4.out' },
+      { opacity: 0.4, scale: 0.6, filter: 'blur(45px) brightness(2.5) hue-rotate(240deg)', duration: 0.04, ease: 'power4.in' },
+      { opacity: 0.95, scale: 1.3, filter: 'blur(6px) brightness(4.8) hue-rotate(300deg)', duration: 0.05, ease: 'power4.out' },
+      { opacity: 0.5, scale: 0.8, filter: 'blur(30px) brightness(3) hue-rotate(360deg)', duration: 0.04, ease: 'power4.in' },
+      { opacity: 0.98, scale: 1.1, filter: 'blur(3px) brightness(4.6) hue-rotate(420deg)', duration: 0.05, ease: 'power4.out' },
+      { opacity: 0.75, scale: 0.95, filter: 'blur(15px) brightness(3.5) hue-rotate(390deg)', duration: 0.04, ease: 'power4.in' },
+      { opacity: 1, scale: 1, filter: 'blur(0px) brightness(1) hue-rotate(0deg)', duration: 0.12, ease: 'elastic.out(1, 0.5)' }
+    ]
+  },
+
+  // 数字碎片 - 数字分解效果
+  digitalFragment: {
+    type: 'timeline',
+    animations: [
+      { opacity: 0, scale: 1, filter: 'blur(100px) brightness(5) contrast(3)', duration: 0 },
+      { opacity: 0.6, scale: 0.5, filter: 'blur(50px) brightness(4) contrast(2.5)', duration: 0.15, ease: 'power4.out' },
+      { opacity: 0.3, scale: 1.5, filter: 'blur(80px) brightness(2) contrast(3.5)', duration: 0.12, ease: 'power4.in' },
+      { opacity: 0.8, scale: 0.7, filter: 'blur(30px) brightness(4.5) contrast(2)', duration: 0.13, ease: 'power4.out' },
+      { opacity: 0.4, scale: 1.3, filter: 'blur(60px) brightness(2.5) contrast(3)', duration: 0.1, ease: 'power4.in' },
+      { opacity: 0.9, scale: 0.85, filter: 'blur(15px) brightness(4.8) contrast(1.8)', duration: 0.11, ease: 'power4.out' },
+      { opacity: 0.5, scale: 1.15, filter: 'blur(40px) brightness(3) contrast(2.8)', duration: 0.09, ease: 'power4.in' },
+      { opacity: 0.95, scale: 0.95, filter: 'blur(8px) brightness(4.6) contrast(2)', duration: 0.1, ease: 'power4.out' },
+      { opacity: 0.7, scale: 1.05, filter: 'blur(25px) brightness(3.5) contrast(2.4)', duration: 0.08, ease: 'power4.in' },
+      { opacity: 1, scale: 1, filter: 'blur(0px) brightness(1) contrast(1)', duration: 0.15, ease: 'elastic.out(1, 0.4)' }
+    ]
+  },
+
+  // 矩阵代码 - 黑客帝国代码效果
+  matrixCode: {
+    type: 'timeline',
+    animations: [
+      { opacity: 0, scale: 0.1, filter: 'blur(60px) brightness(5) hue-rotate(120deg) saturate(2)', duration: 0 },
+      { opacity: 0.7, scale: 1.4, filter: 'blur(25px) brightness(4) hue-rotate(100deg) saturate(2.5)', duration: 0.18, ease: 'power2.out' },
+      { opacity: 0.35, scale: 0.6, filter: 'blur(50px) brightness(2) hue-rotate(140deg) saturate(1.5)', duration: 0.14, ease: 'power2.in' },
+      { opacity: 0.85, scale: 1.25, filter: 'blur(12px) brightness(4.5) hue-rotate(110deg) saturate(2.8)', duration: 0.16, ease: 'power2.out' },
+      { opacity: 0.45, scale: 0.75, filter: 'blur(35px) brightness(2.5) hue-rotate(130deg) saturate(2)', duration: 0.12, ease: 'power2.in' },
+      { opacity: 0.92, scale: 1.12, filter: 'blur(6px) brightness(4.8) hue-rotate(105deg) saturate(2.6)', duration: 0.14, ease: 'power2.out' },
+      { opacity: 0.55, scale: 0.9, filter: 'blur(20px) brightness(3) hue-rotate(115deg) saturate(2.3)', duration: 0.11, ease: 'power2.in' },
+      { opacity: 0.96, scale: 1.05, filter: 'blur(3px) brightness(4.6) hue-rotate(108deg) saturate(2.5)', duration: 0.13, ease: 'power2.out' },
+      { opacity: 0.8, scale: 1.02, filter: 'blur(10px) brightness(3.5) hue-rotate(112deg) saturate(2.4)', duration: 0.1, ease: 'power2.in' },
+      { opacity: 1, scale: 1, filter: 'blur(0px) brightness(1) hue-rotate(0deg) saturate(1)', duration: 0.18, ease: 'elastic.out(1, 0.5)' }
+    ]
+  },
+
+  // V11 爆炸破坏特效 - 16个震撼动画
+  nuclearExplosion: {
+    type: 'timeline',
+    animations: [
+      { opacity: 0, scale: 0.1, filter: 'blur(80px) brightness(10)', duration: 0 },
+      { opacity: 1, scale: 3, filter: 'blur(40px) brightness(8) hue-rotate(20deg)', duration: 0.15, ease: 'power2.out' },
+      { opacity: 0.6, scale: 4.5, filter: 'blur(60px) brightness(6) hue-rotate(40deg)', duration: 0.1, ease: 'power2.in' },
+      { opacity: 0.9, scale: 2.5, filter: 'blur(20px) brightness(9) hue-rotate(10deg)', duration: 0.12, ease: 'power2.out' },
+      { opacity: 0.5, scale: 5, filter: 'blur(50px) brightness(5) hue-rotate(60deg)', duration: 0.08, ease: 'power2.in' },
+      { opacity: 1, scale: 1.8, filter: 'blur(10px) brightness(7) hue-rotate(5deg)', duration: 0.1, ease: 'power2.out' },
+      { opacity: 0.7, scale: 3.5, filter: 'blur(30px) brightness(4) hue-rotate(80deg)', duration: 0.07, ease: 'power2.in' },
+      { opacity: 1, scale: 1.2, filter: 'blur(5px) brightness(6) hue-rotate(0deg)', duration: 0.08, ease: 'power2.out' },
+      { opacity: 0.9, scale: 2, filter: 'blur(8px) brightness(3) hue-rotate(15deg)', duration: 0.06, ease: 'power2.in' },
+      { opacity: 1, scale: 1, filter: 'blur(0px) brightness(1) hue-rotate(0deg)', duration: 0.14, ease: 'elastic.out(1, 0.3)' }
+    ]
+  },
+
+  glassShatter: {
+    type: 'timeline',
+    animations: [
+      { opacity: 0, scale: 1, rotate: 0, filter: 'blur(0px)', duration: 0 },
+      { opacity: 1, scale: 1.1, rotate: 5, filter: 'blur(2px)', duration: 0.08, ease: 'power1.out' },
+      { opacity: 0.9, scale: 1.3, rotate: -8, filter: 'blur(5px)', duration: 0.06, ease: 'power1.in' },
+      { opacity: 1, scale: 1.15, rotate: 12, filter: 'blur(3px)', duration: 0.07, ease: 'power1.out' },
+      { opacity: 0.8, scale: 1.6, rotate: -15, filter: 'blur(8px)', duration: 0.05, ease: 'power1.in' },
+      { opacity: 1, scale: 1.2, rotate: 8, filter: 'blur(4px)', duration: 0.06, ease: 'power1.out' },
+      { opacity: 0.85, scale: 1.4, rotate: -10, filter: 'blur(6px)', duration: 0.05, ease: 'power1.in' },
+      { opacity: 1, scale: 1.05, rotate: 5, filter: 'blur(2px)', duration: 0.06, ease: 'power1.out' },
+      { opacity: 0.95, scale: 1.1, rotate: -3, filter: 'blur(1px)', duration: 0.04, ease: 'power1.in' },
+      { opacity: 1, scale: 1, rotate: 0, filter: 'blur(0px)', duration: 0.15, ease: 'elastic.out(1, 0.5)' }
+    ]
+  },
+
+  crystalExplosion: {
+    type: 'timeline',
+    animations: [
+      { opacity: 0, scale: 0.2, skewX: 0, skewY: 0, filter: 'blur(50px) brightness(3)', duration: 0 },
+      { opacity: 1, scale: 2, skewX: 10, skewY: 5, filter: 'blur(20px) brightness(5)', duration: 0.12, ease: 'power2.out' },
+      { opacity: 0.6, scale: 2.5, skewX: -15, skewY: -8, filter: 'blur(40px) brightness(2)', duration: 0.08, ease: 'power2.in' },
+      { opacity: 1, scale: 1.5, skewX: 8, skewY: 4, filter: 'blur(10px) brightness(6)', duration: 0.1, ease: 'power2.out' },
+      { opacity: 0.7, scale: 2, skewX: -12, skewY: -6, filter: 'blur(25px) brightness(3)', duration: 0.07, ease: 'power2.in' },
+      { opacity: 1, scale: 1.2, skewX: 5, skewY: 2, filter: 'blur(5px) brightness(5)', duration: 0.08, ease: 'power2.out' },
+      { opacity: 0.85, scale: 1.4, skewX: -6, skewY: -3, filter: 'blur(12px) brightness(3.5)', duration: 0.06, ease: 'power2.in' },
+      { opacity: 1, scale: 1.05, skewX: 2, skewY: 1, filter: 'blur(2px) brightness(4)', duration: 0.07, ease: 'power2.out' },
+      { opacity: 0.95, scale: 1.1, skewX: -1, skewY: -0.5, filter: 'blur(1px) brightness(3)', duration: 0.05, ease: 'power2.in' },
+      { opacity: 1, scale: 1, skewX: 0, skewY: 0, filter: 'blur(0px) brightness(1)', duration: 0.12, ease: 'elastic.out(1, 0.4)' }
+    ]
+  },
+
+  pixelBurst: {
+    type: 'timeline',
+    animations: [
+      { opacity: 0, scale: 0.1, filter: 'blur(30px) contrast(3)', duration: 0 },
+      { opacity: 1, scale: 1.5, filter: 'blur(10px) contrast(2.5)', duration: 0.1, ease: 'power1.out' },
+      { opacity: 0.5, scale: 2, filter: 'blur(20px) contrast(3.5)', duration: 0.08, ease: 'power1.in' },
+      { opacity: 1, scale: 1.2, filter: 'blur(5px) contrast(2)', duration: 0.09, ease: 'power1.out' },
+      { opacity: 0.6, scale: 1.8, filter: 'blur(15px) contrast(4)', duration: 0.07, ease: 'power1.in' },
+      { opacity: 1, scale: 1.1, filter: 'blur(3px) contrast(1.8)', duration: 0.08, ease: 'power1.out' },
+      { opacity: 0.7, scale: 1.4, filter: 'blur(8px) contrast(2.5)', duration: 0.06, ease: 'power1.in' },
+      { opacity: 1, scale: 1.05, filter: 'blur(2px) contrast(1.5)', duration: 0.07, ease: 'power1.out' },
+      { opacity: 0.9, scale: 1.1, filter: 'blur(1px) contrast(1.2)', duration: 0.05, ease: 'power1.in' },
+      { opacity: 1, scale: 1, filter: 'blur(0px) contrast(1)', duration: 0.2, ease: 'elastic.out(1, 0.6)' }
+    ]
+  },
+
+  fragmentShred: {
+    type: 'timeline',
+    animations: [
+      { opacity: 0, scale: 1, rotate: 0, filter: 'blur(0px)', duration: 0 },
+      { opacity: 1, scale: 1.2, rotate: 45, filter: 'blur(3px) brightness(1.5)', duration: 0.1, ease: 'power2.out' },
+      { opacity: 0.7, scale: 1.5, rotate: -30, filter: 'blur(8px) brightness(0.8)', duration: 0.08, ease: 'power2.in' },
+      { opacity: 1, scale: 1.1, rotate: 60, filter: 'blur(4px) brightness(1.3)', duration: 0.09, ease: 'power2.out' },
+      { opacity: 0.6, scale: 1.8, rotate: -45, filter: 'blur(12px) brightness(0.6)', duration: 0.07, ease: 'power2.in' },
+      { opacity: 1, scale: 1.05, rotate: 30, filter: 'blur(2px) brightness(1.2)', duration: 0.08, ease: 'power2.out' },
+      { opacity: 0.8, scale: 1.3, rotate: -20, filter: 'blur(6px) brightness(0.9)', duration: 0.06, ease: 'power2.in' },
+      { opacity: 1, scale: 1.02, rotate: 10, filter: 'blur(1px) brightness(1.1)', duration: 0.07, ease: 'power2.out' },
+      { opacity: 0.95, scale: 1.05, rotate: -5, filter: 'blur(0.5px) brightness(1.05)', duration: 0.05, ease: 'power2.in' },
+      { opacity: 1, scale: 1, rotate: 0, filter: 'blur(0px) brightness(1)', duration: 0.12, ease: 'elastic.out(1, 0.5)' }
+    ]
+  },
+
+  plasmaDetonation: {
+    type: 'timeline',
+    animations: [
+      { opacity: 0, scale: 0.3, filter: 'blur(70px) brightness(8) hue-rotate(180deg)', duration: 0 },
+      { opacity: 1, scale: 2.5, filter: 'blur(30px) brightness(6) hue-rotate(200deg)', duration: 0.12, ease: 'power2.out' },
+      { opacity: 0.5, scale: 4, filter: 'blur(50px) brightness(4) hue-rotate(220deg)', duration: 0.1, ease: 'power2.in' },
+      { opacity: 1, scale: 1.8, filter: 'blur(15px) brightness(7) hue-rotate(190deg)', duration: 0.11, ease: 'power2.out' },
+      { opacity: 0.6, scale: 3, filter: 'blur(35px) brightness(5) hue-rotate(210deg)', duration: 0.08, ease: 'power2.in' },
+      { opacity: 1, scale: 1.3, filter: 'blur(8px) brightness(6.5) hue-rotate(185deg)', duration: 0.09, ease: 'power2.out' },
+      { opacity: 0.75, scale: 2, filter: 'blur(20px) brightness(4.5) hue-rotate(195deg)', duration: 0.07, ease: 'power2.in' },
+      { opacity: 1, scale: 1.08, filter: 'blur(3px) brightness(5.5) hue-rotate(187deg)', duration: 0.08, ease: 'power2.out' },
+      { opacity: 0.9, scale: 1.15, filter: 'blur(5px) brightness(2) hue-rotate(192deg)', duration: 0.06, ease: 'power2.in' },
+      { opacity: 1, scale: 1, filter: 'blur(0px) brightness(1) hue-rotate(0deg)', duration: 0.18, ease: 'elastic.out(1, 0.4)' }
+    ]
+  },
+
+  energyShockwave: {
+    type: 'timeline',
+    animations: [
+      { opacity: 0, scale: 0.1, filter: 'blur(60px) brightness(5) hue-rotate(60deg)', duration: 0 },
+      { opacity: 1, scale: 3, filter: 'blur(25px) brightness(4) hue-rotate(80deg)', duration: 0.15, ease: 'power3.out' },
+      { opacity: 0.6, scale: 5, filter: 'blur(40px) brightness(3) hue-rotate(100deg)', duration: 0.12, ease: 'power3.in' },
+      { opacity: 1, scale: 2, filter: 'blur(10px) brightness(4.5) hue-rotate(70deg)', duration: 0.13, ease: 'power3.out' },
+      { opacity: 0.7, scale: 4, filter: 'blur(25px) brightness(2.5) hue-rotate(90deg)', duration: 0.1, ease: 'power3.in' },
+      { opacity: 1, scale: 1.4, filter: 'blur(5px) brightness(4) hue-rotate(75deg)', duration: 0.11, ease: 'power3.out' },
+      { opacity: 0.8, scale: 2.5, filter: 'blur(12px) brightness(3) hue-rotate(85deg)', duration: 0.08, ease: 'power3.in' },
+      { opacity: 1, scale: 1.1, filter: 'blur(2px) brightness(3.5) hue-rotate(77deg)', duration: 0.09, ease: 'power3.out' },
+      { opacity: 0.92, scale: 1.2, filter: 'blur(3px) brightness(2) hue-rotate(82deg)', duration: 0.07, ease: 'power3.in' },
+      { opacity: 1, scale: 1, filter: 'blur(0px) brightness(1) hue-rotate(0deg)', duration: 0.15, ease: 'elastic.out(1, 0.5)' }
+    ]
+  },
+
+  matterCollapse: {
+    type: 'timeline',
+    animations: [
+      { opacity: 0, scale: 2, filter: 'blur(50px) brightness(3)', duration: 0 },
+      { opacity: 1, scale: 1.5, filter: 'blur(30px) brightness(5)', duration: 0.12, ease: 'power2.out' },
+      { opacity: 0.4, scale: 0.8, filter: 'blur(40px) brightness(2)', duration: 0.1, ease: 'power2.in' },
+      { opacity: 1, scale: 2.2, filter: 'blur(20px) brightness(6)', duration: 0.11, ease: 'power2.out' },
+      { opacity: 0.5, scale: 0.6, filter: 'blur(35px) brightness(1.5)', duration: 0.09, ease: 'power2.in' },
+      { opacity: 1, scale: 1.8, filter: 'blur(10px) brightness(5.5)', duration: 0.1, ease: 'power2.out' },
+      { opacity: 0.6, scale: 0.9, filter: 'blur(20px) brightness(2.5)', duration: 0.08, ease: 'power2.in' },
+      { opacity: 1, scale: 1.3, filter: 'blur(5px) brightness(4.5)', duration: 0.09, ease: 'power2.out' },
+      { opacity: 0.85, scale: 0.95, filter: 'blur(8px) brightness(3)', duration: 0.07, ease: 'power2.in' },
+      { opacity: 1, scale: 1, filter: 'blur(0px) brightness(1)', duration: 0.2, ease: 'elastic.out(1, 0.6)' }
+    ]
+  },
+
+  stellarSupernova: {
+    type: 'timeline',
+    animations: [
+      { opacity: 0, scale: 0.05, filter: 'blur(90px) brightness(15) hue-rotate(300deg)', duration: 0 },
+      { opacity: 1, scale: 4, filter: 'blur(40px) brightness(12) hue-rotate(320deg)', duration: 0.2, ease: 'power4.out' },
+      { opacity: 0.5, scale: 6, filter: 'blur(60px) brightness(8) hue-rotate(340deg)', duration: 0.15, ease: 'power4.in' },
+      { opacity: 1, scale: 2.5, filter: 'blur(15px) brightness(14) hue-rotate(310deg)', duration: 0.18, ease: 'power4.out' },
+      { opacity: 0.6, scale: 5, filter: 'blur(35px) brightness(9) hue-rotate(330deg)', duration: 0.12, ease: 'power4.in' },
+      { opacity: 1, scale: 1.8, filter: 'blur(8px) brightness(13) hue-rotate(305deg)', duration: 0.15, ease: 'power4.out' },
+      { opacity: 0.7, scale: 3, filter: 'blur(20px) brightness(10) hue-rotate(315deg)', duration: 0.1, ease: 'power4.in' },
+      { opacity: 1, scale: 1.2, filter: 'blur(3px) brightness(12) hue-rotate(302deg)', duration: 0.12, ease: 'power4.out' },
+      { opacity: 0.85, scale: 1.5, filter: 'blur(6px) brightness(8) hue-rotate(312deg)', duration: 0.08, ease: 'power4.in' },
+      { opacity: 1, scale: 1, filter: 'blur(0px) brightness(1) hue-rotate(0deg)', duration: 0.25, ease: 'elastic.out(1, 0.5)' }
+    ]
+  },
+
+  disintegration: {
+    type: 'timeline',
+    animations: [
+      { opacity: 0, scale: 1, filter: 'blur(0px)', duration: 0 },
+      { opacity: 1, scale: 1.1, filter: 'blur(2px) hue-rotate(0deg)', duration: 0.08, ease: 'power1.out' },
+      { opacity: 0.7, scale: 1.2, filter: 'blur(5px) hue-rotate(45deg)', duration: 0.06, ease: 'power1.in' },
+      { opacity: 1, scale: 1.15, filter: 'blur(3px) hue-rotate(90deg)', duration: 0.07, ease: 'power1.out' },
+      { opacity: 0.6, scale: 1.3, filter: 'blur(8px) hue-rotate(135deg)', duration: 0.05, ease: 'power1.in' },
+      { opacity: 1, scale: 1.2, filter: 'blur(4px) hue-rotate(180deg)', duration: 0.06, ease: 'power1.out' },
+      { opacity: 0.75, scale: 1.25, filter: 'blur(6px) hue-rotate(225deg)', duration: 0.05, ease: 'power1.in' },
+      { opacity: 1, scale: 1.08, filter: 'blur(2px) hue-rotate(270deg)', duration: 0.06, ease: 'power1.out' },
+      { opacity: 0.9, scale: 1.1, filter: 'blur(1px) hue-rotate(315deg)', duration: 0.04, ease: 'power1.in' },
+      { opacity: 1, scale: 1, filter: 'blur(0px) hue-rotate(0deg)', duration: 0.15, ease: 'elastic.out(1, 0.5)' }
+    ]
+  },
+
+  chainReaction: {
+    type: 'timeline',
+    animations: [
+      { opacity: 0, scale: 0.5, filter: 'blur(20px)', duration: 0 },
+      { opacity: 1, scale: 1.2, filter: 'blur(5px) brightness(1.5)', duration: 0.1, ease: 'power2.out' },
+      { opacity: 0.6, scale: 0.8, filter: 'blur(15px) brightness(0.8)', duration: 0.08, ease: 'power2.in' },
+      { opacity: 1, scale: 1.3, filter: 'blur(3px) brightness(1.8)', duration: 0.09, ease: 'power2.out' },
+      { opacity: 0.65, scale: 0.9, filter: 'blur(12px) brightness(0.9)', duration: 0.07, ease: 'power2.in' },
+      { opacity: 1, scale: 1.15, filter: 'blur(2px) brightness(1.5)', duration: 0.08, ease: 'power2.out' },
+      { opacity: 0.7, scale: 0.95, filter: 'blur(8px) brightness(1)', duration: 0.06, ease: 'power2.in' },
+      { opacity: 1, scale: 1.08, filter: 'blur(1px) brightness(1.3)', duration: 0.07, ease: 'power2.out' },
+      { opacity: 0.88, scale: 1.02, filter: 'blur(0.5px) brightness(1.1)', duration: 0.05, ease: 'power2.in' },
+      { opacity: 1, scale: 1, filter: 'blur(0px) brightness(1)', duration: 0.18, ease: 'elastic.out(1, 0.6)' }
+    ]
+  },
+
+  shockwaveImpact: {
+    type: 'timeline',
+    animations: [
+      { opacity: 0, scale: 0.3, filter: 'blur(50px) brightness(4)', duration: 0 },
+      { opacity: 1, scale: 2.8, filter: 'blur(20px) brightness(6)', duration: 0.18, ease: 'power3.out' },
+      { opacity: 0.5, scale: 3.5, filter: 'blur(40px) brightness(3)', duration: 0.14, ease: 'power3.in' },
+      { opacity: 1, scale: 1.8, filter: 'blur(8px) brightness(7)', duration: 0.16, ease: 'power3.out' },
+      { opacity: 0.6, scale: 3, filter: 'blur(25px) brightness(2.5)', duration: 0.12, ease: 'power3.in' },
+      { opacity: 1, scale: 1.3, filter: 'blur(4px) brightness(6.5)', duration: 0.14, ease: 'power3.out' },
+      { opacity: 0.7, scale: 2.2, filter: 'blur(12px) brightness(3.5)', duration: 0.1, ease: 'power3.in' },
+      { opacity: 1, scale: 1.1, filter: 'blur(2px) brightness(5.5)', duration: 0.12, ease: 'power3.out' },
+      { opacity: 0.9, scale: 1.2, filter: 'blur(3px) brightness(2)', duration: 0.08, ease: 'power3.in' },
+      { opacity: 1, scale: 1, filter: 'blur(0px) brightness(1)', duration: 0.2, ease: 'elastic.out(1, 0.5)' }
+    ]
+  },
+
+  debrisScatter: {
+    type: 'timeline',
+    animations: [
+      { opacity: 0, scale: 1, rotate: 0, filter: 'blur(0px)', duration: 0 },
+      { opacity: 1, scale: 1.3, rotate: 20, filter: 'blur(4px) brightness(1.3)', duration: 0.1, ease: 'power2.out' },
+      { opacity: 0.7, scale: 1.6, rotate: -25, filter: 'blur(10px) brightness(0.9)', duration: 0.08, ease: 'power2.in' },
+      { opacity: 1, scale: 1.2, rotate: 35, filter: 'blur(5px) brightness(1.4)', duration: 0.09, ease: 'power2.out' },
+      { opacity: 0.65, scale: 1.8, rotate: -40, filter: 'blur(15px) brightness(0.8)', duration: 0.07, ease: 'power2.in' },
+      { opacity: 1, scale: 1.1, rotate: 15, filter: 'blur(3px) brightness(1.3)', duration: 0.08, ease: 'power2.out' },
+      { opacity: 0.75, scale: 1.4, rotate: -20, filter: 'blur(8px) brightness(0.95)', duration: 0.06, ease: 'power2.in' },
+      { opacity: 1, scale: 1.03, rotate: 8, filter: 'blur(1px) brightness(1.2)', duration: 0.07, ease: 'power2.out' },
+      { opacity: 0.92, scale: 1.08, rotate: -5, filter: 'blur(0.5px) brightness(1.1)', duration: 0.05, ease: 'power2.in' },
+      { opacity: 1, scale: 1, rotate: 0, filter: 'blur(0px) brightness(1)', duration: 0.15, ease: 'elastic.out(1, 0.5)' }
+    ]
+  },
+
+  plasmaBlast: {
+    type: 'timeline',
+    animations: [
+      { opacity: 0, scale: 0.2, filter: 'blur(60px) brightness(7) hue-rotate(120deg)', duration: 0 },
+      { opacity: 1, scale: 2.2, filter: 'blur(25px) brightness(6) hue-rotate(140deg)', duration: 0.14, ease: 'power3.out' },
+      { opacity: 0.55, scale: 3.5, filter: 'blur(45px) brightness(4) hue-rotate(160deg)', duration: 0.11, ease: 'power3.in' },
+      { opacity: 1, scale: 1.6, filter: 'blur(12px) brightness(6.5) hue-rotate(130deg)', duration: 0.13, ease: 'power3.out' },
+      { opacity: 0.65, scale: 2.8, filter: 'blur(30px) brightness(3.5) hue-rotate(150deg)', duration: 0.09, ease: 'power3.in' },
+      { opacity: 1, scale: 1.2, filter: 'blur(6px) brightness(6) hue-rotate(125deg)', duration: 0.11, ease: 'power3.out' },
+      { opacity: 0.7, scale: 1.8, filter: 'blur(18px) brightness(4) hue-rotate(145deg)', duration: 0.08, ease: 'power3.in' },
+      { opacity: 1, scale: 1.05, filter: 'blur(2px) brightness(5.5) hue-rotate(128deg)', duration: 0.1, ease: 'power3.out' },
+      { opacity: 0.88, scale: 1.15, filter: 'blur(4px) brightness(2.5) hue-rotate(138deg)', duration: 0.07, ease: 'power3.in' },
+      { opacity: 1, scale: 1, filter: 'blur(0px) brightness(1) hue-rotate(0deg)', duration: 0.18, ease: 'elastic.out(1, 0.4)' }
+    ]
+  },
+
+  quantumExplosion: {
+    type: 'timeline',
+    animations: [
+      { opacity: 0, scale: 0.1, filter: 'blur(70px) brightness(9) hue-rotate(240deg) saturate(2)', duration: 0 },
+      { opacity: 1, scale: 2.8, filter: 'blur(30px) brightness(7) hue-rotate(260deg) saturate(2.5)', duration: 0.16, ease: 'power4.out' },
+      { opacity: 0.45, scale: 4.5, filter: 'blur(50px) brightness(5) hue-rotate(280deg) saturate(3)', duration: 0.12, ease: 'power4.in' },
+      { opacity: 1, scale: 1.9, filter: 'blur(15px) brightness(8) hue-rotate(250deg) saturate(2.2)', duration: 0.14, ease: 'power4.out' },
+      { opacity: 0.55, scale: 3.5, filter: 'blur(35px) brightness(4) hue-rotate(270deg) saturate(2.8)', duration: 0.1, ease: 'power4.in' },
+      { opacity: 1, scale: 1.4, filter: 'blur(8px) brightness(7.5) hue-rotate(245deg) saturate(2.3)', duration: 0.12, ease: 'power4.out' },
+      { opacity: 0.65, scale: 2.2, filter: 'blur(20px) brightness(4.5) hue-rotate(265deg) saturate(2.6)', duration: 0.09, ease: 'power4.in' },
+      { opacity: 1, scale: 1.08, filter: 'blur(3px) brightness(7) hue-rotate(248deg) saturate(2.4)', duration: 0.1, ease: 'power4.out' },
+      { opacity: 0.85, scale: 1.18, filter: 'blur(5px) brightness(3) hue-rotate(258deg) saturate(2.5)', duration: 0.07, ease: 'power4.in' },
+      { opacity: 1, scale: 1, filter: 'blur(0px) brightness(1) hue-rotate(0deg) saturate(1)', duration: 0.22, ease: 'elastic.out(1, 0.5)' }
+    ]
+  },
+
+  antiMatterBlast: {
+    type: 'timeline',
+    animations: [
+      { opacity: 0, scale: 0.3, filter: 'blur(80px) brightness(12) invert(0.5)', duration: 0 },
+      { opacity: 1, scale: 3, filter: 'blur(35px) brightness(10) invert(0.4)', duration: 0.18, ease: 'power4.out' },
+      { opacity: 0.4, scale: 5, filter: 'blur(60px) brightness(6) invert(0.6)', duration: 0.14, ease: 'power4.in' },
+      { opacity: 1, scale: 2.2, filter: 'blur(18px) brightness(11) invert(0.35)', duration: 0.16, ease: 'power4.out' },
+      { opacity: 0.5, scale: 4.5, filter: 'blur(45px) brightness(5) invert(0.55)', duration: 0.12, ease: 'power4.in' },
+      { opacity: 1, scale: 1.5, filter: 'blur(8px) brightness(10.5) invert(0.38)', duration: 0.14, ease: 'power4.out' },
+      { opacity: 0.6, scale: 3, filter: 'blur(25px) brightness(4.5) invert(0.52)', duration: 0.1, ease: 'power4.in' },
+      { opacity: 1, scale: 1.1, filter: 'blur(3px) brightness(9.5) invert(0.4)', duration: 0.12, ease: 'power4.out' },
+      { opacity: 0.85, scale: 1.2, filter: 'blur(5px) brightness(3) invert(0.48)', duration: 0.08, ease: 'power4.in' },
+      { opacity: 1, scale: 1, filter: 'blur(0px) brightness(1) invert(0)', duration: 0.25, ease: 'elastic.out(1, 0.5)' }
+    ]
   }
 }

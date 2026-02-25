@@ -169,5 +169,101 @@ export const animationOptions = [
       { value: 'elasticFlyIn', label: '🚀 弹性飞入' },
       { value: 'elasticPullOut', label: '⬅️ 弹性拉出' }
     ]
+  },
+  {
+    label: 'V8 量子维度',
+    options: [
+      { value: 'quantumMaterialize', label: '⚛️ 量子实体化' },
+      { value: 'dimensionalPhase', label: '🌀 维度相位' },
+      { value: 'neuroPulse', label: '🧠 神经脉冲' },
+      { value: 'hologramMaterial', label: '🔮 全息材质' },
+      { value: 'temporalFlux', label: '⏰ 时间通量' },
+      { value: 'energyCascade', label: '⚡ 能量级联' },
+      { value: 'morphEssence', label: '✨ 形态本质' },
+      { value: 'resonanceField', label: '🌊 共振场域' },
+      { value: 'quantumEntangle', label: '⚛️ 量子纠缠' },
+      { value: 'dimensionShift', label: '🌀 维度跃迁' },
+      { value: 'plasmaCore', label: '☢️ 等离子核心' },
+      { value: 'gravityWave', label: '🌊 引力波' },
+      { value: 'stardustForm', label: '💫 星尘构成' },
+      { value: 'neonFlux', label: '💡 霓虹通量' },
+      { value: 'crystalMatrix', label: '💎 晶体矩阵' },
+      { value: 'voidPortal', label: '🕳️ 虚空传送门' },
+      { value: 'laserConstruct', label: '🔦 激光构建' },
+      { value: 'aeroDynamic', label: '💨 空气动力学' },
+      { value: 'liquidChrome', label: '🔮 液态铬' },
+      { value: 'prismSpectrum', label: '🌈 棱镜光谱' }
+    ]
+  },
+  {
+    label: 'V9 时空幻境',
+    options: [
+      { value: 'timeDilation', label: '⏳ 时间膨胀' },
+      { value: 'spatialFold', label: '🌀 空间折叠' },
+      { value: 'quantumSuperposition', label: '⚛️ 量子叠加' },
+      { value: 'temporalEcho', label: '🔁 时间回响' },
+      { value: 'dimensionalFracture', label: '💔 维度破碎' },
+      { value: 'voidConstruct', label: '🕳️ 虚空构建' },
+      { value: 'aetherManifest', label: '✨ 以太显化' },
+      { value: 'chaosTheory', label: '🎲 混沌理论' },
+      { value: 'entropicDecay', label: '📉 熵增衰变' },
+      { value: 'stringTheory', label: '🎵 弦理论' },
+      { value: 'multiverse', label: '🌐 多元宇宙' },
+      { value: 'parallelWorld', label: '🌈 平行世界' },
+      { value: 'timelineSplit', label: '⚡ 时间线分叉' },
+      { value: 'realityWarp', label: '🌀 现实扭曲' },
+      { value: 'illusionBreak', label: '🔓 幻象破除' },
+      { value: 'dreamscape', label: '🌙 梦境投影' },
+      { value: 'consciousness', label: '🧠 意识上传' },
+      { value: 'memoryTrace', label: '💾 记忆痕迹' },
+      { value: 'soulFragment', label: '✨ 灵魂碎片' },
+      { value: 'transcendence', label: '🌟 超越' }
+    ]
+  },
+  {
+    label: 'V10 超视觉系列',
+    options: [
+      { value: 'pixelGlitch', label: '📺 像素故障' },
+      { value: 'chromaticAberration', label: '🌈 色差分裂' },
+      { value: 'digitalNoise', label: '📡 数字噪点' },
+      { value: 'scanlineDistort', label: '📺 扫描线扭曲' },
+      { value: 'signalInterference', label: '📻 信号干扰' },
+      { value: 'dataCorruption', label: '💾 数据损坏' },
+      { value: 'cyberGlitch', label: '🤖 赛博故障' },
+      { value: 'staticSnow', label: '❄️ 静态雪花' },
+      { value: 'pixelSort', label: '🔢 像素排序' },
+      { value: 'bitRot', label: '💾 比特腐烂' },
+      { value: 'waveDistortion', label: '🌊 波形失真' },
+      { value: 'fragmentExplosion', label: '💥 碎片爆炸' },
+      { value: 'particleSwarm', label: '✨ 粒子群集' },
+      { value: 'digitalDissolve', label: '💠 数字消融' },
+      { value: 'hologramFlicker', label: '🔮 全息闪烁' },
+      { value: 'signalDecay', label: '📉 信号衰变' },
+      { value: 'pixelMorph', label: '🎨 像素变形' },
+      { value: 'cyberPulse', label: '⚡ 赛博脉冲' },
+      { value: 'digitalFragment', label: '💻 数字碎片' },
+      { value: 'matrixCode', label: '🔢 矩阵代码' }
+    ]
+  },
+  {
+    label: 'V11 爆炸破坏特效',
+    options: [
+      { value: 'nuclearExplosion', label: '💥 核爆震撼' },
+      { value: 'glassShatter', label: '🔮 玻璃碎裂' },
+      { value: 'crystalExplosion', label: '💎 晶体爆炸' },
+      { value: 'pixelBurst', label: '👾 像素爆裂' },
+      { value: 'fragmentShred', label: '✂️ 碎片撕裂' },
+      { value: 'plasmaDetonation', label: '⚡ 等离子爆炸' },
+      { value: 'energyShockwave', label: '🌊 能量冲击波' },
+      { value: 'matterCollapse', label: '🌀 物质坍塌' },
+      { value: 'stellarSupernova', label: '💫 超新星爆发' },
+      { value: 'disintegration', label: '💥 原子解体' },
+      { value: 'chainReaction', label: '🔗 连锁反应' },
+      { value: 'shockwaveImpact', label: '💫 冲击撞击' },
+      { value: 'debrisScatter', label: '🔩 碎片飞溅' },
+      { value: 'plasmaBlast', label: '☢️ 等离子爆破' },
+      { value: 'quantumExplosion', label: '⚛️ 量子爆炸' },
+      { value: 'antiMatterBlast', label: '🌀 反物质爆裂' }
+    ]
   }
 ]
