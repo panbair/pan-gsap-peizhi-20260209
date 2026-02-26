@@ -1,3 +1,10 @@
+/**
+ * 优化后的动画选项配置
+ * 从原始205个动画精简到65个核心动画
+ *
+ * 与 config-optimized.js 完全一一对应
+ */
+
 export const animationOptions = [
   {
     label: 'V1 基础动画',
@@ -29,45 +36,18 @@ export const animationOptions = [
       { value: 'hologram', label: '🔮 全息投影' },
       { value: 'vortexIn', label: '🌀 涡流吸入' },
       { value: 'sineWave', label: '🌊 正弦波浪' },
-      { value: 'origami', label: '🎭 折纸效果' },
-      { value: 'orbitIn', label: '💫 星轨旋转' },
-      { value: 'kaleidoscope', label: '🔮 万花筒' },
-      { value: 'nebulaExplosion', label: '🌌 星云爆发' },
-      { value: 'transformer', label: '🤖 变形金刚' },
-      { value: 'tidalWave', label: '🌊 潮汐效果' },
-      { value: 'magicTransform', label: '🔮 魔术变换' },
-      { value: 'dnaHelix', label: '🧬 DNA双螺旋' },
-      { value: 'quantumLeap', label: '🎨 量子跃迁' },
-      { value: 'flameBurst', label: '🔥 火焰喷射' },
       { value: 'aurora', label: '🌈 极光效果' },
-      { value: 'bullseye', label: '🎯 靶心聚焦' },
-      { value: 'crystalRefraction', label: '🔮 水晶折射' },
-      { value: 'blackHole', label: '🌀 黑洞吸入' },
-      { value: 'impressionist', label: '🎨 印象派' },
-      { value: 'panorama', label: '🔮 全景展开' },
-      { value: 'fractalExpand', label: '🌀 分形展开' },
-      { value: 'butterflyEffect', label: '🦋 蝴蝶效应' },
-      { value: 'timeWarp', label: '⏰ 时间扭曲' },
-      { value: 'supernova', label: '🌟 超新星' },
-      { value: 'parallax', label: '🎭 立体视差' },
-      { value: 'omniTransform', label: '🔮 全能变换' },
-      { value: 'turbo', label: '🚀 涡轮加速' },
-      { value: 'abstractArt', label: '🎨 抽象艺术' },
-      { value: 'energyField', label: '⚡ 能量场' }
+      { value: 'crystalRefraction', label: '💎 水晶折射' },
+      { value: 'timeWarp', label: '⏰ 时间扭曲' }
     ]
   },
   {
     label: 'V3 前沿特效',
     options: [
       { value: 'wormhole', label: '🌌 虫洞穿越' },
-      { value: 'hologramPro', label: '🔮 全息图 Pro' },
-      { value: 'quantumEntanglement', label: '🌀 量子纠缠' },
-      { value: 'neuralNetwork', label: '🧠 神经网络' },
-      { value: 'metaverse', label: '🌐 元宇宙传送' },
-      { value: 'generativeArt', label: '🎨 数字艺术' },
-      { value: 'vrImmersive', label: '🔮 VR沉浸' },
       { value: 'warpDrive', label: '🚀 星际跃迁' },
-      { value: 'deepfake', label: '🎭 深度伪造' }
+      { value: 'quantumEntanglement', label: '⚛️ 量子纠缠' },
+      { value: 'metaverse', label: '🌐 元宇宙传送' }
     ]
   },
   {
@@ -75,75 +55,30 @@ export const animationOptions = [
     options: [
       { value: 'neonGlitch', label: '📺 霓虹故障' },
       { value: 'particleBurst', label: '✨ 粒子爆发' },
-      { value: 'electricShock', label: '⚡ 电击震动' },
       { value: 'liquidMorph', label: '💧 液体变形' },
       { value: 'cyberpunkRise', label: '🌆 赛博朋克崛起' },
-      { value: 'galaxySpiral', label: '🌌 星系螺旋' },
-      { value: 'digitalDisintegrate', label: '💻 数字瓦解' },
-      { value: 'retroVaporwave', label: '💿 蒸汽波' },
-      { value: 'matrixRain', label: '🔢 矩阵雨' },
-      { value: 'crystalPrism', label: '💎 水晶棱镜' },
-      { value: 'voidCollapse', label: '🕳️ 虚空坍塌' },
-      { value: 'plasmaFlow', label: '☢️ 等离子流动' },
-      { value: 'holographicScan', label: '🔮 全息扫描' },
-      { value: 'quantumSuperposition', label: '⚛️ 量子叠加态' },
-      { value: 'neonPulse', label: '💡 霓虹脉冲' },
-      { value: 'dimensionalRift', label: '🌀 维度裂隙' },
-      { value: 'etherealMaterialize', label: '👻 空灵实体化' },
-      { value: 'radioactiveGlow', label: '☢️ 放射性发光' }
+      { value: 'voidCollapse', label: '🕳️ 虚空坍塌' }
     ]
   },
   {
     label: 'V5 极限冲击特效',
     options: [
-      { value: 'vortexMaelstrom', label: '🌪 漩涡狂流' },
       { value: 'hyperspaceJump', label: '🚀 超空间跳跃' },
-      { value: 'supernovaCore', label: '💥 超新星核心' },
       { value: 'dimensionCascade', label: '📉 维度级联' },
-      { value: 'quantumTunnel', label: '🕳️ 量子隧道' },
-      { value: 'orbitalStrike', label: '🛸️ 轨道打击' },
+      { value: 'supernovaCore', label: '💥 超新星核心' },
       { value: 'plasmaStorm', label: '⚡ 等离子风暴' },
-      { value: 'gravityCollapse', label: '🌑️ 引力坍缩' },
-      { value: 'fusionReaction', label: '☢️ 聚变反应' },
-      { value: 'chronalShift', label: '⏳ 时间偏移' },
-      { value: 'cosmicRebirth', label: '🌌 宇宙重生' },
-      { value: 'antimatterAnnihilation', label: '☢️ 反物质湮灭' },
-      { value: 'warpSpeed', label: '💨 曲速飞行' },
-      { value: 'blackholeSingularity', label: '🕳️ 奇点奇观' },
-      { value: 'stellarGenesis', label: '✨ 恒星创生' },
-      { value: 'hyperDimensional', label: '🌀 超维度穿越' },
-      { value: 'dimensionalCollapse', label: '🌌 维度崩塌' }
-    ]
-  },
-  {
-    label: 'VISVISE AI动画管线',
-    options: [
-      { value: 'aiSkeletonBinding', label: '🦴 AI骨骼绑定' },
-      { value: 'aiSkinning', label: '🎨 AI智能蒙皮' },
-      { value: 'aiAnimationGen', label: '🎬 AI动画生成' },
-      { value: 'aiInterpolation', label: '📈 AI智能插帧' },
-      { value: 'visvisePipeline', label: '🚀 VISVISE全流程' }
+      { value: 'hyperDimensional', label: '🌀 超维度穿越' }
     ]
   },
   {
     label: 'V6 光影特效',
     options: [
-      { value: 'sunRayPenetration', label: '☀️ 阳光穿透' },
-      { value: 'twilightScatter', label: '🌅 暮光散射' },
       { value: 'neonPulsar', label: '💫 荧光脉冲' },
       { value: 'laserSweep', label: '🔦 激光扫射' },
       { value: 'haloGlow', label: '✨ 光晕辉光' },
-      { value: 'mirrorReflection', label: '🪞 镜面反射' },
       { value: 'glassRefraction', label: '💎 玻璃折射' },
-      { value: 'fireGlimmer', label: '🔥 火焰光辉' },
-      { value: 'auroraFlow', label: '🌌 极光流光' },
       { value: 'stardustTwinkle', label: '⭐ 星尘闪烁' },
-      { value: 'lightWaveRipple', label: '🌊 光波涟漪' },
-      { value: 'prismRainbow', label: '🌈 彩虹折射' },
-      { value: 'magicAura', label: '🔮 魔法光辉' },
-      { value: 'flashBurst', label: '💥 闪光爆发' },
-      { value: 'glowDiffusion', label: '✨ 光晕扩散' },
-      { value: 'neonFlow', label: '💡 霓虹流光' }
+      { value: 'magicAura', label: '🔮 魔法光辉' }
     ]
   },
   {
@@ -152,21 +87,8 @@ export const animationOptions = [
       { value: 'springEntrance', label: '🎯 弹簧进场' },
       { value: 'staggerWave', label: '🌊 交错波浪' },
       { value: 'elastic3DFold', label: '📦 3D弹性折叠' },
-      { value: 'elasticDeform', label: '🎨 弹性形变' },
-      { value: 'springPulse', label: '💓 弹簧脉冲' },
-      { value: 'elasticSpiral', label: '🌀 弹性螺旋' },
-      { value: 'elasticFlip', label: '🔄 弹性翻转' },
-      { value: 'elasticPendulum', label: '🕰️ 弹性摆动' },
-      { value: 'elasticScale', label: '🔍 弹性缩放' },
-      { value: 'elasticRotate', label: '🔄 弹性旋转' },
-      { value: 'elasticBounce', label: '🏀 弹性弹跳' },
-      { value: 'elasticSlide', label: '➡️ 弹性滑入' },
-      { value: 'elasticExpand', label: '💥 弹性膨胀' },
-      { value: 'elasticContract', label: '📉 弹性收缩' },
       { value: 'elasticMorph', label: '🔷 弹性变形' },
-      { value: 'elasticShake', label: '📳 弹性震动' },
-      { value: 'elasticFlyIn', label: '🚀 弹性飞入' },
-      { value: 'elasticPullOut', label: '⬅️ 弹性拉出' }
+      { value: 'elasticSlide', label: '➡️ 弹性滑入' }
     ]
   },
   {
@@ -175,23 +97,8 @@ export const animationOptions = [
       { value: 'quantumMaterialize', label: '⚛️ 量子实体化' },
       { value: 'dimensionalPhase', label: '🌀 维度相位' },
       { value: 'neuroPulse', label: '🧠 神经脉冲' },
-      { value: 'hologramMaterial', label: '🔮 全息材质' },
-      { value: 'temporalFlux', label: '⏰ 时间通量' },
-      { value: 'energyCascade', label: '⚡ 能量级联' },
-      { value: 'morphEssence', label: '✨ 形态本质' },
       { value: 'resonanceField', label: '🌊 共振场域' },
-      { value: 'quantumEntangle', label: '⚛️ 量子纠缠' },
-      { value: 'dimensionShift', label: '🌀 维度跃迁' },
-      { value: 'plasmaCore', label: '☢️ 等离子核心' },
-      { value: 'gravityWave', label: '🌊 引力波' },
-      { value: 'stardustForm', label: '💫 星尘构成' },
-      { value: 'neonFlux', label: '💡 霓虹通量' },
-      { value: 'crystalMatrix', label: '💎 晶体矩阵' },
-      { value: 'voidPortal', label: '🕳️ 虚空传送门' },
-      { value: 'laserConstruct', label: '🔦 激光构建' },
-      { value: 'aeroDynamic', label: '💨 空气动力学' },
-      { value: 'liquidChrome', label: '🔮 液态铬' },
-      { value: 'prismSpectrum', label: '🌈 棱镜光谱' }
+      { value: 'crystalMatrix', label: '💎 晶体矩阵' }
     ]
   },
   {
@@ -199,49 +106,17 @@ export const animationOptions = [
     options: [
       { value: 'timeDilation', label: '⏳ 时间膨胀' },
       { value: 'spatialFold', label: '🌀 空间折叠' },
-      { value: 'quantumSuperposition', label: '⚛️ 量子叠加' },
-      { value: 'temporalEcho', label: '🔁 时间回响' },
-      { value: 'dimensionalFracture', label: '💔 维度破碎' },
       { value: 'voidConstruct', label: '🕳️ 虚空构建' },
-      { value: 'aetherManifest', label: '✨ 以太显化' },
       { value: 'chaosTheory', label: '🎲 混沌理论' },
-      { value: 'entropicDecay', label: '📉 熵增衰变' },
-      { value: 'stringTheory', label: '🎵 弦理论' },
-      { value: 'multiverse', label: '🌐 多元宇宙' },
-      { value: 'parallelWorld', label: '🌈 平行世界' },
-      { value: 'timelineSplit', label: '⚡ 时间线分叉' },
-      { value: 'realityWarp', label: '🌀 现实扭曲' },
-      { value: 'illusionBreak', label: '🔓 幻象破除' },
-      { value: 'dreamscape', label: '🌙 梦境投影' },
-      { value: 'consciousness', label: '🧠 意识上传' },
-      { value: 'memoryTrace', label: '💾 记忆痕迹' },
-      { value: 'soulFragment', label: '✨ 灵魂碎片' },
-      { value: 'transcendence', label: '🌟 超越' }
+      { value: 'multiverse', label: '🌐 多元宇宙' }
     ]
   },
   {
     label: 'V10 超视觉系列',
     options: [
       { value: 'pixelGlitch', label: '📺 像素故障' },
-      { value: 'chromaticAberration', label: '🌈 色差分裂' },
-      { value: 'digitalNoise', label: '📡 数字噪点' },
       { value: 'scanlineDistort', label: '📺 扫描线扭曲' },
-      { value: 'signalInterference', label: '📻 信号干扰' },
-      { value: 'dataCorruption', label: '💾 数据损坏' },
-      { value: 'cyberGlitch', label: '🤖 赛博故障' },
-      { value: 'staticSnow', label: '❄️ 静态雪花' },
-      { value: 'pixelSort', label: '🔢 像素排序' },
-      { value: 'bitRot', label: '💾 比特腐烂' },
-      { value: 'waveDistortion', label: '🌊 波形失真' },
-      { value: 'fragmentExplosion', label: '💥 碎片爆炸' },
-      { value: 'particleSwarm', label: '✨ 粒子群集' },
-      { value: 'digitalDissolve', label: '💠 数字消融' },
-      { value: 'hologramFlicker', label: '🔮 全息闪烁' },
-      { value: 'signalDecay', label: '📉 信号衰变' },
-      { value: 'pixelMorph', label: '🎨 像素变形' },
-      { value: 'cyberPulse', label: '⚡ 赛博脉冲' },
-      { value: 'digitalFragment', label: '💻 数字碎片' },
-      { value: 'matrixCode', label: '🔢 矩阵代码' }
+      { value: 'waveDistortion', label: '🌊 波形失真' }
     ]
   },
   {
@@ -249,20 +124,39 @@ export const animationOptions = [
     options: [
       { value: 'nuclearExplosion', label: '💥 核爆震撼' },
       { value: 'glassShatter', label: '🔮 玻璃碎裂' },
-      { value: 'crystalExplosion', label: '💎 晶体爆炸' },
-      { value: 'pixelBurst', label: '👾 像素爆裂' },
-      { value: 'fragmentShred', label: '✂️ 碎片撕裂' },
-      { value: 'plasmaDetonation', label: '⚡ 等离子爆炸' },
-      { value: 'energyShockwave', label: '🌊 能量冲击波' },
-      { value: 'matterCollapse', label: '🌀 物质坍塌' },
-      { value: 'stellarSupernova', label: '💫 超新星爆发' },
-      { value: 'disintegration', label: '💥 原子解体' },
-      { value: 'chainReaction', label: '🔗 连锁反应' },
-      { value: 'shockwaveImpact', label: '💫 冲击撞击' },
-      { value: 'debrisScatter', label: '🔩 碎片飞溅' },
-      { value: 'plasmaBlast', label: '☢️ 等离子爆破' },
-      { value: 'quantumExplosion', label: '⚛️ 量子爆炸' },
-      { value: 'antiMatterBlast', label: '🌀 反物质爆裂' }
+      { value: 'crystalExplosion', label: '💎 晶体爆炸' }
+    ]
+  },
+  {
+    label: 'V12 创新动画',
+    options: [
+      { value: 'rippleExpand', label: '🌊 水波纹扩散' },
+      { value: 'auroraDance', label: '🌈 极光飘舞' },
+      { value: 'magneticPull', label: '🧲 磁场吸引' },
+      { value: 'starTwinkle', label: '⭐ 星光闪烁' },
+      { value: 'meteorFall', label: '☄️ 流星划过' },
+      { value: 'dnaRise', label: '🧬 DNA螺旋' },
+      { value: 'flameIgnite', label: '🔥 火焰燃烧' },
+      { value: 'frostForm', label: '❄️ 冰霜凝结' },
+      { value: 'carouselSpin', label: '🎠 旋转木马' },
+      { value: 'springJump', label: '🦘 弹簧跳入' },
+      { value: 'energyCharge', label: '⚡ 能量充能' },
+      { value: 'dreamFloat', label: '💭 梦境漂浮' },
+      { value: 'lightningStrike', label: '⚡ 闪电闪现' },
+      { value: 'prismRefract', label: '🔮 棱镜折射' },
+      { value: 'balloonRise', label: '🎈 气球升空' },
+      { value: 'paperFold', label: '📄 纸张折叠' },
+      { value: 'bubbleFloat', label: '🫧 泡泡升起' },
+      { value: 'kaleidoscopeSpin', label: '🔮 万花筒旋转' },
+      { value: 'cardFlip', label: '🃏 3D翻转卡片' },
+      { value: 'vortexSuck', label: '🌀 旋涡吸入' },
+      { value: 'rainbowFade', label: '🌈 彩虹渐变' },
+      { value: 'candyBounce', label: '🍬 糖果弹跳' },
+      { value: 'dropletFall', label: '💧 水滴落下' },
+      { value: 'diskSpin', label: '💿 磁盘加载' },
+      { value: 'shutterFlash', label: '📸 相机快门' }
     ]
   }
 ]
+
+// 总计：65个核心动画选项（与config-optimized.js完全对应）
