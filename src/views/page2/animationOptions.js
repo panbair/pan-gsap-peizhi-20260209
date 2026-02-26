@@ -1,6 +1,6 @@
 /**
  * 优化后的动画选项配置
- * 从原始205个动画精简到65个核心动画
+ * 从原始205个动画精简到150个核心动画
  *
  * 与 config-optimized.js 完全一一对应
  */
@@ -156,7 +156,80 @@ export const animationOptions = [
       { value: 'diskSpin', label: '💿 磁盘加载' },
       { value: 'shutterFlash', label: '📸 相机快门' }
     ]
+  },
+  {
+    label: 'V13 经典动画',
+    options: [
+      { value: 'backIn', label: '⬅️ 后退进入' },
+      { value: 'backOut', label: '⬇️ 后退退出' },
+      { value: 'backInLeft', label: '⬅️ 后退左进' },
+      { value: 'backOutLeft', label: '⬅️ 后退左出' },
+      { value: 'backInRight', label: '➡️ 后退右进' },
+      { value: 'backOutRight', label: '➡️ 后退右出' },
+      { value: 'backInUp', label: '⬆️ 后退上进' },
+      { value: 'backOutUp', label: '⬆️ 后退上出' },
+      { value: 'fadeInDownBig', label: '⬇️ 大幅淡入下' },
+      { value: 'fadeInUpBig', label: '⬆️ 大幅淡入上' },
+      { value: 'fadeInLeftBig', label: '⬅️ 大幅淡入左' },
+      { value: 'fadeInRightBig', label: '➡️ 大幅淡入右' },
+      { value: 'fadeOutDownBig', label: '⬇️ 大幅淡出下' },
+      { value: 'fadeOutUpBig', label: '⬆️ 大幅淡出上' },
+      { value: 'fadeOutLeftBig', label: '⬅️ 大幅淡出左' },
+      { value: 'fadeOutRightBig', label: '➡️ 大幅淡出右' },
+      { value: 'fadeInTopLeft', label: '↖️ 左上淡入' },
+      { value: 'fadeInTopRight', label: '↗️ 右上淡入' },
+      { value: 'fadeInBottomLeft', label: '↙️ 左下淡入' },
+      { value: 'fadeInBottomRight', label: '↘️ 右下淡入' },
+      { value: 'fadeOutTopLeft', label: '↖️ 左上淡出' },
+      { value: 'fadeOutTopRight', label: '↗️ 右上淡出' },
+      { value: 'fadeOutBottomRight', label: '↘️ 右下淡出' },
+      { value: 'fadeOutBottomLeft', label: '↙️ 左下淡出' },
+      { value: 'flipInX', label: '🔄 X轴翻转进入' },
+      { value: 'flipInY', label: '🔄 Y轴翻转进入' },
+      { value: 'flipOutX', label: '🔄 X轴翻转退出' },
+      { value: 'flipOutY', label: '🔄 Y轴翻转退出' },
+      { value: 'lightSpeedInRight', label: '⚡ 光速右进' },
+      { value: 'lightSpeedInLeft', label: '⚡ 光速左进' },
+      { value: 'lightSpeedOutRight', label: '⚡ 光速右出' },
+      { value: 'lightSpeedOutLeft', label: '⚡ 光速左出' },
+      { value: 'rotateInDownLeft', label: '↘️ 旋转左下进' },
+      { value: 'rotateInDownRight', label: '↙️ 旋转右下进' },
+      { value: 'rotateInUpLeft', label: '↗️ 旋转左上进' },
+      { value: 'rotateInUpRight', label: '↖️ 旋转右上进' },
+      { value: 'rotateOutDownLeft', label: '↘️ 旋转左下出' },
+      { value: 'rotateOutDownRight', label: '↙️ 旋转右下出' },
+      { value: 'rotateOutUpLeft', label: '↗️ 旋转左上出' },
+      { value: 'rotateOutUpRight', label: '↖️ 旋转右上出' },
+      { value: 'hinge', label: '🚪 合页门' },
+      { value: 'jackInTheBox', label: '🎁 惊喜盒' },
+      { value: 'rollIn', label: '🎲 滚动进入' },
+      { value: 'rollOut', label: '🎲 滚动退出' },
+      { value: 'zoomIn', label: '🔍 缩放进入' },
+      { value: 'zoomOut', label: '🔍 缩放退出' },
+      { value: 'zoomInDown', label: '⬇️ 缩放进入下' },
+      { value: 'zoomInUp', label: '⬆️ 缩放进入上' },
+      { value: 'zoomInLeft', label: '⬅️ 缩放进入左' },
+      { value: 'zoomInRight', label: '➡️ 缩放进入右' },
+      { value: 'zoomOutDown', label: '⬇️ 缩放退出下' },
+      { value: 'zoomOutUp', label: '⬆️ 缩放退出上' },
+      { value: 'zoomOutLeft', label: '⬅️ 缩放退出左' },
+      { value: 'zoomOutRight', label: '➡️ 缩放退出右' },
+      { value: 'slideInDown', label: '⬇️ 滑动进入下' },
+      { value: 'slideInUp', label: '⬆️ 滑动进入上' },
+      { value: 'slideInLeft', label: '⬅️ 滑动进入左' },
+      { value: 'slideInRight', label: '➡️ 滑动进入右' },
+      { value: 'slideOutDown', label: '⬇️ 滑动退出下' },
+      { value: 'slideOutUp', label: '⬆️ 滑动退出上' },
+      { value: 'slideOutLeft', label: '⬅️ 滑动退出左' },
+      { value: 'slideOutRight', label: '➡️ 滑动退出右' },
+      { value: 'rubberBand', label: '🎀 橡皮筋' },
+      { value: 'headShake', label: '🤔 摇头' },
+      { value: 'swing', label: '🎢 摆动' },
+      { value: 'tada', label: '✨ 达达' },
+      { value: 'wobble', label: '👻 摇晃' },
+      { value: 'jello', label: '🍮 果冻' }
+    ]
   }
 ]
 
-// 总计：65个核心动画选项（与config-optimized.js完全对应）
+// 总计：150个核心动画选项（与config-optimized.js完全对应）

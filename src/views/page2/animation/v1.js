@@ -1,5 +1,6 @@
-export const v1={
-    // V1 基础动画
+// ==================== V1 基础动画 (19个) - 全部保留 ====================
+export const v1 = {
+    // Fade 淡入淡出系列
     fadeIn: {
         type: 'fromTo',
         animations: [
@@ -70,6 +71,8 @@ export const v1={
             { opacity: 0, x: 100, duration: 0.8, ease: 'power2.out' }
         ]
     },
+
+    // Scale 缩放系列
     scaleIn: {
         type: 'fromTo',
         animations: [
@@ -84,6 +87,8 @@ export const v1={
             { opacity: 0, scale: 0.3, duration: 0.8, ease: 'power2.in' }
         ]
     },
+
+    // Rotate 旋转系列
     rotateIn: {
         type: 'fromTo',
         animations: [
@@ -98,6 +103,8 @@ export const v1={
             { opacity: 0, rotation: 180, scale: 0, duration: 0.8, ease: 'power2.in' }
         ]
     },
+
+    // Bounce 弹跳系列
     bounceIn: {
         type: 'fromTo',
         animations: [
@@ -113,6 +120,8 @@ export const v1={
             { opacity: 0, scale: 0.3, duration: 0.5, ease: 'back.in(1.7)' }
         ]
     },
+
+    // Attention 注意力动画
     flash: {
         type: 'fromTo',
         animations: [
@@ -143,5 +152,5 @@ export const v1={
             { scale: 1.05, duration: 0.4, ease: 'power2.out' },
             { scale: 1, duration: 0.4, ease: 'power2.in' }
         ]
-    },
+    }
 }
