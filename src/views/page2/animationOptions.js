@@ -73,7 +73,6 @@ export const animationOptions = [
   {
     label: 'V4 炫酷特效',
     options: [
-      { value: 'rainbowExplosion', label: '🌈 彩虹爆发' },
       { value: 'neonGlitch', label: '📺 霓虹故障' },
       { value: 'particleBurst', label: '✨ 粒子爆发' },
       { value: 'electricShock', label: '⚡ 电击震动' },
