@@ -42,7 +42,12 @@ const routes: RouteRecordRaw[] = [
         meta: {title: 'page1动画'}
     },
 
-
+    {
+        path: '/preview',
+        name: 'preview',
+        component: () => import('@/views/preview/index.vue'),
+        meta: {title: 'preview动画'}
+    },
 
     {
         path: '/:pathMatch(.*)*',
