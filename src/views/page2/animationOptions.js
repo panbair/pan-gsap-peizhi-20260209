@@ -1,8 +1,8 @@
 /**
  * 优化后的动画选项配置
- * 从原始205个动画精简到150个核心动画
+ * 从原始205个动画精简到119个核心动画
  *
- * 与 config-optimized.js 完全一一对应
+ * 与 config.js 完全一一对应
  */
 
 export const animationOptions = [
@@ -168,14 +168,6 @@ export const animationOptions = [
       { value: 'backOutRight', label: '➡️ 后退右出' },
       { value: 'backInUp', label: '⬆️ 后退上进' },
       { value: 'backOutUp', label: '⬆️ 后退上出' },
-      { value: 'fadeInDownBig', label: '⬇️ 大幅淡入下' },
-      { value: 'fadeInUpBig', label: '⬆️ 大幅淡入上' },
-      { value: 'fadeInLeftBig', label: '⬅️ 大幅淡入左' },
-      { value: 'fadeInRightBig', label: '➡️ 大幅淡入右' },
-      { value: 'fadeOutDownBig', label: '⬇️ 大幅淡出下' },
-      { value: 'fadeOutUpBig', label: '⬆️ 大幅淡出上' },
-      { value: 'fadeOutLeftBig', label: '⬅️ 大幅淡出左' },
-      { value: 'fadeOutRightBig', label: '➡️ 大幅淡出右' },
       { value: 'fadeInTopLeft', label: '↖️ 左上淡入' },
       { value: 'fadeInTopRight', label: '↗️ 右上淡入' },
       { value: 'fadeInBottomLeft', label: '↙️ 左下淡入' },
@@ -204,8 +196,6 @@ export const animationOptions = [
       { value: 'jackInTheBox', label: '🎁 惊喜盒' },
       { value: 'rollIn', label: '🎲 滚动进入' },
       { value: 'rollOut', label: '🎲 滚动退出' },
-      { value: 'zoomIn', label: '🔍 缩放进入' },
-      { value: 'zoomOut', label: '🔍 缩放退出' },
       { value: 'zoomInDown', label: '⬇️ 缩放进入下' },
       { value: 'zoomInUp', label: '⬆️ 缩放进入上' },
       { value: 'zoomInLeft', label: '⬅️ 缩放进入左' },
@@ -229,7 +219,25 @@ export const animationOptions = [
       { value: 'wobble', label: '👻 摇晃' },
       { value: 'jello', label: '🍮 果冻' }
     ]
+  },
+  {
+    label: 'V14 补充经典',
+    options: [
+      { value: 'bounce', label: '🎾 弹跳' },
+      { value: 'shakeX', label: '↔️ X轴抖动' },
+      { value: 'shakeY', label: '↕️ Y轴抖动' },
+      { value: 'heartBeat', label: '❤️ 心跳' },
+      { value: 'bounceInDown', label: '⬇️ 弹跳从上进入' },
+      { value: 'bounceOutDown', label: '⬇️ 弹跳从下退出' },
+      { value: 'bounceInLeft', label: '⬅️ 弹跳从左进入' },
+      { value: 'bounceOutLeft', label: '⬅️ 弹跳从左退出' },
+      { value: 'bounceInRight', label: '➡️ 弹跳从右进入' },
+      { value: 'bounceOutRight', label: '➡️ 弹跳从右退出' },
+      { value: 'bounceInUp', label: '⬆️ 弹跳从下进入' },
+      { value: 'bounceOutUp', label: '⬆️ 弹跳从上退出' },
+      { value: 'flip', label: '🔄 3D翻转' }
+    ]
   }
 ]
 
-// 总计：150个核心动画选项（与config-optimized.js完全对应）
+// 总计：119个核心动画选项（与config.js完全对应，删除了所有重复动画）

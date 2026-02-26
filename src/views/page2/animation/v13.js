@@ -78,70 +78,8 @@ export const backOutUp = {
   ]
 }
 
-// ==================== Big 变种 (8个) - 更大幅度的移动 ====================
-export const fadeInDownBig = {
-  type: 'timeline',
-  animations: [
-    { opacity: 0, y: -200, duration: 0 },
-    { opacity: 1, y: 0, duration: 1, ease: 'power2.out' }
-  ]
-}
-
-export const fadeInUpBig = {
-  type: 'timeline',
-  animations: [
-    { opacity: 0, y: 200, duration: 0 },
-    { opacity: 1, y: 0, duration: 1, ease: 'power2.out' }
-  ]
-}
-
-export const fadeInLeftBig = {
-  type: 'timeline',
-  animations: [
-    { opacity: 0, x: -200, duration: 0 },
-    { opacity: 1, x: 0, duration: 1, ease: 'power2.out' }
-  ]
-}
-
-export const fadeInRightBig = {
-  type: 'timeline',
-  animations: [
-    { opacity: 0, x: 200, duration: 0 },
-    { opacity: 1, x: 0, duration: 1, ease: 'power2.out' }
-  ]
-}
-
-export const fadeOutDownBig = {
-  type: 'timeline',
-  animations: [
-    { opacity: 1, duration: 0 },
-    { opacity: 0, y: 200, duration: 1, ease: 'power2.in' }
-  ]
-}
-
-export const fadeOutUpBig = {
-  type: 'timeline',
-  animations: [
-    { opacity: 1, duration: 0 },
-    { opacity: 0, y: -200, duration: 1, ease: 'power2.in' }
-  ]
-}
-
-export const fadeOutLeftBig = {
-  type: 'timeline',
-  animations: [
-    { opacity: 1, duration: 0 },
-    { opacity: 0, x: -200, duration: 1, ease: 'power2.in' }
-  ]
-}
-
-export const fadeOutRightBig = {
-  type: 'timeline',
-  animations: [
-    { opacity: 1, duration: 0 },
-    { opacity: 0, x: 200, duration: 1, ease: 'power2.in' }
-  ]
-}
+// ==================== Big 变种 (8个) - 已删除，与 V1 Fade 系列重复 ====================
+// 这些动画与 V1 的 Fade 系列效果相似，只是位移更大，已移除以避免重复
 
 // ==================== 对角线 Fade 进场 (4个) ====================
 export const fadeInTopLeft = {
@@ -391,22 +329,8 @@ export const rollOut = {
   ]
 }
 
-// ==================== Zoom 缩放 (10个) ====================
-export const zoomIn = {
-  type: 'timeline',
-  animations: [
-    { opacity: 0, scale: 0.3, duration: 0 },
-    { opacity: 1, scale: 1, duration: 0.8, ease: 'back.out(1.7)' }
-  ]
-}
-
-export const zoomOut = {
-  type: 'timeline',
-  animations: [
-    { opacity: 1, scale: 1, duration: 0 },
-    { opacity: 0, scale: 0.3, duration: 0.8, ease: 'power2.in' }
-  ]
-}
+// ==================== Zoom 基础缩放 (2个) - 已删除，与 V1 Scale 系列重复 ====================
+// zoomIn 和 zoomOut 与 V1 的 scaleIn/scaleOut 效果相同，已移除
 
 export const zoomInDown = {
   type: 'timeline',
@@ -634,14 +558,6 @@ export const v13 = {
   backOutRight,
   backInUp,
   backOutUp,
-  fadeInDownBig,
-  fadeInUpBig,
-  fadeInLeftBig,
-  fadeInRightBig,
-  fadeOutDownBig,
-  fadeOutUpBig,
-  fadeOutLeftBig,
-  fadeOutRightBig,
   fadeInTopLeft,
   fadeInTopRight,
   fadeInBottomLeft,
@@ -670,8 +586,6 @@ export const v13 = {
   jackInTheBox,
   rollIn,
   rollOut,
-  zoomIn,
-  zoomOut,
   zoomInDown,
   zoomInUp,
   zoomInLeft,
