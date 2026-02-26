@@ -47,7 +47,7 @@ import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin'
 import { animationOptions } from '../page2/animationOptions'
-import { config as animConfig } from '../page2/config'
+import { config as animConfig } from '../page2/animation/config'
 
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin)
 

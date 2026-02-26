@@ -92,7 +92,7 @@
 import { ref, onMounted, onUnmounted } from 'vue'
 import gsap from "gsap";
 // @ts-ignore
-import { config } from './config'
+import { config } from './animation/config'
 // @ts-ignore
 import { animationOptions } from './animationOptions'
 
