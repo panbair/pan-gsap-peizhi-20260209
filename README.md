@@ -217,3 +217,81 @@ npm run format
 Made with ❤️ by Universal Animation Library Contributors
 
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+``````
+server {
+listen 80;
+server_name animation.zooow.xyz www.animation.zooow.xyz;
+index index.html;
+root C:/wwwroot/animation;
+include C:/BtSoft/nginx/conf/vhost/extension/www.animation.zooow.xyz/*.conf;
+
+    # Vue Router 支持
+    location / {
+        try_files $uri $uri/ /index.html;
+    }
+    
+    # 静态资源优化
+    location ~* \.(js|css|png|jpg|jpeg|gif|ico|svg|woff|woff2|ttf|eot)$ {
+        expires 1y;
+        add_header Cache-Control "public, immutable";
+    }
+    
+    access_log C:/BtSoft/wwwlogs/animation.zooow.xyz.log;
+    error_log C:/BtSoft/wwwlogs/animation.zooow.xyz.error.log;
+}
+
+
+
+# 进入 Nginx 目录
+cd C:\BtSoft\nginx
+
+# 启动 Nginx
+start nginx
+
+# 或
+nginx.exe
+
+# 重启 Nginx
+nginx -s reload
+
+# 停止 Nginx
+nginx -s stop
+
+``````
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
