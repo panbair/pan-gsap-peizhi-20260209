@@ -16,14 +16,17 @@
 
     <!-- Tab 内容区 -->
     <div class="tab-content">
-      <CssAnimation v-if="activeTab === 'css'" />
-      <GsapAnimation v-if="activeTab === 'gsap'" />
+      <transition :name="transitionName" mode="out-in">
+        <KeepAlive>
+          <component :is="activeTab === 'css' ? CssAnimation : GsapAnimation" :key="activeTab" />
+        </KeepAlive>
+      </transition>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import CssAnimation from '@/views/animation/index.vue'
 import GsapAnimation from '@/views/page2/index.vue'
 let router = useRouter()
@@ -35,6 +38,7 @@ const tabs = [
 ]
 
 const activeTab = ref<'css' | 'gsap'>('css')
+const transitionName = computed(() => activeTab.value === 'css' ? 'slide-left' : 'slide-right')
 
 let changeTab = (key: 'css' | 'gsap') => {
   if('preview' === key){
@@ -251,5 +255,36 @@ let changeTab = (key: 'css' | 'gsap') => {
     width: 100%;
     height: 100%;
   }
+}
+
+// Tab 切换动画
+.slide-left-enter-active,
+.slide-right-enter-active {
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.slide-left-leave-active,
+.slide-right-leave-active {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.slide-left-enter-from {
+  opacity: 0;
+  transform: translateX(60px);
+}
+
+.slide-left-leave-to {
+  opacity: 0;
+  transform: translateX(-60px);
+}
+
+.slide-right-enter-from {
+  opacity: 0;
+  transform: translateX(-60px);
+}
+
+.slide-right-leave-to {
+  opacity: 0;
+  transform: translateX(60px);
 }
 </style>
