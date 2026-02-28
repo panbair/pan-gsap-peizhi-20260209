@@ -571,12 +571,12 @@ onUnmounted(() => {
 
 .card-value {
   font-size: 0.9rem;  // 从 0.68rem 增加到 0.9rem
-  color: #475569;
+  color: #fff;
   font-family: 'Courier New', monospace;
   margin-top: 10px;  // 从 6px 增加到 10px
   word-break: break-all;
   padding: 6px 12px;
-  background: rgba(0, 0, 0, 0.2);
+  background: rgb(43 105 143 / 20%);
   border-radius: 8px;
 }
 
