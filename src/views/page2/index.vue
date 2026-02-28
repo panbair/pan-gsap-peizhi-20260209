@@ -1,7 +1,7 @@
 <template>
   <div class="home-container">
     <div class="animation-demo">
-      <h1>🎨 GSAP 炫酷动画库 (168+ 特效)</h1>
+      <h1>🎨 JS 炫酷动画库 (168+ 特效)</h1>
       <div class="animation-main">
         <div class="sidebar">
           <div class="sidebar-header">
@@ -67,7 +67,7 @@
             <div ref="animatedElement" class="animated-box">
               <div class="box-content">
                 <div class="box-icon">✨</div>
-                <div class="box-text">GSAP</div>
+                <div class="box-text">JS</div>
               </div>
             </div>
           </div>

@@ -3,9 +3,9 @@
 
     <!-- 顶部 Hero -->
     <section class="hero-section">
-      <h1 class="hero-title">GSAP 动画展示</h1>
+      <h1 class="hero-title">动画展示</h1>
       <p class="hero-sub">滚动页面，体验 {{ totalCount }}+ 种动画效果</p>
-      <div class="hero-legend">
+<!--      <div class="hero-legend">
         <div class="legend-item">
           <span class="legend-dot anim-type-timeline"></span>
           <span class="legend-text">Timeline</span>
@@ -18,7 +18,7 @@
           <span class="legend-dot anim-type-to"></span>
           <span class="legend-text">To</span>
         </div>
-      </div>
+      </div>-->
       <div class="hero-scroll-hint">↓ 向下滚动</div>
     </section>
 
@@ -194,6 +194,62 @@ let ctx: gsap.Context
 onMounted(() => {
   ctx = gsap.context(() => {
 
+    // Hero 标题进入动画
+    const heroTitle = wrapperRef.value?.querySelector('.hero-title')
+    const heroSub = wrapperRef.value?.querySelector('.hero-sub')
+    const scrollHint = wrapperRef.value?.querySelector('.hero-scroll-hint')
+
+    if (heroTitle) {
+      gsap.fromTo(heroTitle,
+        {
+          y: 80,
+          opacity: 0,
+          scale: 0.8,
+          filter: 'blur(10px)'
+        },
+        {
+          y: 0,
+          opacity: 1,
+          scale: 1,
+          filter: 'blur(0px)',
+          duration: 1.2,
+          ease: 'elastic.out(1, 0.5)'
+        }
+      )
+    }
+
+    if (heroSub) {
+      gsap.fromTo(heroSub,
+        {
+          y: 40,
+          opacity: 0
+        },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          delay: 0.3,
+          ease: 'power3.out'
+        }
+      )
+    }
+
+    if (scrollHint) {
+      gsap.fromTo(scrollHint,
+        {
+          opacity: 0,
+          y: -20
+        },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.6,
+          delay: 0.8,
+          ease: 'power2.out'
+        }
+      )
+    }
+
     // 分组标题滚动进入动画
     groupHeaders.forEach(el => {
       if (!el) return
@@ -340,7 +396,7 @@ onUnmounted(() => {
 }
 
 .hero-title {
-  font-size: clamp(2.4rem, 6vw, 5rem);
+  font-size: 150px;
   font-weight: 900;
   background: linear-gradient(135deg, #a78bfa, #60a5fa, #f472b6);
   background-clip: text;
@@ -350,7 +406,7 @@ onUnmounted(() => {
 }
 
 .hero-sub {
-  font-size: 1.1rem;
+  font-size: 35px;
   color: #94a3b8;
   margin: 0 0 24px;
 }
@@ -400,7 +456,7 @@ onUnmounted(() => {
 }
 
 .hero-scroll-hint {
-  font-size: 0.85rem;
+  font-size: 30px;
   color: #475569;
   letter-spacing: 2px;
   animation: bounce 2s infinite;

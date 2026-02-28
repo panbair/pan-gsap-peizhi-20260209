@@ -7,7 +7,7 @@
         :key="tab.key"
         class="tab-btn"
         :class="{ active: activeTab === tab.key }"
-        @click="activeTab = tab.key"
+        @click="changeTab(tab.key)"
       >
         <span class="tab-icon">{{ tab.icon }}</span>
         <span class="tab-label">{{ tab.label }}</span>
@@ -26,13 +26,23 @@
 import { ref } from 'vue'
 import CssAnimation from '@/views/animation/index.vue'
 import GsapAnimation from '@/views/page2/index.vue'
+let router = useRouter()
 
 const tabs = [
   { key: 'css', icon: '🎨', label: 'CSS 动画 (184+ 特效)' },
-  { key: 'gsap', icon: '⚡', label: 'GSAP 动画 (168+ 特效)' }
+  { key: 'gsap', icon: '⚡', label: 'JS 动画 (168+ 特效)' },
+  { key: 'preview', icon: '⚡', label: 'demo动画' }
 ]
 
 const activeTab = ref<'css' | 'gsap'>('css')
+
+let changeTab = (key: 'css' | 'gsap') => {
+  if('preview' === key){
+    router.push('/preview')
+    return
+  }
+  activeTab.value = key
+}
 </script>
 
 <style lang="scss" scoped>

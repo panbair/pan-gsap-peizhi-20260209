@@ -3,7 +3,7 @@
 
     <!-- 顶部 Hero -->
     <section class="hero-section">
-      <h1 class="hero-title">GSAP 动画展示</h1>
+      <h1 class="hero-title">JS 动画展示</h1>
       <p class="hero-sub">滚动页面，体验 {{ totalCount }}+ 种动画效果</p>
       <div class="hero-scroll-hint">↓ 向下滚动</div>
     </section>

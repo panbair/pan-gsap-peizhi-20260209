@@ -2,7 +2,7 @@
   <div class="scroll-demo-container">
     <!-- 导航栏 -->
     <nav class="demo-nav">
-      <div class="nav-brand">GSAP 滚动动画演示</div>
+      <div class="nav-brand">JS 滚动动画演示</div>
       <ul class="nav-menu">
         <li><a href="#section1">首页</a></li>
         <li><a href="#section2">特性展示</a></li>
@@ -17,7 +17,7 @@
       <div class="hero-content">
         <h1 class="hero-title">
           <span class="title-line">欢迎来到</span>
-          <span class="title-line">GSAP 动画世界</span>
+          <span class="title-line">JS 动画世界</span>
         </h1>
         <p class="hero-subtitle">体验流畅的滚动触发动画效果</p>
         <div class="hero-stats">
@@ -36,7 +36,7 @@
         </div>
         <button class="cta-button">开始探索</button>
       </div>
-      
+
       <!-- 装饰元素 -->
       <div class="floating-elements">
         <div class="float-element circle-1"></div>
@@ -58,9 +58,9 @@
               </svg>
             </div>
             <h3 class="feature-title">高性能动画</h3>
-            <p class="feature-desc">基于 GSAP 引擎，提供流畅的 60fps 动画体验</p>
+            <p class="feature-desc">基于 JS 引擎，提供流畅的 60fps 动画体验</p>
           </div>
-          
+
           <div class="feature-card">
             <div class="feature-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
@@ -70,7 +70,7 @@
             <h3 class="feature-title">响应式设计</h3>
             <p class="feature-desc">适配各种屏幕尺寸，移动端同样出色</p>
           </div>
-          
+
           <div class="feature-card">
             <div class="feature-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
@@ -103,7 +103,7 @@
               </div>
             </div>
           </div>
-          
+
           <div class="product-item reverse">
             <div class="product-image">
               <div class="image-placeholder"></div>
@@ -135,7 +135,7 @@
             <p class="member-role">首席技术官</p>
             <p class="member-bio">拥有 10 年前端开发经验，专注于动画技术和用户体验</p>
           </div>
-          
+
           <div class="team-member">
             <div class="member-avatar">
               <div class="avatar-placeholder"></div>
@@ -144,7 +144,7 @@
             <p class="member-role">产品设计师</p>
             <p class="member-bio">资深 UI/UX 设计师，擅长创造直观美观的界面设计</p>
           </div>
-          
+
           <div class="team-member">
             <div class="member-avatar">
               <div class="avatar-placeholder"></div>
@@ -164,7 +164,7 @@
           <div class="contact-info">
             <h2 class="section-title">联系我们</h2>
             <p class="contact-desc">有任何问题或合作意向？随时与我们取得联系</p>
-            
+
             <div class="contact-details">
               <div class="contact-item">
                 <div class="contact-icon">
@@ -177,7 +177,7 @@
                   <p>+86 138 0013 8000</p>
                 </div>
               </div>
-              
+
               <div class="contact-item">
                 <div class="contact-icon">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
@@ -189,7 +189,7 @@
                   <p>contact@example.com</p>
                 </div>
               </div>
-              
+
               <div class="contact-item">
                 <div class="contact-icon">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
@@ -204,7 +204,7 @@
               </div>
             </div>
           </div>
-          
+
           <div class="contact-form">
             <form class="form">
               <div class="form-group">
@@ -272,7 +272,7 @@ const animateNumbers = () => {
   const numbers = document.querySelectorAll('.stat-number')
   numbers.forEach(el => {
     const target = parseInt(el.getAttribute('data-value') || '0')
-    gsap.fromTo(el, 
+    gsap.fromTo(el,
       { textContent: 0 },
       {
         textContent: target,
@@ -355,7 +355,7 @@ const createSmoothScroll = () => {
 
 onMounted(() => {
   console.log('组件已挂载，开始初始化滚动动画')
-  
+
   // 检查容器尺寸
   nextTick(() => {
     const container = document.querySelector('.scroll-demo-container')
@@ -363,9 +363,9 @@ onMounted(() => {
     console.log('容器高度:', container?.offsetHeight)
     console.log('窗口高度:', window.innerHeight)
     console.log('文档高度:', document.documentElement.scrollHeight)
-    
+
     // 初始化所有动画
-    
+
     // 1. Hero 区域动画序列
     gsap.from('.title-line', {
       y: 50,
@@ -548,7 +548,7 @@ onMounted(() => {
           ease: 'power2.out'
         })
       })
-      
+
       input.addEventListener('blur', () => {
         gsap.to(input, {
           scale: 1,
@@ -567,7 +567,7 @@ onMounted(() => {
           ease: 'back.out(1.7)'
         })
       })
-      
+
       button.addEventListener('mouseleave', () => {
         gsap.to(button, {
           scale: 1,
@@ -606,7 +606,7 @@ onMounted(() => {
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
   transition: all 0.3s ease;
-  
+
   &.scrolled {
     background: rgba(255, 255, 255, 0.98);
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
@@ -623,13 +623,13 @@ onMounted(() => {
   display: flex;
   list-style: none;
   gap: 2rem;
-  
+
   li a {
     text-decoration: none;
     color: #666;
     font-weight: 500;
     transition: color 0.3s ease;
-    
+
     &:hover {
       color: #4f46e5;
     }
@@ -683,7 +683,7 @@ onMounted(() => {
   font-weight: 800;
   margin-bottom: 1.5rem;
   line-height: 1.2;
-  
+
   .title-line {
     display: block;
   }
@@ -728,7 +728,7 @@ onMounted(() => {
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-  
+
   &:hover {
     transform: translateY(-2px);
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
@@ -804,7 +804,7 @@ onMounted(() => {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   text-align: center;
   transition: transform 0.3s ease;
-  
+
   &:hover {
     transform: translateY(-10px);
   }
@@ -819,7 +819,7 @@ onMounted(() => {
   display: flex;
   align-items: center;
   justify-content: center;
-  
+
   svg {
     width: 30px;
     height: 30px;
@@ -854,7 +854,7 @@ onMounted(() => {
   display: flex;
   gap: 3rem;
   align-items: center;
-  
+
   &.reverse {
     flex-direction: row-reverse;
   }
@@ -891,7 +891,7 @@ onMounted(() => {
 .product-tags {
   display: flex;
   gap: 0.5rem;
-  
+
   .tag {
     background: #e0e7ff;
     color: #4f46e5;
@@ -992,7 +992,7 @@ onMounted(() => {
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  
+
   svg {
     width: 24px;
     height: 24px;
@@ -1029,7 +1029,7 @@ onMounted(() => {
   border-radius: 10px;
   font-size: 1rem;
   transition: all 0.3s ease;
-  
+
   &:focus {
     outline: none;
     border-color: #4f46e5;
@@ -1052,7 +1052,7 @@ onMounted(() => {
   border-radius: 10px;
   cursor: pointer;
   transition: all 0.3s ease;
-  
+
   &:hover {
     transform: translateY(-2px);
     box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
@@ -1092,12 +1092,12 @@ onMounted(() => {
   box-shadow: 0 5px 20px rgba(102, 126, 234, 0.3);
   transition: all 0.3s ease;
   z-index: 1000;
-  
+
   svg {
     width: 24px;
     height: 24px;
   }
-  
+
   &:hover {
     transform: translateY(-3px);
     box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
@@ -1109,38 +1109,38 @@ onMounted(() => {
   .section {
     padding: 80px 5%;
   }
-  
+
   .hero-title {
     font-size: 2.5rem;
   }
-  
+
   .section-title {
     font-size: 2rem;
   }
-  
+
   .hero-stats {
     flex-direction: column;
     gap: 1.5rem;
   }
-  
+
   .features-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .product-item {
     flex-direction: column !important;
     text-align: center;
   }
-  
+
   .team-members {
     grid-template-columns: 1fr;
   }
-  
+
   .contact-content {
     grid-template-columns: 1fr;
     gap: 2rem;
   }
-  
+
   .nav-menu {
     display: none;
   }
