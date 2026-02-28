@@ -5,6 +5,20 @@
     <section class="hero-section">
       <h1 class="hero-title">GSAP 动画展示</h1>
       <p class="hero-sub">滚动页面，体验 {{ totalCount }}+ 种动画效果</p>
+      <div class="hero-legend">
+        <div class="legend-item">
+          <span class="legend-dot anim-type-timeline"></span>
+          <span class="legend-text">Timeline</span>
+        </div>
+        <div class="legend-item">
+          <span class="legend-dot anim-type-fromto"></span>
+          <span class="legend-text">FromTo</span>
+        </div>
+        <div class="legend-item">
+          <span class="legend-dot anim-type-to"></span>
+          <span class="legend-text">To</span>
+        </div>
+      </div>
       <div class="hero-scroll-hint">↓ 向下滚动</div>
     </section>
 
@@ -32,6 +46,7 @@
           <div class="card-name">{{ item.label.replace(/^[\S]+\s/, '') }}</div>
           <div class="card-value">{{ item.value }}</div>
           <div class="card-replay">点击重播</div>
+          <div class="card-anim-type" :class="getAnimTypeClass(item.value)"></div>
         </div>
       </div>
     </section>
@@ -60,10 +75,46 @@ const totalCount = computed(() =>
   animationOptions.reduce((sum: number, g: any) => sum + g.options.length, 0)
 )
 
+/** 获取动画类型的样式类 */
+function getAnimTypeClass(animName: string): string {
+  const cfg = (animConfig as any)[animName]
+  if (!cfg) return ''
+
+  switch (cfg.type) {
+    case 'timeline':
+      return 'anim-type-timeline'
+    case 'fromTo':
+      return 'anim-type-fromto'
+    case 'to':
+      return 'anim-type-to'
+    default:
+      return ''
+  }
+}
+
 /** 用 config 里的动画配置播放一次 */
 function runAnim(el: HTMLElement, animName: string) {
   const cfg = (animConfig as any)[animName]
-  if (!cfg) return
+  if (!cfg) {
+    console.warn(`动画配置不存在: ${animName}`)
+    return
+  }
+
+  console.log(`播放动画: ${animName}`, cfg)
+
+  // 确保卡片从基础隐藏状态开始
+  gsap.set(el, {
+    opacity: 0,
+    y: 30,
+    x: 0,
+    scale: 1,
+    rotation: 0,
+    rotationX: 0,
+    rotationY: 0,
+    skewX: 0,
+    skewY: 0,
+    z: 0
+  })
 
   if (cfg.type === 'timeline') {
     const tl = gsap.timeline()
@@ -72,23 +123,65 @@ function runAnim(el: HTMLElement, animName: string) {
     rest.forEach((a: gsap.TweenVars) => tl.to(el, a))
   } else if (cfg.type === 'fromTo') {
     const [from, to, ...extra] = cfg.animations
+    // 合并 from 状态，确保从隐藏开始
+    const mergedFrom = { opacity: 0, y: 30, ...from }
     if (extra.length) {
       const tl = gsap.timeline()
-      tl.fromTo(el, from, to)
+      tl.fromTo(el, mergedFrom, to)
       extra.forEach((a: gsap.TweenVars) => tl.to(el, a))
     } else {
-      gsap.fromTo(el, from, to)
+      gsap.fromTo(el, mergedFrom, to)
     }
   } else {
-    gsap.to(el, cfg.animations[0])
+    // 对于 to 类型的动画，先设置初始状态再执行
+    const firstAnim = cfg.animations[0]
+    gsap.set(el, {
+      opacity: 0,
+      y: 30,
+      x: firstAnim.x || 0,
+      scale: firstAnim.scale || 1,
+      rotation: firstAnim.rotation || 0,
+      rotationX: firstAnim.rotationX || 0,
+      rotationY: firstAnim.rotationY || 0,
+      skewX: firstAnim.skewX || 0,
+      skewY: firstAnim.skewY || 0,
+      z: firstAnim.z || 0
+    })
+    gsap.to(el, firstAnim)
   }
 }
 
 /** 点击卡片重播 */
 function replayCard(el: HTMLElement | null, animName: string) {
   if (!el) return
+
+  // 检查动画配置是否存在
+  const cfg = (animConfig as any)[animName]
+  if (!cfg) {
+    console.warn(`重播失败 - 动画配置不存在: ${animName}`)
+    return
+  }
+
+  console.log(`重播动画: ${animName}`)
+
+  // 停止当前卡片的所有动画
   gsap.killTweensOf(el)
+  // 清除所有内联样式
   gsap.set(el, { clearProps: 'all' })
+  // 设置初始隐藏状态
+  gsap.set(el, {
+    opacity: 0,
+    y: 30,
+    x: 0,
+    scale: 1,
+    rotation: 0,
+    rotationX: 0,
+    rotationY: 0,
+    skewX: 0,
+    skewY: 0,
+    z: 0
+  })
+  // 立即播放该卡片配置的动画
   runAnim(el, animName)
 }
 
@@ -117,24 +210,95 @@ onMounted(() => {
     // 每张卡片进入视窗时播放对应动画
     cardEls.forEach((el, i) => {
       if (!el) return
-      const animName = el.dataset.anim || 'fadeIn'
+      // 获取该卡片配置的动画名称
+      const animName = el.dataset.anim
 
-      ScrollTrigger.create({
+      if (!animName) {
+        console.warn('卡片缺少 data-anim 属性', el)
+        return
+      }
+
+      // 检查动画配置是否存在
+      const cfg = (animConfig as any)[animName]
+      if (!cfg) {
+        console.warn(`动画配置不存在: ${animName}`, el)
+        return
+      }
+
+      // 先设置初始状态为隐藏
+      gsap.set(el, {
+        opacity: 0,
+        y: 30
+      })
+
+      // 创建独立的 ScrollTrigger，确保每张卡片每次进入视窗时都触发动画
+      const trigger = ScrollTrigger.create({
         trigger: el,
-        start: 'top 90%',
-        once: false,
+        start: 'top 85%',
+        once: false,  // 每次都触发
         toggleActions: 'play none none reverse',
         onEnter: () => {
+          // 停止当前卡片的所有动画
+          gsap.killTweensOf(el)
+          // 清除所有内联样式，恢复到 CSS 初始状态
+          gsap.set(el, { clearProps: 'all' })
+          // 立即重新设置初始隐藏状态
+          gsap.set(el, {
+            opacity: 0,
+            y: 30,
+            x: 0,
+            scale: 1,
+            rotation: 0,
+            rotationX: 0,
+            rotationY: 0,
+            skewX: 0,
+            skewY: 0,
+            z: 0
+          })
+          // 交错延迟：同一行的卡片依次播放
+          const delay = (i % 4) * 0.08
+          // 执行该卡片配置的动画
+          setTimeout(() => {
+            runAnim(el, animName)
+          }, delay * 1000)
+        },
+        onLeave: () => {
+          // 离开视窗时停止动画
           gsap.killTweensOf(el)
           gsap.set(el, { clearProps: 'all' })
-          // 交错延迟：同排卡片依次飞入
-          gsap.delayedCall((i % 4) * 0.08, () => runAnim(el, animName))
+        },
+        onEnterBack: () => {
+          // 从底部返回时重新触发
+          gsap.killTweensOf(el)
+          gsap.set(el, { clearProps: 'all' })
+          gsap.set(el, {
+            opacity: 0,
+            y: 30,
+            x: 0,
+            scale: 1,
+            rotation: 0,
+            rotationX: 0,
+            rotationY: 0,
+            skewX: 0,
+            skewY: 0,
+            z: 0
+          })
+          const delay = (i % 4) * 0.08
+          setTimeout(() => {
+            runAnim(el, animName)
+          }, delay * 1000)
         },
         onLeaveBack: () => {
+          // 向上离开时停止动画并隐藏
           gsap.killTweensOf(el)
+          gsap.set(el, { clearProps: 'all' })
           gsap.set(el, { opacity: 0, y: 30 })
         }
       })
+
+      // 保存 trigger 引用，方便后续清理
+      const triggerId = (trigger as any).id
+      el.dataset.triggerId = triggerId
     })
 
     // 返回顶部按钮
@@ -179,6 +343,7 @@ onUnmounted(() => {
   font-size: clamp(2.4rem, 6vw, 5rem);
   font-weight: 900;
   background: linear-gradient(135deg, #a78bfa, #60a5fa, #f472b6);
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   margin: 0 0 16px;
@@ -187,7 +352,51 @@ onUnmounted(() => {
 .hero-sub {
   font-size: 1.1rem;
   color: #94a3b8;
-  margin: 0 0 40px;
+  margin: 0 0 24px;
+}
+
+.hero-legend {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 32px;
+  padding: 12px 24px;
+  background: rgba(255,255,255,0.05);
+  border-radius: 20px;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.legend-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  opacity: 0.8;
+
+  &.anim-type-timeline {
+    background: #10b981;
+    box-shadow: 0 0 8px rgba(16, 185, 129, 0.6);
+  }
+
+  &.anim-type-fromto {
+    background: #f59e0b;
+    box-shadow: 0 0 8px rgba(245, 158, 11, 0.6);
+  }
+
+  &.anim-type-to {
+    background: #3b82f6;
+    box-shadow: 0 0 8px rgba(59, 130, 246, 0.6);
+  }
+}
+
+.legend-text {
+  font-size: 0.8rem;
+  color: #a78bfa;
+  font-weight: 500;
 }
 
 .hero-scroll-hint {
@@ -234,24 +443,23 @@ onUnmounted(() => {
 // ── Cards Grid ────────────────────────────────────────────
 .cards-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-  gap: 16px;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));  // 从 160px 增加到 280px，约1.75倍
+  gap: 20px;  // 从 16px 增加到 20px
 }
 
 .anim-card {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 16px;
-  padding: 20px 16px;
+  border-radius: 20px;  // 从 16px 增加到 20px
+  padding: 32px 24px;  // 从 20px 16px 增加到 32px 24px
   cursor: pointer;
   text-align: center;
   position: relative;
   overflow: hidden;
   will-change: transform, opacity;
-  transition: border-color 0.25s, background 0.25s;
-  // 初始隐藏，等 ScrollTrigger 触发后显示
-  opacity: 0;
-  transform: translateY(30px);
+  transition: border-color 0.25s, background 0.25s, box-shadow 0.25s;
+  min-height: 220px;  // 添加最小高度，确保卡片大小一致
+  // 初始状态由 GSAP 通过 onEnter 设置，这里不需要 CSS 初始值
 
   &::before {
     content: '';
@@ -264,41 +472,79 @@ onUnmounted(() => {
   }
 
   &:hover {
-    border-color: rgba(167,139,250,0.4);
-    background: rgba(255,255,255,0.06);
+    border-color: rgba(167,139,250,0.6);
+    background: rgba(255,255,255,0.08);
+    box-shadow: 0 12px 40px rgba(124,58,237,0.4);  // 增强阴影效果
+    transform: translateY(-6px);  // 增加上移距离
     &::before { opacity: 1; }
     .card-replay { opacity: 1; }
+  }
+
+  &:active {
+    transform: translateY(-3px);  // 增加上移距离
+    box-shadow: 0 6px 20px rgba(124,58,237,0.3);  // 增强阴影效果
   }
 }
 
 .card-icon {
-  font-size: 1.8rem;
-  margin-bottom: 8px;
+  font-size: 3rem;  // 从 1.8rem 增加到 3rem
+  margin-bottom: 16px;  // 从 8px 增加到 16px
   line-height: 1;
 }
 
 .card-name {
-  font-size: 0.82rem;
+  font-size: 1.1rem;  // 从 0.82rem 增加到 1.1rem
   font-weight: 600;
   color: #e2e8f0;
-  margin-bottom: 4px;
+  margin-bottom: 8px;  // 从 4px 增加到 8px
   line-height: 1.3;
 }
 
 .card-value {
-  font-size: 0.68rem;
+  font-size: 0.9rem;  // 从 0.68rem 增加到 0.9rem
   color: #475569;
   font-family: 'Courier New', monospace;
+  margin-top: 10px;  // 从 6px 增加到 10px
+  word-break: break-all;
+  padding: 6px 12px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
 }
 
 .card-replay {
   position: absolute;
-  bottom: 6px;
-  right: 10px;
-  font-size: 0.62rem;
+  bottom: 10px;  // 从 6px 增加到 10px
+  right: 14px;  // 从 10px 增加到 14px
+  font-size: 0.75rem;  // 从 0.62rem 增加到 0.75rem
   color: #a78bfa;
   opacity: 0;
   transition: opacity 0.2s;
+  font-weight: 500;
+}
+
+.card-anim-type {
+  position: absolute;
+  top: 12px;  // 从 8px 增加到 12px
+  right: 12px;  // 从 8px 增加到 12px
+  width: 10px;  // 从 8px 增加到 10px
+  height: 10px;  // 从 8px 增加到 10px
+  border-radius: 50%;
+  opacity: 0.6;
+
+  &.anim-type-timeline {
+    background: #10b981;  // 绿色
+    box-shadow: 0 0 8px rgba(16, 185, 129, 0.6);  // 增强阴影
+  }
+
+  &.anim-type-fromto {
+    background: #f59e0b;  // 橙色
+    box-shadow: 0 0 8px rgba(245, 158, 11, 0.6);
+  }
+
+  &.anim-type-to {
+    background: #3b82f6;  // 蓝色
+    box-shadow: 0 0 8px rgba(59, 130, 246, 0.6);
+  }
 }
 
 // ── Back Top ──────────────────────────────────────────────
@@ -321,8 +567,22 @@ onUnmounted(() => {
   box-shadow: 0 4px 20px rgba(124,58,237,0.4);
 }
 
+@media (max-width: 1200px) {
+  .cards-grid { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
+}
+
 @media (max-width: 768px) {
-  .cards-grid { grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 10px; }
+  .cards-grid {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));  // 移动端适当缩小
+    gap: 12px;
+  }
   .group-section { padding: 40px 4%; }
+  .anim-card {
+    padding: 24px 18px;
+    min-height: 180px;
+  }
+  .card-icon { font-size: 2.2rem; margin-bottom: 12px; }
+  .card-name { font-size: 0.95rem; }
+  .card-value { font-size: 0.8rem; padding: 4px 10px; }
 }
 </style>

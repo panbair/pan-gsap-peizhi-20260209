@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anim-Card 动画测试</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #0a0a14;
+      color: #e2e8f0;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      background: linear-gradient(135deg, #a78bfa, #60a5fa, #f472b6);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .section {
+      margin-bottom: 60px;
+      padding: 40px 20px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .section-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #a78bfa;
+      margin-bottom: 30px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 16px;
+    }
+
+    .anim-card {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      padding: 20px 16px;
+      cursor: pointer;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      will-change: transform, opacity;
+      transition: border-color 0.25s, background 0.25s, box-shadow 0.25s;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    .anim-card:hover {
+      border-color: rgba(167,139,250,0.6);
+      background: rgba(255,255,255,0.08);
+      box-shadow: 0 8px 32px rgba(124,58,237,0.3);
+      transform: translateY(-4px);
+    }
+
+    .anim-card:active {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba(124,58,237,0.2);
+    }
+
+    .card-icon {
+      font-size: 1.8rem;
+      margin-bottom: 8px;
+      line-height: 1;
+    }
+
+    .card-name {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: #e2e8f0;
+      margin-bottom: 4px;
+      line-height: 1.3;
+    }
+
+    .card-value {
+      font-size: 0.68rem;
+      color: #475569;
+      font-family: 'Courier New', monospace;
+      margin-top: 6px;
+      word-break: break-all;
+    }
+
+    .hint {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(124,58,237,0.9);
+      color: white;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      animation: fadeInOut 4s ease-in-out;
+    }
+
+    @keyframes fadeInOut {
+      0%, 100% { opacity: 0; transform: translateX(-50%) translateY(20px); }
+      20%, 80% { opacity: 1; transform: translateX(-50%) translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🎬 Anim-Card 动画效果测试</h1>
+
+    <div class="hint">✨ 滚动页面查看动画效果，点击卡片重播</div>
+
+    <div class="section">
+      <h2 class="section-title">V1 基础动画</h2>
+      <div class="cards-grid">
+        <div class="anim-card" data-anim="fadeIn">
+          <div class="card-icon">🌫</div>
+          <div class="card-name">淡入</div>
+          <div class="card-value">fadeIn</div>
+        </div>
+        <div class="anim-card" data-anim="scaleIn">
+          <div class="card-icon">🔍</div>
+          <div class="card-name">缩放淡入</div>
+          <div class="card-value">scaleIn</div>
+        </div>
+        <div class="anim-card" data-anim="rotateIn">
+          <div class="card-icon">🔄</div>
+          <div class="card-name">旋转进入</div>
+          <div class="card-value">rotateIn</div>
+        </div>
+        <div class="anim-card" data-anim="bounceIn">
+          <div class="card-icon">🏀</div>
+          <div class="card-name">弹性进入</div>
+          <div class="card-value">bounceIn</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2 class="section-title">V2 高级特效</h2>
+      <div class="cards-grid">
+        <div class="anim-card" data-anim="hologram">
+          <div class="card-icon">🔮</div>
+          <div class="card-name">全息投影</div>
+          <div class="card-value">hologram</div>
+        </div>
+        <div class="anim-card" data-anim="vortexIn">
+          <div class="card-icon">🌀</div>
+          <div class="card-name">涡流吸入</div>
+          <div class="card-value">vortexIn</div>
+        </div>
+        <div class="anim-card" data-anim="sineWave">
+          <div class="card-icon">🌊</div>
+          <div class="card-name">正弦波浪</div>
+          <div class="card-value">sineWave</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2 class="section-title">V4 炫酷特效</h2>
+      <div class="cards-grid">
+        <div class="anim-card" data-anim="neonGlitch">
+          <div class="card-icon">📺</div>
+          <div class="card-name">霓虹故障</div>
+          <div class="card-value">neonGlitch</div>
+        </div>
+        <div class="anim-card" data-anim="particleBurst">
+          <div class="card-icon">✨</div>
+          <div class="card-name">粒子爆发</div>
+          <div class="card-value">particleBurst</div>
+        </div>
+        <div class="anim-card" data-anim="liquidMorph">
+          <div class="card-icon">💧</div>
+          <div class="card-name">液体变形</div>
+          <div class="card-value">liquidMorph</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2 class="section-title">V6 光影特效</h2>
+      <div class="cards-grid">
+        <div class="anim-card" data-anim="neonPulsar">
+          <div class="card-icon">💫</div>
+          <div class="card-name">荧光脉冲</div>
+          <div class="card-value">neonPulsar</div>
+        </div>
+        <div class="anim-card" data-anim="laserSweep">
+          <div class="card-icon">🔦</div>
+          <div class="card-name">激光扫射</div>
+          <div class="card-value">laserSweep</div>
+        </div>
+        <div class="anim-card" data-anim="haloGlow">
+          <div class="card-icon">✨</div>
+          <div class="card-name">光晕辉光</div>
+          <div class="card-value">haloGlow</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2 class="section-title">V7 超越极限</h2>
+      <div class="cards-grid">
+        <div class="anim-card" data-anim="springEntrance">
+          <div class="card-icon">🎯</div>
+          <div class="card-name">弹簧进场</div>
+          <div class="card-value">springEntrance</div>
+        </div>
+        <div class="anim-card" data-anim="staggerWave">
+          <div class="card-icon">🌊</div>
+          <div class="card-name">交错波浪</div>
+          <div class="card-value">staggerWave</div>
+        </div>
+        <div class="anim-card" data-anim="elastic3DFold">
+          <div class="card-icon">📦</div>
+          <div class="card-name">3D弹性折叠</div>
+          <div class="card-value">elastic3DFold</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section" style="padding-bottom: 200px;">
+      <h2 class="section-title">V12 创新动画</h2>
+      <div class="cards-grid">
+        <div class="anim-card" data-anim="rippleExpand">
+          <div class="card-icon">🌊</div>
+          <div class="card-name">水波纹扩散</div>
+          <div class="card-value">rippleExpand</div>
+        </div>
+        <div class="anim-card" data-anim="auroraDance">
+          <div class="card-icon">🌈</div>
+          <div class="card-name">极光飘舞</div>
+          <div class="card-value">auroraDance</div>
+        </div>
+        <div class="anim-card" data-anim="magneticPull">
+          <div class="card-icon">🧲</div>
+          <div class="card-name">磁场吸引</div>
+          <div class="card-value">magneticPull</div>
+        </div>
+        <div class="anim-card" data-anim="starTwinkle">
+          <div class="card-icon">⭐</div>
+          <div class="card-name">星光闪烁</div>
+          <div class="card-value">starTwinkle</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.14.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.14.2/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.14.2/ScrollToPlugin.min.js"></script>
+  <script type="module">
+    import { config } from './src/views/page2/animation/config.js'
+
+    gsap.registerPlugin(ScrollTrigger, ScrollToPlugin)
+
+    // 动画配置（简化版，用于测试）
+    const testConfig = {
+      fadeIn: {
+        type: 'to',
+        animations: [{ opacity: 1, y: 0, duration: 0.6, ease: 'power2.out' }]
+      },
+      scaleIn: {
+        type: 'fromTo',
+        animations: [
+          { scale: 0, opacity: 0 },
+          { scale: 1, opacity: 1, duration: 0.6, ease: 'back.out(1.7)' }
+        ]
+      },
+      rotateIn: {
+        type: 'fromTo',
+        animations: [
+          { rotation: -180, opacity: 0 },
+          { rotation: 0, opacity: 1, duration: 0.6, ease: 'back.out(1.7)' }
+        ]
+      },
+      bounceIn: {
+        type: 'fromTo',
+        animations: [
+          { scale: 0, opacity: 0 },
+          {
+            scale: 1,
+            opacity: 1,
+            duration: 0.8,
+            ease: 'bounce.out'
+          }
+        ]
+      },
+      hologram: {
+        type: 'timeline',
+        animations: [
+          { opacity: 0, scale: 0.5, rotationY: 90 },
+          {
+            rotationY: 0,
+            opacity: 0.5,
+            scale: 1,
+            duration: 0.5,
+            ease: 'power2.out'
+          },
+          {
+            opacity: 1,
+            duration: 0.3,
+            ease: 'power2.inOut'
+          }
+        ]
+      },
+      vortexIn: {
+        type: 'fromTo',
+        animations: [
+          { scale: 0, rotation: 720, opacity: 0 },
+          { scale: 1, rotation: 0, opacity: 1, duration: 0.8, ease: 'power3.out' }
+        ]
+      },
+      sineWave: {
+        type: 'fromTo',
+        animations: [
+          { x: -100, opacity: 0 },
+          { x: 0, opacity: 1, duration: 0.8, ease: 'sine.out' }
+        ]
+      },
+      neonGlitch: {
+        type: 'timeline',
+        animations: [
+          { opacity: 0, x: -20, scale: 1.1 },
+          { x: 20, duration: 0.05 },
+          { x: -15, duration: 0.05 },
+          { x: 10, duration: 0.05 },
+          { x: 0, opacity: 1, scale: 1, duration: 0.4, ease: 'power2.out' }
+        ]
+      },
+      particleBurst: {
+        type: 'fromTo',
+        animations: [
+          { scale: 0, opacity: 0 },
+          { scale: 1.3, opacity: 1, duration: 0.3 },
+          { scale: 1, duration: 0.3, ease: 'power2.out' }
+        ]
+      },
+      liquidMorph: {
+        type: 'fromTo',
+        animations: [
+          { scale: 0, borderRadius: '50%' },
+          { scale: 1, borderRadius: '16px', duration: 0.8, ease: 'elastic.out(1, 0.5)' }
+        ]
+      },
+      neonPulsar: {
+        type: 'timeline',
+        animations: [
+          { opacity: 0, scale: 0 },
+          { opacity: 1, scale: 1.2, duration: 0.3 },
+          { scale: 1, duration: 0.3, ease: 'power2.out' }
+        ]
+      },
+      laserSweep: {
+        type: 'fromTo',
+        animations: [
+          { clipPath: 'inset(0 100% 0 0)', opacity: 0 },
+          { clipPath: 'inset(0 0 0 0)', opacity: 1, duration: 0.6, ease: 'power2.inOut' }
+        ]
+      },
+      haloGlow: {
+        type: 'fromTo',
+        animations: [
+          { boxShadow: '0 0 0 rgba(124,58,237,0)', opacity: 0 },
+          {
+            boxShadow: '0 0 30px rgba(124,58,237,0.6)',
+            opacity: 1,
+            duration: 0.6,
+            ease: 'power2.out'
+          }
+        ]
+      },
+      springEntrance: {
+        type: 'fromTo',
+        animations: [
+          { y: -100, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.8, ease: 'elastic.out(1, 0.5)' }
+        ]
+      },
+      staggerWave: {
+        type: 'fromTo',
+        animations: [
+          { y: 50, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.6, ease: 'back.out(1.7)' }
+        ]
+      },
+      elastic3DFold: {
+        type: 'fromTo',
+        animations: [
+          { rotationX: -90, opacity: 0 },
+          { rotationX: 0, opacity: 1, duration: 0.8, ease: 'elastic.out(1, 0.6)' }
+        ]
+      },
+      rippleExpand: {
+        type: 'fromTo',
+        animations: [
+          { scale: 0, opacity: 0 },
+          { scale: 1, opacity: 1, duration: 0.8, ease: 'back.out(2)' }
+        ]
+      },
+      auroraDance: {
+        type: 'fromTo',
+        animations: [
+          { y: 100, opacity: 0, rotation: 45 },
+          { y: 0, opacity: 1, rotation: 0, duration: 1, ease: 'power3.out' }
+        ]
+      },
+      magneticPull: {
+        type: 'fromTo',
+        animations: [
+          { x: -150, opacity: 0, scale: 0.8 },
+          { x: 0, opacity: 1, scale: 1, duration: 0.6, ease: 'elastic.out(1, 0.8)' }
+        ]
+      },
+      starTwinkle: {
+        type: 'timeline',
+        animations: [
+          { opacity: 0, scale: 0 },
+          { opacity: 1, scale: 1.3, duration: 0.2 },
+          { scale: 0.8, duration: 0.1 },
+          { scale: 1, duration: 0.2, ease: 'power2.out' }
+        ]
+      }
+    }
+
+    function runAnim(el, animName) {
+      const cfg = testConfig[animName]
+      if (!cfg) {
+        console.warn(`动画配置不存在: ${animName}`)
+        return
+      }
+
+      gsap.set(el, {
+        opacity: 0,
+        y: 30,
+        x: 0,
+        scale: 1,
+        rotation: 0,
+        rotationX: 0,
+        rotationY: 0
+      })
+
+      if (cfg.type === 'timeline') {
+        const tl = gsap.timeline()
+        const [first, ...rest] = cfg.animations
+        tl.set(el, first)
+        rest.forEach(a => tl.to(el, a))
+      } else if (cfg.type === 'fromTo') {
+        const [from, to, ...extra] = cfg.animations
+        const mergedFrom = { opacity: 0, y: 30, ...from }
+        if (extra.length) {
+          const tl = gsap.timeline()
+          tl.fromTo(el, mergedFrom, to)
+          extra.forEach(a => tl.to(el, a))
+        } else {
+          gsap.fromTo(el, mergedFrom, to)
+        }
+      } else {
+        gsap.set(el, {
+          opacity: 0,
+          y: 30,
+          x: cfg.animations[0].x || 0,
+          scale: cfg.animations[0].scale || 1,
+          rotation: cfg.animations[0].rotation || 0,
+          rotationX: cfg.animations[0].rotationX || 0,
+          rotationY: cfg.animations[0].rotationY || 0
+        })
+        gsap.to(el, cfg.animations[0])
+      }
+    }
+
+    function replayCard(el, animName) {
+      if (!el) return
+      gsap.killTweensOf(el)
+      gsap.set(el, { clearProps: 'all' })
+      gsap.set(el, {
+        opacity: 0,
+        y: 30,
+        x: 0,
+        scale: 1,
+        rotation: 0,
+        rotationX: 0,
+        rotationY: 0
+      })
+      runAnim(el, animName)
+    }
+
+    // 初始化卡片动画
+    document.querySelectorAll('.anim-card').forEach((el, i) => {
+      const animName = el.dataset.anim
+
+      gsap.set(el, { opacity: 0, y: 30 })
+
+      ScrollTrigger.create({
+        trigger: el,
+        start: 'top 85%',
+        once: true,
+        toggleActions: 'play none none none',
+        onEnter: () => {
+          gsap.killTweensOf(el)
+          gsap.set(el, { clearProps: 'all' })
+          gsap.set(el, {
+            opacity: 0,
+            y: 30,
+            x: 0,
+            scale: 1,
+            rotation: 0,
+            rotationX: 0,
+            rotationY: 0
+          })
+          const delay = (i % 4) * 0.1
+          setTimeout(() => {
+            runAnim(el, animName)
+          }, delay * 1000)
+        }
+      })
+
+      el.addEventListener('click', () => {
+        replayCard(el, animName)
+      })
+    })
+
+    ScrollTrigger.refresh()
+  </script>
+</body>
+</html>
