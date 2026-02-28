@@ -501,7 +501,7 @@ h1 {
   background: white;
   border-radius: 12px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-  max-height: 400px;
+  max-height: 300px;
   overflow-y: auto;
   z-index: 100;
   border: 1px solid #e9ecef;
