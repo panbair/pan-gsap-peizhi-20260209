@@ -67,7 +67,7 @@
             <div ref="animatedElement" class="animated-box">
               <div class="box-content">
                 <div class="box-icon">✨</div>
-                <div class="box-text">JS</div>
+                <div class="box-text">{{currentAnimationName}}</div>
               </div>
             </div>
           </div>
@@ -89,14 +89,14 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from 'vue'
+import {ref, onMounted, onUnmounted, computed} from 'vue'
 import gsap from "gsap";
 // @ts-ignore
 import { config } from './animation/config'
 // @ts-ignore
 import { animationOptions } from './animationOptions'
 
-const selectedAnimation = ref('fadeIn')
+const selectedAnimation = ref('')
 const animatedElement = ref<HTMLElement>()
 const currentSpeed = ref(1)
 const isDropdownOpen = ref(false)
@@ -112,7 +112,9 @@ const speeds = [
 const setSpeed = (speed: number) => {
   currentSpeed.value = speed
 }
-
+const currentAnimationName = computed(() => {
+  return getCurrentAnimationLabel() || '请选择一个动画'
+})
 const getCurrentAnimationLabel = () => {
   if (!selectedAnimation.value) return ''
   for (const group of animationOptions) {

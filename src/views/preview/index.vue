@@ -1,6 +1,12 @@
 <template>
   <div ref="wrapperRef" class="page1-wrapper">
 
+    <!-- 返回首页按钮 -->
+    <button class="back-home-btn" @click="goHome">
+      <span class="back-icon">←</span>
+      <span class="back-text">返回首页</span>
+    </button>
+
     <!-- 顶部 Hero -->
     <section class="hero-section">
       <h1 class="hero-title">动画展示</h1>
@@ -58,6 +64,7 @@
 
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted, computed } from 'vue'
+import { useRouter } from 'vue-router'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin'
@@ -65,6 +72,7 @@ import { animationOptions } from '../page2/animationOptions'
 import { config as animConfig } from '../page2/animation/config'
 
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin)
+const router = useRouter()
 
 const wrapperRef  = ref<HTMLElement>()
 const backTopBtn  = ref<HTMLElement>()
@@ -74,6 +82,11 @@ const groupHeaders: HTMLElement[] = []
 const totalCount = computed(() =>
   animationOptions.reduce((sum: number, g: any) => sum + g.options.length, 0)
 )
+
+/** 返回首页 */
+const goHome = () => {
+  router.push('/')
+}
 
 /** 获取动画类型的样式类 */
 function getAnimTypeClass(animName: string): string {
@@ -601,6 +614,48 @@ onUnmounted(() => {
     background: #3b82f6;  // 蓝色
     box-shadow: 0 0 8px rgba(59, 130, 246, 0.6);
   }
+}
+
+// ── Back Home ─────────────────────────────────────────────
+.back-home-btn {
+  position: fixed;
+  top: 1.5rem;
+  left: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  background: linear-gradient(135deg, rgba(124,58,237,0.9), rgba(79,70,229,0.9));
+  color: #fff;
+  border: 1px solid rgba(167,139,250,0.3);
+  border-radius: 12px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 16px rgba(124,58,237,0.3);
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: linear-gradient(135deg, rgba(124,58,237,1), rgba(79,70,229,1));
+    transform: translateX(-4px);
+    box-shadow: 0 6px 24px rgba(124,58,237,0.5);
+    border-color: rgba(167,139,250,0.6);
+  }
+
+  &:active {
+    transform: translateX(-2px);
+  }
+}
+
+.back-icon {
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+.back-text {
+  white-space: nowrap;
 }
 
 // ── Back Top ──────────────────────────────────────────────
