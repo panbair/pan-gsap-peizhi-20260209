@@ -1,28 +1,28 @@
 <template>
-  <div class="hs-horizontal-scroll">
-    <div class="hs-container">
-      <h2 class="hs-section-title">横向滚动</h2>
+  <div class="hs-horizontal-scroll-34">
+    <div class="hs-container-34">
+      <h2 class="hs-section-title-34">横向滚动</h2>
 
-      <div class="hs-scroll-track" ref="scrollTrack">
+      <div class="hs-scroll-track-34" ref="scrollTrack">
         <div
-          class="hs-scroll-item"
+          class="hs-scroll-item-34"
           v-for="(img, index) in images"
           :key="index"
           ref="items"
         >
-          <div class="hs-card-inner">
+          <div class="hs-card-inner-34">
             <img :src="img" :alt="`Image ${index + 1}`" />
-            <div class="hs-card-content">
-              <span class="hs-card-number">0{{ index + 1 }}</span>
-              <h3 class="hs-card-title">Slide {{ index + 1 }}</h3>
-              <p class="hs-card-desc">水平滚动查看</p>
+            <div class="hs-card-content-34">
+              <span class="hs-card-number-34">0{{ index + 1 }}</span>
+              <h3 class="hs-card-title-34">Slide {{ index + 1 }}</h3>
+              <p class="hs-card-desc-34">水平滚动查看</p>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="hs-scroll-indicator">
-        <span class="hs-indicator-text">← 向右滚动 →</span>
+      <div class="hs-scroll-indicator-34">
+        <span class="hs-indicator-text-34">← 向右滚动 →</span>
       </div>
     </div>
   </div>
@@ -51,9 +51,9 @@ let ctx: gsap.Context
 onMounted(() => {
   ctx = gsap.context(() => {
     // 标题动画
-    gsap.from('.hs-section-title', {
+    gsap.from('.hs-section-title-34', {
       scrollTrigger: {
-        trigger: '.hs-section-title',
+        trigger: '.hs-section-title-34',
         start: 'top 90%'
       },
       y: 50,
@@ -63,13 +63,13 @@ onMounted(() => {
     })
 
     // 横向滚动
-    const sections = gsap.utils.toArray('.hs-scroll-item')
+    const sections = gsap.utils.toArray('.hs-scroll-item-34')
     if (sections.length === 0) return
     gsap.to(sections, {
       xPercent: -100 * (sections.length - 1),
       ease: 'none',
       scrollTrigger: {
-        trigger: '.hs-scroll-track',
+        trigger: '.hs-scroll-track-34',
         pin: true,
         scrub: 1,
         snap: 1 / (sections.length - 1),
@@ -80,8 +80,8 @@ onMounted(() => {
     // 卡片入场动画
     items.value.forEach((item, index) => {
       const img = item.querySelector('img') as HTMLElement
-      const content = item.querySelector('.hs-card-content') as HTMLElement
-      const number = item.querySelector('.hs-card-number') as HTMLElement
+      const content = item.querySelector('.hs-card-content-34') as HTMLElement
+      const number = item.querySelector('.hs-card-number-34') as HTMLElement
 
       // 从右侧滑入 - 确保初始可见
       gsap.fromTo(item,
@@ -148,12 +148,12 @@ onMounted(() => {
     })
 
     // 指示器淡入淡出
-    gsap.fromTo('.hs-scroll-indicator',
+    gsap.fromTo('.hs-scroll-indicator-34',
       { opacity: 0 },
       {
         opacity: 1,
         scrollTrigger: {
-          trigger: '.hs-scroll-track',
+          trigger: '.hs-scroll-track-34',
           start: 'top 90%',
           end: 'top 70%',
           toggleActions: 'play none none reverse'
@@ -162,9 +162,9 @@ onMounted(() => {
       }
     )
 
-    gsap.to('.hs-scroll-indicator', {
+    gsap.to('.hs-scroll-indicator-34', {
       scrollTrigger: {
-        trigger: '.hs-scroll-track',
+        trigger: '.hs-scroll-track-34',
         start: 'top 10%',
         end: 'top 0%',
         toggleActions: 'none reverse play none'
@@ -181,7 +181,7 @@ onUnmounted(() => {
 </script>
 
 <style scoped lang="scss">
-.hs-horizontal-scroll {
+.hs-horizontal-scroll-34 {
   min-height: 100vh;
   background: linear-gradient(180deg, #1a1a2e 0%, #4a1942 50%, #1a1a2e 100%);
   position: relative;
@@ -200,7 +200,7 @@ onUnmounted(() => {
   }
 }
 
-.hs-container {
+.hs-container-34 {
   width: 100%;
   max-width: 1800px;
   margin: 0 auto;
@@ -209,7 +209,7 @@ onUnmounted(() => {
   z-index: 1;
 }
 
-.hs-section-title {
+.hs-section-title-34 {
   text-align: center;
   font-size: 3.5rem;
   font-weight: 800;
@@ -233,7 +233,7 @@ onUnmounted(() => {
   }
 }
 
-.hs-scroll-track {
+.hs-scroll-track-34 {
   display: flex;
   flex-wrap: nowrap;
   gap: 40px;
@@ -243,7 +243,7 @@ onUnmounted(() => {
   height: 500px;
 }
 
-.hs-scroll-item {
+.hs-scroll-item-34 {
   flex: 0 0 auto;
   width: 400px;
   height: 500px;
@@ -258,31 +258,31 @@ onUnmounted(() => {
   }
 }
 
-.hs-card-inner {
+.hs-card-inner-34 {
   width: 100%;
   height: 100%;
   position: relative;
   overflow: hidden;
 }
 
-.hs-scroll-item img {
+.hs-scroll-item-34 img {
   width: 100%;
   height: 350px;
   object-fit: cover;
   transition: filter 0.3s ease;
 }
 
-.hs-scroll-item:hover img {
+.hs-scroll-item-34:hover img {
   filter: brightness(1.1) saturate(1.1);
 }
 
-.hs-card-content {
+.hs-card-content-34 {
   padding: 30px;
   background: linear-gradient(135deg, #e94560 0%, #ff6b6b 100%);
   text-align: center;
 }
 
-.hs-card-number {
+.hs-card-number-34 {
   display: block;
   font-size: 3rem;
   font-weight: 900;
@@ -292,20 +292,20 @@ onUnmounted(() => {
   font-family: 'Arial', sans-serif;
 }
 
-.hs-card-title {
+.hs-card-title-34 {
   font-size: 1.4rem;
   font-weight: 700;
   color: #fff;
   margin: 0 0 8px;
 }
 
-.hs-card-desc {
+.hs-card-desc-34 {
   font-size: 1rem;
   color: rgba(255, 255, 255, 0.9);
   margin: 0;
 }
 
-.hs-scroll-indicator {
+.hs-scroll-indicator-34 {
   position: fixed;
   bottom: 40px;
   left: 50%;
@@ -318,7 +318,7 @@ onUnmounted(() => {
   z-index: 100;
 }
 
-.hs-indicator-text {
+.hs-indicator-text-34 {
   font-size: 1.1rem;
   color: #fff;
   font-weight: 500;
@@ -336,20 +336,20 @@ onUnmounted(() => {
 }
 
 @media (max-width: 768px) {
-  .hs-scroll-track {
+  .hs-scroll-track-34 {
     gap: 20px;
   }
 
-  .hs-scroll-item {
+  .hs-scroll-item-34 {
     width: 300px;
     height: 400px;
   }
 
-  .hs-scroll-item img {
+  .hs-scroll-item-34 img {
     height: 280px;
   }
 
-  .hs-section-title {
+  .hs-section-title-34 {
     font-size: 2rem;
   }
 }

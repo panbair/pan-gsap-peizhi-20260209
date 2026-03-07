@@ -1,11 +1,11 @@
 <template>
-  <section ref="counterSection" class="section counter-section">
-    <h2 class="section-title">数字增长</h2>
-    <div class="counter-container" ref="counterContainer">
-      <div class="counter-item" v-for="(counter, index) in counters" :key="index">
-        <div class="counter-value" :ref="el => { if(el) counterRefs[index] = el as HTMLElement }">0</div>
-        <div class="counter-label">{{ counter.label }}</div>
-        <div class="counter-unit">{{ counter.unit }}</div>
+  <section ref="counterSection" class="section-8 counter-section-8">
+    <h2 class="section-title-8">数字增长</h2>
+    <div class="counter-container-8" ref="counterContainer">
+      <div class="counter-item-8" v-for="(counter, index) in counters" :key="index">
+        <div class="counter-value-8" :ref="el => { if(el) counterRefs[index] = el as HTMLElement }">0</div>
+        <div class="counter-label-8">{{ counter.label }}</div>
+        <div class="counter-unit-8">{{ counter.unit }}</div>
       </div>
     </div>
   </section>
@@ -61,7 +61,7 @@ const initAnimations = () => {
 </script>
 
 <style scoped lang="scss">
-.section {
+.section-8 {
   min-height: 100vh;
   padding: 100px 20px;
   position: relative;
@@ -71,7 +71,7 @@ const initAnimations = () => {
   justify-content: center;
 }
 
-.section-title {
+.section-title-8 {
   font-size: 2.5rem;
   font-weight: bold;
   margin-bottom: 60px;
@@ -82,11 +82,11 @@ const initAnimations = () => {
   text-align: center;
 }
 
-.counter-section {
+.counter-section-8 {
   background: linear-gradient(180deg, transparent, rgba(139, 92, 246, 0.1), transparent);
 }
 
-.counter-container {
+.counter-container-8 {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 30px;
@@ -94,7 +94,7 @@ const initAnimations = () => {
   width: 100%;
 }
 
-.counter-item {
+.counter-item-8 {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -110,7 +110,7 @@ const initAnimations = () => {
   }
 }
 
-.counter-value {
+.counter-value-8 {
   font-size: 3rem;
   font-weight: bold;
   background: linear-gradient(135deg, #667eea, #764ba2);
@@ -120,28 +120,28 @@ const initAnimations = () => {
   margin-bottom: 10px;
 }
 
-.counter-label {
+.counter-label-8 {
   font-size: 1rem;
   color: #94a3b8;
   margin-bottom: 5px;
 }
 
-.counter-unit {
+.counter-unit-8 {
   font-size: 1.5rem;
   color: #fff;
 }
 
 @media (max-width: 768px) {
-  .counter-container {
+  .counter-container-8 {
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
   }
 
-  .counter-item {
+  .counter-item-8 {
     padding: 30px;
   }
 
-  .counter-value {
+  .counter-value-8 {
     font-size: 2rem;
   }
 }

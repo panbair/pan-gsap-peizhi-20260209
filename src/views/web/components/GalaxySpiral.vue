@@ -1,43 +1,43 @@
 <template>
-  <section class="galaxy-section">
-    <div class="content">
-      <h2 class="section-title">银河漩涡</h2>
-      <p class="subtitle">星系的壮丽螺旋</p>
+  <section class="galaxy-section-24">
+    <div class="content-24">
+      <h2 class="section-title-24">银河漩涡</h2>
+      <p class="subtitle-24">星系的壮丽螺旋</p>
 
-      <div class="galaxy-container" ref="galaxyContainer">
-        <div class="galaxy-core">
-          <div class="core-glow"></div>
-          <div class="core-pulse"></div>
+      <div class="galaxy-container-24" ref="galaxyContainer">
+        <div class="galaxy-core-24">
+          <div class="core-glow-24"></div>
+          <div class="core-pulse-24"></div>
         </div>
 
-        <div class="galaxy-arms">
-          <div class="arm arm-1">
-            <div class="star-cluster" v-for="n in 60" :key="n"
+        <div class="galaxy-arms-24">
+          <div class="arm-24 arm-1">
+            <div class="star-cluster-24" v-for="n in 60" :key="n"
                  :style="getStarStyle(n, 1)"></div>
           </div>
-          <div class="arm arm-2">
-            <div class="star-cluster" v-for="n in 60" :key="n"
+          <div class="arm-24 arm-2">
+            <div class="star-cluster-24" v-for="n in 60" :key="n"
                  :style="getStarStyle(n, 2)"></div>
           </div>
-          <div class="arm arm-3">
-            <div class="star-cluster" v-for="n in 60" :key="n"
+          <div class="arm-24 arm-3">
+            <div class="star-cluster-24" v-for="n in 60" :key="n"
                  :style="getStarStyle(n, 3)"></div>
           </div>
-          <div class="arm arm-4">
-            <div class="star-cluster" v-for="n in 60" :key="n"
+          <div class="arm-24 arm-4">
+            <div class="star-cluster-24" v-for="n in 60" :key="n"
                  :style="getStarStyle(n, 4)"></div>
           </div>
         </div>
 
-        <div class="galaxy-dust">
-          <div class="dust-particle" v-for="n in 100" :key="n"
+        <div class="galaxy-dust-24">
+          <div class="dust-particle-24" v-for="n in 100" :key="n"
                :style="getDustStyle(n)"></div>
         </div>
 
-        <div class="galaxy-nebula">
-          <div class="nebula-cloud nebula-1"></div>
-          <div class="nebula-cloud nebula-2"></div>
-          <div class="nebula-cloud nebula-3"></div>
+        <div class="galaxy-nebula-24">
+          <div class="nebula-cloud-24 nebula-1"></div>
+          <div class="nebula-cloud-24 nebula-2"></div>
+          <div class="nebula-cloud-24 nebula-3"></div>
         </div>
       </div>
     </div>
@@ -86,7 +86,7 @@ let ctx: gsap.Context
 onMounted(() => {
   ctx = gsap.context(() => {
     // 银河旋转
-    gsap.to('.galaxy-arms', {
+    gsap.to('.galaxy-arms-24', {
       rotation: 360,
       duration: 20,
       repeat: -1,
@@ -94,7 +94,7 @@ onMounted(() => {
     })
 
     // 星星闪烁
-    gsap.to('.star-cluster', {
+    gsap.to('.star-cluster-24', {
       opacity: 0.3,
       scale: 0.5,
       duration: 1,
@@ -105,7 +105,7 @@ onMounted(() => {
     })
 
     // 核心脉动
-    gsap.to('.core-glow', {
+    gsap.to('.core-glow-24', {
       scale: 1.5,
       opacity: 0.6,
       duration: 1.5,
@@ -115,7 +115,7 @@ onMounted(() => {
     })
 
     // 星云漂浮
-    gsap.to('.nebula-cloud', {
+    gsap.to('.nebula-cloud-24', {
       x: 30,
       y: 30,
       duration: 8,
@@ -126,7 +126,7 @@ onMounted(() => {
     })
 
     // 尘埃粒子漂浮
-    gsap.to('.dust-particle', {
+    gsap.to('.dust-particle-24', {
       x: '+=10',
       y: '-=10',
       duration: 4,
@@ -137,12 +137,12 @@ onMounted(() => {
     })
 
     // 滚动时效果
-    gsap.to('.galaxy-container', {
+    gsap.to('.galaxy-container-24', {
       scale: 1.2,
       rotation: 30,
       duration: 1,
       scrollTrigger: {
-        trigger: '.galaxy-section',
+        trigger: '.galaxy-section-24',
         start: 'top bottom',
         end: 'bottom top',
         scrub: 1
@@ -150,13 +150,13 @@ onMounted(() => {
     })
 
     // 入场动画
-    gsap.from('.galaxy-container', {
+    gsap.from('.galaxy-container-24', {
       scale: 0,
       opacity: 0,
       duration: 1.5,
       ease: 'elastic.out(1, 0.5)',
       scrollTrigger: {
-        trigger: '.galaxy-section',
+        trigger: '.galaxy-section-24',
         start: 'top 80%',
         toggleActions: 'play none none reverse'
       }
@@ -170,7 +170,7 @@ onUnmounted(() => {
 </script>
 
 <style scoped lang="scss">
-.galaxy-section {
+.galaxy-section-24 {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -182,13 +182,13 @@ onUnmounted(() => {
   background: #000;
 }
 
-.content {
+.content-24 {
   text-align: center;
   position: relative;
   z-index: 10;
 }
 
-.section-title {
+.section-title-24 {
   font-size: clamp(2rem, 4vw, 2.5rem);
   font-weight: 800;
   margin-bottom: 16px;
@@ -197,20 +197,20 @@ onUnmounted(() => {
                0 0 40px rgba(139, 92, 246, 0.5);
 }
 
-.subtitle {
+.subtitle-24 {
   font-size: 1.1rem;
   color: #a78bfa;
   margin-bottom: 60px;
 }
 
-.galaxy-container {
+.galaxy-container-24 {
   position: relative;
   width: 600px;
   height: 600px;
   margin: 0 auto;
 }
 
-.galaxy-core {
+.galaxy-core-24 {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -220,7 +220,7 @@ onUnmounted(() => {
   z-index: 10;
 }
 
-.core-glow {
+.core-glow-24 {
   position: absolute;
   inset: 0;
   background: radial-gradient(circle, rgba(255, 255, 200, 0.9), rgba(255, 200, 100, 0.4), transparent);
@@ -229,7 +229,7 @@ onUnmounted(() => {
               0 0 120px rgba(255, 200, 100, 0.3);
 }
 
-.core-pulse {
+.core-pulse-24 {
   position: absolute;
   inset: -10px;
   background: radial-gradient(circle, transparent, rgba(255, 200, 100, 0.1));
@@ -248,39 +248,39 @@ onUnmounted(() => {
   }
 }
 
-.galaxy-arms {
+.galaxy-arms-24 {
   position: absolute;
   inset: 0;
   transform-style: preserve-3d;
 }
 
-.arm {
+.arm-24 {
   position: absolute;
   inset: 0;
 }
 
-.star-cluster {
+.star-cluster-24 {
   position: absolute;
   border-radius: 50%;
   animation: starTwinkle 1s ease-in-out infinite;
 }
 
-.arm-1 .star-cluster {
+.arm-1 .star-cluster-24 {
   background: radial-gradient(circle, #a78bfa, #8b5cf6);
   box-shadow: 0 0 10px rgba(167, 139, 250, 0.6);
 }
 
-.arm-2 .star-cluster {
+.arm-2 .star-cluster-24 {
   background: radial-gradient(circle, #60a5fa, #3b82f6);
   box-shadow: 0 0 10px rgba(96, 165, 250, 0.6);
 }
 
-.arm-3 .star-cluster {
+.arm-3 .star-cluster-24 {
   background: radial-gradient(circle, #f472b6, #ec4899);
   box-shadow: 0 0 10px rgba(244, 114, 182, 0.6);
 }
 
-.arm-4 .star-cluster {
+.arm-4 .star-cluster-24 {
   background: radial-gradient(circle, #34d399, #10b981);
   box-shadow: 0 0 10px rgba(52, 211, 153, 0.6);
 }
@@ -296,13 +296,13 @@ onUnmounted(() => {
   }
 }
 
-.galaxy-dust {
+.galaxy-dust-24 {
   position: absolute;
   inset: 0;
   pointer-events: none;
 }
 
-.dust-particle {
+.dust-particle-24 {
   position: absolute;
   width: 2px;
   height: 2px;
@@ -320,13 +320,13 @@ onUnmounted(() => {
   }
 }
 
-.galaxy-nebula {
+.galaxy-nebula-24 {
   position: absolute;
   inset: 0;
   pointer-events: none;
 }
 
-.nebula-cloud {
+.nebula-cloud-24 {
   position: absolute;
   width: 150px;
   height: 150px;
@@ -354,7 +354,7 @@ onUnmounted(() => {
 }
 
 @media (max-width: 768px) {
-  .galaxy-container {
+  .galaxy-container-24 {
     width: 400px;
     height: 400px;
   }

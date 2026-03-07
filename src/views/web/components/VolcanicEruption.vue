@@ -1,58 +1,58 @@
 <template>
-  <section class="volcano-section">
-    <div class="content">
-      <h2 class="ve-section-title">火山喷发</h2>
-      <p class="ve-subtitle">大自然的磅礴力量</p>
+  <section class="volcano-section-27">
+    <div class="content-27">
+      <h2 class="ve-section-title-27">火山喷发</h2>
+      <p class="ve-subtitle-27">大自然的磅礴力量</p>
 
-      <div class="volcano-container" ref="volcanoContainer">
-        <div class="sky-background">
-          <div class="cloud cloud-1"></div>
-          <div class="cloud cloud-2"></div>
-          <div class="cloud cloud-3"></div>
+      <div class="volcano-container-27" ref="volcanoContainer">
+        <div class="sky-background-27">
+          <div class="cloud-27 cloud-1"></div>
+          <div class="cloud-27 cloud-2"></div>
+          <div class="cloud-27 cloud-3"></div>
         </div>
 
-        <div class="volcano-mountain">
-          <div class="mountain-left"></div>
-          <div class="mountain-right"></div>
-          <div class="mountain-center"></div>
-          <div class="crater"></div>
+        <div class="volcano-mountain-27">
+          <div class="mountain-left-27"></div>
+          <div class="mountain-right-27"></div>
+          <div class="mountain-center-27"></div>
+          <div class="crater-27"></div>
         </div>
 
-        <div class="magma-chamber">
-          <div class="magma-glow"></div>
+        <div class="magma-chamber-27">
+          <div class="magma-glow-27"></div>
         </div>
 
-        <div class="lava-streams">
-          <div class="lava-stream stream-1" ref="stream1">
-            <div class="lava-particle" v-for="n in 20" :key="n"
+        <div class="lava-streams-27">
+          <div class="lava-stream-27 stream-1" ref="stream1">
+            <div class="lava-particle-27" v-for="n in 20" :key="n"
                  :style="getLavaStyle(n, 1)"></div>
           </div>
-          <div class="lava-stream stream-2" ref="stream2">
-            <div class="lava-particle" v-for="n in 20" :key="n"
+          <div class="lava-stream-27 stream-2" ref="stream2">
+            <div class="lava-particle-27" v-for="n in 20" :key="n"
                  :style="getLavaStyle(n, 2)"></div>
           </div>
-          <div class="lava-stream stream-3" ref="stream3">
-            <div class="lava-particle" v-for="n in 20" :key="n"
+          <div class="lava-stream-27 stream-3" ref="stream3">
+            <div class="lava-particle-27" v-for="n in 20" :key="n"
                  :style="getLavaStyle(n, 3)"></div>
           </div>
         </div>
 
-        <div class="ash-particles">
-          <div class="ash" v-for="n in 80" :key="n"
+        <div class="ash-particles-27">
+          <div class="ash-27" v-for="n in 80" :key="n"
                :style="getAshStyle(n)"></div>
         </div>
 
-        <div class="eruption-column">
-          <div class="column-column"></div>
-          <div class="column-sparks">
-            <div class="spark" v-for="n in 40" :key="n"
+        <div class="eruption-column-27">
+          <div class="column-column-27"></div>
+          <div class="column-sparks-27">
+            <div class="spark-27" v-for="n in 40" :key="n"
                  :style="getSparkStyle(n)"></div>
           </div>
         </div>
 
-        <div class="lava-pool">
-          <div class="pool-surface">
-            <div class="pool-ripple" v-for="n in 10" :key="n"></div>
+        <div class="lava-pool-27">
+          <div class="pool-surface-27">
+            <div class="pool-ripple-27" v-for="n in 10" :key="n"></div>
           </div>
         </div>
       </div>
@@ -108,7 +108,7 @@ let ctx: gsap.Context
 onMounted(() => {
   ctx = gsap.context(() => {
     // 火山灰飘落
-    gsap.to('.ash', {
+    gsap.to('.ash-27', {
       y: 400,
       opacity: 0,
       duration: 5,
@@ -118,7 +118,7 @@ onMounted(() => {
     })
 
     // 熔岩流动
-    gsap.to('.lava-particle', {
+    gsap.to('.lava-particle-27', {
       y: 200,
       x: '+=20',
       scale: 0.5,
@@ -129,7 +129,7 @@ onMounted(() => {
     })
 
     // 火星飞溅
-    gsap.to('.spark', {
+    gsap.to('.spark-27', {
       y: -100,
       opacity: 0,
       scale: 0,
@@ -140,7 +140,7 @@ onMounted(() => {
     })
 
     // 熔岩脉动
-    gsap.to('.magma-glow', {
+    gsap.to('.magma-glow-27', {
       scale: 1.3,
       opacity: 0.8,
       duration: 1,
@@ -150,7 +150,7 @@ onMounted(() => {
     })
 
     // 喷发柱脉动
-    gsap.to('.column-column', {
+    gsap.to('.column-column-27', {
       scaleY: 1.2,
       scaleX: 0.9,
       duration: 0.5,
@@ -160,7 +160,7 @@ onMounted(() => {
     })
 
     // 火山震动
-    gsap.to('.volcano-mountain', {
+    gsap.to('.volcano-mountain-27', {
       y: '+=2',
       duration: 0.1,
       repeat: -1,
@@ -169,7 +169,7 @@ onMounted(() => {
     })
 
     // 池面波纹
-    gsap.to('.pool-ripple', {
+    gsap.to('.pool-ripple-27', {
       scale: 2,
       opacity: 0,
       duration: 2,
@@ -179,11 +179,11 @@ onMounted(() => {
     })
 
     // 滚动效果
-    gsap.to('.eruption-column', {
+    gsap.to('.eruption-column-27', {
       scaleY: 1.5,
       duration: 1,
       scrollTrigger: {
-        trigger: '.volcano-section',
+        trigger: '.volcano-section-27',
         start: 'top bottom',
         end: 'bottom top',
         scrub: 1
@@ -191,13 +191,13 @@ onMounted(() => {
     })
 
     // 入场动画
-    gsap.from('.volcano-container', {
+    gsap.from('.volcano-container-27', {
       y: 200,
       opacity: 0,
       duration: 1.5,
       ease: 'power3.out',
       scrollTrigger: {
-        trigger: '.volcano-section',
+        trigger: '.volcano-section-27',
         start: 'top 80%',
         toggleActions: 'play none none reverse'
       }
@@ -211,7 +211,7 @@ onUnmounted(() => {
 </script>
 
 <style scoped lang="scss">
-.volcano-section {
+.volcano-section-27 {
   min-height: 100vh;
   padding: 60px 20px;
   position: relative;
@@ -219,11 +219,11 @@ onUnmounted(() => {
   background: linear-gradient(180deg, #1a0a0a 0%, #2a1a0a 50%, #0a0a0a 100%);
 }
 
-.content {
+.content-27 {
   text-align: center;
 }
 
-.ve-section-title {
+.ve-section-title-27 {
   font-size: clamp(2rem, 4vw, 2.5rem);
   font-weight: 800;
   margin-bottom: 16px;
@@ -233,13 +233,13 @@ onUnmounted(() => {
   background-clip: text;
 }
 
-.ve-subtitle {
+.ve-subtitle-27 {
   font-size: 1.1rem;
   color: #94a3b8;
   margin-bottom: 40px;
 }
 
-.volcano-container {
+.volcano-container-27 {
   position: relative;
   width: 100%;
   max-width: 800px;
@@ -250,13 +250,13 @@ onUnmounted(() => {
   box-shadow: 0 0 60px rgba(239, 68, 68, 0.3);
 }
 
-.sky-background {
+.sky-background-27 {
   position: absolute;
   inset: 0;
   background: linear-gradient(180deg, #1a0a0a, #2a1a1a 60%, #3a2a1a);
 }
 
-.cloud {
+.cloud-27 {
   position: absolute;
   width: 100px;
   height: 40px;
@@ -292,7 +292,7 @@ onUnmounted(() => {
   }
 }
 
-.volcano-mountain {
+.volcano-mountain-27 {
   position: absolute;
   bottom: 100px;
   left: 50%;
@@ -301,7 +301,7 @@ onUnmounted(() => {
   height: 300px;
 }
 
-.mountain-left {
+.mountain-left-27 {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -311,7 +311,7 @@ onUnmounted(() => {
   clip-path: polygon(100% 0%, 0% 100%, 100% 100%);
 }
 
-.mountain-right {
+.mountain-right-27 {
   position: absolute;
   bottom: 0;
   right: 0;
@@ -321,7 +321,7 @@ onUnmounted(() => {
   clip-path: polygon(0% 0%, 0% 100%, 100% 100%);
 }
 
-.mountain-center {
+.mountain-center-27 {
   position: absolute;
   bottom: 0;
   left: 50%;
@@ -332,7 +332,7 @@ onUnmounted(() => {
   clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
 }
 
-.crater {
+.crater-27 {
   position: absolute;
   top: 50px;
   left: 50%;
@@ -344,7 +344,7 @@ onUnmounted(() => {
   box-shadow: 0 0 30px rgba(239, 68, 68, 0.5);
 }
 
-.magma-chamber {
+.magma-chamber-27 {
   position: absolute;
   top: 180px;
   left: 50%;
@@ -353,7 +353,7 @@ onUnmounted(() => {
   height: 60px;
 }
 
-.magma-glow {
+.magma-glow-27 {
   position: absolute;
   inset: 0;
   background: radial-gradient(circle, #fbbf24, #f97316, transparent);
@@ -361,7 +361,7 @@ onUnmounted(() => {
   box-shadow: 0 0 40px rgba(251, 191, 36, 0.6);
 }
 
-.lava-streams {
+.lava-streams-27 {
   position: absolute;
   bottom: 80px;
   left: 50%;
@@ -371,7 +371,7 @@ onUnmounted(() => {
   pointer-events: none;
 }
 
-.lava-stream {
+.lava-stream-27 {
   position: absolute;
   width: 20px;
   height: 100px;
@@ -391,7 +391,7 @@ onUnmounted(() => {
   transform: rotate(30deg);
 }
 
-.lava-particle {
+.lava-particle-27 {
   position: absolute;
   width: 8px;
   height: 8px;
@@ -412,13 +412,13 @@ onUnmounted(() => {
   }
 }
 
-.ash-particles {
+.ash-particles-27 {
   position: absolute;
   inset: 0;
   pointer-events: none;
 }
 
-.ash {
+.ash-27 {
   position: absolute;
   top: -20px;
   width: 4px;
@@ -439,7 +439,7 @@ onUnmounted(() => {
   }
 }
 
-.eruption-column {
+.eruption-column-27 {
   position: absolute;
   top: 80px;
   left: 50%;
@@ -449,7 +449,7 @@ onUnmounted(() => {
   pointer-events: none;
 }
 
-.column-column {
+.column-column-27 {
   position: absolute;
   bottom: 0;
   left: 50%;
@@ -460,12 +460,12 @@ onUnmounted(() => {
   border-radius: 50% 50% 0 0;
 }
 
-.column-sparks {
+.column-sparks-27 {
   position: absolute;
   inset: 0;
 }
 
-.spark {
+.spark-27 {
   position: absolute;
   width: 4px;
   height: 4px;
@@ -486,7 +486,7 @@ onUnmounted(() => {
   }
 }
 
-.lava-pool {
+.lava-pool-27 {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -495,7 +495,7 @@ onUnmounted(() => {
   background: linear-gradient(180deg, transparent, rgba(239, 68, 68, 0.3));
 }
 
-.pool-surface {
+.pool-surface-27 {
   position: absolute;
   top: 20px;
   left: 50%;
@@ -507,7 +507,7 @@ onUnmounted(() => {
   box-shadow: 0 0 30px rgba(249, 115, 22, 0.6);
 }
 
-.pool-ripple {
+.pool-ripple-27 {
   position: absolute;
   top: 50%;
   left: 50%;

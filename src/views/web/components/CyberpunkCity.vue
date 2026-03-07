@@ -1,36 +1,36 @@
 <template>
-  <section class="cyberpunk-section">
-    <div class="content">
-      <h2 class="section-title">赛博朋克城市</h2>
-      <p class="subtitle">霓虹灯闪烁的未来都市</p>
+  <section class="cyberpunk-section-21">
+    <div class="content-21">
+      <h2 class="section-title-21">赛博朋克城市</h2>
+      <p class="subtitle-21">霓虹灯闪烁的未来都市</p>
 
-      <div class="city-container" ref="cityContainer">
-        <div class="city-skyline">
-          <div class="building" v-for="(building, index) in buildings" :key="index"
+      <div class="city-container-21" ref="cityContainer">
+        <div class="city-skyline-21">
+          <div class="building-21" v-for="(building, index) in buildings" :key="index"
                :class="`building-${index + 1}`"
                :style="{ height: building.height, left: building.left }">
-            <div class="building-windows">
-              <div class="window" v-for="n in building.windows" :key="n"
-                   :class="{ 'lit': Math.random() > 0.7 }"></div>
+            <div class="building-windows-21">
+              <div class="window-21" v-for="n in building.windows" :key="n"
+                   :class="{ 'window-lit': Math.random() > 0.7 }"></div>
             </div>
-            <div class="building-neon" :style="{ background: building.neonColor }"></div>
+            <div class="building-neon-21" :style="{ background: building.neonColor }"></div>
           </div>
         </div>
 
-        <div class="city-rain">
-          <div class="rain-drop" v-for="n in 100" :key="n"
+        <div class="city-rain-21">
+          <div class="rain-drop-21" v-for="n in 100" :key="n"
                :style="getRainStyle(n)"></div>
         </div>
 
-        <div class="city-ground">
-          <div class="ground-neon"></div>
-          <div class="ground-reflection"></div>
+        <div class="city-ground-21">
+          <div class="ground-neon-21"></div>
+          <div class="ground-reflection-21"></div>
         </div>
 
-        <div class="flying-car" v-for="n in 5" :key="n"
+        <div class="flying-car-21" v-for="n in 5" :key="n"
              :style="getCarStyle(n)">
-          <div class="car-body"></div>
-          <div class="car-lights"></div>
+          <div class="car-body-21"></div>
+          <div class="car-lights-21"></div>
         </div>
       </div>
     </div>
@@ -75,21 +75,21 @@ let ctx: gsap.Context
 onMounted(() => {
   ctx = gsap.context(() => {
     // 建筑入场
-    gsap.from('.building', {
+    gsap.from('.building-21', {
       y: 600,
       scaleY: 0,
       stagger: 0.1,
       duration: 1.5,
       ease: 'elastic.out(1, 0.5)',
       scrollTrigger: {
-        trigger: '.city-skyline',
+        trigger: '.city-skyline-21',
         start: 'top 80%',
         toggleActions: 'play none none reverse'
       }
     })
 
     // 霓虹灯闪烁
-    gsap.to('.building-neon', {
+    gsap.to('.building-neon-21', {
       opacity: 0.3,
       duration: 0.5,
       repeat: -1,
@@ -99,10 +99,10 @@ onMounted(() => {
     })
 
     // 雨水滚动效果
-    gsap.to('.rain-drop', {
+    gsap.to('.rain-drop-21', {
       y: 100,
       scrollTrigger: {
-        trigger: '.city-container',
+        trigger: '.city-container-21',
         start: 'top bottom',
         end: 'bottom top',
         scrub: 1
@@ -110,11 +110,11 @@ onMounted(() => {
     })
 
     // 滚动时城市移动
-    gsap.to('.city-skyline', {
+    gsap.to('.city-skyline-21', {
       x: -100,
       duration: 1,
       scrollTrigger: {
-        trigger: '.city-container',
+        trigger: '.city-container-21',
         start: 'top bottom',
         end: 'bottom top',
         scrub: 1
@@ -122,7 +122,7 @@ onMounted(() => {
     })
 
     // 窗户灯光随机闪烁 - 使用gsap.utils.toArray自动清理
-    gsap.utils.toArray('.window').forEach((window: Element) => {
+    gsap.utils.toArray('.window-21').forEach((window: Element) => {
       const isLit = Math.random() > 0.6
       gsap.to(window, {
         opacity: isLit ? 0.9 : 0.1,
@@ -135,7 +135,7 @@ onMounted(() => {
     })
 
     // 地面霓虹脉动
-    gsap.to('.ground-neon', {
+    gsap.to('.ground-neon-21', {
       scaleX: 1.2,
       opacity: 0.8,
       duration: 1,
@@ -152,7 +152,7 @@ onUnmounted(() => {
 </script>
 
 <style scoped lang="scss">
-.cyberpunk-section {
+.cyberpunk-section-21 {
   min-height: 100vh;
   padding: 60px 20px;
   position: relative;
@@ -160,11 +160,11 @@ onUnmounted(() => {
   background: linear-gradient(180deg, #0a0a1a 0%, #1a0a2a 50%, #0a0a1a 100%);
 }
 
-.content {
+.content-21 {
   text-align: center;
 }
 
-.section-title {
+.section-title-21 {
   font-size: clamp(2rem, 4vw, 2.5rem);
   font-weight: 800;
   margin-bottom: 16px;
@@ -172,14 +172,14 @@ onUnmounted(() => {
   text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff, 0 0 40px #ff00ff;
 }
 
-.subtitle {
+.subtitle-21 {
   font-size: 1.1rem;
   color: #00ffff;
   margin-bottom: 40px;
   text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
 }
 
-.city-container {
+.city-container-21 {
   position: relative;
   width: 100%;
   height: 600px;
@@ -191,7 +191,7 @@ onUnmounted(() => {
               inset 0 0 60px rgba(0, 0, 0, 0.5);
 }
 
-.city-skyline {
+.city-skyline-21 {
   position: absolute;
   bottom: 100px;
   left: 0;
@@ -202,7 +202,7 @@ onUnmounted(() => {
   padding: 0 20px;
 }
 
-.building {
+.building-21 {
   position: absolute;
   width: 60px;
   background: linear-gradient(180deg, #1a1a3a, #0a0a2a);
@@ -213,7 +213,7 @@ onUnmounted(() => {
   transform-origin: bottom;
 }
 
-.building-windows {
+.building-windows-21 {
   position: absolute;
   inset: 10px;
   display: grid;
@@ -222,18 +222,18 @@ onUnmounted(() => {
   gap: 3px;
 }
 
-.window {
+.window-21 {
   background: rgba(255, 255, 255, 0.05);
   border-radius: 1px;
   transition: background 0.3s ease;
 
-  &.lit {
+  &.lit-21 {
     background: rgba(255, 255, 100, 0.8);
     box-shadow: 0 0 10px rgba(255, 255, 100, 0.5);
   }
 }
 
-.building-neon {
+.building-neon-21 {
   position: absolute;
   right: 2px;
   top: 10px;
@@ -244,14 +244,14 @@ onUnmounted(() => {
   filter: blur(2px);
 }
 
-.city-rain {
+.city-rain-21 {
   position: absolute;
   inset: 0;
   pointer-events: none;
   overflow: hidden;
 }
 
-.rain-drop {
+.rain-drop-21 {
   position: absolute;
   width: 1px;
   height: 20px;
@@ -268,7 +268,7 @@ onUnmounted(() => {
   }
 }
 
-.city-ground {
+.city-ground-21 {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -277,7 +277,7 @@ onUnmounted(() => {
   background: linear-gradient(180deg, transparent, #0a0a1a);
 }
 
-.ground-neon {
+.ground-neon-21 {
   position: absolute;
   bottom: 20px;
   left: 10%;
@@ -299,7 +299,7 @@ onUnmounted(() => {
   }
 }
 
-.ground-reflection {
+.ground-reflection-21 {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -309,7 +309,7 @@ onUnmounted(() => {
   filter: blur(10px);
 }
 
-.flying-car {
+.flying-car-21 {
   position: absolute;
   width: 60px;
   height: 20px;
@@ -317,7 +317,7 @@ onUnmounted(() => {
   animation: fly linear infinite;
 }
 
-.car-body {
+.car-body-21 {
   width: 100%;
   height: 100%;
   background: linear-gradient(180deg, #2a2a4a, #1a1a3a);
@@ -326,7 +326,7 @@ onUnmounted(() => {
   box-shadow: 0 0 10px rgba(255, 0, 255, 0.3);
 }
 
-.car-lights {
+.car-lights-21 {
   position: absolute;
   right: -20px;
   top: 50%;
@@ -347,11 +347,11 @@ onUnmounted(() => {
 }
 
 @media (max-width: 768px) {
-  .city-container {
+  .city-container-21 {
     height: 400px;
   }
 
-  .building {
+  .building-21 {
     width: 40px;
   }
 }

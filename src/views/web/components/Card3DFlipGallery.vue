@@ -1,7 +1,7 @@
 <template>
-  <section ref="cardSection" class="c3d-section c3d-card-section">
-    <h2 class="c3d-section-title">3D卡片翻转画廊</h2>
-    <div ref="cardContainer" class="c3d-card-container">
+  <section ref="cardSection" class="c3d-section-1 c3d-card-section-1">
+    <h2 class="c3d-section-title-1">3D卡片翻转画廊</h2>
+    <div ref="cardContainer" class="c3d-card-container-1">
       <div
         v-for="(card, index) in cards"
         :key="index"
@@ -10,34 +10,34 @@
             if (el) cardRefs[index] = el as HTMLElement
           }
         "
-        class="c3d-card3d"
+        class="c3d-card3d-1"
       >
-        <div class="c3d-card-inner">
-          <div class="c3d-card-front">
-            <div class="c3d-card-icon">{{ card.icon }}</div>
+        <div class="c3d-card-inner-1">
+          <div class="c3d-card-front-1">
+            <div class="c3d-card-icon-1">{{ card.icon }}</div>
             <h3>{{ card.title }}</h3>
             <p>{{ card.desc }}</p>
           </div>
-          <div class="c3d-card-back" :style="{ background: card.gradient }">
+          <div class="c3d-card-back-1" :style="{ background: card.gradient }">
             <h3>{{ card.title }}</h3>
             <p>{{ card.backDesc }}</p>
-            <div class="c3d-stats">
-              <div class="c3d-stat">
-                <span class="c3d-value">{{ card.stat1 }}</span>
-                <span class="c3d-label">{{ card.label1 }}</span>
+            <div class="c3d-stats-1">
+              <div class="c3d-stat-1">
+                <span class="c3d-value-1">{{ card.stat1 }}</span>
+                <span class="c3d-label-1">{{ card.label1 }}</span>
               </div>
-              <div class="c3d-stat">
-                <span class="c3d-value">{{ card.stat2 }}</span>
-                <span class="c3d-label">{{ card.label2 }}</span>
+              <div class="c3d-stat-1">
+                <span class="c3d-value-1">{{ card.stat2 }}</span>
+                <span class="c3d-label-1">{{ card.label2 }}</span>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="c3d-scroll-hint">
-      <span class="c3d-scroll-text">向下滚动查看更多</span>
-      <div class="c3d-scroll-arrow"></div>
+    <div class="c3d-scroll-hint-1">
+      <span class="c3d-scroll-text-1">向下滚动查看更多</span>
+      <div class="c3d-scroll-arrow-1"></div>
     </div>
   </section>
 </template>
@@ -139,7 +139,7 @@ const initAnimations = () => {
   })
 
   cardRefs.value.forEach((card, index) => {
-    gsap.to(card.querySelector('.c3d-card-inner') as HTMLElement, {
+    gsap.to(card.querySelector('.c3d-card-inner-1') as HTMLElement, {
       rotateY: 180,
       scrollTrigger: {
         trigger: card,
@@ -148,7 +148,7 @@ const initAnimations = () => {
         scrub: 1,
         onUpdate: self => {
           if (self.progress >= 1) {
-            gsap.set(card.querySelector('.c3d-card-inner') as HTMLElement, { rotateY: 180 })
+            gsap.set(card.querySelector('.c3d-card-inner-1') as HTMLElement, { rotateY: 180 })
           }
         }
       }
@@ -158,7 +158,7 @@ const initAnimations = () => {
 </script>
 
 <style scoped lang="scss">
-.c3d-section {
+.c3d-section-1 {
   min-height: 100vh;
   padding: 100px 20px;
   position: relative;
@@ -168,7 +168,7 @@ const initAnimations = () => {
   justify-content: center;
 }
 
-.c3d-section-title {
+.c3d-section-title-1 {
   font-size: 2.5rem;
   font-weight: bold;
   margin-bottom: 60px;
@@ -179,11 +179,11 @@ const initAnimations = () => {
   text-align: center;
 }
 
-.c3d-card-section {
+.c3d-card-section-1 {
   background: linear-gradient(180deg, transparent, rgba(139, 92, 246, 0.1), transparent);
 }
 
-.c3d-card-container {
+.c3d-card-container-1 {
   display: flex;
   gap: 40px;
   flex-wrap: wrap;
@@ -192,14 +192,14 @@ const initAnimations = () => {
   perspective: 1500px;
 }
 
-.c3d-card3d {
+.c3d-card3d-1 {
   width: 280px;
   height: 380px;
   perspective: 1500px;
   cursor: pointer;
 }
 
-.c3d-card-inner {
+.c3d-card-inner-1 {
   position: relative;
   width: 100%;
   height: 100%;
@@ -207,8 +207,8 @@ const initAnimations = () => {
   transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-.c3d-card-front,
-.c3d-card-back {
+.c3d-card-front-1,
+.c3d-card-back-1 {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -222,44 +222,44 @@ const initAnimations = () => {
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
 }
 
-.c3d-card-front {
+.c3d-card-front-1 {
   background: linear-gradient(145deg, #ffffff 0%, #f5f5f5 100%);
   border: 2px solid rgba(102, 126, 234, 0.2);
 }
 
-.c3d-card-back {
+.c3d-card-back-1 {
   transform: rotateY(180deg);
   border: 2px solid rgba(255, 255, 255, 0.2);
 }
 
-.c3d-card-icon {
+.c3d-card-icon-1 {
   font-size: 4rem;
   margin-bottom: 20px;
   filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
 }
 
-.c3d-card-front h3 {
+.c3d-card-front-1 h3 {
   font-size: 1.5rem;
   font-weight: bold;
   color: #333;
   margin-bottom: 12px;
 }
 
-.c3d-card-front p {
+.c3d-card-front-1 p {
   font-size: 0.9rem;
   color: #666;
   text-align: center;
   line-height: 1.6;
 }
 
-.c3d-card-back h3 {
+.c3d-card-back-1 h3 {
   font-size: 1.5rem;
   font-weight: bold;
   color: #fff;
   margin-bottom: 12px;
 }
 
-.c3d-card-back p {
+.c3d-card-back-1 p {
   font-size: 0.9rem;
   color: rgba(255, 255, 255, 0.9);
   text-align: center;
@@ -267,33 +267,33 @@ const initAnimations = () => {
   margin-bottom: 30px;
 }
 
-.c3d-stats {
+.c3d-stats-1 {
   display: flex;
   gap: 40px;
 }
 
-.c3d-stat {
+.c3d-stat-1 {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 8px;
 }
 
-.c3d-stat .c3d-value {
+.c3d-stat-1 .c3d-value-1 {
   font-size: 2rem;
   font-weight: bold;
   color: #fff;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
-.c3d-stat .c3d-label {
+.c3d-stat-1 .c3d-label-1 {
   font-size: 0.8rem;
   color: rgba(255, 255, 255, 0.8);
   text-transform: uppercase;
   letter-spacing: 1px;
 }
 
-.c3d-scroll-hint {
+.c3d-scroll-hint-1 {
   position: absolute;
   bottom: 40px;
   left: 50%;
@@ -305,13 +305,13 @@ const initAnimations = () => {
   color: #94a3b8;
 }
 
-.c3d-scroll-text {
+.c3d-scroll-text-1 {
   font-size: 0.9rem;
   text-transform: uppercase;
   letter-spacing: 2px;
 }
 
-.c3d-scroll-arrow {
+.c3d-scroll-arrow-1 {
   width: 20px;
   height: 20px;
   border-right: 2px solid #94a3b8;
@@ -331,11 +331,11 @@ const initAnimations = () => {
 }
 
 @media (max-width: 768px) {
-  .c3d-card-container {
+  .c3d-card-container-1 {
     gap: 20px;
   }
 
-  .c3d-card3d {
+  .c3d-card3d-1 {
     width: 240px;
     height: 320px;
   }

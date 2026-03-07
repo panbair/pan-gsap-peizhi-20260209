@@ -1,42 +1,42 @@
 <template>
-  <section class="ow-ocean-section">
-    <div class="ow-content">
-      <h2 class="ow-section-title">海洋波浪</h2>
-      <p class="ow-subtitle">深海的神秘韵律</p>
+  <section class="ow-ocean-section-25">
+    <div class="ow-content-25">
+      <h2 class="ow-section-title-25">海洋波浪</h2>
+      <p class="ow-subtitle-25">深海的神秘韵律</p>
 
-      <div class="ow-ocean-container" ref="oceanContainer">
-        <div class="ow-ocean-surface">
-          <div class="ow-wave ow-wave-1" ref="wave1">
-            <div class="ow-wave-segment" v-for="n in 40" :key="n"
+      <div class="ow-ocean-container-25" ref="oceanContainer">
+        <div class="ow-ocean-surface-25">
+          <div class="ow-wave-25 ow-wave-1" ref="wave1">
+            <div class="ow-wave-segment-25" v-for="n in 40" :key="n"
                  :style="getWaveSegmentStyle(n, 1)"></div>
           </div>
-          <div class="ow-wave ow-wave-2" ref="wave2">
-            <div class="ow-wave-segment" v-for="n in 40" :key="n"
+          <div class="ow-wave-25 ow-wave-2" ref="wave2">
+            <div class="ow-wave-segment-25" v-for="n in 40" :key="n"
                  :style="getWaveSegmentStyle(n, 2)"></div>
           </div>
-          <div class="ow-wave ow-wave-3" ref="wave3">
-            <div class="ow-wave-segment" v-for="n in 40" :key="n"
+          <div class="ow-wave-25 ow-wave-3" ref="wave3">
+            <div class="ow-wave-segment-25" v-for="n in 40" :key="n"
                  :style="getWaveSegmentStyle(n, 3)"></div>
           </div>
         </div>
 
-        <div class="ow-ocean-bubbles">
-          <div class="ow-bubble" v-for="n in 30" :key="n"
+        <div class="ow-ocean-bubbles-25">
+          <div class="ow-bubble-25" v-for="n in 30" :key="n"
                :style="getBubbleStyle(n)"></div>
         </div>
 
-        <div class="ow-ocean-fish">
-          <div class="ow-fish" v-for="n in 10" :key="n"
+        <div class="ow-ocean-fish-25">
+          <div class="ow-fish-25" v-for="n in 10" :key="n"
                :style="getFishStyle(n)"></div>
         </div>
 
-        <div class="ow-ocean-light">
-          <div class="ow-light-ray" v-for="n in 8" :key="n"
+        <div class="ow-ocean-light-25">
+          <div class="ow-light-ray-25" v-for="n in 8" :key="n"
                :style="getLightRayStyle(n)"></div>
         </div>
 
-        <div class="ow-ocean-seabed">
-          <div class="ow-seaweed" v-for="n in 8" :key="n"
+        <div class="ow-ocean-seabed-25">
+          <div class="ow-seaweed-25" v-for="n in 8" :key="n"
                :style="getSeaweedStyle(n)"></div>
         </div>
       </div>
@@ -111,7 +111,7 @@ let ctx: gsap.Context
 onMounted(() => {
   ctx = gsap.context(() => {
     // 波浪滚动动画
-    gsap.to('.ow-wave', {
+    gsap.to('.ow-wave-25', {
       x: '-10%',
       duration: 4,
       repeat: -1,
@@ -121,7 +121,7 @@ onMounted(() => {
     })
 
     // 波段脉动
-    gsap.to('.ow-wave-segment', {
+    gsap.to('.ow-wave-segment-25', {
       scaleY: 1.5,
       duration: 2,
       repeat: -1,
@@ -131,7 +131,7 @@ onMounted(() => {
     })
 
     // 气泡上升
-    gsap.to('.ow-bubble', {
+    gsap.to('.ow-bubble-25', {
       y: -500,
       opacity: 0,
       duration: 5,
@@ -141,7 +141,7 @@ onMounted(() => {
     })
 
     // 鱼游动
-    gsap.to('.ow-fish', {
+    gsap.to('.ow-fish-25', {
       x: '+=200',
       duration: 8,
       repeat: -1,
@@ -151,7 +151,7 @@ onMounted(() => {
     })
 
     // 光线闪烁
-    gsap.to('.ow-light-ray', {
+    gsap.to('.ow-light-ray-25', {
       opacity: 0.3,
       duration: 2,
       repeat: -1,
@@ -161,7 +161,7 @@ onMounted(() => {
     })
 
     // 海草摇摆
-    gsap.to('.ow-seaweed', {
+    gsap.to('.ow-seaweed-25', {
       rotation: 15,
       duration: 3,
       repeat: -1,
@@ -171,11 +171,11 @@ onMounted(() => {
     })
 
     // 滚动效果
-    gsap.to('.ow-ocean-container', {
+    gsap.to('.ow-ocean-container-25', {
       y: -50,
       duration: 1,
       scrollTrigger: {
-        trigger: '.ow-ocean-section',
+        trigger: '.ow-ocean-section-25',
         start: 'top bottom',
         end: 'bottom top',
         scrub: 1
@@ -183,13 +183,13 @@ onMounted(() => {
     })
 
     // 入场动画
-    gsap.from('.ow-ocean-container', {
+    gsap.from('.ow-ocean-container-25', {
       y: 300,
       opacity: 0,
       duration: 1.5,
       ease: 'power3.out',
       scrollTrigger: {
-        trigger: '.ow-ocean-section',
+        trigger: '.ow-ocean-section-25',
         start: 'top 80%',
         toggleActions: 'play none none reverse'
       }
@@ -203,7 +203,7 @@ onUnmounted(() => {
 </script>
 
 <style scoped lang="scss">
-.ow-ocean-section {
+.ow-ocean-section-25 {
   min-height: 100vh;
   padding: 60px 20px;
   position: relative;
@@ -211,11 +211,11 @@ onUnmounted(() => {
   background: linear-gradient(180deg, #0a1a2a 0%, #0a2a3a 30%, #051a2a 70%, #020a1a 100%);
 }
 
-.ow-content {
+.ow-content-25 {
   text-align: center;
 }
 
-.ow-section-title {
+.ow-section-title-25 {
   font-size: clamp(2rem, 4vw, 2.5rem);
   font-weight: 800;
   margin-bottom: 16px;
@@ -225,13 +225,13 @@ onUnmounted(() => {
   background-clip: text;
 }
 
-.ow-subtitle {
+.ow-subtitle-25 {
   font-size: 1.1rem;
   color: #94a3b8;
   margin-bottom: 40px;
 }
 
-.ow-ocean-container {
+.ow-ocean-container-25 {
   position: relative;
   width: 100%;
   max-width: 800px;
@@ -242,7 +242,7 @@ onUnmounted(() => {
   box-shadow: 0 0 60px rgba(6, 182, 212, 0.2);
 }
 
-.ow-ocean-surface {
+.ow-ocean-surface-25 {
   position: absolute;
   top: 50px;
   left: 0;
@@ -254,14 +254,14 @@ onUnmounted(() => {
   padding: 0 10px;
 }
 
-.ow-wave {
+.ow-wave-25 {
   display: flex;
   align-items: flex-end;
   gap: 4px;
   flex: 1;
 }
 
-.ow-wave-segment {
+.ow-wave-segment-25 {
   flex: 1;
   background: linear-gradient(180deg, rgba(6, 182, 212, 0.6), rgba(14, 165, 233, 0.3));
   border-radius: 50% 50% 0 0;
@@ -269,16 +269,16 @@ onUnmounted(() => {
   animation: wavePulse 2s ease-in-out infinite;
 }
 
-.ow-wave-1 .ow-wave-segment {
+.ow-wave-1 .ow-wave-segment-25 {
   animation-delay: 0s;
 }
 
-.ow-wave-2 .ow-wave-segment {
+.ow-wave-2 .ow-wave-segment-25 {
   animation-delay: 0.5s;
   opacity: 0.7;
 }
 
-.ow-wave-3 .ow-wave-segment {
+.ow-wave-3 .ow-wave-segment-25 {
   animation-delay: 1s;
   opacity: 0.5;
 }
@@ -292,13 +292,13 @@ onUnmounted(() => {
   }
 }
 
-.ow-ocean-bubbles {
+.ow-ocean-bubbles-25 {
   position: absolute;
   inset: 50px 0 100px;
   pointer-events: none;
 }
 
-.ow-bubble {
+.ow-bubble-25 {
   position: absolute;
   bottom: 0;
   border-radius: 50%;
@@ -318,13 +318,13 @@ onUnmounted(() => {
   }
 }
 
-.ocean-fish {
+.ow-ocean-fish-25 {
   position: absolute;
   inset: 100px 0 150px;
   pointer-events: none;
 }
 
-.fish {
+.ow-fish-25 {
   position: absolute;
   width: 40px;
   height: 20px;
@@ -333,7 +333,7 @@ onUnmounted(() => {
   animation: fishSwim 8s ease-in-out infinite;
 }
 
-.fish::before {
+.ow-fish-25::before {
   content: '';
   position: absolute;
   right: -10px;
@@ -344,7 +344,7 @@ onUnmounted(() => {
   border-bottom: 8px solid transparent;
 }
 
-.fish::after {
+.ow-fish-25::after {
   content: '';
   position: absolute;
   left: 8px;
@@ -364,7 +364,7 @@ onUnmounted(() => {
   }
 }
 
-.ocean-light {
+.ow-ocean-light-25 {
   position: absolute;
   top: 0;
   left: 0;
@@ -373,7 +373,7 @@ onUnmounted(() => {
   pointer-events: none;
 }
 
-.light-ray {
+.ow-light-ray-25 {
   position: absolute;
   top: 0;
   width: 30px;
@@ -391,7 +391,7 @@ onUnmounted(() => {
   }
 }
 
-.ocean-seabed {
+.ow-ocean-seabed-25 {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -400,7 +400,7 @@ onUnmounted(() => {
   background: linear-gradient(180deg, transparent, rgba(5, 26, 42, 0.8));
 }
 
-.seaweed {
+.ow-seaweed-25 {
   position: absolute;
   bottom: 0;
   width: 20px;
@@ -420,7 +420,7 @@ onUnmounted(() => {
 }
 
 @media (max-width: 768px) {
-  .ocean-container {
+  .ocean-container-25 {
     height: 400px;
   }
 }

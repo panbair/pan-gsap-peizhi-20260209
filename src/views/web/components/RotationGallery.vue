@@ -1,22 +1,22 @@
 <template>
-  <div class="rg-rotation-gallery">
-    <div class="rg-container">
-      <h2 class="rg-section-title" ref="sectionTitle">旋转画廊</h2>
+  <div class="rg-rotation-gallery-36">
+    <div class="rg-container-36">
+      <h2 class="rg-section-title-36" ref="sectionTitle">旋转画廊</h2>
 
-      <div class="rg-gallery-container" ref="galleryContainer">
+      <div class="rg-gallery-container-36" ref="galleryContainer">
         <div
-          class="rg-gallery-item"
+          class="rg-gallery-item-36"
           v-for="(img, index) in images"
           :key="index"
           :style="{ transform: `rotateY(${index * 45}deg) translateZ(350px)` }"
           :data-index="index"
           ref="items"
         >
-          <div class="rg-item-inner">
+          <div class="rg-item-inner-36">
             <img :src="img" :alt="`Image ${index + 1}`" />
-            <div class="rg-item-content">
-              <span class="rg-item-number">{{ index + 1 }}</span>
-              <h3 class="rg-item-title">Rotate {{ index + 1 }}</h3>
+            <div class="rg-item-content-36">
+              <span class="rg-item-number-36">{{ index + 1 }}</span>
+              <h3 class="rg-item-title-36">Rotate {{ index + 1 }}</h3>
             </div>
           </div>
         </div>
@@ -84,8 +84,8 @@ onMounted(() => {
 
     items.value.forEach((item, index) => {
       const img = item.querySelector('img') as HTMLElement
-      const content = item.querySelector('.rg-item-content') as HTMLElement
-      const number = item.querySelector('.rg-item-number') as HTMLElement
+      const content = item.querySelector('.rg-item-content-36') as HTMLElement
+      const number = item.querySelector('.rg-item-number-36') as HTMLElement
 
       // 3D入场动画
       gsap.fromTo(item,
@@ -179,7 +179,7 @@ onUnmounted(() => {
 </script>
 
 <style scoped lang="scss">
-.rg-rotation-gallery {
+.rg-rotation-gallery-36 {
   min-height: 150vh;
   padding: 100px 0;
   background: linear-gradient(180deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
@@ -213,7 +213,7 @@ onUnmounted(() => {
   }
 }
 
-.rg-container {
+.rg-container-36 {
   width: 100%;
   max-width: 1000px;
   padding: 0 40px;
@@ -221,7 +221,7 @@ onUnmounted(() => {
   z-index: 1;
 }
 
-.rg-section-title {
+.rg-section-title-36 {
   text-align: center;
   font-size: 3.5rem;
   font-weight: 800;
@@ -244,7 +244,7 @@ onUnmounted(() => {
   }
 }
 
-.rg-gallery-container {
+.rg-gallery-container-36 {
   position: relative;
   width: 100%;
   height: 600px;
@@ -255,7 +255,7 @@ onUnmounted(() => {
   transform-style: preserve-3d;
 }
 
-.rg-gallery-item {
+.rg-gallery-item-36 {
   position: absolute;
   left: 50%;
   top: 50%;
@@ -282,7 +282,7 @@ onUnmounted(() => {
   }
 }
 
-.rg-item-inner {
+.rg-item-inner-36 {
   width: 100%;
   height: 100%;
   position: relative;
@@ -291,12 +291,12 @@ onUnmounted(() => {
   background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
 }
 
-.rg-gallery-item:hover img {
+.rg-gallery-item-36:hover img {
   filter: brightness(1.15) saturate(1.1);
   transform: scale(1.05);
 }
 
-.rg-item-content {
+.rg-item-content-36 {
   position: absolute;
   top: 0;
   left: 0;
@@ -316,7 +316,7 @@ onUnmounted(() => {
   backdrop-filter: blur(2px);
 }
 
-.rg-item-number {
+.rg-item-number-36 {
   font-size: 4.5rem;
   font-weight: 900;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -329,7 +329,7 @@ onUnmounted(() => {
   filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.5));
 }
 
-.rg-item-title {
+.rg-item-title-36 {
   font-size: 1.4rem;
   font-weight: 700;
   color: #fff;
@@ -339,28 +339,28 @@ onUnmounted(() => {
 }
 
 @media (max-width: 768px) {
-  .rg-gallery-container {
+  .rg-gallery-container-36 {
     height: 500px;
     perspective: 1500px;
   }
 
-  .rg-gallery-item {
+  .rg-gallery-item-36 {
     width: 220px;
     height: 300px;
     margin-left: -110px;
     margin-top: -150px;
   }
 
-  .rg-section-title {
+  .rg-section-title-36 {
     font-size: 2.2rem;
     margin-bottom: 60px;
   }
 
-  .rg-item-number {
+  .rg-item-number-36 {
     font-size: 3.5rem;
   }
 
-  .rg-item-title {
+  .rg-item-title-36 {
     font-size: 1.1rem;
   }
 }

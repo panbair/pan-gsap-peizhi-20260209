@@ -1,37 +1,37 @@
 <template>
-  <section class="dna-helix-section">
-    <div class="content">
-      <h2 class="section-title">DNA双螺旋</h2>
-      <p class="subtitle">生命之链的完美螺旋</p>
+  <section class="dna-helix-section-22">
+    <div class="content-22">
+      <h2 class="section-title-22">DNA双螺旋</h2>
+      <p class="subtitle-22">生命之链的完美螺旋</p>
 
-      <div class="dna-container" ref="dnaContainer">
-        <div class="dna-helix">
-          <div class="dna-strand strand-1">
-            <div class="base-pair" v-for="n in 20" :key="n"
+      <div class="dna-container-22" ref="dnaContainer">
+        <div class="dna-helix-22">
+          <div class="dna-strand-22 strand-1">
+            <div class="base-pair-22" v-for="n in 20" :key="n"
                  :style="getBasePairStyle(n, 'a')">
-              <div class="base base-a"></div>
-              <div class="connection"></div>
-              <div class="base base-t"></div>
+              <div class="base-22 base-a-22"></div>
+              <div class="connection-22"></div>
+              <div class="base-22 base-t-22"></div>
             </div>
           </div>
 
-          <div class="dna-strand strand-2">
-            <div class="base-pair" v-for="n in 20" :key="n"
+          <div class="dna-strand-22 strand-2">
+            <div class="base-pair-22" v-for="n in 20" :key="n"
                  :style="getBasePairStyle(n, 'c')">
-              <div class="base base-c"></div>
-              <div class="connection"></div>
-              <div class="base base-g"></div>
+              <div class="base-22 base-c-22"></div>
+              <div class="connection-22"></div>
+              <div class="base-22 base-g-22"></div>
             </div>
           </div>
 
-          <div class="dna-particles">
-            <div class="dna-particle" v-for="n in 30" :key="n"
+          <div class="dna-particles-22">
+            <div class="dna-particle-22" v-for="n in 30" :key="n"
                  :style="getDNAParticleStyle(n)"></div>
           </div>
         </div>
 
-        <div class="dna-info">
-          <div class="info-card">
+        <div class="dna-info-22">
+          <div class="info-card-22">
             <h3>ATCG</h3>
             <p>腺嘌呤 胸腺嘧啶 胞嘧啶 鸟嘌呤</p>
           </div>
@@ -79,7 +79,7 @@ let ctx: gsap.Context
 onMounted(() => {
   ctx = gsap.context(() => {
     // 双螺旋旋转
-    gsap.to('.dna-strand', {
+    gsap.to('.dna-strand-22', {
       rotationY: 360,
       duration: 10,
       repeat: -1,
@@ -87,7 +87,7 @@ onMounted(() => {
     })
 
     // 碱基对脉动
-    gsap.to('.base', {
+    gsap.to('.base-22', {
       scale: 1.2,
       opacity: 0.8,
       duration: 1,
@@ -98,7 +98,7 @@ onMounted(() => {
     })
 
     // 连接线闪烁
-    gsap.to('.connection', {
+    gsap.to('.connection-22', {
       opacity: 0.3,
       duration: 0.5,
       repeat: -1,
@@ -108,7 +108,7 @@ onMounted(() => {
     })
 
     // 粒子漂浮
-    gsap.to('.dna-particle', {
+    gsap.to('.dna-particle-22', {
       y: '-=20',
       opacity: 0.5,
       duration: 2,
@@ -119,12 +119,12 @@ onMounted(() => {
     })
 
     // 滚动时DNA展开
-    gsap.to('.dna-helix', {
+    gsap.to('.dna-helix-22', {
       rotationX: 30,
       scale: 1.2,
       duration: 1,
       scrollTrigger: {
-        trigger: '.dna-container',
+        trigger: '.dna-container-22',
         start: 'top bottom',
         end: 'bottom top',
         scrub: 1
@@ -132,26 +132,26 @@ onMounted(() => {
     })
 
     // 入场动画
-    gsap.from('.dna-helix', {
+    gsap.from('.dna-helix-22', {
       y: 300,
       opacity: 0,
       duration: 1.5,
       ease: 'power3.out',
       scrollTrigger: {
-        trigger: '.dna-helix',
+        trigger: '.dna-helix-22',
         start: 'top 80%',
         toggleActions: 'play none none reverse'
       }
     })
 
     // 信息卡片入场
-    gsap.from('.info-card', {
+    gsap.from('.info-card-22', {
       x: -100,
       opacity: 0,
       duration: 1,
       ease: 'power2.out',
       scrollTrigger: {
-        trigger: '.dna-info',
+        trigger: '.dna-info-22',
         start: 'top 80%',
         toggleActions: 'play none none reverse'
       }
@@ -165,7 +165,7 @@ onUnmounted(() => {
 </script>
 
 <style scoped lang="scss">
-.dna-helix-section {
+.dna-helix-section-22 {
   min-height: 100vh;
   padding: 100px 20px;
   position: relative;
@@ -173,12 +173,12 @@ onUnmounted(() => {
   background: linear-gradient(180deg, #0a0a1a, #1a0a2a, #0a0a1a);
 }
 
-.content {
+.content-22 {
   text-align: center;
   position: relative;
 }
 
-.section-title {
+.section-title-22 {
   font-size: clamp(2rem, 4vw, 2.5rem);
   font-weight: 800;
   margin-bottom: 16px;
@@ -188,13 +188,13 @@ onUnmounted(() => {
   background-clip: text;
 }
 
-.subtitle {
+.subtitle-22 {
   font-size: 1.1rem;
   color: #94a3b8;
   margin-bottom: 80px;
 }
 
-.dna-container {
+.dna-container-22 {
   position: relative;
   width: 100%;
   max-width: 800px;
@@ -206,14 +206,14 @@ onUnmounted(() => {
   perspective: 1000px;
 }
 
-.dna-helix {
+.dna-helix-22 {
   position: relative;
   width: 300px;
   height: 700px;
   transform-style: preserve-3d;
 }
 
-.dna-strand {
+.dna-strand-22 {
   position: absolute;
   inset: 0;
   transform-style: preserve-3d;
@@ -223,7 +223,7 @@ onUnmounted(() => {
   transform: rotateY(180deg);
 }
 
-.base-pair {
+.base-pair-22 {
   position: absolute;
   left: 50%;
   top: 50%;
@@ -234,7 +234,7 @@ onUnmounted(() => {
   margin-top: -10px;
 }
 
-.base {
+.base-22 {
   position: absolute;
   width: 20px;
   height: 20px;
@@ -242,31 +242,31 @@ onUnmounted(() => {
   transform-style: preserve-3d;
 }
 
-.base-a {
+.base-a-22 {
   left: 0;
   background: radial-gradient(circle, #06b6d4, #0891b2);
   box-shadow: 0 0 15px rgba(6, 182, 212, 0.6);
 }
 
-.base-t {
+.base-t-22 {
   right: 0;
   background: radial-gradient(circle, #8b5cf6, #7c3aed);
   box-shadow: 0 0 15px rgba(139, 92, 246, 0.6);
 }
 
-.base-c {
+.base-c-22 {
   left: 0;
   background: radial-gradient(circle, #ec4899, #db2777);
   box-shadow: 0 0 15px rgba(236, 72, 153, 0.6);
 }
 
-.base-g {
+.base-g-22 {
   right: 0;
   background: radial-gradient(circle, #10b981, #059669);
   box-shadow: 0 0 15px rgba(16, 185, 129, 0.6);
 }
 
-.connection {
+.connection-22 {
   position: absolute;
   left: 20px;
   right: 20px;
@@ -276,13 +276,13 @@ onUnmounted(() => {
   transform: translateY(-50%);
 }
 
-.dna-particles {
+.dna-particles-22 {
   position: absolute;
   inset: 0;
   pointer-events: none;
 }
 
-.dna-particle {
+.dna-particle-22 {
   position: absolute;
   width: 4px;
   height: 4px;
@@ -303,11 +303,11 @@ onUnmounted(() => {
   }
 }
 
-.dna-info {
+.dna-info-22 {
   position: relative;
 }
 
-.info-card {
+.info-card-22 {
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 20px;
@@ -333,16 +333,16 @@ onUnmounted(() => {
 }
 
 @media (max-width: 768px) {
-  .dna-container {
+  .dna-container-22 {
     flex-direction: column;
   }
 
-  .dna-helix {
+  .dna-helix-22 {
     width: 200px;
     height: 500px;
   }
 
-  .base-pair {
+  .base-pair-22 {
     width: 140px;
     margin-left: -70px;
   }

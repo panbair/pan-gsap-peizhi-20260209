@@ -1,17 +1,17 @@
 <template>
-  <div class="ps-parallax-scroll-section">
-    <div class="ps-section-header">
-      <h2 class="ps-title">PARALLAX SCROLL</h2>
-      <p class="ps-subtitle">滚动视差效果</p>
+  <div class="ps-parallax-scroll-section-53">
+    <div class="ps-section-header-53">
+      <h2 class="ps-title-53">PARALLAX SCROLL</h2>
+      <p class="ps-subtitle-53">滚动视差效果</p>
     </div>
 
-    <div class="ps-parallax-container">
-      <div class="ps-parallax-layer" v-for="(layer, index) in layers" :key="index" :class="`ps-layer-${index + 1}`">
-        <div class="ps-layer-card">
-          <div class="ps-card-image" :style="{ backgroundImage: `url(${layer.image})` }"></div>
-          <div class="ps-card-overlay"></div>
-          <div class="ps-card-content">
-            <div class="ps-card-number">{{ String(index + 1).padStart(2, '0') }}</div>
+    <div class="ps-parallax-container-53">
+      <div class="ps-parallax-layer-53" v-for="(layer, index) in layers" :key="index" :class="`ps-layer-${index + 1}`">
+        <div class="ps-layer-card-53">
+          <div class="ps-card-image-53" :style="{ backgroundImage: `url(${layer.image})` }"></div>
+          <div class="ps-card-overlay-53"></div>
+          <div class="ps-card-content-53">
+            <div class="ps-card-number-53">{{ String(index + 1).padStart(2, '0') }}</div>
             <h3>{{ layer.title }}</h3>
             <p>{{ layer.description }}</p>
           </div>
@@ -19,7 +19,7 @@
       </div>
     </div>
 
-    <div class="ps-parallax-hint">
+    <div class="ps-parallax-hint-53">
       <span>不同图层以不同速度滚动</span>
     </div>
   </div>
@@ -46,9 +46,9 @@ let ctx: gsap.Context
 const initAnimations = () => {
   ctx = gsap.context(() => {
     // 标题视差
-    gsap.from('.ps-parallax-scroll-section .ps-title', {
+    gsap.from('.ps-title-53', {
       scrollTrigger: {
-        trigger: '.ps-parallax-scroll-section',
+        trigger: '.ps-parallax-scroll-section-53',
         start: 'top 80%',
         toggleActions: 'play none none reverse'
       },
@@ -59,9 +59,9 @@ const initAnimations = () => {
     })
 
     // 副标题视差
-    gsap.from('.ps-parallax-scroll-section .ps-subtitle', {
+    gsap.from('.ps-subtitle-53', {
       scrollTrigger: {
-        trigger: '.ps-parallax-scroll-section',
+        trigger: '.ps-parallax-scroll-section-53',
         start: 'top 75%',
         toggleActions: 'play none none reverse'
       },
@@ -73,9 +73,9 @@ const initAnimations = () => {
     })
 
     // 图层入场 - 从底部渐显
-    gsap.from('.ps-parallax-layer', {
+    gsap.from('.ps-parallax-layer-53', {
       scrollTrigger: {
-        trigger: '.ps-parallax-container',
+        trigger: '.ps-parallax-container-53',
         start: 'top 70%',
         toggleActions: 'play none none reverse'
       },
@@ -87,9 +87,9 @@ const initAnimations = () => {
     })
 
     // 不同视差速度
-    gsap.to('.ps-layer-1', {
+    gsap.to('.ps-parallax-layer-53.ps-layer-1', {
       scrollTrigger: {
-        trigger: '.ps-parallax-container',
+        trigger: '.ps-parallax-container-53',
         start: 'top bottom',
         end: 'bottom top',
         scrub: 1
@@ -98,9 +98,9 @@ const initAnimations = () => {
       ease: 'none'
     })
 
-    gsap.to('.ps-layer-2', {
+    gsap.to('.ps-parallax-layer-53.ps-layer-2', {
       scrollTrigger: {
-        trigger: '.ps-parallax-container',
+        trigger: '.ps-parallax-container-53',
         start: 'top bottom',
         end: 'bottom top',
         scrub: 1
@@ -109,9 +109,9 @@ const initAnimations = () => {
       ease: 'none'
     })
 
-    gsap.to('.ps-layer-3', {
+    gsap.to('.ps-parallax-layer-53.ps-layer-3', {
       scrollTrigger: {
-        trigger: '.ps-parallax-container',
+        trigger: '.ps-parallax-container-53',
         start: 'top bottom',
         end: 'bottom top',
         scrub: 1
@@ -120,9 +120,9 @@ const initAnimations = () => {
       ease: 'none'
     })
 
-    gsap.to('.ps-layer-4', {
+    gsap.to('.ps-parallax-layer-53.ps-layer-4', {
       scrollTrigger: {
-        trigger: '.ps-parallax-container',
+        trigger: '.ps-parallax-container-53',
         start: 'top bottom',
         end: 'bottom top',
         scrub: 1
@@ -131,9 +131,9 @@ const initAnimations = () => {
       ease: 'none'
     })
 
-    gsap.to('.ps-layer-5', {
+    gsap.to('.ps-parallax-layer-53.ps-layer-5', {
       scrollTrigger: {
-        trigger: '.ps-parallax-container',
+        trigger: '.ps-parallax-container-53',
         start: 'top bottom',
         end: 'bottom top',
         scrub: 1
@@ -142,9 +142,9 @@ const initAnimations = () => {
       ease: 'none'
     })
 
-    gsap.to('.ps-layer-6', {
+    gsap.to('.ps-parallax-layer-53.ps-layer-6', {
       scrollTrigger: {
-        trigger: '.ps-parallax-container',
+        trigger: '.ps-parallax-container-53',
         start: 'top bottom',
         end: 'bottom top',
         scrub: 1
@@ -154,9 +154,9 @@ const initAnimations = () => {
     })
 
     // 图片内部视差
-    gsap.to('.ps-card-image', {
+    gsap.to('.ps-card-image-53', {
       scrollTrigger: {
-        trigger: '.ps-parallax-container',
+        trigger: '.ps-parallax-container-53',
         start: 'top bottom',
         end: 'bottom top',
         scrub: 1.5
@@ -167,9 +167,9 @@ const initAnimations = () => {
     })
 
     // 覆盖层视差
-    gsap.to('.ps-card-overlay', {
+    gsap.to('.ps-card-overlay-53', {
       scrollTrigger: {
-        trigger: '.ps-parallax-container',
+        trigger: '.ps-parallax-container-53',
         start: 'top 60%',
         end: 'top 20%',
         scrub: true
@@ -179,9 +179,9 @@ const initAnimations = () => {
     })
 
     // 数字视差旋转
-    gsap.to('.ps-card-number', {
+    gsap.to('.ps-card-number-53', {
       scrollTrigger: {
-        trigger: '.ps-parallax-container',
+        trigger: '.ps-parallax-container-53',
         start: 'top bottom',
         end: 'bottom top',
         scrub: 1
@@ -192,9 +192,9 @@ const initAnimations = () => {
     })
 
     // 内容视差
-    gsap.to('.ps-card-content', {
+    gsap.to('.ps-card-content-53', {
       scrollTrigger: {
-        trigger: '.ps-parallax-container',
+        trigger: '.ps-parallax-container-53',
         start: 'top bottom',
         end: 'bottom top',
         scrub: 1
@@ -204,9 +204,9 @@ const initAnimations = () => {
     })
 
     // 提示文字渐入
-    gsap.from('.ps-parallax-hint', {
+    gsap.from('.ps-parallax-hint-53', {
       scrollTrigger: {
-        trigger: '.ps-parallax-hint',
+        trigger: '.ps-parallax-hint-53',
         start: 'top 90%',
         toggleActions: 'play none none reverse'
       },
@@ -217,16 +217,16 @@ const initAnimations = () => {
     })
 
     // 悬停效果 - 使用gsap.utils.toArray自动清理
-    gsap.utils.toArray('.ps-layer-card').forEach((item: Element) => {
+    gsap.utils.toArray('.ps-layer-card-53').forEach((item: Element) => {
       const card = item as HTMLElement
       card.addEventListener('mouseenter', () => {
-        gsap.to(card.querySelector('.ps-card-image'), {
+        gsap.to(card.querySelector('.ps-card-image-53'), {
           scale: 1.2,
           y: -20,
           duration: 0.5,
           ease: 'power2.out'
         })
-        gsap.to(card.querySelector('.ps-card-number'), {
+        gsap.to(card.querySelector('.ps-card-number-53'), {
           scale: 1.4,
           rotation: 45,
           duration: 0.3,
@@ -235,13 +235,13 @@ const initAnimations = () => {
       })
 
       card.addEventListener('mouseleave', () => {
-        gsap.to(card.querySelector('.ps-card-image'), {
+        gsap.to(card.querySelector('.ps-card-image-53'), {
           scale: 1,
           y: 0,
           duration: 0.5,
           ease: 'power2.out'
         })
-        gsap.to(card.querySelector('.ps-card-number'), {
+        gsap.to(card.querySelector('.ps-card-number-53'), {
           scale: 1,
           rotation: 0,
           duration: 0.3,
@@ -262,7 +262,7 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
-.ps-parallax-scroll-section {
+.ps-parallax-scroll-section-53 {
   min-height: 100vh;
   padding: 80px 40px;
   background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
@@ -270,12 +270,12 @@ onUnmounted(() => {
   overflow: hidden;
 }
 
-.ps-section-header {
+.ps-section-header-53 {
   text-align: center;
   margin-bottom: 80px;
 }
 
-.ps-title {
+.ps-title-53 {
   font-size: 56px;
   font-weight: 900;
   color: #fff;
@@ -284,7 +284,7 @@ onUnmounted(() => {
   text-shadow: 0 0 30px rgba(15, 52, 96, 0.5);
 }
 
-.ps-subtitle {
+.ps-subtitle-53 {
   font-size: 18px;
   color: rgba(255, 255, 255, 0.6);
   margin-top: 16px;
@@ -292,7 +292,7 @@ onUnmounted(() => {
   text-transform: uppercase;
 }
 
-.ps-parallax-container {
+.ps-parallax-container-53 {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 40px;
@@ -301,11 +301,11 @@ onUnmounted(() => {
   padding: 60px 0;
 }
 
-.ps-parallax-layer {
+.ps-parallax-layer-53 {
   perspective: 1000px;
 }
 
-.ps-layer-card {
+.ps-layer-card-53 {
   position: relative;
   height: 400px;
   border-radius: 24px;
@@ -318,11 +318,11 @@ onUnmounted(() => {
   transition: box-shadow 0.4s ease;
 }
 
-.ps-layer-card:hover {
+.ps-layer-card-53:hover {
   box-shadow: 0 20px 60px rgba(15, 52, 96, 0.5);
 }
 
-.ps-card-image {
+.ps-card-image-53 {
   width: 100%;
   height: 100%;
   background-size: cover;
@@ -330,7 +330,7 @@ onUnmounted(() => {
   transition: transform 0.5s ease;
 }
 
-.ps-card-overlay {
+.ps-card-overlay-53 {
   position: absolute;
   top: 0;
   left: 0;
@@ -341,7 +341,7 @@ onUnmounted(() => {
   transition: opacity 0.4s ease;
 }
 
-.ps-card-content {
+.ps-card-content-53 {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -350,7 +350,7 @@ onUnmounted(() => {
   transform: translateZ(30px);
 }
 
-.ps-card-number {
+.ps-card-number-53 {
   position: absolute;
   top: 20px;
   right: 20px;
@@ -369,7 +369,7 @@ onUnmounted(() => {
   transition: all 0.4s ease;
 }
 
-.ps-card-content h3 {
+.ps-card-content-53 h3 {
   font-size: 32px;
   font-weight: 700;
   color: #fff;
@@ -377,13 +377,13 @@ onUnmounted(() => {
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
 }
 
-.ps-card-content p {
+.ps-card-content-53 p {
   font-size: 16px;
   color: rgba(255, 255, 255, 0.8);
   line-height: 1.5;
 }
 
-.ps-parallax-hint {
+.ps-parallax-hint-53 {
   text-align: center;
   margin-top: 60px;
   padding: 20px;
@@ -394,7 +394,7 @@ onUnmounted(() => {
   transform: translateX(-50%);
 }
 
-.ps-parallax-hint span {
+.ps-parallax-hint-53 span {
   font-size: 14px;
   color: rgba(255, 255, 255, 0.6);
   letter-spacing: 2px;
@@ -402,20 +402,20 @@ onUnmounted(() => {
 }
 
 @media (max-width: 768px) {
-  .ps-title {
+  .ps-title-53 {
     font-size: 32px;
     letter-spacing: 3px;
   }
 
-  .ps-subtitle {
+  .ps-subtitle-53 {
     font-size: 14px;
   }
 
-  .ps-parallax-container {
+  .ps-parallax-container-53 {
     gap: 24px;
   }
 
-  .ps-layer-card {
+  .ps-layer-card-53 {
     height: 320px;
   }
 }

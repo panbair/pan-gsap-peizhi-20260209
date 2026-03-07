@@ -1,24 +1,24 @@
 <template>
-  <section class="holographic-section">
-    <div class="content">
-      <h2 class="section-title">全息3D</h2>
-      <p class="subtitle">交互式3D全息效果</p>
+  <section class="holographic-section-18" ref="section">
+    <div class="content-18">
+      <h2 class="section-title-18">全息3D</h2>
+      <p class="subtitle-18">交互式3D全息效果</p>
 
-      <div class="hologram-container" ref="container">
-        <div class="hologram-base"></div>
-        <div class="hologram-ring ring-1" ref="ring1"></div>
-        <div class="hologram-ring ring-2" ref="ring2"></div>
-        <div class="hologram-ring ring-3" ref="ring3"></div>
-        <div class="hologram-core" ref="core">
-          <div class="core-inner"></div>
-          <div class="core-glow"></div>
+      <div class="hologram-container-18" ref="container">
+        <div class="hologram-base-18"></div>
+        <div class="hologram-ring-18 ring-1" ref="ring1"></div>
+        <div class="hologram-ring-18 ring-2" ref="ring2"></div>
+        <div class="hologram-ring-18 ring-3" ref="ring3"></div>
+        <div class="hologram-core-18" ref="core">
+          <div class="core-inner-18"></div>
+          <div class="core-glow-18"></div>
         </div>
-    <div class="hologram-particles">
-      <div class="particle" v-for="n in 24" :key="n" :style="getParticleStyle(n)"></div>
+    <div class="hologram-particles-18">
+      <div class="particle-18" v-for="n in 24" :key="n" :style="getParticleStyle(n)"></div>
     </div>
       </div>
 
-      <div class="interaction-hint">
+      <div class="interaction-hint-18">
         <p>💫 鼠标悬停触发全息效果</p>
       </div>
     </div>
@@ -37,6 +37,7 @@ const ring1 = ref<HTMLElement | null>(null)
 const ring2 = ref<HTMLElement | null>(null)
 const ring3 = ref<HTMLElement | null>(null)
 const core = ref<HTMLElement | null>(null)
+const section = ref<HTMLElement | null>(null)
 
 const getParticleStyle = (index: number) => {
   const angle = (index - 1) * 15
@@ -58,21 +59,24 @@ let mouseEnterHandler: ((e: MouseEvent) => void) | null = null
 onMounted(() => {
   ctx = gsap.context(() => {
     // 初始化动画
-    gsap.from('.hologram-container', {
-      y: 150,
-      opacity: 0,
-      scale: 0.5,
-      duration: 1.2,
-      ease: 'elastic.out(1, 0.5)',
-      scrollTrigger: {
-        trigger: '.holographic-section',
-        start: 'top 70%',
-        toggleActions: 'play none none reverse'
-      }
-    })
+    if (container.value) {
+      gsap.from(container.value, {
+        y: 150,
+        opacity: 0,
+        scale: 0.5,
+        duration: 1.2,
+        ease: 'elastic.out(1, 0.5)',
+        scrollTrigger: {
+          trigger: section.value,
+          start: 'top 70%',
+          toggleActions: 'play none none reverse'
+        }
+      })
+    }
 
     // 环的旋转动画
-    gsap.to('.hologram-ring', {
+    const rings = [ring1.value, ring2.value, ring3.value].filter(Boolean) as HTMLElement[]
+    gsap.to(rings, {
       rotation: 360,
       duration: 10,
       repeat: -1,
@@ -81,7 +85,8 @@ onMounted(() => {
     })
 
     // 核心脉动
-    gsap.to('.core-glow', {
+    const coreGlows = gsap.utils.toArray('.core-glow-18')
+    gsap.to(coreGlows, {
       scale: 1.5,
       opacity: 0.5,
       duration: 1.5,
@@ -91,7 +96,8 @@ onMounted(() => {
     })
 
     // 粒子动画
-    gsap.to('.particle', {
+    const particles = gsap.utils.toArray('.particle-18')
+    gsap.to(particles, {
       y: -100,
       opacity: 0,
       duration: 2,
@@ -101,13 +107,13 @@ onMounted(() => {
     })
 
     // 滚动效果
-    gsap.to('.hologram-container', {
+    gsap.to('.hologram-container-18', {
       y: -50,
       rotationY: 30,
       rotationX: -15,
       duration: 1,
       scrollTrigger: {
-        trigger: '.holographic-section',
+        trigger: '.holographic-section-18',
         start: 'top bottom',
         end: 'bottom top',
         scrub: 1
@@ -117,13 +123,13 @@ onMounted(() => {
     // 鼠标交互
     if (container.value) {
       mouseEnterHandler = () => {
-        gsap.to('.hologram-core', {
+        gsap.to('.hologram-core-18', {
           scale: 1.3,
           duration: 0.5,
           ease: 'power2.out'
         })
 
-        gsap.to('.hologram-ring', {
+        gsap.to('.hologram-ring-18', {
           borderColor: '#a78bfa',
           boxShadow: '0 0 30px rgba(167, 139, 250, 0.5)',
           duration: 0.5,
@@ -132,13 +138,13 @@ onMounted(() => {
       }
 
       mouseLeaveHandler = () => {
-        gsap.to('.hologram-core', {
+        gsap.to('.hologram-core-18', {
           scale: 1,
           duration: 0.5,
           ease: 'power2.out'
         })
 
-        gsap.to('.hologram-ring', {
+        gsap.to('.hologram-ring-18', {
           borderColor: 'rgba(167, 139, 250, 0.3)',
           boxShadow: 'none',
           duration: 0.5,
@@ -153,7 +159,7 @@ onMounted(() => {
         const mouseX = e.clientX - rect.left - centerX
         const mouseY = e.clientY - rect.top - centerY
 
-        gsap.to('.hologram-container', {
+        gsap.to('.hologram-container-18', {
           rotationY: mouseX * 0.1,
           rotationX: -mouseY * 0.1,
           duration: 0.5,
@@ -179,7 +185,7 @@ onUnmounted(() => {
 </script>
 
 <style scoped lang="scss">
-.holographic-section {
+.holographic-section-18 {
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -201,13 +207,13 @@ onUnmounted(() => {
   }
 }
 
-.content {
+.content-18 {
   text-align: center;
   position: relative;
   z-index: 1;
 }
 
-.section-title {
+.section-title-18 {
   font-size: clamp(2rem, 4vw, 2.5rem);
   font-weight: 800;
   margin-bottom: 16px;
@@ -217,13 +223,13 @@ onUnmounted(() => {
   background-clip: text;
 }
 
-.subtitle {
+.subtitle-18 {
   font-size: 1.1rem;
   color: #94a3b8;
   margin-bottom: 80px;
 }
 
-.hologram-container {
+.hologram-container-18 {
   position: relative;
   width: 300px;
   height: 300px;
@@ -231,7 +237,7 @@ onUnmounted(() => {
   transform-style: preserve-3d;
 }
 
-.hologram-base {
+.hologram-base-18 {
   position: absolute;
   bottom: -20px;
   left: 50%;
@@ -242,7 +248,7 @@ onUnmounted(() => {
   border-radius: 50%;
 }
 
-.hologram-ring {
+.hologram-ring-18 {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -267,7 +273,7 @@ onUnmounted(() => {
   height: 160px;
 }
 
-.hologram-core {
+.hologram-core-18 {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -277,7 +283,7 @@ onUnmounted(() => {
   transform-style: preserve-3d;
 }
 
-.core-inner {
+.core-inner-18 {
   position: absolute;
   inset: 0;
   background: linear-gradient(135deg, #a78bfa, #60a5fa);
@@ -286,7 +292,7 @@ onUnmounted(() => {
               inset 0 0 20px rgba(255, 255, 255, 0.3);
 }
 
-.core-glow {
+.core-glow-18 {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -297,13 +303,13 @@ onUnmounted(() => {
   border-radius: 50%;
 }
 
-.hologram-particles {
+.hologram-particles-18 {
   position: absolute;
   inset: 0;
   pointer-events: none;
 }
 
-.particle {
+.particle-18 {
   position: absolute;
   width: 4px;
   height: 4px;
@@ -313,7 +319,7 @@ onUnmounted(() => {
 }
 
 @for $i from 1 through 24 {
-  .particle:nth-child(#{$i}) {
+  .particle-18:nth-child(#{$i}) {
     animation: particleFloat #{2 + random(2)}s infinite ease-in-out;
     animation-delay: #{random(2)}s;
   }
@@ -330,18 +336,18 @@ onUnmounted(() => {
   }
 }
 
-.interaction-hint {
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.interaction-hint-18 {
   color: #94a3b8;
   font-size: 0.9rem;
   animation: blink 3s infinite;
-}
-
-@keyframes blink {
-  0%, 100% {
-    opacity: 0.5;
-  }
-  50% {
-    opacity: 1;
-  }
 }
 </style>

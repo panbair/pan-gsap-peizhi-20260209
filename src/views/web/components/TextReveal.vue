@@ -1,12 +1,12 @@
 <template>
-  <section class="text-reveal-section">
-    <div class="content">
-      <h2 class="tr-section-title">文字揭示动画</h2>
-      <div class="tr-reveal-container">
-        <p class="tr-reveal-text" ref="text1">滚动页面，文字逐字显现</p>
-        <p class="tr-reveal-text" ref="text2">每个字母都有独特的入场效果</p>
-        <p class="tr-reveal-text" ref="text3">GSAP ScrollTrigger 控制动画时间</p>
-        <p class="tr-reveal-text" ref="text4">创造流畅的视觉体验</p>
+  <section class="text-reveal-section-11">
+    <div class="content-11">
+      <h2 class="tr-section-title-11">文字揭示动画</h2>
+      <div class="tr-reveal-container-11">
+        <p class="tr-reveal-text-11" ref="text1">滚动页面，文字逐字显现</p>
+        <p class="tr-reveal-text-11" ref="text2">每个字母都有独特的入场效果</p>
+        <p class="tr-reveal-text-11" ref="text3">GSAP ScrollTrigger 控制动画时间</p>
+        <p class="tr-reveal-text-11" ref="text4">创造流畅的视觉体验</p>
       </div>
     </div>
   </section>
@@ -29,7 +29,7 @@ let ctx: gsap.Context
 const splitText = (element: HTMLElement) => {
   const text = element.textContent || ''
   element.innerHTML = text.split('').map(char => {
-    return char === ' ' ? ' ' : `<span class="tr-char">${char}</span>`
+    return char === ' ' ? ' ' : `<span class="tr-char-11">${char}</span>`
   }).join('')
 }
 
@@ -40,7 +40,7 @@ onMounted(() => {
     texts.forEach((text, index) => {
       splitText(text)
       
-      gsap.from(text.querySelectorAll('.tr-char'), {
+      gsap.from(text.querySelectorAll('.tr-char-11'), {
         y: 100,
         opacity: 0,
         rotationX: -90,
@@ -63,7 +63,7 @@ onUnmounted(() => {
 </script>
 
 <style scoped lang="scss">
-.text-reveal-section {
+.text-reveal-section-11 {
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -85,14 +85,14 @@ onUnmounted(() => {
   }
 }
 
-.content {
+.content-11 {
   max-width: 800px;
   text-align: center;
   position: relative;
   z-index: 1;
 }
 
-.tr-section-title {
+.tr-section-title-11 {
   font-size: clamp(2rem, 4vw, 2.5rem);
   font-weight: 800;
   margin-bottom: 60px;
@@ -102,19 +102,19 @@ onUnmounted(() => {
   background-clip: text;
 }
 
-.tr-reveal-container {
+.tr-reveal-container-11 {
   display: flex;
   flex-direction: column;
   gap: 40px;
 }
 
-.tr-reveal-text {
+.tr-reveal-text-11 {
   font-size: clamp(1.2rem, 2.5vw, 1.5rem);
   color: #e2e8f0;
   font-weight: 500;
   line-height: 1.8;
 
-  .tr-char {
+  .tr-char-11 {
     display: inline-block;
     transform-style: preserve-3d;
   }

@@ -1,24 +1,24 @@
 <template>
-  <div class="cp-cascade-parallax">
-    <div class="cp-container">
-      <h2 class="cp-section-title" ref="sectionTitle">级联视差</h2>
+  <div class="cp-cascade-parallax-40">
+    <div class="cp-container-40">
+      <h2 class="cp-section-title-40" ref="sectionTitle">级联视差</h2>
 
-      <div class="cp-cascade-container" ref="cascadeContainer">
+      <div class="cp-cascade-container-40" ref="cascadeContainer">
         <div
           v-for="(img, index) in images"
           :key="index"
           ref="items"
-          class="cp-cascade-item"
+          class="cp-cascade-item-40"
           :style="{
             transform: `translateX(${index * 30}px) translateY(${index * 40}px)`,
             zIndex: images.length - index
           }"
         >
-          <div class="cp-item-wrapper">
+          <div class="cp-item-wrapper-40">
             <img :src="img" :alt="`Image ${index + 1}`" />
-            <div class="cp-item-overlay">
-              <span class="cp-item-layer">Layer {{ images.length - index }}</span>
-              <h3 class="cp-item-title">{{ titles[index] }}</h3>
+            <div class="cp-item-overlay-40">
+              <span class="cp-item-layer-40">Layer {{ images.length - index }}</span>
+              <h3 class="cp-item-title-40">{{ titles[index] }}</h3>
             </div>
           </div>
         </div>
@@ -68,9 +68,9 @@ onMounted(() => {
 
     items.value.forEach((item, index) => {
       const img = item.querySelector('img') as HTMLElement
-      const overlay = item.querySelector('.cp-item-overlay') as HTMLElement
-      const layer = item.querySelector('.cp-item-layer') as HTMLElement
-      const title = item.querySelector('.cp-item-title') as HTMLElement
+      const overlay = item.querySelector('.cp-item-overlay-40') as HTMLElement
+      const layer = item.querySelector('.cp-item-layer-40') as HTMLElement
+      const title = item.querySelector('.cp-item-title-40') as HTMLElement
 
       // 从右下滑入
       gsap.fromTo(
@@ -186,7 +186,7 @@ onUnmounted(() => {
 </script>
 
 <style scoped lang="scss">
-.cp-cascade-parallax {
+.cp-cascade-parallax-40 {
   min-height: 200vh;
   padding: 100px 0;
   background: linear-gradient(180deg, #1a1a2e 0%, #4a1942 50%, #1a1a2e 100%);
@@ -207,7 +207,7 @@ onUnmounted(() => {
   }
 }
 
-.cp-container {
+.cp-container-40 {
   max-width: 1400px;
   margin: 0 auto;
   padding: 0 40px;
@@ -215,7 +215,7 @@ onUnmounted(() => {
   z-index: 1;
 }
 
-.cp-section-title {
+.cp-section-title-40 {
   text-align: center;
   font-size: 3.5rem;
   font-weight: 800;
@@ -238,13 +238,13 @@ onUnmounted(() => {
   }
 }
 
-.cp-cascade-container {
+.cp-cascade-container-40 {
   position: relative;
   padding: 80px 0;
   height: 800px;
 }
 
-.cp-cascade-item {
+.cp-cascade-item-40 {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -265,25 +265,25 @@ onUnmounted(() => {
   }
 }
 
-.cp-item-wrapper {
+.cp-item-wrapper-40 {
   width: 100%;
   height: 100%;
   position: relative;
   overflow: hidden;
 }
 
-.cp-cascade-item img {
+.cp-cascade-item-40 img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   transition: filter 0.3s ease;
 }
 
-.cp-cascade-item:hover img {
+.cp-cascade-item-40:hover img {
   filter: brightness(1.1) saturate(1.1);
 }
 
-.cp-item-overlay {
+.cp-item-overlay-40 {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -298,7 +298,7 @@ onUnmounted(() => {
   pointer-events: none;
 }
 
-.cp-item-layer {
+.cp-item-layer-40 {
   display: block;
   font-size: 3.5rem;
   font-weight: 900;
@@ -311,7 +311,7 @@ onUnmounted(() => {
   opacity: 0.9;
 }
 
-.cp-item-title {
+.cp-item-title-40 {
   font-size: 1.6rem;
   font-weight: 700;
   color: #fff;
@@ -320,16 +320,16 @@ onUnmounted(() => {
 }
 
 @media (max-width: 768px) {
-  .cp-cascade-item {
+  .cp-cascade-item-40 {
     width: 280px;
     height: 360px;
   }
 
-  .cp-item-layer {
+  .cp-item-layer-40 {
     font-size: 2.5rem;
   }
 
-  .cp-section-title {
+  .cp-section-title-40 {
     font-size: 2rem;
   }
 }

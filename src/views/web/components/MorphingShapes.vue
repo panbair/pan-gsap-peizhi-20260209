@@ -1,16 +1,16 @@
 <template>
-  <section class="morphing-section">
-    <div class="content">
-      <h2 class="section-title">变形几何</h2>
-      <p class="subtitle">平滑的形状变形动画</p>
+  <section class="morphing-section-20">
+    <div class="content-20">
+      <h2 class="section-title-20">变形几何</h2>
+      <p class="subtitle-20">平滑的形状变形动画</p>
 
-      <div class="shapes-container">
-        <div class="shape-wrapper" v-for="(shape, index) in shapes" :key="index" :ref="el => shapeRefs[index] = el">
-          <div class="morphing-shape" :class="`shape-${index + 1}`"></div>
+      <div class="shapes-container-20">
+        <div class="shape-wrapper-20" v-for="(shape, index) in shapes" :key="index" :ref="el => shapeRefs[index] = el">
+          <div class="morphing-shape-20" :class="`shape-${index + 1}`"></div>
         </div>
       </div>
 
-      <div class="shape-description">
+      <div class="shape-description-20">
         <p>✨ 滚动查看形状变换 ✨</p>
       </div>
     </div>
@@ -42,7 +42,7 @@ onMounted(() => {
     shapeRefs.value.forEach((wrapper, index) => {
       if (!wrapper) return
 
-      const shape = wrapper.querySelector('.morphing-shape') as HTMLElement
+      const shape = wrapper.querySelector('.morphing-shape-20') as HTMLElement
 
       // 入场动画
       gsap.from(shape, {
@@ -117,7 +117,7 @@ onUnmounted(() => {
 </script>
 
 <style scoped lang="scss">
-.morphing-section {
+.morphing-section-20 {
   min-height: 100vh;
   padding: 100px 20px;
   position: relative;
@@ -125,11 +125,11 @@ onUnmounted(() => {
   background: linear-gradient(180deg, transparent, rgba(167, 139, 250, 0.03), transparent);
 }
 
-.content {
+.content-20 {
   text-align: center;
 }
 
-.section-title {
+.section-title-20 {
   font-size: clamp(2rem, 4vw, 2.5rem);
   font-weight: 800;
   margin-bottom: 16px;
@@ -150,13 +150,13 @@ onUnmounted(() => {
   }
 }
 
-.subtitle {
+.subtitle-20 {
   font-size: 1.1rem;
   color: #94a3b8;
   margin-bottom: 80px;
 }
 
-.shapes-container {
+.shapes-container-20 {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 40px;
@@ -164,7 +164,7 @@ onUnmounted(() => {
   margin: 0 auto 60px;
 }
 
-.shape-wrapper {
+.shape-wrapper-20 {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -172,7 +172,7 @@ onUnmounted(() => {
   height: 200px;
 }
 
-.morphing-shape {
+.morphing-shape-20 {
   width: 120px;
   height: 120px;
   transition: all 0.5s ease;
@@ -279,7 +279,7 @@ onUnmounted(() => {
   }
 }
 
-.shape-description {
+.shape-description-20 {
   color: #94a3b8;
   font-size: 0.9rem;
   letter-spacing: 2px;
@@ -296,7 +296,7 @@ onUnmounted(() => {
 }
 
 @media (max-width: 768px) {
-  .shapes-container {
+  .shapes-container-20 {
     grid-template-columns: repeat(2, 1fr);
   }
 }

@@ -1,17 +1,17 @@
 <template>
-  <section class="text-distortion-section">
-    <div class="content">
-      <h2 class="td-section-title">文字扭曲</h2>
-      <p class="td-subtitle">滚动时文字产生波浪形扭曲效果</p>
+  <section class="text-distortion-section-15">
+    <div class="content-15">
+      <h2 class="td-section-title-15">文字扭曲</h2>
+      <p class="td-subtitle-15">滚动时文字产生波浪形扭曲效果</p>
 
-      <div class="td-distortion-container">
-        <div class="td-distortion-text" ref="text1">
+      <div class="td-distortion-container-15">
+        <div class="td-distortion-text-15" ref="text1">
           <span v-for="(char, index) in text1Content" :key="index" :data-index="index">{{ char }}</span>
         </div>
-        <div class="td-distortion-text" ref="text2">
+        <div class="td-distortion-text-15" ref="text2">
           <span v-for="(char, index) in text2Content" :key="index" :data-index="index">{{ char }}</span>
         </div>
-        <div class="td-distortion-text" ref="text3">
+        <div class="td-distortion-text-15" ref="text3">
           <span v-for="(char, index) in text3Content" :key="index" :data-index="index">{{ char }}</span>
         </div>
       </div>
@@ -114,7 +114,7 @@ onUnmounted(() => {
 </script>
 
 <style scoped lang="scss">
-.text-distortion-section {
+.text-distortion-section-15 {
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -136,13 +136,13 @@ onUnmounted(() => {
   }
 }
 
-.content {
+.content-15 {
   text-align: center;
   position: relative;
   z-index: 1;
 }
 
-.td-section-title {
+.td-section-title-15 {
   font-size: clamp(2rem, 4vw, 2.5rem);
   font-weight: 800;
   margin-bottom: 16px;
@@ -152,19 +152,19 @@ onUnmounted(() => {
   background-clip: text;
 }
 
-.td-subtitle {
+.td-subtitle-15 {
   font-size: 1.1rem;
   color: #94a3b8;
   margin-bottom: 80px;
 }
 
-.td-distortion-container {
+.td-distortion-container-15 {
   display: flex;
   flex-direction: column;
   gap: 40px;
 }
 
-.td-distortion-text {
+.td-distortion-text-15 {
   font-size: clamp(2.5rem, 8vw, 5rem);
   font-weight: 900;
   letter-spacing: 0.1em;
@@ -183,7 +183,7 @@ onUnmounted(() => {
 }
 
 @media (max-width: 768px) {
-  .td-distortion-text {
+  .td-distortion-text-15 {
     font-size: clamp(2rem, 10vw, 3rem);
   }
 }

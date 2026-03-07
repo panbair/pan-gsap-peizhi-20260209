@@ -1,19 +1,19 @@
 <template>
-  <section ref="timelineSection" class="section tl-timeline-section">
-    <h2 class="tl-section-title">时间轴</h2>
-    <div class="tl-timeline-container" ref="timelineContainer">
-      <div class="tl-timeline-line" ref="timelineLine"></div>
+  <section ref="timelineSection" class="section-3 tl-timeline-section-3">
+    <h2 class="tl-section-title-3">时间轴</h2>
+    <div class="tl-timeline-container-3" ref="timelineContainer">
+      <div class="tl-timeline-line-3" ref="timelineLine"></div>
       <div
         v-for="(event, index) in timelineEvents"
         :key="index"
-        class="tl-timeline-item"
+        class="tl-timeline-item-3"
         :ref="el => { if(el) timelineItemRefs[index] = el as HTMLElement }"
       >
-        <div class="tl-timeline-dot" ref="timelineDot"></div>
-        <div class="tl-timeline-content">
-          <div class="tl-timeline-year">{{ event.year }}</div>
-          <h3 class="tl-timeline-title">{{ event.title }}</h3>
-          <p class="tl-timeline-desc">{{ event.desc }}</p>
+        <div class="tl-timeline-dot-3" ref="timelineDot"></div>
+        <div class="tl-timeline-content-3">
+          <div class="tl-timeline-year-3">{{ event.year }}</div>
+          <h3 class="tl-timeline-title-3">{{ event.title }}</h3>
+          <p class="tl-timeline-desc-3">{{ event.desc }}</p>
         </div>
       </div>
     </div>
@@ -97,32 +97,34 @@ const initAnimations = () => {
     )
   })
 
-  const dots = timelineItemRefs.value.map(item => item.querySelector('.tl-timeline-dot'))
+  const dots = timelineItemRefs.value.map(item => item.querySelector('.tl-timeline-dot-3'))
   dots.forEach((dot, index) => {
-    gsap.fromTo(dot as HTMLElement,
-      {
-        scale: 0,
-        opacity: 0
-      },
-      {
-        scale: 1,
-        opacity: 1,
-        duration: 0.5,
-        ease: 'back.out(2)',
-        scrollTrigger: {
-          trigger: timelineItemRefs.value[index],
-          start: 'top 70%',
-          end: 'top 30%',
-          toggleActions: 'play none none reverse'
+    if (dot) {
+      gsap.fromTo(dot as HTMLElement,
+        {
+          scale: 0,
+          opacity: 0
+        },
+        {
+          scale: 1,
+          opacity: 1,
+          duration: 0.5,
+          ease: 'back.out(2)',
+          scrollTrigger: {
+            trigger: timelineItemRefs.value[index],
+            start: 'top 70%',
+            end: 'top 30%',
+            toggleActions: 'play none none reverse'
+          }
         }
-      }
-    )
+      )
+    }
   })
 }
 </script>
 
 <style scoped lang="scss">
-.section {
+.section-3 {
   min-height: 100vh;
   padding: 100px 20px;
   position: relative;
@@ -132,7 +134,7 @@ const initAnimations = () => {
   justify-content: center;
 }
 
-.tl-section-title {
+.tl-section-title-3 {
   font-size: 2.5rem;
   font-weight: bold;
   margin-bottom: 60px;
@@ -143,18 +145,18 @@ const initAnimations = () => {
   text-align: center;
 }
 
-.tl-timeline-section {
+.tl-timeline-section-3 {
   background: linear-gradient(180deg, transparent, rgba(236, 72, 153, 0.1), transparent);
 }
 
-.tl-timeline-container {
+.tl-timeline-container-3 {
   position: relative;
   max-width: 1000px;
   width: 100%;
   padding: 40px;
 }
 
-.tl-timeline-line {
+.tl-timeline-line-3 {
   position: absolute;
   left: 50%;
   top: 0;
@@ -165,7 +167,7 @@ const initAnimations = () => {
   transform-origin: top center;
 }
 
-.tl-timeline-item {
+.tl-timeline-item-3 {
   position: relative;
   display: flex;
   align-items: center;
@@ -178,7 +180,7 @@ const initAnimations = () => {
     padding: 0 50% 0 0;
     padding-left: 0;
 
-    .tl-timeline-content {
+    .tl-timeline-content-3 {
       text-align: right;
     }
   }
@@ -187,13 +189,13 @@ const initAnimations = () => {
     justify-content: flex-end;
     padding: 0 0 0 50%;
 
-    .tl-timeline-content {
+    .tl-timeline-content-3 {
       text-align: left;
     }
   }
 }
 
-.tl-timeline-dot {
+.tl-timeline-dot-3 {
   position: absolute;
   left: 50%;
   width: 20px;
@@ -205,7 +207,7 @@ const initAnimations = () => {
   z-index: 1;
 }
 
-.tl-timeline-content {
+.tl-timeline-content-3 {
   max-width: 400px;
   padding: 20px;
   background: rgba(255, 255, 255, 0.05);
@@ -214,41 +216,41 @@ const initAnimations = () => {
   backdrop-filter: blur(10px);
 }
 
-.tl-timeline-year {
+.tl-timeline-year-3 {
   font-size: 1.5rem;
   font-weight: bold;
   color: #667eea;
   margin-bottom: 10px;
 }
 
-.tl-timeline-title {
+.tl-timeline-title-3 {
   font-size: 1.2rem;
   font-weight: bold;
   color: #fff;
   margin-bottom: 8px;
 }
 
-.tl-timeline-desc {
+.tl-timeline-desc-3 {
   font-size: 0.9rem;
   color: #94a3b8;
   line-height: 1.6;
 }
 
 @media (max-width: 768px) {
-  .tl-timeline-line {
+  .tl-timeline-line-3 {
     left: 20px;
   }
 
-  .tl-timeline-item {
+  .tl-timeline-item-3 {
     padding: 0 0 0 50px !important;
     justify-content: flex-start !important;
 
-    .tl-timeline-content {
+    .tl-timeline-content-3 {
       text-align: left !important;
     }
   }
 
-  .tl-timeline-dot {
+  .tl-timeline-dot-3 {
     left: 20px;
   }
 }

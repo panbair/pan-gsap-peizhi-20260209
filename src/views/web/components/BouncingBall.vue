@@ -1,28 +1,28 @@
 <template>
-  <section ref="ballSection" class="bb-section bb-ball-section">
-    <div class="bb-header">
-      <h2 class="bb-section-title">弹性球动画</h2>
-      <p class="bb-subtitle">Physics-based Bouncing Balls</p>
+  <section ref="ballSection" class="bb-section-9 bb-ball-section-9">
+    <div class="bb-header-9">
+      <h2 class="bb-section-title-9">弹性球动画</h2>
+      <p class="bb-subtitle-9">Physics-based Bouncing Balls</p>
     </div>
 
-    <div class="bb-ball-container" ref="ballContainer">
+    <div class="bb-ball-container-9" ref="ballContainer">
       <!-- 轨道网格 -->
-      <div class="bb-track-grid">
-        <div v-for="i in 5" :key="i" class="bb-track-line" :style="{ left: `${i * 20}%` }"></div>
+      <div class="bb-track-grid-9">
+        <div v-for="i in 5" :key="i" class="bb-track-line-9" :style="{ left: `${i * 20}%` }"></div>
       </div>
 
       <!-- 地面 -->
-      <div class="bb-ground">
-        <div class="bb-ground-line"></div>
-        <div class="bb-ground-glow"></div>
+      <div class="bb-ground-9">
+        <div class="bb-ground-line-9"></div>
+        <div class="bb-ground-glow-9"></div>
       </div>
 
       <!-- 弹性球 -->
-      <div class="bb-balls-wrapper">
+      <div class="bb-balls-wrapper-9">
         <div
           v-for="(ball, index) in balls"
           :key="index"
-          class="bb-ball"
+          class="bb-ball-9"
           :class="`bb-ball-${index + 1}`"
           :style="{
             '--ball-color': ball.color,
@@ -30,19 +30,19 @@
             '--ball-index': index
           }"
         >
-          <div class="bb-ball-inner">
-            <div class="bb-ball-highlight"></div>
-            <div class="bb-ball-shadow"></div>
+          <div class="bb-ball-inner-9">
+            <div class="bb-ball-highlight-9"></div>
+            <div class="bb-ball-shadow-9"></div>
           </div>
         </div>
       </div>
 
       <!-- 球体阴影 -->
-      <div class="bb-shadows-wrapper">
+      <div class="bb-shadows-wrapper-9">
         <div
           v-for="(ball, index) in balls"
           :key="`shadow-${index}`"
-          class="bb-shadow"
+          class="bb-shadow-9"
           :style="{
             '--shadow-color': ball.color,
             '--shadow-size': ball.size + 'px',
@@ -52,39 +52,14 @@
       </div>
 
       <!-- 装饰粒子 -->
-      <div class="bb-particles" ref="particles">
-        <div v-for="i in 30" :key="i" class="bb-particle" :style="getParticleStyle(i)"></div>
+      <div class="bb-particles-9" ref="particles">
+        <div v-for="i in 30" :key="i" class="bb-particle-9" :style="getParticleStyle(i)"></div>
       </div>
 
       <!-- 能量条 -->
-      <div class="bb-energy-bars">
-        <div v-for="i in 5" :key="i" class="bb-energy-bar" :style="{ '--delay': i * 0.1 + 's' }">
-          <div class="bb-bar-fill"></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- 信息面板 -->
-    <div class="bb-info-panel" ref="infoPanel">
-      <div class="bb-info-card">
-        <div class="bb-info-icon">⚡</div>
-        <div class="bb-info-text">
-          <div class="bb-info-value">物理引擎</div>
-          <div class="bb-info-desc">真实重力模拟</div>
-        </div>
-      </div>
-      <div class="bb-info-card">
-        <div class="bb-info-icon">🎯</div>
-        <div class="bb-info-text">
-          <div class="bb-info-value">5 个球体</div>
-          <div class="bb-info-desc">同步弹跳效果</div>
-        </div>
-      </div>
-      <div class="bb-info-card">
-        <div class="bb-info-icon">✨</div>
-        <div class="bb-info-text">
-          <div class="bb-info-value">60 FPS</div>
-          <div class="bb-info-desc">流畅动画体验</div>
+      <div class="bb-energy-bars-9">
+        <div v-for="i in 5" :key="i" class="bb-energy-bar-9" :style="{ '--delay': i * 0.1 + 's' }">
+          <div class="bb-bar-fill-9"></div>
         </div>
       </div>
     </div>
@@ -143,7 +118,7 @@ const initAnimations = () => {
   if (!ballSection.value) return
 
   // 球体弹跳动画
-  gsap.utils.toArray<HTMLElement>('.bb-ball').forEach((ball, index) => {
+  gsap.utils.toArray<HTMLElement>('.bb-ball-9').forEach((ball, index) => {
     const bounceHeight = 250 - index * 30
     const duration = 0.8 + index * 0.1
 
@@ -159,7 +134,7 @@ const initAnimations = () => {
         onUpdate: (self) => {
           const progress = self.progress
           const shadowIndex = index
-          const shadow = document.querySelectorAll('.bb-shadow')[shadowIndex] as HTMLElement
+          const shadow = document.querySelectorAll('.bb-shadow-9')[shadowIndex] as HTMLElement
 
           if (shadow) {
             const scale = 1 - (progress * 0.7)
@@ -175,7 +150,7 @@ const initAnimations = () => {
   })
 
   // 球体挤压效果
-  gsap.utils.toArray<HTMLElement>('.bb-ball').forEach((ball) => {
+  gsap.utils.toArray<HTMLElement>('.bb-ball-9').forEach((ball) => {
     gsap.to(ball, {
       scaleX: 1.2,
       scaleY: 0.8,
@@ -192,7 +167,7 @@ const initAnimations = () => {
   })
 
   // 粒子漂浮动画
-  gsap.utils.toArray<HTMLElement>('.bb-particle').forEach((particle, i) => {
+  gsap.utils.toArray<HTMLElement>('.bb-particle-9').forEach((particle, i) => {
     gsap.to(particle, {
       y: -50 - Math.random() * 100,
       x: (Math.random() - 0.5) * 100,
@@ -205,7 +180,7 @@ const initAnimations = () => {
   })
 
   // 能量条动画
-  gsap.utils.toArray<HTMLElement>('.bb-bar-fill').forEach((bar, i) => {
+  gsap.utils.toArray<HTMLElement>('.bb-bar-fill-9').forEach((bar, i) => {
     gsap.to(bar, {
       width: '100%',
       duration: 1 + i * 0.2,
@@ -218,7 +193,7 @@ const initAnimations = () => {
   })
 
   // 信息卡片入场
-  gsap.from('.bb-info-card', {
+  gsap.from('.bb-info-card-9', {
     y: 50,
     opacity: 0,
     duration: 0.6,
@@ -231,7 +206,7 @@ const initAnimations = () => {
   })
 
   // 轨道线出现
-  gsap.from('.bb-track-line', {
+  gsap.from('.bb-track-line-9', {
     scaleY: 0,
     duration: 0.8,
     stagger: 0.1,
@@ -243,7 +218,7 @@ const initAnimations = () => {
   })
 
   // 地面光晕脉冲
-  gsap.to('.bb-ground-glow', {
+  gsap.to('.bb-ground-glow-9', {
     opacity: 0.6,
     scale: 1.1,
     duration: 2,
@@ -255,7 +230,7 @@ const initAnimations = () => {
 </script>
 
 <style scoped lang="scss">
-.bb-section {
+.bb-section-9 {
   min-height: 100vh;
   padding: 80px 20px 100px;
   position: relative;
@@ -266,13 +241,13 @@ const initAnimations = () => {
   overflow: hidden;
 }
 
-.bb-header {
+.bb-header-9 {
   text-align: center;
   margin-bottom: 60px;
   z-index: 10;
 }
 
-.bb-section-title {
+.bb-section-title-9 {
   font-size: 3rem;
   font-weight: 800;
   margin-bottom: 16px;
@@ -283,7 +258,7 @@ const initAnimations = () => {
   letter-spacing: 2px;
 }
 
-.bb-subtitle {
+.bb-subtitle-9 {
   font-size: 1.1rem;
   color: rgba(255, 255, 255, 0.6);
   font-weight: 300;
@@ -291,7 +266,7 @@ const initAnimations = () => {
   text-transform: uppercase;
 }
 
-.bb-ball-container {
+.bb-ball-container-9 {
   position: relative;
   width: 100%;
   max-width: 1200px;
@@ -303,14 +278,14 @@ const initAnimations = () => {
 }
 
 // 轨道网格
-.bb-track-grid {
+.bb-track-grid-9 {
   position: absolute;
   width: 100%;
   height: 100%;
   pointer-events: none;
 }
 
-.bb-track-line {
+.bb-track-line-9 {
   position: absolute;
   bottom: 0;
   width: 1px;
@@ -319,7 +294,7 @@ const initAnimations = () => {
 }
 
 // 地面
-.bb-ground {
+.bb-ground-9 {
   position: absolute;
   bottom: 0;
   width: 100%;
@@ -329,13 +304,13 @@ const initAnimations = () => {
   justify-content: center;
 }
 
-.bb-ground-line {
+.bb-ground-line-9 {
   width: 100%;
   height: 2px;
   background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
 }
 
-.bb-ground-glow {
+.bb-ground-glow-9 {
   position: absolute;
   bottom: -20px;
   width: 80%;
@@ -346,7 +321,7 @@ const initAnimations = () => {
 }
 
 // 球体容器
-.bb-balls-wrapper {
+.bb-balls-wrapper-9 {
   position: absolute;
   bottom: 100px;
   display: flex;
@@ -354,7 +329,7 @@ const initAnimations = () => {
   z-index: 5;
 }
 
-.bb-ball {
+.bb-ball-9 {
   position: relative;
   width: var(--ball-size);
   height: var(--ball-size);
@@ -367,7 +342,7 @@ const initAnimations = () => {
   }
 }
 
-.bb-ball-inner {
+.bb-ball-inner-9 {
   position: relative;
   width: 100%;
   height: 100%;
@@ -380,7 +355,7 @@ const initAnimations = () => {
   animation: ballGlow 2s ease-in-out infinite;
 }
 
-.bb-ball-highlight {
+.bb-ball-highlight-9 {
   position: absolute;
   top: 15%;
   left: 20%;
@@ -390,7 +365,7 @@ const initAnimations = () => {
   border-radius: 50%;
 }
 
-.bb-ball-shadow {
+.bb-ball-shadow-9 {
   position: absolute;
   bottom: -10px;
   left: 50%;
@@ -417,7 +392,7 @@ const initAnimations = () => {
 }
 
 // 阴影容器
-.bb-shadows-wrapper {
+.bb-shadows-wrapper-9 {
   position: absolute;
   bottom: 95px;
   display: flex;
@@ -425,7 +400,7 @@ const initAnimations = () => {
   z-index: 3;
 }
 
-.bb-shadow {
+.bb-shadow-9 {
   width: var(--shadow-size);
   height: calc(var(--shadow-size) * 0.3);
   background: radial-gradient(ellipse, var(--shadow-color) 0%, transparent 70%);
@@ -435,14 +410,14 @@ const initAnimations = () => {
 }
 
 // 粒子
-.bb-particles {
+.bb-particles-9 {
   position: absolute;
   width: 100%;
   height: 100%;
   pointer-events: none;
 }
 
-.bb-particle {
+.bb-particle-9 {
   position: absolute;
   background: rgba(255, 255, 255, 0.6);
   border-radius: 50%;
@@ -459,7 +434,7 @@ const initAnimations = () => {
 }
 
 // 能量条
-.bb-energy-bars {
+.bb-energy-bars-9 {
   position: absolute;
   top: 20px;
   right: 20px;
@@ -468,7 +443,7 @@ const initAnimations = () => {
   gap: 8px;
 }
 
-.bb-energy-bar {
+.bb-energy-bar-9 {
   width: 120px;
   height: 6px;
   background: rgba(255, 255, 255, 0.1);
@@ -476,28 +451,15 @@ const initAnimations = () => {
   overflow: hidden;
 }
 
-.bb-bar-fill {
+.bb-bar-fill-9 {
   height: 100%;
   width: 0;
   background: linear-gradient(90deg, #ff6b6b, #4ecdc4);
   border-radius: 3px;
 }
 
-// 信息面板
-.bb-info-panel {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
-  width: 100%;
-  max-width: 900px;
-  padding: 40px;
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
 
-.bb-info-card {
+.bb-info-card-9 {
   display: flex;
   align-items: center;
   gap: 20px;
@@ -513,69 +475,69 @@ const initAnimations = () => {
   }
 }
 
-.bb-info-icon {
+.bb-info-icon-9 {
   font-size: 2.5rem;
 }
 
-.bb-info-text {
+.bb-info-text-9 {
   flex: 1;
 }
 
-.bb-info-value {
+.bb-info-value-9 {
   font-size: 1.2rem;
   font-weight: bold;
   color: #fff;
   margin-bottom: 4px;
 }
 
-.bb-info-desc {
+.bb-info-desc-9 {
   font-size: 0.85rem;
   color: rgba(255, 255, 255, 0.6);
 }
 
 @media (max-width: 1024px) {
-  .bb-balls-wrapper {
+  .bb-balls-wrapper-9 {
     gap: 30px;
   }
 
-  .bb-shadows-wrapper {
+  .bb-shadows-wrapper-9 {
     gap: 30px;
   }
 }
 
 @media (max-width: 768px) {
-  .bb-section-title {
+  .bb-section-title-9 {
     font-size: 2rem;
   }
 
-  .bb-ball-container {
+  .bb-ball-container-9 {
     height: 400px;
   }
 
-  .bb-balls-wrapper {
+  .bb-balls-wrapper-9 {
     gap: 20px;
     flex-wrap: wrap;
     justify-content: center;
   }
 
-  .bb-shadows-wrapper {
+  .bb-shadows-wrapper-9 {
     gap: 20px;
     flex-wrap: wrap;
     justify-content: center;
   }
 
-  .bb-info-panel {
+  .bb-info-panel-9 {
     grid-template-columns: 1fr;
     gap: 15px;
     padding: 25px;
   }
 
-  .bb-energy-bars {
+  .bb-energy-bars-9 {
     top: 10px;
     right: 10px;
   }
 
-  .bb-energy-bar {
+  .bb-energy-bar-9 {
     width: 80px;
   }
 }

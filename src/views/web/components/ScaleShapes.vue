@@ -1,20 +1,20 @@
 <template>
-  <div class="scale-shapes">
-    <div class="ss-container">
-      <h2 class="ss-section-title">缩放形状</h2>
+  <div class="scale-shapes-38">
+    <div class="ss-container-38">
+      <h2 class="ss-section-title-38">缩放形状</h2>
       
-      <div class="ss-shapes-container">
+      <div class="ss-shapes-container-38">
         <div 
-          class="shape-item" 
+          class="shape-item-38" 
           v-for="(shape, index) in shapes" 
           :key="index"
           :class="shape.className"
           ref="items"
         >
-          <div class="ss-shape-inner">
-            <div class="ss-shape-content">
-              <span class="ss-shape-number">{{ index + 1 }}</span>
-              <h3 class="ss-shape-name">{{ shape.name }}</h3>
+          <div class="ss-shape-inner-38">
+            <div class="ss-shape-content-38">
+              <span class="ss-shape-number-38">{{ index + 1 }}</span>
+              <h3 class="ss-shape-name-38">{{ shape.name }}</h3>
             </div>
           </div>
         </div>
@@ -51,9 +51,9 @@ let ctx: gsap.Context
 onMounted(() => {
   ctx = gsap.context(() => {
     // 标题动画
-    gsap.from('.ss-section-title', {
+    gsap.from('.ss-section-title-38', {
       scrollTrigger: {
-        trigger: '.ss-section-title',
+        trigger: '.ss-section-title-38',
         start: 'top 90%'
       },
       y: 50,
@@ -64,9 +64,9 @@ onMounted(() => {
     })
 
     items.value.forEach((item, index) => {
-      const inner = item.querySelector('.ss-shape-inner') as HTMLElement
-      const content = item.querySelector('.ss-shape-content') as HTMLElement
-      const number = item.querySelector('.ss-shape-number') as HTMLElement
+      const inner = item.querySelector('.ss-shape-inner-38') as HTMLElement
+      const content = item.querySelector('.ss-shape-content-38') as HTMLElement
+      const number = item.querySelector('.ss-shape-number-38') as HTMLElement
 
       // 从中心缩放入场
       gsap.fromTo(item,
@@ -146,10 +146,10 @@ onMounted(() => {
     })
 
     // 整体容器轻微旋转
-    gsap.to('.ss-shapes-container', {
+    gsap.to('.ss-shapes-container-38', {
       rotate: 5,
       scrollTrigger: {
-        trigger: '.ss-shapes-container',
+        trigger: '.ss-shapes-container-38',
         start: 'top 100%',
         end: 'bottom 0%',
         scrub: 0.5
@@ -165,7 +165,7 @@ onUnmounted(() => {
 </script>
 
 <style scoped lang="scss">
-.scale-shapes {
+.scale-shapes-38 {
   min-height: 120vh;
   padding: 100px 0;
   background: linear-gradient(180deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
@@ -188,7 +188,7 @@ onUnmounted(() => {
   }
 }
 
-.ss-container {
+.ss-container-38 {
   width: 100%;
   max-width: 1200px;
   padding: 0 40px;
@@ -196,7 +196,7 @@ onUnmounted(() => {
   z-index: 1;
 }
 
-.ss-section-title {
+.ss-section-title-38 {
   text-align: center;
   font-size: 3.5rem;
   font-weight: 800;
@@ -219,7 +219,7 @@ onUnmounted(() => {
   }
 }
 
-.ss-shapes-container {
+.ss-shapes-container-38 {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 50px;
@@ -227,7 +227,7 @@ onUnmounted(() => {
   perspective: 1000px;
 }
 
-.shape-item {
+.shape-item-38 {
   position: relative;
   width: 200px;
   height: 200px;
@@ -241,37 +241,37 @@ onUnmounted(() => {
     transform: scale(1.1);
   }
 
-  &.circle .ss-shape-inner {
+  &.circle-38 .ss-shape-inner-38 {
     border-radius: 50%;
   }
 
-  &.square .ss-shape-inner {
+  &.square-38 .ss-shape-inner-38 {
     border-radius: 10px;
   }
 
-  &.triangle .ss-shape-inner {
+  &.triangle-38 .ss-shape-inner-38 {
     clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
   }
 
-  &.diamond .ss-shape-inner {
+  &.diamond-38 .ss-shape-inner-38 {
     transform: rotate(45deg);
     border-radius: 10px;
   }
 
-  &.diamond .ss-shape-content {
+  &.diamond-38 .ss-shape-content-38 {
     transform: rotate(-45deg);
   }
 
-  &.hexagon .ss-shape-inner {
+  &.hexagon-38 .ss-shape-inner-38 {
     clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
   }
 
-  &.star .ss-shape-inner {
+  &.star-38 .ss-shape-inner-38 {
     clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
   }
 }
 
-.ss-shape-inner {
+.ss-shape-inner-38 {
   width: 100%;
   height: 100%;
   background: linear-gradient(135deg, rgba(123, 67, 151, 0.8) 0%, rgba(220, 36, 48, 0.8) 100%);
@@ -283,17 +283,17 @@ onUnmounted(() => {
   transition: background 0.3s ease;
 }
 
-.shape-item:hover .ss-shape-inner {
+.shape-item-38:hover .ss-shape-inner-38 {
   background: linear-gradient(135deg, rgba(123, 67, 151, 1) 0%, rgba(220, 36, 48, 1) 100%);
 }
 
-.ss-shape-content {
+.ss-shape-content-38 {
   text-align: center;
   color: #fff;
   z-index: 1;
 }
 
-.ss-shape-number {
+.ss-shape-number-38 {
   display: block;
   font-size: 3.5rem;
   font-weight: 900;
@@ -302,7 +302,7 @@ onUnmounted(() => {
   font-family: 'Arial', sans-serif;
 }
 
-.ss-shape-name {
+.ss-shape-name-38 {
   font-size: 1.2rem;
   font-weight: 700;
   margin: 0;
@@ -311,20 +311,20 @@ onUnmounted(() => {
 }
 
 @media (max-width: 768px) {
-  .ss-shapes-container {
+  .ss-shapes-container-38 {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .shape-item {
+  .shape-item-38 {
     width: 150px;
     height: 150px;
   }
 
-  .ss-shape-number {
+  .ss-shape-number-38 {
     font-size: 2.5rem;
   }
 
-  .ss-section-title {
+  .ss-section-title-38 {
     font-size: 2rem;
   }
 }

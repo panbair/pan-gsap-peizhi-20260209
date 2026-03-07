@@ -1,27 +1,27 @@
 <template>
-  <div class="rs-rotate-scale-section">
-    <div class="rs-section-header">
-      <h2 class="rs-title">
-        <span class="rs-word" v-for="(word, i) in ['ROTATE', 'SCALE']" :key="i">{{ word }}</span>
+  <div class="rs-rotate-scale-section-51">
+    <div class="rs-section-header-51">
+      <h2 class="rs-title-51">
+        <span class="rs-word-51" v-for="(word, i) in ['ROTATE', 'SCALE']" :key="i">{{ word }}</span>
       </h2>
-      <p class="rs-subtitle">旋转缩放动画</p>
+      <p class="rs-subtitle-51">旋转缩放动画</p>
     </div>
 
-    <div class="rs-rotate-scale-container">
-      <div class="rs-rotate-scale-item" v-for="(item, index) in items" :key="index">
-        <div class="rs-item-rotator">
-          <div class="rs-item-image" :style="{ backgroundImage: `url(${item.image})` }"></div>
-          <div class="rs-item-number">{{ String(index + 1).padStart(2, '0') }}</div>
+    <div class="rs-rotate-scale-container-51">
+      <div class="rs-rotate-scale-item-51" v-for="(item, index) in items" :key="index">
+        <div class="rs-item-rotator-51">
+          <div class="rs-item-image-51" :style="{ backgroundImage: `url(${item.image})` }"></div>
+          <div class="rs-item-number-51">{{ String(index + 1).padStart(2, '0') }}</div>
         </div>
-        <div class="rs-item-info">
+        <div class="rs-item-info-51">
           <h3>{{ item.title }}</h3>
           <p>{{ item.description }}</p>
         </div>
       </div>
     </div>
 
-    <div class="rs-controls">
-      <button class="rs-control-btn" @click="triggerWave">触发波浪</button>
+    <div class="rs-controls-51">
+      <button class="rs-control-btn-51" @click="triggerWave">触发波浪</button>
     </div>
   </div>
 </template>
@@ -46,7 +46,7 @@ let ctx: gsap.Context
 
 const triggerWave = () => {
   // 波浪缩放动画
-  gsap.to('.rs-item-rotator', {
+  gsap.to('.rs-item-rotator-51', {
     scale: 1.2,
     duration: 0.3,
     ease: 'power2.out',
@@ -59,7 +59,7 @@ const triggerWave = () => {
   })
 
   // 波浪旋转动画
-  gsap.to('.rs-item-image', {
+  gsap.to('.rs-item-image-51', {
     rotation: (i) => 15 * (i - 2.5),
     duration: 0.5,
     ease: 'power2.out',
@@ -75,9 +75,9 @@ const triggerWave = () => {
 const initAnimations = () => {
   ctx = gsap.context(() => {
     // 标题词语分别入场
-    gsap.from('.rs-rotate-scale-section .rs-title .rs-word', {
+    gsap.from('.rs-title-51 .rs-word-51', {
       scrollTrigger: {
-        trigger: '.rs-rotate-scale-section',
+        trigger: '.rs-rotate-scale-section-51',
         start: 'top 80%',
         toggleActions: 'play none none reverse'
       },
@@ -90,9 +90,9 @@ const initAnimations = () => {
     })
 
     // 副标题入场
-    gsap.from('.rs-rotate-scale-section .rs-subtitle', {
+    gsap.from('.rs-subtitle-51', {
       scrollTrigger: {
-        trigger: '.rs-rotate-scale-section',
+        trigger: '.rs-rotate-scale-section-51',
         start: 'top 75%',
         toggleActions: 'play none none reverse'
       },
@@ -104,9 +104,9 @@ const initAnimations = () => {
     })
 
     // 旋转容器入场
-    gsap.from('.rs-item-rotator', {
+    gsap.from('.rs-item-rotator-51', {
       scrollTrigger: {
-        trigger: '.rs-rotate-scale-container',
+        trigger: '.rs-rotate-scale-container-51',
         start: 'top 70%',
         toggleActions: 'play none none reverse'
       },
@@ -122,9 +122,9 @@ const initAnimations = () => {
     })
 
     // 图片渐入
-    gsap.from('.rs-item-image', {
+    gsap.from('.rs-item-image-51', {
       scrollTrigger: {
-        trigger: '.rs-rotate-scale-container',
+        trigger: '.rs-rotate-scale-container-51',
         start: 'top 65%',
         toggleActions: 'play none none reverse'
       },
@@ -139,9 +139,9 @@ const initAnimations = () => {
     })
 
     // 数字旋转入场
-    gsap.from('.rs-item-number', {
+    gsap.from('.rs-item-number-51', {
       scrollTrigger: {
-        trigger: '.rs-rotate-scale-container',
+        trigger: '.rs-rotate-scale-container-51',
         start: 'top 65%',
         toggleActions: 'play none none reverse'
       },
@@ -157,9 +157,9 @@ const initAnimations = () => {
     })
 
     // 信息从底部入场
-    gsap.from('.rs-item-info', {
+    gsap.from('.rs-item-info-51', {
       scrollTrigger: {
-        trigger: '.rs-rotate-scale-container',
+        trigger: '.rs-rotate-scale-container-51',
         start: 'top 55%',
         toggleActions: 'play none none reverse'
       },
@@ -174,9 +174,9 @@ const initAnimations = () => {
     })
 
     // 滚动时容器旋转
-    gsap.to('.rs-item-rotator', {
+    gsap.to('.rs-item-rotator-51', {
       scrollTrigger: {
-        trigger: '.rs-rotate-scale-container',
+        trigger: '.rs-rotate-scale-container-51',
         start: 'top bottom',
         end: 'bottom top',
         scrub: 1
@@ -186,9 +186,9 @@ const initAnimations = () => {
     })
 
     // 滚动时图片独立旋转
-    gsap.to('.rs-item-image', {
+    gsap.to('.rs-item-image-51', {
       scrollTrigger: {
-        trigger: '.rs-rotate-scale-container',
+        trigger: '.rs-rotate-scale-container-51',
         start: 'top bottom',
         end: 'bottom top',
         scrub: 1.5
@@ -199,9 +199,9 @@ const initAnimations = () => {
     })
 
     // 滚动时数字缩放
-    gsap.to('.rs-item-number', {
+    gsap.to('.rs-item-number-51', {
       scrollTrigger: {
-        trigger: '.rs-rotate-scale-container',
+        trigger: '.rs-rotate-scale-container-51',
         start: 'top bottom',
         end: 'bottom top',
         scrub: 1
@@ -211,9 +211,9 @@ const initAnimations = () => {
     })
 
     // 控制按钮渐入
-    gsap.from('.rs-control-btn', {
+    gsap.from('.rs-control-btn-51', {
       scrollTrigger: {
-        trigger: '.rs-controls',
+        trigger: '.rs-controls-51',
         start: 'top 90%',
         toggleActions: 'play none none reverse'
       },
@@ -224,7 +224,7 @@ const initAnimations = () => {
     })
 
     // 持续旋转动画
-    gsap.to('.rs-item-rotator', {
+    gsap.to('.rs-item-rotator-51', {
       rotation: '+=360',
       duration: 60,
       ease: 'none',
@@ -233,22 +233,22 @@ const initAnimations = () => {
     })
 
     // 悬停效果 - 使用gsap.utils.toArray自动清理
-    gsap.utils.toArray('.rs-rotate-scale-item').forEach((item: Element, i: number) => {
+    gsap.utils.toArray('.rs-rotate-scale-item-51').forEach((item: Element, i: number) => {
       const itemEl = item as HTMLElement
       itemEl.addEventListener('mouseenter', () => {
-        gsap.to(itemEl.querySelector('.rs-item-rotator'), {
+        gsap.to(itemEl.querySelector('.rs-item-rotator-51'), {
           scale: 1.15,
           rotation: (i - 2.5) * 15,
           duration: 0.4,
           ease: 'power2.out'
         })
-        gsap.to(itemEl.querySelector('.rs-item-image'), {
+        gsap.to(itemEl.querySelector('.rs-item-image-51'), {
           scale: 1.1,
           rotation: (i - 2.5) * -10,
           duration: 0.4,
           ease: 'power2.out'
         })
-        gsap.to(itemEl.querySelector('.rs-item-number'), {
+        gsap.to(itemEl.querySelector('.rs-item-number-51'), {
           scale: 1.4,
           rotation: 45,
           duration: 0.3,
@@ -257,19 +257,19 @@ const initAnimations = () => {
       })
 
       itemEl.addEventListener('mouseleave', () => {
-        gsap.to(itemEl.querySelector('.rs-item-rotator'), {
+        gsap.to(itemEl.querySelector('.rs-item-rotator-51'), {
           scale: 1,
           rotation: 0,
           duration: 0.4,
           ease: 'power2.out'
         })
-        gsap.to(itemEl.querySelector('.rs-item-image'), {
+        gsap.to(itemEl.querySelector('.rs-item-image-51'), {
           scale: 1,
           rotation: 0,
           duration: 0.4,
           ease: 'power2.out'
         })
-        gsap.to(itemEl.querySelector('.rs-item-number'), {
+        gsap.to(itemEl.querySelector('.rs-item-number-51'), {
           scale: 1,
           rotation: 0,
           duration: 0.3,
@@ -290,7 +290,7 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
-.rs-rotate-scale-section {
+.rs-rotate-scale-section-51 {
   min-height: 100vh;
   padding: 80px 40px;
   background: linear-gradient(135deg, #1a0a2e 0%, #2d1b69 50%, #4a0e4e 100%);
@@ -298,12 +298,12 @@ onUnmounted(() => {
   overflow: hidden;
 }
 
-.rs-section-header {
+.rs-section-header-51 {
   text-align: center;
   margin-bottom: 80px;
 }
 
-.rs-title {
+.rs-title-51 {
   font-size: 64px;
   font-weight: 900;
   color: #fff;
@@ -313,12 +313,12 @@ onUnmounted(() => {
   text-shadow: 0 0 30px rgba(255, 0, 128, 0.5);
 }
 
-.rs-title .rs-word {
+.rs-title-51 .rs-word-51 {
   display: inline-block;
   perspective: 1000px;
 }
 
-.rs-subtitle {
+.rs-subtitle-51 {
   font-size: 18px;
   color: rgba(255, 255, 255, 0.6);
   margin-top: 20px;
@@ -326,7 +326,7 @@ onUnmounted(() => {
   text-transform: uppercase;
 }
 
-.rs-rotate-scale-container {
+.rs-rotate-scale-container-51 {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 40px;
@@ -335,14 +335,14 @@ onUnmounted(() => {
   padding: 40px 0;
 }
 
-.rs-rotate-scale-item {
+.rs-rotate-scale-item-51 {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 24px;
 }
 
-.rs-item-rotator {
+.rs-item-rotator-51 {
   position: relative;
   width: 280px;
   height: 280px;
@@ -353,11 +353,11 @@ onUnmounted(() => {
   transition: box-shadow 0.4s ease;
 }
 
-.rs-item-rotator:hover {
+.rs-item-rotator-51:hover {
   box-shadow: 0 20px 60px rgba(255, 0, 128, 0.5);
 }
 
-.rs-item-image {
+.rs-item-image-51 {
   width: 100%;
   height: 100%;
   background-size: cover;
@@ -365,7 +365,7 @@ onUnmounted(() => {
   transition: transform 0.4s ease;
 }
 
-.rs-item-number {
+.rs-item-number-51 {
   position: absolute;
   bottom: 20px;
   left: 50%;
@@ -385,11 +385,11 @@ onUnmounted(() => {
   transition: all 0.4s ease;
 }
 
-.rs-item-info {
+.rs-item-info-51 {
   text-align: center;
 }
 
-.rs-item-info h3 {
+.rs-item-info-51 h3 {
   font-size: 24px;
   font-weight: 700;
   color: #fff;
@@ -397,19 +397,19 @@ onUnmounted(() => {
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
-.rs-item-info p {
+.rs-item-info-51 p {
   font-size: 14px;
   color: rgba(255, 255, 255, 0.7);
   line-height: 1.5;
 }
 
-.rs-controls {
+.rs-controls-51 {
   display: flex;
   justify-content: center;
   margin-top: 60px;
 }
 
-.rs-control-btn {
+.rs-control-btn-51 {
   padding: 18px 48px;
   background: linear-gradient(135deg, #ff0080 0%, #ff8c00 100%);
   border: none;
@@ -424,26 +424,26 @@ onUnmounted(() => {
   letter-spacing: 2px;
 }
 
-.rs-control-btn:hover {
+.rs-control-btn-51:hover {
   transform: translateY(-3px);
   box-shadow: 0 15px 40px rgba(255, 0, 128, 0.5);
 }
 
-.rs-control-btn:active {
+.rs-control-btn-51:active {
   transform: translateY(0);
 }
 
 @media (max-width: 768px) {
-  .rs-title {
+  .rs-title-51 {
     font-size: 40px;
     gap: 20px;
   }
 
-  .rs-subtitle {
+  .rs-subtitle-51 {
     font-size: 14px;
   }
 
-  .rs-item-rotator {
+  .rs-item-rotator-51 {
     width: 220px;
     height: 220px;
   }

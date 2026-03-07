@@ -1,26 +1,26 @@
 <template>
-  <div class="ts-timeline-sequence-section">
-    <div class="ts-section-header">
-      <h2 class="ts-title">TIMELINE SEQUENCE</h2>
-      <p class="ts-subtitle">时间轴序列动画</p>
+  <div class="ts-timeline-sequence-section-55">
+    <div class="ts-section-header-55">
+      <h2 class="ts-title-55">TIMELINE SEQUENCE</h2>
+      <p class="ts-subtitle-55">时间轴序列动画</p>
     </div>
 
-    <div class="ts-sequence-container">
-      <div class="ts-sequence-item" v-for="(item, index) in items" :key="index">
-        <div class="ts-item-stage">
-          <div class="ts-item-number">{{ String(index + 1).padStart(2, '0') }}</div>
-          <div class="ts-item-image" :style="{ backgroundImage: `url(${item.image})` }"></div>
+    <div class="ts-sequence-container-55">
+      <div class="ts-sequence-item-55" v-for="(item, index) in items" :key="index">
+        <div class="ts-item-stage-55">
+          <div class="ts-item-number-55">{{ String(index + 1).padStart(2, '0') }}</div>
+          <div class="ts-item-image-55" :style="{ backgroundImage: `url(${item.image})` }"></div>
         </div>
-        <div class="ts-item-content">
+        <div class="ts-item-content-55">
           <h3>{{ item.title }}</h3>
           <p>{{ item.description }}</p>
         </div>
       </div>
     </div>
 
-    <div class="ts-controls">
-      <button class="ts-play-btn" @click="playSequence">播放序列</button>
-      <button class="ts-reverse-btn" @click="reverseSequence">反向播放</button>
+    <div class="ts-controls-55">
+      <button class="ts-play-btn-55" @click="playSequence">播放序列</button>
+      <button class="ts-reverse-btn-55" @click="reverseSequence">反向播放</button>
     </div>
   </div>
 </template>
@@ -51,28 +51,28 @@ const createTimeline = () => {
   })
 
   // 第一步：标题动画
-  tl.from('.ts-timeline-sequence-section .ts-title', {
+  tl.from('.ts-title-55', {
     y: 80,
     opacity: 0,
     duration: 0.6
   })
 
   // 第二步：副标题动画（与第一步重叠0.3秒）
-  tl.from('.ts-timeline-sequence-section .ts-subtitle', {
+  tl.from('.ts-subtitle-55', {
     y: 50,
     opacity: 0,
     duration: 0.5
   }, '-=0.3')
 
   // 第三步：容器入场
-  tl.from('.ts-sequence-container', {
+  tl.from('.ts-sequence-container-55', {
     y: 60,
     opacity: 0,
     duration: 0.8
   }, '-=0.2')
 
   // 第四步：序列动画 - 使用stagger
-  tl.from('.ts-sequence-item', {
+  tl.from('.ts-sequence-item-55', {
     x: -150,
     opacity: 0,
     scale: 0.8,
@@ -82,7 +82,7 @@ const createTimeline = () => {
   }, '-=0.4')
 
   // 第五步：图片渐入
-  tl.from('.ts-item-image', {
+  tl.from('.ts-item-image-55', {
     scale: 1.5,
     opacity: 0,
     stagger: 0.15,
@@ -90,7 +90,7 @@ const createTimeline = () => {
   }, '-=0.6')
 
   // 第六步：数字旋转入场
-  tl.from('.ts-item-number', {
+  tl.from('.ts-item-number-55', {
     rotation: -180,
     scale: 0,
     opacity: 0,
@@ -100,7 +100,7 @@ const createTimeline = () => {
   }, '-=0.7')
 
   // 第七步：内容滑入
-  tl.from('.ts-item-content', {
+  tl.from('.ts-item-content-55', {
     x: -80,
     opacity: 0,
     stagger: 0.15,
@@ -108,7 +108,7 @@ const createTimeline = () => {
   }, '-=0.6')
 
   // 第八步：按钮动画
-  tl.from('.ts-play-btn, .ts-reverse-btn', {
+  tl.from('.ts-play-btn-55, .ts-reverse-btn-55', {
     y: 40,
     opacity: 0,
     stagger: 0.1,
@@ -137,16 +137,16 @@ const initAnimations = () => {
 
     // 滚动触发时间轴
     ScrollTrigger.create({
-      trigger: '.ts-timeline-sequence-section',
+      trigger: '.ts-timeline-sequence-section-55',
       start: 'top 70%',
       onEnter: () => masterTimeline?.play(),
       onLeaveBack: () => masterTimeline?.reverse()
     })
 
     // 滚动时的独立动画
-    gsap.to('.ts-item-image', {
+    gsap.to('.ts-item-image-55', {
       scrollTrigger: {
-        trigger: '.ts-sequence-container',
+        trigger: '.ts-sequence-container-55',
         start: 'top bottom',
         end: 'bottom top',
         scrub: 1
@@ -156,16 +156,16 @@ const initAnimations = () => {
     })
 
     // 悬停效果 - 使用gsap.utils.toArray自动清理
-    gsap.utils.toArray('.ts-sequence-item').forEach((item: Element) => {
+    gsap.utils.toArray('.ts-sequence-item-55').forEach((item: Element) => {
       const itemEl = item as HTMLElement
       itemEl.addEventListener('mouseenter', () => {
-        gsap.to(itemEl.querySelector('.ts-item-image'), {
+        gsap.to(itemEl.querySelector('.ts-item-image-55'), {
           scale: 1.2,
           rotation: 5,
           duration: 0.4,
           ease: 'power2.out'
         })
-        gsap.to(itemEl.querySelector('.ts-item-number'), {
+        gsap.to(itemEl.querySelector('.ts-item-number-55'), {
           scale: 1.3,
           rotation: 15,
           duration: 0.3,
@@ -174,13 +174,13 @@ const initAnimations = () => {
       })
 
       itemEl.addEventListener('mouseleave', () => {
-        gsap.to(itemEl.querySelector('.ts-item-image'), {
+        gsap.to(itemEl.querySelector('.ts-item-image-55'), {
           scale: 1,
           rotation: 0,
           duration: 0.4,
           ease: 'power2.out'
         })
-        gsap.to(itemEl.querySelector('.ts-item-number'), {
+        gsap.to(itemEl.querySelector('.ts-item-number-55'), {
           scale: 1,
           rotation: 0,
           duration: 0.3,
@@ -203,7 +203,7 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
-.ts-timeline-sequence-section {
+.ts-timeline-sequence-section-55 {
   min-height: 100vh;
   padding: 80px 40px;
   background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
@@ -211,12 +211,12 @@ onUnmounted(() => {
   overflow: hidden;
 }
 
-.ts-section-header {
+.ts-section-header-55 {
   text-align: center;
   margin-bottom: 80px;
 }
 
-.ts-title {
+.ts-title-55 {
   font-size: 56px;
   font-weight: 900;
   color: #fff;
@@ -225,7 +225,7 @@ onUnmounted(() => {
   text-shadow: 0 0 30px rgba(15, 52, 96, 0.5);
 }
 
-.ts-subtitle {
+.ts-subtitle-55 {
   font-size: 18px;
   color: rgba(255, 255, 255, 0.6);
   margin-top: 16px;
@@ -233,7 +233,7 @@ onUnmounted(() => {
   text-transform: uppercase;
 }
 
-.ts-sequence-container {
+.ts-sequence-container-55 {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 32px;
@@ -242,7 +242,7 @@ onUnmounted(() => {
   padding: 40px 0;
 }
 
-.ts-sequence-item {
+.ts-sequence-item-55 {
   display: flex;
   gap: 24px;
   padding: 24px;
@@ -253,11 +253,11 @@ onUnmounted(() => {
   transition: box-shadow 0.4s ease;
 }
 
-.ts-sequence-item:hover {
+.ts-sequence-item-55:hover {
   box-shadow: 0 15px 40px rgba(15, 52, 96, 0.3);
 }
 
-.ts-item-stage {
+.ts-item-stage-55 {
   position: relative;
   flex-shrink: 0;
   width: 160px;
@@ -266,7 +266,7 @@ onUnmounted(() => {
   overflow: hidden;
 }
 
-.ts-item-image {
+.ts-item-image-55 {
   width: 100%;
   height: 100%;
   background-size: cover;
@@ -274,7 +274,7 @@ onUnmounted(() => {
   transition: transform 0.4s ease;
 }
 
-.ts-item-number {
+.ts-item-number-55 {
   position: absolute;
   top: 12px;
   left: 12px;
@@ -293,34 +293,34 @@ onUnmounted(() => {
   transition: all 0.4s ease;
 }
 
-.ts-item-content {
+.ts-item-content-55 {
   display: flex;
   flex-direction: column;
   justify-content: center;
   flex: 1;
 }
 
-.ts-item-content h3 {
+.ts-item-content-55 h3 {
   font-size: 24px;
   font-weight: 700;
   color: #fff;
   margin-bottom: 8px;
 }
 
-.ts-item-content p {
+.ts-item-content-55 p {
   font-size: 14px;
   color: rgba(255, 255, 255, 0.7);
   line-height: 1.6;
 }
 
-.ts-controls {
+.ts-controls-55 {
   display: flex;
   justify-content: center;
   gap: 24px;
   margin-top: 60px;
 }
 
-.ts-play-btn, .ts-reverse-btn {
+.ts-play-btn-55, .ts-reverse-btn-55 {
   padding: 16px 40px;
   border: none;
   border-radius: 30px;
@@ -332,44 +332,44 @@ onUnmounted(() => {
   letter-spacing: 2px;
 }
 
-.ts-play-btn {
+.ts-play-btn-55 {
   background: linear-gradient(135deg, #0f3460 0%, #e94560 100%);
   color: #fff;
   box-shadow: 0 10px 30px rgba(233, 69, 96, 0.3);
 }
 
-.ts-play-btn:hover {
+.ts-play-btn-55:hover {
   transform: translateY(-3px);
   box-shadow: 0 15px 40px rgba(233, 69, 96, 0.4);
 }
 
-.ts-reverse-btn {
+.ts-reverse-btn-55 {
   background: rgba(255, 255, 255, 0.1);
   color: #fff;
   border: 2px solid rgba(255, 255, 255, 0.2);
 }
 
-.ts-reverse-btn:hover {
+.ts-reverse-btn-55:hover {
   background: rgba(255, 255, 255, 0.2);
   transform: translateY(-3px);
 }
 
 @media (max-width: 768px) {
-  .ts-title {
+  .ts-title-55 {
     font-size: 32px;
     letter-spacing: 3px;
   }
 
-  .ts-subtitle {
+  .ts-subtitle-55 {
     font-size: 14px;
   }
 
-  .ts-sequence-item {
+  .ts-sequence-item-55 {
     flex-direction: column;
     gap: 16px;
   }
 
-  .ts-item-stage {
+  .ts-item-stage-55 {
     width: 100%;
     height: 200px;
   }

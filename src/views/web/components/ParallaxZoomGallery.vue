@@ -1,14 +1,14 @@
 <template>
-  <div class="parallax-zoom-gallery">
-    <div class="pzg-container">
-      <h2 class="pzg-section-title">视差缩放画廊</h2>
+  <div class="parallax-zoom-gallery-30">
+    <div class="pzg-container-30">
+      <h2 class="pzg-section-title-30">视差缩放画廊</h2>
 
-      <div class="pzg-gallery-wrapper">
-        <div class="pzg-gallery-item" v-for="(img, index) in images" :key="index" ref="items">
-          <div class="pzg-image-container">
+      <div class="pzg-gallery-wrapper-30">
+        <div class="pzg-gallery-item-30" v-for="(img, index) in images" :key="index" ref="items">
+          <div class="pzg-image-container-30">
             <img :src="img" :alt="`Image ${index + 1}`" />
-            <div class="pzg-overlay">
-              <span class="pzg-number">{{ String(index + 1).padStart(2, '0') }}</span>
+            <div class="pzg-overlay-30">
+              <span class="pzg-number-30">{{ String(index + 1).padStart(2, '0') }}</span>
             </div>
           </div>
         </div>
@@ -40,8 +40,8 @@ onMounted(() => {
   ctx = gsap.context(() => {
     items.value.forEach((item, index) => {
       const img = item.querySelector('img') as HTMLElement
-      const overlay = item.querySelector('.pzg-overlay') as HTMLElement
-      const number = item.querySelector('.pzg-number') as HTMLElement
+      const overlay = item.querySelector('.pzg-overlay-30') as HTMLElement
+      const number = item.querySelector('.pzg-number-30') as HTMLElement
 
       // 入场动画
       gsap.from(item, {
@@ -120,9 +120,9 @@ onMounted(() => {
     })
 
     // 标题动画
-    gsap.from('.pzg-section-title', {
+    gsap.from('.pzg-section-title-30', {
       scrollTrigger: {
-        trigger: '.pzg-section-title',
+        trigger: '.pzg-section-title-30',
         start: 'top 90%'
       },
       y: 50,
@@ -139,7 +139,7 @@ onUnmounted(() => {
 </script>
 
 <style scoped lang="scss">
-.parallax-zoom-gallery {
+.parallax-zoom-gallery-30 {
   min-height: 150vh;
   padding: 100px 0;
   background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
@@ -160,7 +160,7 @@ onUnmounted(() => {
   }
 }
 
-.pzg-container {
+.pzg-container-30 {
   max-width: 1400px;
   margin: 0 auto;
   padding: 0 40px;
@@ -168,7 +168,7 @@ onUnmounted(() => {
   z-index: 1;
 }
 
-.pzg-section-title {
+.pzg-section-title-30 {
   text-align: center;
   font-size: 3.5rem;
   font-weight: 800;
@@ -192,14 +192,14 @@ onUnmounted(() => {
   }
 }
 
-.pzg-gallery-wrapper {
+.pzg-gallery-wrapper-30 {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 30px;
   padding: 20px 0;
 }
 
-.pzg-gallery-item {
+.pzg-gallery-item-30 {
   position: relative;
   height: 350px;
   border-radius: 20px;
@@ -214,7 +214,7 @@ onUnmounted(() => {
   }
 }
 
-.pzg-image-container {
+.pzg-image-container-30 {
   width: 100%;
   height: 100%;
   position: relative;
@@ -228,11 +228,11 @@ img {
   transition: filter 0.3s ease;
 }
 
-.pzg-gallery-item:hover img {
+.pzg-gallery-item-30:hover img {
   filter: brightness(1.1);
 }
 
-.pzg-overlay {
+.pzg-overlay-30 {
   position: absolute;
   top: 0;
   left: 0;
@@ -246,7 +246,7 @@ img {
   pointer-events: none;
 }
 
-.pzg-number {
+.pzg-number-30 {
   font-size: 3rem;
   font-weight: 900;
   color: #fff;
@@ -259,17 +259,17 @@ img {
 }
 
 @media (max-width: 1024px) {
-  .pzg-gallery-wrapper {
+  .pzg-gallery-wrapper-30 {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 640px) {
-  .pzg-gallery-wrapper {
+  .pzg-gallery-wrapper-30 {
     grid-template-columns: 1fr;
   }
 
-  .pzg-section-title {
+  .pzg-section-title-30 {
     font-size: 2rem;
   }
 }

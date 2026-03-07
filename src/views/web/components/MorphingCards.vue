@@ -1,16 +1,16 @@
 <template>
-  <div class="morphing-cards-section">
-    <div class="mc-section-header">
-      <h2 class="mc-title">MORPHING CARDS</h2>
-      <p class="mc-subtitle">变形卡片动画</p>
+  <div class="morphing-cards-section-60">
+    <div class="mc-section-header-60">
+      <h2 class="mc-title-60">MORPHING CARDS</h2>
+      <p class="mc-subtitle-60">变形卡片动画</p>
     </div>
 
-    <div class="mc-morphing-container">
-      <div class="mc-morphing-card" v-for="(card, index) in cards" :key="index" @click="toggleMorph(index)">
-        <div class="mc-card-inner" :class="{ 'mc-morphed': cards[index].morphed }">
-          <div class="mc-card-image" :style="{ backgroundImage: `url(${card.image})` }"></div>
-          <div class="mc-card-content">
-            <div class="mc-card-number">{{ String(index + 1).padStart(2, '0') }}</div>
+    <div class="mc-morphing-container-60">
+      <div class="mc-morphing-card-60" v-for="(card, index) in cards" :key="index" @click="toggleMorph(index)">
+        <div class="mc-card-inner-60" :class="{ 'mc-morphed-60': cards[index].morphed }">
+          <div class="mc-card-image-60" :style="{ backgroundImage: `url(${card.image})` }"></div>
+          <div class="mc-card-content-60">
+            <div class="mc-card-number-60">{{ String(index + 1).padStart(2, '0') }}</div>
             <h3>{{ card.title }}</h3>
             <p>{{ card.description }}</p>
           </div>
@@ -18,10 +18,10 @@
       </div>
     </div>
 
-    <div class="mc-morphing-controls">
-      <button class="mc-control-btn" @click="morphAll">全部变形</button>
-      <button class="mc-control-btn" @click="resetAll">重置</button>
-      <button class="mc-control-btn" @click="randomMorph">随机变形</button>
+    <div class="mc-morphing-controls-60">
+      <button class="mc-control-btn-60" @click="morphAll">全部变形</button>
+      <button class="mc-control-btn-60" @click="resetAll">重置</button>
+      <button class="mc-control-btn-60" @click="randomMorph">随机变形</button>
     </div>
   </div>
 </template>
@@ -48,9 +48,9 @@ const toggleMorph = (index: number) => {
   cards.value[index].morphed = !cards.value[index].morphed
 
   // 变形动画 - 使用gsap.utils.toArray自动清理
-  const cardElements = gsap.utils.toArray('.mc-card-inner')
-  const imageElements = gsap.utils.toArray('.mc-card-image')
-  const numberElements = gsap.utils.toArray('.mc-card-number')
+  const cardElements = gsap.utils.toArray('.mc-card-inner-60')
+  const imageElements = gsap.utils.toArray('.mc-card-image-60')
+  const numberElements = gsap.utils.toArray('.mc-card-number-60')
 
   const cardInner = cardElements[index] as HTMLElement
   const cardImage = imageElements[index] as HTMLElement
@@ -135,9 +135,9 @@ const randomMorph = () => {
 const initAnimations = () => {
   ctx = gsap.context(() => {
     // 标题动画
-    gsap.from('.morphing-cards-section .mc-title', {
+    gsap.from('.mc-title-60', {
       scrollTrigger: {
-        trigger: '.morphing-cards-section',
+        trigger: '.morphing-cards-section-60',
         start: 'top 80%',
         toggleActions: 'play none none reverse'
       },
@@ -148,9 +148,9 @@ const initAnimations = () => {
     })
 
     // 副标题动画
-    gsap.from('.morphing-cards-section .mc-subtitle', {
+    gsap.from('.mc-subtitle-60', {
       scrollTrigger: {
-        trigger: '.morphing-cards-section',
+        trigger: '.morphing-cards-section-60',
         start: 'top 75%',
         toggleActions: 'play none none reverse'
       },
@@ -162,9 +162,9 @@ const initAnimations = () => {
     })
 
     // 卡片入场
-    gsap.from('.mc-morphing-card', {
+    gsap.from('.mc-morphing-card-60', {
       scrollTrigger: {
-        trigger: '.mc-morphing-container',
+        trigger: '.mc-morphing-container-60',
         start: 'top 70%',
         toggleActions: 'play none none reverse'
       },
@@ -177,9 +177,9 @@ const initAnimations = () => {
     })
 
     // 图片渐入
-    gsap.from('.mc-card-image', {
+    gsap.from('.mc-card-image-60', {
       scrollTrigger: {
-        trigger: '.mc-morphing-container',
+        trigger: '.mc-morphing-container-60',
         start: 'top 65%',
         toggleActions: 'play none none reverse'
       },
@@ -191,9 +191,9 @@ const initAnimations = () => {
     })
 
     // 数字动画
-    gsap.from('.mc-card-number', {
+    gsap.from('.mc-card-number-60', {
       scrollTrigger: {
-        trigger: '.mc-morphing-container',
+        trigger: '.mc-morphing-container-60',
         start: 'top 65%',
         toggleActions: 'play none none reverse'
       },
@@ -205,9 +205,9 @@ const initAnimations = () => {
     })
 
     // 内容动画
-    gsap.from('.mc-card-content h3, .mc-card-content p', {
+    gsap.from('.mc-card-content-60 h3, .mc-card-content-60 p', {
       scrollTrigger: {
-        trigger: '.mc-morphing-container',
+        trigger: '.mc-morphing-container-60',
         start: 'top 60%',
         toggleActions: 'play none none reverse'
       },
@@ -219,9 +219,9 @@ const initAnimations = () => {
     })
 
     // 滚动视差
-    gsap.to('.mc-card-inner', {
+    gsap.to('.mc-card-inner-60', {
       scrollTrigger: {
-        trigger: '.mc-morphing-container',
+        trigger: '.mc-morphing-container-60',
         start: 'top bottom',
         end: 'bottom top',
         scrub: 1
@@ -232,9 +232,9 @@ const initAnimations = () => {
     })
 
     // 按钮动画
-    gsap.from('.mc-control-btn', {
+    gsap.from('.mc-control-btn-60', {
       scrollTrigger: {
-        trigger: '.mc-morphing-controls',
+        trigger: '.mc-morphing-controls-60',
         start: 'top 90%',
         toggleActions: 'play none none reverse'
       },
@@ -257,7 +257,7 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
-.mc-morphing-cards-section {
+.mc-morphing-cards-section-60 {
   min-height: 100vh;
   padding: 80px 40px;
   background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
@@ -265,12 +265,12 @@ onUnmounted(() => {
   overflow: hidden;
 }
 
-.mc-section-header {
+.mc-section-header-60 {
   text-align: center;
   margin-bottom: 80px;
 }
 
-.mc-title {
+.mc-title-60 {
   font-size: 56px;
   font-weight: 900;
   color: #fff;
@@ -279,7 +279,7 @@ onUnmounted(() => {
   text-shadow: 0 0 30px rgba(15, 52, 96, 0.5);
 }
 
-.mc-subtitle {
+.mc-subtitle-60 {
   font-size: 18px;
   color: rgba(255, 255, 255, 0.6);
   margin-top: 16px;
@@ -287,7 +287,7 @@ onUnmounted(() => {
   text-transform: uppercase;
 }
 
-.mc-morphing-container {
+.mc-morphing-container-60 {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 32px;
@@ -296,11 +296,11 @@ onUnmounted(() => {
   padding: 40px 0;
 }
 
-.mc-morphing-card {
+.mc-morphing-card-60 {
   cursor: pointer;
 }
 
-.mc-card-inner {
+.mc-card-inner-60 {
   height: 380px;
   border-radius: 24px;
   overflow: hidden;
@@ -312,11 +312,11 @@ onUnmounted(() => {
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
 }
 
-.mc-card-inner:hover {
+.mc-card-inner-60:hover {
   box-shadow: 0 20px 60px rgba(15, 52, 96, 0.5);
 }
 
-.mc-card-image {
+.mc-card-image-60 {
   width: 100%;
   height: 240px;
   background-size: cover;
@@ -324,12 +324,12 @@ onUnmounted(() => {
   transition: transform 0.5s ease;
 }
 
-.mc-card-content {
+.mc-card-content-60 {
   position: relative;
   padding: 24px;
 }
 
-.mc-card-number {
+.mc-card-number-60 {
   position: absolute;
   top: -20px;
   right: 20px;
@@ -348,20 +348,20 @@ onUnmounted(() => {
   transition: all 0.4s ease;
 }
 
-.mc-card-content h3 {
+.mc-card-content-60 h3 {
   font-size: 24px;
   font-weight: 700;
   color: #fff;
   margin-bottom: 8px;
 }
 
-.mc-card-content p {
+.mc-card-content-60 p {
   font-size: 14px;
   color: rgba(255, 255, 255, 0.7);
   line-height: 1.5;
 }
 
-.mc-morphing-controls {
+.mc-morphing-controls-60 {
   display: flex;
   justify-content: center;
   gap: 20px;
@@ -369,7 +369,7 @@ onUnmounted(() => {
   flex-wrap: wrap;
 }
 
-.mc-control-btn {
+.mc-control-btn-60 {
   padding: 16px 40px;
   background: linear-gradient(135deg, #0f3460 0%, #e94560 100%);
   border: none;
@@ -384,26 +384,26 @@ onUnmounted(() => {
   box-shadow: 0 10px 30px rgba(15, 52, 96, 0.3);
 }
 
-.mc-control-btn:hover {
+.mc-control-btn-60:hover {
   transform: translateY(-3px);
   box-shadow: 0 15px 40px rgba(15, 52, 96, 0.4);
 }
 
 @media (max-width: 768px) {
-  .mc-title {
+  .mc-title-60 {
     font-size: 32px;
     letter-spacing: 3px;
   }
 
-  .mc-subtitle {
+  .mc-subtitle-60 {
     font-size: 14px;
   }
 
-  .mc-card-inner {
+  .mc-card-inner-60 {
     height: 320px;
   }
 
-  .mc-card-image {
+  .mc-card-image-60 {
     height: 180px;
   }
 }

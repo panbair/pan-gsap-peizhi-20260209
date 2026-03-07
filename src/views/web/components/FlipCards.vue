@@ -1,35 +1,35 @@
 <template>
-  <div class="flip-cards-section">
-    <div class="section-header">
-      <h2 class="title">FLIP CARDS</h2>
-      <p class="subtitle">翻转卡片动画</p>
+  <div class="flip-cards-section-58">
+    <div class="section-header-58">
+      <h2 class="title-58">FLIP CARDS</h2>
+      <p class="subtitle-58">翻转卡片动画</p>
     </div>
 
-    <div class="flip-container">
-      <div class="flip-card" v-for="(card, index) in cards" :key="index" @click="toggleFlip(index)">
-        <div class="flip-card-inner" :class="{ flipped: cards[index].flipped }">
-          <div class="flip-card-front">
-            <div class="card-image" :style="{ backgroundImage: `url(${card.image})` }"></div>
-            <div class="card-badge">{{ index + 1 }}</div>
-            <div class="card-front-content">
+    <div class="flip-container-58">
+      <div class="flip-card-58" v-for="(card, index) in cards" :key="index" @click="toggleFlip(index)">
+        <div class="flip-card-inner-58" :class="{ 'flip-flipped-58': cards[index].flipped }">
+          <div class="flip-card-front-58">
+            <div class="card-image-58" :style="{ backgroundImage: `url(${card.image})` }"></div>
+            <div class="card-badge-58">{{ index + 1 }}</div>
+            <div class="card-front-content-58">
               <h3>{{ card.title }}</h3>
               <p>点击翻转</p>
             </div>
           </div>
-          <div class="flip-card-back">
-            <div class="back-content">
+          <div class="flip-card-back-58">
+            <div class="back-content-58">
               <h3>{{ card.title }}</h3>
               <p>{{ card.description }}</p>
-              <button class="back-btn">了解更多</button>
+              <button class="back-btn-58">了解更多</button>
             </div>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="flip-controls">
-      <button class="control-btn" @click="flipAll">全部翻转</button>
-      <button class="control-btn" @click="resetAll">重置</button>
+    <div class="flip-controls-58">
+      <button class="control-btn-58" @click="flipAll">全部翻转</button>
+      <button class="control-btn-58" @click="resetAll">重置</button>
     </div>
   </div>
 </template>
@@ -75,9 +75,9 @@ const resetAll = () => {
 const initAnimations = () => {
   ctx = gsap.context(() => {
     // 标题动画
-    gsap.from('.flip-cards-section .title', {
+    gsap.from('.flip-cards-section-58 .title-58', {
       scrollTrigger: {
-        trigger: '.flip-cards-section',
+        trigger: '.flip-cards-section-58',
         start: 'top 80%',
         toggleActions: 'play none none reverse'
       },
@@ -88,9 +88,9 @@ const initAnimations = () => {
     })
 
     // 副标题动画
-    gsap.from('.flip-cards-section .subtitle', {
+    gsap.from('.flip-cards-section-58 .subtitle-58', {
       scrollTrigger: {
-        trigger: '.flip-cards-section',
+        trigger: '.flip-cards-section-58',
         start: 'top 75%',
         toggleActions: 'play none none reverse'
       },
@@ -102,9 +102,9 @@ const initAnimations = () => {
     })
 
     // 卡片入场
-    gsap.from('.flip-card', {
+    gsap.from('.flip-card-58', {
       scrollTrigger: {
-        trigger: '.flip-container',
+        trigger: '.flip-container-58',
         start: 'top 70%',
         toggleActions: 'play none none reverse'
       },
@@ -118,9 +118,9 @@ const initAnimations = () => {
     })
 
     // 图片渐入
-    gsap.from('.card-image', {
+    gsap.from('.card-image-58', {
       scrollTrigger: {
-        trigger: '.flip-container',
+        trigger: '.flip-container-58',
         start: 'top 65%',
         toggleActions: 'play none none reverse'
       },
@@ -132,9 +132,9 @@ const initAnimations = () => {
     })
 
     // 徽章动画
-    gsap.from('.card-badge', {
+    gsap.from('.card-badge-58', {
       scrollTrigger: {
-        trigger: '.flip-container',
+        trigger: '.flip-container-58',
         start: 'top 65%',
         toggleActions: 'play none none reverse'
       },
@@ -146,9 +146,9 @@ const initAnimations = () => {
     })
 
     // 前面内容动画
-    gsap.from('.card-front-content', {
+    gsap.from('.card-front-content-58', {
       scrollTrigger: {
-        trigger: '.flip-container',
+        trigger: '.flip-container-58',
         start: 'top 60%',
         toggleActions: 'play none none reverse'
       },
@@ -160,9 +160,9 @@ const initAnimations = () => {
     })
 
     // 滚动视差
-    gsap.to('.flip-card', {
+    gsap.to('.flip-card-58', {
       scrollTrigger: {
-        trigger: '.flip-container',
+        trigger: '.flip-container-58',
         start: 'top bottom',
         end: 'bottom top',
         scrub: 1
@@ -172,9 +172,9 @@ const initAnimations = () => {
     })
 
     // 图片滚动缩放
-    gsap.to('.card-image', {
+    gsap.to('.card-image-58', {
       scrollTrigger: {
-        trigger: '.flip-container',
+        trigger: '.flip-container-58',
         start: 'top bottom',
         end: 'bottom top',
         scrub: 1.5
@@ -184,9 +184,9 @@ const initAnimations = () => {
     })
 
     // 按钮动画
-    gsap.from('.control-btn', {
+    gsap.from('.control-btn-58', {
       scrollTrigger: {
-        trigger: '.flip-controls',
+        trigger: '.flip-controls-58',
         start: 'top 90%',
         toggleActions: 'play none none reverse'
       },
@@ -209,7 +209,7 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
-.flip-cards-section {
+.flip-cards-section-58 {
   min-height: 100vh;
   padding: 80px 40px;
   background: linear-gradient(135deg, #0f0f23 0%, #1a1a3e 50%, #2d1b69 100%);
@@ -217,12 +217,12 @@ onUnmounted(() => {
   overflow: hidden;
 }
 
-.section-header {
+.section-header-58 {
   text-align: center;
   margin-bottom: 80px;
 }
 
-.title {
+.title-58 {
   font-size: 56px;
   font-weight: 900;
   color: #fff;
@@ -231,7 +231,7 @@ onUnmounted(() => {
   text-shadow: 0 0 30px rgba(45, 27, 105, 0.5);
 }
 
-.subtitle {
+.subtitle-58 {
   font-size: 18px;
   color: rgba(255, 255, 255, 0.6);
   margin-top: 16px;
@@ -239,7 +239,7 @@ onUnmounted(() => {
   text-transform: uppercase;
 }
 
-.flip-container {
+.flip-container-58 {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 32px;
@@ -248,13 +248,13 @@ onUnmounted(() => {
   padding: 40px 0;
 }
 
-.flip-card {
+.flip-card-58 {
   height: 400px;
   perspective: 1000px;
   cursor: pointer;
 }
 
-.flip-card-inner {
+.flip-card-inner-58 {
   position: relative;
   width: 100%;
   height: 100%;
@@ -263,12 +263,12 @@ onUnmounted(() => {
   transform-style: preserve-3d;
 }
 
-.flip-card-inner.flipped {
+.flip-card-inner-58.flip-flipped-58 {
   transform: rotateY(180deg);
 }
 
-.flip-card-front,
-.flip-card-back {
+.flip-card-front-58,
+.flip-card-back-58 {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -278,13 +278,13 @@ onUnmounted(() => {
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
 }
 
-.flip-card-front {
+.flip-card-front-58 {
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.flip-card-back {
+.flip-card-back-58 {
   background: linear-gradient(135deg, #2d1b69 0%, #5c3d7a 100%);
   transform: rotateY(180deg);
   display: flex;
@@ -292,14 +292,14 @@ onUnmounted(() => {
   justify-content: center;
 }
 
-.card-image {
+.card-image-58 {
   width: 100%;
   height: 280px;
   background-size: cover;
   background-position: center;
 }
 
-.card-badge {
+.card-badge-58 {
   position: absolute;
   top: 20px;
   right: 20px;
@@ -317,42 +317,42 @@ onUnmounted(() => {
   border: 2px solid rgba(45, 27, 105, 0.5);
 }
 
-.card-front-content {
+.card-front-content-58 {
   padding: 20px;
 }
 
-.card-front-content h3 {
+.card-front-content-58 h3 {
   font-size: 24px;
   font-weight: 700;
   color: #fff;
   margin-bottom: 8px;
 }
 
-.card-front-content p {
+.card-front-content-58 p {
   font-size: 14px;
   color: rgba(255, 255, 255, 0.6);
 }
 
-.back-content {
+.back-content-58 {
   padding: 40px;
   text-align: center;
 }
 
-.back-content h3 {
+.back-content-58 h3 {
   font-size: 32px;
   font-weight: 700;
   color: #fff;
   margin-bottom: 16px;
 }
 
-.back-content p {
+.back-content-58 p {
   font-size: 16px;
   color: rgba(255, 255, 255, 0.8);
   line-height: 1.6;
   margin-bottom: 24px;
 }
 
-.back-btn {
+.back-btn-58 {
   padding: 12px 32px;
   background: rgba(255, 255, 255, 0.2);
   border: 2px solid rgba(255, 255, 255, 0.3);
@@ -366,19 +366,19 @@ onUnmounted(() => {
   letter-spacing: 2px;
 }
 
-.back-btn:hover {
+.back-btn-58:hover {
   background: rgba(255, 255, 255, 0.3);
   transform: scale(1.05);
 }
 
-.flip-controls {
+.flip-controls-58 {
   display: flex;
   justify-content: center;
   gap: 24px;
   margin-top: 60px;
 }
 
-.control-btn {
+.control-btn-58 {
   padding: 16px 40px;
   background: linear-gradient(135deg, #2d1b69 0%, #5c3d7a 100%);
   border: none;
@@ -393,26 +393,26 @@ onUnmounted(() => {
   box-shadow: 0 10px 30px rgba(45, 27, 105, 0.3);
 }
 
-.control-btn:hover {
+.control-btn-58:hover {
   transform: translateY(-3px);
   box-shadow: 0 15px 40px rgba(45, 27, 105, 0.4);
 }
 
 @media (max-width: 768px) {
-  .title {
+  .title-58 {
     font-size: 32px;
     letter-spacing: 3px;
   }
 
-  .subtitle {
+  .subtitle-58 {
     font-size: 14px;
   }
 
-  .flip-container {
+  .flip-container-58 {
     gap: 24px;
   }
 
-  .flip-card {
+  .flip-card-58 {
     height: 350px;
   }
 }

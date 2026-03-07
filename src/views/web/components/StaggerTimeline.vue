@@ -1,24 +1,24 @@
 <template>
-  <div class="stagger-timeline">
-    <div class="stl-container">
-      <h2 class="stl-section-title">错开时间轴</h2>
+  <div class="stagger-timeline-44">
+    <div class="stl-container-44">
+      <h2 class="stl-section-title-44">错开时间轴</h2>
 
-      <div class="stl-timeline-container">
+      <div class="stl-timeline-container-44">
         <div
-          class="stl-timeline-item"
+          class="stl-timeline-item-44"
           v-for="(item, index) in timelineItems"
           :key="index"
-          :class="{ left: index % 2 === 0, right: index % 2 === 1 }"
+          :class="{ 'stl-left-44': index % 2 === 0, 'stl-right-44': index % 2 === 1 }"
           ref="items"
         >
-          <div class="stl-timeline-dot"></div>
-          <div class="stl-timeline-content">
-            <div class="stl-content-inner">
+          <div class="stl-timeline-dot-44"></div>
+          <div class="stl-timeline-content-44">
+            <div class="stl-content-inner-44">
               <img :src="item.image" :alt="item.title" />
-              <div class="stl-content-info">
-                <span class="stl-content-year">{{ item.year }}</span>
-                <h3 class="stl-content-title">{{ item.title }}</h3>
-                <p class="stl-content-desc">{{ item.desc }}</p>
+              <div class="stl-content-info-44">
+                <span class="stl-content-year-44">{{ item.year }}</span>
+                <h3 class="stl-content-title-44">{{ item.title }}</h3>
+                <p class="stl-content-desc-44">{{ item.desc }}</p>
               </div>
             </div>
           </div>
@@ -58,9 +58,9 @@ let ctx: gsap.Context
 onMounted(() => {
   ctx = gsap.context(() => {
     // 标题动画
-    gsap.from('.stl-section-title', {
+    gsap.from('.stl-section-title-44', {
       scrollTrigger: {
-        trigger: '.stl-section-title',
+        trigger: '.stl-section-title-44',
         start: 'top 90%'
       },
       y: 50,
@@ -72,7 +72,7 @@ onMounted(() => {
     // 时间轴入场 - 错开动画
     gsap.from(items.value, {
       scrollTrigger: {
-        trigger: '.stl-timeline-container',
+        trigger: '.stl-timeline-container-44',
         start: 'top 80%'
       },
       y: 100,
@@ -84,9 +84,9 @@ onMounted(() => {
     })
 
     // 时间轴点动画 - 错开
-    gsap.from('.stl-timeline-dot', {
+    gsap.from('.stl-timeline-dot-44', {
       scrollTrigger: {
-        trigger: '.stl-timeline-container',
+        trigger: '.stl-timeline-container-44',
         start: 'top 85%'
       },
       scale: 0,
@@ -96,12 +96,12 @@ onMounted(() => {
     })
 
     items.value.forEach((item, index) => {
-      const content = item.querySelector('.stl-content-inner') as HTMLElement
+      const content = item.querySelector('.stl-content-inner-44') as HTMLElement
       const img = item.querySelector('img') as HTMLElement
-      const info = item.querySelector('.stl-content-info') as HTMLElement
-      const year = item.querySelector('.stl-content-year') as HTMLElement
-      const title = item.querySelector('.stl-content-title') as HTMLElement
-      const desc = item.querySelector('.stl-content-desc') as HTMLElement
+      const info = item.querySelector('.stl-content-info-44') as HTMLElement
+      const year = item.querySelector('.stl-content-year-44') as HTMLElement
+      const title = item.querySelector('.stl-content-title-44') as HTMLElement
+      const desc = item.querySelector('.stl-content-desc-44') as HTMLElement
 
       // 内容错开入场
       gsap.fromTo(content,
@@ -204,7 +204,7 @@ onUnmounted(() => {
 </script>
 
 <style scoped lang="scss">
-.stagger-timeline {
+.stagger-timeline-44 {
   min-height: 180vh;
   padding: 100px 0;
   background: linear-gradient(180deg, #0f0f23 0%, #1a1a3e 50%, #0f0f23 100%);
@@ -224,7 +224,7 @@ onUnmounted(() => {
   }
 }
 
-.stl-container {
+.stl-container-44 {
   max-width: 1400px;
   margin: 0 auto;
   padding: 0 40px;
@@ -232,7 +232,7 @@ onUnmounted(() => {
   z-index: 1;
 }
 
-.stl-section-title {
+.stl-section-title-44 {
   text-align: center;
   font-size: 3.5rem;
   font-weight: 800;
@@ -255,23 +255,23 @@ onUnmounted(() => {
   }
 }
 
-.stl-timeline-container {
+.stl-timeline-container-44 {
   position: relative;
   padding: 40px 0;
 }
 
-.stl-timeline-item {
+.stl-timeline-item-44 {
   position: relative;
   margin-bottom: 80px;
   display: flex;
   align-items: center;
 
-  &.left {
+  &.stl-left-44 {
     justify-content: flex-start;
     padding-right: 50%;
   }
 
-  &.right {
+  &.stl-right-44 {
     justify-content: flex-end;
     padding-left: 50%;
   }
@@ -281,7 +281,7 @@ onUnmounted(() => {
   }
 }
 
-.stl-timeline-dot {
+.stl-timeline-dot-44 {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
@@ -293,12 +293,12 @@ onUnmounted(() => {
   z-index: 2;
 }
 
-.stl-timeline-content {
+.stl-timeline-content-44 {
   width: 45%;
   padding: 0 40px;
 }
 
-.stl-content-inner {
+.stl-content-inner-44 {
   background: #fff;
   border-radius: 20px;
   overflow: hidden;
@@ -311,17 +311,17 @@ onUnmounted(() => {
   }
 }
 
-.stl-content-inner img {
+.stl-content-inner-44 img {
   width: 100%;
   height: 250px;
   object-fit: cover;
 }
 
-.stl-content-info {
+.stl-content-info-44 {
   padding: 25px;
 }
 
-.stl-content-year {
+.stl-content-year-44 {
   display: block;
   font-size: 2.5rem;
   font-weight: 900;
@@ -333,35 +333,35 @@ onUnmounted(() => {
   font-family: 'Arial', sans-serif;
 }
 
-.stl-content-title {
+.stl-content-title-44 {
   font-size: 1.5rem;
   font-weight: 700;
   color: #1a1a2e;
   margin: 0 0 10px;
 }
 
-.stl-content-desc {
+.stl-content-desc-44 {
   font-size: 1rem;
   color: #666;
   margin: 0;
 }
 
 @media (max-width: 768px) {
-  .stl-timeline-item {
-    &.left,
-    &.right {
+  .stl-timeline-item-44 {
+    &.stl-left-44,
+    &.stl-right-44 {
       padding-left: 0;
       padding-right: 0;
       justify-content: flex-start;
     }
   }
 
-  .stl-timeline-content {
+  .stl-timeline-content-44 {
     width: 100%;
     padding-left: 50px;
   }
 
-  .stl-section-title {
+  .stl-section-title-44 {
     font-size: 2rem;
   }
 }

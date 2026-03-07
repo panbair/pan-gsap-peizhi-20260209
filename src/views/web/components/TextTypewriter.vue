@@ -1,11 +1,11 @@
 <template>
-  <section ref="typewriterSection" class="section tt-typewriter-section">
-    <h2 class="tt-section-title">文字动画</h2>
-    <div class="tt-typewriter-container" ref="typewriterContainer">
-      <div class="tt-typewriter-text" ref="typewriterText">
-        <span v-for="(char, index) in textChars" :key="index" class="tt-char">{{ char }}</span>
+  <section ref="typewriterSection" class="section-5 tt-typewriter-section-5">
+    <h2 class="tt-section-title-5">文字动画</h2>
+    <div class="tt-typewriter-container-5" ref="typewriterContainer">
+      <div class="tt-typewriter-text-5" ref="typewriterText">
+        <span v-for="(char, index) in textChars" :key="index" class="tt-char-5">{{ char }}</span>
       </div>
-      <div class="tt-cursor"></div>
+      <div class="tt-cursor-5"></div>
     </div>
   </section>
 </template>
@@ -37,7 +37,7 @@ onUnmounted(() => {
 const initAnimations = () => {
   if (!typewriterText.value) return
 
-  const chars = typewriterText.value.querySelectorAll('.tt-char')
+  const chars = typewriterText.value.querySelectorAll('.tt-char-5')
   gsap.fromTo(chars,
     {
       opacity: 0,
@@ -77,7 +77,7 @@ const initAnimations = () => {
 </script>
 
 <style scoped lang="scss">
-.section {
+.section-5 {
   min-height: 100vh;
   padding: 100px 20px;
   position: relative;
@@ -87,7 +87,7 @@ const initAnimations = () => {
   justify-content: center;
 }
 
-.tt-section-title {
+.tt-section-title-5 {
   font-size: 2.5rem;
   font-weight: bold;
   margin-bottom: 60px;
@@ -98,11 +98,11 @@ const initAnimations = () => {
   text-align: center;
 }
 
-.tt-typewriter-section {
+.tt-typewriter-section-5 {
   background: linear-gradient(180deg, transparent, rgba(79, 172, 254, 0.1), transparent);
 }
 
-.tt-typewriter-container {
+.tt-typewriter-container-5 {
   position: relative;
   padding: 60px;
   background: rgba(255, 255, 255, 0.05);
@@ -111,7 +111,7 @@ const initAnimations = () => {
   backdrop-filter: blur(10px);
 }
 
-.tt-typewriter-text {
+.tt-typewriter-text-5 {
   font-size: 3rem;
   font-weight: bold;
   color: #fff;
@@ -122,11 +122,11 @@ const initAnimations = () => {
   letter-spacing: 5px;
 }
 
-.tt-char {
+.tt-char-5 {
   display: inline-block;
 }
 
-.tt-cursor {
+.tt-cursor-5 {
   position: absolute;
   width: 3px;
   height: 60px;
@@ -140,7 +140,7 @@ const initAnimations = () => {
 }
 
 @media (max-width: 768px) {
-  .tt-typewriter-text {
+  .tt-typewriter-text-5 {
     font-size: 1.8rem;
   }
 }

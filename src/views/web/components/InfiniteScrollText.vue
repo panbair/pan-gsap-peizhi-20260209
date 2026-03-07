@@ -1,22 +1,22 @@
 <template>
-  <section class="infinite-scroll-section">
-    <div class="content">
-      <h2 class="section-title">无限滚动文字</h2>
-      <p class="subtitle">循环滚动的动态文字效果</p>
+  <section class="infinite-scroll-section-17">
+    <div class="content-17">
+      <h2 class="section-title-17">无限滚动文字</h2>
+      <p class="subtitle-17">循环滚动的动态文字效果</p>
 
-      <div class="scroll-container">
-        <div class="scroll-track" ref="track1">
-          <div class="scroll-text" v-for="n in 10" :key="n">CREATIVE DESIGN ✦ </div>
+      <div class="scroll-container-17">
+        <div class="scroll-track-17" ref="track1">
+          <div class="scroll-text-17" v-for="n in 10" :key="n">CREATIVE DESIGN ✦ </div>
         </div>
-        <div class="scroll-track reverse" ref="track2">
-          <div class="scroll-text" v-for="n in 10" :key="n">ANIMATION STUDIO ✦ </div>
+        <div class="scroll-track-17 reverse-17" ref="track2">
+          <div class="scroll-text-17" v-for="n in 10" :key="n">ANIMATION STUDIO ✦ </div>
         </div>
-        <div class="scroll-track" ref="track3">
-          <div class="scroll-text" v-for="n in 10" :key="n">VISUAL EXPERIENCE ✦ </div>
+        <div class="scroll-track-17" ref="track3">
+          <div class="scroll-text-17" v-for="n in 10" :key="n">VISUAL EXPERIENCE ✦ </div>
         </div>
       </div>
 
-      <div class="scroll-indicator">
+      <div class="scroll-indicator-17">
         <p>↓ 继续滚动探索更多 ↓</p>
       </div>
     </div>
@@ -47,7 +47,7 @@ onMounted(() => {
       const duration = 15 + index * 5
 
       // 创建无缝循环
-      const text = track.querySelector('.scroll-text') as HTMLElement
+      const text = track.querySelector('.scroll-text-17') as HTMLElement
       const textWidth = text?.offsetWidth || 0
 
       const tween = gsap.to(track, {
@@ -63,7 +63,7 @@ onMounted(() => {
     // 滚动时加速 - 修改时间轴的速度
     const scrollTl = gsap.timeline({
       scrollTrigger: {
-        trigger: '.infinite-scroll-section',
+        trigger: '.infinite-scroll-section-17',
         start: 'top bottom',
         end: 'bottom top',
         scrub: 1,
@@ -76,14 +76,14 @@ onMounted(() => {
     })
 
     // 文字入场效果
-    gsap.from('.scroll-text', {
+    gsap.from('.scroll-text-17', {
       y: 100,
       opacity: 0,
       rotationX: 90,
       duration: 1,
       stagger: 0.05,
       scrollTrigger: {
-        trigger: '.scroll-container',
+        trigger: '.scroll-container-17',
         start: 'top 80%',
         toggleActions: 'play none none reverse'
       }
@@ -97,7 +97,7 @@ onUnmounted(() => {
 </script>
 
 <style scoped lang="scss">
-.infinite-scroll-section {
+.infinite-scroll-section-17 {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -119,14 +119,14 @@ onUnmounted(() => {
   }
 }
 
-.content {
+.content-17 {
   text-align: center;
   position: relative;
   z-index: 1;
   width: 100%;
 }
 
-.section-title {
+.section-title-17 {
   font-size: clamp(2rem, 4vw, 2.5rem);
   font-weight: 800;
   margin-bottom: 16px;
@@ -136,13 +136,13 @@ onUnmounted(() => {
   background-clip: text;
 }
 
-.subtitle {
+.subtitle-17 {
   font-size: 1.1rem;
   color: #94a3b8;
   margin-bottom: 60px;
 }
 
-.scroll-container {
+.scroll-container-17 {
   display: flex;
   flex-direction: column;
   gap: 30px;
@@ -150,17 +150,17 @@ onUnmounted(() => {
   overflow: hidden;
 }
 
-.scroll-track {
+.scroll-track-17 {
   display: flex;
   gap: 20px;
   width: max-content;
 
-  &.reverse {
+  &.reverse-17 {
     flex-direction: row-reverse;
   }
 }
 
-.scroll-text {
+.scroll-text-17 {
   font-size: clamp(2.5rem, 6vw, 4rem);
   font-weight: 900;
   color: transparent;
@@ -172,7 +172,7 @@ onUnmounted(() => {
   text-shadow: 0 0 40px rgba(167, 139, 250, 0.3);
 }
 
-.scroll-indicator {
+.scroll-indicator-17 {
   color: #94a3b8;
   animation: pulse 2s infinite;
 
@@ -192,7 +192,7 @@ onUnmounted(() => {
 }
 
 @media (max-width: 768px) {
-  .scroll-text {
+  .scroll-text-17 {
     font-size: clamp(1.5rem, 8vw, 2.5rem);
   }
 }

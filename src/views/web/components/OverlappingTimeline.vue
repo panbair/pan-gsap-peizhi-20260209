@@ -1,28 +1,28 @@
 <template>
-  <div class="olt-overlapping-timeline-section">
-    <div class="olt-section-header">
-      <h2 class="olt-title">OVERLAPPING</h2>
-      <p class="olt-subtitle">重叠时间轴动画</p>
+  <div class="olt-overlapping-timeline-section-56">
+    <div class="olt-section-header-56">
+      <h2 class="olt-title-56">OVERLAPPING</h2>
+      <p class="olt-subtitle-56">重叠时间轴动画</p>
     </div>
 
-    <div class="olt-overlapping-container">
-      <div class="olt-overlap-card" v-for="(card, index) in cards" :key="index">
-        <div class="olt-card-visual">
-          <div class="olt-card-image" :style="{ backgroundImage: `url(${card.image})` }"></div>
-          <div class="olt-card-badge">{{ index + 1 }}</div>
+    <div class="olt-overlapping-container-56">
+      <div class="olt-overlap-card-56" v-for="(card, index) in cards" :key="index">
+        <div class="olt-card-visual-56">
+          <div class="olt-card-image-56" :style="{ backgroundImage: `url(${card.image})` }"></div>
+          <div class="olt-card-badge-56">{{ index + 1 }}</div>
         </div>
-        <div class="olt-card-text">
+        <div class="olt-card-text-56">
           <h3>{{ card.title }}</h3>
           <p>{{ card.description }}</p>
         </div>
       </div>
     </div>
 
-    <div class="olt-timeline-controls">
-      <button class="olt-control-btn" @click="playPhase(1)">阶段1</button>
-      <button class="olt-control-btn" @click="playPhase(2)">阶段2</button>
-      <button class="olt-control-btn" @click="playPhase(3)">阶段3</button>
-      <button class="olt-control-btn full" @click="playAll">全部播放</button>
+    <div class="olt-timeline-controls-56">
+      <button class="olt-control-btn-56" @click="playPhase(1)">阶段1</button>
+      <button class="olt-control-btn-56" @click="playPhase(2)">阶段2</button>
+      <button class="olt-control-btn-56" @click="playPhase(3)">阶段3</button>
+      <button class="olt-control-btn-56 full-56" @click="playAll">全部播放</button>
     </div>
   </div>
 </template>
@@ -53,23 +53,23 @@ const createPhase1 = () => {
   const tl = gsap.timeline({ paused: true, defaults: { ease: 'power2.out' } })
 
   // 第一阶段：卡片1和2
-  tl.to('.olt-overlap-card:nth-child(1)', {
+  tl.to('.olt-overlap-card-56:nth-child(1)', {
     scale: 1.1,
     rotation: 5,
     duration: 0.4
   })
-  tl.to('.olt-overlap-card:nth-child(1) .olt-card-image', {
+  tl.to('.olt-overlap-card-56:nth-child(1) .olt-card-image-56', {
     scale: 1.2,
     duration: 0.3
   }, '<') // 同时执行
 
-  tl.to('.olt-overlap-card:nth-child(2)', {
+  tl.to('.olt-overlap-card-56:nth-child(2)', {
     scale: 1.1,
     rotation: -5,
     duration: 0.4
   }, '-=0.2') // 重叠0.2秒
 
-  tl.to('.olt-overlap-card:nth-child(2) .olt-card-image', {
+  tl.to('.olt-overlap-card-56:nth-child(2) .olt-card-image-56', {
     scale: 1.2,
     duration: 0.3
   }, '<')
@@ -81,23 +81,23 @@ const createPhase2 = () => {
   const tl = gsap.timeline({ paused: true, defaults: { ease: 'power2.out' } })
 
   // 第二阶段：卡片3和4
-  tl.to('.olt-overlap-card:nth-child(3)', {
+  tl.to('.olt-overlap-card-56:nth-child(3)', {
     y: -20,
     scale: 1.1,
     duration: 0.4
   })
-  tl.to('.olt-overlap-card:nth-child(3) .olt-card-image', {
+  tl.to('.olt-overlap-card-56:nth-child(3) .olt-card-image-56', {
     scale: 1.15,
     duration: 0.3
   }, '<')
 
-  tl.to('.olt-overlap-card:nth-child(4)', {
+  tl.to('.olt-overlap-card-56:nth-child(4)', {
     y: 20,
     scale: 1.1,
     duration: 0.4
   }, '-=0.2')
 
-  tl.to('.olt-overlap-card:nth-child(4) .olt-card-image', {
+  tl.to('.olt-overlap-card-56:nth-child(4) .olt-card-image-56', {
     scale: 1.15,
     duration: 0.3
   }, '<')
@@ -109,24 +109,24 @@ const createPhase3 = () => {
   const tl = gsap.timeline({ paused: true, defaults: { ease: 'power2.out' } })
 
   // 第三阶段：卡片5和6
-  tl.to('.olt-overlap-card:nth-child(5)', {
+  tl.to('.olt-overlap-card-56:nth-child(5)', {
     rotation: 10,
     scale: 1.1,
     duration: 0.4
   })
-  tl.to('.olt-overlap-card:nth-child(5) .olt-card-badge', {
+  tl.to('.olt-overlap-card-56:nth-child(5) .olt-card-badge-56', {
     scale: 1.5,
     rotation: 45,
     duration: 0.3
   }, '<')
 
-  tl.to('.olt-overlap-card:nth-child(6)', {
+  tl.to('.olt-overlap-card-56:nth-child(6)', {
     rotation: -10,
     scale: 1.1,
     duration: 0.4
   }, '-=0.2')
 
-  tl.to('.olt-overlap-card:nth-child(6) .olt-card-badge', {
+  tl.to('.olt-overlap-card-56:nth-child(6) .olt-card-badge-56', {
     scale: 1.5,
     rotation: -45,
     duration: 0.3
@@ -137,22 +137,22 @@ const createPhase3 = () => {
 
 const createMainTimeline = () => {
   const tl = gsap.timeline({ paused: true, defaults: { ease: 'power2.out' } })
-  
+
   // 主时间轴 - 包含所有阶段
-  tl.from('.olt-overlapping-timeline-section .olt-title', {
+  tl.from('.olt-title-56', {
     y: 60,
     opacity: 0,
     duration: 0.6
   })
 
-  tl.from('.olt-overlapping-timeline-section .olt-subtitle', {
+  tl.from('.olt-subtitle-56', {
     y: 40,
     opacity: 0,
     duration: 0.5
   }, '-=0.3')
 
   // 卡片入场
-  tl.from('.olt-overlap-card', {
+  tl.from('.olt-overlap-card-56', {
     y: 100,
     opacity: 0,
     scale: 0.8,
@@ -160,14 +160,14 @@ const createMainTimeline = () => {
     duration: 0.6
   }, '-=0.2')
 
-  tl.from('.olt-card-image', {
+  tl.from('.olt-card-image-56', {
     scale: 1.5,
     opacity: 0,
     stagger: 0.1,
     duration: 0.5
   }, '-=0.4')
 
-  tl.from('.olt-card-badge', {
+  tl.from('.olt-card-badge-56', {
     scale: 0,
     rotation: -180,
     stagger: 0.1,
@@ -175,7 +175,7 @@ const createMainTimeline = () => {
     ease: 'back.out(1.7)'
   }, '-=0.5')
 
-  tl.from('.olt-card-text', {
+  tl.from('.olt-card-text-56', {
     x: -50,
     opacity: 0,
     stagger: 0.1,
@@ -183,13 +183,13 @@ const createMainTimeline = () => {
   }, '-=0.4')
 
   // 按钮动画
-  tl.from('.olt-control-btn', {
+  tl.from('.olt-control-btn-56', {
     y: 30,
     opacity: 0,
     stagger: 0.08,
     duration: 0.5
   }, '-=0.2')
-  
+
   return tl
 }
 
@@ -227,10 +227,10 @@ const initAnimations = () => {
     phase1Timeline = createPhase1()
     phase2Timeline = createPhase2()
     phase3Timeline = createPhase3()
-    
+
     // 滚动触发
     ScrollTrigger.create({
-      trigger: '.olt-overlapping-timeline-section',
+      trigger: '.olt-overlapping-timeline-section-56',
       start: 'top 70%',
       onEnter: () => {
         mainTimeline?.play()
@@ -241,9 +241,9 @@ const initAnimations = () => {
     })
 
     // 滚动视差
-    gsap.to('.olt-card-image', {
+    gsap.to('.olt-card-image-56', {
       scrollTrigger: {
-        trigger: '.olt-overlapping-container',
+        trigger: '.olt-overlapping-container-56',
         start: 'top bottom',
         end: 'bottom top',
         scrub: 1
@@ -253,15 +253,15 @@ const initAnimations = () => {
     })
 
     // 悬停效果 - 使用gsap.context自动清理
-    gsap.utils.toArray('.olt-overlap-card').forEach((card: Element) => {
+    gsap.utils.toArray('.olt-overlap-card-56').forEach((card: Element) => {
       const cardEl = card as HTMLElement
       cardEl.addEventListener('mouseenter', () => {
-        gsap.to(cardEl.querySelector('.olt-card-image'), {
+        gsap.to(cardEl.querySelector('.olt-card-image-56'), {
           scale: 1.25,
           duration: 0.4,
           ease: 'power2.out'
         })
-        gsap.to(cardEl.querySelector('.olt-card-badge'), {
+        gsap.to(cardEl.querySelector('.olt-card-badge-56'), {
           scale: 1.6,
           rotation: 90,
           duration: 0.3,
@@ -270,12 +270,12 @@ const initAnimations = () => {
       })
 
       cardEl.addEventListener('mouseleave', () => {
-        gsap.to(cardEl.querySelector('.olt-card-image'), {
+        gsap.to(cardEl.querySelector('.olt-card-image-56'), {
           scale: 1,
           duration: 0.4,
           ease: 'power2.out'
         })
-        gsap.to(cardEl.querySelector('.olt-card-badge'), {
+        gsap.to(cardEl.querySelector('.olt-card-badge-56'), {
           scale: 1,
           rotation: 0,
           duration: 0.3,
@@ -301,7 +301,7 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
-.overlapping-timeline-section {
+.overlapping-timeline-section-56 {
   min-height: 100vh;
   padding: 80px 40px;
   background: linear-gradient(135deg, #0d1b2a 0%, #1b263b 50%, #415a77 100%);
@@ -309,12 +309,12 @@ onUnmounted(() => {
   overflow: hidden;
 }
 
-.olt-section-header {
+.olt-section-header-56 {
   text-align: center;
   margin-bottom: 80px;
 }
 
-.olt-title {
+.olt-title-56 {
   font-size: 56px;
   font-weight: 900;
   color: #fff;
@@ -323,7 +323,7 @@ onUnmounted(() => {
   text-shadow: 0 0 30px rgba(65, 90, 119, 0.5);
 }
 
-.olt-subtitle {
+.olt-subtitle-56 {
   font-size: 18px;
   color: rgba(255, 255, 255, 0.6);
   margin-top: 16px;
@@ -331,7 +331,7 @@ onUnmounted(() => {
   text-transform: uppercase;
 }
 
-.olt-overlapping-container {
+.olt-overlapping-container-56 {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 32px;
@@ -340,7 +340,7 @@ onUnmounted(() => {
   padding: 40px 0;
 }
 
-.olt-overlap-card {
+.olt-overlap-card-56 {
   display: flex;
   gap: 20px;
   padding: 20px;
@@ -351,11 +351,11 @@ onUnmounted(() => {
   transition: box-shadow 0.4s ease;
 }
 
-.olt-overlap-card:hover {
+.olt-overlap-card-56:hover {
   box-shadow: 0 15px 40px rgba(65, 90, 119, 0.3);
 }
 
-.olt-card-visual {
+.olt-card-visual-56 {
   position: relative;
   flex-shrink: 0;
   width: 140px;
@@ -364,7 +364,7 @@ onUnmounted(() => {
   overflow: hidden;
 }
 
-.olt-card-image {
+.olt-card-image-56 {
   width: 100%;
   height: 100%;
   background-size: cover;
@@ -372,7 +372,7 @@ onUnmounted(() => {
   transition: transform 0.4s ease;
 }
 
-.olt-card-badge {
+.olt-card-badge-56 {
   position: absolute;
   top: 8px;
   right: 8px;
@@ -391,27 +391,27 @@ onUnmounted(() => {
   transition: all 0.4s ease;
 }
 
-.olt-card-text {
+.olt-card-text-56 {
   display: flex;
   flex-direction: column;
   justify-content: center;
   flex: 1;
 }
 
-.olt-card-text h3 {
+.olt-card-text-56 h3 {
   font-size: 20px;
   font-weight: 700;
   color: #fff;
   margin-bottom: 6px;
 }
 
-.olt-card-text p {
+.olt-card-text-56 p {
   font-size: 14px;
   color: rgba(255, 255, 255, 0.7);
   line-height: 1.5;
 }
 
-.olt-timeline-controls {
+.olt-timeline-controls-56 {
   display: flex;
   justify-content: center;
   gap: 16px;
@@ -419,7 +419,7 @@ onUnmounted(() => {
   flex-wrap: wrap;
 }
 
-.olt-control-btn {
+.olt-control-btn-56 {
   padding: 14px 32px;
   border: none;
   border-radius: 25px;
@@ -434,38 +434,38 @@ onUnmounted(() => {
   border: 2px solid rgba(255, 255, 255, 0.2);
 }
 
-.olt-control-btn:hover {
+.olt-control-btn-56:hover {
   background: rgba(255, 255, 255, 0.2);
   transform: translateY(-3px);
   box-shadow: 0 10px 30px rgba(65, 90, 119, 0.3);
 }
 
-.olt-control-btn.full {
+.olt-control-btn.full-56 {
   background: linear-gradient(135deg, #415a77 0%, #778da9 100%);
   border-color: transparent;
   box-shadow: 0 10px 30px rgba(65, 90, 119, 0.3);
 }
 
-.olt-control-btn.full:hover {
+.olt-control-btn.full-56:hover {
   box-shadow: 0 15px 40px rgba(65, 90, 119, 0.4);
 }
 
 @media (max-width: 768px) {
-  .olt-title {
+  .olt-title-56 {
     font-size: 32px;
     letter-spacing: 3px;
   }
 
-  .olt-subtitle {
+  .olt-subtitle-56 {
     font-size: 14px;
   }
 
-  .olt-overlap-card {
+  .olt-overlap-card-56 {
     flex-direction: column;
     gap: 12px;
   }
 
-  .olt-card-visual {
+  .olt-card-visual-56 {
     width: 100%;
     height: 180px;
   }

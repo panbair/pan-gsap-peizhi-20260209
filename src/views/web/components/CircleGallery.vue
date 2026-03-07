@@ -1,27 +1,27 @@
 <template>
-  <div class="cg-circle-gallery">
-    <div class="cg-container">
-      <h2 class="cg-section-title">圆形画廊</h2>
+  <div class="cg-circle-gallery-46">
+    <div class="cg-container-46">
+      <h2 class="cg-section-title-46">圆形画廊</h2>
 
-      <div class="cg-circle-container" ref="circleContainer">
+      <div class="cg-circle-container-46" ref="circleContainer">
         <div
-          class="cg-circle-item"
+          class="cg-circle-item-46"
           v-for="(img, index) in images"
           :key="index"
           :style="getItemStyle(index)"
           ref="items"
         >
-          <div class="cg-item-inner">
+          <div class="cg-item-inner-46">
             <img :src="img" :alt="`Image ${index + 1}`" />
-            <div class="cg-item-overlay">
-              <span class="cg-item-number">{{ index + 1 }}</span>
+            <div class="cg-item-overlay-46">
+              <span class="cg-item-number-46">{{ index + 1 }}</span>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="cg-center-circle">
-        <span class="cg-center-text">ROTATE</span>
+      <div class="cg-center-circle-46">
+        <span class="cg-center-text-46">ROTATE</span>
       </div>
     </div>
   </div>
@@ -61,9 +61,9 @@ let ctx: gsap.Context
 onMounted(() => {
   ctx = gsap.context(() => {
     // 标题动画
-    gsap.from('.cg-section-title', {
+    gsap.from('.cg-section-title-46', {
       scrollTrigger: {
-        trigger: '.cg-section-title',
+        trigger: '.cg-section-title-46',
         start: 'top 90%'
       },
       y: 50,
@@ -73,9 +73,9 @@ onMounted(() => {
     })
 
     // 圆形容器入场
-    gsap.from('.cg-circle-container', {
+    gsap.from('.cg-circle-container-46', {
       scrollTrigger: {
-        trigger: '.cg-circle-container',
+        trigger: '.cg-circle-container-46',
         start: 'top 85%'
       },
       scale: 0,
@@ -85,9 +85,9 @@ onMounted(() => {
     })
 
     // 中心圆动画
-    gsap.from('.cg-center-circle', {
+    gsap.from('.cg-center-circle-46', {
       scrollTrigger: {
-        trigger: '.cg-center-circle',
+        trigger: '.cg-center-circle-46',
         start: 'top 85%'
       },
       scale: 0,
@@ -97,10 +97,10 @@ onMounted(() => {
     })
 
     items.value.forEach((item, index) => {
-      const inner = item.querySelector('.cg-item-inner') as HTMLElement
+      const inner = item.querySelector('.cg-item-inner-46') as HTMLElement
       const img = item.querySelector('img') as HTMLElement
-      const overlay = item.querySelector('.cg-item-overlay') as HTMLElement
-      const number = item.querySelector('.cg-item-number') as HTMLElement
+      const overlay = item.querySelector('.cg-item-overlay-46') as HTMLElement
+      const number = item.querySelector('.cg-item-number-46') as HTMLElement
 
       const angle = (index / images.length) * 360
 
@@ -115,7 +115,7 @@ onMounted(() => {
         },
         {
           scrollTrigger: {
-            trigger: '.cg-circle-container',
+            trigger: '.cg-circle-container-46',
             start: 'top 80%'
           },
           x: Math.cos(angle * Math.PI / 180) * radius,
@@ -130,10 +130,10 @@ onMounted(() => {
       )
 
       // 滚动时旋转整个圆
-      gsap.to('.cg-circle-container', {
+      gsap.to('.cg-circle-container-46', {
         rotate: 360,
         scrollTrigger: {
-          trigger: '.cg-circle-container',
+          trigger: '.cg-circle-container-46',
           start: 'top 80%',
           end: 'bottom 20%',
           scrub: 1
@@ -194,7 +194,7 @@ onUnmounted(() => {
 </script>
 
 <style scoped lang="scss">
-.cg-circle-gallery {
+.cg-circle-gallery-46 {
   min-height: 120vh;
   padding: 100px 0;
   background: linear-gradient(180deg, #0f0f23 0%, #1a1a3e 50%, #0f0f23 100%);
@@ -217,7 +217,7 @@ onUnmounted(() => {
   }
 }
 
-.cg-container {
+.cg-container-46 {
   width: 100%;
   max-width: 1000px;
   padding: 0 40px;
@@ -225,7 +225,7 @@ onUnmounted(() => {
   z-index: 1;
 }
 
-.cg-section-title {
+.cg-section-title-46 {
   text-align: center;
   font-size: 3.5rem;
   font-weight: 800;
@@ -248,7 +248,7 @@ onUnmounted(() => {
   }
 }
 
-.cg-circle-container {
+.cg-circle-container-46 {
   position: relative;
   width: 100%;
   height: 700px;
@@ -258,7 +258,7 @@ onUnmounted(() => {
   perspective: 1000px;
 }
 
-.cg-circle-item {
+.cg-circle-item-46 {
   position: absolute;
   width: 200px;
   height: 200px;
@@ -276,7 +276,7 @@ onUnmounted(() => {
   }
 }
 
-.cg-item-inner {
+.cg-item-inner-46 {
   width: 100%;
   height: 100%;
   position: relative;
@@ -290,11 +290,11 @@ img {
   transition: filter 0.3s ease;
 }
 
-.cg-circle-item:hover img {
+.cg-circle-item-46:hover img {
   filter: brightness(1.1) saturate(1.1);
 }
 
-.cg-item-overlay {
+.cg-item-overlay-46 {
   position: absolute;
   top: 0;
   left: 0;
@@ -307,7 +307,7 @@ img {
   pointer-events: none;
 }
 
-.cg-item-number {
+.cg-item-number-46 {
   font-size: 3rem;
   font-weight: 900;
   color: #fff;
@@ -315,11 +315,13 @@ img {
   font-family: 'Arial', sans-serif;
 }
 
-.cg-center-circle {
+.cg-center-circle-46 {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
   width: 150px;
   height: 150px;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -331,7 +333,7 @@ img {
   z-index: 5;
 }
 
-.cg-center-text {
+.cg-center-text-46 {
   font-size: 1.5rem;
   font-weight: 800;
   color: #fff;
@@ -339,21 +341,21 @@ img {
 }
 
 @media (max-width: 768px) {
-  .cg-circle-item {
+  .cg-circle-item-46 {
     width: 120px;
     height: 120px;
   }
 
-  .cg-center-circle {
+  .cg-center-circle-46 {
     width: 100px;
     height: 100px;
   }
 
-  .cg-item-number {
+  .cg-item-number-46 {
     font-size: 2rem;
   }
 
-  .cg-section-title {
+  .cg-section-title-46 {
     font-size: 2rem;
   }
 }

@@ -1,22 +1,22 @@
 <template>
-  <div class="dp-diagonal-parallax">
-    <div class="dp-container">
-      <h2 class="dp-section-title">对角视差</h2>
+  <div class="dp-diagonal-parallax-35">
+    <div class="dp-container-35">
+      <h2 class="dp-section-title-35">对角视差</h2>
 
-      <div class="dp-parallax-grid">
+      <div class="dp-parallax-grid-35">
         <div
-          class="dp-parallax-card"
+          class="dp-parallax-card-35"
           v-for="(img, index) in images"
           :key="index"
           :class="`dp-card-${index}`"
           ref="items"
         >
-          <div class="dp-card-wrapper">
+          <div class="dp-card-wrapper-35">
             <img :src="img" :alt="`Image ${index + 1}`" />
-            <div class="dp-card-overlay">
-              <span class="dp-card-index">{{ index + 1 }}</span>
-              <h3 class="dp-card-heading">Card {{ index + 1 }}</h3>
-              <p class="dp-card-text">对角滚动视差效果</p>
+            <div class="dp-card-overlay-35">
+              <span class="dp-card-index-35">{{ index + 1 }}</span>
+              <h3 class="dp-card-heading-35">Card {{ index + 1 }}</h3>
+              <p class="dp-card-text-35">对角滚动视差效果</p>
             </div>
           </div>
         </div>
@@ -47,9 +47,9 @@ let ctx: gsap.Context
 onMounted(() => {
   ctx = gsap.context(() => {
     // 标题动画
-    gsap.from('.dp-section-title', {
+    gsap.from('.dp-section-title-35', {
       scrollTrigger: {
-        trigger: '.dp-section-title',
+        trigger: '.dp-section-title-35',
         start: 'top 90%'
       },
       y: 60,
@@ -61,10 +61,10 @@ onMounted(() => {
 
     items.value.forEach((item, index) => {
       const img = item.querySelector('img') as HTMLElement
-      const overlay = item.querySelector('.dp-card-overlay') as HTMLElement
-      const cardIndex = item.querySelector('.dp-card-index') as HTMLElement
-      const heading = item.querySelector('.dp-card-heading') as HTMLElement
-      const text = item.querySelector('.dp-card-text') as HTMLElement
+      const overlay = item.querySelector('.dp-card-overlay-35') as HTMLElement
+      const cardIndex = item.querySelector('.dp-card-index-35') as HTMLElement
+      const heading = item.querySelector('.dp-card-heading-35') as HTMLElement
+      const text = item.querySelector('.dp-card-text-35') as HTMLElement
 
       // 对角入场动画
       const xOffset = index % 2 === 0 ? -100 : 100
@@ -188,12 +188,12 @@ onMounted(() => {
     })
 
     // 整体网格轻微旋转
-    gsap.fromTo('.dp-parallax-grid',
+    gsap.fromTo('.dp-parallax-grid-35',
       { rotateX: 0 },
       {
         rotateX: 3,
         scrollTrigger: {
-          trigger: '.dp-parallax-grid',
+          trigger: '.dp-parallax-grid-35',
           start: 'top 100%',
           end: 'bottom 0%',
           scrub: 1
@@ -210,7 +210,7 @@ onUnmounted(() => {
 </script>
 
 <style scoped lang="scss">
-.dp-diagonal-parallax {
+.dp-diagonal-parallax-35 {
   min-height: 180vh;
   padding: 100px 0;
   background: linear-gradient(180deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
@@ -231,7 +231,7 @@ onUnmounted(() => {
   }
 }
 
-.dp-container {
+.dp-container-35 {
   max-width: 1400px;
   margin: 0 auto;
   padding: 0 40px;
@@ -239,7 +239,7 @@ onUnmounted(() => {
   z-index: 1;
 }
 
-.dp-section-title {
+.dp-section-title-35 {
   text-align: center;
   font-size: 3.5rem;
   font-weight: 800;
@@ -262,7 +262,7 @@ onUnmounted(() => {
   }
 }
 
-.dp-parallax-grid {
+.dp-parallax-grid-35 {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 40px;
@@ -270,7 +270,7 @@ onUnmounted(() => {
   perspective: 1000px;
 }
 
-.dp-parallax-card {
+.dp-parallax-card-35 {
   position: relative;
   height: 380px;
   border-radius: 20px;
@@ -285,7 +285,7 @@ onUnmounted(() => {
   }
 }
 
-.dp-card-wrapper {
+.dp-card-wrapper-35 {
   width: 100%;
   height: 100%;
   position: relative;
@@ -299,11 +299,11 @@ img {
   transition: filter 0.3s ease;
 }
 
-.dp-parallax-card:hover img {
+.dp-parallax-card-35:hover img {
   filter: brightness(1.1);
 }
 
-.dp-card-overlay {
+.dp-card-overlay-35 {
   position: absolute;
   top: 0;
   left: 0;
@@ -317,7 +317,7 @@ img {
   pointer-events: none;
 }
 
-.dp-card-index {
+.dp-card-index-35 {
   font-size: 4rem;
   font-weight: 900;
   background: linear-gradient(135deg, #48dbfb 0%, #0abde3 100%);
@@ -329,31 +329,31 @@ img {
   opacity: 0.9;
 }
 
-.dp-card-heading {
+.dp-card-heading-35 {
   font-size: 1.6rem;
   font-weight: 700;
   color: #fff;
   margin: 0 0 10px;
 }
 
-.dp-card-text {
+.dp-card-text-35 {
   font-size: 1rem;
   color: rgba(255, 255, 255, 0.8);
   margin: 0;
 }
 
 @media (max-width: 1024px) {
-  .dp-parallax-grid {
+  .dp-parallax-grid-35 {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 640px) {
-  .dp-parallax-grid {
+  .dp-parallax-grid-35 {
     grid-template-columns: 1fr;
   }
 
-  .dp-section-title {
+  .dp-section-title-35 {
     font-size: 2rem;
   }
 }

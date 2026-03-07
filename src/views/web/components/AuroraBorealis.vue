@@ -1,39 +1,39 @@
 <template>
-  <section class="aurora-section">
-    <div class="content">
-      <h2 class="section-title">极光绚丽</h2>
-      <p class="subtitle">大自然最壮丽的光之舞</p>
+  <section class="aurora-section-23">
+    <div class="content-23">
+      <h2 class="section-title-23">极光绚丽</h2>
+      <p class="subtitle-23">大自然最壮丽的光之舞</p>
 
-      <div class="aurora-container" ref="auroraContainer">
-        <div class="aurora-sky">
-          <div class="star" v-for="n in 150" :key="n"
+      <div class="aurora-container-23" ref="auroraContainer">
+        <div class="aurora-sky-23">
+          <div class="star-23" v-for="n in 150" :key="n"
                :style="getStarStyle(n)"></div>
         </div>
 
-        <div class="aurora-waves">
-          <div class="wave wave-1" ref="wave1">
-            <div class="wave-segment" v-for="n in 50" :key="n"
+        <div class="aurora-waves-23">
+          <div class="wave-23 wave-1" ref="wave1">
+            <div class="wave-segment-23" v-for="n in 50" :key="n"
                  :style="getWaveSegmentStyle(n, 'wave1')"></div>
           </div>
-          <div class="wave wave-2" ref="wave2">
-            <div class="wave-segment" v-for="n in 50" :key="n"
+          <div class="wave-23 wave-2" ref="wave2">
+            <div class="wave-segment-23" v-for="n in 50" :key="n"
                  :style="getWaveSegmentStyle(n, 'wave2')"></div>
           </div>
-          <div class="wave wave-3" ref="wave3">
-            <div class="wave-segment" v-for="n in 50" :key="n"
+          <div class="wave-23 wave-3" ref="wave3">
+            <div class="wave-segment-23" v-for="n in 50" :key="n"
                  :style="getWaveSegmentStyle(n, 'wave3')"></div>
           </div>
         </div>
 
-        <div class="aurora-landscape">
-          <div class="mountain mountain-1" ref="mountain1"></div>
-          <div class="mountain mountain-2" ref="mountain2"></div>
-          <div class="mountain mountain-3" ref="mountain3"></div>
+        <div class="aurora-landscape-23">
+          <div class="mountain-23 mountain-1" ref="mountain1"></div>
+          <div class="mountain-23 mountain-2" ref="mountain2"></div>
+          <div class="mountain-23 mountain-3" ref="mountain3"></div>
         </div>
 
-        <div class="aurora-reflection">
-          <div class="reflection-wave wave-ref-1"></div>
-          <div class="reflection-wave wave-ref-2"></div>
+        <div class="aurora-reflection-23">
+          <div class="reflection-wave-23 wave-ref-1"></div>
+          <div class="reflection-wave-23 wave-ref-2"></div>
         </div>
       </div>
     </div>
@@ -79,7 +79,7 @@ let ctx: gsap.Context
 onMounted(() => {
   ctx = gsap.context(() => {
     // 星星闪烁
-    gsap.to('.star', {
+    gsap.to('.star-23', {
       opacity: 0.2,
       duration: 1,
       repeat: -1,
@@ -89,7 +89,7 @@ onMounted(() => {
     })
 
     // 极光波浪动画
-    gsap.to('.wave-1', {
+    gsap.to('.wave-23.wave-1', {
       x: '-10%',
       rotation: -5,
       duration: 8,
@@ -98,7 +98,7 @@ onMounted(() => {
       ease: 'sine.inOut'
     })
 
-    gsap.to('.wave-2', {
+    gsap.to('.wave-23.wave-2', {
       x: '10%',
       rotation: 5,
       duration: 10,
@@ -108,7 +108,7 @@ onMounted(() => {
       delay: 0.5
     })
 
-    gsap.to('.wave-3', {
+    gsap.to('.wave-23.wave-3', {
       x: '-5%',
       rotation: 3,
       duration: 12,
@@ -119,7 +119,7 @@ onMounted(() => {
     })
 
     // 波段脉动
-    gsap.to('.wave-segment', {
+    gsap.to('.wave-segment-23', {
       scaleY: 1.5,
       opacity: 0.7,
       duration: 2,
@@ -130,25 +130,25 @@ onMounted(() => {
     })
 
     // 山脉入场
-    gsap.from('.mountain', {
+    gsap.from('.mountain-23', {
       y: 300,
       opacity: 0,
       duration: 1.5,
       stagger: 0.3,
       ease: 'power3.out',
       scrollTrigger: {
-        trigger: '.aurora-landscape',
+        trigger: '.aurora-landscape-23',
         start: 'top 85%',
         toggleActions: 'play none none reverse'
       }
     })
 
     // 滚动时极光变化
-    gsap.to('.aurora-waves', {
+    gsap.to('.aurora-waves-23', {
       y: 50,
       duration: 1,
       scrollTrigger: {
-        trigger: '.aurora-container',
+        trigger: '.aurora-container-23',
         start: 'top bottom',
         end: 'bottom top',
         scrub: 1
@@ -156,7 +156,7 @@ onMounted(() => {
     })
 
     // 颜色变换
-    gsap.to('.wave-segment', {
+    gsap.to('.wave-segment-23', {
       filter: 'hue-rotate(60deg)',
       duration: 3,
       repeat: -1,
@@ -165,7 +165,7 @@ onMounted(() => {
     })
 
     // 倒影动画
-    gsap.to('.reflection-wave', {
+    gsap.to('.reflection-wave-23', {
       y: 20,
       opacity: 0.3,
       duration: 2,
@@ -175,33 +175,33 @@ onMounted(() => {
     })
 
     // 滚动时山脉移动
-    gsap.to('.mountain-1', {
+    gsap.to('.mountain-23.mountain-1', {
       x: -30,
       duration: 1,
       scrollTrigger: {
-        trigger: '.aurora-container',
+        trigger: '.aurora-container-23',
         start: 'top bottom',
         end: 'bottom top',
         scrub: 1
       }
     })
 
-    gsap.to('.mountain-2', {
+    gsap.to('.mountain-23.mountain-2', {
       x: 20,
       duration: 1,
       scrollTrigger: {
-        trigger: '.aurora-container',
+        trigger: '.aurora-container-23',
         start: 'top bottom',
         end: 'bottom top',
         scrub: 1
       }
     })
 
-    gsap.to('.mountain-3', {
+    gsap.to('.mountain-23.mountain-3', {
       x: -15,
       duration: 1,
       scrollTrigger: {
-        trigger: '.aurora-container',
+        trigger: '.aurora-container-23',
         start: 'top bottom',
         end: 'bottom top',
         scrub: 1
@@ -216,7 +216,7 @@ onUnmounted(() => {
 </script>
 
 <style scoped lang="scss">
-.aurora-section {
+.aurora-section-23 {
   min-height: 100vh;
   padding: 60px 20px;
   position: relative;
@@ -224,11 +224,11 @@ onUnmounted(() => {
   background: linear-gradient(180deg, #0a0a1a 0%, #0a0a2a 40%, #0a1a2a 100%);
 }
 
-.content {
+.content-23 {
   text-align: center;
 }
 
-.section-title {
+.section-title-23 {
   font-size: clamp(2rem, 4vw, 2.5rem);
   font-weight: 800;
   margin-bottom: 16px;
@@ -238,13 +238,13 @@ onUnmounted(() => {
   background-clip: text;
 }
 
-.subtitle {
+.subtitle-23 {
   font-size: 1.1rem;
   color: #94a3b8;
   margin-bottom: 40px;
 }
 
-.aurora-container {
+.aurora-container-23 {
   position: relative;
   width: 100%;
   height: 600px;
@@ -254,13 +254,13 @@ onUnmounted(() => {
   box-shadow: 0 0 60px rgba(74, 222, 128, 0.2);
 }
 
-.aurora-sky {
+.aurora-sky-23 {
   position: absolute;
   inset: 0;
   background: linear-gradient(180deg, #0a0a1a 0%, #0a0a2a 60%, #0a1a2a 100%);
 }
 
-.star {
+.star-23 {
   position: absolute;
   width: 2px;
   height: 2px;
@@ -280,7 +280,7 @@ onUnmounted(() => {
   }
 }
 
-.aurora-waves {
+.aurora-waves-23 {
   position: absolute;
   top: 0;
   left: 0;
@@ -293,14 +293,14 @@ onUnmounted(() => {
   overflow: hidden;
 }
 
-.wave {
+.wave-23 {
   display: flex;
   align-items: flex-end;
   height: 80px;
   gap: 4px;
 }
 
-.wave-segment {
+.wave-segment-23 {
   flex: 1;
   height: 60%;
   border-radius: 50% 50% 0 0;
@@ -319,7 +319,7 @@ onUnmounted(() => {
   }
 }
 
-.aurora-landscape {
+.aurora-landscape-23 {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -328,7 +328,7 @@ onUnmounted(() => {
   overflow: hidden;
 }
 
-.mountain {
+.mountain-23 {
   position: absolute;
   bottom: 0;
   border-radius: 50% 50% 0 0;
@@ -354,7 +354,7 @@ onUnmounted(() => {
   z-index: 1;
 }
 
-.aurora-reflection {
+.aurora-reflection-23 {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -364,7 +364,7 @@ onUnmounted(() => {
   pointer-events: none;
 }
 
-.reflection-wave {
+.reflection-wave-23 {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -387,15 +387,15 @@ onUnmounted(() => {
 }
 
 @media (max-width: 768px) {
-  .aurora-container {
+  .aurora-container-23 {
     height: 400px;
   }
 
-  .aurora-waves {
+  .aurora-waves-23 {
     height: 250px;
   }
 
-  .wave {
+  .wave-23 {
     height: 60px;
   }
 }

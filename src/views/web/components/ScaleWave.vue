@@ -1,21 +1,21 @@
 <template>
-  <div class="sw-scale-wave">
-    <div class="sw-container">
-      <h2 class="sw-section-title">缩放波浪</h2>
+  <div class="sw-scale-wave-33">
+    <div class="sw-container-33">
+      <h2 class="sw-section-title-33">缩放波浪</h2>
 
-      <div class="sw-wave-container">
+      <div class="sw-wave-container-33">
         <div
-          class="sw-wave-item"
+          class="sw-wave-item-33"
           v-for="(img, index) in images"
           :key="index"
           ref="items"
           :style="{ transform: getItemStyle(index) }"
         >
-          <div class="sw-item-wrapper">
+          <div class="sw-item-wrapper-33">
             <img :src="img" :alt="`Image ${index + 1}`" />
-            <div class="sw-item-overlay">
-              <span class="sw-item-index">{{ index + 1 }}</span>
-              <h3 class="sw-item-name">{{ ['探索', '创造', '设计', '灵感', '艺术', '未来'][index] }}</h3>
+            <div class="sw-item-overlay-33">
+              <span class="sw-item-index-33">{{ index + 1 }}</span>
+              <h3 class="sw-item-name-33">{{ ['探索', '创造', '设计', '灵感', '艺术', '未来'][index] }}</h3>
             </div>
           </div>
         </div>
@@ -56,9 +56,9 @@ let ctx: gsap.Context
 onMounted(() => {
   ctx = gsap.context(() => {
     // 标题动画
-    gsap.from('.sw-section-title', {
+    gsap.from('.sw-section-title-33', {
       scrollTrigger: {
-        trigger: '.sw-section-title',
+        trigger: '.sw-section-title-33',
         start: 'top 90%'
       },
       y: 60,
@@ -68,9 +68,9 @@ onMounted(() => {
     })
 
     // 容器入场
-    gsap.from('.sw-wave-container', {
+    gsap.from('.sw-wave-container-33', {
       scrollTrigger: {
-        trigger: '.sw-wave-container',
+        trigger: '.sw-wave-container-33',
         start: 'top 85%'
       },
       opacity: 0,
@@ -81,9 +81,9 @@ onMounted(() => {
 
     items.value.forEach((item, index) => {
       const img = item.querySelector('img') as HTMLElement
-      const overlay = item.querySelector('.sw-item-overlay') as HTMLElement
-      const itemIndex = item.querySelector('.sw-item-index') as HTMLElement
-      const itemName = item.querySelector('.sw-item-name') as HTMLElement
+      const overlay = item.querySelector('.sw-item-overlay-33') as HTMLElement
+      const itemIndex = item.querySelector('.sw-item-index-33') as HTMLElement
+      const itemName = item.querySelector('.sw-item-name-33') as HTMLElement
 
       // 卡片依次入场
       gsap.fromTo(item,
@@ -187,9 +187,9 @@ onMounted(() => {
     })
 
     // 滚动时整体波浪效果
-    gsap.to('.sw-wave-container', {
+    gsap.to('.sw-wave-container-33', {
       scrollTrigger: {
-        trigger: '.sw-wave-container',
+        trigger: '.sw-wave-container-33',
         start: 'top 100%',
         end: 'bottom 0%',
         scrub: 0.5
@@ -205,7 +205,7 @@ onUnmounted(() => {
 </script>
 
 <style scoped lang="scss">
-.sw-scale-wave {
+.sw-scale-wave-33 {
   min-height: 150vh;
   padding: 100px 0;
   background: linear-gradient(180deg, #1e3c72 0%, #2a5298 50%, #1e3c72 100%);
@@ -229,7 +229,7 @@ onUnmounted(() => {
   }
 }
 
-.sw-container {
+.sw-container-33 {
   width: 100%;
   max-width: 1400px;
   padding: 0 40px;
@@ -237,7 +237,7 @@ onUnmounted(() => {
   z-index: 1;
 }
 
-.sw-section-title {
+.sw-section-title-33 {
   text-align: center;
   font-size: 3.5rem;
   font-weight: 800;
@@ -260,7 +260,7 @@ onUnmounted(() => {
   }
 }
 
-.sw-wave-container {
+.sw-wave-container-33 {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -269,7 +269,7 @@ onUnmounted(() => {
   perspective: 1000px;
 }
 
-.sw-wave-item {
+.sw-wave-item-33 {
   width: 220px;
   height: 300px;
   position: relative;
@@ -285,18 +285,18 @@ onUnmounted(() => {
   }
 }
 
-.sw-item-wrapper {
+.sw-item-wrapper-33 {
   width: 100%;
   height: 100%;
   position: relative;
   overflow: hidden;
 }
 
-.sw-wave-item:hover img {
+.sw-wave-item-33:hover img {
   transform: scale(1.1);
 }
 
-.sw-item-overlay {
+.sw-item-overlay-33 {
   position: absolute;
   top: 0;
   left: 0;
@@ -311,7 +311,7 @@ onUnmounted(() => {
   pointer-events: none;
 }
 
-.sw-item-index {
+.sw-item-index-33 {
   font-size: 3.5rem;
   font-weight: 900;
   color: #fff;
@@ -324,7 +324,7 @@ onUnmounted(() => {
   opacity: 0.9;
 }
 
-.sw-item-name {
+.sw-item-name-33 {
   font-size: 1.4rem;
   font-weight: 700;
   color: #fff;
@@ -334,36 +334,36 @@ onUnmounted(() => {
 }
 
 @media (max-width: 1024px) {
-  .sw-wave-container {
+  .sw-wave-container-33 {
     gap: 15px;
   }
 
-  .sw-wave-item {
+  .sw-wave-item-33 {
     width: 160px;
     height: 220px;
   }
 
-  .sw-item-index {
+  .sw-item-index-33 {
     font-size: 2.5rem;
   }
 
-  .sw-item-name {
+  .sw-item-name-33 {
     font-size: 1rem;
   }
 }
 
 @media (max-width: 768px) {
-  .sw-wave-container {
+  .sw-wave-container-33 {
     flex-wrap: wrap;
     gap: 20px;
   }
 
-  .sw-wave-item {
+  .sw-wave-item-33 {
     width: calc(50% - 10px);
     height: 200px;
   }
 
-  .sw-section-title {
+  .sw-section-title-33 {
     font-size: 2rem;
   }
 }

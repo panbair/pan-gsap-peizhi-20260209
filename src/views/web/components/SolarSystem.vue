@@ -1,74 +1,74 @@
 <template>
-  <section class="solar-system-section">
-    <div class="content">
-      <h2 class="ss-section-title">太阳系</h2>
-      <p class="ss-subtitle">行星的轨道之舞</p>
+  <section class="solar-system-section-28">
+    <div class="content-28">
+      <h2 class="ss-section-title-28">太阳系</h2>
+      <p class="ss-subtitle-28">行星的轨道之舞</p>
 
-      <div class="solar-container" ref="solarContainer">
-        <div class="stars-background">
-          <div class="star-bg" v-for="n in 200" :key="n"
+      <div class="solar-container-28" ref="solarContainer">
+        <div class="stars-background-28">
+          <div class="star-bg-28" v-for="n in 200" :key="n"
                :style="getStarBgStyle(n)"></div>
         </div>
 
-        <div class="sun">
-          <div class="sun-core"></div>
-          <div class="sun-corona"></div>
-          <div class="sun-flares">
-            <div class="flare" v-for="n in 12" :key="n"
+        <div class="sun-28">
+          <div class="sun-core-28"></div>
+          <div class="sun-corona-28"></div>
+          <div class="sun-flares-28">
+            <div class="flare-28" v-for="n in 12" :key="n"
                  :style="getFlareStyle(n)"></div>
           </div>
         </div>
 
-        <div class="orbits">
-          <div class="orbit orbit-mercury">
-            <div class="planet mercury">
-              <div class="planet-body"></div>
+        <div class="orbits-28">
+          <div class="orbit-28 orbit-mercury-28">
+            <div class="planet-28 mercury-28">
+              <div class="planet-body-28"></div>
             </div>
           </div>
-          <div class="orbit orbit-venus">
-            <div class="planet venus">
-              <div class="planet-body"></div>
+          <div class="orbit-28 orbit-venus-28">
+            <div class="planet-28 venus-28">
+              <div class="planet-body-28"></div>
             </div>
           </div>
-          <div class="orbit orbit-earth">
-            <div class="planet earth">
-              <div class="planet-body"></div>
-              <div class="moon-orbit">
-                <div class="moon"></div>
+          <div class="orbit-28 orbit-earth-28">
+            <div class="planet-28 earth-28">
+              <div class="planet-body-28"></div>
+              <div class="moon-orbit-28">
+                <div class="moon-28"></div>
               </div>
             </div>
           </div>
-          <div class="orbit orbit-mars">
-            <div class="planet mars">
-              <div class="planet-body"></div>
+          <div class="orbit-28 orbit-mars-28">
+            <div class="planet-28 mars-28">
+              <div class="planet-body-28"></div>
             </div>
           </div>
-          <div class="orbit orbit-jupiter">
-            <div class="planet jupiter">
-              <div class="planet-body"></div>
-              <div class="planet-rings"></div>
+          <div class="orbit-28 orbit-jupiter-28">
+            <div class="planet-28 jupiter-28">
+              <div class="planet-body-28"></div>
+              <div class="planet-rings-28"></div>
             </div>
           </div>
-          <div class="orbit orbit-saturn">
-            <div class="planet saturn">
-              <div class="planet-body"></div>
-              <div class="planet-rings saturn-rings"></div>
+          <div class="orbit-28 orbit-saturn-28">
+            <div class="planet-28 saturn-28">
+              <div class="planet-body-28"></div>
+              <div class="planet-rings-28 saturn-rings-28"></div>
             </div>
           </div>
-          <div class="orbit orbit-uranus">
-            <div class="planet uranus">
-              <div class="planet-body"></div>
+          <div class="orbit-28 orbit-uranus-28">
+            <div class="planet-28 uranus-28">
+              <div class="planet-body-28"></div>
             </div>
           </div>
-          <div class="orbit orbit-neptune">
-            <div class="planet neptune">
-              <div class="planet-body"></div>
+          <div class="orbit-28 orbit-neptune-28">
+            <div class="planet-28 neptune-28">
+              <div class="planet-body-28"></div>
             </div>
           </div>
         </div>
 
-        <div class="asteroid-belt">
-          <div class="asteroid" v-for="n in 50" :key="n"
+        <div class="asteroid-belt-28">
+          <div class="asteroid-28" v-for="n in 50" :key="n"
                :style="getAsteroidStyle(n)"></div>
         </div>
       </div>
@@ -121,7 +121,7 @@ let ctx: gsap.Context
 onMounted(() => {
   ctx = gsap.context(() => {
     // 星星闪烁
-    gsap.to('.star-bg', {
+    gsap.to('.star-bg-28', {
       opacity: 0.2,
       duration: 1,
       repeat: -1,
@@ -131,7 +131,7 @@ onMounted(() => {
     })
 
     // 太阳脉动
-    gsap.to('.sun-core', {
+    gsap.to('.sun-core-28', {
       scale: 1.1,
       duration: 2,
       repeat: -1,
@@ -140,7 +140,7 @@ onMounted(() => {
     })
 
     // 日冕波动
-    gsap.to('.sun-corona', {
+    gsap.to('.sun-corona-28', {
       scale: 1.2,
       opacity: 0.6,
       duration: 3,
@@ -150,7 +150,7 @@ onMounted(() => {
     })
 
     // 太阳耀斑
-    gsap.to('.flare', {
+    gsap.to('.flare-28', {
       scaleY: 1.5,
       duration: 1,
       repeat: -1,
@@ -160,7 +160,7 @@ onMounted(() => {
     })
 
     // 行星轨道旋转
-    gsap.to('.orbit', {
+    gsap.to('.orbit-28', {
       rotation: 360,
       duration: 60,
       repeat: -1,
@@ -168,17 +168,17 @@ onMounted(() => {
     })
 
     // 不同的轨道速度
-    gsap.to('.orbit-mercury', { rotation: 360, duration: 8, repeat: -1, ease: 'none' })
-    gsap.to('.orbit-venus', { rotation: 360, duration: 12, repeat: -1, ease: 'none' })
-    gsap.to('.orbit-earth', { rotation: 360, duration: 16, repeat: -1, ease: 'none' })
-    gsap.to('.orbit-mars', { rotation: 360, duration: 24, repeat: -1, ease: 'none' })
-    gsap.to('.orbit-jupiter', { rotation: 360, duration: 40, repeat: -1, ease: 'none' })
-    gsap.to('.orbit-saturn', { rotation: 360, duration: 50, repeat: -1, ease: 'none' })
-    gsap.to('.orbit-uranus', { rotation: 360, duration: 70, repeat: -1, ease: 'none' })
-    gsap.to('.orbit-neptune', { rotation: 360, duration: 90, repeat: -1, ease: 'none' })
+    gsap.to('.orbit-mercury-28', { rotation: 360, duration: 8, repeat: -1, ease: 'none' })
+    gsap.to('.orbit-venus-28', { rotation: 360, duration: 12, repeat: -1, ease: 'none' })
+    gsap.to('.orbit-earth-28', { rotation: 360, duration: 16, repeat: -1, ease: 'none' })
+    gsap.to('.orbit-mars-28', { rotation: 360, duration: 24, repeat: -1, ease: 'none' })
+    gsap.to('.orbit-jupiter-28', { rotation: 360, duration: 40, repeat: -1, ease: 'none' })
+    gsap.to('.orbit-saturn-28', { rotation: 360, duration: 50, repeat: -1, ease: 'none' })
+    gsap.to('.orbit-uranus-28', { rotation: 360, duration: 70, repeat: -1, ease: 'none' })
+    gsap.to('.orbit-neptune-28', { rotation: 360, duration: 90, repeat: -1, ease: 'none' })
 
     // 月球旋转
-    gsap.to('.moon-orbit', {
+    gsap.to('.moon-orbit-28', {
       rotation: 360,
       duration: 3,
       repeat: -1,
@@ -186,7 +186,7 @@ onMounted(() => {
     })
 
     // 小行星带
-    gsap.to('.asteroid-belt', {
+    gsap.to('.asteroid-belt-28', {
       rotation: 360,
       duration: 20,
       repeat: -1,
@@ -194,7 +194,7 @@ onMounted(() => {
     })
 
     // 行星自转
-    gsap.to('.planet-body', {
+    gsap.to('.planet-body-28', {
       rotation: 360,
       duration: 10,
       repeat: -1,
@@ -203,12 +203,12 @@ onMounted(() => {
     })
 
     // 滚动效果
-    gsap.to('.solar-container', {
+    gsap.to('.solar-container-28', {
       scale: 0.8,
       rotationY: 30,
       duration: 1,
       scrollTrigger: {
-        trigger: '.solar-system-section',
+        trigger: '.solar-system-section-28',
         start: 'top bottom',
         end: 'bottom top',
         scrub: 1
@@ -216,26 +216,26 @@ onMounted(() => {
     })
 
     // 入场动画
-    gsap.from('.sun', {
+    gsap.from('.sun-28', {
       scale: 0,
       opacity: 0,
       duration: 1.5,
       ease: 'elastic.out(1, 0.5)',
       scrollTrigger: {
-        trigger: '.solar-system-section',
+        trigger: '.solar-system-section-28',
         start: 'top 80%',
         toggleActions: 'play none none reverse'
       }
     })
 
-    gsap.from('.planet', {
+    gsap.from('.planet-28', {
       scale: 0,
       opacity: 0,
       duration: 1,
       stagger: 0.2,
       ease: 'back.out',
       scrollTrigger: {
-        trigger: '.solar-system-section',
+        trigger: '.solar-system-section-28',
         start: 'top 70%',
         toggleActions: 'play none none reverse'
       }
@@ -249,7 +249,7 @@ onUnmounted(() => {
 </script>
 
 <style scoped lang="scss">
-.solar-system-section {
+.solar-system-section-28 {
   min-height: 100vh;
   padding: 60px 20px;
   position: relative;
@@ -257,11 +257,11 @@ onUnmounted(() => {
   background: #000;
 }
 
-.content {
+.content-28 {
   text-align: center;
 }
 
-.ss-section-title {
+.ss-section-title-28 {
   font-size: clamp(2rem, 4vw, 2.5rem);
   font-weight: 800;
   margin-bottom: 16px;
@@ -271,13 +271,13 @@ onUnmounted(() => {
   background-clip: text;
 }
 
-.ss-subtitle {
+.ss-subtitle-28 {
   font-size: 1.1rem;
   color: #94a3b8;
   margin-bottom: 40px;
 }
 
-.solar-container {
+.solar-container-28 {
   position: relative;
   width: 100%;
   max-width: 800px;
@@ -287,13 +287,13 @@ onUnmounted(() => {
   overflow: hidden;
 }
 
-.stars-background {
+.stars-background-28 {
   position: absolute;
   inset: 0;
   pointer-events: none;
 }
 
-.star-bg {
+.star-bg-28 {
   position: absolute;
   width: 2px;
   height: 2px;
@@ -311,7 +311,7 @@ onUnmounted(() => {
   }
 }
 
-.sun {
+.sun-28 {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -321,7 +321,7 @@ onUnmounted(() => {
   z-index: 10;
 }
 
-.sun-core {
+.sun-core-28 {
   position: absolute;
   inset: 0;
   background: radial-gradient(circle, #fff 0%, #fbbf24 30%, #f97316 60%, #ef4444 100%);
@@ -329,7 +329,7 @@ onUnmounted(() => {
   box-shadow: 0 0 60px #fbbf24, 0 0 120px #f97316;
 }
 
-.sun-corona {
+.sun-corona-28 {
   position: absolute;
   inset: -20px;
   background: radial-gradient(circle, rgba(251, 191, 36, 0.3), transparent 70%);
@@ -337,12 +337,12 @@ onUnmounted(() => {
   filter: blur(10px);
 }
 
-.sun-flares {
+.sun-flares-28 {
   position: absolute;
   inset: -30px;
 }
 
-.flare {
+.flare-28 {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -364,12 +364,12 @@ onUnmounted(() => {
   }
 }
 
-.orbits {
+.orbits-28 {
   position: absolute;
   inset: 50px;
 }
 
-.orbit {
+.orbit-28 {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -378,47 +378,47 @@ onUnmounted(() => {
   border-radius: 50%;
 }
 
-.orbit-mercury { width: 140px; height: 140px; }
-.orbit-venus { width: 180px; height: 180px; }
-.orbit-earth { width: 240px; height: 240px; }
-.orbit-mars { width: 300px; height: 300px; }
-.orbit-jupiter { width: 400px; height: 400px; }
-.orbit-saturn { width: 500px; height: 500px; }
-.orbit-uranus { width: 600px; height: 600px; }
-.orbit-neptune { width: 700px; height: 700px; }
+.orbit-mercury-28 { width: 140px; height: 140px; }
+.orbit-venus-28 { width: 180px; height: 180px; }
+.orbit-earth-28 { width: 240px; height: 240px; }
+.orbit-mars-28 { width: 300px; height: 300px; }
+.orbit-jupiter-28 { width: 400px; height: 400px; }
+.orbit-saturn-28 { width: 500px; height: 500px; }
+.orbit-uranus-28 { width: 600px; height: 600px; }
+.orbit-neptune-28 { width: 700px; height: 700px; }
 
-.planet {
+.planet-28 {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 
-.mercury { width: 12px; height: 12px; }
-.venus { width: 18px; height: 18px; }
-.earth { width: 20px; height: 20px; }
-.mars { width: 16px; height: 16px; }
-.jupiter { width: 40px; height: 40px; }
-.saturn { width: 35px; height: 35px; }
-.uranus { width: 28px; height: 28px; }
-.neptune { width: 26px; height: 26px; }
+.mercury-28 { width: 12px; height: 12px; }
+.venus-28 { width: 18px; height: 18px; }
+.earth-28 { width: 20px; height: 20px; }
+.mars-28 { width: 16px; height: 16px; }
+.jupiter-28 { width: 40px; height: 40px; }
+.saturn-28 { width: 35px; height: 35px; }
+.uranus-28 { width: 28px; height: 28px; }
+.neptune-28 { width: 26px; height: 26px; }
 
-.planet-body {
+.planet-body-28 {
   width: 100%;
   height: 100%;
   border-radius: 50%;
 }
 
-.mercury .planet-body { background: radial-gradient(circle, #9ca3af, #6b7280); }
-.venus .planet-body { background: radial-gradient(circle, #fbbf24, #f59e0b); }
-.earth .planet-body { background: radial-gradient(circle, #3b82f6, #1d4ed8); }
-.mars .planet-body { background: radial-gradient(circle, #ef4444, #dc2626); }
-.jupiter .planet-body { background: radial-gradient(circle, #d97706, #b45309); }
-.saturn .planet-body { background: radial-gradient(circle, #fcd34d, #f59e0b); }
-.uranus .planet-body { background: radial-gradient(circle, #22d3ee, #0891b2); }
-.neptune .planet-body { background: radial-gradient(circle, #3b82f6, #1e40af); }
+.mercury-28 .planet-body-28 { background: radial-gradient(circle, #9ca3af, #6b7280); }
+.venus-28 .planet-body-28 { background: radial-gradient(circle, #fbbf24, #f59e0b); }
+.earth-28 .planet-body-28 { background: radial-gradient(circle, #3b82f6, #1d4ed8); }
+.mars-28 .planet-body-28 { background: radial-gradient(circle, #ef4444, #dc2626); }
+.jupiter-28 .planet-body-28 { background: radial-gradient(circle, #d97706, #b45309); }
+.saturn-28 .planet-body-28 { background: radial-gradient(circle, #fcd34d, #f59e0b); }
+.uranus-28 .planet-body-28 { background: radial-gradient(circle, #22d3ee, #0891b2); }
+.neptune-28 .planet-body-28 { background: radial-gradient(circle, #3b82f6, #1e40af); }
 
-.moon-orbit {
+.moon-orbit-28 {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -427,7 +427,7 @@ onUnmounted(() => {
   height: 40px;
 }
 
-.moon {
+.moon-28 {
   position: absolute;
   top: 0;
   left: 50%;
@@ -438,7 +438,7 @@ onUnmounted(() => {
   border-radius: 50%;
 }
 
-.planet-rings {
+.planet-rings-28 {
   position: absolute;
   inset: -5px;
   border: 2px solid rgba(252, 211, 77, 0.6);
@@ -446,12 +446,12 @@ onUnmounted(() => {
   transform: rotateX(75deg);
 }
 
-.saturn-rings {
+.saturn-rings-28 {
   inset: -8px;
   border-width: 3px;
 }
 
-.asteroid-belt {
+.asteroid-belt-28 {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -461,14 +461,14 @@ onUnmounted(() => {
   pointer-events: none;
 }
 
-.asteroid {
+.asteroid-28 {
   position: absolute;
   background: #6b7280;
   border-radius: 50%;
 }
 
 @media (max-width: 768px) {
-  .solar-container {
+  .solar-container-28 {
     height: 600px;
   }
 }

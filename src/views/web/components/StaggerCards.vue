@@ -1,26 +1,26 @@
 <template>
-  <div class="stagger-cards">
-    <div class="sc-container">
-      <h2 class="sc-section-title">错开卡片</h2>
+  <div class="stagger-cards-45">
+    <div class="sc-container-45">
+      <h2 class="sc-section-title-45">错开卡片</h2>
 
-      <div class="sc-cards-container">
+      <div class="sc-cards-container-45">
         <div
-          class="sc-card-item"
+          class="sc-card-item-45"
           v-for="(card, index) in cards"
           :key="index"
           ref="items"
         >
-          <div class="sc-card-bg" :style="{ background: card.gradient }"></div>
-          <div class="sc-card-content">
-            <span class="sc-card-number">0{{ index + 1 }}</span>
-            <h3 class="sc-card-title">{{ card.title }}</h3>
-            <p class="sc-card-desc">{{ card.desc }}</p>
-            <div class="sc-card-icon">{{ card.icon }}</div>
+          <div class="sc-card-bg-45" :style="{ background: card.gradient }"></div>
+          <div class="sc-card-content-45">
+            <span class="sc-card-number-45">0{{ index + 1 }}</span>
+            <h3 class="sc-card-title-45">{{ card.title }}</h3>
+            <p class="sc-card-desc-45">{{ card.desc }}</p>
+            <div class="sc-card-icon-45">{{ card.icon }}</div>
           </div>
         </div>
       </div>
 
-      <button class="sc-trigger-btn" @click="triggerStagger">触发错开动画</button>
+      <button class="sc-trigger-btn-45" @click="triggerStagger">触发错开动画</button>
     </div>
   </div>
 </template>
@@ -67,9 +67,9 @@ const triggerStagger = () => {
 onMounted(() => {
   ctx = gsap.context(() => {
     // 标题动画
-    gsap.from('.sc-section-title', {
+    gsap.from('.sc-section-title-45', {
       scrollTrigger: {
-        trigger: '.sc-section-title',
+        trigger: '.sc-section-title-45',
         start: 'top 90%'
       },
       y: 50,
@@ -81,7 +81,7 @@ onMounted(() => {
     // 创建错开动画时间轴
     timeline = gsap.timeline({
       scrollTrigger: {
-        trigger: '.sc-cards-container',
+        trigger: '.sc-cards-container-45',
         start: 'top 80%'
       }
     })
@@ -101,12 +101,12 @@ onMounted(() => {
     })
 
     items.value.forEach((item, index) => {
-      const content = item.querySelector('.sc-card-content') as HTMLElement
-      const number = item.querySelector('.sc-card-number') as HTMLElement
-      const title = item.querySelector('.sc-card-title') as HTMLElement
-      const desc = item.querySelector('.sc-card-desc') as HTMLElement
-      const icon = item.querySelector('.sc-card-icon') as HTMLElement
-      const bg = item.querySelector('.sc-card-bg') as HTMLElement
+      const content = item.querySelector('.sc-card-content-45') as HTMLElement
+      const number = item.querySelector('.sc-card-number-45') as HTMLElement
+      const title = item.querySelector('.sc-card-title-45') as HTMLElement
+      const desc = item.querySelector('.sc-card-desc-45') as HTMLElement
+      const icon = item.querySelector('.sc-card-icon-45') as HTMLElement
+      const bg = item.querySelector('.sc-card-bg-45') as HTMLElement
 
       // 背景错开缩放
       gsap.fromTo(bg,
@@ -146,7 +146,7 @@ onMounted(() => {
           rotate: 0,
           scale: 1,
           scrollTrigger: {
-            trigger: '.sc-cards-container',
+            trigger: '.sc-cards-container-45',
             start: 'top 70%',
             end: 'top 20%',
             scrub: true
@@ -162,7 +162,7 @@ onMounted(() => {
           x: 0,
           opacity: 1,
           scrollTrigger: {
-            trigger: '.sc-cards-container',
+            trigger: '.sc-cards-container-45',
             start: 'top 65%',
             end: 'top 15%',
             scrub: true
@@ -178,7 +178,7 @@ onMounted(() => {
           y: 0,
           opacity: 1,
           scrollTrigger: {
-            trigger: '.sc-cards-container',
+            trigger: '.sc-cards-container-45',
             start: 'top 60%',
             end: 'top 10%',
             scrub: true
@@ -194,7 +194,7 @@ onMounted(() => {
           scale: 1,
           rotate: 0,
           scrollTrigger: {
-            trigger: '.sc-cards-container',
+            trigger: '.sc-cards-container-45',
             start: 'top 55%',
             end: 'top 5%',
             scrub: true
@@ -206,9 +206,9 @@ onMounted(() => {
     })
 
     // 按钮动画
-    gsap.from('.sc-trigger-btn', {
+    gsap.from('.sc-trigger-btn-45', {
       scrollTrigger: {
-        trigger: '.sc-trigger-btn',
+        trigger: '.sc-trigger-btn-45',
         start: 'top 90%'
       },
       scale: 0,
@@ -225,7 +225,7 @@ onUnmounted(() => {
 </script>
 
 <style scoped lang="scss">
-.stagger-cards {
+.stagger-cards-45 {
   min-height: 120vh;
   padding: 100px 0;
   background: linear-gradient(180deg, #1a1a2e 0%, #2d1b69 50%, #1a1a2e 100%);
@@ -246,7 +246,7 @@ onUnmounted(() => {
   }
 }
 
-.sc-container {
+.sc-container-45 {
   max-width: 1400px;
   margin: 0 auto;
   padding: 0 40px;
@@ -254,7 +254,7 @@ onUnmounted(() => {
   z-index: 1;
 }
 
-.sc-section-title {
+.sc-section-title-45 {
   text-align: center;
   font-size: 3.5rem;
   font-weight: 800;
@@ -277,14 +277,14 @@ onUnmounted(() => {
   }
 }
 
-.sc-cards-container {
+.sc-cards-container-45 {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 30px;
   padding: 40px 0;
 }
 
-.sc-card-item {
+.sc-card-item-45 {
   position: relative;
   height: 350px;
   border-radius: 20px;
@@ -299,7 +299,7 @@ onUnmounted(() => {
   }
 }
 
-.sc-card-bg {
+.sc-card-bg-45 {
   position: absolute;
   top: 0;
   left: 0;
@@ -308,7 +308,7 @@ onUnmounted(() => {
   z-index: 1;
 }
 
-.sc-card-content {
+.sc-card-content-45 {
   position: relative;
   z-index: 2;
   height: 100%;
@@ -319,27 +319,27 @@ onUnmounted(() => {
   color: #fff;
 }
 
-.sc-card-number {
+.sc-card-number-45 {
   font-size: 3.5rem;
   font-weight: 900;
   opacity: 0.9;
   font-family: 'Arial', sans-serif;
 }
 
-.sc-card-title {
+.sc-card-title-45 {
   font-size: 1.8rem;
   font-weight: 700;
   margin: 0 0 10px;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
-.sc-card-desc {
+.sc-card-desc-45 {
   font-size: 1rem;
   opacity: 0.9;
   margin: 0;
 }
 
-.sc-card-icon {
+.sc-card-icon-45 {
   font-size: 3rem;
   align-self: flex-end;
   animation: bounce 2s infinite;
@@ -354,7 +354,7 @@ onUnmounted(() => {
   }
 }
 
-.sc-trigger-btn {
+.sc-trigger-btn-45 {
   display: block;
   margin: 60px auto 0;
   padding: 15px 40px;
@@ -379,17 +379,17 @@ onUnmounted(() => {
 }
 
 @media (max-width: 1024px) {
-  .sc-cards-container {
+  .sc-cards-container-45 {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 640px) {
-  .sc-cards-container {
+  .sc-cards-container-45 {
     grid-template-columns: 1fr;
   }
 
-  .sc-section-title {
+  .sc-section-title-45 {
     font-size: 2rem;
   }
 }

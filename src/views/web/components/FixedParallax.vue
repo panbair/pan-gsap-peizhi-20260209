@@ -1,25 +1,25 @@
 <template>
-  <div class="fp-fixed-parallax-section">
-    <div class="fp-section-header">
-      <h2 class="fp-title">FIXED PARALLAX</h2>
-      <p class="fp-subtitle">固定视差效果</p>
+  <div class="fp-fixed-parallax-section-54">
+    <div class="fp-section-header-54">
+      <h2 class="fp-title-54">FIXED PARALLAX</h2>
+      <p class="fp-subtitle-54">固定视差效果</p>
     </div>
 
-    <div class="fp-parallax-spacer"></div>
+    <div class="fp-parallax-spacer-54"></div>
 
-    <div class="fp-fixed-parallax-container">
-      <div class="fp-fixed-card" v-for="(card, index) in cards" :key="index">
-        <div class="fp-card-image" :style="{ backgroundImage: `url(${card.image})` }"></div>
-        <div class="fp-card-info">
-          <div class="fp-card-number">{{ String(index + 1).padStart(2, '0') }}</div>
+    <div class="fp-fixed-parallax-container-54">
+      <div class="fp-fixed-card-54" v-for="(card, index) in cards" :key="index">
+        <div class="fp-card-image-54" :style="{ backgroundImage: `url(${card.image})` }"></div>
+        <div class="fp-card-info-54">
+          <div class="fp-card-number-54">{{ String(index + 1).padStart(2, '0') }}</div>
           <h3>{{ card.title }}</h3>
           <p>{{ card.description }}</p>
         </div>
       </div>
     </div>
 
-    <div class="fp-scroll-progress">
-      <div class="fp-progress-bar"></div>
+    <div class="fp-scroll-progress-54">
+      <div class="fp-progress-bar-54"></div>
     </div>
   </div>
 </template>
@@ -45,9 +45,9 @@ let ctx: gsap.Context
 const initAnimations = () => {
   ctx = gsap.context(() => {
     // 标题渐显
-    gsap.from('.fp-fixed-parallax-section .fp-title', {
+    gsap.from('.fp-fixed-parallax-section-54 .fp-title-54', {
       scrollTrigger: {
-        trigger: '.fp-fixed-parallax-section',
+        trigger: '.fp-fixed-parallax-section-54',
         start: 'top 80%',
         toggleActions: 'play none none reverse'
       },
@@ -58,9 +58,9 @@ const initAnimations = () => {
     })
 
     // 副标题渐显
-    gsap.from('.fp-fixed-parallax-section .fp-subtitle', {
+    gsap.from('.fp-fixed-parallax-section-54 .fp-subtitle-54', {
       scrollTrigger: {
-        trigger: '.fp-fixed-parallax-section',
+        trigger: '.fp-fixed-parallax-section-54',
         start: 'top 75%',
         toggleActions: 'play none none reverse'
       },
@@ -73,7 +73,7 @@ const initAnimations = () => {
 
     // 固定视差容器
     ScrollTrigger.create({
-      trigger: '.fp-fixed-parallax-container',
+      trigger: '.fp-fixed-parallax-container-54',
       start: 'top top',
       end: '+=300%',
       pin: true,
@@ -81,9 +81,9 @@ const initAnimations = () => {
     })
 
     // 卡片入场
-    gsap.from('.fp-fixed-card', {
+    gsap.from('.fp-fixed-card-54', {
       scrollTrigger: {
-        trigger: '.fp-fixed-parallax-container',
+        trigger: '.fp-fixed-parallax-container-54',
         start: 'top top',
         end: '+=100%',
         scrub: 1
@@ -95,9 +95,9 @@ const initAnimations = () => {
     })
 
     // 图片缩放视差
-    gsap.to('.fp-card-image', {
+    gsap.to('.fp-card-image-54', {
       scrollTrigger: {
-        trigger: '.fp-fixed-parallax-container',
+        trigger: '.fp-fixed-parallax-container-54',
         start: 'top top',
         end: '+=200%',
         scrub: 1.5
@@ -107,9 +107,9 @@ const initAnimations = () => {
     })
 
     // 信息滑入
-    gsap.from('.fp-card-info', {
+    gsap.from('.fp-card-info-54', {
       scrollTrigger: {
-        trigger: '.fp-fixed-parallax-container',
+        trigger: '.fp-fixed-parallax-container-54',
         start: 'top top',
         end: '+=50%',
         scrub: 1
@@ -121,9 +121,9 @@ const initAnimations = () => {
     })
 
     // 数字旋转
-    gsap.to('.fp-card-number', {
+    gsap.to('.fp-card-number-54', {
       scrollTrigger: {
-        trigger: '.fp-fixed-parallax-container',
+        trigger: '.fp-fixed-parallax-container-54',
         start: 'top top',
         end: '+=150%',
         scrub: 1
@@ -134,9 +134,9 @@ const initAnimations = () => {
     })
 
     // 卡片交替视差
-    gsap.to('.fp-fixed-card:nth-child(odd)', {
+    gsap.to('.fp-fixed-card-54:nth-child(odd)', {
       scrollTrigger: {
-        trigger: '.fp-fixed-parallax-container',
+        trigger: '.fp-fixed-parallax-container-54',
         start: 'top top',
         end: '+=250%',
         scrub: 1
@@ -145,9 +145,9 @@ const initAnimations = () => {
       ease: 'none'
     })
 
-    gsap.to('.fp-fixed-card:nth-child(even)', {
+    gsap.to('.fp-fixed-card-54:nth-child(even)', {
       scrollTrigger: {
-        trigger: '.fp-fixed-parallax-container',
+        trigger: '.fp-fixed-parallax-container-54',
         start: 'top top',
         end: '+=250%',
         scrub: 1
@@ -157,9 +157,9 @@ const initAnimations = () => {
     })
 
     // 进度条
-    gsap.to('.fp-progress-bar', {
+    gsap.to('.fp-progress-bar-54', {
       scrollTrigger: {
-        trigger: '.fp-fixed-parallax-container',
+        trigger: '.fp-fixed-parallax-container-54',
         start: 'top top',
         end: '+=300%',
         scrub: 0.3
@@ -169,9 +169,9 @@ const initAnimations = () => {
     })
 
     // 进度条渐入
-    gsap.from('.fp-scroll-progress', {
+    gsap.from('.fp-scroll-progress-54', {
       scrollTrigger: {
-        trigger: '.fp-fixed-parallax-container',
+        trigger: '.fp-fixed-parallax-container-54',
         start: 'top top',
         toggleActions: 'play none none reverse'
       },
@@ -182,15 +182,15 @@ const initAnimations = () => {
     })
 
     // 悬停效果 - 使用gsap.utils.toArray自动清理
-    gsap.utils.toArray('.fp-fixed-card').forEach((item: Element) => {
+    gsap.utils.toArray('.fp-fixed-card-54').forEach((item: Element) => {
       const card = item as HTMLElement
       card.addEventListener('mouseenter', () => {
-        gsap.to(card.querySelector('.fp-card-image'), {
+        gsap.to(card.querySelector('.fp-card-image-54'), {
           scale: 1.15,
           duration: 0.4,
           ease: 'power2.out'
         })
-        gsap.to(card.querySelector('.fp-card-number'), {
+        gsap.to(card.querySelector('.fp-card-number-54'), {
           scale: 1.4,
           rotation: 90,
           duration: 0.3,
@@ -199,12 +199,12 @@ const initAnimations = () => {
       })
 
       card.addEventListener('mouseleave', () => {
-        gsap.to(card.querySelector('.fp-card-image'), {
+        gsap.to(card.querySelector('.fp-card-image-54'), {
           scale: 1,
           duration: 0.4,
           ease: 'power2.out'
         })
-        gsap.to(card.querySelector('.fp-card-number'), {
+        gsap.to(card.querySelector('.fp-card-number-54'), {
           scale: 1,
           rotation: 0,
           duration: 0.3,
@@ -226,7 +226,7 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
-.fp-fixed-parallax-section {
+.fp-fixed-parallax-section-54 {
   min-height: 100vh;
   padding: 80px 40px;
   background: linear-gradient(135deg, #0f0f23 0%, #1a1a3e 50%, #2d1b69 100%);
@@ -234,12 +234,12 @@ onUnmounted(() => {
   overflow-x: hidden;
 }
 
-.fp-section-header {
+.fp-section-header-54 {
   text-align: center;
   margin-bottom: 80px;
 }
 
-.fp-title {
+.fp-title-54 {
   font-size: 56px;
   font-weight: 900;
   color: #fff;
@@ -248,7 +248,7 @@ onUnmounted(() => {
   text-shadow: 0 0 30px rgba(45, 27, 105, 0.5);
 }
 
-.fp-subtitle {
+.fp-subtitle-54 {
   font-size: 18px;
   color: rgba(255, 255, 255, 0.6);
   margin-top: 16px;
@@ -256,11 +256,11 @@ onUnmounted(() => {
   text-transform: uppercase;
 }
 
-.fp-parallax-spacer {
+.fp-parallax-spacer-54 {
   height: 100vh;
 }
 
-.fp-fixed-parallax-container {
+.fp-fixed-parallax-container-54 {
   position: relative;
   height: 100vh;
   display: flex;
@@ -272,7 +272,7 @@ onUnmounted(() => {
   padding: 40px;
 }
 
-.fp-fixed-card {
+.fp-fixed-card-54 {
   flex: 1;
   height: 500px;
   border-radius: 24px;
@@ -285,11 +285,11 @@ onUnmounted(() => {
   transition: box-shadow 0.4s ease;
 }
 
-.fp-fixed-card:hover {
+.fp-fixed-card-54:hover {
   box-shadow: 0 20px 60px rgba(45, 27, 105, 0.4);
 }
 
-.fp-card-image {
+.fp-card-image-54 {
   width: 100%;
   height: 70%;
   background-size: cover;
@@ -297,7 +297,7 @@ onUnmounted(() => {
   transition: transform 0.4s ease;
 }
 
-.fp-card-info {
+.fp-card-info-54 {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -308,7 +308,7 @@ onUnmounted(() => {
   transform: translateZ(20px);
 }
 
-.fp-card-number {
+.fp-card-number-54 {
   position: absolute;
   top: 20px;
   right: 20px;
@@ -327,7 +327,7 @@ onUnmounted(() => {
   transition: all 0.4s ease;
 }
 
-.fp-card-info h3 {
+.fp-card-info-54 h3 {
   font-size: 28px;
   font-weight: 700;
   color: #fff;
@@ -335,13 +335,13 @@ onUnmounted(() => {
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
 }
 
-.fp-card-info p {
+.fp-card-info-54 p {
   font-size: 16px;
   color: rgba(255, 255, 255, 0.8);
   line-height: 1.4;
 }
 
-.fp-scroll-progress {
+.fp-scroll-progress-54 {
   position: fixed;
   top: 0;
   left: 0;
@@ -351,7 +351,7 @@ onUnmounted(() => {
   z-index: 100;
 }
 
-.fp-progress-bar {
+.fp-progress-bar-54 {
   width: 0;
   height: 100%;
   background: linear-gradient(90deg, #2d1b69, #5c3d7a, #8b5fb8);
@@ -359,13 +359,13 @@ onUnmounted(() => {
 }
 
 @media (max-width: 1024px) {
-  .fp-fixed-parallax-container {
+  .fp-fixed-parallax-container-54 {
     flex-direction: column;
     height: auto;
     min-height: 100vh;
   }
 
-  .fp-fixed-card {
+  .fp-fixed-card-54 {
     width: 100%;
     max-width: 400px;
     height: 450px;
@@ -373,16 +373,16 @@ onUnmounted(() => {
 }
 
 @media (max-width: 768px) {
-  .fp-title {
+  .fp-title-54 {
     font-size: 32px;
     letter-spacing: 3px;
   }
 
-  .fp-subtitle {
+  .fp-subtitle-54 {
     font-size: 14px;
   }
 
-  .fp-fixed-card {
+  .fp-fixed-card-54 {
     height: 380px;
   }
 }

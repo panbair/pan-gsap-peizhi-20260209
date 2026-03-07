@@ -1,11 +1,11 @@
 <template>
-  <div class="text-scroll">
-    <div class="ts-container">
-      <h2 class="ts-section-title">文字滚动</h2>
+  <div class="text-scroll-37">
+    <div class="ts-container-37">
+      <h2 class="ts-section-title-37">文字滚动</h2>
 
-      <div class="ts-text-container">
-        <div class="ts-text-line" v-for="(line, index) in textLines" :key="index" ref="lines">
-          <span class="ts-text-char" v-for="(char, charIndex) in line.split('')" :key="charIndex">{{ char }}</span>
+      <div class="ts-text-container-37">
+        <div class="ts-text-line-37" v-for="(line, index) in textLines" :key="index" ref="lines">
+          <span class="ts-text-char-37" v-for="(char, charIndex) in line.split('')" :key="charIndex">{{ char }}</span>
         </div>
       </div>
     </div>
@@ -31,9 +31,9 @@ let ctx: gsap.Context
 onMounted(() => {
   ctx = gsap.context(() => {
     // 标题动画
-    gsap.from('.ts-section-title', {
+    gsap.from('.ts-section-title-37', {
       scrollTrigger: {
-        trigger: '.ts-section-title',
+        trigger: '.ts-section-title-37',
         start: 'top 90%'
       },
       y: 50,
@@ -43,7 +43,7 @@ onMounted(() => {
     })
 
     lines.value.forEach((line, index) => {
-      const chars = line.querySelectorAll('.ts-text-char')
+      const chars = line.querySelectorAll('.ts-text-char-37')
       
       // 字母从下方淡入
       gsap.fromTo(chars,
@@ -101,7 +101,7 @@ onUnmounted(() => {
 </script>
 
 <style scoped lang="scss">
-.text-scroll {
+.text-scroll-37 {
   min-height: 100vh;
   padding: 100px 0;
   background: linear-gradient(180deg, #1a1a2e 0%, #16213e 50%, #1a1a2e 100%);
@@ -124,7 +124,7 @@ onUnmounted(() => {
   }
 }
 
-.ts-container {
+.ts-container-37 {
   width: 100%;
   max-width: 1000px;
   padding: 0 40px;
@@ -132,7 +132,7 @@ onUnmounted(() => {
   z-index: 1;
 }
 
-.ts-section-title {
+.ts-section-title-37 {
   text-align: center;
   font-size: 3.5rem;
   font-weight: 800;
@@ -155,21 +155,21 @@ onUnmounted(() => {
   }
 }
 
-.ts-text-container {
+.ts-text-container-37 {
   display: flex;
   flex-direction: column;
   gap: 30px;
   padding: 60px 0;
 }
 
-.ts-text-line {
+.ts-text-line-37 {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   gap: 4px;
 }
 
-.ts-text-char {
+.ts-text-char-37 {
   font-size: 4rem;
   font-weight: 900;
   color: #fff;
@@ -185,11 +185,11 @@ onUnmounted(() => {
 }
 
 @media (max-width: 768px) {
-  .ts-text-char {
+  .ts-text-char-37 {
     font-size: 2.5rem;
   }
 
-  .ts-section-title {
+  .ts-section-title-37 {
     font-size: 2rem;
   }
 }

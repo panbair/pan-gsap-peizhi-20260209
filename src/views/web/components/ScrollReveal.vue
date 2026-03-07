@@ -1,25 +1,25 @@
 <template>
-  <div class="sr-scroll-reveal-section">
-    <div class="sr-section-header">
-      <h2 class="sr-title">SCROLL REVEAL</h2>
-      <p class="sr-subtitle">滚动渐显效果</p>
+  <div class="sr-scroll-reveal-section-52">
+    <div class="sr-section-header-52">
+      <h2 class="sr-title-52">SCROLL REVEAL</h2>
+      <p class="sr-subtitle-52">滚动渐显效果</p>
     </div>
 
-    <div class="sr-reveal-container">
-      <div class="sr-reveal-item" v-for="(item, index) in items" :key="index">
-        <div class="sr-item-image">
-          <div class="sr-image-inner" :style="{ backgroundImage: `url(${item.image})` }"></div>
-          <div class="sr-item-number">{{ String(index + 1).padStart(2, '0') }}</div>
+    <div class="sr-reveal-container-52">
+      <div class="sr-reveal-item-52" v-for="(item, index) in items" :key="index">
+        <div class="sr-item-image-52">
+          <div class="sr-image-inner-52" :style="{ backgroundImage: `url(${item.image})` }"></div>
+          <div class="sr-item-number-52">{{ String(index + 1).padStart(2, '0') }}</div>
         </div>
-        <div class="sr-item-content">
+        <div class="sr-item-content-52">
           <h3>{{ item.title }}</h3>
           <p>{{ item.description }}</p>
         </div>
       </div>
     </div>
 
-    <div class="sr-scroll-indicator">
-      <div class="sr-arrow">↓</div>
+    <div class="sr-scroll-indicator-52">
+      <div class="sr-arrow-52">↓</div>
       <p>向下滚动查看效果</p>
     </div>
   </div>
@@ -46,9 +46,9 @@ let ctx: gsap.Context
 const initAnimations = () => {
   ctx = gsap.context(() => {
     // 标题渐显
-    gsap.from('.sr-scroll-reveal-section .sr-title', {
+    gsap.from('.sr-title-52', {
       scrollTrigger: {
-        trigger: '.sr-scroll-reveal-section',
+        trigger: '.sr-scroll-reveal-section-52',
         start: 'top 80%',
         toggleActions: 'play none none reverse'
       },
@@ -59,9 +59,9 @@ const initAnimations = () => {
     })
 
     // 副标题渐显
-    gsap.from('.sr-scroll-reveal-section .sr-subtitle', {
+    gsap.from('.sr-subtitle-52', {
       scrollTrigger: {
-        trigger: '.sr-scroll-reveal-section',
+        trigger: '.sr-scroll-reveal-section-52',
         start: 'top 75%',
         toggleActions: 'play none none reverse'
       },
@@ -73,9 +73,9 @@ const initAnimations = () => {
     })
 
     // 元素1：从下方渐显
-    gsap.from('.sr-reveal-item:nth-child(1)', {
+    gsap.from('.sr-reveal-item-52:nth-child(1)', {
       scrollTrigger: {
-        trigger: '.sr-reveal-item:nth-child(1)',
+        trigger: '.sr-reveal-item-52:nth-child(1)',
         start: 'top 85%',
         toggleActions: 'play none none reverse'
       },
@@ -86,9 +86,9 @@ const initAnimations = () => {
     })
 
     // 元素2：淡入
-    gsap.from('.sr-reveal-item:nth-child(2)', {
+    gsap.from('.sr-reveal-item-52:nth-child(2)', {
       scrollTrigger: {
-        trigger: '.sr-reveal-item:nth-child(2)',
+        trigger: '.sr-reveal-item-52:nth-child(2)',
         start: 'top 85%',
         toggleActions: 'play none none reverse'
       },
@@ -99,9 +99,9 @@ const initAnimations = () => {
     })
 
     // 元素3：从左侧滑入
-    gsap.from('.sr-reveal-item:nth-child(3)', {
+    gsap.from('.sr-reveal-item-52:nth-child(3)', {
       scrollTrigger: {
-        trigger: '.sr-reveal-item:nth-child(3)',
+        trigger: '.sr-reveal-item-52:nth-child(3)',
         start: 'top 85%',
         toggleActions: 'play none none reverse'
       },
@@ -112,9 +112,9 @@ const initAnimations = () => {
     })
 
     // 元素4：从右侧滑入
-    gsap.from('.sr-reveal-item:nth-child(4)', {
+    gsap.from('.sr-reveal-item-52:nth-child(4)', {
       scrollTrigger: {
-        trigger: '.sr-reveal-item:nth-child(4)',
+        trigger: '.sr-reveal-item-52:nth-child(4)',
         start: 'top 85%',
         toggleActions: 'play none none reverse'
       },
@@ -125,9 +125,9 @@ const initAnimations = () => {
     })
 
     // 元素5：从小到大
-    gsap.from('.sr-reveal-item:nth-child(5)', {
+    gsap.from('.sr-reveal-item-52:nth-child(5)', {
       scrollTrigger: {
-        trigger: '.sr-reveal-item:nth-child(5)',
+        trigger: '.sr-reveal-item-52:nth-child(5)',
         start: 'top 85%',
         toggleActions: 'play none none reverse'
       },
@@ -138,9 +138,9 @@ const initAnimations = () => {
     })
 
     // 元素6：旋转进入
-    gsap.from('.sr-reveal-item:nth-child(6)', {
+    gsap.from('.sr-reveal-item-52:nth-child(6)', {
       scrollTrigger: {
-        trigger: '.sr-reveal-item:nth-child(6)',
+        trigger: '.sr-reveal-item-52:nth-child(6)',
         start: 'top 85%',
         toggleActions: 'play none none reverse'
       },
@@ -152,9 +152,9 @@ const initAnimations = () => {
     })
 
     // 图片视差效果
-    gsap.to('.sr-image-inner', {
+    gsap.to('.sr-image-inner-52', {
       scrollTrigger: {
-        trigger: '.sr-reveal-container',
+        trigger: '.sr-reveal-container-52',
         start: 'top bottom',
         end: 'bottom top',
         scrub: 1
@@ -164,9 +164,9 @@ const initAnimations = () => {
     })
 
     // 数字旋转
-    gsap.to('.sr-item-number', {
+    gsap.to('.sr-item-number-52', {
       scrollTrigger: {
-        trigger: '.sr-reveal-container',
+        trigger: '.sr-reveal-container-52',
         start: 'top bottom',
         end: 'bottom top',
         scrub: 1
@@ -176,9 +176,9 @@ const initAnimations = () => {
     })
 
     // 滚动指示器动画
-    gsap.to('.sr-scroll-indicator .sr-arrow', {
+    gsap.to('.sr-scroll-indicator-52 .sr-arrow-52', {
       scrollTrigger: {
-        trigger: '.sr-scroll-indicator',
+        trigger: '.sr-scroll-indicator-52',
         start: 'top 90%',
         end: 'top 70%',
         scrub: true
@@ -189,9 +189,9 @@ const initAnimations = () => {
     })
 
     // 滚动指示器淡出
-    gsap.to('.sr-scroll-indicator', {
+    gsap.to('.sr-scroll-indicator-52', {
       scrollTrigger: {
-        trigger: '.sr-reveal-container',
+        trigger: '.sr-reveal-container-52',
         start: 'top 80%',
         toggleActions: 'play none none reverse'
       },
@@ -201,15 +201,15 @@ const initAnimations = () => {
     })
 
     // 悬停效果 - 使用gsap.utils.toArray自动清理
-    gsap.utils.toArray('.sr-reveal-item').forEach((item: Element) => {
+    gsap.utils.toArray('.sr-reveal-item-52').forEach((item: Element) => {
       const itemEl = item as HTMLElement
       itemEl.addEventListener('mouseenter', () => {
-        gsap.to(itemEl.querySelector('.sr-image-inner'), {
+        gsap.to(itemEl.querySelector('.sr-image-inner-52'), {
           scale: 1.1,
           duration: 0.4,
           ease: 'power2.out'
         })
-        gsap.to(itemEl.querySelector('.sr-item-number'), {
+        gsap.to(itemEl.querySelector('.sr-item-number-52'), {
           scale: 1.2,
           rotation: 15,
           duration: 0.3,
@@ -218,12 +218,12 @@ const initAnimations = () => {
       })
 
       itemEl.addEventListener('mouseleave', () => {
-        gsap.to(itemEl.querySelector('.sr-image-inner'), {
+        gsap.to(itemEl.querySelector('.sr-image-inner-52'), {
           scale: 1,
           duration: 0.4,
           ease: 'power2.out'
         })
-        gsap.to(itemEl.querySelector('.sr-item-number'), {
+        gsap.to(itemEl.querySelector('.sr-item-number-52'), {
           scale: 1,
           rotation: 0,
           duration: 0.3,
@@ -244,7 +244,7 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
-.sr-scroll-reveal-section {
+.sr-scroll-reveal-section-52 {
   min-height: 100vh;
   padding: 80px 40px;
   background: linear-gradient(135deg, #0d1b2a 0%, #1b263b 50%, #415a77 100%);
@@ -252,12 +252,12 @@ onUnmounted(() => {
   overflow: hidden;
 }
 
-.sr-section-header {
+.sr-section-header-52 {
   text-align: center;
   margin-bottom: 80px;
 }
 
-.sr-title {
+.sr-title-52 {
   font-size: 56px;
   font-weight: 900;
   color: #fff;
@@ -266,7 +266,7 @@ onUnmounted(() => {
   text-shadow: 0 0 30px rgba(65, 90, 119, 0.5);
 }
 
-.sr-subtitle {
+.sr-subtitle-52 {
   font-size: 18px;
   color: rgba(255, 255, 255, 0.6);
   margin-top: 16px;
@@ -274,7 +274,7 @@ onUnmounted(() => {
   text-transform: uppercase;
 }
 
-.sr-reveal-container {
+.sr-reveal-container-52 {
   display: flex;
   flex-direction: column;
   gap: 48px;
@@ -283,7 +283,7 @@ onUnmounted(() => {
   padding: 40px 0;
 }
 
-.sr-reveal-item {
+.sr-reveal-item-52 {
   display: flex;
   gap: 32px;
   padding: 24px;
@@ -294,11 +294,11 @@ onUnmounted(() => {
   transition: box-shadow 0.4s ease;
 }
 
-.sr-reveal-item:hover {
+.sr-reveal-item-52:hover {
   box-shadow: 0 15px 40px rgba(65, 90, 119, 0.3);
 }
 
-.sr-item-image {
+.sr-item-image-52 {
   position: relative;
   flex-shrink: 0;
   width: 200px;
@@ -307,7 +307,7 @@ onUnmounted(() => {
   overflow: hidden;
 }
 
-.sr-image-inner {
+.sr-image-inner-52 {
   width: 100%;
   height: 100%;
   background-size: cover;
@@ -315,7 +315,7 @@ onUnmounted(() => {
   transition: transform 0.4s ease;
 }
 
-.sr-item-number {
+.sr-item-number-52 {
   position: absolute;
   top: 12px;
   left: 12px;
@@ -334,26 +334,26 @@ onUnmounted(() => {
   transition: all 0.4s ease;
 }
 
-.sr-item-content {
+.sr-item-content-52 {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-.sr-item-content h3 {
+.sr-item-content-52 h3 {
   font-size: 28px;
   font-weight: 700;
   color: #fff;
   margin-bottom: 10px;
 }
 
-.sr-item-content p {
+.sr-item-content-52 p {
   font-size: 16px;
   color: rgba(255, 255, 255, 0.7);
   line-height: 1.6;
 }
 
-.sr-scroll-indicator {
+.sr-scroll-indicator-52 {
   position: fixed;
   bottom: 40px;
   left: 50%;
@@ -362,7 +362,7 @@ onUnmounted(() => {
   z-index: 10;
 }
 
-.sr-arrow {
+.sr-arrow-52 {
   font-size: 32px;
   color: #fff;
   margin-bottom: 8px;
@@ -381,7 +381,7 @@ onUnmounted(() => {
   }
 }
 
-.sr-scroll-indicator p {
+.sr-scroll-indicator-52 p {
   font-size: 14px;
   color: rgba(255, 255, 255, 0.6);
   text-transform: uppercase;
@@ -389,21 +389,21 @@ onUnmounted(() => {
 }
 
 @media (max-width: 768px) {
-  .sr-title {
+  .sr-title-52 {
     font-size: 32px;
     letter-spacing: 3px;
   }
 
-  .sr-subtitle {
+  .sr-subtitle-52 {
     font-size: 14px;
   }
 
-  .sr-reveal-item {
+  .sr-reveal-item-52 {
     flex-direction: column;
     gap: 16px;
   }
 
-  .sr-item-image {
+  .sr-item-image-52 {
     width: 100%;
     height: 200px;
   }

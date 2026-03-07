@@ -1,26 +1,26 @@
 <template>
-  <div class="stagger-grid">
-    <div class="sg-container">
-      <h2 class="sg-section-title">错开网格</h2>
+  <div class="stagger-grid-43">
+    <div class="sg-container-43">
+      <h2 class="sg-section-title-43">错开网格</h2>
 
-      <div class="sg-grid-container">
+      <div class="sg-grid-container-43">
         <div
-          class="sg-grid-item"
+          class="sg-grid-item-43"
           v-for="(img, index) in images"
           :key="index"
           ref="items"
         >
-          <div class="sg-item-inner">
+          <div class="sg-item-inner-43">
             <img :src="img" :alt="`Image ${index + 1}`" />
-            <div class="sg-item-overlay">
-              <span class="sg-item-number">{{ index + 1 }}</span>
-              <h3 class="sg-item-title">Grid {{ index + 1 }}</h3>
+            <div class="sg-item-overlay-43">
+              <span class="sg-item-number-43">{{ index + 1 }}</span>
+              <h3 class="sg-item-title-43">Grid {{ index + 1 }}</h3>
             </div>
           </div>
         </div>
       </div>
 
-      <button class="sg-replay-btn" @click="replayAnimation">重播动画</button>
+      <button class="sg-replay-btn-43" @click="replayAnimation">重播动画</button>
     </div>
   </div>
 </template>
@@ -53,10 +53,18 @@ const replayAnimation = () => {
 
 onMounted(() => {
   ctx = gsap.context(() => {
+    // 设置初始可见状态和正确的 transform
+    gsap.set(items.value, {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      rotateY: 0
+    })
+
     // 标题动画
-    gsap.from('.sg-section-title', {
+    gsap.from('.sg-section-title-43', {
       scrollTrigger: {
-        trigger: '.sg-section-title',
+        trigger: '.sg-section-title-43',
         start: 'top 90%'
       },
       y: 50,
@@ -65,34 +73,36 @@ onMounted(() => {
       ease: 'power3.out'
     })
 
-    // 创建错开动画时间轴
+    // 入场错开动画（只做轻微的效果，不影响可见性）
     timeline = gsap.timeline({
       scrollTrigger: {
-        trigger: '.sg-grid-container',
-        start: 'top 80%'
+        trigger: '.sg-grid-container-43',
+        start: 'top 80%',
+        toggleActions: 'play none none reverse'
       }
     })
 
-    // 入场错开动画
     timeline.from(items.value, {
-      y: 150,
-      opacity: 0,
-      scale: 0.5,
-      rotateY: 90,
-      duration: 1.2,
-      stagger: 0.15,
-      ease: 'back.out(1.7)'
+      y: -50,
+      scale: 0.9,
+      duration: 0.8,
+      stagger: 0.1,
+      ease: 'power2.out'
     })
 
     // 滚动触发动画
     items.value.forEach((item, index) => {
       const img = item.querySelector('img') as HTMLElement
-      const overlay = item.querySelector('.sg-item-overlay') as HTMLElement
-      const number = item.querySelector('.sg-item-number') as HTMLElement
+      const overlay = item.querySelector('.sg-item-overlay-43') as HTMLElement
+      const number = item.querySelector('.sg-item-number-43') as HTMLElement
+
+      // 设置初始状态
+      gsap.set(overlay, { opacity: 0.9 })
+      gsap.set(number, { opacity: 0.9, rotate: 0, scale: 1 })
 
       // 图片缩放
       gsap.fromTo(img,
-        { scale: 1.4 },
+        { scale: 1.1 },
         {
           scale: 1,
           scrollTrigger: {
@@ -105,56 +115,25 @@ onMounted(() => {
         }
       )
 
-      // 覆盖层错开淡入
-      gsap.fromTo(overlay,
-        { opacity: 0 },
-        {
-          opacity: 1,
-          scrollTrigger: {
-            trigger: '.sg-grid-container',
-            start: 'top 70%',
-            end: 'top 30%',
-            scrub: true
-          },
-          stagger: 0.1
-        }
-      )
-
-      // 数字错开旋转
-      gsap.fromTo(number,
-        { rotate: -360, scale: 0 },
-        {
-          rotate: 0,
-          scale: 1,
-          scrollTrigger: {
-            trigger: '.sg-grid-container',
-            start: 'top 65%',
-            end: 'top 25%',
-            scrub: true
-          },
-          stagger: 0.12
-        }
-      )
-
-      // 标题错开滑入
-      gsap.from('.sg-item-title', {
-        x: -30,
+      // 标题滑入
+      gsap.from('.sg-item-title-43', {
+        x: -20,
         opacity: 0,
         scrollTrigger: {
-          trigger: '.sg-grid-container',
+          trigger: '.sg-grid-container-43',
           start: 'top 60%',
           end: 'top 20%',
           scrub: true
         },
-        stagger: 0.15,
+        stagger: 0.1,
         ease: 'power2.out'
       })
     })
 
     // 按钮动画
-    gsap.from('.sg-replay-btn', {
+    gsap.from('.sg-replay-btn-43', {
       scrollTrigger: {
-        trigger: '.sg-replay-btn',
+        trigger: '.sg-replay-btn-43',
         start: 'top 90%'
       },
       scale: 0,
@@ -171,7 +150,7 @@ onUnmounted(() => {
 </script>
 
 <style scoped lang="scss">
-.stagger-grid {
+.stagger-grid-43 {
   min-height: 120vh;
   padding: 100px 0;
   background: linear-gradient(180deg, #1a1a2e 0%, #16213e 50%, #1a1a2e 100%);
@@ -192,7 +171,7 @@ onUnmounted(() => {
   }
 }
 
-.sg-container {
+.sg-container-43 {
   max-width: 1400px;
   margin: 0 auto;
   padding: 0 40px;
@@ -200,7 +179,7 @@ onUnmounted(() => {
   z-index: 1;
 }
 
-.sg-section-title {
+.sg-section-title-43 {
   text-align: center;
   font-size: 3.5rem;
   font-weight: 800;
@@ -223,14 +202,14 @@ onUnmounted(() => {
   }
 }
 
-.sg-grid-container {
+.sg-grid-container-43 {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 30px;
   padding: 40px 0;
 }
 
-.sg-grid-item {
+.sg-grid-item-43 {
   position: relative;
   height: 350px;
   border-radius: 20px;
@@ -245,25 +224,25 @@ onUnmounted(() => {
   }
 }
 
-.sg-grid-item:hover .sg-item-inner img {
+.sg-grid-item-43:hover .sg-item-inner-43 img {
   filter: brightness(1.1) saturate(1.1);
 }
 
-.sg-item-inner {
+.sg-item-inner-43 {
   width: 100%;
   height: 100%;
   position: relative;
   overflow: hidden;
 }
 
-.sg-item-inner img {
+.sg-item-inner-43 img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   transition: filter 0.3s ease;
 }
 
-.sg-item-overlay {
+.sg-item-overlay-43 {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -273,7 +252,7 @@ onUnmounted(() => {
   pointer-events: none;
 }
 
-.sg-item-number {
+.sg-item-number-43 {
   display: block;
   font-size: 3.5rem;
   font-weight: 900;
@@ -286,7 +265,7 @@ onUnmounted(() => {
   opacity: 0.9;
 }
 
-.sg-item-title {
+.sg-item-title-43 {
   font-size: 1.5rem;
   font-weight: 700;
   color: #fff;
@@ -294,7 +273,7 @@ onUnmounted(() => {
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
 }
 
-.sg-replay-btn {
+.sg-replay-btn-43 {
   display: block;
   margin: 60px auto 0;
   padding: 15px 40px;
@@ -319,17 +298,17 @@ onUnmounted(() => {
 }
 
 @media (max-width: 1024px) {
-  .sg-grid-container {
+  .sg-grid-container-43 {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 640px) {
-  .sg-grid-container {
+  .sg-grid-container-43 {
     grid-template-columns: 1fr;
   }
 
-  .sg-section-title {
+  .sg-section-title-43 {
     font-size: 2rem;
   }
 }

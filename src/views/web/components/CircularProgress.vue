@@ -1,11 +1,11 @@
 <template>
-  <section ref="circleSection" class="section circle-section">
-    <h2 class="section-title">圆形进度</h2>
-    <div class="circle-container" ref="circleContainer">
-      <div class="circle-item" v-for="(circle, index) in circles" :key="index">
-        <svg class="circle-svg" viewBox="0 0 200 200">
+  <section ref="circleSection" class="section-10 circle-section-10">
+    <h2 class="section-title-10">圆形进度</h2>
+    <div class="circle-container-10" ref="circleContainer">
+      <div class="circle-item-10" v-for="(circle, index) in circles" :key="index">
+        <svg class="circle-svg-10" viewBox="0 0 200 200">
           <circle
-            class="circle-bg"
+            class="circle-bg-10"
             cx="100"
             cy="100"
             r="90"
@@ -15,7 +15,7 @@
           />
           <circle
             :ref="el => { if(el) circleRefs[index] = el as HTMLElement }"
-            class="circle-progress"
+            class="circle-progress-10"
             cx="100"
             cy="100"
             r="90"
@@ -28,8 +28,8 @@
             transform="rotate(-90 100 100)"
           />
         </svg>
-        <div class="circle-label">{{ circle.label }}</div>
-        <div class="circle-value" :ref="el => { if(el) circleValueRefs[index] = el as HTMLElement }">0%</div>
+        <div class="circle-label-10">{{ circle.label }}</div>
+        <div class="circle-value-10" :ref="el => { if(el) circleValueRefs[index] = el as HTMLElement }">0%</div>
       </div>
     </div>
   </section>
@@ -104,7 +104,7 @@ const initAnimations = () => {
 </script>
 
 <style scoped lang="scss">
-.section {
+.section-10 {
   min-height: 100vh;
   padding: 100px 20px;
   position: relative;
@@ -114,7 +114,7 @@ const initAnimations = () => {
   justify-content: center;
 }
 
-.section-title {
+.section-title-10 {
   font-size: 2.5rem;
   font-weight: bold;
   margin-bottom: 60px;
@@ -125,11 +125,11 @@ const initAnimations = () => {
   text-align: center;
 }
 
-.circle-section {
+.circle-section-10 {
   background: linear-gradient(180deg, transparent, rgba(236, 72, 153, 0.1), transparent);
 }
 
-.circle-container {
+.circle-container-10 {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 30px;
@@ -137,41 +137,41 @@ const initAnimations = () => {
   width: 100%;
 }
 
-.circle-item {
+.circle-item-10 {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 15px;
 }
 
-.circle-svg {
+.circle-svg-10 {
   width: 150px;
   height: 150px;
   transform: rotate(-90deg);
 }
 
-.circle-progress {
+.circle-progress-10 {
   transition: stroke-dashoffset 0.3s;
 }
 
-.circle-label {
+.circle-label-10 {
   font-size: 1rem;
   color: #94a3b8;
 }
 
-.circle-value {
+.circle-value-10 {
   font-size: 1.5rem;
   font-weight: bold;
   color: #fff;
 }
 
 @media (max-width: 768px) {
-  .circle-container {
+  .circle-container-10 {
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
   }
 
-  .circle-svg {
+  .circle-svg-10 {
     width: 120px;
     height: 120px;
   }

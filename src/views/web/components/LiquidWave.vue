@@ -1,17 +1,17 @@
 <template>
-  <section ref="waveSection" class="section wave-section">
-    <h2 class="section-title">流体波浪</h2>
-    <div class="wave-container" ref="waveContainer">
-      <div class="wave-layer" ref="wave1"></div>
-      <div class="wave-layer" ref="wave2"></div>
-      <div class="wave-layer" ref="wave3"></div>
-      <div class="wave-content" ref="waveContent">
-        <div class="wave-text">
+  <section ref="waveSection" class="section-2 wave-section-2">
+    <h2 class="section-title-2">流体波浪</h2>
+    <div class="wave-container-2" ref="waveContainer">
+      <div class="wave-layer-2" ref="wave1"></div>
+      <div class="wave-layer-2" ref="wave2"></div>
+      <div class="wave-layer-2" ref="wave3"></div>
+      <div class="wave-content-2" ref="waveContent">
+        <div class="wave-text-2">
           <span>FLOW</span>
           <span>WAVE</span>
         </div>
-        <div class="wave-particles" ref="waveParticles">
-          <div v-for="i in 10" :key="i" class="particle"></div>
+        <div class="wave-particles-2" ref="waveParticles">
+          <div v-for="i in 10" :key="i" class="particle-2"></div>
         </div>
       </div>
     </div>
@@ -124,7 +124,7 @@ const initAnimations = () => {
 </script>
 
 <style scoped lang="scss">
-.section {
+.section-2 {
   min-height: 100vh;
   padding: 100px 20px;
   position: relative;
@@ -134,7 +134,7 @@ const initAnimations = () => {
   justify-content: center;
 }
 
-.section-title {
+.section-title-2 {
   font-size: 2.5rem;
   font-weight: bold;
   margin-bottom: 60px;
@@ -145,12 +145,12 @@ const initAnimations = () => {
   text-align: center;
 }
 
-.wave-section {
+.wave-section-2 {
   background: linear-gradient(180deg, transparent, rgba(59, 130, 246, 0.1), transparent);
   overflow: hidden;
 }
 
-.wave-container {
+.wave-container-2 {
   position: relative;
   width: 100%;
   height: 500px;
@@ -161,7 +161,7 @@ const initAnimations = () => {
   box-shadow: 0 0 60px rgba(102, 126, 234, 0.4);
 }
 
-.wave-layer {
+.wave-layer-2 {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -172,7 +172,7 @@ const initAnimations = () => {
   filter: blur(20px);
 }
 
-.wave-content {
+.wave-content-2 {
   position: absolute;
   top: 0;
   left: 0;
@@ -185,7 +185,7 @@ const initAnimations = () => {
   z-index: 2;
 }
 
-.wave-text {
+.wave-text-2 {
   text-align: center;
   font-size: 4rem;
   font-weight: 900;
@@ -195,19 +195,19 @@ const initAnimations = () => {
   text-transform: uppercase;
 }
 
-.wave-text span {
+.wave-text-2 span {
   display: block;
   margin: 10px 0;
 }
 
-.wave-particles {
+.wave-particles-2 {
   position: absolute;
   width: 100%;
   height: 100%;
   pointer-events: none;
 }
 
-.particle {
+.particle-2 {
   position: absolute;
   width: 15px;
   height: 15px;
@@ -219,7 +219,7 @@ const initAnimations = () => {
 }
 
 @media (max-width: 768px) {
-  .wave-text {
+  .wave-text-2 {
     font-size: 2.5rem;
   }
 }

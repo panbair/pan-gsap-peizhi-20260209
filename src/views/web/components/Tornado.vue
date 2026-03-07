@@ -1,36 +1,36 @@
 <template>
-  <section class="tornado-section">
-    <div class="content">
-      <h2 class="tor-section-title">龙卷风</h2>
-      <p class="tor-subtitle">自然的狂暴旋涡</p>
+  <section class="tornado-section-29">
+    <div class="content-29">
+      <h2 class="tor-section-title-29">龙卷风</h2>
+      <p class="tor-subtitle-29">自然的狂暴旋涡</p>
 
-      <div class="tornado-container" ref="tornadoContainer">
-        <div class="storm-sky">
-          <div class="lightning bolt-1"></div>
-          <div class="lightning bolt-2"></div>
-          <div class="storm-cloud cloud-1"></div>
-          <div class="storm-cloud cloud-2"></div>
-          <div class="storm-cloud cloud-3"></div>
+      <div class="tornado-container-29" ref="tornadoContainer">
+        <div class="storm-sky-29">
+          <div class="lightning-29 bolt-1"></div>
+          <div class="lightning-29 bolt-2"></div>
+          <div class="storm-cloud-29 cloud-1"></div>
+          <div class="storm-cloud-29 cloud-2"></div>
+          <div class="storm-cloud-29 cloud-3"></div>
         </div>
 
-        <div class="tornado-body">
-          <div class="tornado-segment" v-for="n in 15" :key="n"
+        <div class="tornado-body-29">
+          <div class="tornado-segment-29" v-for="n in 15" :key="n"
                :style="getSegmentStyle(n)"></div>
         </div>
 
-        <div class="debris-particles">
-          <div class="debris" v-for="n in 40" :key="n"
+        <div class="debris-particles-29">
+          <div class="debris-29" v-for="n in 40" :key="n"
                :style="getDebrisStyle(n)"></div>
         </div>
 
-        <div class="tornado-ground">
-          <div class="ground-dust">
-            <div class="dust-cloud" v-for="n in 20" :key="n"></div>
+        <div class="tornado-ground-29">
+          <div class="ground-dust-29">
+            <div class="dust-cloud-29" v-for="n in 20" :key="n"></div>
           </div>
         </div>
 
-        <div class="wind-lines">
-          <div class="wind-line" v-for="n in 30" :key="n"
+        <div class="wind-lines-29">
+          <div class="wind-line-29" v-for="n in 30" :key="n"
                :style="getWindLineStyle(n)"></div>
         </div>
       </div>
@@ -90,7 +90,7 @@ let ctx: gsap.Context
 onMounted(() => {
   ctx = gsap.context(() => {
     // 闪电效果
-    gsap.to('.lightning', {
+    gsap.to('.lightning-29', {
       opacity: 0,
       duration: 0.1,
       repeat: 3,
@@ -100,7 +100,7 @@ onMounted(() => {
     })
 
     // 龙卷风段旋转
-    gsap.to('.tornado-segment', {
+    gsap.to('.tornado-segment-29', {
       rotation: 360,
       duration: 3,
       repeat: -1,
@@ -109,7 +109,7 @@ onMounted(() => {
     })
 
     // 碎片旋转上升
-    gsap.to('.debris', {
+    gsap.to('.debris-29', {
       y: -200,
       rotation: 360,
       scale: 0.5,
@@ -121,7 +121,7 @@ onMounted(() => {
     })
 
     // 尘云漂浮
-    gsap.to('.dust-cloud', {
+    gsap.to('.dust-cloud-29', {
       x: 30,
       y: -20,
       opacity: 0.3,
@@ -133,7 +133,7 @@ onMounted(() => {
     })
 
     // 风线流动
-    gsap.to('.wind-line', {
+    gsap.to('.wind-line-29', {
       x: 100,
       opacity: 0,
       duration: 2,
@@ -143,7 +143,7 @@ onMounted(() => {
     })
 
     // 风暴云移动
-    gsap.to('.storm-cloud', {
+    gsap.to('.storm-cloud-29', {
       x: 20,
       duration: 5,
       repeat: -1,
@@ -153,7 +153,7 @@ onMounted(() => {
     })
 
     // 龙卷风摆动
-    gsap.to('.tornado-body', {
+    gsap.to('.tornado-body-29', {
       rotation: 5,
       duration: 2,
       repeat: -1,
@@ -162,11 +162,11 @@ onMounted(() => {
     })
 
     // 滚动效果
-    gsap.to('.tornado-body', {
+    gsap.to('.tornado-body-29', {
       scaleY: 1.3,
       duration: 1,
       scrollTrigger: {
-        trigger: '.tornado-section',
+        trigger: '.tornado-section-29',
         start: 'top bottom',
         end: 'bottom top',
         scrub: 1
@@ -174,13 +174,13 @@ onMounted(() => {
     })
 
     // 入场动画
-    gsap.from('.tornado-container', {
+    gsap.from('.tornado-container-29', {
       y: 300,
       opacity: 0,
       duration: 1.5,
       ease: 'power3.out',
       scrollTrigger: {
-        trigger: '.tornado-section',
+        trigger: '.tornado-section-29',
         start: 'top 80%',
         toggleActions: 'play none none reverse'
       }
@@ -194,7 +194,7 @@ onUnmounted(() => {
 </script>
 
 <style scoped lang="scss">
-.tornado-section {
+.tornado-section-29 {
   min-height: 100vh;
   padding: 60px 20px;
   position: relative;
@@ -202,11 +202,11 @@ onUnmounted(() => {
   background: linear-gradient(180deg, #1a1a2a 0%, #2a2a3a 50%, #3a3a4a 100%);
 }
 
-.content {
+.content-29 {
   text-align: center;
 }
 
-.tor-section-title {
+.tor-section-title-29 {
   font-size: clamp(2rem, 4vw, 2.5rem);
   font-weight: 800;
   margin-bottom: 16px;
@@ -214,13 +214,13 @@ onUnmounted(() => {
   text-shadow: 0 0 20px rgba(107, 114, 128, 0.6);
 }
 
-.tor-subtitle {
+.tor-subtitle-29 {
   font-size: 1.1rem;
   color: #94a3b8;
   margin-bottom: 40px;
 }
 
-.tornado-container {
+.tornado-container-29 {
   position: relative;
   width: 100%;
   max-width: 800px;
@@ -231,13 +231,13 @@ onUnmounted(() => {
   box-shadow: 0 0 60px rgba(107, 114, 128, 0.3);
 }
 
-.storm-sky {
+.storm-sky-29 {
   position: absolute;
   inset: 0;
   background: linear-gradient(180deg, #1a1a2a, #2a2a3a 60%, #3a3a4a);
 }
 
-.lightning {
+.lightning-29 {
   position: absolute;
   width: 4px;
   height: 200px;
@@ -258,7 +258,7 @@ onUnmounted(() => {
   transform: rotate(-20deg);
 }
 
-.storm-cloud {
+.storm-cloud-29 {
   position: absolute;
   width: 150px;
   height: 60px;
@@ -282,7 +282,7 @@ onUnmounted(() => {
   left: 60%;
 }
 
-.tornado-body {
+.tornado-body-29 {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -293,7 +293,7 @@ onUnmounted(() => {
   gap: 5px;
 }
 
-.tornado-segment {
+.tornado-segment-29 {
   border-radius: 50%;
   background: linear-gradient(180deg, #6b7280, #4b5563);
   animation: segmentSpin 3s linear infinite;
@@ -308,13 +308,13 @@ onUnmounted(() => {
   }
 }
 
-.debris-particles {
+.debris-particles-29 {
   position: absolute;
   inset: 0;
   pointer-events: none;
 }
 
-.debris {
+.debris-29 {
   position: absolute;
   background: #6b7280;
   border-radius: 3px;
@@ -332,7 +332,7 @@ onUnmounted(() => {
   }
 }
 
-.tornado-ground {
+.tornado-ground-29 {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -341,12 +341,12 @@ onUnmounted(() => {
   background: linear-gradient(180deg, transparent, rgba(75, 85, 99, 0.4));
 }
 
-.ground-dust {
+.ground-dust-29 {
   position: absolute;
   inset: 0;
 }
 
-.dust-cloud {
+.dust-cloud-29 {
   position: absolute;
   bottom: 20px;
   width: 80px;
@@ -356,13 +356,13 @@ onUnmounted(() => {
   filter: blur(20px);
 }
 
-.wind-lines {
+.wind-lines-29 {
   position: absolute;
   inset: 0;
   pointer-events: none;
 }
 
-.wind-line {
+.wind-line-29 {
   position: absolute;
   height: 2px;
   background: linear-gradient(90deg, transparent, rgba(107, 114, 128, 0.6), transparent);
@@ -384,7 +384,7 @@ onUnmounted(() => {
 }
 
 @media (max-width: 768px) {
-  .tornado-container {
+  .tornado-container-29 {
     height: 400px;
   }
 }

@@ -8,7 +8,6 @@
       <h1 class="page-title">滚动控制动画</h1>
       <p class="page-subtitle">使用滚动条控制动画进度</p>
     </header>
-<!--    <div style="height: 100vh"></div>-->
 
     <!-- 3D卡片翻转画廊 -->
     <Card3DFlipGallery />
@@ -196,7 +195,7 @@
     <!-- 圆形运动 -->
     <CircleMotion />
 
-    <!-- 无限路径 -->
+    <!-- 无限路径 63-->
     <InfinityMotion />
   </div>
 </template>

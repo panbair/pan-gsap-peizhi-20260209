@@ -1,14 +1,14 @@
 <template>
-  <div class="circle-motion-section">
-    <div class="section-header">
-      <h2 class="title">CIRCLE MOTION</h2>
-      <p class="subtitle">圆形路径动画</p>
+  <div class="circle-motion-section-62">
+    <div class="section-header-62">
+      <h2 class="title-62">CIRCLE MOTION</h2>
+      <p class="subtitle-62">圆形路径动画</p>
     </div>
 
-    <div class="cm-motion-wrapper">
-      <svg class="circle-svg" viewBox="0 0 600 600">
+    <div class="cm-motion-wrapper-62">
+      <svg class="circle-svg-62" viewBox="0 0 600 600">
         <!-- 圆形路径 -->
-        <path id="cm-circlePath" class="cm-circle-path" d="M 300 100 A 200 200 0 1 1 299.9 100" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="2" stroke-dasharray="10,10"/>
+        <path id="cm-circlePath" class="cm-circle-path-62" d="M 300 100 A 200 200 0 1 1 299.9 100" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="2" stroke-dasharray="10,10"/>
         
         <!-- 中心圆 -->
         <circle cx="300" cy="300" r="80" fill="rgba(45, 27, 105, 0.3)" stroke="rgba(45, 27, 105, 0.5)" stroke-width="2"/>
@@ -17,19 +17,19 @@
         <text x="300" y="305" text-anchor="middle" fill="white" font-size="20" font-weight="bold">ROTATE</text>
         
         <!-- 运动卡片 -->
-        <foreignObject v-for="(card, index) in cards" :key="index" class="cm-motion-card" :class="`cm-card-${index}`" x="0" y="0" width="140" height="100">
-          <div class="cm-card-inner">
-            <div class="cm-card-bg" :style="{ backgroundColor: card.color }"></div>
-            <div class="cm-card-number">{{ index + 1 }}</div>
+        <foreignObject v-for="(card, index) in cards" :key="index" class="cm-motion-card-62" :class="`cm-card-${index}`" x="0" y="0" width="140" height="100">
+          <div class="cm-card-inner-62">
+            <div class="cm-card-bg-62" :style="{ backgroundColor: card.color }"></div>
+            <div class="cm-card-number-62">{{ index + 1 }}</div>
           </div>
         </foreignObject>
       </svg>
     </div>
 
-    <div class="cm-motion-controls">
-      <button class="cm-control-btn" @click="startRotation">开始旋转</button>
-      <button class="cm-control-btn" @click="pauseRotation">暂停</button>
-      <button class="cm-control-btn" @click="reverseRotation">反向旋转</button>
+    <div class="cm-motion-controls-62">
+      <button class="cm-control-btn-62" @click="startRotation">开始旋转</button>
+      <button class="cm-control-btn-62" @click="pauseRotation">暂停</button>
+      <button class="cm-control-btn-62" @click="reverseRotation">反向旋转</button>
     </div>
   </div>
 </template>
@@ -69,9 +69,9 @@ const reverseRotation = () => {
 const initAnimations = () => {
   ctx = gsap.context(() => {
     // 标题动画
-    gsap.from('.section-header .title', {
+    gsap.from('.section-header-62 .title-62', {
       scrollTrigger: {
-        trigger: '.cm-motion-wrapper',
+        trigger: '.cm-motion-wrapper-62',
         start: 'top 80%',
         toggleActions: 'play none none reverse'
       },
@@ -82,9 +82,9 @@ const initAnimations = () => {
     })
 
     // 副标题动画
-    gsap.from('.section-header .subtitle', {
+    gsap.from('.section-header-62 .subtitle-62', {
       scrollTrigger: {
-        trigger: '.cm-motion-wrapper',
+        trigger: '.cm-motion-wrapper-62',
         start: 'top 75%',
         toggleActions: 'play none none reverse'
       },
@@ -109,8 +109,8 @@ const initAnimations = () => {
       // 使用 MotionPath 沿圆形路径运动
       const tween = gsap.to(card, {
         motionPath: {
-          path: '.cm-circle-path',  // 使用选择器引用路径
-          align: '.cm-circle-path',
+          path: '.cm-circle-path-62',  // 使用选择器引用路径
+          align: '.cm-circle-path-62',
           alignOrigin: [0.5, 0.5],
           autoRotate: true,
           start: startProgress,
@@ -125,9 +125,9 @@ const initAnimations = () => {
     })
 
     // 卡片入场
-    gsap.from('.cm-card-inner', {
+    gsap.from('.cm-card-inner-62', {
       scrollTrigger: {
-        trigger: '.cm-motion-wrapper',
+        trigger: '.cm-motion-wrapper-62',
         start: 'top 70%',
         toggleActions: 'play none none reverse'
       },
@@ -140,9 +140,9 @@ const initAnimations = () => {
     })
 
     // 背景渐入
-    gsap.from('.cm-card-bg', {
+    gsap.from('.cm-card-bg-62', {
       scrollTrigger: {
-        trigger: '.cm-motion-wrapper',
+        trigger: '.cm-motion-wrapper-62',
         start: 'top 65%',
         toggleActions: 'play none none reverse'
       },
@@ -154,9 +154,9 @@ const initAnimations = () => {
     })
 
     // 数字动画
-    gsap.from('.cm-card-number', {
+    gsap.from('.cm-card-number-62', {
       scrollTrigger: {
-        trigger: '.cm-motion-wrapper',
+        trigger: '.cm-motion-wrapper-62',
         start: 'top 65%',
         toggleActions: 'play none none reverse'
       },
@@ -169,16 +169,16 @@ const initAnimations = () => {
 
     // 滚动触发旋转
     ScrollTrigger.create({
-      trigger: '.cm-motion-wrapper',
+      trigger: '.cm-motion-wrapper-62',
       start: 'top center',
       onEnter: () => startRotation(),
       onLeave: () => pauseRotation()
     })
 
     // 按钮动画
-    gsap.from('.cm-control-btn', {
+    gsap.from('.cm-control-btn-62', {
       scrollTrigger: {
-        trigger: '.cm-motion-controls',
+        trigger: '.cm-motion-controls-62',
         start: 'top 90%',
         toggleActions: 'play none none reverse'
       },
@@ -190,15 +190,15 @@ const initAnimations = () => {
     })
 
     // 悬停效果 - 使用gsap.utils.toArray自动清理
-    gsap.utils.toArray('.cm-card-inner').forEach((card: Element) => {
+    gsap.utils.toArray('.cm-card-inner-62').forEach((card: Element) => {
       const cardEl = card as HTMLElement
       cardEl.addEventListener('mouseenter', () => {
-        gsap.to(cardEl.querySelector('.cm-card-bg'), {
+        gsap.to(cardEl.querySelector('.cm-card-bg-62'), {
           scale: 1.15,
           duration: 0.4,
           ease: 'power2.out'
         })
-        gsap.to(cardEl.querySelector('.cm-card-number'), {
+        gsap.to(cardEl.querySelector('.cm-card-number-62'), {
           scale: 1.3,
           rotation: 45,
           duration: 0.3,
@@ -207,12 +207,12 @@ const initAnimations = () => {
       })
 
       card.addEventListener('mouseleave', () => {
-        gsap.to(card.querySelector('.cm-card-bg'), {
+        gsap.to(card.querySelector('.cm-card-bg-62'), {
           scale: 1,
           duration: 0.4,
           ease: 'power2.out'
         })
-        gsap.to(card.querySelector('.cm-card-number'), {
+        gsap.to(card.querySelector('.cm-card-number-62'), {
           scale: 1,
           rotation: 0,
           duration: 0.3,
@@ -235,7 +235,7 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
-.circle-motion-section {
+.circle-motion-section-62 {
   min-height: 100vh;
   padding: 80px 40px;
   background: linear-gradient(135deg, #0d1b2a 0%, #1b263b 50%, #415a77 100%);
@@ -243,12 +243,12 @@ onUnmounted(() => {
   overflow: hidden;
 }
 
-.section-header {
+.section-header-62 {
   text-align: center;
   margin-bottom: 60px;
 }
 
-.title {
+.title-62 {
   font-size: 56px;
   font-weight: 900;
   color: #fff;
@@ -257,7 +257,7 @@ onUnmounted(() => {
   text-shadow: 0 0 30px rgba(65, 90, 119, 0.5);
 }
 
-.subtitle {
+.subtitle-62 {
   font-size: 18px;
   color: rgba(255, 255, 255, 0.6);
   margin-top: 16px;
@@ -265,22 +265,22 @@ onUnmounted(() => {
   text-transform: uppercase;
 }
 
-.cm-motion-wrapper {
+.cm-motion-wrapper-62 {
   display: flex;
   justify-content: center;
   padding: 40px 0;
 }
 
-.circle-svg {
+.circle-svg-62 {
   width: 600px;
   height: 600px;
 }
 
-.cm-circle-path {
+.cm-circle-path-62 {
   filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
 }
 
-.cm-card-inner {
+.cm-card-inner-62 {
   width: 140px;
   height: 100px;
   border-radius: 16px;
@@ -293,17 +293,17 @@ onUnmounted(() => {
   transition: box-shadow 0.4s ease;
 }
 
-.cm-card-inner:hover {
+.cm-card-inner-62:hover {
   box-shadow: 0 20px 60px rgba(65, 90, 119, 0.5);
 }
 
-.cm-card-bg {
+.cm-card-bg-62 {
   width: 100%;
   height: 100%;
   transition: transform 0.4s ease;
 }
 
-.cm-card-number {
+.cm-card-number-62 {
   position: absolute;
   top: 8px;
   right: 8px;
@@ -322,14 +322,14 @@ onUnmounted(() => {
   transition: all 0.4s ease;
 }
 
-.cm-motion-controls {
+.cm-motion-controls-62 {
   display: flex;
   justify-content: center;
   gap: 20px;
   margin-top: 40px;
 }
 
-.cm-control-btn {
+.cm-control-btn-62 {
   padding: 16px 40px;
   background: linear-gradient(135deg, #415a77 0%, #778da9 100%);
   border: none;
@@ -344,27 +344,27 @@ onUnmounted(() => {
   box-shadow: 0 10px 30px rgba(65, 90, 119, 0.3);
 }
 
-.cm-control-btn:hover {
+.cm-control-btn-62:hover {
   transform: translateY(-3px);
   box-shadow: 0 15px 40px rgba(65, 90, 119, 0.4);
 }
 
 @media (max-width: 768px) {
-  .title {
+  .title-62 {
     font-size: 32px;
     letter-spacing: 3px;
   }
 
-  .subtitle {
+  .subtitle-62 {
     font-size: 14px;
   }
 
-  .circle-svg {
+  .circle-svg-62 {
     width: 400px;
     height: 400px;
   }
 
-  .card-inner {
+  .card-inner-62 {
     width: 100px;
     height: 70px;
   }

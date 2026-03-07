@@ -1,32 +1,32 @@
 <template>
-  <section ref="parallaxSection" class="ip-section ip-parallax-section">
-    <div class="ip-hero-content">
-      <h2 class="ip-section-title">沉浸式视差体验</h2>
-      <p class="ip-subtitle">探索深度的视觉艺术</p>
+  <section ref="parallaxSection" class="ip-section-7 ip-parallax-section-7">
+    <div class="ip-hero-content-7">
+      <h2 class="ip-section-title-7">沉浸式视差体验</h2>
+      <p class="ip-subtitle-7">探索深度的视觉艺术</p>
     </div>
-    <div class="ip-parallax-container" ref="parallaxContainer">
+    <div class="ip-parallax-container-7" ref="parallaxContainer">
       <!-- 背景层 -->
-      <div class="ip-parallax-layer ip-layer-bg" ref="parallaxBg">
-        <div class="ip-bg-gradient"></div>
-        <div class="ip-particles" ref="particles">
-          <div v-for="i in 20" :key="i" class="ip-particle" :style="getParticleStyle(i)"></div>
+      <div class="ip-parallax-layer-7 ip-layer-bg-7" ref="parallaxBg">
+        <div class="ip-bg-gradient-7"></div>
+        <div class="ip-particles-7" ref="particles">
+          <div v-for="i in 20" :key="i" class="ip-particle-7" :style="getParticleStyle(i)"></div>
         </div>
       </div>
 
       <!-- 中层 - 图片卡片 -->
-      <div class="ip-parallax-layer ip-layer-mid" ref="parallaxMid">
-        <div class="ip-card-wrapper">
+      <div class="ip-parallax-layer-7 ip-layer-mid-7" ref="parallaxMid">
+        <div class="ip-card-wrapper-7">
           <div
             v-for="(item, index) in parallaxItems"
             :key="index"
-            class="ip-parallax-card"
+            class="ip-parallax-card-7"
             :style="{ '--delay': index * 0.1 + 's' }"
           >
-            <div class="ip-card-image">
+            <div class="ip-card-image-7">
               <img :src="item.image" :alt="item.title" />
-              <div class="ip-card-overlay"></div>
+              <div class="ip-card-overlay-7"></div>
             </div>
-            <div class="ip-card-content">
+            <div class="ip-card-content-7">
               <h3>{{ item.title }}</h3>
               <p>{{ item.desc }}</p>
             </div>
@@ -35,25 +35,25 @@
       </div>
 
       <!-- 前层 - 浮动元素 -->
-      <div class="ip-parallax-layer ip-layer-front" ref="parallaxFront">
-        <div class="ip-floating-elements">
-          <div class="ip-float-element ip-icon-1">🌸</div>
-          <div class="ip-float-element ip-icon-2">✨</div>
-          <div class="ip-float-element ip-icon-3">🎨</div>
-          <div class="ip-float-element ip-icon-4">💫</div>
+      <div class="ip-parallax-layer-7 ip-layer-front-7" ref="parallaxFront">
+        <div class="ip-floating-elements-7">
+          <div class="ip-float-element-7 ip-icon-1">🌸</div>
+          <div class="ip-float-element-7 ip-icon-2">✨</div>
+          <div class="ip-float-element-7 ip-icon-3">🎨</div>
+          <div class="ip-float-element-7 ip-icon-4">💫</div>
         </div>
-        <div class="ip-center-text">
-          <div class="ip-main-text">视差滚动</div>
-          <div class="ip-sub-text">Depth Parallax Effect</div>
+        <div class="ip-center-text-7">
+          <div class="ip-main-text-7">视差滚动</div>
+          <div class="ip-sub-text-7">Depth Parallax Effect</div>
         </div>
       </div>
     </div>
 
     <!-- 数据统计 -->
-    <div class="ip-stats-container" ref="statsContainer">
-      <div class="ip-stat-item" v-for="stat in stats" :key="stat.label">
-        <div class="ip-stat-value">{{ stat.value }}</div>
-        <div class="ip-stat-label">{{ stat.label }}</div>
+    <div class="ip-stats-container-7" ref="statsContainer">
+      <div class="ip-stat-item-7" v-for="stat in stats" :key="stat.label">
+        <div class="ip-stat-value-7">{{ stat.value }}</div>
+        <div class="ip-stat-label-7">{{ stat.label }}</div>
       </div>
     </div>
   </section>
@@ -173,7 +173,7 @@ const initAnimations = () => {
   }
 
   // 浮动元素独立动画
-  gsap.utils.toArray<HTMLElement>('.ip-float-element').forEach((el, i) => {
+  gsap.utils.toArray<HTMLElement>('.ip-float-element-7').forEach((el, i) => {
     gsap.to(el, {
       y: -30 - i * 10,
       rotation: 360,
@@ -185,7 +185,7 @@ const initAnimations = () => {
   })
 
   // 卡片入场动画
-  gsap.fromTo('.ip-parallax-card',
+  gsap.fromTo('.ip-parallax-card-7',
     {
       y: 100,
       opacity: 0,
@@ -199,7 +199,7 @@ const initAnimations = () => {
       stagger: 0.2,
       ease: 'back.out(1.7)',
       scrollTrigger: {
-        trigger: '.ip-card-wrapper',
+        trigger: '.ip-card-wrapper-7',
         start: 'top 80%'
       }
     }
@@ -207,7 +207,7 @@ const initAnimations = () => {
 
   // 数据统计数字动画
   if (statsContainer.value) {
-    gsap.from('.ip-stat-item', {
+    gsap.from('.ip-stat-item-7', {
       y: 50,
       opacity: 0,
       duration: 0.6,
@@ -221,7 +221,7 @@ const initAnimations = () => {
   }
 
   // 中心文字淡入
-  gsap.fromTo('.ip-center-text',
+  gsap.fromTo('.ip-center-text-7',
     {
       scale: 0.8,
       opacity: 0
@@ -241,7 +241,7 @@ const initAnimations = () => {
 </script>
 
 <style scoped lang="scss">
-.ip-section {
+.ip-section-7 {
   min-height: 100vh;
   padding: 80px 20px 100px;
   position: relative;
@@ -252,13 +252,13 @@ const initAnimations = () => {
   overflow: hidden;
 }
 
-.ip-hero-content {
+.ip-hero-content-7 {
   text-align: center;
   margin-bottom: 40px;
   z-index: 10;
 }
 
-.ip-section-title {
+.ip-section-title-7 {
   font-size: 3rem;
   font-weight: 800;
   margin-bottom: 16px;
@@ -270,14 +270,14 @@ const initAnimations = () => {
   letter-spacing: 2px;
 }
 
-.ip-subtitle {
+.ip-subtitle-7 {
   font-size: 1.2rem;
   color: rgba(255, 255, 255, 0.7);
   font-weight: 300;
   letter-spacing: 4px;
 }
 
-.ip-parallax-container {
+.ip-parallax-container-7 {
   position: relative;
   width: 100%;
   max-width: 1400px;
@@ -287,7 +287,7 @@ const initAnimations = () => {
   box-shadow: 0 25px 80px rgba(102, 126, 234, 0.3);
 }
 
-.ip-parallax-layer {
+.ip-parallax-layer-7 {
   position: absolute;
   top: 0;
   left: 0;
@@ -299,10 +299,10 @@ const initAnimations = () => {
 }
 
 // 背景层
-.ip-layer-bg {
+.ip-layer-bg-7 {
   z-index: 1;
 
-  .ip-bg-gradient {
+  .ip-bg-gradient-7 {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -310,13 +310,13 @@ const initAnimations = () => {
     opacity: 0.3;
   }
 
-  .ip-particles {
+  .ip-particles-7 {
     position: absolute;
     width: 100%;
     height: 100%;
   }
 
-  .ip-particle {
+  .ip-particle-7 {
     position: absolute;
     background: rgba(255, 255, 255, 0.5);
     border-radius: 50%;
@@ -336,11 +336,11 @@ const initAnimations = () => {
 }
 
 // 中层 - 图片卡片
-.ip-layer-mid {
+.ip-layer-mid-7 {
   z-index: 2;
   padding: 40px;
 
-  .ip-card-wrapper {
+  .ip-card-wrapper-7 {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 30px;
@@ -348,7 +348,7 @@ const initAnimations = () => {
     max-width: 1000px;
   }
 
-  .ip-parallax-card {
+  .ip-parallax-card-7 {
     position: relative;
     border-radius: 20px;
     overflow: hidden;
@@ -364,7 +364,7 @@ const initAnimations = () => {
     }
   }
 
-  .ip-card-image {
+  .ip-card-image-7 {
     position: relative;
     width: 100%;
     height: 200px;
@@ -377,7 +377,7 @@ const initAnimations = () => {
       transition: transform 0.5s ease;
     }
 
-    .ip-card-overlay {
+    .ip-card-overlay-7 {
       position: absolute;
       top: 0;
       left: 0;
@@ -392,12 +392,12 @@ const initAnimations = () => {
       transform: scale(1.1);
     }
 
-    &:hover .ip-card-overlay {
+    &:hover .ip-card-overlay-7 {
       opacity: 1;
     }
   }
 
-  .ip-card-content {
+  .ip-card-content-7 {
     padding: 20px;
 
     h3 {
@@ -416,17 +416,17 @@ const initAnimations = () => {
 }
 
 // 前层 - 浮动元素
-.ip-layer-front {
+.ip-layer-front-7 {
   z-index: 3;
   pointer-events: none;
 
-  .ip-floating-elements {
+  .ip-floating-elements-7 {
     position: absolute;
     width: 100%;
     height: 100%;
   }
 
-  .ip-float-element {
+  .ip-float-element-7 {
     position: absolute;
     font-size: 2.5rem;
     filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
@@ -452,11 +452,11 @@ const initAnimations = () => {
     right: 10%;
   }
 
-  .ip-center-text {
+  .ip-center-text-7 {
     text-align: center;
     z-index: 4;
 
-    .ip-main-text {
+    .ip-main-text-7 {
       font-size: 4rem;
       font-weight: 900;
       background: linear-gradient(135deg, #fff 0%, rgba(255, 255, 255, 0.8) 100%);
@@ -468,7 +468,7 @@ const initAnimations = () => {
       margin-bottom: 10px;
     }
 
-    .ip-sub-text {
+    .ip-sub-text-7 {
       font-size: 1.2rem;
       color: rgba(255, 255, 255, 0.6);
       font-weight: 300;
@@ -479,7 +479,7 @@ const initAnimations = () => {
 }
 
 // 数据统计
-.ip-stats-container {
+.ip-stats-container-7 {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 40px;
@@ -493,10 +493,10 @@ const initAnimations = () => {
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.ip-stat-item {
+.ip-stat-item-7 {
   text-align: center;
 
-  .ip-stat-value {
+  .ip-stat-value-7 {
     font-size: 2.5rem;
     font-weight: bold;
     background: linear-gradient(135deg, #667eea, #f093fb);
@@ -506,7 +506,7 @@ const initAnimations = () => {
     margin-bottom: 8px;
   }
 
-  .ip-stat-label {
+  .ip-stat-label-7 {
     font-size: 0.9rem;
     color: rgba(255, 255, 255, 0.7);
     letter-spacing: 2px;
@@ -515,41 +515,41 @@ const initAnimations = () => {
 }
 
 @media (max-width: 1024px) {
-  .ip-layer-mid .ip-card-wrapper {
+  .ip-layer-mid-7 .ip-card-wrapper-7 {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 768px) {
-  .ip-section-title {
+  .ip-section-title-7 {
     font-size: 2rem;
   }
 
-  .ip-parallax-container {
+  .ip-parallax-container-7 {
     height: 500px;
   }
 
-  .ip-layer-mid {
+  .ip-layer-mid-7 {
     padding: 20px;
 
-    .ip-card-wrapper {
+    .ip-card-wrapper-7 {
       grid-template-columns: 1fr;
       gap: 20px;
     }
   }
 
-  .ip-center-text .ip-main-text {
+  .ip-center-text-7 .ip-main-text-7 {
     font-size: 2.5rem;
     letter-spacing: 4px;
   }
 
-  .ip-stats-container {
+  .ip-stats-container-7 {
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
     padding: 30px;
   }
 
-  .ip-stat-value {
+  .ip-stat-value-7 {
     font-size: 2rem;
   }
 }

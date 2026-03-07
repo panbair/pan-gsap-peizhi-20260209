@@ -1,37 +1,37 @@
 <template>
-  <div class="fold-effect">
-    <div class="container">
-      <h2 class="section-title">折叠效果</h2>
-      
-      <div class="fold-container">
-        <div 
-          class="fold-panel" 
-          v-for="(img, index) in images" 
+  <div class="fold-effect-47">
+    <div class="container-47">
+      <h2 class="section-title-47">折叠效果</h2>
+
+      <div class="fold-container-47">
+        <div
+          v-for="(img, index) in images"
           :key="index"
-          :style="{ 
+          ref="items"
+          class="fold-panel-47"
+          :style="{
             transformOrigin: index % 2 === 0 ? 'left' : 'right',
             transform: `rotateY(${openedPanels.includes(index) ? 0 : -90}deg)`
           }"
-          ref="items"
           @click="togglePanel(index)"
         >
-          <div class="panel-front">
+          <div class="panel-front-47">
             <img :src="img" :alt="`Image ${index + 1}`" />
-            <div class="panel-content">
-              <span class="panel-number">{{ index + 1 }}</span>
-              <h3 class="panel-title">{{ titles[index] }}</h3>
+            <div class="panel-content-47">
+              <span class="panel-number-47">{{ index + 1 }}</span>
+              <h3 class="panel-title-47">{{ titles[index] }}</h3>
             </div>
           </div>
-          <div class="panel-back">
-            <div class="back-content">
+          <div class="panel-back-47">
+            <div class="back-content-47">
               <h3>{{ titles[index] }}</h3>
               <p>点击折叠/展开</p>
             </div>
           </div>
         </div>
       </div>
-      
-      <button class="expand-all-btn" @click="toggleAll">全部展开/折叠</button>
+
+      <button class="expand-all-btn-47" @click="toggleAll">全部展开/折叠</button>
     </div>
   </div>
 </template>
@@ -77,9 +77,9 @@ let ctx: gsap.Context
 onMounted(() => {
   ctx = gsap.context(() => {
     // 标题动画
-    gsap.from('.section-title', {
+    gsap.from('.section-title-47', {
       scrollTrigger: {
-        trigger: '.section-title',
+        trigger: '.section-title-47',
         start: 'top 90%'
       },
       y: 50,
@@ -89,13 +89,14 @@ onMounted(() => {
     })
 
     items.value.forEach((item, index) => {
-      const front = item.querySelector('.panel-front') as HTMLElement
+      const front = item.querySelector('.panel-front-47') as HTMLElement
       const img = item.querySelector('img') as HTMLElement
-      const content = item.querySelector('.panel-content') as HTMLElement
-      const number = item.querySelector('.panel-number') as HTMLElement
+      const content = item.querySelector('.panel-content-47') as HTMLElement
+      const number = item.querySelector('.panel-number-47') as HTMLElement
 
       // 折叠入场
-      gsap.fromTo(item,
+      gsap.fromTo(
+        item,
         {
           rotateY: -90,
           opacity: 0
@@ -116,7 +117,8 @@ onMounted(() => {
       )
 
       // 图片缩放
-      gsap.fromTo(img,
+      gsap.fromTo(
+        img,
         { scale: 1.4 },
         {
           scale: 1,
@@ -132,7 +134,7 @@ onMounted(() => {
 
       // 滚动时轻微旋转
       gsap.to(item, {
-        rotateY: (index % 2 === 0 ? -10 : 10),
+        rotateY: index % 2 === 0 ? -10 : 10,
         scrollTrigger: {
           trigger: item,
           start: 'top 100%',
@@ -143,7 +145,8 @@ onMounted(() => {
       })
 
       // 内容淡入
-      gsap.fromTo(content,
+      gsap.fromTo(
+        content,
         { opacity: 0, y: 30 },
         {
           opacity: 1,
@@ -158,7 +161,8 @@ onMounted(() => {
       )
 
       // 数字旋转
-      gsap.fromTo(number,
+      gsap.fromTo(
+        number,
         { rotate: -180, scale: 0 },
         {
           rotate: 0,
@@ -174,9 +178,9 @@ onMounted(() => {
     })
 
     // 按钮动画
-    gsap.from('.expand-all-btn', {
+    gsap.from('.expand-all-btn-47', {
       scrollTrigger: {
-        trigger: '.expand-all-btn',
+        trigger: '.expand-all-btn-47',
         start: 'top 90%'
       },
       scale: 0,
@@ -193,13 +197,13 @@ onUnmounted(() => {
 </script>
 
 <style scoped lang="scss">
-.fold-effect {
+.fold-effect-47 {
   min-height: 120vh;
   padding: 100px 0;
   background: linear-gradient(180deg, #1a1a2e 0%, #4a1942 50%, #1a1a2e 100%);
   position: relative;
   overflow: hidden;
-  
+
   &::before {
     content: '';
     position: absolute;
@@ -207,14 +211,14 @@ onUnmounted(() => {
     left: 0;
     right: 0;
     bottom: 0;
-    background: 
+    background:
       radial-gradient(circle at 20% 30%, rgba(237, 100, 166, 0.1) 0%, transparent 40%),
       radial-gradient(circle at 80% 70%, rgba(102, 126, 234, 0.1) 0%, transparent 40%);
     pointer-events: none;
   }
 }
 
-.container {
+.container-47 {
   max-width: 1400px;
   margin: 0 auto;
   padding: 0 40px;
@@ -222,7 +226,7 @@ onUnmounted(() => {
   z-index: 1;
 }
 
-.section-title {
+.section-title-47 {
   text-align: center;
   font-size: 3.5rem;
   font-weight: 800;
@@ -233,7 +237,7 @@ onUnmounted(() => {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   text-shadow: 0 0 40px rgba(237, 100, 166, 0.5);
-  
+
   &::after {
     content: '';
     display: block;
@@ -245,7 +249,7 @@ onUnmounted(() => {
   }
 }
 
-.fold-container {
+.fold-container-47 {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
@@ -253,15 +257,16 @@ onUnmounted(() => {
   perspective: 1000px;
 }
 
-.fold-panel {
+.fold-panel-47 {
   height: 400px;
   position: relative;
   transform-style: preserve-3d;
   transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
   cursor: pointer;
+  width: 100%;
 }
 
-.panel-front {
+.panel-front-47 {
   position: absolute;
   top: 0;
   left: 0;
@@ -274,23 +279,23 @@ onUnmounted(() => {
   background: #fff;
 }
 
-img {
+.fold-panel-47 img {
   width: 100%;
   height: 280px;
   object-fit: cover;
   transition: filter 0.3s ease;
 }
 
-.fold-panel:hover img {
+.fold-panel-47:hover img {
   filter: brightness(1.1) saturate(1.1);
 }
 
-.panel-content {
+.panel-content-47 {
   padding: 25px;
   background: linear-gradient(135deg, #ed64a6 0%, #667eea 100%);
 }
 
-.panel-number {
+.panel-number-47 {
   display: block;
   font-size: 3rem;
   font-weight: 900;
@@ -300,7 +305,7 @@ img {
   font-family: 'Arial', sans-serif;
 }
 
-.panel-title {
+.panel-title-47 {
   font-size: 1.5rem;
   font-weight: 700;
   color: #fff;
@@ -308,7 +313,7 @@ img {
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
-.panel-back {
+.panel-back-47 {
   position: absolute;
   top: 0;
   left: 0;
@@ -324,15 +329,15 @@ img {
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
 }
 
-.back-content {
+.back-content-47 {
   text-align: center;
   color: #fff;
-  
+
   h3 {
     font-size: 1.8rem;
     margin: 0 0 10px;
   }
-  
+
   p {
     font-size: 1rem;
     opacity: 0.9;
@@ -340,7 +345,7 @@ img {
   }
 }
 
-.expand-all-btn {
+.expand-all-btn-47 {
   display: block;
   margin: 60px auto 0;
   padding: 15px 40px;
@@ -353,29 +358,29 @@ img {
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 0 10px 30px rgba(237, 100, 166, 0.3);
-  
+
   &:hover {
     transform: translateY(-3px);
     box-shadow: 0 15px 40px rgba(237, 100, 166, 0.4);
   }
-  
+
   &:active {
     transform: translateY(-1px);
   }
 }
 
 @media (max-width: 1024px) {
-  .fold-container {
+  .fold-container-47 {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 640px) {
-  .fold-container {
+  .fold-container-47 {
     grid-template-columns: 1fr;
   }
-  
-  .section-title {
+
+  .section-title-47 {
     font-size: 2rem;
   }
 }

@@ -1,18 +1,18 @@
 <template>
-  <section class="magnetic-button-section">
-    <div class="content">
-      <h2 class="section-title">磁性按钮</h2>
-      <p class="subtitle">鼠标移动时按钮跟随磁性效果</p>
+  <section class="magnetic-button-section-12" ref="section">
+    <div class="content-12">
+      <h2 class="section-title-12">磁性按钮</h2>
+      <p class="subtitle-12">鼠标移动时按钮跟随磁性效果</p>
       
-      <div class="buttons-container">
-        <button class="magnetic-btn" ref="btn1">探索更多</button>
-        <button class="magnetic-btn" ref="btn2">立即开始</button>
-        <button class="magnetic-btn" ref="btn3">联系我们</button>
+      <div class="buttons-container-12">
+        <button class="magnetic-btn-12" ref="btn1">探索更多</button>
+        <button class="magnetic-btn-12" ref="btn2">立即开始</button>
+        <button class="magnetic-btn-12" ref="btn3">联系我们</button>
       </div>
 
-      <div class="scroll-hint">
+      <div class="scroll-hint-12">
         <p>滚动查看效果</p>
-        <div class="arrow"></div>
+        <div class="arrow-12"></div>
       </div>
     </div>
   </section>
@@ -28,6 +28,7 @@ gsap.registerPlugin(ScrollTrigger)
 const btn1 = ref<HTMLElement | null>(null)
 const btn2 = ref<HTMLElement | null>(null)
 const btn3 = ref<HTMLElement | null>(null)
+const section = ref<HTMLElement | null>(null)
 
 let ctx: gsap.Context
 
@@ -42,7 +43,7 @@ onMounted(() => {
       duration: 0.8,
       stagger: 0.15,
       scrollTrigger: {
-        trigger: '.magnetic-button-section',
+        trigger: section.value,
         start: 'top 70%',
         toggleActions: 'play none none reverse'
       }
@@ -100,7 +101,7 @@ onUnmounted(() => {
 </script>
 
 <style scoped lang="scss">
-.magnetic-button-section {
+.magnetic-button-section-12 {
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -121,13 +122,13 @@ onUnmounted(() => {
   }
 }
 
-.content {
+.content-12 {
   text-align: center;
   position: relative;
   z-index: 1;
 }
 
-.section-title {
+.section-title-12 {
   font-size: clamp(2rem, 4vw, 2.5rem);
   font-weight: 800;
   margin-bottom: 16px;
@@ -137,13 +138,13 @@ onUnmounted(() => {
   background-clip: text;
 }
 
-.subtitle {
+.subtitle-12 {
   font-size: 1.1rem;
   color: #94a3b8;
   margin-bottom: 60px;
 }
 
-.buttons-container {
+.buttons-container-12 {
   display: flex;
   gap: 24px;
   flex-wrap: wrap;
@@ -151,7 +152,7 @@ onUnmounted(() => {
   margin-bottom: 60px;
 }
 
-.magnetic-btn {
+.magnetic-btn-12 {
   position: relative;
   padding: 16px 40px;
   font-size: 1rem;
@@ -203,23 +204,29 @@ onUnmounted(() => {
   }
 }
 
-.scroll-hint {
+.scroll-hint-12 {
   margin-top: 60px;
   color: #94a3b8;
   animation: bounce 2s infinite;
 
-  .arrow {
+  .arrow-12 {
     width: 20px;
     height: 20px;
     margin: 10px auto 0;
-    border-right: 2px solid;
-    border-bottom: 2px solid;
+    border-right: 2px solid white;
+    border-bottom: 2px solid white;
+    border-left: 2px solid transparent;
+    border-top: 2px solid transparent;
     transform: rotate(45deg);
   }
 }
 
 @keyframes bounce {
-  0%, 20%, 50%, 80%, 100% {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
     transform: translateY(0);
   }
   40% {

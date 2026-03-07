@@ -1,12 +1,12 @@
 <template>
-  <section ref="explosionSection" class="section explosion-section">
-    <h2 class="section-title">粒子爆炸</h2>
-    <div class="explosion-container" ref="explosionContainer">
-      <div class="explosion-center" ref="explosionCenter">
-        <div class="explosion-core"></div>
+  <section ref="explosionSection" class="section-4 explosion-section-4">
+    <h2 class="section-title-4">粒子爆炸</h2>
+    <div class="explosion-container-4" ref="explosionContainer">
+      <div class="explosion-center-4" ref="explosionCenter">
+        <div class="explosion-core-4"></div>
       </div>
-      <div class="explosion-particles" ref="explosionParticles">
-        <div v-for="i in 50" :key="i" class="explosion-particle" :data-index="i"></div>
+      <div class="explosion-particles-4" ref="explosionParticles">
+        <div v-for="i in 50" :key="i" class="explosion-particle-4" :data-index="i"></div>
       </div>
     </div>
   </section>
@@ -95,7 +95,7 @@ const initAnimations = () => {
 </script>
 
 <style scoped lang="scss">
-.section {
+.section-4 {
   min-height: 100vh;
   padding: 100px 20px;
   position: relative;
@@ -105,7 +105,7 @@ const initAnimations = () => {
   justify-content: center;
 }
 
-.section-title {
+.section-title-4 {
   font-size: 2.5rem;
   font-weight: bold;
   margin-bottom: 60px;
@@ -116,11 +116,11 @@ const initAnimations = () => {
   text-align: center;
 }
 
-.explosion-section {
+.explosion-section-4 {
   background: linear-gradient(180deg, transparent, rgba(240, 147, 251, 0.1), transparent);
 }
 
-.explosion-container {
+.explosion-container-4 {
   position: relative;
   width: 400px;
   height: 400px;
@@ -129,7 +129,7 @@ const initAnimations = () => {
   justify-content: center;
 }
 
-.explosion-center {
+.explosion-center-4 {
   position: absolute;
   width: 60px;
   height: 60px;
@@ -138,7 +138,7 @@ const initAnimations = () => {
   justify-content: center;
 }
 
-.explosion-core {
+.explosion-core-4 {
   width: 100%;
   height: 100%;
   background: linear-gradient(135deg, #667eea, #764ba2);
@@ -146,14 +146,14 @@ const initAnimations = () => {
   box-shadow: 0 0 40px rgba(102, 126, 234, 0.6);
 }
 
-.explosion-particles {
+.explosion-particles-4 {
   position: absolute;
   width: 100%;
   height: 100%;
   pointer-events: none;
 }
 
-.explosion-particle {
+.explosion-particle-4 {
   position: absolute;
   top: 50%;
   left: 50%;

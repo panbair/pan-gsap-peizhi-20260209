@@ -1,19 +1,19 @@
 <template>
-  <section class="gg-glass-gallery-section">
-    <div class="gg-content">
-      <h2 class="gg-section-title">玻璃态画廊</h2>
-      <p class="gg-subtitle">毛玻璃效果与动态模糊</p>
+  <section class="gg-glass-gallery-section-16">
+    <div class="gg-content-16">
+      <h2 class="gg-section-title-16">玻璃态画廊</h2>
+      <p class="gg-subtitle-16">毛玻璃效果与动态模糊</p>
 
-      <div class="gg-gallery-grid">
-        <div class="gg-glass-card" v-for="(card, index) in cards" :key="index" :ref="el => cardRefs[index] = el">
-          <div class="gg-card-image" :style="{ backgroundImage: `linear-gradient(135deg, ${card.color1}, ${card.color2})` }">
-            <div class="gg-image-overlay"></div>
+      <div class="gg-gallery-grid-16">
+        <div class="gg-glass-card-16" v-for="(card, index) in cards" :key="index" :ref="el => cardRefs[index] = el">
+          <div class="gg-card-image-16" :style="{ backgroundImage: `linear-gradient(135deg, ${card.color1}, ${card.color2})` }">
+            <div class="gg-image-overlay-16"></div>
           </div>
-          <div class="gg-card-content">
+          <div class="gg-card-content-16">
             <h3>{{ card.title }}</h3>
             <p>{{ card.description }}</p>
-            <div class="gg-card-meta">
-              <span class="gg-tag" v-for="tag in card.tags" :key="tag">{{ tag }}</span>
+            <div class="gg-card-meta-16">
+              <span class="gg-tag-16" v-for="tag in card.tags" :key="tag">{{ tag }}</span>
             </div>
           </div>
         </div>
@@ -47,8 +47,8 @@ onMounted(() => {
     cardRefs.value.forEach((card, index) => {
       if (!card) return
 
-      const image = card.querySelector('.gg-card-image') as HTMLElement
-      const content = card.querySelector('.gg-card-content') as HTMLElement
+      const image = card.querySelector('.gg-card-image-16') as HTMLElement
+      const content = card.querySelector('.gg-card-content-16') as HTMLElement
 
       // 入场动画
       gsap.from(card, {
@@ -129,7 +129,7 @@ onUnmounted(() => {
 </script>
 
 <style scoped lang="scss">
-.gg-glass-gallery-section {
+.gg-glass-gallery-section-16 {
   min-height: 100vh;
   padding: 100px 20px;
   position: relative;
@@ -137,12 +137,12 @@ onUnmounted(() => {
   background: linear-gradient(180deg, #0a0a1a 0%, #1a1a3a 50%, #0a0a1a 100%);
 }
 
-.gg-content {
+.gg-content-16 {
   max-width: 1400px;
   margin: 0 auto;
 }
 
-.gg-section-title {
+.gg-section-title-16 {
   font-size: clamp(2rem, 4vw, 2.5rem);
   font-weight: 800;
   margin-bottom: 16px;
@@ -153,20 +153,20 @@ onUnmounted(() => {
   background-clip: text;
 }
 
-.gg-subtitle {
+.gg-subtitle-16 {
   font-size: 1.1rem;
   color: rgba(255, 255, 255, 0.6);
   text-align: center;
   margin-bottom: 80px;
 }
 
-.gg-gallery-grid {
+.gg-gallery-grid-16 {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 30px;
 }
 
-.gg-glass-card {
+.gg-glass-card-16 {
   position: relative;
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -205,19 +205,19 @@ onUnmounted(() => {
   }
 }
 
-.gg-card-image {
+.gg-card-image-16 {
   position: relative;
   height: 220px;
   overflow: hidden;
 }
 
-.gg-image-overlay {
+.gg-image-overlay-16 {
   position: absolute;
   inset: 0;
   background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.6));
 }
 
-.gg-card-content {
+.gg-card-content-16 {
   position: relative;
   padding: 24px;
   background: linear-gradient(to bottom, rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.95));
@@ -225,27 +225,27 @@ onUnmounted(() => {
   -webkit-backdrop-filter: blur(10px);
 }
 
-.gg-card-content h3 {
+.gg-card-content-16 h3 {
   font-size: 1.5rem;
   font-weight: 700;
   color: #f1f5f9;
   margin-bottom: 8px;
 }
 
-.gg-card-content p {
+.gg-card-content-16 p {
   font-size: 0.95rem;
   color: rgba(255, 255, 255, 0.7);
   line-height: 1.6;
   margin-bottom: 16px;
 }
 
-.gg-card-meta {
+.gg-card-meta-16 {
   display: flex;
   gap: 8px;
   flex-wrap: wrap;
 }
 
-.gg-tag {
+.gg-tag-16 {
   padding: 4px 12px;
   background: rgba(139, 92, 246, 0.2);
   border: 1px solid rgba(139, 92, 246, 0.3);
@@ -256,7 +256,7 @@ onUnmounted(() => {
 }
 
 @media (max-width: 768px) {
-  .gg-gallery-grid {
+  .gg-gallery-grid-16 {
     grid-template-columns: 1fr;
   }
 }

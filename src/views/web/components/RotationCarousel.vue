@@ -1,39 +1,39 @@
 <template>
-  <div class="rc-rotation-carousel">
-    <div class="rc-container">
-      <h2 class="rc-section-title">旋转轮播</h2>
+  <div class="rc-rotation-carousel-31">
+    <div class="rc-container-31">
+      <h2 class="rc-section-title-31">旋转轮播</h2>
 
-      <div ref="carouselWrapper" class="rc-carousel-wrapper">
-        <div ref="carouselTrack" class="rc-carousel-track">
+      <div ref="carouselWrapper" class="rc-carousel-wrapper-31">
+        <div ref="carouselTrack" class="rc-carousel-track-31">
           <div
             v-for="(img, index) in images"
             :key="index"
-            class="rc-carousel-item"
-            :class="{ active: activeIndex === index }"
+            class="rc-carousel-item-31"
+            :class="{ 'rc-active-31': activeIndex === index }"
             :style="getItemStyle(index)"
           >
-            <div class="rc-card-content">
+            <div class="rc-card-content-31">
               <img :src="img" :alt="`Image ${index + 1}`" />
-              <div class="rc-card-info">
-                <span class="rc-card-title">Image {{ index + 1 }}</span>
-                <span class="rc-card-desc">滑动查看更多</span>
+              <div class="rc-card-info-31">
+                <span class="rc-card-title-31">Image {{ index + 1 }}</span>
+                <span class="rc-card-desc-31">滑动查看更多</span>
               </div>
             </div>
           </div>
         </div>
 
-        <div class="rc-carousel-nav">
-          <button class="rc-nav-btn rc-prev" @click="prevSlide">←</button>
-          <div class="rc-indicators">
+        <div class="rc-carousel-nav-31">
+          <button class="rc-nav-btn-31 rc-prev-31" @click="prevSlide">←</button>
+          <div class="rc-indicators-31">
             <span
               v-for="(img, index) in images"
               :key="index"
-              class="rc-indicator"
-              :class="{ active: activeIndex === index }"
+              class="rc-indicator-31"
+              :class="{ 'rc-active-31': activeIndex === index }"
               @click="goToSlide(index)"
             ></span>
           </div>
-          <button class="rc-nav-btn rc-next" @click="nextSlide">→</button>
+          <button class="rc-nav-btn-31 rc-next-31" @click="nextSlide">→</button>
         </div>
       </div>
     </div>
@@ -119,9 +119,9 @@ let ctx: gsap.Context
 onMounted(() => {
   ctx = gsap.context(() => {
     // 标题动画
-    gsap.from('.rc-section-title', {
+    gsap.from('.rc-section-title-31', {
       scrollTrigger: {
-        trigger: '.rc-section-title',
+        trigger: '.rc-section-title-31',
         start: 'top 90%'
       },
       y: 50,
@@ -132,9 +132,9 @@ onMounted(() => {
     })
 
     // 轮播入场动画
-    gsap.from('.rc-carousel-item', {
+    gsap.from('.rc-carousel-item-31', {
       scrollTrigger: {
-        trigger: '.rc-carousel-wrapper',
+        trigger: '.rc-carousel-wrapper-31',
         start: 'top 80%'
       },
       opacity: 0,
@@ -146,9 +146,9 @@ onMounted(() => {
     })
 
     // 导航按钮动画
-    gsap.from('.rc-nav-btn', {
+    gsap.from('.rc-nav-btn-31', {
       scrollTrigger: {
-        trigger: '.rc-carousel-nav',
+        trigger: '.rc-carousel-nav-31',
         start: 'top 85%'
       },
       scale: 0,
@@ -159,9 +159,9 @@ onMounted(() => {
     })
 
     // 指示器动画
-    gsap.from('.rc-indicator', {
+    gsap.from('.rc-indicator-31', {
       scrollTrigger: {
-        trigger: '.rc-indicators',
+        trigger: '.rc-indicators-31',
         start: 'top 85%'
       },
       scale: 0,
@@ -176,7 +176,7 @@ onMounted(() => {
       {},
       {
         scrollTrigger: {
-          trigger: '.rc-carousel-wrapper',
+          trigger: '.rc-carousel-wrapper-31',
           start: 'top 90%',
           end: 'bottom 10%',
           scrub: 0.5,
@@ -196,7 +196,7 @@ onUnmounted(() => {
 </script>
 
 <style scoped lang="scss">
-.rc-rotation-carousel {
+.rc-rotation-carousel-31 {
   min-height: 100vh;
   padding: 100px 0;
   background: linear-gradient(180deg, #0f0f23 0%, #1a1a3e 50%, #0f0f23 100%);
@@ -220,7 +220,7 @@ onUnmounted(() => {
   }
 }
 
-.rc-container {
+.rc-container-31 {
   width: 100%;
   max-width: 1400px;
   padding: 0 40px;
@@ -228,7 +228,7 @@ onUnmounted(() => {
   z-index: 1;
 }
 
-.rc-section-title {
+.rc-section-title-31 {
   text-align: center;
   font-size: 3.5rem;
   font-weight: 800;
@@ -251,7 +251,7 @@ onUnmounted(() => {
   }
 }
 
-.rc-carousel-wrapper {
+.rc-carousel-wrapper-31 {
   width: 100%;
   height: 500px;
   display: flex;
@@ -261,7 +261,7 @@ onUnmounted(() => {
   position: relative;
 }
 
-.rc-carousel-track {
+.rc-carousel-track-31 {
   width: 100%;
   height: 400px;
   position: relative;
@@ -271,7 +271,7 @@ onUnmounted(() => {
   align-items: center;
 }
 
-.rc-carousel-item {
+.rc-carousel-item-31 {
   position: absolute;
   width: 320px;
   height: 400px;
@@ -281,7 +281,7 @@ onUnmounted(() => {
   transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
   cursor: pointer;
 
-  &.active {
+  &.active-31 {
     box-shadow: 0 40px 80px rgba(102, 126, 234, 0.4);
   }
 
@@ -290,7 +290,7 @@ onUnmounted(() => {
   }
 }
 
-.rc-card-content {
+.rc-card-content-31 {
   width: 100%;
   height: 100%;
   position: relative;
@@ -298,17 +298,17 @@ onUnmounted(() => {
   overflow: hidden;
 }
 
-.rc-carousel-item:hover img {
+.rc-carousel-item-31:hover img {
   transform: scale(1.1);
 }
 
-.rc-card-info {
+.rc-card-info-31 {
   padding: 20px;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   text-align: center;
 }
 
-.rc-card-title {
+.rc-card-title-31 {
   display: block;
   font-size: 1.2rem;
   font-weight: 700;
@@ -316,20 +316,20 @@ onUnmounted(() => {
   margin-bottom: 5px;
 }
 
-.rc-card-desc {
+.rc-card-desc-31 {
   display: block;
   font-size: 0.9rem;
   color: rgba(255, 255, 255, 0.8);
 }
 
-.rc-carousel-nav {
+.rc-carousel-nav-31 {
   margin-top: 60px;
   display: flex;
   align-items: center;
   gap: 40px;
 }
 
-.rc-nav-btn {
+.rc-nav-btn-31 {
   width: 50px;
   height: 50px;
   border-radius: 50%;
@@ -348,12 +348,12 @@ onUnmounted(() => {
   }
 }
 
-.rc-indicators {
+.rc-indicators-31 {
   display: flex;
   gap: 12px;
 }
 
-.rc-indicator {
+.rc-indicator-31 {
   width: 12px;
   height: 12px;
   border-radius: 50%;
@@ -362,7 +362,7 @@ onUnmounted(() => {
   cursor: pointer;
   transition: all 0.3s ease;
 
-  &.active {
+  &.active-31 {
     background: linear-gradient(135deg, #667eea, #764ba2);
     border-color: transparent;
     transform: scale(1.3);
@@ -375,11 +375,11 @@ onUnmounted(() => {
 }
 
 @media (max-width: 768px) {
-  .rc-section-title {
+  .rc-section-title-31 {
     font-size: 2rem;
   }
 
-  .rc-carousel-item {
+  .rc-carousel-item-31 {
     width: 260px;
     height: 340px;
   }

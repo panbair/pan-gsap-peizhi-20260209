@@ -1,27 +1,27 @@
 <template>
-  <div class="wr-wave-reveal-section">
-    <div class="wr-section-header">
-      <h2 class="wr-title">
-        <span class="wr-char" v-for="(char, i) in 'WAVE REVEAL'" :key="i">{{ char }}</span>
+  <div class="wr-wave-reveal-section-49">
+    <div class="wr-section-header-49">
+      <h2 class="wr-title-49">
+        <span class="wr-char-49" v-for="(char, i) in 'WAVE REVEAL'" :key="i">{{ char }}</span>
       </h2>
-      <p class="wr-subtitle">波浪揭示效果</p>
+      <p class="wr-subtitle-49">波浪揭示效果</p>
     </div>
 
-    <div class="wr-wave-container">
-      <div class="wr-wave-card" v-for="(card, index) in cards" :key="index">
-        <div class="wr-card-image-wrapper">
-          <div class="wr-card-image" :style="{ backgroundImage: `url(${card.image})` }"></div>
-          <div class="wr-wave-overlay"></div>
-          <div class="wr-card-number">{{ String(index + 1).padStart(2, '0') }}</div>
+    <div class="wr-wave-container-49">
+      <div class="wr-wave-card-49" v-for="(card, index) in cards" :key="index">
+        <div class="wr-card-image-wrapper-49">
+          <div class="wr-card-image-49" :style="{ backgroundImage: `url(${card.image})` }"></div>
+          <div class="wr-wave-overlay-49"></div>
+          <div class="wr-card-number-49">{{ String(index + 1).padStart(2, '0') }}</div>
         </div>
-        <div class="wr-card-content">
+        <div class="wr-card-content-49">
           <h3>{{ card.title }}</h3>
           <p>{{ card.description }}</p>
         </div>
       </div>
     </div>
 
-    <div class="wr-replay-btn" @click="replayAnimation">
+    <div class="wr-replay-btn-49" @click="replayAnimation">
       <span>重播动画</span>
     </div>
   </div>
@@ -55,9 +55,9 @@ const replayAnimation = () => {
 const initAnimations = () => {
   ctx = gsap.context(() => {
     // 标题波浪揭示
-    gsap.from('.wr-section-header .wr-title .wr-char', {
+    gsap.from('.wr-section-header-49 .wr-title-49 .wr-char-49', {
       scrollTrigger: {
-        trigger: '.wr-section-header',
+        trigger: '.wr-section-header-49',
         start: 'top 80%',
         toggleActions: 'play none none reverse'
       },
@@ -73,9 +73,9 @@ const initAnimations = () => {
     })
 
     // 卡片波浪入场
-    gsap.from('.wr-wave-card', {
+    gsap.from('.wr-wave-card-49', {
       scrollTrigger: {
-        trigger: '.wr-wave-container',
+        trigger: '.wr-wave-container-49',
         start: 'top 70%',
         toggleActions: 'play none none reverse'
       },
@@ -91,9 +91,9 @@ const initAnimations = () => {
     })
 
     // 图片波浪显示
-    gsap.from('.wr-card-image', {
+    gsap.from('.wr-card-image-49', {
       scrollTrigger: {
-        trigger: '.wr-wave-container',
+        trigger: '.wr-wave-container-49',
         start: 'top 60%',
         toggleActions: 'play none none reverse'
       },
@@ -109,9 +109,9 @@ const initAnimations = () => {
     })
 
     // 数字波浪旋转
-    gsap.from('.wr-wave-card .wr-card-number', {
+    gsap.from('.wr-wave-card-49 .wr-card-number-49', {
       scrollTrigger: {
-        trigger: '.wr-wave-container',
+        trigger: '.wr-wave-container-49',
         start: 'top 60%',
         toggleActions: 'play none none reverse'
       },
@@ -127,9 +127,9 @@ const initAnimations = () => {
     })
 
     // 内容波浪滑入
-    gsap.from('.wr-wave-card .wr-card-content', {
+    gsap.from('.wr-wave-card-49 .wr-card-content-49', {
       scrollTrigger: {
-        trigger: '.wr-wave-container',
+        trigger: '.wr-wave-container-49',
         start: 'top 50%',
         toggleActions: 'play none none reverse'
       },
@@ -144,9 +144,9 @@ const initAnimations = () => {
     })
 
     // 滚动时波浪波动
-    gsap.to('.wr-wave-card', {
+    gsap.to('.wr-wave-card-49', {
       scrollTrigger: {
-        trigger: '.wr-wave-container',
+        trigger: '.wr-wave-container-49',
         start: 'top bottom',
         end: 'bottom top',
         scrub: 1
@@ -156,9 +156,9 @@ const initAnimations = () => {
     })
 
     // 图片滚动缩放波浪
-    gsap.to('.wr-card-image', {
+    gsap.to('.wr-card-image-49', {
       scrollTrigger: {
-        trigger: '.wr-wave-container',
+        trigger: '.wr-wave-container-49',
         start: 'top bottom',
         end: 'bottom top',
         scrub: 1
@@ -168,11 +168,11 @@ const initAnimations = () => {
     })
 
     // 覆盖层渐变
-    gsap.fromTo('.wr-wave-overlay',
+    gsap.fromTo('.wr-wave-overlay-49',
       { opacity: 1 },
       {
         scrollTrigger: {
-          trigger: '.wr-wave-container',
+          trigger: '.wr-wave-container-49',
           start: 'top 60%',
           end: 'top 20%',
           scrub: true
@@ -183,9 +183,9 @@ const initAnimations = () => {
     )
 
     // 重播按钮渐入
-    gsap.from('.wr-replay-btn', {
+    gsap.from('.wr-replay-btn-49', {
       scrollTrigger: {
-        trigger: '.wr-replay-btn',
+        trigger: '.wr-replay-btn-49',
         start: 'top 90%',
         toggleActions: 'play none none reverse'
       },
@@ -196,15 +196,15 @@ const initAnimations = () => {
     })
 
     // 悬停效果 - 使用gsap.context自动清理
-    gsap.utils.toArray('.wr-wave-card').forEach((card: Element) => {
+    gsap.utils.toArray('.wr-wave-card-49').forEach((card: Element) => {
       const cardEl = card as HTMLElement
       cardEl.addEventListener('mouseenter', () => {
-        gsap.to(cardEl.querySelector('.wr-card-image'), {
+        gsap.to(cardEl.querySelector('.wr-card-image-49'), {
           scale: 1.1,
           duration: 0.4,
           ease: 'power2.out'
         })
-        gsap.to(cardEl.querySelector('.wr-card-number'), {
+        gsap.to(cardEl.querySelector('.wr-card-number-49'), {
           scale: 1.2,
           rotation: 10,
           duration: 0.4,
@@ -213,12 +213,12 @@ const initAnimations = () => {
       })
 
       cardEl.addEventListener('mouseleave', () => {
-        gsap.to(cardEl.querySelector('.wr-card-image'), {
+        gsap.to(cardEl.querySelector('.wr-card-image-49'), {
           scale: 1,
           duration: 0.4,
           ease: 'power2.out'
         })
-        gsap.to(cardEl.querySelector('.wr-card-number'), {
+        gsap.to(cardEl.querySelector('.wr-card-number-49'), {
           scale: 1,
           rotation: 0,
           duration: 0.4,
@@ -239,7 +239,7 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
-.wr-wave-reveal-section {
+.wr-wave-reveal-section-49 {
   min-height: 100vh;
   padding: 80px 40px;
   background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
@@ -247,12 +247,12 @@ onUnmounted(() => {
   overflow: hidden;
 }
 
-.wr-section-header {
+.wr-section-header-49 {
   text-align: center;
   margin-bottom: 80px;
 }
 
-.wr-title {
+.wr-title-49 {
   font-size: 64px;
   font-weight: 900;
   color: #fff;
@@ -261,19 +261,19 @@ onUnmounted(() => {
   perspective: 1000px;
 }
 
-.wr-title .wr-char {
+.wr-title-49 .wr-char-49 {
   display: inline-block;
   text-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
 }
 
-.wr-subtitle {
+.wr-subtitle-49 {
   font-size: 20px;
   color: rgba(255, 255, 255, 0.6);
   margin-top: 20px;
   letter-spacing: 4px;
 }
 
-.wr-wave-container {
+.wr-wave-container-49 {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 40px;
@@ -282,7 +282,7 @@ onUnmounted(() => {
   padding: 40px 0;
 }
 
-.wr-wave-card {
+.wr-wave-card-49 {
   background: rgba(255, 255, 255, 0.05);
   border-radius: 20px;
   overflow: hidden;
@@ -293,17 +293,17 @@ onUnmounted(() => {
   transition: box-shadow 0.3s ease;
 }
 
-.wr-wave-card:hover {
+.wr-wave-card-49:hover {
   box-shadow: 0 20px 60px rgba(0, 255, 255, 0.2);
 }
 
-.wr-card-image-wrapper {
+.wr-card-image-wrapper-49 {
   position: relative;
   height: 280px;
   overflow: hidden;
 }
 
-.wr-card-image {
+.wr-card-image-49 {
   width: 100%;
   height: 100%;
   background-size: cover;
@@ -311,7 +311,7 @@ onUnmounted(() => {
   transition: transform 0.4s ease;
 }
 
-.wr-wave-overlay {
+.wr-wave-overlay-49 {
   position: absolute;
   top: 0;
   left: 0;
@@ -321,7 +321,7 @@ onUnmounted(() => {
   pointer-events: none;
 }
 
-.wr-card-number {
+.wr-card-number-49 {
   position: absolute;
   top: 20px;
   right: 20px;
@@ -340,12 +340,12 @@ onUnmounted(() => {
   transition: all 0.4s ease;
 }
 
-.wr-card-content {
+.wr-card-content-49 {
   padding: 30px;
   transform: translateZ(20px);
 }
 
-.wr-card-content h3 {
+.wr-card-content-49 h3 {
   font-size: 28px;
   font-weight: 700;
   color: #fff;
@@ -353,13 +353,13 @@ onUnmounted(() => {
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
-.wr-card-content p {
+.wr-card-content-49 p {
   font-size: 16px;
   color: rgba(255, 255, 255, 0.7);
   line-height: 1.6;
 }
 
-.wr-replay-btn {
+.wr-replay-btn-49 {
   display: block;
   margin: 60px auto 0;
   padding: 16px 40px;
@@ -374,29 +374,29 @@ onUnmounted(() => {
   box-shadow: 0 10px 30px rgba(0, 255, 255, 0.3);
 }
 
-.wr-replay-btn:hover {
+.wr-replay-btn-49:hover {
   transform: translateY(-3px);
   box-shadow: 0 15px 40px rgba(0, 255, 255, 0.4);
 }
 
-.wr-replay-btn:active {
+.wr-replay-btn-49:active {
   transform: translateY(0);
 }
 
 @media (max-width: 768px) {
-  .wr-title {
+  .wr-title-49 {
     font-size: 36px;
   }
 
-  .wr-subtitle {
+  .wr-subtitle-49 {
     font-size: 14px;
   }
 
-  .wr-wave-container {
+  .wr-wave-container-49 {
     gap: 24px;
   }
 
-  .wr-card-image-wrapper {
+  .wr-card-image-wrapper-49 {
     height: 220px;
   }
 }

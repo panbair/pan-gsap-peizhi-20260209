@@ -1,21 +1,21 @@
 <template>
-  <section class="rotating-rings-section">
-    <div class="rr-content">
-      <h2 class="rr-section-title">旋转环</h2>
-      <p class="rr-subtitle">多层环形旋转动画</p>
+  <section class="rotating-rings-section-14">
+    <div class="rr-content-14">
+      <h2 class="rr-section-title-14">旋转环</h2>
+      <p class="rr-subtitle-14">多层环形旋转动画</p>
 
-      <div class="rr-rings-container">
-        <div class="rr-ring rr-ring-outer" ref="ringOuter">
-          <div class="rr-ring-dot" v-for="n in 8" :key="n"></div>
+      <div class="rr-rings-container-14" ref="ringsContainer">
+        <div class="rr-ring-14 rr-ring-outer-14" ref="ringOuter">
+          <div class="rr-ring-dot-14" v-for="n in 8" :key="n"></div>
         </div>
-        <div class="rr-ring rr-ring-middle" ref="ringMiddle">
-          <div class="rr-ring-dot" v-for="n in 6" :key="n"></div>
+        <div class="rr-ring-14 rr-ring-middle-14" ref="ringMiddle">
+          <div class="rr-ring-dot-14" v-for="n in 6" :key="n"></div>
         </div>
-        <div class="rr-ring rr-ring-inner" ref="ringInner">
-          <div class="rr-ring-dot" v-for="n in 4" :key="n"></div>
+        <div class="rr-ring-14 rr-ring-inner-14" ref="ringInner">
+          <div class="rr-ring-dot-14" v-for="n in 4" :key="n"></div>
         </div>
-        <div class="rr-center-circle" ref="centerCircle">
-          <div class="rr-center-text">GSAP</div>
+        <div class="rr-center-circle-14" ref="centerCircle">
+          <div class="rr-center-text-14">GSAP</div>
         </div>
       </div>
     </div>
@@ -33,6 +33,7 @@ const ringOuter = ref<HTMLElement | null>(null)
 const ringMiddle = ref<HTMLElement | null>(null)
 const ringInner = ref<HTMLElement | null>(null)
 const centerCircle = ref<HTMLElement | null>(null)
+const ringsContainer = ref<HTMLElement | null>(null)
 
 let ctx: gsap.Context
 
@@ -40,7 +41,7 @@ onMounted(() => {
   ctx = gsap.context(() => {
     const timeline = gsap.timeline({
       scrollTrigger: {
-        trigger: '.rotating-rings-section',
+        trigger: ringsContainer.value,
         start: 'top 80%',
         end: 'bottom 20%',
         scrub: 1
@@ -48,57 +49,68 @@ onMounted(() => {
     })
 
     // 外圈旋转
-    timeline.to('.rr-ring-outer', {
-      rotation: 360,
-      duration: 2
-    }, 0)
+    if (ringOuter.value) {
+      timeline.to(ringOuter.value, {
+        rotation: 360,
+        duration: 2
+      }, 0)
+    }
 
     // 中圈反向旋转
-    timeline.to('.rr-ring-middle', {
-      rotation: -360,
-      duration: 1.5
-    }, 0)
+    if (ringMiddle.value) {
+      timeline.to(ringMiddle.value, {
+        rotation: -360,
+        duration: 1.5
+      }, 0)
+    }
 
     // 内圈旋转
-    timeline.to('.rr-ring-inner', {
-      rotation: 360,
-      duration: 1
-    }, 0)
+    if (ringInner.value) {
+      timeline.to(ringInner.value, {
+        rotation: 360,
+        duration: 1
+      }, 0)
+    }
 
     // 中心圆缩放
-    timeline.to('.rr-center-circle', {
-      scale: 1.2,
-      rotation: 180,
-      duration: 1,
-      ease: 'power1.inOut',
-      yoyo: true,
-      repeat: 1
-    }, 0)
+    if (centerCircle.value) {
+      timeline.to(centerCircle.value, {
+        scale: 1.2,
+        rotation: 180,
+        duration: 1,
+        ease: 'power1.inOut',
+        yoyo: true,
+        repeat: 1
+      }, 0)
+    }
 
     // 点的动画
-    gsap.from('.rr-ring-dot', {
+    const ringDots = gsap.utils.toArray('.rr-ring-dot-14')
+    gsap.from(ringDots, {
       scale: 0,
       opacity: 0,
       duration: 0.5,
       stagger: 0.1,
       scrollTrigger: {
-        trigger: '.rr-rings-container',
+        trigger: ringsContainer.value,
         start: 'top 70%',
         toggleActions: 'play none none reverse'
       }
     })
 
     // 初始入场
-    gsap.from('.rr-rings-container', {
-      y: 100,
-      opacity: 0,
-      duration: 1,
-      scrollTrigger: {
-        trigger: '.rr-rings-container',
-        start: 'top 70%',
-        toggleActions: 'play none none reverse'
-      }
-    })
+    if (ringsContainer.value) {
+      gsap.from(ringsContainer.value, {
+        y: 100,
+        opacity: 0,
+        duration: 1,
+        scrollTrigger: {
+          trigger: ringsContainer.value,
+          start: 'top 70%',
+          toggleActions: 'play none none reverse'
+        }
+      })
+    }
   })
 })
 
@@ -108,7 +120,7 @@ onUnmounted(() => {
 </script>
 
 <style scoped lang="scss">
-.rotating-rings-section {
+.rotating-rings-section-14 {
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -129,13 +141,13 @@ onUnmounted(() => {
   }
 }
 
-.rr-content {
+.rr-content-14 {
   text-align: center;
   position: relative;
   z-index: 1;
 }
 
-.rr-section-title {
+.rr-section-title-14 {
   font-size: clamp(2rem, 4vw, 2.5rem);
   font-weight: 800;
   margin-bottom: 16px;
@@ -145,20 +157,20 @@ onUnmounted(() => {
   background-clip: text;
 }
 
-.rr-subtitle {
+.rr-subtitle-14 {
   font-size: 1.1rem;
   color: #94a3b8;
   margin-bottom: 80px;
 }
 
-.rr-rings-container {
+.rr-rings-container-14 {
   position: relative;
   width: 400px;
   height: 400px;
   margin: 0 auto;
 }
 
-.rr-ring {
+.rr-ring-14 {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -167,28 +179,28 @@ onUnmounted(() => {
   transform: translate(-50%, -50%);
 }
 
-.rr-ring-outer {
+.rr-ring-outer-14 {
   width: 360px;
   height: 360px;
   border-color: rgba(96, 165, 250, 0.3);
   box-shadow: 0 0 30px rgba(96, 165, 250, 0.2);
 }
 
-.rr-ring-middle {
+.rr-ring-middle-14 {
   width: 260px;
   height: 260px;
   border-color: rgba(167, 139, 250, 0.4);
   box-shadow: 0 0 25px rgba(167, 139, 250, 0.2);
 }
 
-.rr-ring-inner {
+.rr-ring-inner-14 {
   width: 160px;
   height: 160px;
   border-color: rgba(236, 72, 153, 0.5);
   box-shadow: 0 0 20px rgba(236, 72, 153, 0.2);
 }
 
-.rr-ring-dot {
+.rr-ring-dot-14 {
   position: absolute;
   width: 12px;
   height: 12px;
@@ -197,40 +209,40 @@ onUnmounted(() => {
   box-shadow: 0 0 10px currentColor;
 }
 
-.rr-ring-outer .rr-ring-dot {
+.rr-ring-outer-14 .rr-ring-dot-14 {
   color: #60a5fa;
   animation: orbit 8s linear infinite;
 }
 
-.rr-ring-middle .rr-ring-dot {
+.rr-ring-middle-14 .rr-ring-dot-14 {
   color: #a78bfa;
   animation: orbit 6s linear infinite reverse;
 }
 
-.rr-ring-inner .rr-ring-dot {
+.rr-ring-inner-14 .rr-ring-dot-14 {
   color: #ec4899;
   animation: orbit 4s linear infinite;
 }
 
 @for $i from 1 through 8 {
-  .rr-ring-outer .rr-ring-dot:nth-child(#{$i}) {
+  .rr-ring-outer-14 .rr-ring-dot-14:nth-child(#{$i}) {
     transform: rotate(#{($i - 1) * 45}deg) translate(180px) rotate(-#{($i - 1) * 45}deg);
   }
 }
 
 @for $i from 1 through 6 {
-  .rr-ring-middle .rr-ring-dot:nth-child(#{$i}) {
+  .rr-ring-middle-14 .rr-ring-dot-14:nth-child(#{$i}) {
     transform: rotate(#{($i - 1) * 60}deg) translate(130px) rotate(-#{($i - 1) * 60}deg);
   }
 }
 
 @for $i from 1 through 4 {
-  .rr-ring-inner .rr-ring-dot:nth-child(#{$i}) {
+  .rr-ring-inner-14 .rr-ring-dot-14:nth-child(#{$i}) {
     transform: rotate(#{($i - 1) * 90}deg) translate(80px) rotate(-#{($i - 1) * 90}deg);
   }
 }
 
-.rr-center-circle {
+.rr-center-circle-14 {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -245,7 +257,7 @@ onUnmounted(() => {
   box-shadow: 0 0 40px rgba(96, 165, 250, 0.4);
 }
 
-.rr-center-text {
+.rr-center-text-14 {
   font-size: 1.2rem;
   font-weight: 800;
   color: white;
@@ -265,45 +277,45 @@ onUnmounted(() => {
 }
 
 @media (max-width: 768px) {
-  .rr-rings-container {
+  .rr-rings-container-14 {
     width: 300px;
     height: 300px;
   }
 
-  .rr-ring-outer {
+  .rr-ring-outer-14 {
     width: 270px;
     height: 270px;
   }
 
-  .rr-ring-middle {
+  .rr-ring-middle-14 {
     width: 190px;
     height: 190px;
   }
 
-  .rr-ring-inner {
+  .rr-ring-inner-14 {
     width: 120px;
     height: 120px;
   }
 
-  .rr-center-circle {
+  .rr-center-circle-14 {
     width: 60px;
     height: 60px;
   }
 
   @for $i from 1 through 8 {
-    .rr-ring-outer .rr-ring-dot:nth-child(#{$i}) {
+    .rr-ring-outer-14 .rr-ring-dot-14:nth-child(#{$i}) {
       transform: rotate(#{($i - 1) * 45}deg) translate(135px) rotate(-#{($i - 1) * 45}deg);
     }
   }
 
   @for $i from 1 through 6 {
-    .rr-ring-middle .rr-ring-dot:nth-child(#{$i}) {
+    .rr-ring-middle-14 .rr-ring-dot-14:nth-child(#{$i}) {
       transform: rotate(#{($i - 1) * 60}deg) translate(95px) rotate(-#{($i - 1) * 60}deg);
     }
   }
 
   @for $i from 1 through 4 {
-    .rr-ring-inner .rr-ring-dot:nth-child(#{$i}) {
+    .rr-ring-inner-14 .rr-ring-dot-14:nth-child(#{$i}) {
       transform: rotate(#{($i - 1) * 90}deg) translate(60px) rotate(-#{($i - 1) * 90}deg);
     }
   }

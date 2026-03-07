@@ -1,22 +1,22 @@
 <template>
-  <div class="fade-in-stack">
-    <div class="container">
-      <h2 class="section-title">淡入层叠</h2>
+  <div class="fade-in-stack-32">
+    <div class="container-32">
+      <h2 class="section-title-32">淡入层叠</h2>
       
-      <div class="stack-wrapper">
+      <div class="stack-wrapper-32">
         <div 
-          class="stack-item" 
+          class="stack-item-32" 
           v-for="(img, index) in images" 
           :key="index"
           :style="{ zIndex: images.length - index }"
           ref="items"
         >
-          <div class="item-inner">
+          <div class="item-inner-32">
             <img :src="img" :alt="`Image ${index + 1}`" />
-            <div class="item-content">
-              <span class="item-number">{{ String(index + 1).padStart(2, '0') }}</span>
-              <h3 class="item-title">Layer {{ index + 1 }}</h3>
-              <p class="item-desc">Scroll to reveal</p>
+            <div class="item-content-32">
+              <span class="item-number-32">{{ String(index + 1).padStart(2, '0') }}</span>
+              <h3 class="item-title-32">Layer {{ index + 1 }}</h3>
+              <p class="item-desc-32">Scroll to reveal</p>
             </div>
           </div>
         </div>
@@ -47,9 +47,9 @@ let ctx: gsap.Context
 onMounted(() => {
   ctx = gsap.context(() => {
     // 标题动画
-    gsap.from('.section-title', {
+    gsap.from('.section-title-32', {
       scrollTrigger: {
-        trigger: '.section-title',
+        trigger: '.section-title-32',
         start: 'top 90%'
       },
       y: 50,
@@ -61,8 +61,8 @@ onMounted(() => {
 
     items.value.forEach((item, index) => {
       const img = item.querySelector('img') as HTMLElement
-      const content = item.querySelector('.item-content') as HTMLElement
-      const number = item.querySelector('.item-number') as HTMLElement
+      const content = item.querySelector('.item-content-32') as HTMLElement
+      const number = item.querySelector('.item-number-32') as HTMLElement
 
       // 从底部淡入
       gsap.fromTo(item,
@@ -160,7 +160,7 @@ onUnmounted(() => {
 </script>
 
 <style scoped lang="scss">
-.fade-in-stack {
+.fade-in-stack-32 {
   min-height: 200vh;
   padding: 100px 0;
   background: linear-gradient(180deg, #1a1a2e 0%, #2d1b69 50%, #1a1a2e 100%);
@@ -181,7 +181,7 @@ onUnmounted(() => {
   }
 }
 
-.container {
+.container-32 {
   max-width: 800px;
   margin: 0 auto;
   padding: 0 40px;
@@ -189,7 +189,7 @@ onUnmounted(() => {
   z-index: 1;
 }
 
-.section-title {
+.section-title-32 {
   text-align: center;
   font-size: 3.5rem;
   font-weight: 800;
@@ -212,12 +212,12 @@ onUnmounted(() => {
   }
 }
 
-.stack-wrapper {
+.stack-wrapper-32 {
   position: relative;
   padding: 20px 0;
 }
 
-.stack-item {
+.stack-item-32 {
   position: relative;
   margin-bottom: -80px;
   height: 350px;
@@ -237,7 +237,7 @@ onUnmounted(() => {
   }
 }
 
-.item-inner {
+.item-inner-32 {
   width: 100%;
   height: 100%;
   position: relative;
@@ -251,11 +251,11 @@ img {
   transition: filter 0.3s ease;
 }
 
-.stack-item:hover img {
+.stack-item-32:hover img {
   filter: brightness(1.05) saturate(1.1);
 }
 
-.item-content {
+.item-content-32 {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -265,7 +265,7 @@ img {
   color: #fff;
 }
 
-.item-number {
+.item-number-32 {
   display: block;
   font-size: 4rem;
   font-weight: 900;
@@ -278,14 +278,14 @@ img {
   opacity: 0.9;
 }
 
-.item-title {
+.item-title-32 {
   font-size: 1.8rem;
   font-weight: 700;
   margin: 0 0 8px;
   color: #fff;
 }
 
-.item-desc {
+.item-desc-32 {
   font-size: 1rem;
   color: rgba(255, 255, 255, 0.7);
   margin: 0;
@@ -294,20 +294,20 @@ img {
 }
 
 @media (max-width: 768px) {
-  .stack-item {
+  .stack-item-32 {
     height: 280px;
     margin-bottom: -60px;
   }
   
-  .section-title {
+  .section-title-32 {
     font-size: 2rem;
   }
   
-  .item-number {
+  .item-number-32 {
     font-size: 3rem;
   }
   
-  .item-title {
+  .item-title-32 {
     font-size: 1.4rem;
   }
 }

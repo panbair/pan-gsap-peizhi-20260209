@@ -1,11 +1,11 @@
 <template>
-  <div class="stacked-cards">
-    <div class="st-container">
-      <h2 class="st-section-title">堆叠卡片</h2>
+  <div class="stacked-cards-41">
+    <div class="st-container-41">
+      <h2 class="st-section-title-41">堆叠卡片</h2>
 
-      <div class="st-stack-container" ref="stackContainer">
+      <div class="st-stack-container-41" ref="stackContainer">
         <div
-          class="st-stack-card"
+          class="st-stack-card-41"
           v-for="(img, index) in images"
           :key="index"
           :style="{
@@ -16,29 +16,29 @@
           @mouseenter="activeIndex = index"
           ref="items"
         >
-          <div class="st-card-inner">
+          <div class="st-card-inner-41">
             <img :src="img" :alt="`Image ${index + 1}`" />
-            <div class="st-card-content">
-              <span class="st-card-index">{{ index + 1 }}</span>
-              <h3 class="st-card-heading">{{ headings[index] }}</h3>
-              <p class="st-card-text">Stack Effect</p>
+            <div class="st-card-content-41">
+              <span class="st-card-index-41">{{ index + 1 }}</span>
+              <h3 class="st-card-heading-41">{{ headings[index] }}</h3>
+              <p class="st-card-text-41">Stack Effect</p>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="st-stack-nav">
-        <button class="st-nav-btn prev" @click="prevCard">←</button>
-        <div class="st-dots">
+      <div class="st-stack-nav-41">
+        <button class="st-nav-btn-41 prev-41" @click="prevCard">←</button>
+        <div class="st-dots-41">
           <span
             v-for="(_, index) in images"
             :key="index"
-            class="st-dot"
-            :class="{ active: activeIndex === index }"
+            class="st-dot-41"
+            :class="{ 'st-active-41': activeIndex === index }"
             @click="activeIndex = index"
           ></span>
         </div>
-        <button class="st-nav-btn next" @click="nextCard">→</button>
+        <button class="st-nav-btn-41 next-41" @click="nextCard">→</button>
       </div>
     </div>
   </div>
@@ -88,9 +88,9 @@ let ctx: gsap.Context
 onMounted(() => {
   ctx = gsap.context(() => {
     // 标题动画
-    gsap.from('.st-section-title', {
+    gsap.from('.st-section-title-41', {
       scrollTrigger: {
-        trigger: '.st-section-title',
+        trigger: '.st-section-title-41',
         start: 'top 90%'
       },
       y: 50,
@@ -100,9 +100,9 @@ onMounted(() => {
     })
 
     // 卡片入场
-    gsap.from('.st-stack-card', {
+    gsap.from('.st-stack-card-41', {
       scrollTrigger: {
-        trigger: '.st-stack-container',
+        trigger: '.st-stack-container-41',
         start: 'top 80%'
       },
       opacity: 0,
@@ -114,9 +114,9 @@ onMounted(() => {
     })
 
     // 导航按钮动画
-    gsap.from('.st-nav-btn', {
+    gsap.from('.st-nav-btn-41', {
       scrollTrigger: {
-        trigger: '.st-stack-nav',
+        trigger: '.st-stack-nav-41',
         start: 'top 85%'
       },
       scale: 0,
@@ -127,9 +127,9 @@ onMounted(() => {
     })
 
     // 指示点动画
-    gsap.from('.st-dot', {
+    gsap.from('.st-dot-41', {
       scrollTrigger: {
-        trigger: '.st-dots',
+        trigger: '.st-dots-41',
         start: 'top 85%'
       },
       scale: 0,
@@ -141,8 +141,8 @@ onMounted(() => {
 
     items.value.forEach((item, index) => {
       const img = item.querySelector('img') as HTMLElement
-      const content = item.querySelector('.st-card-content') as HTMLElement
-      const cardIndex = item.querySelector('.st-card-index') as HTMLElement
+      const content = item.querySelector('.st-card-content-41') as HTMLElement
+      const cardIndex = item.querySelector('.st-card-index-41') as HTMLElement
 
       // 图片缩放
       gsap.fromTo(img,
@@ -203,9 +203,9 @@ onMounted(() => {
     })
 
     // 滚动时整体移动
-    gsap.to('.st-stack-container', {
+    gsap.to('.st-stack-container-41', {
       scrollTrigger: {
-        trigger: '.st-stack-container',
+        trigger: '.st-stack-container-41',
         start: 'top 100%',
         end: 'bottom 0%',
         scrub: 0.5
@@ -222,7 +222,7 @@ onUnmounted(() => {
 </script>
 
 <style scoped lang="scss">
-.stacked-cards {
+.stacked-cards-41 {
   min-height: 120vh;
   padding: 100px 0;
   background: linear-gradient(180deg, #0f0f23 0%, #1a1a3e 50%, #0f0f23 100%);
@@ -245,7 +245,7 @@ onUnmounted(() => {
   }
 }
 
-.st-container {
+.st-container-41 {
   width: 100%;
   max-width: 1400px;
   padding: 0 40px;
@@ -253,7 +253,7 @@ onUnmounted(() => {
   z-index: 1;
 }
 
-.st-section-title {
+.st-section-title-41 {
   text-align: center;
   font-size: 3.5rem;
   font-weight: 800;
@@ -276,7 +276,7 @@ onUnmounted(() => {
   }
 }
 
-.st-stack-container {
+.st-stack-container-41 {
   position: relative;
   height: 500px;
   display: flex;
@@ -286,7 +286,7 @@ onUnmounted(() => {
   margin-bottom: 60px;
 }
 
-.st-stack-card {
+.st-stack-card-41 {
   position: absolute;
   width: 320px;
   height: 420px;
@@ -303,31 +303,31 @@ onUnmounted(() => {
   }
 }
 
-.st-card-inner {
+.st-card-inner-41 {
   width: 100%;
   height: 100%;
   position: relative;
   overflow: hidden;
 }
 
-.st-stack-card img {
+.st-stack-card-41 img {
   width: 100%;
   height: 320px;
   object-fit: cover;
   transition: filter 0.3s ease;
 }
 
-.st-stack-card:hover img {
+.st-stack-card-41:hover img {
   filter: brightness(1.1);
 }
 
-.st-card-content {
+.st-card-content-41 {
   padding: 25px;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   text-align: center;
 }
 
-.st-card-index {
+.st-card-index-41 {
   display: block;
   font-size: 3.5rem;
   font-weight: 900;
@@ -337,27 +337,27 @@ onUnmounted(() => {
   font-family: 'Arial', sans-serif;
 }
 
-.st-card-heading {
+.st-card-heading-41 {
   font-size: 1.4rem;
   font-weight: 700;
   color: #fff;
   margin: 0 0 5px;
 }
 
-.st-card-text {
+.st-card-text-41 {
   font-size: 1rem;
   color: rgba(255, 255, 255, 0.8);
   margin: 0;
 }
 
-.st-stack-nav {
+.st-stack-nav-41 {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 40px;
 }
 
-.st-nav-btn {
+.st-nav-btn-41 {
   width: 50px;
   height: 50px;
   border-radius: 50%;
@@ -376,12 +376,12 @@ onUnmounted(() => {
   }
 }
 
-.st-dots {
+.st-dots-41 {
   display: flex;
   gap: 12px;
 }
 
-.st-dot {
+.st-dot-41 {
   width: 12px;
   height: 12px;
   border-radius: 50%;
@@ -390,7 +390,7 @@ onUnmounted(() => {
   cursor: pointer;
   transition: all 0.3s ease;
 
-  &.active {
+  &.active-41 {
     background: linear-gradient(135deg, #667eea, #764ba2);
     border-color: transparent;
     transform: scale(1.3);
@@ -403,16 +403,16 @@ onUnmounted(() => {
 }
 
 @media (max-width: 768px) {
-  .st-stack-card {
+  .st-stack-card-41 {
     width: 260px;
     height: 350px;
   }
 
-  .st-stack-card img {
+  .st-stack-card-41 img {
     height: 260px;
   }
 
-  .st-section-title {
+  .st-section-title-41 {
     font-size: 2rem;
   }
 }

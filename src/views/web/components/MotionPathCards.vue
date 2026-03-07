@@ -1,24 +1,24 @@
 <template>
-  <div class="mp-motion-path-section">
-    <div class="mp-section-header">
-      <h2 class="mp-title">MOTION PATH</h2>
-      <p class="mp-subtitle">路径运动动画</p>
+  <div class="mp-motion-path-section-61">
+    <div class="mp-section-header-61">
+      <h2 class="mp-title-61">MOTION PATH</h2>
+      <p class="mp-subtitle-61">路径运动动画</p>
     </div>
 
-    <div class="mp-path-container">
-      <svg class="mp-path-svg" viewBox="0 0 1400 600">
+    <div class="mp-path-container-61">
+      <svg class="mp-path-svg-61" viewBox="0 0 1400 600">
         <!-- S型曲线路径 - 添加id以便引用 -->
-        <path id="motionPath1" class="mp-motion-path" d="M 100 300 Q 350 100, 700 300 T 1300 300" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="2" stroke-dasharray="5,5"/>
+        <path id="motionPath1" class="mp-motion-path-61" d="M 100 300 Q 350 100, 700 300 T 1300 300" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="2" stroke-dasharray="5,5"/>
 
         <!-- 运动元素 -->
-        <circle v-for="(dot, index) in dots" :key="index" class="mp-motion-dot" :cx="100" :cy="300" :r="12 + index * 2" :fill="dot.color"/>
+        <circle v-for="(dot, index) in dots" :key="index" class="mp-motion-dot-61" :cx="100" :cy="300" :r="12 + index * 2" :fill="dot.color"/>
       </svg>
     </div>
 
-    <div class="mp-path-controls">
-      <button class="mp-control-btn" @click="playMotion">播放路径</button>
-      <button class="mp-control-btn" @click="reverseMotion">反向播放</button>
-      <button class="mp-control-btn" @click="toggleSpeed">{{ speed === 1 ? '2x速度' : '1x速度' }}</button>
+    <div class="mp-path-controls-61">
+      <button class="mp-control-btn-61" @click="playMotion">播放路径</button>
+      <button class="mp-control-btn-61" @click="reverseMotion">反向播放</button>
+      <button class="mp-control-btn-61" @click="toggleSpeed">{{ speed === 1 ? '2x速度' : '1x速度' }}</button>
     </div>
   </div>
 </template>
@@ -60,9 +60,9 @@ const toggleSpeed = () => {
 const initAnimations = () => {
   ctx = gsap.context(() => {
     // 标题动画
-    gsap.from('.mp-motion-path-section .mp-title', {
+    gsap.from('.mp-motion-path-section-61 .mp-title-61', {
       scrollTrigger: {
-        trigger: '.mp-motion-path-section',
+        trigger: '.mp-motion-path-section-61',
         start: 'top 80%',
         toggleActions: 'play none none reverse'
       },
@@ -73,9 +73,9 @@ const initAnimations = () => {
     })
 
     // 副标题动画
-    gsap.from('.mp-motion-path-section .mp-subtitle', {
+    gsap.from('.mp-motion-path-section-61 .mp-subtitle-61', {
       scrollTrigger: {
-        trigger: '.mp-motion-path-section',
+        trigger: '.mp-motion-path-section-61',
         start: 'top 75%',
         toggleActions: 'play none none reverse'
       },
@@ -87,7 +87,7 @@ const initAnimations = () => {
     })
 
     // 使用 MotionPath 沿 SVG 路径运动
-    motionTween = gsap.to('.mp-motion-dot', {
+    motionTween = gsap.to('.mp-motion-dot-61', {
       motionPath: {
         path: '#motionPath1',  // 使用选择器引用路径
         align: '#motionPath1',
@@ -103,9 +103,9 @@ const initAnimations = () => {
     })
 
     // 点的入场动画
-    gsap.from('.mp-motion-dot', {
+    gsap.from('.mp-motion-dot-61', {
       scrollTrigger: {
-        trigger: '.mp-path-container',
+        trigger: '.mp-path-container-61',
         start: 'top 70%',
         toggleActions: 'play none none reverse'
       },
@@ -119,14 +119,14 @@ const initAnimations = () => {
     // 滚动控制 - 使用不同的时间轴
     const scrollTl = gsap.timeline({
       scrollTrigger: {
-        trigger: '.mp-path-container',
+        trigger: '.mp-path-container-61',
         start: 'top bottom',
         end: 'bottom top',
         scrub: 1
       }
     })
 
-    scrollTl.to('.mp-motion-dot', {
+    scrollTl.to('.mp-motion-dot-61', {
       motionPath: {
         path: '#motionPath1',
         align: '#motionPath1',
@@ -139,9 +139,9 @@ const initAnimations = () => {
     })
 
     // 按钮动画
-    gsap.from('.mp-control-btn', {
+    gsap.from('.mp-control-btn-61', {
       scrollTrigger: {
-        trigger: '.mp-path-controls',
+        trigger: '.mp-path-controls-61',
         start: 'top 90%',
         toggleActions: 'play none none reverse'
       },
@@ -165,7 +165,7 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
-.mp-motion-path-section {
+.mp-motion-path-section-61 {
   min-height: 100vh;
   padding: 80px 40px;
   background: linear-gradient(135deg, #0f0f23 0%, #1a1a3e 50%, #2d1b69 100%);
@@ -173,12 +173,12 @@ onUnmounted(() => {
   overflow: hidden;
 }
 
-.mp-section-header {
+.mp-section-header-61 {
   text-align: center;
   margin-bottom: 60px;
 }
 
-.mp-title {
+.mp-title-61 {
   font-size: 56px;
   font-weight: 900;
   color: #fff;
@@ -187,7 +187,7 @@ onUnmounted(() => {
   text-shadow: 0 0 30px rgba(45, 27, 105, 0.5);
 }
 
-.mp-subtitle {
+.mp-subtitle-61 {
   font-size: 18px;
   color: rgba(255, 255, 255, 0.6);
   margin-top: 16px;
@@ -195,39 +195,39 @@ onUnmounted(() => {
   text-transform: uppercase;
 }
 
-.mp-path-container {
+.mp-path-container-61 {
   max-width: 1400px;
   margin: 0 auto;
   padding: 40px 0;
 }
 
-.mp-path-svg {
+.mp-path-svg-61 {
   width: 100%;
   height: 600px;
 }
 
-.mp-motion-path {
+.mp-motion-path-61 {
   filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
 }
 
-.mp-motion-dot {
+.mp-motion-dot-61 {
   filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
   cursor: pointer;
   transition: filter 0.3s ease;
 }
 
-.mp-motion-dot:hover {
+.mp-motion-dot-61:hover {
   filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.8));
 }
 
-.mp-path-controls {
+.mp-path-controls-61 {
   display: flex;
   justify-content: center;
   gap: 20px;
   margin-top: 40px;
 }
 
-.mp-control-btn {
+.mp-control-btn-61 {
   padding: 16px 40px;
   background: linear-gradient(135deg, #2d1b69 0%, #5c3d7a 100%);
   border: none;
@@ -242,22 +242,22 @@ onUnmounted(() => {
   box-shadow: 0 10px 30px rgba(45, 27, 105, 0.3);
 }
 
-.mp-control-btn:hover {
+.mp-control-btn-61:hover {
   transform: translateY(-3px);
   box-shadow: 0 15px 40px rgba(45, 27, 105, 0.4);
 }
 
 @media (max-width: 768px) {
-  .mp-title {
+  .mp-title-61 {
     font-size: 32px;
     letter-spacing: 3px;
   }
 
-  .mp-subtitle {
+  .mp-subtitle-61 {
     font-size: 14px;
   }
 
-  .mp-path-svg {
+  .mp-path-svg-61 {
     height: 400px;
   }
 }

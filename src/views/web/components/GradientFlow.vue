@@ -1,22 +1,22 @@
 <template>
-  <div class="gradient-flow">
-    <div class="container">
-      <h2 class="section-title">渐变流动</h2>
+  <div class="gradient-flow-39">
+    <div class="container-39">
+      <h2 class="section-title-39">渐变流动</h2>
       
-      <div class="flow-container" ref="flowContainer">
+      <div class="flow-container-39" ref="flowContainer">
         <div 
-          class="flow-card" 
+          class="flow-card-39" 
           v-for="(card, index) in cards" 
           :key="index"
           :style="{ background: card.gradient }"
           ref="items"
         >
-          <div class="card-content">
-            <span class="card-number">{{ String(index + 1).padStart(2, '0') }}</span>
-            <h3 class="card-title">{{ card.title }}</h3>
-            <p class="card-desc">{{ card.desc }}</p>
+          <div class="card-content-39">
+            <span class="card-number-39">{{ String(index + 1).padStart(2, '0') }}</span>
+            <h3 class="card-title-39">{{ card.title }}</h3>
+            <p class="card-desc-39">{{ card.desc }}</p>
           </div>
-          <div class="card-glow"></div>
+          <div class="card-glow-39"></div>
         </div>
       </div>
     </div>
@@ -53,9 +53,9 @@ let ctx: gsap.Context
 onMounted(() => {
   ctx = gsap.context(() => {
     // 标题动画
-    gsap.from('.section-title', {
+    gsap.from('.section-title-39', {
       scrollTrigger: {
-        trigger: '.section-title',
+        trigger: '.section-title-39',
         start: 'top 90%'
       },
       y: 50,
@@ -65,11 +65,11 @@ onMounted(() => {
     })
 
     items.value.forEach((item, index) => {
-      const content = item.querySelector('.card-content') as HTMLElement
-      const number = item.querySelector('.card-number') as HTMLElement
-      const title = item.querySelector('.card-title') as HTMLElement
-      const desc = item.querySelector('.card-desc') as HTMLElement
-      const glow = item.querySelector('.card-glow') as HTMLElement
+      const content = item.querySelector('.card-content-39') as HTMLElement
+      const number = item.querySelector('.card-number-39') as HTMLElement
+      const title = item.querySelector('.card-title-39') as HTMLElement
+      const desc = item.querySelector('.card-desc-39') as HTMLElement
+      const glow = item.querySelector('.card-glow-39') as HTMLElement
 
       // 从左侧滑入
       gsap.fromTo(item,
@@ -191,7 +191,7 @@ onUnmounted(() => {
 </script>
 
 <style scoped lang="scss">
-.gradient-flow {
+.gradient-flow-39 {
   min-height: 150vh;
   padding: 100px 0;
   background: linear-gradient(180deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%);
@@ -215,7 +215,7 @@ onUnmounted(() => {
   }
 }
 
-.container {
+.container-39 {
   width: 100%;
   max-width: 1400px;
   padding: 0 40px;
@@ -223,7 +223,7 @@ onUnmounted(() => {
   z-index: 1;
 }
 
-.section-title {
+.section-title-39 {
   text-align: center;
   font-size: 3.5rem;
   font-weight: 800;
@@ -246,7 +246,7 @@ onUnmounted(() => {
   }
 }
 
-.flow-container {
+.flow-container-39 {
   display: flex;
   flex-direction: column;
   gap: 30px;
@@ -254,7 +254,7 @@ onUnmounted(() => {
   perspective: 1000px;
 }
 
-.flow-card {
+.flow-card-39 {
   position: relative;
   padding: 50px 40px;
   border-radius: 20px;
@@ -269,7 +269,7 @@ onUnmounted(() => {
   }
 }
 
-.card-glow {
+.card-glow-39 {
   position: absolute;
   top: -50%;
   left: -50%;
@@ -280,12 +280,12 @@ onUnmounted(() => {
   transition: opacity 0.3s ease;
 }
 
-.card-content {
+.card-content-39 {
   position: relative;
   z-index: 1;
 }
 
-.card-number {
+.card-number-39 {
   display: block;
   font-size: 5rem;
   font-weight: 900;
@@ -294,7 +294,7 @@ onUnmounted(() => {
   font-family: 'Arial', sans-serif;
 }
 
-.card-title {
+.card-title-39 {
   font-size: 2rem;
   font-weight: 700;
   color: #fff;
@@ -302,7 +302,7 @@ onUnmounted(() => {
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
-.card-desc {
+.card-desc-39 {
   font-size: 1.2rem;
   color: rgba(255, 255, 255, 0.9);
   margin: 0;
@@ -310,19 +310,19 @@ onUnmounted(() => {
 }
 
 @media (max-width: 768px) {
-  .card-number {
+  .card-number-39 {
     font-size: 3.5rem;
   }
   
-  .card-title {
+  .card-title-39 {
     font-size: 1.5rem;
   }
   
-  .flow-card {
+  .flow-card-39 {
     padding: 35px 25px;
   }
   
-  .section-title {
+  .section-title-39 {
     font-size: 2rem;
   }
 }

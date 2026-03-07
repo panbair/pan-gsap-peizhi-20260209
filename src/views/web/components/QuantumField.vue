@@ -1,36 +1,36 @@
 <template>
-  <section class="qf-quantum-section">
-    <div class="qf-content">
-      <h2 class="qf-section-title">量子场</h2>
-      <p class="qf-subtitle">微观世界的神奇波动</p>
+  <section class="qf-quantum-section-26">
+    <div class="qf-content-26">
+      <h2 class="qf-section-title-26">量子场</h2>
+      <p class="qf-subtitle-26">微观世界的神奇波动</p>
 
-      <div class="qf-quantum-container" ref="quantumContainer">
-        <div class="qf-quantum-grid">
-          <div class="qf-grid-node" v-for="n in 100" :key="n"
+      <div class="qf-quantum-container-26" ref="quantumContainer">
+        <div class="qf-quantum-grid-26">
+          <div class="qf-grid-node-26" v-for="n in 100" :key="n"
                :style="getGridNodeStyle(n)"></div>
         </div>
 
-        <div class="qf-quantum-connections">
-          <div class="qf-connection-line" v-for="n in 50" :key="n"
+        <div class="qf-quantum-connections-26">
+          <div class="qf-connection-line-26" v-for="n in 50" :key="n"
                :style="getConnectionStyle(n)"></div>
         </div>
 
-        <div class="qf-quantum-particles">
-          <div class="qf-particle qf-quantum-particle" v-for="n in 30" :key="n"
+        <div class="qf-quantum-particles-26">
+          <div class="qf-particle-26 qf-quantum-particle-26" v-for="n in 30" :key="n"
                :style="getParticleStyle(n)"></div>
         </div>
 
-        <div class="qf-quantum-core">
-          <div class="qf-core-ring qf-ring-1"></div>
-          <div class="qf-core-ring qf-ring-2"></div>
-          <div class="qf-core-ring qf-ring-3"></div>
-          <div class="qf-core-energy"></div>
+        <div class="qf-quantum-core-26">
+          <div class="qf-core-ring-26 qf-ring-1"></div>
+          <div class="qf-core-ring-26 qf-ring-2"></div>
+          <div class="qf-core-ring-26 qf-ring-3"></div>
+          <div class="qf-core-energy-26"></div>
         </div>
 
-        <div class="qf-quantum-waves">
-          <div class="qf-wave qf-wave-1"></div>
-          <div class="qf-wave qf-wave-2"></div>
-          <div class="qf-wave qf-wave-3"></div>
+        <div class="qf-quantum-waves-26">
+          <div class="qf-wave-26 qf-wave-1"></div>
+          <div class="qf-wave-26 qf-wave-2"></div>
+          <div class="qf-wave-26 qf-wave-3"></div>
         </div>
       </div>
     </div>
@@ -83,7 +83,7 @@ let ctx: gsap.Context
 onMounted(() => {
   ctx = gsap.context(() => {
     // 网格节点脉动
-    gsap.to('.qf-grid-node', {
+    gsap.to('.qf-grid-node-26', {
       scale: 1.5,
       opacity: 0.8,
       duration: 1,
@@ -94,7 +94,7 @@ onMounted(() => {
     })
 
     // 连接线闪烁
-    gsap.to('.qf-connection-line', {
+    gsap.to('.qf-connection-line-26', {
       opacity: 0.3,
       scaleX: 1.2,
       duration: 0.5,
@@ -105,7 +105,7 @@ onMounted(() => {
     })
 
     // 粒子轨道运动
-    gsap.to('.qf-quantum-particle', {
+    gsap.to('.qf-quantum-particle-26', {
       rotation: 360,
       duration: 8,
       repeat: -1,
@@ -114,7 +114,7 @@ onMounted(() => {
     })
 
     // 核心环旋转
-    gsap.to('.qf-core-ring', {
+    gsap.to('.qf-core-ring-26', {
       rotation: 360,
       duration: 6,
       repeat: -1,
@@ -123,7 +123,7 @@ onMounted(() => {
     })
 
     // 核心能量脉动
-    gsap.to('.qf-core-energy', {
+    gsap.to('.qf-core-energy-26', {
       scale: 1.3,
       opacity: 0.7,
       duration: 1.2,
@@ -133,7 +133,7 @@ onMounted(() => {
     })
 
     // 波浪扩散
-    gsap.to('.qf-wave', {
+    gsap.to('.qf-wave-26', {
       scale: 2,
       opacity: 0,
       duration: 3,
@@ -143,12 +143,12 @@ onMounted(() => {
     })
 
     // 滚动效果
-    gsap.to('.qf-quantum-container', {
+    gsap.to('.qf-quantum-container-26', {
       rotationY: 30,
       rotationX: -15,
       duration: 1,
       scrollTrigger: {
-        trigger: '.qf-quantum-section',
+        trigger: '.qf-quantum-section-26',
         start: 'top bottom',
         end: 'bottom top',
         scrub: 1
@@ -156,13 +156,13 @@ onMounted(() => {
     })
 
     // 入场动画
-    gsap.from('.qf-quantum-container', {
+    gsap.from('.qf-quantum-container-26', {
       scale: 0.5,
       opacity: 0,
       duration: 1.5,
       ease: 'elastic.out(1, 0.5)',
       scrollTrigger: {
-        trigger: '.qf-quantum-section',
+        trigger: '.qf-quantum-section-26',
         start: 'top 80%',
         toggleActions: 'play none none reverse'
       }
@@ -176,7 +176,7 @@ onUnmounted(() => {
 </script>
 
 <style scoped lang="scss">
-.qf-quantum-section {
+.qf-quantum-section-26 {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -188,12 +188,12 @@ onUnmounted(() => {
   background: #0a0a1a;
 }
 
-.qf-content {
+.qf-content-26 {
   text-align: center;
   position: relative;
 }
 
-.qf-section-title {
+.qf-section-title-26 {
   font-size: clamp(2rem, 4vw, 2.5rem);
   font-weight: 800;
   margin-bottom: 16px;
@@ -201,20 +201,20 @@ onUnmounted(() => {
   text-shadow: 0 0 20px rgba(167, 139, 250, 0.6);
 }
 
-.qf-subtitle {
+.qf-subtitle-26 {
   font-size: 1.1rem;
   color: #94a3b8;
   margin-bottom: 60px;
 }
 
-.qf-quantum-container {
+.qf-quantum-container-26 {
   position: relative;
   width: 600px;
   height: 600px;
   perspective: 1000px;
 }
 
-.qf-quantum-grid {
+.qf-quantum-grid-26 {
   position: absolute;
   inset: 50px;
   display: grid;
@@ -223,7 +223,7 @@ onUnmounted(() => {
   gap: 10px;
 }
 
-.qf-grid-node {
+.qf-grid-node-26 {
   position: relative;
   width: 8px;
   height: 8px;
@@ -243,13 +243,13 @@ onUnmounted(() => {
   }
 }
 
-.qf-quantum-connections {
+.qf-quantum-connections-26 {
   position: absolute;
   inset: 0;
   pointer-events: none;
 }
 
-.qf-connection-line {
+.qf-connection-line-26 {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -268,13 +268,13 @@ onUnmounted(() => {
   }
 }
 
-.qf-quantum-particles {
+.qf-quantum-particles-26 {
   position: absolute;
   inset: 0;
   pointer-events: none;
 }
 
-.qf-quantum-particle {
+.qf-quantum-particle-26 {
   position: absolute;
   width: 6px;
   height: 6px;
@@ -293,7 +293,7 @@ onUnmounted(() => {
   }
 }
 
-.qf-quantum-core {
+.qf-quantum-core-26 {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -302,7 +302,7 @@ onUnmounted(() => {
   height: 100px;
 }
 
-.qf-core-ring {
+.qf-core-ring-26 {
   position: absolute;
   inset: 0;
   border-radius: 50%;
@@ -321,7 +321,7 @@ onUnmounted(() => {
   transform: rotateX(60deg) rotateY(-60deg);
 }
 
-.qf-core-energy {
+.qf-core-energy-26 {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -333,7 +333,7 @@ onUnmounted(() => {
   box-shadow: 0 0 30px rgba(167, 139, 250, 0.6);
 }
 
-.qf-quantum-waves {
+.qf-quantum-waves-26 {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -341,7 +341,7 @@ onUnmounted(() => {
   pointer-events: none;
 }
 
-.qf-wave {
+.qf-wave-26 {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -365,12 +365,12 @@ onUnmounted(() => {
 }
 
 @media (max-width: 768px) {
-  .qf-quantum-container {
+  .qf-quantum-container-26 {
     width: 400px;
     height: 400px;
   }
 
-  .qf-quantum-grid {
+  .qf-quantum-grid-26 {
     inset: 30px;
   }
 }

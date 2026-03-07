@@ -1,16 +1,16 @@
 <template>
-  <div class="sp-sliding-panels-section">
-    <div class="sp-section-header">
-      <h2 class="sp-title">SLIDING PANELS</h2>
-      <p class="sp-subtitle">滑动面板动画</p>
+  <div class="sp-sliding-panels-section-59">
+    <div class="sp-section-header-59">
+      <h2 class="sp-title-59">SLIDING PANELS</h2>
+      <p class="sp-subtitle-59">滑动面板动画</p>
     </div>
 
-    <div class="sp-panels-container">
-      <div class="sp-panel" v-for="(panel, index) in panels" :key="index" :class="{ active: activePanel === index }" @click="activatePanel(index)">
-        <div class="sp-panel-content">
-          <div class="sp-panel-image" :style="{ backgroundImage: `url(${panel.image})` }"></div>
-          <div class="sp-panel-overlay">
-            <div class="sp-panel-number">{{ String(index + 1).padStart(2, '0') }}</div>
+    <div class="sp-panels-container-59">
+      <div class="sp-panel-59" v-for="(panel, index) in panels" :key="index" :class="{ 'sp-active-59': activePanel === index }" @click="activatePanel(index)">
+        <div class="sp-panel-content-59">
+          <div class="sp-panel-image-59" :style="{ backgroundImage: `url(${panel.image})` }"></div>
+          <div class="sp-panel-overlay-59">
+            <div class="sp-panel-number-59">{{ String(index + 1).padStart(2, '0') }}</div>
             <h3>{{ panel.title }}</h3>
             <p>{{ panel.description }}</p>
           </div>
@@ -18,14 +18,14 @@
       </div>
     </div>
 
-    <div class="sp-panel-indicators">
-      <div class="sp-indicator" v-for="(panel, index) in panels" :key="index" :class="{ active: activePanel === index }" @click="activatePanel(index)"></div>
+    <div class="sp-panel-indicators-59">
+      <div class="sp-indicator-59" v-for="(panel, index) in panels" :key="index" :class="{ 'sp-active-59': activePanel === index }" @click="activatePanel(index)"></div>
     </div>
 
-    <div class="sp-panel-controls">
-      <button class="sp-nav-btn sp-prev" @click="prevPanel">←</button>
-      <button class="sp-play-btn" @click="autoPlay">自动播放</button>
-      <button class="sp-nav-btn sp-next" @click="nextPanel">→</button>
+    <div class="sp-panel-controls-59">
+      <button class="sp-nav-btn-59 sp-prev-59" @click="prevPanel">←</button>
+      <button class="sp-play-btn-59" @click="autoPlay">自动播放</button>
+      <button class="sp-nav-btn-59 sp-next-59" @click="nextPanel">→</button>
     </div>
   </div>
 </template>
@@ -54,19 +54,19 @@ const activatePanel = (index: number) => {
   activePanel.value = index
 
   // 激活动画
-  gsap.to('.sp-panel', {
+  gsap.to('.sp-panel-59', {
     flex: (i) => i === index ? 3 : 1,
     duration: 0.6,
     ease: 'power2.out'
   })
 
-  gsap.to('.sp-panel-overlay', {
+  gsap.to('.sp-panel-overlay-59', {
     opacity: (i) => i === index ? 1 : 0.5,
     duration: 0.6,
     ease: 'power2.out'
   })
 
-  gsap.to('.sp-panel-number', {
+  gsap.to('.sp-panel-number-59', {
     scale: (i) => i === index ? 1.2 : 1,
     rotation: (i) => i === index ? 15 : 0,
     duration: 0.4,
@@ -98,9 +98,9 @@ const autoPlay = () => {
 const initAnimations = () => {
   ctx = gsap.context(() => {
     // 标题动画
-    gsap.from('.sp-sliding-panels-section .sp-title', {
+    gsap.from('.sp-title-59', {
       scrollTrigger: {
-        trigger: '.sp-sliding-panels-section',
+        trigger: '.sp-sliding-panels-section-59',
         start: 'top 80%',
         toggleActions: 'play none none reverse'
       },
@@ -111,9 +111,9 @@ const initAnimations = () => {
     })
 
     // 副标题动画
-    gsap.from('.sp-sliding-panels-section .sp-subtitle', {
+    gsap.from('.sp-subtitle-59', {
       scrollTrigger: {
-        trigger: '.sp-sliding-panels-section',
+        trigger: '.sp-sliding-panels-section-59',
         start: 'top 75%',
         toggleActions: 'play none none reverse'
       },
@@ -125,9 +125,9 @@ const initAnimations = () => {
     })
 
     // 面板入场
-    gsap.from('.sp-panel', {
+    gsap.from('.sp-panel-59', {
       scrollTrigger: {
-        trigger: '.sp-panels-container',
+        trigger: '.sp-panels-container-59',
         start: 'top 70%',
         toggleActions: 'play none none reverse'
       },
@@ -139,9 +139,9 @@ const initAnimations = () => {
     })
 
     // 图片渐入
-    gsap.from('.sp-panel-image', {
+    gsap.from('.sp-panel-image-59', {
       scrollTrigger: {
-        trigger: '.sp-panels-container',
+        trigger: '.sp-panels-container-59',
         start: 'top 65%',
         toggleActions: 'play none none reverse'
       },
@@ -153,9 +153,9 @@ const initAnimations = () => {
     })
 
     // 数字动画
-    gsap.from('.sp-panel-number', {
+    gsap.from('.sp-panel-number-59', {
       scrollTrigger: {
-        trigger: '.sp-panels-container',
+        trigger: '.sp-panels-container-59',
         start: 'top 65%',
         toggleActions: 'play none none reverse'
       },
@@ -167,9 +167,9 @@ const initAnimations = () => {
     })
 
     // 文字动画
-    gsap.from('.sp-panel-overlay h3, .sp-panel-overlay p', {
+    gsap.from('.sp-panel-overlay-59 h3, .sp-panel-overlay-59 p', {
       scrollTrigger: {
-        trigger: '.sp-panels-container',
+        trigger: '.sp-panels-container-59',
         start: 'top 60%',
         toggleActions: 'play none none reverse'
       },
@@ -181,9 +181,9 @@ const initAnimations = () => {
     })
 
     // 指示器动画
-    gsap.from('.sp-indicator', {
+    gsap.from('.sp-indicator-59', {
       scrollTrigger: {
-        trigger: '.sp-panel-indicators',
+        trigger: '.sp-panel-indicators-59',
         start: 'top 90%',
         toggleActions: 'play none none reverse'
       },
@@ -194,9 +194,9 @@ const initAnimations = () => {
     })
 
     // 按钮动画
-    gsap.from('.sp-nav-btn, .sp-play-btn', {
+    gsap.from('.sp-nav-btn-59, .sp-play-btn-59', {
       scrollTrigger: {
-        trigger: '.sp-panel-controls',
+        trigger: '.sp-panel-controls-59',
         start: 'top 90%',
         toggleActions: 'play none none reverse'
       },
@@ -222,7 +222,7 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
-.sp-sliding-panels-section {
+.sp-sliding-panels-section-59 {
   min-height: 100vh;
   padding: 80px 40px;
   background: linear-gradient(135deg, #0d1b2a 0%, #1b263b 50%, #415a77 100%);
@@ -230,12 +230,12 @@ onUnmounted(() => {
   overflow: hidden;
 }
 
-.sp-section-header {
+.sp-section-header-59 {
   text-align: center;
   margin-bottom: 80px;
 }
 
-.sp-title {
+.sp-title-59 {
   font-size: 56px;
   font-weight: 900;
   color: #fff;
@@ -244,7 +244,7 @@ onUnmounted(() => {
   text-shadow: 0 0 30px rgba(65, 90, 119, 0.5);
 }
 
-.sp-subtitle {
+.sp-subtitle-59 {
   font-size: 18px;
   color: rgba(255, 255, 255, 0.6);
   margin-top: 16px;
@@ -252,7 +252,7 @@ onUnmounted(() => {
   text-transform: uppercase;
 }
 
-.sp-panels-container {
+.sp-panels-container-59 {
   display: flex;
   gap: 16px;
   max-width: 1400px;
@@ -261,7 +261,7 @@ onUnmounted(() => {
   height: 500px;
 }
 
-.sp-panel {
+.sp-panel-59 {
   flex: 1;
   border-radius: 24px;
   overflow: hidden;
@@ -270,21 +270,21 @@ onUnmounted(() => {
   position: relative;
 }
 
-.sp-panel:hover {
+.sp-panel-59:hover {
   box-shadow: 0 20px 60px rgba(65, 90, 119, 0.5);
 }
 
-.sp-panel.active {
+.sp-panel.active-59 {
   box-shadow: 0 25px 70px rgba(65, 90, 119, 0.6);
 }
 
-.sp-panel-content {
+.sp-panel-content-59 {
   position: relative;
   width: 100%;
   height: 100%;
 }
 
-.sp-panel-image {
+.sp-panel-image-59 {
   width: 100%;
   height: 100%;
   background-size: cover;
@@ -292,7 +292,7 @@ onUnmounted(() => {
   transition: transform 0.6s ease;
 }
 
-.sp-panel-overlay {
+.sp-panel-overlay-59 {
   position: absolute;
   top: 0;
   left: 0;
@@ -307,11 +307,11 @@ onUnmounted(() => {
   transition: opacity 0.4s ease;
 }
 
-.sp-panel.active .sp-panel-overlay {
+.sp-panel.active-59 .sp-panel-overlay-59 {
   opacity: 1;
 }
 
-.sp-panel-number {
+.sp-panel-number-59 {
   position: absolute;
   top: 20px;
   left: 20px;
@@ -330,7 +330,7 @@ onUnmounted(() => {
   transition: all 0.4s ease;
 }
 
-.sp-panel-overlay h3 {
+.sp-panel-overlay-59 h3 {
   font-size: 24px;
   font-weight: 700;
   color: #fff;
@@ -338,20 +338,20 @@ onUnmounted(() => {
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
 }
 
-.sp-panel-overlay p {
+.sp-panel-overlay-59 p {
   font-size: 14px;
   color: rgba(255, 255, 255, 0.7);
   line-height: 1.5;
 }
 
-.sp-panel-indicators {
+.sp-panel-indicators-59 {
   display: flex;
   justify-content: center;
   gap: 12px;
   margin-top: 40px;
 }
 
-.sp-indicator {
+.sp-indicator-59 {
   width: 12px;
   height: 12px;
   border-radius: 50%;
@@ -360,16 +360,16 @@ onUnmounted(() => {
   transition: all 0.3s ease;
 }
 
-.sp-indicator.active {
+.sp-indicator.active-59 {
   background: #fff;
   transform: scale(1.3);
 }
 
-.sp-indicator:hover {
+.sp-indicator-59:hover {
   background: rgba(255, 255, 255, 0.6);
 }
 
-.sp-panel-controls {
+.sp-panel-controls-59 {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -377,7 +377,7 @@ onUnmounted(() => {
   margin-top: 40px;
 }
 
-.sp-nav-btn {
+.sp-nav-btn-59 {
   width: 56px;
   height: 56px;
   border: none;
@@ -392,12 +392,12 @@ onUnmounted(() => {
   justify-content: center;
 }
 
-.sp-nav-btn:hover {
+.sp-nav-btn-59:hover {
   background: rgba(255, 255, 255, 0.2);
   transform: scale(1.1);
 }
 
-.sp-play-btn {
+.sp-play-btn-59 {
   padding: 14px 32px;
   background: linear-gradient(135deg, #415a77 0%, #778da9 100%);
   border: none;
@@ -412,30 +412,30 @@ onUnmounted(() => {
   box-shadow: 0 10px 30px rgba(65, 90, 119, 0.3);
 }
 
-.sp-play-btn:hover {
+.sp-play-btn-59:hover {
   transform: translateY(-3px);
   box-shadow: 0 15px 40px rgba(65, 90, 119, 0.4);
 }
 
 @media (max-width: 768px) {
-  .sp-title {
+  .sp-title-59 {
     font-size: 32px;
     letter-spacing: 3px;
   }
 
-  .sp-subtitle {
+  .sp-subtitle-59 {
     font-size: 14px;
   }
 
-  .sp-panels-container {
+  .sp-panels-container-59 {
     height: 400px;
   }
 
-  .sp-panel-overlay h3 {
+  .sp-panel-overlay-59 h3 {
     font-size: 18px;
   }
 
-  .sp-panel-overlay p {
+  .sp-panel-overlay-59 p {
     font-size: 12px;
   }
 }

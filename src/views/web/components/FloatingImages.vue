@@ -1,21 +1,21 @@
 <template>
-  <div class="floating-images">
-    <div class="container">
-      <h2 class="section-title">浮动图片</h2>
+  <div class="floating-images-42">
+    <div class="container-42">
+      <h2 class="section-title-42">浮动图片</h2>
       
-      <div class="floating-container" ref="floatingContainer">
+      <div class="floating-container-42" ref="floatingContainer">
         <div 
-          class="floating-item" 
+          class="floating-item-42" 
           v-for="(img, index) in images" 
           :key="index"
           :style="getFloatStyle(index)"
           ref="items"
         >
-          <div class="float-inner">
+          <div class="float-inner-42">
             <img :src="img" :alt="`Image ${index + 1}`" />
-            <div class="float-overlay">
-              <span class="float-number">{{ index + 1 }}</span>
-              <h3 class="float-title">{{ titles[index] }}</h3>
+            <div class="float-overlay-42">
+              <span class="float-number-42">{{ index + 1 }}</span>
+              <h3 class="float-title-42">{{ titles[index] }}</h3>
             </div>
           </div>
         </div>
@@ -65,9 +65,9 @@ let ctx: gsap.Context
 onMounted(() => {
   ctx = gsap.context(() => {
     // 标题动画
-    gsap.from('.section-title', {
+    gsap.from('.section-title-42', {
       scrollTrigger: {
-        trigger: '.section-title',
+        trigger: '.section-title-42',
         start: 'top 90%'
       },
       y: 50,
@@ -77,10 +77,10 @@ onMounted(() => {
     })
 
     items.value.forEach((item, index) => {
-      const inner = item.querySelector('.float-inner') as HTMLElement
+      const inner = item.querySelector('.float-inner-42') as HTMLElement
       const img = item.querySelector('img') as HTMLElement
-      const overlay = item.querySelector('.float-overlay') as HTMLElement
-      const number = item.querySelector('.float-number') as HTMLElement
+      const overlay = item.querySelector('.float-overlay-42') as HTMLElement
+      const number = item.querySelector('.float-number-42') as HTMLElement
 
       const pos = floatPositions[index]
 
@@ -181,10 +181,10 @@ onMounted(() => {
     })
 
     // 滚动时整体旋转
-    gsap.to('.floating-container', {
+    gsap.to('.floating-container-42', {
       rotate: 5,
       scrollTrigger: {
-        trigger: '.floating-container',
+        trigger: '.floating-container-42',
         start: 'top 100%',
         end: 'bottom 0%',
         scrub: 0.5
@@ -200,7 +200,7 @@ onUnmounted(() => {
 </script>
 
 <style scoped lang="scss">
-.floating-images {
+.floating-images-42 {
   min-height: 150vh;
   padding: 100px 0;
   background: linear-gradient(180deg, #1a1a2e 0%, #2d1b69 50%, #1a1a2e 100%);
@@ -223,7 +223,7 @@ onUnmounted(() => {
   }
 }
 
-.container {
+.container-42 {
   width: 100%;
   max-width: 1200px;
   padding: 0 40px;
@@ -231,7 +231,7 @@ onUnmounted(() => {
   z-index: 1;
 }
 
-.section-title {
+.section-title-42 {
   text-align: center;
   font-size: 3.5rem;
   font-weight: 800;
@@ -254,7 +254,7 @@ onUnmounted(() => {
   }
 }
 
-.floating-container {
+.floating-container-42 {
   position: relative;
   height: 700px;
   display: flex;
@@ -263,7 +263,7 @@ onUnmounted(() => {
   perspective: 1000px;
 }
 
-.floating-item {
+.floating-item-42 {
   position: absolute;
   width: 280px;
   height: 360px;
@@ -281,7 +281,7 @@ onUnmounted(() => {
   }
 }
 
-.float-inner {
+.float-inner-42 {
   width: 100%;
   height: 100%;
   position: relative;
@@ -295,11 +295,11 @@ img {
   transition: filter 0.3s ease;
 }
 
-.floating-item:hover img {
+.floating-item-42:hover img {
   filter: brightness(1.1) saturate(1.1);
 }
 
-.float-overlay {
+.float-overlay-42 {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -309,7 +309,7 @@ img {
   pointer-events: none;
 }
 
-.float-number {
+.float-number-42 {
   display: block;
   font-size: 3rem;
   font-weight: 900;
@@ -322,7 +322,7 @@ img {
   opacity: 0.9;
 }
 
-.float-title {
+.float-title-42 {
   font-size: 1.3rem;
   font-weight: 700;
   color: #fff;
@@ -331,16 +331,16 @@ img {
 }
 
 @media (max-width: 768px) {
-  .floating-item {
+  .floating-item-42 {
     width: 200px;
     height: 260px;
   }
   
-  .float-number {
+  .float-number-42 {
     font-size: 2rem;
   }
   
-  .section-title {
+  .section-title-42 {
     font-size: 2rem;
   }
 }
