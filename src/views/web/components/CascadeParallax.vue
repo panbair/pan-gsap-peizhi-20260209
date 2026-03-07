@@ -1,24 +1,24 @@
 <template>
-  <div class="cascade-parallax">
-    <div class="container">
-      <h2 class="section-title">级联视差</h2>
-      
-      <div class="cascade-container">
-        <div 
-          class="cascade-item" 
-          v-for="(img, index) in images" 
+  <div class="cp-cascade-parallax">
+    <div class="cp-container">
+      <h2 class="cp-section-title" ref="sectionTitle">级联视差</h2>
+
+      <div class="cp-cascade-container" ref="cascadeContainer">
+        <div
+          v-for="(img, index) in images"
           :key="index"
-          :style="{ 
+          ref="items"
+          class="cp-cascade-item"
+          :style="{
             transform: `translateX(${index * 30}px) translateY(${index * 40}px)`,
             zIndex: images.length - index
           }"
-          ref="items"
         >
-          <div class="item-wrapper">
+          <div class="cp-item-wrapper">
             <img :src="img" :alt="`Image ${index + 1}`" />
-            <div class="item-overlay">
-              <span class="item-layer">Layer {{ images.length - index }}</span>
-              <h3 class="item-title">{{ titles[index] }}</h3>
+            <div class="cp-item-overlay">
+              <span class="cp-item-layer">Layer {{ images.length - index }}</span>
+              <h3 class="cp-item-title">{{ titles[index] }}</h3>
             </div>
           </div>
         </div>
@@ -35,6 +35,8 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 gsap.registerPlugin(ScrollTrigger)
 
 const items = ref<HTMLElement[]>([])
+const sectionTitle = ref<HTMLElement | null>(null)
+const cascadeContainer = ref<HTMLElement | null>(null)
 const images = [
   new URL('@/assets/image/1.png', import.meta.url).href,
   new URL('@/assets/image/2.png', import.meta.url).href,
@@ -49,11 +51,13 @@ const titles = ['深度一', '深度二', '深度三', '深度四', '深度五',
 let ctx: gsap.Context
 
 onMounted(() => {
+  if (!sectionTitle.value || !cascadeContainer.value) return
+
   ctx = gsap.context(() => {
     // 标题动画
-    gsap.from('.section-title', {
+    gsap.from(sectionTitle.value, {
       scrollTrigger: {
-        trigger: '.section-title',
+        trigger: sectionTitle.value,
         start: 'top 90%'
       },
       y: 50,
@@ -64,12 +68,13 @@ onMounted(() => {
 
     items.value.forEach((item, index) => {
       const img = item.querySelector('img') as HTMLElement
-      const overlay = item.querySelector('.item-overlay') as HTMLElement
-      const layer = item.querySelector('.item-layer') as HTMLElement
-      const title = item.querySelector('.item-title') as HTMLElement
+      const overlay = item.querySelector('.cp-item-overlay') as HTMLElement
+      const layer = item.querySelector('.cp-item-layer') as HTMLElement
+      const title = item.querySelector('.cp-item-title') as HTMLElement
 
       // 从右下滑入
-      gsap.fromTo(item,
+      gsap.fromTo(
+        item,
         {
           x: 200,
           y: 200,
@@ -100,7 +105,7 @@ onMounted(() => {
         x: index * 30 + 50,
         y: index * 40 + 80,
         scrollTrigger: {
-          trigger: '.cascade-container',
+          trigger: cascadeContainer.value,
           start: 'top 80%',
           end: 'bottom 20%',
           scrub: 1
@@ -109,7 +114,8 @@ onMounted(() => {
       })
 
       // 图片缩放
-      gsap.fromTo(img,
+      gsap.fromTo(
+        img,
         { scale: 1.4 },
         {
           scale: 1,
@@ -124,7 +130,8 @@ onMounted(() => {
       )
 
       // 覆盖层渐入
-      gsap.fromTo(overlay,
+      gsap.fromTo(
+        overlay,
         { opacity: 0 },
         {
           opacity: 1,
@@ -138,7 +145,8 @@ onMounted(() => {
       )
 
       // 层级文字旋转
-      gsap.fromTo(layer,
+      gsap.fromTo(
+        layer,
         { rotate: -180, scale: 0, opacity: 0 },
         {
           rotate: 0,
@@ -154,7 +162,8 @@ onMounted(() => {
       )
 
       // 标题滑入
-      gsap.fromTo(title,
+      gsap.fromTo(
+        title,
         { x: -30, opacity: 0 },
         {
           x: 0,
@@ -177,13 +186,13 @@ onUnmounted(() => {
 </script>
 
 <style scoped lang="scss">
-.cascade-parallax {
+.cp-cascade-parallax {
   min-height: 200vh;
   padding: 100px 0;
   background: linear-gradient(180deg, #1a1a2e 0%, #4a1942 50%, #1a1a2e 100%);
   position: relative;
   overflow: hidden;
-  
+
   &::before {
     content: '';
     position: absolute;
@@ -191,14 +200,14 @@ onUnmounted(() => {
     left: 0;
     right: 0;
     bottom: 0;
-    background: 
+    background:
       radial-gradient(circle at 30% 40%, rgba(237, 100, 166, 0.1) 0%, transparent 40%),
       radial-gradient(circle at 70% 60%, rgba(102, 126, 234, 0.1) 0%, transparent 40%);
     pointer-events: none;
   }
 }
 
-.container {
+.cp-container {
   max-width: 1400px;
   margin: 0 auto;
   padding: 0 40px;
@@ -206,7 +215,7 @@ onUnmounted(() => {
   z-index: 1;
 }
 
-.section-title {
+.cp-section-title {
   text-align: center;
   font-size: 3.5rem;
   font-weight: 800;
@@ -217,7 +226,7 @@ onUnmounted(() => {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   text-shadow: 0 0 40px rgba(237, 100, 166, 0.5);
-  
+
   &::after {
     content: '';
     display: block;
@@ -229,13 +238,13 @@ onUnmounted(() => {
   }
 }
 
-.cascade-container {
+.cp-cascade-container {
   position: relative;
   padding: 80px 0;
   height: 800px;
 }
 
-.cascade-item {
+.cp-cascade-item {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -248,7 +257,7 @@ onUnmounted(() => {
   background: #fff;
   transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
   cursor: pointer;
-  
+
   &:hover {
     z-index: 100 !important;
     transform: translate(-50%, -50%) scale(1.05);
@@ -256,35 +265,40 @@ onUnmounted(() => {
   }
 }
 
-.item-wrapper {
+.cp-item-wrapper {
   width: 100%;
   height: 100%;
   position: relative;
   overflow: hidden;
 }
 
-img {
+.cp-cascade-item img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   transition: filter 0.3s ease;
 }
 
-.cascade-item:hover img {
+.cp-cascade-item:hover img {
   filter: brightness(1.1) saturate(1.1);
 }
 
-.item-overlay {
+.cp-item-overlay {
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.4) 60%, transparent 100%);
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.9) 0%,
+    rgba(0, 0, 0, 0.4) 60%,
+    transparent 100%
+  );
   padding: 40px 30px 30px;
   pointer-events: none;
 }
 
-.item-layer {
+.cp-item-layer {
   display: block;
   font-size: 3.5rem;
   font-weight: 900;
@@ -297,7 +311,7 @@ img {
   opacity: 0.9;
 }
 
-.item-title {
+.cp-item-title {
   font-size: 1.6rem;
   font-weight: 700;
   color: #fff;
@@ -306,16 +320,16 @@ img {
 }
 
 @media (max-width: 768px) {
-  .cascade-item {
+  .cp-cascade-item {
     width: 280px;
     height: 360px;
   }
-  
-  .item-layer {
+
+  .cp-item-layer {
     font-size: 2.5rem;
   }
-  
-  .section-title {
+
+  .cp-section-title {
     font-size: 2rem;
   }
 }
