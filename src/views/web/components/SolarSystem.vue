@@ -1,0 +1,475 @@
+<template>
+  <section class="solar-system-section">
+    <div class="content">
+      <h2 class="ss-section-title">太阳系</h2>
+      <p class="ss-subtitle">行星的轨道之舞</p>
+
+      <div class="solar-container" ref="solarContainer">
+        <div class="stars-background">
+          <div class="star-bg" v-for="n in 200" :key="n"
+               :style="getStarBgStyle(n)"></div>
+        </div>
+
+        <div class="sun">
+          <div class="sun-core"></div>
+          <div class="sun-corona"></div>
+          <div class="sun-flares">
+            <div class="flare" v-for="n in 12" :key="n"
+                 :style="getFlareStyle(n)"></div>
+          </div>
+        </div>
+
+        <div class="orbits">
+          <div class="orbit orbit-mercury">
+            <div class="planet mercury">
+              <div class="planet-body"></div>
+            </div>
+          </div>
+          <div class="orbit orbit-venus">
+            <div class="planet venus">
+              <div class="planet-body"></div>
+            </div>
+          </div>
+          <div class="orbit orbit-earth">
+            <div class="planet earth">
+              <div class="planet-body"></div>
+              <div class="moon-orbit">
+                <div class="moon"></div>
+              </div>
+            </div>
+          </div>
+          <div class="orbit orbit-mars">
+            <div class="planet mars">
+              <div class="planet-body"></div>
+            </div>
+          </div>
+          <div class="orbit orbit-jupiter">
+            <div class="planet jupiter">
+              <div class="planet-body"></div>
+              <div class="planet-rings"></div>
+            </div>
+          </div>
+          <div class="orbit orbit-saturn">
+            <div class="planet saturn">
+              <div class="planet-body"></div>
+              <div class="planet-rings saturn-rings"></div>
+            </div>
+          </div>
+          <div class="orbit orbit-uranus">
+            <div class="planet uranus">
+              <div class="planet-body"></div>
+            </div>
+          </div>
+          <div class="orbit orbit-neptune">
+            <div class="planet neptune">
+              <div class="planet-body"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="asteroid-belt">
+          <div class="asteroid" v-for="n in 50" :key="n"
+               :style="getAsteroidStyle(n)"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</template>
+
+<script setup lang="ts">
+import { ref, onMounted, onUnmounted } from 'vue'
+import gsap from 'gsap'
+import ScrollTrigger from 'gsap/ScrollTrigger'
+
+gsap.registerPlugin(ScrollTrigger)
+
+const solarContainer = ref<HTMLElement | null>(null)
+
+const getStarBgStyle = (index: number) => {
+  return {
+    left: `${Math.random() * 100}%`,
+    top: `${Math.random() * 100}%`,
+    animationDelay: `${Math.random() * 2}s`
+  }
+}
+
+const getFlareStyle = (index: number) => {
+  const angle = (index - 1) * 30
+  const height = 20 + Math.random() * 30
+  return {
+    transform: `rotate(${angle}deg)`,
+    height: `${height}px`
+  }
+}
+
+const getAsteroidStyle = (index: number) => {
+  const angle = (index / 50) * 360
+  const radius = 180 + Math.random() * 20
+  const x = Math.cos(angle * Math.PI / 180) * radius
+  const y = Math.sin(angle * Math.PI / 180) * radius
+  const size = 2 + Math.random() * 4
+  return {
+    left: `calc(50% + ${x}px)`,
+    top: `calc(50% + ${y}px)`,
+    width: `${size}px`,
+    height: `${size}px`
+  }
+}
+
+let ctx: gsap.Context
+
+onMounted(() => {
+  ctx = gsap.context(() => {
+    // 星星闪烁
+    gsap.to('.star-bg', {
+      opacity: 0.2,
+      duration: 1,
+      repeat: -1,
+      yoyo: true,
+      ease: 'none',
+      stagger: 0.01
+    })
+
+    // 太阳脉动
+    gsap.to('.sun-core', {
+      scale: 1.1,
+      duration: 2,
+      repeat: -1,
+      yoyo: true,
+      ease: 'power1.inOut'
+    })
+
+    // 日冕波动
+    gsap.to('.sun-corona', {
+      scale: 1.2,
+      opacity: 0.6,
+      duration: 3,
+      repeat: -1,
+      yoyo: true,
+      ease: 'sine.inOut'
+    })
+
+    // 太阳耀斑
+    gsap.to('.flare', {
+      scaleY: 1.5,
+      duration: 1,
+      repeat: -1,
+      yoyo: true,
+      ease: 'power1.inOut',
+      stagger: 0.1
+    })
+
+    // 行星轨道旋转
+    gsap.to('.orbit', {
+      rotation: 360,
+      duration: 60,
+      repeat: -1,
+      ease: 'none'
+    })
+
+    // 不同的轨道速度
+    gsap.to('.orbit-mercury', { rotation: 360, duration: 8, repeat: -1, ease: 'none' })
+    gsap.to('.orbit-venus', { rotation: 360, duration: 12, repeat: -1, ease: 'none' })
+    gsap.to('.orbit-earth', { rotation: 360, duration: 16, repeat: -1, ease: 'none' })
+    gsap.to('.orbit-mars', { rotation: 360, duration: 24, repeat: -1, ease: 'none' })
+    gsap.to('.orbit-jupiter', { rotation: 360, duration: 40, repeat: -1, ease: 'none' })
+    gsap.to('.orbit-saturn', { rotation: 360, duration: 50, repeat: -1, ease: 'none' })
+    gsap.to('.orbit-uranus', { rotation: 360, duration: 70, repeat: -1, ease: 'none' })
+    gsap.to('.orbit-neptune', { rotation: 360, duration: 90, repeat: -1, ease: 'none' })
+
+    // 月球旋转
+    gsap.to('.moon-orbit', {
+      rotation: 360,
+      duration: 3,
+      repeat: -1,
+      ease: 'none'
+    })
+
+    // 小行星带
+    gsap.to('.asteroid-belt', {
+      rotation: 360,
+      duration: 20,
+      repeat: -1,
+      ease: 'none'
+    })
+
+    // 行星自转
+    gsap.to('.planet-body', {
+      rotation: 360,
+      duration: 10,
+      repeat: -1,
+      ease: 'none',
+      stagger: 1
+    })
+
+    // 滚动效果
+    gsap.to('.solar-container', {
+      scale: 0.8,
+      rotationY: 30,
+      duration: 1,
+      scrollTrigger: {
+        trigger: '.solar-system-section',
+        start: 'top bottom',
+        end: 'bottom top',
+        scrub: 1
+      }
+    })
+
+    // 入场动画
+    gsap.from('.sun', {
+      scale: 0,
+      opacity: 0,
+      duration: 1.5,
+      ease: 'elastic.out(1, 0.5)',
+      scrollTrigger: {
+        trigger: '.solar-system-section',
+        start: 'top 80%',
+        toggleActions: 'play none none reverse'
+      }
+    })
+
+    gsap.from('.planet', {
+      scale: 0,
+      opacity: 0,
+      duration: 1,
+      stagger: 0.2,
+      ease: 'back.out',
+      scrollTrigger: {
+        trigger: '.solar-system-section',
+        start: 'top 70%',
+        toggleActions: 'play none none reverse'
+      }
+    })
+  })
+})
+
+onUnmounted(() => {
+  ctx?.revert()
+})
+</script>
+
+<style scoped lang="scss">
+.solar-system-section {
+  min-height: 100vh;
+  padding: 60px 20px;
+  position: relative;
+  overflow: hidden;
+  background: #000;
+}
+
+.content {
+  text-align: center;
+}
+
+.ss-section-title {
+  font-size: clamp(2rem, 4vw, 2.5rem);
+  font-weight: 800;
+  margin-bottom: 16px;
+  background: linear-gradient(135deg, #fbbf24, #f97316, #ef4444);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.ss-subtitle {
+  font-size: 1.1rem;
+  color: #94a3b8;
+  margin-bottom: 40px;
+}
+
+.solar-container {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  height: 800px;
+  margin: 0 auto;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.stars-background {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.star-bg {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: #fff;
+  border-radius: 50%;
+  animation: starTwinkle 1s ease-in-out infinite;
+}
+
+@keyframes starTwinkle {
+  0%, 100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.sun {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100px;
+  height: 100px;
+  z-index: 10;
+}
+
+.sun-core {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle, #fff 0%, #fbbf24 30%, #f97316 60%, #ef4444 100%);
+  border-radius: 50%;
+  box-shadow: 0 0 60px #fbbf24, 0 0 120px #f97316;
+}
+
+.sun-corona {
+  position: absolute;
+  inset: -20px;
+  background: radial-gradient(circle, rgba(251, 191, 36, 0.3), transparent 70%);
+  border-radius: 50%;
+  filter: blur(10px);
+}
+
+.sun-flares {
+  position: absolute;
+  inset: -30px;
+}
+
+.flare {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 4px;
+  transform-origin: bottom center;
+  background: linear-gradient(to top, #fbbf24, transparent);
+  border-radius: 2px;
+  animation: flarePulse 1s ease-in-out infinite;
+}
+
+@keyframes flarePulse {
+  0%, 100% {
+    scaleY: 1;
+    opacity: 0.8;
+  }
+  50% {
+    scaleY: 1.5;
+    opacity: 1;
+  }
+}
+
+.orbits {
+  position: absolute;
+  inset: 50px;
+}
+
+.orbit {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+}
+
+.orbit-mercury { width: 140px; height: 140px; }
+.orbit-venus { width: 180px; height: 180px; }
+.orbit-earth { width: 240px; height: 240px; }
+.orbit-mars { width: 300px; height: 300px; }
+.orbit-jupiter { width: 400px; height: 400px; }
+.orbit-saturn { width: 500px; height: 500px; }
+.orbit-uranus { width: 600px; height: 600px; }
+.orbit-neptune { width: 700px; height: 700px; }
+
+.planet {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.mercury { width: 12px; height: 12px; }
+.venus { width: 18px; height: 18px; }
+.earth { width: 20px; height: 20px; }
+.mars { width: 16px; height: 16px; }
+.jupiter { width: 40px; height: 40px; }
+.saturn { width: 35px; height: 35px; }
+.uranus { width: 28px; height: 28px; }
+.neptune { width: 26px; height: 26px; }
+
+.planet-body {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.mercury .planet-body { background: radial-gradient(circle, #9ca3af, #6b7280); }
+.venus .planet-body { background: radial-gradient(circle, #fbbf24, #f59e0b); }
+.earth .planet-body { background: radial-gradient(circle, #3b82f6, #1d4ed8); }
+.mars .planet-body { background: radial-gradient(circle, #ef4444, #dc2626); }
+.jupiter .planet-body { background: radial-gradient(circle, #d97706, #b45309); }
+.saturn .planet-body { background: radial-gradient(circle, #fcd34d, #f59e0b); }
+.uranus .planet-body { background: radial-gradient(circle, #22d3ee, #0891b2); }
+.neptune .planet-body { background: radial-gradient(circle, #3b82f6, #1e40af); }
+
+.moon-orbit {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40px;
+  height: 40px;
+}
+
+.moon {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 6px;
+  height: 6px;
+  background: #9ca3af;
+  border-radius: 50%;
+}
+
+.planet-rings {
+  position: absolute;
+  inset: -5px;
+  border: 2px solid rgba(252, 211, 77, 0.6);
+  border-radius: 50%;
+  transform: rotateX(75deg);
+}
+
+.saturn-rings {
+  inset: -8px;
+  border-width: 3px;
+}
+
+.asteroid-belt {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 340px;
+  height: 340px;
+  pointer-events: none;
+}
+
+.asteroid {
+  position: absolute;
+  background: #6b7280;
+  border-radius: 50%;
+}
+
+@media (max-width: 768px) {
+  .solar-container {
+    height: 600px;
+  }
+}
+</style>

@@ -11,20 +11,6 @@
     <section class="hero-section">
       <h1 class="hero-title">动画展示</h1>
       <p class="hero-sub">滚动页面，体验 {{ totalCount }}+ 种动画效果</p>
-<!--      <div class="hero-legend">
-        <div class="legend-item">
-          <span class="legend-dot anim-type-timeline"></span>
-          <span class="legend-text">Timeline</span>
-        </div>
-        <div class="legend-item">
-          <span class="legend-dot anim-type-fromto"></span>
-          <span class="legend-text">FromTo</span>
-        </div>
-        <div class="legend-item">
-          <span class="legend-dot anim-type-to"></span>
-          <span class="legend-text">To</span>
-        </div>
-      </div>-->
       <div class="hero-scroll-hint">↓ 向下滚动</div>
     </section>
 
@@ -171,11 +157,8 @@ function replayCard(el: HTMLElement | null, animName: string) {
   // 检查动画配置是否存在
   const cfg = (animConfig as any)[animName]
   if (!cfg) {
-    console.warn(`重播失败 - 动画配置不存在: ${animName}`)
     return
   }
-
-  console.log(`重播动画: ${animName}`)
 
   // 停止当前卡片的所有动画
   gsap.killTweensOf(el)

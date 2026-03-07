@@ -36,10 +36,14 @@ const props = withDefaults(defineProps<Props>(), {
 const eventRef = ref<HTMLElement>()
 
 onMounted(() => {
+  if (!eventRef.value) return
+
   ScrollTrigger.create({
     trigger: eventRef.value,
     start: 'top 80%',
     onEnter: () => {
+      if (!eventRef.value) return
+
       gsap.from(eventRef.value, {
         x: props.index % 2 === 0 ? -100 : 100,
         opacity: 0,
@@ -49,17 +53,24 @@ onMounted(() => {
       })
 
       // 标记动画
-      gsap.from(eventRef.value!.querySelector('.marker-dot'), {
-        scale: 0,
-        duration: 0.5,
-        ease: 'back.out(1.7)'
-      })
+      const markerDot = eventRef.value.querySelector('.marker-dot')
+      const markerRing = eventRef.value.querySelector('.marker-ring')
 
-      gsap.from(eventRef.value!.querySelector('.marker-ring'), {
-        scale: 0,
-        duration: 0.8,
-        ease: 'elastic.out(1, 0.5)'
-      })
+      if (markerDot) {
+        gsap.from(markerDot, {
+          scale: 0,
+          duration: 0.5,
+          ease: 'back.out(1.7)'
+        })
+      }
+
+      if (markerRing) {
+        gsap.from(markerRing, {
+          scale: 0,
+          duration: 0.8,
+          ease: 'elastic.out(1, 0.5)'
+        })
+      }
     }
   })
 })
@@ -90,8 +101,12 @@ onMounted(() => {
   width: 40px;
   height: 40px;
 
-  &:nth-child(odd) { right: -20px; }
-  &:nth-child(even) { left: -20px; }
+  &:nth-child(odd) {
+    right: -20px;
+  }
+  &:nth-child(even) {
+    left: -20px;
+  }
 }
 
 .marker-dot {

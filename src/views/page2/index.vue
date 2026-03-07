@@ -91,10 +91,9 @@
 <script setup lang="ts">
 import {ref, onMounted, onUnmounted, computed} from 'vue'
 import gsap from "gsap";
-// @ts-ignore
 import { config } from './animation/config'
-// @ts-ignore
 import { animationOptions } from './animationOptions'
+import type { AnimationConfig, AnimationOptionGroup } from './animation/config'
 
 const selectedAnimation = ref('')
 const animatedElement = ref<HTMLElement>()
@@ -201,7 +200,6 @@ const triggerAnimation = async () => {
 
   let item = config[selectedAnimation.value]
   if (!item) {
-    console.log('未知动画类型:', selectedAnimation.value)
     return
   }
 

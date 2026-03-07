@@ -25,19 +25,11 @@ const elLocale = computed(() => {
   return localeMap[localeKey] || zhCn
 })
 
-// 调试信息
 onMounted(() => {
-  console.log('App mounted, locale:', appStore.locale)
-  console.log('elLocale:', elLocale.value)
   setTimeout(() => {
     isReady.value = true
   }, 100)
 })
-
-// 监听 locale 变化
-watch(() => appStore.locale, (newLocale) => {
-  console.log('Locale changed:', newLocale)
-}, { immediate: true })
 </script>
 
 <template>

@@ -1,0 +1,263 @@
+<template>
+  <section class="gg-glass-gallery-section">
+    <div class="gg-content">
+      <h2 class="gg-section-title">玻璃态画廊</h2>
+      <p class="gg-subtitle">毛玻璃效果与动态模糊</p>
+
+      <div class="gg-gallery-grid">
+        <div class="gg-glass-card" v-for="(card, index) in cards" :key="index" :ref="el => cardRefs[index] = el">
+          <div class="gg-card-image" :style="{ backgroundImage: `linear-gradient(135deg, ${card.color1}, ${card.color2})` }">
+            <div class="gg-image-overlay"></div>
+          </div>
+          <div class="gg-card-content">
+            <h3>{{ card.title }}</h3>
+            <p>{{ card.description }}</p>
+            <div class="gg-card-meta">
+              <span class="gg-tag" v-for="tag in card.tags" :key="tag">{{ tag }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</template>
+
+<script setup lang="ts">
+import { ref, onMounted, onUnmounted } from 'vue'
+import gsap from 'gsap'
+import ScrollTrigger from 'gsap/ScrollTrigger'
+
+gsap.registerPlugin(ScrollTrigger)
+
+const cardRefs = ref<(HTMLElement | null)[]>([])
+
+const cards = [
+  { title: '光影效果', description: '动态光效与阴影渲染', color1: '#8b5cf6', color2: '#3b82f6', tags: ['3D', 'Light'] },
+  { title: '粒子系统', description: '实时粒子碰撞模拟', color1: '#ec4899', color2: '#f43f5e', tags: ['Particle', 'Physics'] },
+  { title: '流体动力学', description: '逼真的液体流动效果', color1: '#06b6d4', color2: '#10b981', tags: ['Fluid', 'Realistic'] },
+  { title: '材质渲染', description: 'PBR材质与纹理映射', color1: '#f59e0b', color2: '#ef4444', tags: ['PBR', 'Texture'] },
+  { title: '变形动画', description: '平滑的形状转换', color1: '#a855f7', color2: '#6366f1', tags: ['Morph', 'Smooth'] },
+  { title: '音频响应', description: '音乐驱动的可视化', color1: '#14b8a6', color2: '#0ea5e9', tags: ['Audio', 'Viz'] }
+]
+
+let ctx: gsap.Context
+
+onMounted(() => {
+  ctx = gsap.context(() => {
+    cardRefs.value.forEach((card, index) => {
+      if (!card) return
+
+      const image = card.querySelector('.gg-card-image') as HTMLElement
+      const content = card.querySelector('.gg-card-content') as HTMLElement
+
+      // 入场动画
+      gsap.from(card, {
+        y: 150,
+        opacity: 0,
+        rotateX: 30,
+        duration: 1,
+        scrollTrigger: {
+          trigger: card,
+          start: 'top 85%',
+          end: 'top 50%',
+          toggleActions: 'play none none reverse'
+        }
+      })
+
+      // 图片视差
+      gsap.to(image, {
+        y: -30,
+        scale: 1.1,
+        duration: 1,
+        scrollTrigger: {
+          trigger: card,
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: 1
+        }
+      })
+
+      // 悬停效果
+      card.addEventListener('mouseenter', () => {
+        gsap.to(card, {
+          y: -20,
+          scale: 1.02,
+          duration: 0.5,
+          ease: 'power3.out'
+        })
+
+        gsap.to(image, {
+          scale: 1.15,
+          duration: 0.5,
+          ease: 'power3.out'
+        })
+
+        gsap.to(content, {
+          y: -10,
+          duration: 0.5,
+          ease: 'power3.out'
+        })
+      })
+
+      card.addEventListener('mouseleave', () => {
+        gsap.to(card, {
+          y: 0,
+          scale: 1,
+          duration: 0.5,
+          ease: 'power3.out'
+        })
+
+        gsap.to(image, {
+          scale: 1.1,
+          duration: 0.5,
+          ease: 'power3.out'
+        })
+
+        gsap.to(content, {
+          y: 0,
+          duration: 0.5,
+          ease: 'power3.out'
+        })
+      })
+    })
+  })
+})
+
+onUnmounted(() => {
+  ctx?.revert()
+})
+</script>
+
+<style scoped lang="scss">
+.gg-glass-gallery-section {
+  min-height: 100vh;
+  padding: 100px 20px;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(180deg, #0a0a1a 0%, #1a1a3a 50%, #0a0a1a 100%);
+}
+
+.gg-content {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.gg-section-title {
+  font-size: clamp(2rem, 4vw, 2.5rem);
+  font-weight: 800;
+  margin-bottom: 16px;
+  text-align: center;
+  background: linear-gradient(135deg, #c084fc, #60a5fa, #34d399);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gg-subtitle {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.6);
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.gg-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 30px;
+}
+
+.gg-glass-card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  overflow: hidden;
+  cursor: pointer;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3),
+              inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transform-style: preserve-3d;
+  perspective: 1000px;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), transparent);
+    pointer-events: none;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transition: left 0.6s ease;
+    pointer-events: none;
+  }
+
+  &:hover::after {
+    left: 100%;
+  }
+}
+
+.gg-card-image {
+  position: relative;
+  height: 220px;
+  overflow: hidden;
+}
+
+.gg-image-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.6));
+}
+
+.gg-card-content {
+  position: relative;
+  padding: 24px;
+  background: linear-gradient(to bottom, rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.95));
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.gg-card-content h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #f1f5f9;
+  margin-bottom: 8px;
+}
+
+.gg-card-content p {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.gg-card-meta {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.gg-tag {
+  padding: 4px 12px;
+  background: rgba(139, 92, 246, 0.2);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  border-radius: 20px;
+  font-size: 0.8rem;
+  color: #c4b5fd;
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .gg-gallery-grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
