@@ -85,12 +85,13 @@ onMounted(() => {
       scrollTrigger: {
         trigger: '.scw-scroll-card-wave-126',
         start: 'top 85%',
-        end: 'top 65%',
-        scrub: 1
+        end: 'top 35%',
+        scrub: 1.5
       },
       y: 100,
       rotationX: -30,
-      opacity: 0,
+      opacity: 0.4,
+      filter: 'blur(8px)',
       ease: 'power3.out'
     })
 
@@ -98,12 +99,13 @@ onMounted(() => {
     gsap.from('.scw-section-subtitle-126', {
       scrollTrigger: {
         trigger: '.scw-scroll-card-wave-126',
-        start: 'top 80%',
-        end: 'top 60%',
-        scrub: 1
+        start: 'top 85%',
+        end: 'top 35%',
+        scrub: 1.5
       },
       y: 80,
-      opacity: 0,
+      opacity: 0.3,
+      filter: 'blur(6px)',
       ease: 'power3.out'
     })
 
@@ -118,27 +120,28 @@ onMounted(() => {
       const xOffset = Math.sin(index * 0.8) * 100
       const yOffset = Math.cos(index * 0.8) * 50
 
-      // 初始状态 - 波浪分布
+      // 初始状态 - 波浪分布（半可见状态）
       gsap.set(card, {
         x: xOffset,
         y: yOffset,
         scale: 0.8 + (index % 2) * 0.1,
         rotation: (index - 2) * 5,
-        opacity: 0
+        opacity: 0.5,
+        filter: 'blur(4px)'
       })
 
-      gsap.set(icon, { scale: 0, rotation: -180 })
-      gsap.set(title, { y: 50, opacity: 0 })
-      gsap.set(desc, { y: 40, opacity: 0 })
-      gsap.set(number, { scale: 0, opacity: 0 })
+      gsap.set(icon, { scale: 0.5, rotation: -90 })
+      gsap.set(title, { y: 50, opacity: 0.4 })
+      gsap.set(desc, { y: 40, opacity: 0.3 })
+      gsap.set(number, { scale: 0.5, opacity: 0.3 })
 
       // 波浪入场动画
       gsap.to(card, {
         scrollTrigger: {
           trigger: card,
           start: 'top 100%',
-          end: 'top 50%',
-          scrub: 1.5,
+          end: 'top 35%',
+          scrub: 2,
           toggleActions: 'play none none reverse'
         },
         x: 0,
@@ -146,6 +149,7 @@ onMounted(() => {
         scale: 1,
         rotation: 0,
         opacity: 1,
+        filter: 'blur(0px)',
         ease: 'elastic.out(1, 0.8)'
       })
 
@@ -153,9 +157,9 @@ onMounted(() => {
       gsap.to(icon, {
         scrollTrigger: {
           trigger: card,
-          start: 'top 80%',
-          end: 'top 60%',
-          scrub: 1
+          start: 'top 90%',
+          end: 'top 50%',
+          scrub: 1.5
         },
         scale: 1,
         rotation: 0,
@@ -166,9 +170,9 @@ onMounted(() => {
       gsap.to(title, {
         scrollTrigger: {
           trigger: card,
-          start: 'top 75%',
-          end: 'top 55%',
-          scrub: 1
+          start: 'top 85%',
+          end: 'top 45%',
+          scrub: 1.5
         },
         y: 0,
         opacity: 1,
@@ -179,9 +183,9 @@ onMounted(() => {
       gsap.to(desc, {
         scrollTrigger: {
           trigger: card,
-          start: 'top 70%',
-          end: 'top 50%',
-          scrub: 1
+          start: 'top 80%',
+          end: 'top 40%',
+          scrub: 1.5
         },
         y: 0,
         opacity: 1,
@@ -192,9 +196,9 @@ onMounted(() => {
       gsap.to(number, {
         scrollTrigger: {
           trigger: card,
-          start: 'top 65%',
-          end: 'top 45%',
-          scrub: 1
+          start: 'top 75%',
+          end: 'top 35%',
+          scrub: 1.5
         },
         scale: 1,
         opacity: 1,
@@ -259,7 +263,7 @@ onUnmounted(() => {
 
 <style scoped lang="scss">
 .scw-scroll-card-wave-126 {
-  min-height: 200vh;
+  min-height: 350vh;
   padding: 100px 20px;
   background: linear-gradient(180deg, #0a0a1a 0%, #1e1e3f 50%, #0a0a1a 100%);
   position: relative;
@@ -352,6 +356,12 @@ onUnmounted(() => {
   flex-direction: column;
   align-items: center;
   text-align: center;
+  transition: box-shadow 0.4s ease, border-color 0.4s ease;
+}
+
+.scw-card-126:hover .scw-card-front-126 {
+  border-color: rgba(168, 85, 247, 0.5);
+  box-shadow: 0 0 30px rgba(168, 85, 247, 0.2), inset 0 0 30px rgba(168, 85, 247, 0.05);
 }
 
 .scw-card-back-126 {

@@ -115,52 +115,52 @@ onMounted(() => {
       const img = imageLayer.querySelector('img') as HTMLElement
 
       // 文字层滚动视差 - 不同的移动速度和方向
-      const speeds = [-80, 80, -60, 60]
-      const rotationSpeeds = [3, -3, 5, -5]
+      const speeds = [-120, 120, -90, 90]
+      const rotationSpeeds = [5, -5, 8, -8]
 
       gsap.set(text, {
-        y: 150,
-        scale: 0.85,
-        opacity: 0,
-        rotationX: 20,
-        filter: 'blur(10px)'
+        y: 100,
+        scale: 0.75,
+        opacity: 0.4,
+        rotationX: 15,
+        filter: 'blur(5px)'
       })
-      gsap.set(img, { y: 120, scale: 1.2, opacity: 0.3, filter: 'blur(20px)' })
+      gsap.set(img, { y: 80, scale: 1.15, opacity: 0.4, filter: 'blur(12px)' })
 
-      // 文字入场 - 更平滑的3D翻转效果
+      // 文字入场 - 更平滑的3D翻转效果，扩大滚动范围
       gsap.to(text, {
         y: 0,
         scale: 1,
         opacity: 1,
         rotationX: 0,
         filter: 'blur(0px)',
-        duration: 2,
+        duration: 2.5,
         ease: 'power3.out',
         scrollTrigger: {
           trigger: section,
-          start: 'top 80%',
-          end: 'top 50%',
-          scrub: 1.5
+          start: 'top 85%',
+          end: 'top 35%',
+          scrub: 2
         }
       })
 
-      // 图片层滚动视差 - 更柔和的淡入效果
+      // 图片层滚动视差 - 更柔和的淡入效果，扩大滚动范围
       gsap.to(img, {
         y: 0,
         scale: 1,
-        opacity: 0.25,
-        filter: 'blur(8px)',
-        duration: 2.5,
+        opacity: 0.35,
+        filter: 'blur(6px)',
+        duration: 3,
         ease: 'power2.out',
         scrollTrigger: {
           trigger: section,
-          start: 'top 85%',
-          end: 'top 40%',
-          scrub: 1.5
+          start: 'top 90%',
+          end: 'top 30%',
+          scrub: 2
         }
       })
 
-      // 文字层持续视差移动 - 更流畅
+      // 文字层持续视差移动 - 更流畅，扩大范围
       gsap.to(textLayer, {
         y: (progress) => {
           const baseSpeed = speeds[index % speeds.length]
@@ -168,50 +168,50 @@ onMounted(() => {
         },
         rotationX: (progress) => {
           const baseRot = rotationSpeeds[index % rotationSpeeds.length]
-          return baseRot * Math.sin(progress * Math.PI * 0.8)
+          return baseRot * Math.sin(progress * Math.PI)
         },
         scrollTrigger: {
           trigger: section,
           start: 'top bottom',
           end: 'bottom top',
-          scrub: 1.5
-        },
-        ease: 'power1.inOut'
-      })
-
-      // 图片层反向视差 - 更自然的缩放
-      gsap.to(img, {
-        scale: 1.05,
-        y: (progress) => {
-          return -30 * Math.sin(progress * Math.PI)
-        },
-        filter: (progress) => {
-          const blur = 8 - progress * 4
-          return `blur(${blur}px)`
-        },
-        scrollTrigger: {
-          trigger: section,
-          start: 'top 80%',
-          end: 'bottom 30%',
           scrub: 2
         },
         ease: 'power1.inOut'
       })
 
-      // 文字悬停效果 - 更精致
+      // 图片层反向视差 - 更自然的缩放，扩大范围
+      gsap.to(img, {
+        scale: 1.08,
+        y: (progress) => {
+          return -50 * Math.sin(progress * Math.PI)
+        },
+        filter: (progress) => {
+          const blur = 6 - progress * 3
+          return `blur(${blur}px)`
+        },
+        scrollTrigger: {
+          trigger: section,
+          start: 'top 85%',
+          end: 'bottom 20%',
+          scrub: 2.5
+        },
+        ease: 'power1.inOut'
+      })
+
+      // 文字悬停效果 - 更精致，增强效果
       text.addEventListener('mouseenter', () => {
         gsap.to(text, {
-          scale: 1.05,
+          scale: 1.08,
           filter: 'blur(0px)',
-          textShadow: '0 0 120px rgba(236, 72, 153, 0.9), 0 0 240px rgba(168, 85, 247, 0.7)',
-          duration: 0.5,
+          textShadow: '0 0 150px rgba(236, 72, 153, 0.95), 0 0 300px rgba(168, 85, 247, 0.8), 0 0 450px rgba(59, 130, 246, 0.6)',
+          duration: 0.4,
           ease: 'power2.out'
         })
         gsap.to(img, {
-          scale: 1.15,
-          opacity: 0.4,
-          filter: 'blur(5px)',
-          duration: 0.6,
+          scale: 1.18,
+          opacity: 0.5,
+          filter: 'blur(4px)',
+          duration: 0.5,
           ease: 'power2.out'
         })
       })
@@ -220,15 +220,15 @@ onMounted(() => {
         gsap.to(text, {
           scale: 1,
           filter: 'blur(0px)',
-          textShadow: '0 0 80px rgba(236, 72, 153, 0.6), 0 0 160px rgba(168, 85, 247, 0.4)',
-          duration: 0.5,
+          textShadow: '0 0 100px rgba(236, 72, 153, 0.7), 0 0 200px rgba(168, 85, 247, 0.5), 0 0 300px rgba(59, 130, 246, 0.35)',
+          duration: 0.4,
           ease: 'power2.out'
         })
         gsap.to(img, {
-          scale: 1.05,
-          opacity: 0.25,
-          filter: 'blur(8px)',
-          duration: 0.6,
+          scale: 1.08,
+          opacity: 0.35,
+          filter: 'blur(6px)',
+          duration: 0.5,
           ease: 'power2.out'
         })
       })
@@ -243,14 +243,14 @@ onMounted(() => {
       })
     })
 
-    // 进度条动画
+    // 进度条动画 - 增强平滑度
     gsap.to('.spt-progress-bar-122', {
       width: '100%',
       scrollTrigger: {
         trigger: '.spt-parallax-sections-122',
         start: 'top center',
         end: 'bottom center',
-        scrub: 0.3
+        scrub: 0.5
       }
     })
 
@@ -277,9 +277,9 @@ onUnmounted(() => {
 
 <style scoped lang="scss">
 .spt-scroll-parallax-text-122 {
-  min-height: 450vh;
+  min-height: 550vh;
   padding: 100px 0;
-  background: linear-gradient(180deg, #0a0a1a 0%, #1a1a3a 25%, #1e1e4a 50%, #1a1a3a 75%, #0a0a1a 100%);
+  background: linear-gradient(180deg, #0a0a1a 0%, #12122a 20%, #1a1a3a 40%, #1e1e4a 60%, #1a1a3a 80%, #0a0a1a 100%);
   position: relative;
   overflow: hidden;
 
@@ -291,9 +291,9 @@ onUnmounted(() => {
     right: 0;
     bottom: 0;
     background:
-      radial-gradient(circle at 20% 30%, rgba(236, 72, 153, 0.15) 0%, transparent 50%),
-      radial-gradient(circle at 80% 70%, rgba(168, 85, 247, 0.15) 0%, transparent 50%),
-      radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.08) 0%, transparent 60%);
+      radial-gradient(circle at 20% 30%, rgba(236, 72, 153, 0.2) 0%, transparent 50%),
+      radial-gradient(circle at 80% 70%, rgba(168, 85, 247, 0.2) 0%, transparent 50%),
+      radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.12) 0%, transparent 60%);
     pointer-events: none;
     animation: pulse-bg 10s ease-in-out infinite;
   }
@@ -306,9 +306,9 @@ onUnmounted(() => {
     right: 0;
     bottom: 0;
     background:
-      radial-gradient(circle at 10% 20%, rgba(236, 72, 153, 0.05) 0%, transparent 40%),
-      radial-gradient(circle at 90% 80%, rgba(59, 130, 246, 0.05) 0%, transparent 40%),
-      radial-gradient(circle at 50% 50%, rgba(168, 85, 247, 0.03) 0%, transparent 50%);
+      radial-gradient(circle at 10% 20%, rgba(236, 72, 153, 0.08) 0%, transparent 40%),
+      radial-gradient(circle at 90% 80%, rgba(59, 130, 246, 0.08) 0%, transparent 40%),
+      radial-gradient(circle at 50% 50%, rgba(168, 85, 247, 0.05) 0%, transparent 50%);
     pointer-events: none;
     animation: pulse-bg 15s ease-in-out infinite reverse;
   }
@@ -419,12 +419,12 @@ onUnmounted(() => {
   display: flex;
   flex-direction: column;
   gap: 0;
-  perspective: 2000px;
+  perspective: 2500px;
 }
 
 .spt-section-122 {
   position: relative;
-  height: 100vh;
+  height: 110vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -442,12 +442,12 @@ onUnmounted(() => {
 }
 
 .spt-text-122 {
-  font-size: clamp(4.5rem, 11vw, 9rem);
+  font-size: clamp(5rem, 12vw, 10rem);
   font-weight: 900;
   color: #fff;
   text-transform: uppercase;
   letter-spacing: 0.18em;
-  background: linear-gradient(135deg, #fff 0%, rgba(255, 255, 255, 0.97) 30%, rgba(255, 255, 255, 0.92) 70%, #e0e0ff 100%);
+  background: linear-gradient(135deg, #fff 0%, rgba(255, 255, 255, 0.98) 30%, rgba(255, 255, 255, 0.94) 70%, #e8e8ff 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -455,9 +455,9 @@ onUnmounted(() => {
   will-change: transform;
   position: relative;
   text-shadow:
-    0 0 80px rgba(236, 72, 153, 0.5),
-    0 0 160px rgba(168, 85, 247, 0.4),
-    0 0 240px rgba(59, 130, 246, 0.3);
+    0 0 100px rgba(236, 72, 153, 0.7),
+    0 0 200px rgba(168, 85, 247, 0.5),
+    0 0 300px rgba(59, 130, 246, 0.4);
   transition: all 0.3s ease;
 
   &::before {
@@ -483,10 +483,10 @@ onUnmounted(() => {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 400px;
-    height: 400px;
-    background: radial-gradient(circle, rgba(236, 72, 153, 0.25) 0%, rgba(168, 85, 247, 0.15) 50%, transparent 70%);
-    filter: blur(60px);
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(236, 72, 153, 0.35) 0%, rgba(168, 85, 247, 0.2) 50%, transparent 70%);
+    filter: blur(80px);
     pointer-events: none;
     animation: text-glow 4s ease-in-out infinite;
   }
@@ -510,16 +510,16 @@ onUnmounted(() => {
   display: flex;
   align-items: center;
   justify-content: center;
-  opacity: 0.2;
+  opacity: 0.25;
   pointer-events: none;
-  filter: blur(10px);
+  filter: blur(8px);
 
   img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     will-change: transform;
-    opacity: 0.7;
+    opacity: 0.8;
   }
 
   &::before {
@@ -541,10 +541,10 @@ onUnmounted(() => {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 500px;
-    height: 500px;
-    background: radial-gradient(circle, rgba(59, 130, 246, 0.2) 0%, rgba(168, 85, 247, 0.1) 50%, transparent 70%);
-    filter: blur(70px);
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.3) 0%, rgba(168, 85, 247, 0.15) 50%, transparent 70%);
+    filter: blur(90px);
     pointer-events: none;
   }
 }

@@ -10,7 +10,7 @@
           :key="index"
           class="scp-card-129"
           :data-index="index"
-          ref="cards"
+          :ref="el => { if (el) cardRefs[index] = el as HTMLElement }"
         >
           <div class="scp-polaroid-129">
             <div class="scp-photo-129">
@@ -43,7 +43,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 gsap.registerPlugin(ScrollTrigger)
 
 const scatterContainer = ref<HTMLElement | null>(null)
-const cards = ref<HTMLElement[]>([])
+const cardRefs = ref<HTMLElement[]>([])
 
 const cardData = [
   {
@@ -116,69 +116,58 @@ onMounted(() => {
     })
 
     // 卡片散落动画
-    cards.value.forEach((card, index) => {
+    cardRefs.value.forEach((card, index) => {
       const polaroid = card.querySelector('.scp-polaroid-129') as HTMLElement
       const photo = card.querySelector('.scp-photo-129') as HTMLElement
       const tape = card.querySelector('.scp-tape-129') as HTMLElement
       const caption = card.querySelector('.scp-caption-129') as HTMLElement
 
-      // 计算随机散落位置
-      const angle = (Math.random() - 0.5) * 60
-      const x = (Math.random() - 0.5) * 800
-      const y = (Math.random() - 0.5) * 600
-      const rotate = (Math.random() - 0.5) * 90
-      const scale = 0.5 + Math.random() * 0.5
+      // 计算随机散落位置 - 减小范围让初始更可见
+      const rotate = (Math.random() - 0.5) * 40
+      const x = (Math.random() - 0.5) * 300
+      const y = -100 - Math.random() * 200
+      const scale = 0.7 + Math.random() * 0.2
 
-      // 初始散落状态
+      // 初始散落状态 - 保持可见性
       gsap.set(card, {
         x,
         y,
         rotateZ: rotate,
         scale,
-        opacity: 0
+        opacity: 0.3
       })
 
-      gsap.set(photo, { scale: 1.2, filter: 'brightness(0.5)' })
+      gsap.set(photo, { scale: 1.1, filter: 'brightness(0.7)' })
       gsap.set(tape, { scaleX: 0, opacity: 0 })
-      gsap.set(caption, { y: 30, opacity: 0 })
+      gsap.set(caption, { y: 20, opacity: 0 })
 
-      // 滚动收集动画
+      // 滚动收集动画 - 简化为固定目标值
+      const targetX = (index % 3 - 1) * 280
+      const targetY = Math.floor(index / 3) * 380
+      const targetRotate = (index % 2 === 0 ? 1 : -1) * (5 + Math.random() * 5)
+
       gsap.to(card, {
         scrollTrigger: {
           trigger: scatterContainer.value,
-          start: 'top 80%',
-          end: 'bottom 20%',
-          scrub: 1.5
+          start: 'top 85%',
+          end: 'top 35%',
+          scrub: 2
         },
-        x: (progress) => {
-          // 从散落位置慢慢聚集
-          const targetX = (index % 3 - 1) * 250
-          return x + (targetX - x) * progress
-        },
-        y: (progress) => {
-          const targetY = Math.floor(index / 3) * 350
-          return y + (targetY - y) * progress
-        },
-        rotateZ: (progress) => {
-          const targetRotate = (Math.random() - 0.5) * 15
-          return rotate + (targetRotate - rotate) * progress
-        },
-        scale: (progress) => {
-          return scale + (1 - scale) * progress
-        },
-        opacity: (progress) => {
-          return progress
-        },
-        ease: 'power2.out'
+        x: targetX,
+        y: targetY,
+        rotateZ: targetRotate,
+        scale: 1,
+        opacity: 1,
+        ease: 'power3.out'
       })
 
       // 照片效果
       gsap.to(photo, {
         scrollTrigger: {
           trigger: scatterContainer.value,
-          start: 'top 70%',
-          end: 'bottom 30%',
-          scrub: 1
+          start: 'top 80%',
+          end: 'top 40%',
+          scrub: 1.5
         },
         scale: 1,
         filter: 'brightness(1)',
@@ -189,8 +178,8 @@ onMounted(() => {
       gsap.to(tape, {
         scrollTrigger: {
           trigger: scatterContainer.value,
-          start: 'top 60%',
-          end: 'top 40%',
+          start: 'top 70%',
+          end: 'top 50%',
           scrub: 1
         },
         scaleX: 1,
@@ -202,8 +191,8 @@ onMounted(() => {
       gsap.to(caption, {
         scrollTrigger: {
           trigger: scatterContainer.value,
-          start: 'top 55%',
-          end: 'top 35%',
+          start: 'top 65%',
+          end: 'top 45%',
           scrub: 1
         },
         y: 0,
@@ -211,12 +200,10 @@ onMounted(() => {
         ease: 'power2.out'
       })
 
-      // 持续微动
+      // 持续微动 - 降低幅度
       gsap.to(card, {
-        rotateZ: (currentRot) => {
-          return currentRot + (Math.random() - 0.5) * 2
-        },
-        duration: 3 + Math.random() * 2,
+        rotateZ: targetRotate + (Math.random() - 0.5) * 3,
+        duration: 4 + Math.random() * 2,
         repeat: -1,
         yoyo: true,
         ease: 'sine.inOut',
@@ -241,7 +228,7 @@ onMounted(() => {
       card.addEventListener('mouseleave', () => {
         gsap.to(card, {
           scale: 1,
-          rotateZ: (Math.random() - 0.5) * 15,
+          rotateZ: targetRotate,
           zIndex: 1,
           duration: 0.4,
           ease: 'power2.out'
@@ -276,7 +263,7 @@ onUnmounted(() => {
 
 <style scoped lang="scss">
 .scp-scroll-card-polaroid-129 {
-  min-height: 300vh;
+  min-height: 350vh;
   padding: 100px 20px;
   background: linear-gradient(180deg, #0a0a1a 0%, #1e1e3f 50%, #0a0a1a 100%);
   position: relative;
@@ -290,8 +277,8 @@ onUnmounted(() => {
     right: 0;
     bottom: 0;
     background:
-      radial-gradient(ellipse at 50% 30%, rgba(236, 72, 153, 0.05) 0%, transparent 60%),
-      radial-gradient(ellipse at 30% 70%, rgba(59, 130, 246, 0.05) 0%, transparent 60%);
+      radial-gradient(ellipse at 50% 30%, rgba(236, 72, 153, 0.08) 0%, transparent 60%),
+      radial-gradient(ellipse at 30% 70%, rgba(59, 130, 246, 0.08) 0%, transparent 60%);
     pointer-events: none;
   }
 }
@@ -327,7 +314,7 @@ onUnmounted(() => {
 
 .scp-scatter-container-129 {
   position: relative;
-  min-height: 800px;
+  min-height: 1000px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;

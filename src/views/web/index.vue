@@ -116,7 +116,6 @@
         <LazyImageComparison v-if="visibilityState.showImageComparison" />
         <LazyCardStack v-if="visibilityState.showCardStack" />
         <LazyHorizontalScrollCards v-if="visibilityState.showHorizontalScrollCards" />
-        <LazyScrollImageReveal v-if="visibilityState.showScrollImageReveal" />
         <LazyScrollCard3D v-if="visibilityState.showScrollCard3D" />
         <LazyScrollTextBlur v-if="visibilityState.showScrollTextBlur" />
         <LazyScrollShapeElastic v-if="visibilityState.showScrollShapeElastic" />
@@ -156,6 +155,13 @@
       <LazyScrollImageDistort v-if="visibilityState.showScrollImageDistort" />
       <LazyScrollText3D v-if="visibilityState.showScrollText3D" />
       <LazyScrollCardPolaroid v-if="visibilityState.showScrollCardPolaroid" />
+
+      <!-- 全新高级滚动动画组件 -->
+      <LazyScrollInkReveal v-if="visibilityState.showScrollInkReveal" />
+      <LazyScrollParticleText v-if="visibilityState.showScrollParticleText" />
+      <LazyScrollFoldCard v-if="visibilityState.showScrollFoldCard" />
+      <LazyScrollMagneticFluid v-if="visibilityState.showScrollMagneticFluid" />
+      <LazyScrollGlitchText v-if="visibilityState.showScrollGlitchText" />
     </div>
 
     <!-- 加载指示器 -->
@@ -170,6 +176,10 @@
 
 <script setup lang="ts">
 import { defineAsyncComponent, ref, onMounted, onUnmounted } from 'vue'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
+gsap.registerPlugin(ScrollTrigger)
 
 // 立即加载的核心组件
 import ScrollProgress from './components/ScrollProgress.vue'
@@ -314,6 +324,13 @@ const LazyScrollImageDistort = defineAsyncComponent(() => import('./components/S
 const LazyScrollText3D = defineAsyncComponent(() => import('./components/ScrollText3D.vue'))
 const LazyScrollCardPolaroid = defineAsyncComponent(() => import('./components/ScrollCardPolaroid.vue'))
 
+// 全新高级滚动动画组件
+const LazyScrollInkReveal = defineAsyncComponent(() => import('./components/ScrollInkReveal.vue'))
+const LazyScrollParticleText = defineAsyncComponent(() => import('./components/ScrollParticleText.vue'))
+const LazyScrollFoldCard = defineAsyncComponent(() => import('./components/ScrollFoldCard.vue'))
+const LazyScrollMagneticFluid = defineAsyncComponent(() => import('./components/ScrollMagneticFluid.vue'))
+const LazyScrollGlitchText = defineAsyncComponent(() => import('./components/ScrollGlitchText.vue'))
+
 // 组件显示状态
 const isLoading = ref(true)
 const componentsContainer = ref<HTMLElement>()
@@ -412,7 +429,12 @@ const visibilityState = ref<Record<string, boolean>>({
   showScrollCardWave: false,
   showScrollImageDistort: false,
   showScrollText3D: false,
-  showScrollCardPolaroid: false
+  showScrollCardPolaroid: false,
+  showScrollInkReveal: false,
+  showScrollParticleText: false,
+  showScrollFoldCard: false,
+  showScrollMagneticFluid: false,
+  showScrollGlitchText: false
 })
 
 // 组件分批加载配置
@@ -452,7 +474,9 @@ const componentBatches = [
   ['showScrollImageReveal', 'showScrollTextSplit', 'showScrollCardFloat'],
   ['showScrollMagnify', 'showScrollParallaxText', 'showScroll3DGallery'],
   ['showScrollImageFlow', 'showScrollTextCurtain', 'showScrollCardWave'],
-  ['showScrollImageDistort', 'showScrollText3D', 'showScrollCardPolaroid']
+  ['showScrollImageDistort', 'showScrollText3D', 'showScrollCardPolaroid'],
+  ['showScrollInkReveal', 'showScrollParticleText', 'showScrollFoldCard'],
+  ['showScrollMagneticFluid', 'showScrollGlitchText']
 ]
 
 // 交叉观察器用于懒加载
@@ -462,6 +486,10 @@ let loadInterval: number | null = null
 const loadComponentsInBatch = (batchIndex: number) => {
   if (batchIndex >= componentBatches.length) {
     isLoading.value = false
+    // 最后一批加载完成后，刷新所有ScrollTrigger
+    setTimeout(() => {
+      ScrollTrigger.refresh()
+    }, 300)
     return
   }
 
@@ -469,6 +497,11 @@ const loadComponentsInBatch = (batchIndex: number) => {
   batch.forEach(keyName => {
     visibilityState.value[keyName] = true
   })
+
+  // 每批加载后刷新ScrollTrigger，确保触发点正确
+  setTimeout(() => {
+    ScrollTrigger.refresh()
+  }, 100)
 }
 
 const initObserver = () => {
@@ -538,6 +571,18 @@ onMounted(() => {
   visibilityState.value.showScrollImageDistort = true
   visibilityState.value.showScrollText3D = true
   visibilityState.value.showScrollCardPolaroid = true
+
+  // 立即显示全新高级滚动动画组件
+  visibilityState.value.showScrollInkReveal = true
+  visibilityState.value.showScrollParticleText = true
+  visibilityState.value.showScrollFoldCard = true
+  visibilityState.value.showScrollMagneticFluid = true
+  visibilityState.value.showScrollGlitchText = true
+
+  // 初始加载后刷新ScrollTrigger
+  setTimeout(() => {
+    ScrollTrigger.refresh()
+  }, 1000)
 })
 
 onUnmounted(() => {
