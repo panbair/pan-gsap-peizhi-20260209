@@ -1,93 +1,162 @@
 <template>
-  <div class="sir-section-102">
-    <div class="sir-header-102">
-      <h2 class="sir-title-102">图片揭示效果</h2>
-      <p class="sir-desc-102">优雅的图片进入动画</p>
-    </div>
-    <div class="sir-grid-102">
-      <div class="sir-card-102" v-for="(item, index) in imageItems" :key="index">
-        <div class="sir-image-wrapper-102">
-          <img :src="item.src" :alt="item.title" class="sir-image-102">
-          <div class="sir-overlay-102"></div>
-        </div>
-        <div class="sir-info-102">
-          <h3 class="sir-card-title-102">{{ item.title }}</h3>
-          <p class="sir-card-text-102">{{ item.desc }}</p>
+  <section class="sir-scroll-image-reveal-118">
+    <div class="sir-container-118">
+      <h2 class="sir-section-title-118">滚动图片揭示</h2>
+      <p class="sir-section-subtitle-118">Scroll Image Reveal Animation</p>
+
+      <div class="sir-gallery-118">
+        <div
+          v-for="(img, index) in images"
+          :key="index"
+          class="sir-item-118"
+          ref="items"
+        >
+          <div class="sir-image-wrapper-118">
+            <div class="sir-image-mask-118" ref="masks">
+              <img :src="img" :alt="`Image ${index + 1}`" />
+            </div>
+            <div class="sir-overlay-118">
+              <span class="sir-number-118">{{ String(index + 1).padStart(2, '0') }}</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from 'vue'
 import gsap from 'gsap'
-import ScrollTrigger from 'gsap/ScrollTrigger'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 gsap.registerPlugin(ScrollTrigger)
 
-ScrollTrigger.config({
-  ignoreMobileResize: true,
-  autoRefreshEvents: 'visibilitychange,DOMContentLoaded,load'
-})
+const items = ref<HTMLElement[]>([])
+const masks = ref<HTMLElement[]>([])
+const images = [
+  new URL('@/assets/image/1.png', import.meta.url).href,
+  new URL('@/assets/image/2.png', import.meta.url).href,
+  new URL('@/assets/image/3.png', import.meta.url).href,
+  new URL('@/assets/image/4.png', import.meta.url).href,
+  new URL('@/assets/image/5.png', import.meta.url).href,
+  new URL('@/assets/image/6.png', import.meta.url).href
+]
 
-const imageItems = ref([
-  { src: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop', title: '自然风光', desc: '探索大自然的美丽' },
-  { src: 'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=400&h=300&fit=crop', desc: '云雾缭绕的山峰' },
-  { src: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=400&h=300&fit=crop', title: '森林深处', desc: '神秘的自然世界' },
-  { src: 'https://images.unsplash.com/photo-1433086966358-54859d0ed716?w=400&h=300&fit=crop', title: '湖泊美景', desc: '宁静的水面倒影' }
-])
-
-let ctx: gsap.Context | null = null
+let ctx: gsap.Context
 
 onMounted(() => {
   ctx = gsap.context(() => {
-    gsap.fromTo('.sir-title-102, .sir-desc-102',
-      { y: 100, opacity: 0, scale: 0.8 },
-      {
-        y: 0,
-        opacity: 1,
-        scale: 1,
-        duration: 1.2,
-        ease: 'power3.out',
-        stagger: 0.2,
-        scrollTrigger: {
-          trigger: '.sir-header-102',
-          start: 'top 90%'
-        }
-      }
-    )
+    // 标题动画
+    gsap.from('.sir-section-title-118', {
+      scrollTrigger: {
+        trigger: '.sir-scroll-image-reveal-118',
+        start: 'top 80%'
+      },
+      y: 60,
+      opacity: 0,
+      duration: 1,
+      ease: 'power3.out'
+    })
 
-    gsap.fromTo('.sir-card-102',
-      { scale: 0.3, rotation: -20, opacity: 0, y: 200 },
-      {
-        scale: 1,
-        rotation: 0,
-        opacity: 1,
-        y: 0,
-        duration: 1,
-        ease: 'back.out(2)',
-        stagger: 0.15,
-        scrollTrigger: {
-          trigger: '.sir-grid-102',
-          start: 'top 85%'
-        }
-      }
-    )
+    gsap.from('.sir-section-subtitle-118', {
+      scrollTrigger: {
+        trigger: '.sir-scroll-image-reveal-118',
+        start: 'top 75%'
+      },
+      y: 40,
+      opacity: 0,
+      duration: 1,
+      delay: 0.2,
+      ease: 'power3.out'
+    })
 
-    gsap.fromTo('.sir-overlay-102',
-      { scaleX: 1.5 },
-      {
-        scaleX: 0,
+    items.value.forEach((item, index) => {
+      const mask = masks.value[index]
+      const overlay = item.querySelector('.sir-overlay-118') as HTMLElement
+      const number = item.querySelector('.sir-number-118') as HTMLElement
+      const img = mask.querySelector('img') as HTMLElement
+
+      // 图片遮罩揭示效果 - 先移除CSS中的初始clipPath
+      gsap.set(mask, { clipPath: 'inset(0 100% 0 0)' })
+
+      // 项目入场动画
+      gsap.from(item, {
+        scrollTrigger: {
+          trigger: item,
+          start: 'top 90%',
+          toggleActions: 'play none none reverse'
+        },
+        y: 100,
+        opacity: 0,
         duration: 0.8,
-        ease: 'power2.inOut',
-        stagger: 0.12,
+        ease: 'power3.out',
+        delay: index * 0.1
+      })
+
+      // 图片遮罩揭示效果
+      gsap.to(mask, {
+        clipPath: 'inset(0 0 0 0)',
         scrollTrigger: {
-          trigger: '.sir-grid-102',
-          start: 'top 85%'
+          trigger: item,
+          start: 'top 75%',
+          end: 'bottom 25%',
+          scrub: 1
+        },
+        ease: 'power2.inOut'
+      })
+
+      // 图片缩放效果
+      gsap.set(img, { scale: 1.2 })
+      gsap.to(img, {
+        scale: 1,
+        scrollTrigger: {
+          trigger: item,
+          start: 'top 80%',
+          end: 'bottom 20%',
+          scrub: 1
+        },
+        ease: 'power1.out'
+      })
+
+      // 覆盖层渐变显示
+      gsap.set(overlay, { opacity: 0 })
+      gsap.to(overlay, {
+        opacity: 1,
+        scrollTrigger: {
+          trigger: item,
+          start: 'top 70%',
+          end: 'top 50%',
+          scrub: true
         }
-      }
-    )
+      })
+
+      // 数字旋转入场
+      gsap.set(number, { rotation: -180, scale: 0.5, opacity: 0 })
+      gsap.to(number, {
+        rotation: 0,
+        scale: 1,
+        opacity: 1,
+        scrollTrigger: {
+          trigger: item,
+          start: 'top 65%',
+          end: 'top 45%',
+          scrub: 1
+        },
+        ease: 'back.out(1.7)'
+      })
+
+      // 悬停效果
+      item.addEventListener('mouseenter', () => {
+        gsap.to(mask, { scale: 1.03, duration: 0.4, ease: 'power2.out' })
+        gsap.to(number, { scale: 1.15, duration: 0.3, ease: 'back.out(1.7)' })
+      })
+
+      item.addEventListener('mouseleave', () => {
+        gsap.to(mask, { scale: 1, duration: 0.4, ease: 'power2.out' })
+        gsap.to(number, { scale: 1, duration: 0.3, ease: 'power2.out' })
+      })
+    })
   })
 })
 
@@ -96,91 +165,168 @@ onUnmounted(() => {
 })
 </script>
 
-<style scoped>
-.sir-section-102 {
-  padding: 100px 20px;
-  background: rgba(0, 0, 0, 0.2);
+<style scoped lang="scss">
+.sir-scroll-image-reveal-118 {
+  min-height: 100vh;
+  padding: 80px 0;
+  background: linear-gradient(180deg, #0f0f23 0%, #1a1a3e 50%, #0f0f23 100%);
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+      radial-gradient(circle at 20% 30%, rgba(167, 139, 250, 0.06) 0%, transparent 50%),
+      radial-gradient(circle at 80% 70%, rgba(96, 165, 250, 0.06) 0%, transparent 50%);
+    pointer-events: none;
+  }
 }
 
-.sir-header-102 {
+.sir-container-118 {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 30px;
+  position: relative;
+  z-index: 1;
+}
+
+.sir-section-title-118 {
   text-align: center;
-  margin-bottom: 60px;
-}
-
-.sir-title-102 {
   font-size: clamp(2rem, 4vw, 3rem);
-  font-weight: 700;
+  font-weight: 800;
+  color: #fff;
   margin-bottom: 16px;
-  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  background: linear-gradient(135deg, #a78bfa, #60a5fa, #f472b6);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  text-shadow: 0 0 30px rgba(167, 139, 250, 0.3);
 }
 
-.sir-desc-102 {
-  font-size: 1.2rem;
-  color: #a0aec0;
-  font-weight: 300;
+.sir-section-subtitle-118 {
+  text-align: center;
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 80px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
 }
 
-.sir-grid-102 {
+.sir-gallery-118 {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 30px;
-  max-width: 1400px;
-  margin: 0 auto;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
 }
 
-.sir-card-102 {
-  background: rgba(255, 255, 255, 0.05);
+.sir-item-118 {
+  position: relative;
+  height: 380px;
   border-radius: 20px;
   overflow: hidden;
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(135deg, #1a1a3a 0%, #0f0f2a 100%);
+  cursor: pointer;
+  transition: box-shadow 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 25px 80px rgba(167, 139, 250, 0.2);
+  }
 }
 
-.sir-card-102:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-}
-
-.sir-image-wrapper-102 {
+.sir-image-wrapper-118 {
+  width: 100%;
+  height: 100%;
   position: relative;
   overflow: hidden;
-  aspect-ratio: 4/3;
 }
 
-.sir-image-102 {
+.sir-image-mask-118 {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  transform-origin: center center;
+  clip-path: inset(0 100% 0 0);
+}
+
+img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
 }
 
-.sir-overlay-102 {
+.sir-overlay-118 {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  transform-origin: left;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.85) 0%,
+    rgba(0, 0, 0, 0.3) 50%,
+    transparent 100%
+  );
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 20px;
+  pointer-events: none;
+  opacity: 0;
 }
 
-.sir-info-102 {
-  padding: 24px;
+.sir-number-118 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 900;
+  color: #fff;
+  background: linear-gradient(135deg, #a78bfa, #60a5fa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-family: 'Arial', sans-serif;
+  text-shadow: 0 0 30px rgba(167, 139, 250, 0.6);
+  transform: rotate(-180deg) scale(0.5);
+  opacity: 0;
 }
 
-.sir-card-title-102 {
-  font-size: 1.3rem;
-  font-weight: 600;
-  margin-bottom: 8px;
-  color: #f093fb;
+@media (max-width: 1024px) {
+  .sir-gallery-118 {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .sir-item-118 {
+    height: 340px;
+  }
 }
 
-.sir-card-text-102 {
-  font-size: 1rem;
-  color: #a0aec0;
-  line-height: 1.6;
+@media (max-width: 640px) {
+  .sir-gallery-118 {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .sir-item-118 {
+    height: 300px;
+  }
+
+  .sir-section-title-118 {
+    margin-bottom: 50px;
+  }
+
+  .sir-section-subtitle-118 {
+    margin-bottom: 50px;
+    font-size: 0.875rem;
+  }
+
+  .sir-container-118 {
+    padding: 0 20px;
+  }
 }
 </style>

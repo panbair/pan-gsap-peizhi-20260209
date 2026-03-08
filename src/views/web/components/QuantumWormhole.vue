@@ -196,13 +196,23 @@ const handleTouchStart = (e: TouchEvent) => {
 
 const handleTouchMove = (e: TouchEvent) => {
   if (!isDragging) return
-  const deltaX = e.touches[0].clientX - startX
-  currentRotation += deltaX * 0.5
-  startX = e.touches[0].clientX
-  gsap.to(wormholeContainer.value, {
-    rotation: currentRotation,
-    duration: 0.1
-  })
+  // 检测是否在虫洞容器内
+  const rect = wormholeContainer.value?.getBoundingClientRect()
+  if (!rect) return
+
+  // 只在容器范围内处理触摸，不阻止页面滚动
+  const touchX = e.touches[0].clientX
+  const touchY = e.touches[0].clientY
+
+  if (touchX >= rect.left && touchX <= rect.right && touchY >= rect.top && touchY <= rect.bottom) {
+    const deltaX = touchX - startX
+    currentRotation += deltaX * 0.5
+    startX = touchX
+    gsap.to(wormholeContainer.value, {
+      rotation: currentRotation,
+      duration: 0.1
+    })
+  }
 }
 
 const handleTouchEnd = () => {
@@ -407,10 +417,10 @@ onMounted(() => {
   document.addEventListener('mousemove', handleMouseMove)
   document.addEventListener('mouseup', handleMouseUp)
 
-  // 添加触摸事件监听
-  wormholeContainer.value?.addEventListener('touchstart', handleTouchStart)
-  document.addEventListener('touchmove', handleTouchMove)
-  document.addEventListener('touchend', handleTouchEnd)
+  // 添加触摸事件监听（使用passive提高滚动性能）
+  wormholeContainer.value?.addEventListener('touchstart', handleTouchStart, { passive: true })
+  document.addEventListener('touchmove', handleTouchMove, { passive: true })
+  document.addEventListener('touchend', handleTouchEnd, { passive: true })
 })
 
 onUnmounted(() => {
