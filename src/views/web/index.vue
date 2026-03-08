@@ -123,6 +123,16 @@
       </div>
       <LazyScrollStaggerWave v-if="visibilityState.showScrollStaggerWave" />
       <LazyScrollParallaxLayer v-if="visibilityState.showScrollParallaxLayer" />
+      <LazyScrollMagneticRotate v-if="visibilityState.showScrollMagneticRotate" />
+      <LazyScrollFluidPanels v-if="visibilityState.showScrollFluidPanels" />
+      <LazyScrollGravityBounce v-if="visibilityState.showScrollGravityBounce" />
+      <LazyScrollPixelCard v-if="visibilityState.showScrollPixelCard" />
+      <LazyScrollLaserLine v-if="visibilityState.showScrollLaserLine" />
+      <LazyScrollHologram v-if="visibilityState.showScrollHologram" />
+      <LazyScrollLiquidMorph v-if="visibilityState.showScrollLiquidMorph" />
+      <LazyScrollNeonPulse v-if="visibilityState.showScrollNeonPulse" />
+      <LazyScrollTimeWarp v-if="visibilityState.showScrollTimeWarp" />
+      <LazyScrollCrystalShatter v-if="visibilityState.showScrollCrystalShatter" />
       <LazyQuantumWormhole v-if="visibilityState.showQuantumWormhole" />
       <LazyMagneticOrbit v-if="visibilityState.showMagneticOrbit" />
       <LazySpringBounce v-if="visibilityState.showSpringBounce" />
@@ -244,6 +254,16 @@ const LazyScrollParallaxLayer = defineAsyncComponent(
 const LazyQuantumWormhole = defineAsyncComponent(() => import('./components/QuantumWormhole.vue'))
 const LazyMagneticOrbit = defineAsyncComponent(() => import('./components/MagneticOrbit.vue'))
 const LazySpringBounce = defineAsyncComponent(() => import('./components/SpringBounce.vue'))
+const LazyScrollMagneticRotate = defineAsyncComponent(() => import('./components/ScrollMagneticRotate.vue'))
+const LazyScrollFluidPanels = defineAsyncComponent(() => import('./components/ScrollFluidPanels.vue'))
+const LazyScrollGravityBounce = defineAsyncComponent(() => import('./components/ScrollGravityBounce.vue'))
+const LazyScrollPixelCard = defineAsyncComponent(() => import('./components/ScrollPixelCard.vue'))
+const LazyScrollLaserLine = defineAsyncComponent(() => import('./components/ScrollLaserLine.vue'))
+const LazyScrollHologram = defineAsyncComponent(() => import('./components/ScrollHologram.vue'))
+const LazyScrollLiquidMorph = defineAsyncComponent(() => import('./components/ScrollLiquidMorph.vue'))
+const LazyScrollNeonPulse = defineAsyncComponent(() => import('./components/ScrollNeonPulse.vue'))
+const LazyScrollTimeWarp = defineAsyncComponent(() => import('./components/ScrollTimeWarp.vue'))
+const LazyScrollCrystalShatter = defineAsyncComponent(() => import('./components/ScrollCrystalShatter.vue'))
 
 // 组件显示状态
 const isLoading = ref(true)
@@ -320,6 +340,16 @@ const visibilityState = ref<Record<string, boolean>>({
   showScrollShapeElastic: false,
   showScrollStaggerWave: false,
   showScrollParallaxLayer: false,
+  showScrollMagneticRotate: false,
+  showScrollFluidPanels: false,
+  showScrollGravityBounce: false,
+  showScrollPixelCard: false,
+  showScrollLaserLine: false,
+  showScrollHologram: false,
+  showScrollLiquidMorph: false,
+  showScrollNeonPulse: false,
+  showScrollTimeWarp: false,
+  showScrollCrystalShatter: false,
   showQuantumWormhole: false,
   showMagneticOrbit: false,
   showSpringBounce: false
@@ -350,7 +380,10 @@ const componentBatches = [
     'showScrollShapeElastic',
     'showScrollStaggerWave',
     'showScrollParallaxLayer'
-  ]
+  ],
+  ['showScrollMagneticRotate', 'showScrollFluidPanels', 'showScrollGravityBounce', 'showScrollPixelCard'],
+  ['showScrollLaserLine', 'showScrollHologram', 'showScrollLiquidMorph', 'showScrollNeonPulse'],
+  ['showScrollTimeWarp', 'showScrollCrystalShatter']
 ]
 
 // 交叉观察器用于懒加载
