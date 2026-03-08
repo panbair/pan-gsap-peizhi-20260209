@@ -162,6 +162,16 @@
       <LazyScrollFoldCard v-if="visibilityState.showScrollFoldCard" />
       <LazyScrollMagneticFluid v-if="visibilityState.showScrollMagneticFluid" />
       <LazyScrollGlitchText v-if="visibilityState.showScrollGlitchText" />
+
+      <!-- 全新高级动画组件 (2026) -->
+      <LazyScrollImageStackReveal v-if="visibilityState.showScrollImageStackReveal" />
+      <LazyScrollTextWaveSplit v-if="visibilityState.showScrollTextWaveSplit" />
+      <LazyScrollCard3DFlip v-if="visibilityState.showScrollCard3DFlip" />
+      <LazyScrollParallaxGallery v-if="visibilityState.showScrollParallaxGallery" />
+      <LazyScrollElasticText v-if="visibilityState.showScrollElasticText" />
+      <LazyScrollMagneticCards v-if="visibilityState.showScrollMagneticCards" />
+      <LazyScrollInfiniteScroll v-if="visibilityState.showScrollInfiniteScroll" />
+      <LazyScrollWaveCards v-if="visibilityState.showScrollWaveCards" />
     </div>
 
     <!-- 加载指示器 -->
@@ -331,6 +341,16 @@ const LazyScrollFoldCard = defineAsyncComponent(() => import('./components/Scrol
 const LazyScrollMagneticFluid = defineAsyncComponent(() => import('./components/ScrollMagneticFluid.vue'))
 const LazyScrollGlitchText = defineAsyncComponent(() => import('./components/ScrollGlitchText.vue'))
 
+// 全新高级动画组件 (2026)
+const LazyScrollImageStackReveal = defineAsyncComponent(() => import('./components/ScrollImageStackReveal.vue'))
+const LazyScrollTextWaveSplit = defineAsyncComponent(() => import('./components/ScrollTextWaveSplit.vue'))
+const LazyScrollCard3DFlip = defineAsyncComponent(() => import('./components/ScrollCard3DFlip.vue'))
+const LazyScrollParallaxGallery = defineAsyncComponent(() => import('./components/ScrollParallaxGallery.vue'))
+const LazyScrollElasticText = defineAsyncComponent(() => import('./components/ScrollElasticText.vue'))
+const LazyScrollMagneticCards = defineAsyncComponent(() => import('./components/ScrollMagneticCards.vue'))
+const LazyScrollInfiniteScroll = defineAsyncComponent(() => import('./components/ScrollInfiniteScroll.vue'))
+const LazyScrollWaveCards = defineAsyncComponent(() => import('./components/ScrollWaveCards.vue'))
+
 // 组件显示状态
 const isLoading = ref(true)
 const componentsContainer = ref<HTMLElement>()
@@ -434,7 +454,15 @@ const visibilityState = ref<Record<string, boolean>>({
   showScrollParticleText: false,
   showScrollFoldCard: false,
   showScrollMagneticFluid: false,
-  showScrollGlitchText: false
+  showScrollGlitchText: false,
+  showScrollImageStackReveal: false,
+  showScrollTextWaveSplit: false,
+  showScrollCard3DFlip: false,
+  showScrollParallaxGallery: false,
+  showScrollElasticText: false,
+  showScrollMagneticCards: false,
+  showScrollInfiniteScroll: false,
+  showScrollWaveCards: false
 })
 
 // 组件分批加载配置
@@ -476,7 +504,10 @@ const componentBatches = [
   ['showScrollImageFlow', 'showScrollTextCurtain', 'showScrollCardWave'],
   ['showScrollImageDistort', 'showScrollText3D', 'showScrollCardPolaroid'],
   ['showScrollInkReveal', 'showScrollParticleText', 'showScrollFoldCard'],
-  ['showScrollMagneticFluid', 'showScrollGlitchText']
+  ['showScrollMagneticFluid', 'showScrollGlitchText'],
+  ['showScrollImageStackReveal', 'showScrollTextWaveSplit', 'showScrollCard3DFlip'],
+  ['showScrollParallaxGallery', 'showScrollElasticText', 'showScrollMagneticCards'],
+  ['showScrollInfiniteScroll', 'showScrollWaveCards']
 ]
 
 // 交叉观察器用于懒加载
@@ -578,6 +609,16 @@ onMounted(() => {
   visibilityState.value.showScrollFoldCard = true
   visibilityState.value.showScrollMagneticFluid = true
   visibilityState.value.showScrollGlitchText = true
+
+  // 立即显示全新高级动画组件 (2026)
+  visibilityState.value.showScrollImageStackReveal = true
+  visibilityState.value.showScrollTextWaveSplit = true
+  visibilityState.value.showScrollCard3DFlip = true
+  visibilityState.value.showScrollParallaxGallery = true
+  visibilityState.value.showScrollElasticText = true
+  visibilityState.value.showScrollMagneticCards = true
+  visibilityState.value.showScrollInfiniteScroll = true
+  visibilityState.value.showScrollWaveCards = true
 
   // 初始加载后刷新ScrollTrigger
   setTimeout(() => {
