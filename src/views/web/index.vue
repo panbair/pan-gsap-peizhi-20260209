@@ -146,6 +146,16 @@
       <LazyScrollMagnify v-if="visibilityState.showScrollMagnify" />
       <LazyScrollParallaxText v-if="visibilityState.showScrollParallaxText" />
       <LazyScroll3DGallery v-if="visibilityState.showScroll3DGallery" />
+
+      <!-- 超级高级滚动动画组件 -->
+      <LazyScrollImageFlow v-if="visibilityState.showScrollImageFlow" />
+      <LazyScrollTextCurtain v-if="visibilityState.showScrollTextCurtain" />
+      <LazyScrollCardWave v-if="visibilityState.showScrollCardWave" />
+
+      <!-- 极致高级滚动动画组件 -->
+      <LazyScrollImageDistort v-if="visibilityState.showScrollImageDistort" />
+      <LazyScrollText3D v-if="visibilityState.showScrollText3D" />
+      <LazyScrollCardPolaroid v-if="visibilityState.showScrollCardPolaroid" />
     </div>
 
     <!-- 加载指示器 -->
@@ -294,6 +304,16 @@ const LazyScrollParallaxText = defineAsyncComponent(
 )
 const LazyScroll3DGallery = defineAsyncComponent(() => import('./components/Scroll3DGallery.vue'))
 
+// 超级高级懒加载组件
+const LazyScrollImageFlow = defineAsyncComponent(() => import('./components/ScrollImageFlow.vue'))
+const LazyScrollTextCurtain = defineAsyncComponent(() => import('./components/ScrollTextCurtain.vue'))
+const LazyScrollCardWave = defineAsyncComponent(() => import('./components/ScrollCardWave.vue'))
+
+// 极致高级懒加载组件
+const LazyScrollImageDistort = defineAsyncComponent(() => import('./components/ScrollImageDistort.vue'))
+const LazyScrollText3D = defineAsyncComponent(() => import('./components/ScrollText3D.vue'))
+const LazyScrollCardPolaroid = defineAsyncComponent(() => import('./components/ScrollCardPolaroid.vue'))
+
 // 组件显示状态
 const isLoading = ref(true)
 const componentsContainer = ref<HTMLElement>()
@@ -386,7 +406,13 @@ const visibilityState = ref<Record<string, boolean>>({
   showScrollCardFloat: false,
   showScrollMagnify: false,
   showScrollParallaxText: false,
-  showScroll3DGallery: false
+  showScroll3DGallery: false,
+  showScrollImageFlow: false,
+  showScrollTextCurtain: false,
+  showScrollCardWave: false,
+  showScrollImageDistort: false,
+  showScrollText3D: false,
+  showScrollCardPolaroid: false
 })
 
 // 组件分批加载配置
@@ -424,7 +450,9 @@ const componentBatches = [
   ['showScrollLaserLine', 'showScrollHologram', 'showScrollLiquidMorph', 'showScrollNeonPulse'],
   ['showScrollTimeWarp', 'showScrollCrystalShatter'],
   ['showScrollImageReveal', 'showScrollTextSplit', 'showScrollCardFloat'],
-  ['showScrollMagnify', 'showScrollParallaxText', 'showScroll3DGallery']
+  ['showScrollMagnify', 'showScrollParallaxText', 'showScroll3DGallery'],
+  ['showScrollImageFlow', 'showScrollTextCurtain', 'showScrollCardWave'],
+  ['showScrollImageDistort', 'showScrollText3D', 'showScrollCardPolaroid']
 ]
 
 // 交叉观察器用于懒加载
@@ -500,6 +528,16 @@ onMounted(() => {
   visibilityState.value.showScrollMagnify = true
   visibilityState.value.showScrollParallaxText = true
   visibilityState.value.showScroll3DGallery = true
+
+  // 立即显示超级高级滚动动画组件
+  visibilityState.value.showScrollImageFlow = true
+  visibilityState.value.showScrollTextCurtain = true
+  visibilityState.value.showScrollCardWave = true
+
+  // 立即显示极致高级滚动动画组件
+  visibilityState.value.showScrollImageDistort = true
+  visibilityState.value.showScrollText3D = true
+  visibilityState.value.showScrollCardPolaroid = true
 })
 
 onUnmounted(() => {

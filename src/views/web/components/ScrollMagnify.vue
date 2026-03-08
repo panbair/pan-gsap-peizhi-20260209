@@ -216,20 +216,37 @@ onMounted(() => {
       ease: 'power3.out'
     })
 
-    // 镜头跟随鼠标效果
+    // 实际放大镜逻辑
+    const activeImg = imageWrapper.value?.querySelector('.sm-active-121') as HTMLImageElement
+
     const handleMouseMove = (e: MouseEvent) => {
-      if (!magnifyContainer.value || !lens.value) return
+      if (!magnifyContainer.value || !lens.value || !result.value || !activeImg) return
 
       const rect = magnifyContainer.value.getBoundingClientRect()
       const x = e.clientX - rect.left
       const y = e.clientY - rect.top
 
+      // 限制镜头范围
+      const lensSize = 150
+      const halfLens = lensSize / 2
+
+      // 移动镜头
       gsap.to(lens.value, {
-        x: x - 75,
-        y: y - 75,
-        duration: 0.3,
+        x: x - halfLens,
+        y: y - halfLens,
+        duration: 0.15,
         ease: 'power2.out'
       })
+
+      // 计算放大镜中的图片位置
+      const resultImg = result.value.querySelector('img') as HTMLImageElement
+      if (resultImg) {
+        resultImg.src = activeImg.src
+        const ratio = 2 // 放大倍数
+        resultImg.style.width = `${rect.width * ratio}px`
+        resultImg.style.height = `${rect.height * ratio}px`
+        resultImg.style.transform = `translate(-${x * ratio - rect.width / 2}px, -${y * ratio - rect.height / 2}px)`
+      }
     }
 
     magnifyContainer.value?.addEventListener('mousemove', handleMouseMove)
@@ -243,6 +260,7 @@ onMounted(() => {
       })
       gsap.to('.sm-lens-121', {
         opacity: 0.8,
+        scale: 1.2,
         duration: 0.3,
         ease: 'power2.out'
       })
@@ -256,6 +274,7 @@ onMounted(() => {
       })
       gsap.to('.sm-lens-121', {
         opacity: 0.4,
+        scale: 1,
         duration: 0.3,
         ease: 'power2.out'
       })
@@ -364,13 +383,14 @@ onUnmounted(() => {
   position: absolute;
   width: 150px;
   height: 150px;
-  border: 3px solid rgba(255, 255, 255, 0.8);
+  border: 3px solid rgba(96, 165, 250, 0.9);
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(96, 165, 250, 0.2);
   backdrop-filter: blur(5px);
   pointer-events: none;
   opacity: 0.4;
-  box-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 30px rgba(96, 165, 250, 0.7), inset 0 0 20px rgba(96, 165, 250, 0.3);
+  transition: opacity 0.3s ease;
 }
 
 .sm-result-121 {
@@ -382,14 +402,18 @@ onUnmounted(() => {
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
-  border: 3px solid rgba(255, 255, 255, 0.3);
+  border: 3px solid rgba(96, 165, 250, 0.6);
   opacity: 0.5;
   z-index: 10;
+  background: rgba(15, 15, 35, 0.9);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
 
   img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transform-origin: center center;
   }
 }
 

@@ -176,33 +176,53 @@ onMounted(() => {
       ease: 'power3.out'
     })
 
-    // 画廊入场动画
-    gsap.from('.s3d-item-123', {
-      scrollTrigger: {
-        trigger: '.s3d-gallery-123',
-        start: 'top 80%'
-      },
-      scale: 0,
-      opacity: 0,
-      rotationY: 180,
-      duration: 1,
-      ease: 'back.out(1.7)',
-      stagger: 0.15
-    })
+    // 画廊整体旋转效果
+    gsap.fromTo('.s3d-gallery-123',
+      { rotateY: -15, scale: 0.9 },
+      {
+        scrollTrigger: {
+          trigger: '.s3d-scroll-3d-gallery-123',
+          start: 'top 85%',
+          end: 'bottom 15%',
+          scrub: 1
+        },
+        rotateY: 15,
+        scale: 1,
+        ease: 'power1.inOut'
+      }
+    )
 
-    // 滚动控制 3D 旋转
+    // 画廊入场动画 - 使用nextTick确保ref已绑定
+    setTimeout(() => {
+      gsap.from('.s3d-item-123', {
+        scrollTrigger: {
+          trigger: '.s3d-gallery-123',
+          start: 'top 80%'
+        },
+        scale: 0,
+        opacity: 0,
+        rotationY: 180,
+        duration: 1,
+        ease: 'back.out(1.7)',
+        stagger: 0.15
+      })
+    }, 100)
+
+    // 滚动控制 3D 旋转 - 扩大触发范围
     gsap.to(
       {},
       {
         scrollTrigger: {
-          trigger: '.s3d-gallery-wrapper-123',
-          start: 'top 90%',
-          end: 'bottom 10%',
-          scrub: 0.5,
+          trigger: '.s3d-scroll-3d-gallery-123',
+          start: 'top 80%',
+          end: 'bottom 20%',
+          scrub: 0.8,
           onUpdate: self => {
             const progress = self.progress
             const newIndex = Math.floor(progress * galleryItems.length)
-            currentIndex.value = newIndex % galleryItems.length
+            if (newIndex >= 0 && newIndex < galleryItems.length) {
+              currentIndex.value = newIndex
+            }
           }
         }
       }
@@ -257,28 +277,31 @@ onMounted(() => {
       stagger: 0.1
     })
 
-    // 卡片悬停效果
-    itemRefs.value.forEach((item, index) => {
-      const card = item.querySelector('.s3d-card-123') as HTMLElement
+    // 延迟绑定悬停效果，确保refs已填充
+    setTimeout(() => {
+      itemRefs.value.forEach((item, index) => {
+        const card = item?.querySelector('.s3d-card-123') as HTMLElement
+        if (!card) return
 
-      item.addEventListener('mouseenter', () => {
-        gsap.to(card, {
-          y: -20,
-          scale: 1.05,
-          duration: 0.5,
-          ease: 'power2.out'
+        item.addEventListener('mouseenter', () => {
+          gsap.to(card, {
+            y: -20,
+            scale: 1.05,
+            duration: 0.5,
+            ease: 'power2.out'
+          })
+        })
+
+        item.addEventListener('mouseleave', () => {
+          gsap.to(card, {
+            y: 0,
+            scale: 1,
+            duration: 0.5,
+            ease: 'power2.out'
+          })
         })
       })
-
-      item.addEventListener('mouseleave', () => {
-        gsap.to(card, {
-          y: 0,
-          scale: 1,
-          duration: 0.5,
-          ease: 'power2.out'
-        })
-      })
-    })
+    }, 200)
   })
 })
 
@@ -289,7 +312,7 @@ onUnmounted(() => {
 
 <style scoped lang="scss">
 .s3d-scroll-3d-gallery-123 {
-  min-height: 100vh;
+  min-height: 150vh;
   padding: 100px 0;
   background: linear-gradient(135deg, #0a0a1a 0%, #1a1a3a 50%, #0f0f2a 100%);
   position: relative;
