@@ -186,23 +186,10 @@ const initAnimations = () => {
       duration: 1 + i * 0.2,
       ease: 'power2.out',
       scrollTrigger: {
-        trigger: infoPanel.value,
+        trigger: ballSection.value,
         start: 'top 80%'
       }
     })
-  })
-
-  // 信息卡片入场
-  gsap.from('.bb-info-card-9', {
-    y: 50,
-    opacity: 0,
-    duration: 0.6,
-    stagger: 0.15,
-    ease: 'back.out(1.7)',
-    scrollTrigger: {
-      trigger: infoPanel.value,
-      start: 'top 85%'
-    }
   })
 
   // 轨道线出现

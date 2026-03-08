@@ -8,15 +8,27 @@
     <div class="im-motion-wrapper-63">
       <svg class="im-infinity-svg-63" viewBox="0 0 1400 600">
         <!-- 无限符号路径 -->
-        <path id="infinityPath" class="im-infinity-path-63"
-              d="M 350 300 C 350 200, 550 200, 650 300 C 750 400, 550 500, 450 400 C 350 300, 550 200, 700 300 C 850 400, 1050 200, 1050 300 C 1050 400, 850 500, 750 400 C 650 300, 850 200, 700 300"
-              fill="none"
-              stroke="rgba(255,255,255,0.1)"
-              stroke-width="3"
-              stroke-dasharray="8,8"/>
+        <path
+          id="infinityPath"
+          class="im-infinity-path-63"
+          d="M 350 300 C 350 200, 550 200, 650 300 C 750 400, 550 500, 450 400 C 350 300, 550 200, 700 300 C 850 400, 1050 200, 1050 300 C 1050 400, 850 500, 750 400 C 650 300, 850 200, 700 300"
+          fill="none"
+          stroke="rgba(255,255,255,0.1)"
+          stroke-width="3"
+          stroke-dasharray="8,8"
+        />
 
         <!-- 运动卡片 -->
-        <foreignObject v-for="(card, index) in cards" :key="index" class="im-motion-card-63" :class="`im-card-${index}`" x="0" y="0" width="160" height="120">
+        <foreignObject
+          v-for="(card, index) in cards"
+          :key="index"
+          class="im-motion-card-63"
+          :class="`im-card-${index}`"
+          x="0"
+          y="0"
+          width="160"
+          height="120"
+        >
           <div class="im-card-wrapper-63">
             <div class="im-card-bg-63" :style="{ backgroundColor: card.color }"></div>
             <div class="im-card-content-63">
@@ -40,7 +52,9 @@
     </div>
 
     <div class="im-motion-controls-63">
-      <button class="im-control-btn-63 primary-63" @click="togglePlay">{{ isPlaying ? '暂停' : '播放' }}</button>
+      <button class="im-control-btn-63 primary-63" @click="togglePlay">
+        {{ isPlaying ? '暂停' : '播放' }}
+      </button>
       <button class="im-control-btn-63" @click="changeDirection">切换方向</button>
       <button class="im-control-btn-63" @click="changeSpeed">改变速度</button>
     </div>
@@ -136,7 +150,7 @@ const initAnimations = () => {
       // 使用 MotionPath 沿无限符号路径运动
       const tween = gsap.to(card, {
         motionPath: {
-          path: '#infinityPath',  // 使用选择器引用路径
+          path: '#infinityPath', // 使用选择器引用路径
           align: '#infinityPath',
           alignOrigin: [0.5, 0.5],
           autoRotate: true,

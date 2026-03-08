@@ -317,7 +317,7 @@ img {
 
 .cg-center-circle-46 {
   position: absolute;
-  top: 0;
+  top: 220px;
   left: 0;
   right: 0;
   bottom: 0;
