@@ -192,6 +192,16 @@
       <LazyScrollFoldEffect v-if="visibilityState.showScrollFoldEffect" />
       <LazyScroll3DTunnel v-if="visibilityState.showScroll3DTunnel" />
       <LazyScrollSpiralReveal v-if="visibilityState.showScrollSpiralReveal" />
+
+      <!-- 全新终极创意动画组件 (2026-03 超级扩展) -->
+      <LazyScrollGlitchEffect v-if="visibilityState.showScrollGlitchEffect" />
+      <LazyScrollAuroraField v-if="visibilityState.showScrollAuroraField" />
+      <LazyScrollMagneticOrbitCards v-if="visibilityState.showScrollMagneticOrbitCards" />
+      <LazyScrollNeonTrailCards v-if="visibilityState.showScrollNeonTrailCards" />
+      <LazyScrollHologramGallery v-if="visibilityState.showScrollHologramGallery" />
+      <LazyScrollLiquidDistort v-if="visibilityState.showScrollLiquidDistort" />
+      <LazyScrollPrismCards v-if="visibilityState.showScrollPrismCards" />
+      <LazyScrollTemporalDistortion v-if="visibilityState.showScrollTemporalDistortion" />
     </div>
 
     <!-- 加载指示器 -->
@@ -391,6 +401,16 @@ const LazyScrollFoldEffect = defineAsyncComponent(() => import('./components/Scr
 const LazyScroll3DTunnel = defineAsyncComponent(() => import('./components/Scroll3DTunnel.vue'))
 const LazyScrollSpiralReveal = defineAsyncComponent(() => import('./components/ScrollSpiralReveal.vue'))
 
+// 全新终极创意动画组件 (2026-03 超级扩展)
+const LazyScrollGlitchEffect = defineAsyncComponent(() => import('./components/ScrollGlitchEffect.vue'))
+const LazyScrollAuroraField = defineAsyncComponent(() => import('./components/ScrollAuroraField.vue'))
+const LazyScrollMagneticOrbitCards = defineAsyncComponent(() => import('./components/ScrollMagneticOrbitCards.vue'))
+const LazyScrollNeonTrailCards = defineAsyncComponent(() => import('./components/ScrollNeonTrailCards.vue'))
+const LazyScrollHologramGallery = defineAsyncComponent(() => import('./components/ScrollHologramGallery.vue'))
+const LazyScrollLiquidDistort = defineAsyncComponent(() => import('./components/ScrollLiquidDistort.vue'))
+const LazyScrollPrismCards = defineAsyncComponent(() => import('./components/ScrollPrismCards.vue'))
+const LazyScrollTemporalDistortion = defineAsyncComponent(() => import('./components/ScrollTemporalDistortion.vue'))
+
 // 组件显示状态
 const isLoading = ref(true)
 const componentsContainer = ref<HTMLElement>()
@@ -518,7 +538,15 @@ const visibilityState = ref<Record<string, boolean>>({
   showScrollMagneticGrid: false,
   showScrollFoldEffect: false,
   showScroll3DTunnel: false,
-  showScrollSpiralReveal: false
+  showScrollSpiralReveal: false,
+  showScrollGlitchEffect: false,
+  showScrollAuroraField: false,
+  showScrollMagneticOrbitCards: false,
+  showScrollNeonTrailCards: false,
+  showScrollHologramGallery: false,
+  showScrollLiquidDistort: false,
+  showScrollPrismCards: false,
+  showScrollTemporalDistortion: false
 })
 
 // 组件分批加载配置
@@ -569,7 +597,11 @@ const componentBatches = [
   ['showScrollParticleWave', 'showScrollImageMosaic'],
   ['showScrollFluidText', 'showScrollMorphingCards', 'showScrollRippleCards'],
   ['showScrollDistortGallery', 'showScrollMagneticGrid', 'showScrollFoldEffect'],
-  ['showScroll3DTunnel', 'showScrollSpiralReveal']
+  ['showScroll3DTunnel', 'showScrollSpiralReveal'],
+  ['showScrollGlitchEffect', 'showScrollAuroraField', 'showScrollMagneticOrbitCards'],
+  ['showScrollNeonTrailCards', 'showScrollHologramGallery'],
+  ['showScrollLiquidDistort', 'showScrollPrismCards'],
+  ['showScrollTemporalDistortion']
 ]
 
 // 交叉观察器用于懒加载
@@ -701,6 +733,16 @@ onMounted(() => {
   visibilityState.value.showScrollFoldEffect = true
   visibilityState.value.showScroll3DTunnel = true
   visibilityState.value.showScrollSpiralReveal = true
+
+  // 立即显示全新终极创意动画组件 (2026-03 超级扩展)
+  visibilityState.value.showScrollGlitchEffect = true
+  visibilityState.value.showScrollAuroraField = true
+  visibilityState.value.showScrollMagneticOrbitCards = true
+  visibilityState.value.showScrollNeonTrailCards = true
+  visibilityState.value.showScrollHologramGallery = true
+  visibilityState.value.showScrollLiquidDistort = true
+  visibilityState.value.showScrollPrismCards = true
+  visibilityState.value.showScrollTemporalDistortion = true
 
   // 初始加载后刷新ScrollTrigger
   setTimeout(() => {
