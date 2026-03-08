@@ -172,6 +172,16 @@
       <LazyScrollMagneticCards v-if="visibilityState.showScrollMagneticCards" />
       <LazyScrollInfiniteScroll v-if="visibilityState.showScrollInfiniteScroll" />
       <LazyScrollWaveCards v-if="visibilityState.showScrollWaveCards" />
+
+      <!-- 全新创意动画组件 (2026-03) -->
+      <LazyScrollLensReveal v-if="visibilityState.showScrollLensReveal" />
+      <LazyScrollMorphPath v-if="visibilityState.showScrollMorphPath" />
+      <LazyScrollTimeline v-if="visibilityState.showScrollTimeline" />
+      <LazyScrollTextScatter v-if="visibilityState.showScrollTextScatter" />
+      <LazyScrollCardStack v-if="visibilityState.showScrollCardStack" />
+      <LazyScrollGradientFlow v-if="visibilityState.showScrollGradientFlow" />
+      <LazyScrollParticleWave v-if="visibilityState.showScrollParticleWave" />
+      <LazyScrollImageMosaic v-if="visibilityState.showScrollImageMosaic" />
     </div>
 
     <!-- 加载指示器 -->
@@ -351,6 +361,16 @@ const LazyScrollMagneticCards = defineAsyncComponent(() => import('./components/
 const LazyScrollInfiniteScroll = defineAsyncComponent(() => import('./components/ScrollInfiniteScroll.vue'))
 const LazyScrollWaveCards = defineAsyncComponent(() => import('./components/ScrollWaveCards.vue'))
 
+// 全新创意动画组件 (2026-03)
+const LazyScrollLensReveal = defineAsyncComponent(() => import('./components/ScrollLensReveal.vue'))
+const LazyScrollMorphPath = defineAsyncComponent(() => import('./components/ScrollMorphPath.vue'))
+const LazyScrollTimeline = defineAsyncComponent(() => import('./components/ScrollTimeline.vue'))
+const LazyScrollTextScatter = defineAsyncComponent(() => import('./components/ScrollTextScatter.vue'))
+const LazyScrollCardStack = defineAsyncComponent(() => import('./components/ScrollCardStack.vue'))
+const LazyScrollGradientFlow = defineAsyncComponent(() => import('./components/ScrollGradientFlow.vue'))
+const LazyScrollParticleWave = defineAsyncComponent(() => import('./components/ScrollParticleWave.vue'))
+const LazyScrollImageMosaic = defineAsyncComponent(() => import('./components/ScrollImageMosaic.vue'))
+
 // 组件显示状态
 const isLoading = ref(true)
 const componentsContainer = ref<HTMLElement>()
@@ -462,7 +482,15 @@ const visibilityState = ref<Record<string, boolean>>({
   showScrollElasticText: false,
   showScrollMagneticCards: false,
   showScrollInfiniteScroll: false,
-  showScrollWaveCards: false
+  showScrollWaveCards: false,
+  showScrollLensReveal: false,
+  showScrollMorphPath: false,
+  showScrollTimeline: false,
+  showScrollTextScatter: false,
+  showScrollCardStack: false,
+  showScrollGradientFlow: false,
+  showScrollParticleWave: false,
+  showScrollImageMosaic: false
 })
 
 // 组件分批加载配置
@@ -507,7 +535,10 @@ const componentBatches = [
   ['showScrollMagneticFluid', 'showScrollGlitchText'],
   ['showScrollImageStackReveal', 'showScrollTextWaveSplit', 'showScrollCard3DFlip'],
   ['showScrollParallaxGallery', 'showScrollElasticText', 'showScrollMagneticCards'],
-  ['showScrollInfiniteScroll', 'showScrollWaveCards']
+  ['showScrollInfiniteScroll', 'showScrollWaveCards'],
+  ['showScrollLensReveal', 'showScrollMorphPath', 'showScrollTimeline'],
+  ['showScrollTextScatter', 'showScrollCardStack', 'showScrollGradientFlow'],
+  ['showScrollParticleWave', 'showScrollImageMosaic']
 ]
 
 // 交叉观察器用于懒加载
@@ -619,6 +650,16 @@ onMounted(() => {
   visibilityState.value.showScrollMagneticCards = true
   visibilityState.value.showScrollInfiniteScroll = true
   visibilityState.value.showScrollWaveCards = true
+
+  // 立即显示全新创意动画组件 (2026-03)
+  visibilityState.value.showScrollLensReveal = true
+  visibilityState.value.showScrollMorphPath = true
+  visibilityState.value.showScrollTimeline = true
+  visibilityState.value.showScrollTextScatter = true
+  visibilityState.value.showScrollCardStack = true
+  visibilityState.value.showScrollGradientFlow = true
+  visibilityState.value.showScrollParticleWave = true
+  visibilityState.value.showScrollImageMosaic = true
 
   // 初始加载后刷新ScrollTrigger
   setTimeout(() => {
