@@ -12,7 +12,7 @@
     <!-- 组件容器 - 用于懒加载 -->
     <div ref="componentsContainer" class="components-container">
       <!-- 核心组件 - 立即加载 -->
-      <div v-if="0">
+      <div v-if="1">
         <Card3DFlipGallery />
         <Timeline />
         <TextTypewriter />
@@ -182,6 +182,16 @@
       <LazyScrollGradientFlow v-if="visibilityState.showScrollGradientFlow" />
       <LazyScrollParticleWave v-if="visibilityState.showScrollParticleWave" />
       <LazyScrollImageMosaic v-if="visibilityState.showScrollImageMosaic" />
+
+      <!-- 全新高级创意动画组件 (2026-03 扩展) -->
+      <LazyScrollFluidText v-if="visibilityState.showScrollFluidText" />
+      <LazyScrollMorphingCards v-if="visibilityState.showScrollMorphingCards" />
+      <LazyScrollRippleCards v-if="visibilityState.showScrollRippleCards" />
+      <LazyScrollDistortGallery v-if="visibilityState.showScrollDistortGallery" />
+      <LazyScrollMagneticGrid v-if="visibilityState.showScrollMagneticGrid" />
+      <LazyScrollFoldEffect v-if="visibilityState.showScrollFoldEffect" />
+      <LazyScroll3DTunnel v-if="visibilityState.showScroll3DTunnel" />
+      <LazyScrollSpiralReveal v-if="visibilityState.showScrollSpiralReveal" />
     </div>
 
     <!-- 加载指示器 -->
@@ -371,6 +381,16 @@ const LazyScrollGradientFlow = defineAsyncComponent(() => import('./components/S
 const LazyScrollParticleWave = defineAsyncComponent(() => import('./components/ScrollParticleWave.vue'))
 const LazyScrollImageMosaic = defineAsyncComponent(() => import('./components/ScrollImageMosaic.vue'))
 
+// 全新高级创意动画组件 (2026-03 扩展)
+const LazyScrollFluidText = defineAsyncComponent(() => import('./components/ScrollFluidText.vue'))
+const LazyScrollMorphingCards = defineAsyncComponent(() => import('./components/ScrollMorphingCards.vue'))
+const LazyScrollRippleCards = defineAsyncComponent(() => import('./components/ScrollRippleCards.vue'))
+const LazyScrollDistortGallery = defineAsyncComponent(() => import('./components/ScrollDistortGallery.vue'))
+const LazyScrollMagneticGrid = defineAsyncComponent(() => import('./components/ScrollMagneticGrid.vue'))
+const LazyScrollFoldEffect = defineAsyncComponent(() => import('./components/ScrollFoldEffect.vue'))
+const LazyScroll3DTunnel = defineAsyncComponent(() => import('./components/Scroll3DTunnel.vue'))
+const LazyScrollSpiralReveal = defineAsyncComponent(() => import('./components/ScrollSpiralReveal.vue'))
+
 // 组件显示状态
 const isLoading = ref(true)
 const componentsContainer = ref<HTMLElement>()
@@ -490,7 +510,15 @@ const visibilityState = ref<Record<string, boolean>>({
   showScrollCardStack: false,
   showScrollGradientFlow: false,
   showScrollParticleWave: false,
-  showScrollImageMosaic: false
+  showScrollImageMosaic: false,
+  showScrollFluidText: false,
+  showScrollMorphingCards: false,
+  showScrollRippleCards: false,
+  showScrollDistortGallery: false,
+  showScrollMagneticGrid: false,
+  showScrollFoldEffect: false,
+  showScroll3DTunnel: false,
+  showScrollSpiralReveal: false
 })
 
 // 组件分批加载配置
@@ -538,7 +566,10 @@ const componentBatches = [
   ['showScrollInfiniteScroll', 'showScrollWaveCards'],
   ['showScrollLensReveal', 'showScrollMorphPath', 'showScrollTimeline'],
   ['showScrollTextScatter', 'showScrollCardStack', 'showScrollGradientFlow'],
-  ['showScrollParticleWave', 'showScrollImageMosaic']
+  ['showScrollParticleWave', 'showScrollImageMosaic'],
+  ['showScrollFluidText', 'showScrollMorphingCards', 'showScrollRippleCards'],
+  ['showScrollDistortGallery', 'showScrollMagneticGrid', 'showScrollFoldEffect'],
+  ['showScroll3DTunnel', 'showScrollSpiralReveal']
 ]
 
 // 交叉观察器用于懒加载
@@ -660,6 +691,16 @@ onMounted(() => {
   visibilityState.value.showScrollGradientFlow = true
   visibilityState.value.showScrollParticleWave = true
   visibilityState.value.showScrollImageMosaic = true
+
+  // 立即显示全新高级创意动画组件 (2026-03 扩展)
+  visibilityState.value.showScrollFluidText = true
+  visibilityState.value.showScrollMorphingCards = true
+  visibilityState.value.showScrollRippleCards = true
+  visibilityState.value.showScrollDistortGallery = true
+  visibilityState.value.showScrollMagneticGrid = true
+  visibilityState.value.showScrollFoldEffect = true
+  visibilityState.value.showScroll3DTunnel = true
+  visibilityState.value.showScrollSpiralReveal = true
 
   // 初始加载后刷新ScrollTrigger
   setTimeout(() => {
