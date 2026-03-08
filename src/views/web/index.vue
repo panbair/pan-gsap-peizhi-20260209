@@ -116,6 +116,12 @@
       <LazyImageComparison v-if="visibilityState.showImageComparison" />
       <LazyCardStack v-if="visibilityState.showCardStack" />
       <LazyHorizontalScrollCards v-if="visibilityState.showHorizontalScrollCards" />
+      <LazyScrollImageReveal v-if="visibilityState.showScrollImageReveal" />
+      <LazyScrollCard3D v-if="visibilityState.showScrollCard3D" />
+      <LazyScrollTextBlur v-if="visibilityState.showScrollTextBlur" />
+      <LazyScrollShapeElastic v-if="visibilityState.showScrollShapeElastic" />
+      <LazyScrollStaggerWave v-if="visibilityState.showScrollStaggerWave" />
+      <LazyScrollParallaxLayer v-if="visibilityState.showScrollParallaxLayer" />
       <LazyQuantumWormhole v-if="visibilityState.showQuantumWormhole" />
       <LazyMagneticOrbit v-if="visibilityState.showMagneticOrbit" />
       <LazySpringBounce v-if="visibilityState.showSpringBounce" />
@@ -220,6 +226,24 @@ const LazyCardStack = defineAsyncComponent(() => import('./components/CardStack.
 const LazyHorizontalScrollCards = defineAsyncComponent(
   () => import('./components/HorizontalScrollCards.vue')
 )
+const LazyScrollImageReveal = defineAsyncComponent(
+  () => import('./components/ScrollImageReveal.vue')
+)
+const LazyScrollCard3D = defineAsyncComponent(
+  () => import('./components/ScrollCard3D.vue')
+)
+const LazyScrollTextBlur = defineAsyncComponent(
+  () => import('./components/ScrollTextBlur.vue')
+)
+const LazyScrollShapeElastic = defineAsyncComponent(
+  () => import('./components/ScrollShapeElastic.vue')
+)
+const LazyScrollStaggerWave = defineAsyncComponent(
+  () => import('./components/ScrollStaggerWave.vue')
+)
+const LazyScrollParallaxLayer = defineAsyncComponent(
+  () => import('./components/ScrollParallaxLayer.vue')
+)
 const LazyQuantumWormhole = defineAsyncComponent(() => import('./components/QuantumWormhole.vue'))
 const LazyMagneticOrbit = defineAsyncComponent(() => import('./components/MagneticOrbit.vue'))
 const LazySpringBounce = defineAsyncComponent(() => import('./components/SpringBounce.vue'))
@@ -293,6 +317,12 @@ const visibilityState = ref<Record<string, boolean>>({
   showImageComparison: false,
   showCardStack: false,
   showHorizontalScrollCards: false,
+  showScrollImageReveal: false,
+  showScrollCard3D: false,
+  showScrollTextBlur: false,
+  showScrollShapeElastic: false,
+  showScrollStaggerWave: false,
+  showScrollParallaxLayer: false,
   showQuantumWormhole: false,
   showMagneticOrbit: false,
   showSpringBounce: false
@@ -316,7 +346,8 @@ const componentBatches = [
   ['showSlidingPanels', 'showMorphingCards', 'showMotionPathCards', 'showCircleMotion'],
   ['showInfinityMotion', 'showNebulaVortex', 'showAccordionCards', 'showTabSwitch'],
   ['showImageComparison', 'showCardStack', 'showHorizontalScrollCards', 'showQuantumWormhole'],
-  ['showMagneticOrbit', 'showSpringBounce']
+  ['showMagneticOrbit', 'showSpringBounce', 'showScrollImageReveal'],
+  ['showScrollCard3D', 'showScrollTextBlur', 'showScrollShapeElastic', 'showScrollStaggerWave', 'showScrollParallaxLayer']
 ]
 
 // 交叉观察器用于懒加载
