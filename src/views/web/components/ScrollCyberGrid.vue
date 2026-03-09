@@ -1,485 +1,306 @@
 <template>
-  <section class="scg-cyber-grid-section-165" ref="componentRoot">
-    <div class="scg-container-165">
-      <h2 class="scg-title-165">赛博网格</h2>
-      <p class="scg-subtitle-165">Cyber Grid</p>
-
-      <div class="scg-grid-canvas-165">
-        <canvas ref="gridCanvas"></canvas>
-      </div>
-
-      <div class="scg-cards-stage-165">
-        <div
-          v-for="(card, index) in cards"
-          :key="index"
-          class="scg-cyber-card-165"
-          :ref="el => { if (el) cardRefs[index] = el as HTMLElement }"
-          :data-index="index"
-          @mousemove="handleCardMouseMove($event, index)"
-          @mouseleave="handleMouseLeave(index)"
-        >
-          <div class="scg-card-grid-165">
-            <div class="scg-grid-line-165" v-for="i in 4" :key="i" :data-line="i"></div>
+  <div class="cg-container-185">
+    <h2 class="cg-title-185">赛博网格滚动动画</h2>
+    <div class="cg-stage-185">
+      <div class="cg-grid-185">
+        <div class="cg-cell-185" v-for="(cell, index) in cells" :key="index" :class="`cg-cell-${index % 6}-185`">
+          <div class="cg-content-185">
+            <div class="cg-icon-185">{{ cell.icon }}</div>
+            <h3>{{ cell.title }}</h3>
+            <p>{{ cell.description }}</p>
           </div>
-          <div class="scg-card-content-165">
-            <div class="scg-card-icon-165">{{ card.icon }}</div>
-            <h3 class="scg-card-title-165">{{ card.title }}</h3>
-            <p class="scg-card-desc-165">{{ card.description }}</p>
-            <div class="scg-card-matrix-165">
-              <div class="scg-matrix-cell-165" v-for="i in 9" :key="i"></div>
-            </div>
-          </div>
+          <div class="cg-glow-185"></div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from 'vue'
+import { onMounted } from 'vue'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 gsap.registerPlugin(ScrollTrigger)
 
-const componentRoot = ref<HTMLElement>()
-const gridCanvas = ref<HTMLCanvasElement>()
-const cardRefs = ref<HTMLElement[]>([])
-
-const cards = [
-  {
-    icon: '🌐',
-    title: '网络',
-    description: 'NETWORK'
-  },
-  {
-    icon: '💻',
-    title: '代码',
-    description: 'CODE'
-  },
-  {
-    icon: '🔮',
-    title: '预言',
-    description: 'PREDICT'
-  },
-  {
-    icon: '⚡',
-    title: '能量',
-    description: 'ENERGY'
-  }
+const cells = [
+  { icon: '🌐', title: '网络连接', description: '全球网络互联' },
+  { icon: '🔮', title: '虚拟现实', description: '沉浸式体验' },
+  { icon: '⚡', title: '量子计算', description: '超级算力' },
+  { icon: '🛡️', title: '安全防护', description: '多层加密' },
+  { icon: '🚀', title: '未来科技', description: '科技前沿' },
+  { icon: '💫', title: '人工智能', description: '智能革命' }
 ]
 
-let gsapCtx: gsap.Context
-let gridCtx: CanvasRenderingContext2D | null = null
-let animationFrame: number | null = null
-let time = 0
-let resizeCanvas: () => void = () => {}
-
-const handleCardMouseMove = (event: MouseEvent, index: number) => {
-  const card = cardRefs.value[index]
-  if (!card) return
-
-  const rect = card.getBoundingClientRect()
-  const x = event.clientX - rect.left
-  const y = event.clientY - rect.top
-
-  gsap.to(card.querySelector('.scg-card-grid-165'), {
-    x: (x - rect.width / 2) * 0.1,
-    y: (y - rect.height / 2) * 0.1,
-    duration: 0.3,
-    ease: 'power2.out'
-  })
-
-  gsap.to(card, {
-    rotateX: (y / rect.height - 0.5) * -10,
-    rotateY: (x / rect.width - 0.5) * 10,
-    duration: 0.3,
-    ease: 'power2.out'
-  })
-}
-
-const handleMouseLeave = (index: number) => {
-  const card = cardRefs.value[index]
-  if (!card) return
-
-  gsap.to(card, {
-    rotateX: 0,
-    rotateY: 0,
-    duration: 0.5,
-    ease: 'elastic.out(1, 0.5)'
-  })
-
-  gsap.to(card.querySelector('.scg-card-grid-165'), {
-    x: 0,
-    y: 0,
-    duration: 0.5,
-    ease: 'power2.out'
-  })
-}
-
-const animateGrid = () => {
-  if (!gridCtx || !gridCanvas.value) return
-
-  const canvas = gridCanvas.value
-  const width = canvas.width
-  const height = canvas.height
-
-  gridCtx.fillStyle = 'rgba(5, 5, 15, 0.1)'
-  gridCtx.fillRect(0, 0, width, height)
-
-  const gridSize = 40
-  const offset = (time * 0.5) % gridSize
-
-  gridCtx.strokeStyle = 'rgba(0, 255, 255, 0.1)'
-  gridCtx.lineWidth = 1
-
-  for (let x = 0; x <= width; x += gridSize) {
-    gridCtx.beginPath()
-    gridCtx.moveTo(x + offset, 0)
-    gridCtx.lineTo(x + offset, height)
-    gridCtx.stroke()
-  }
-
-  for (let y = 0; y <= height; y += gridSize) {
-    gridCtx.beginPath()
-    gridCtx.moveTo(0, y + offset)
-    gridCtx.lineTo(width, y + offset)
-    gridCtx.stroke()
-  }
-
-  time += 1
-  animationFrame = requestAnimationFrame(animateGrid)
-}
+let ctx: gsap.Context
 
 onMounted(() => {
-  setTimeout(() => {
-    if (!componentRoot.value) return
+  ctx = gsap.context(() => {
+    // 标题动画
+    gsap.from('.cg-title-185', {
+      scrollTrigger: {
+        trigger: '.cg-title-185',
+        start: 'top bottom-=100',
+        toggleActions: 'play none none reverse'
+      },
+      y: -50,
+      opacity: 0,
+      duration: 1,
+      ease: 'power3.out'
+    })
 
-    const canvas = gridCanvas.value
-    if (!canvas) return
+    // 网格单元格动画
+    gsap.utils.toArray<HTMLElement>('.cg-cell-185').forEach((cell, index) => {
+      const row = Math.floor(index / 3)
+      const col = index % 3
 
-    resizeCanvas = () => {
-      canvas.width = window.innerWidth
-      canvas.height = window.innerHeight
-    }
-    resizeCanvas()
-    window.addEventListener('resize', resizeCanvas)
+      // 入场动画 - 交错效果
+      gsap.from(cell, {
+        scrollTrigger: {
+          trigger: cell,
+          start: 'top bottom-=100',
+          toggleActions: 'play none none reverse'
+        },
+        x: (col - 1) * 100,
+        y: (row - 1) * 100,
+        scale: 0,
+        opacity: 0,
+        rotate: (col - row) * 30,
+        duration: 0.8,
+        ease: 'elastic.out(1, 0.5)',
+        delay: (row * 3 + col) * 0.1
+      })
 
-    gridCtx = canvas.getContext('2d')
-    if (!gridCtx) return
+      // 滚动触发缩放动画
+      gsap.to(cell, {
+        scrollTrigger: {
+          trigger: cell,
+          start: 'top center',
+          end: 'bottom center',
+          scrub: 1
+        },
+        scale: 1.05,
+        ease: 'none'
+      })
 
-    animateGrid()
+      // 发光效果动画
+      const glow = cell.querySelector('.cg-glow-185') as HTMLElement
+      gsap.to(glow, {
+        scrollTrigger: {
+          trigger: cell,
+          start: 'top center',
+          end: 'bottom center',
+          scrub: 1
+        },
+        opacity: 0.8,
+        scale: 1.5,
+        ease: 'none'
+      })
 
-    gsapCtx = gsap.context(() => {
-      const titleEl = gsap.utils.toArray<HTMLElement>('.scg-title-165', componentRoot.value)
-      const subtitleEl = gsap.utils.toArray<HTMLElement>('.scg-subtitle-165', componentRoot.value)
-      const cyberCards = gsap.utils.toArray<HTMLElement>('.scg-cyber-card-165', componentRoot.value)
-      const stageEl = gsap.utils.toArray<HTMLElement>('.scg-cards-stage-165', componentRoot.value)
-
-      if (titleEl.length) {
-        gsap.from(titleEl, {
-          scrollTrigger: {
-            trigger: componentRoot.value,
-            start: 'top 80%',
-            toggleActions: 'play none none reverse'
-          },
-          y: 60,
-          opacity: 0,
-          filter: 'blur(10px)',
-          duration: 1.2,
-          ease: 'power3.out'
+      // 悬停效果
+      cell.addEventListener('mouseenter', () => {
+        gsap.to(cell.querySelector('.cg-icon-185'), {
+          scale: 1.5,
+          rotate: 360,
+          duration: 0.5,
+          ease: 'elastic.out(1, 0.3)'
         })
-      }
-
-      if (subtitleEl.length) {
-        gsap.from(subtitleEl, {
-          scrollTrigger: {
-            trigger: componentRoot.value,
-            start: 'top 75%',
-            toggleActions: 'play none none reverse'
-          },
-          y: 30,
-          opacity: 0,
-          duration: 1,
-          delay: 0.2,
-          ease: 'power3.out'
+        gsap.to(glow, {
+          opacity: 1,
+          scale: 2,
+          duration: 0.3,
+          ease: 'power2.out'
         })
-      }
-
-      if (cyberCards.length) {
-        gsap.from(cyberCards, {
-          scrollTrigger: {
-            trigger: stageEl[0] || componentRoot.value,
-            start: 'top 70%',
-            toggleActions: 'play none none reverse'
-          },
-          y: 100,
-          opacity: 0,
-          scale: 0.8,
-          rotationX: 45,
-          duration: 1,
-          stagger: 0.15,
-          ease: 'back.out(1.7)'
-        })
-      }
-
-      cardRefs.value.forEach((card) => {
-        if (!card) return
-
-        const matrixCells = card.querySelectorAll('.scg-matrix-cell-165') as NodeListOf<HTMLElement>
-        matrixCells.forEach((cell, cellIndex) => {
-          gsap.to(cell, {
-            opacity: 0.3 + Math.random() * 0.7,
-            duration: 0.5,
-            repeat: -1,
-            yoyo: true,
-            ease: 'power1.inOut',
-            delay: cellIndex * 0.05
-          })
+        gsap.to(cell, {
+          borderColor: 'rgba(0, 255, 255, 0.8)',
+          duration: 0.3
         })
       })
-    }, componentRoot.value)
-  }, 100)
-})
 
-onUnmounted(() => {
-  gsapCtx?.revert()
-  window.removeEventListener('resize', resizeCanvas)
-  if (animationFrame) {
-    cancelAnimationFrame(animationFrame)
-  }
+      cell.addEventListener('mouseleave', () => {
+        gsap.to(cell.querySelector('.cg-icon-185'), {
+          scale: 1,
+          rotate: 0,
+          duration: 0.5,
+          ease: 'power2.out'
+        })
+        gsap.to(glow, {
+          opacity: 0.4,
+          scale: 1.2,
+          duration: 0.3,
+          ease: 'power2.out'
+        })
+        gsap.to(cell, {
+          borderColor: 'rgba(255, 255, 255, 0.2)',
+          duration: 0.3
+        })
+      })
+    })
+
+    // 整体网格动画
+    gsap.from('.cg-grid-185', {
+      scrollTrigger: {
+        trigger: '.cg-grid-185',
+        start: 'top bottom-=50',
+        toggleActions: 'play none none reverse'
+      },
+      scale: 0.8,
+      opacity: 0,
+      duration: 1,
+      ease: 'power3.out'
+    })
+  })
 })
 </script>
 
-<style scoped lang="scss">
-.scg-cyber-grid-section-165 {
+<style scoped>
+.cg-container-185 {
+  min-height: 100vh;
+  padding: 80px 20px;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a4e 50%, #0a0a0a 100%);
   position: relative;
-  min-height: 200vh;
-  padding: 120px 20px;
-  background: linear-gradient(180deg, #0a0a15 0%, #050510 100%);
   overflow: hidden;
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: 
-      radial-gradient(ellipse at 20% 50%, rgba(0, 255, 255, 0.03) 0%, transparent 50%),
-      radial-gradient(ellipse at 80% 50%, rgba(255, 0, 255, 0.03) 0%, transparent 50%);
-    pointer-events: none;
-  }
 }
 
-.scg-container-165 {
-  position: relative;
-  max-width: 1400px;
-  margin: 0 auto;
-  z-index: 1;
-}
-
-.scg-title-165 {
-  font-size: clamp(2.5rem, 6vw, 4rem);
-  font-weight: 700;
-  color: #fff;
-  text-align: center;
-  margin-bottom: 10px;
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  background: linear-gradient(135deg, #00ffff, #ff00ff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  text-shadow: 0 0 40px rgba(0, 255, 255, 0.3);
-}
-
-.scg-subtitle-165 {
-  font-size: clamp(1rem, 2vw, 1.5rem);
-  color: rgba(255, 255, 255, 0.6);
-  text-align: center;
-  margin-bottom: 80px;
-  letter-spacing: 0.5em;
-  text-transform: uppercase;
-}
-
-.scg-grid-canvas-165 {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
-  opacity: 0.3;
-  pointer-events: none;
-
-  canvas {
-    display: block;
-    width: 100%;
-    height: 100%;
-  }
-}
-
-.scg-cards-stage-165 {
-  position: relative;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 40px;
-  padding: 40px 20px;
-  z-index: 2;
-}
-
-.scg-cyber-card-165 {
-  position: relative;
-  background: rgba(10, 10, 25, 0.8);
-  border: 1px solid rgba(0, 255, 255, 0.2);
-  border-radius: 20px;
-  padding: 40px;
-  overflow: hidden;
-  cursor: pointer;
-  transform-style: preserve-3d;
-  perspective: 1000px;
-  backdrop-filter: blur(10px);
-  box-shadow: 
-    0 0 40px rgba(0, 255, 255, 0.1),
-    inset 0 0 60px rgba(0, 255, 255, 0.05);
-  transition: border-color 0.3s, box-shadow 0.3s;
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, #00ffff, transparent);
-    animation: cyber-line 3s ease-in-out infinite;
-  }
-
-  &::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: 
-      linear-gradient(135deg, rgba(0, 255, 255, 0.1) 0%, transparent 50%),
-      linear-gradient(-135deg, rgba(255, 0, 255, 0.1) 0%, transparent 50%);
-    pointer-events: none;
-  }
-
-  &:hover {
-    border-color: rgba(0, 255, 255, 0.5);
-    box-shadow: 
-      0 0 60px rgba(0, 255, 255, 0.2),
-      inset 0 0 80px rgba(0, 255, 255, 0.1);
-  }
-}
-
-@keyframes cyber-line {
-  0%, 100% {
-    transform: translateX(-100%);
-  }
-  50% {
-    transform: translateX(100%);
-  }
-}
-
-.scg-card-grid-165 {
+.cg-container-185::before {
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: 1;
-  opacity: 0.3;
+  background: 
+    linear-gradient(90deg, rgba(0, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(rgba(0, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
   pointer-events: none;
 }
 
-.scg-grid-line-165 {
-  position: absolute;
-  background: linear-gradient(180deg, transparent, rgba(0, 255, 255, 0.3), transparent);
-  pointer-events: none;
-
-  &[data-line="1"] {
-    left: 20%;
-    top: 0;
-    width: 1px;
-    height: 100%;
-  }
-
-  &[data-line="2"] {
-    left: 50%;
-    top: 0;
-    width: 1px;
-    height: 100%;
-  }
-
-  &[data-line="3"] {
-    left: 80%;
-    top: 0;
-    width: 1px;
-    height: 100%;
-  }
-
-  &[data-line="4"] {
-    left: 0;
-    top: 50%;
-    width: 100%;
-    height: 1px;
-  }
-}
-
-.scg-card-content-165 {
-  position: relative;
-  z-index: 2;
-}
-
-.scg-card-icon-165 {
-  font-size: 4rem;
-  margin-bottom: 20px;
+.cg-title-185 {
   text-align: center;
-  filter: drop-shadow(0 0 20px rgba(0, 255, 255, 0.5));
-}
-
-.scg-card-title-165 {
-  font-size: 1.8rem;
-  font-weight: 600;
+  font-size: 2.5rem;
+  font-weight: bold;
   color: #fff;
-  margin-bottom: 10px;
-  text-align: center;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
+  margin-bottom: 60px;
+  text-shadow: 0 0 20px rgba(0, 255, 255, 0.5), 0 0 40px rgba(0, 255, 255, 0.3);
 }
 
-.scg-card-desc-165 {
-  font-size: 1rem;
-  color: rgba(255, 255, 255, 0.6);
-  margin-bottom: 30px;
-  text-align: center;
-  line-height: 1.6;
+.cg-stage-185 {
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
-.scg-card-matrix-165 {
+.cg-grid-185 {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 8px;
-  margin-top: 20px;
+  gap: 30px;
+  perspective: 1000px;
 }
 
-.scg-matrix-cell-165 {
-  width: 100%;
-  padding-bottom: 100%;
-  background: rgba(0, 255, 255, 0.1);
-  border: 1px solid rgba(0, 255, 255, 0.2);
-  border-radius: 4px;
-  opacity: 0.1;
-  transition: background 0.3s;
+.cg-cell-185 {
+  position: relative;
+  padding: 40px 30px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  overflow: hidden;
+  transform-style: preserve-3d;
+}
 
-  &:hover {
-    background: rgba(0, 255, 255, 0.3);
+.cg-cell-185::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, 
+    rgba(0, 255, 255, 0.1) 0%, 
+    transparent 50%,
+    rgba(255, 0, 255, 0.1) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.cg-cell-185:hover::before {
+  opacity: 1;
+}
+
+.cg-cell-185:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 20px 40px rgba(0, 255, 255, 0.2);
+}
+
+.cg-glow-185 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 120%;
+  height: 120%;
+  background: radial-gradient(circle, rgba(0, 255, 255, 0.4) 0%, transparent 70%);
+  opacity: 0.4;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+.cg-content-185 {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  transform: translateZ(20px);
+}
+
+.cg-icon-185 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  display: inline-block;
+  transition: transform 0.5s ease;
+}
+
+.cg-content-185 h3 {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 10px;
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+.cg-content-185 p {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* 不同颜色的单元格 */
+.cg-cell-0-185 { --cell-color: #00ffff; }
+.cg-cell-1-185 { --cell-color: #ff00ff; }
+.cg-cell-2-185 { --cell-color: #ffff00; }
+.cg-cell-3-185 { --cell-color: #00ff00; }
+.cg-cell-4-185 { --cell-color: #ff6600; }
+.cg-cell-5-185 { --cell-color: #6600ff; }
+
+.cg-cell-0-185 .cg-glow-185 { background: radial-gradient(circle, rgba(0, 255, 255, 0.4) 0%, transparent 70%); }
+.cg-cell-1-185 .cg-glow-185 { background: radial-gradient(circle, rgba(255, 0, 255, 0.4) 0%, transparent 70%); }
+.cg-cell-2-185 .cg-glow-185 { background: radial-gradient(circle, rgba(255, 255, 0, 0.4) 0%, transparent 70%); }
+.cg-cell-3-185 .cg-glow-185 { background: radial-gradient(circle, rgba(0, 255, 0, 0.4) 0%, transparent 70%); }
+.cg-cell-4-185 .cg-glow-185 { background: radial-gradient(circle, rgba(255, 102, 0, 0.4) 0%, transparent 70%); }
+.cg-cell-5-185 .cg-glow-185 { background: radial-gradient(circle, rgba(102, 0, 255, 0.4) 0%, transparent 70%); }
+
+@media (max-width: 1024px) {
+  .cg-grid-185 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .cg-title-185 {
+    font-size: 1.8rem;
+  }
+  
+  .cg-grid-185 {
+    grid-template-columns: 1fr;
   }
 }
 </style>

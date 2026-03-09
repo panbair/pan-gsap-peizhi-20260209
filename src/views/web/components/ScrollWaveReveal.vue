@@ -1,17 +1,12 @@
 <template>
-  <div class="wave-reveal-177" ref="componentRoot">
+  <div ref="componentRoot" class="wave-reveal-177">
     <div class="wr-container-177">
       <h2 class="wr-title-177">🌊 波浪揭示</h2>
       <p class="wr-desc-177">滚动触发波浪揭示效果</p>
-      
+
       <div class="wr-stage-177">
         <div class="wr-content-177">
-          <div 
-            v-for="(item, index) in items" 
-            :key="index"
-            class="wr-item-177"
-            :data-index="index"
-          >
+          <div v-for="(item, index) in items" :key="index" class="wr-item-177" :data-index="index">
             <div class="wr-image-wrapper-177">
               <div class="wr-wave-177">
                 <div class="wr-wave-inner-177"></div>
@@ -27,7 +22,7 @@
           </div>
         </div>
       </div>
-      
+
       <div class="wr-hint-177">滚动触发波浪揭示</div>
     </div>
   </div>
@@ -205,7 +200,9 @@ onUnmounted(() => {
 }
 
 @keyframes shimmer {
-  to { background-position: 200% center; }
+  to {
+    background-position: 200% center;
+  }
 }
 
 .wr-desc-177 {
@@ -323,19 +320,19 @@ onUnmounted(() => {
     grid-template-columns: 1fr;
     gap: 30px;
   }
-  
+
   .wr-image-wrapper-177 {
     height: 250px;
   }
-  
+
   .wr-info-177 {
     padding: 20px;
   }
-  
+
   .wr-info-title-177 {
     font-size: 1.3rem;
   }
-  
+
   .wr-info-desc-177 {
     font-size: 0.9rem;
   }
