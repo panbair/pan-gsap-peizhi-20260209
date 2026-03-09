@@ -243,6 +243,12 @@
       <LazyScrollQuantumCards v-if="visibilityState.showScrollQuantumCards" />
       <LazyScrollAuroraText v-if="visibilityState.showScrollAuroraText" />
       <LazyScrollVortexCards v-if="visibilityState.showScrollVortexCards" />
+
+      <!-- 全新创意滚动控制动画组件 (2026-03) -->
+      <LazyScrollPixelCards v-if="visibilityState.showScrollPixelCards" />
+      <LazyScrollRibbonCards v-if="visibilityState.showScrollRibbonCards" />
+      <LazyScrollOrigamiCards v-if="visibilityState.showScrollOrigamiCards" />
+      <LazyScrollGlassMorph v-if="visibilityState.showScrollGlassMorph" />
     </div>
 
     <!-- 加载指示器 -->
@@ -591,6 +597,20 @@ const LazyScrollVortexCards = defineAsyncComponent(
   () => import('./components/ScrollVortexCards.vue')
 )
 
+// 全新创意滚动控制动画组件 (2026-03)
+const LazyScrollPixelCards = defineAsyncComponent(
+  () => import('./components/ScrollPixelCards.vue')
+)
+const LazyScrollRibbonCards = defineAsyncComponent(
+  () => import('./components/ScrollRibbonCards.vue')
+)
+const LazyScrollOrigamiCards = defineAsyncComponent(
+  () => import('./components/ScrollOrigamiCards.vue')
+)
+const LazyScrollGlassMorph = defineAsyncComponent(
+  () => import('./components/ScrollGlassMorph.vue')
+)
+
 // 组件显示状态
 const isLoading = ref(true)
 const componentsContainer = ref<HTMLElement>()
@@ -754,7 +774,11 @@ const visibilityState = ref<Record<string, boolean>>({
   showScrollLiquidText: false,
   showScrollQuantumCards: false,
   showScrollAuroraText: false,
-  showScrollVortexCards: false
+  showScrollVortexCards: false,
+  showScrollPixelCards: false,
+  showScrollRibbonCards: false,
+  showScrollOrigamiCards: false,
+  showScrollGlassMorph: false
 })
 
 // 组件分批加载配置
@@ -827,7 +851,9 @@ const componentBatches = [
   ['showScrollHologramCards', 'showScrollParticleExplosion'],
   ['showScrollMorphGallery', 'showScrollCyberGrid'],
   ['showScrollLiquidText', 'showScrollQuantumCards'],
-  ['showScrollAuroraText', 'showScrollVortexCards']
+  ['showScrollAuroraText', 'showScrollVortexCards'],
+  ['showScrollPixelCards', 'showScrollRibbonCards'],
+  ['showScrollOrigamiCards', 'showScrollGlassMorph']
 ]
 
 // 交叉观察器用于懒加载
@@ -1009,6 +1035,12 @@ onMounted(() => {
   visibilityState.value.showScrollQuantumCards = true
   visibilityState.value.showScrollAuroraText = true
   visibilityState.value.showScrollVortexCards = true
+
+  // 立即显示全新创意滚动控制动画组件 (2026-03)
+  visibilityState.value.showScrollPixelCards = true
+  visibilityState.value.showScrollRibbonCards = true
+  visibilityState.value.showScrollOrigamiCards = true
+  visibilityState.value.showScrollGlassMorph = true
 
   // 初始加载后刷新ScrollTrigger
   setTimeout(() => {
