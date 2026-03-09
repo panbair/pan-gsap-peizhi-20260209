@@ -1,22 +1,23 @@
 <template>
-  <div class="qc-container-187">
-    <h2 class="qc-title-187">量子卡片滚动动画</h2>
-    <div class="qc-stage-187">
-      <div class="qc-cards-187">
-        <div class="qc-card-187" v-for="(card, index) in cards" :key="index">
-          <div class="qc-quantum-187">
-            <div class="qc-particles-187"></div>
-            <div class="qc-core-187">
-              <div class="qc-ring-187 qc-ring-1-187"></div>
-              <div class="qc-ring-187 qc-ring-2-187"></div>
-              <div class="qc-ring-187 qc-ring-3-187"></div>
-            </div>
+  <div class="quantum-cards-container-197">
+    <div class="qc-header-197">
+      <h2 class="qc-title-197">量子卡片</h2>
+      <p class="qc-hint-197">滚动触发量子叠加态效果</p>
+    </div>
+
+    <div class="qc-stage-197">
+      <div v-for="(card, index) in cards" :key="index" class="qc-card-wrapper-197">
+        <div class="qc-card-197" :class="`qc-card-${index}-197`">
+          <div class="qc-core-197" :class="`qc-core-${index}-197`"></div>
+          <div class="qc-orbit-197" :class="`qc-orbit-${index}-197`">
+            <div v-for="i in 8" :key="i" class="qc-electron-197" :class="`qc-electron-${index}-${i}-197`"></div>
           </div>
-          <div class="qc-content-187">
-            <div class="qc-icon-187">{{ card.icon }}</div>
-            <h3>{{ card.title }}</h3>
-            <p>{{ card.description }}</p>
+          <div class="qc-content-197">
+            <div class="qc-icon-197">{{ card.icon }}</div>
+            <h3 class="qc-card-title-197">{{ card.title }}</h3>
+            <p class="qc-card-desc-197">{{ card.desc }}</p>
           </div>
+          <div class="qc-ghost-197" :class="`qc-ghost-${index}-197`"></div>
         </div>
       </div>
     </div>
@@ -24,331 +25,282 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted } from 'vue'
+import { onMounted, onUnmounted } from 'vue'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 gsap.registerPlugin(ScrollTrigger)
 
 const cards = [
-  { icon: '⚛️', title: '量子叠加', description: '多重状态同时存在' },
-  { icon: '🔗', title: '量子纠缠', description: '粒子间的神秘连接' },
-  { icon: '🌌', title: '量子隧道', description: '穿越不可能的屏障' },
-  { icon: '💠', title: '量子自旋', description: '粒子的内在旋转' },
-  { icon: '✨', title: '量子涨落', description: '真空中的能量波动' },
-  { icon: '🌀', title: '量子涡旋', description: '粒子的旋转运动' }
+  { icon: '⚛️', title: '量子叠加', desc: '同时存在的多重状态' },
+  { icon: '🌀', title: '量子纠缠', desc: '超越距离的关联' },
+  { icon: '💫', title: '量子隧穿', desc: '突破物理限制' },
+  { icon: '🌌', title: '量子场', desc: '时空的波动' }
 ]
 
 let ctx: gsap.Context
 
 onMounted(() => {
   ctx = gsap.context(() => {
-    // 标题动画
-    gsap.from('.qc-title-187', {
-      scrollTrigger: {
-        trigger: '.qc-title-187',
-        start: 'top bottom-=100',
-        toggleActions: 'play none none reverse'
-      },
-      y: -50,
-      opacity: 0,
-      duration: 1,
-      ease: 'power3.out'
-    })
-
-    // 卡片动画
-    gsap.utils.toArray<HTMLElement>('.qc-card-187').forEach((card, index) => {
-      const core = card.querySelector('.qc-core-187') as HTMLElement
-      const particles = card.querySelector('.qc-particles-187') as HTMLElement
-      const rings = card.querySelectorAll('.qc-ring-187')
-
-      // 入场动画
-      gsap.from(card, {
-        scrollTrigger: {
-          trigger: card,
-          start: 'top bottom-=100',
-          toggleActions: 'play none none reverse'
-        },
-        scale: 0,
-        opacity: 0,
-        rotate: 360,
-        duration: 1,
-        ease: 'elastic.out(1, 0.5)',
-        delay: index * 0.15
-      })
-
-      // 核心动画 - 滚动触发
+    // 核心旋转动画
+    gsap.utils.toArray('[class*="qc-core-197"]').forEach((core: any) => {
       gsap.to(core, {
-        scrollTrigger: {
-          trigger: card,
-          start: 'top center',
-          end: 'bottom center',
-          scrub: 1
-        },
-        rotate: 720,
-        scale: 1.2,
+        rotation: 360,
+        duration: 20,
+        repeat: -1,
         ease: 'none'
-      })
-
-      // 环形动画
-      rings.forEach((ring, ringIndex) => {
-        gsap.to(ring, {
-          scrollTrigger: {
-            trigger: card,
-            start: 'top center',
-            end: 'bottom center',
-            scrub: 1
-          },
-          rotate: (ringIndex + 1) * 360,
-          duration: 2,
-          ease: 'none',
-          repeat: -1,
-          yoyo: true
-        })
-      })
-
-      // 粒子波动动画
-      gsap.to(particles, {
-        scrollTrigger: {
-          trigger: card,
-          start: 'top center',
-          end: 'bottom center',
-          scrub: 1
-        },
-        opacity: 0.8,
-        scale: 1.5,
-        ease: 'none'
-      })
-
-      // 悬停效果
-      card.addEventListener('mouseenter', () => {
-        gsap.to(core, {
-          scale: 1.5,
-          duration: 0.5,
-          ease: 'elastic.out(1, 0.5)'
-        })
-        gsap.to(card.querySelector('.qc-icon-187'), {
-          scale: 1.3,
-          rotate: 360,
-          duration: 0.5,
-          ease: 'elastic.out(1, 0.3)'
-        })
-        gsap.to(rings, {
-          borderColor: 'rgba(0, 255, 255, 0.8)',
-          duration: 0.3
-        })
-      })
-
-      card.addEventListener('mouseleave', () => {
-        gsap.to(core, {
-          scale: 1,
-          duration: 0.5,
-          ease: 'power2.out'
-        })
-        gsap.to(card.querySelector('.qc-icon-187'), {
-          scale: 1,
-          rotate: 0,
-          duration: 0.5,
-          ease: 'power2.out'
-        })
-        gsap.to(rings, {
-          borderColor: 'rgba(255, 255, 255, 0.3)',
-          duration: 0.3
-        })
       })
     })
 
-    // 整体卡片容器动画
-    gsap.from('.qc-cards-187', {
+    // 电子轨道动画
+    gsap.utils.toArray('[class*="qc-orbit-197"]').forEach((orbit: any) => {
+      gsap.to(orbit, {
+        rotation: -360,
+        duration: 30,
+        repeat: -1,
+        ease: 'none'
+      })
+    })
+
+    // 电子动画
+    gsap.utils.toArray('[class*="qc-electron-197"]').forEach((electron: any) => {
+      gsap.to(electron, {
+        rotation: 360,
+        duration: 3,
+        repeat: -1,
+        ease: 'none'
+      })
+    })
+
+    // 量子态叠加（鬼影效果）
+    gsap.utils.toArray('[class*="qc-ghost-197"]').forEach((ghost: any, i) => {
+      gsap.to(ghost, {
+        scrollTrigger: {
+          trigger: ghost.closest('.qc-card-wrapper-197'),
+          start: 'top 70%',
+          end: 'bottom 30%',
+          scrub: 1
+        },
+        opacity: 0.6,
+        x: i % 2 === 0 ? 30 : -30,
+        duration: 1
+      })
+    })
+
+    // 卡片入场动画
+    gsap.from('.qc-card-197', {
       scrollTrigger: {
-        trigger: '.qc-cards-187',
-        start: 'top bottom-=50',
-        toggleActions: 'play none none reverse'
+        trigger: '.qc-stage-197',
+        start: 'top 80%',
+        end: 'bottom 20%',
+        scrub: 1
       },
-      scale: 0.8,
+      y: 150,
       opacity: 0,
-      duration: 1,
-      ease: 'power3.out'
+      scale: 0.8,
+      stagger: 0.2
+    })
+
+    // 滚动时量子波动
+    gsap.to('.qc-card-197', {
+      scrollTrigger: {
+        trigger: '.qc-stage-197',
+        start: 'top 80%',
+        end: 'bottom 20%',
+        scrub: 1
+      },
+      rotationY: 180,
+      ease: 'none'
+    })
+
+    // 标题动画
+    gsap.from('.qc-title-197', {
+      scrollTrigger: {
+        trigger: '.qc-header-197',
+        start: 'top 80%'
+      },
+      y: 50,
+      opacity: 0,
+      duration: 1
     })
   })
+})
+
+onUnmounted(() => {
+  ctx.revert()
 })
 </script>
 
 <style scoped>
-.qc-container-187 {
+.quantum-cards-container-197 {
   min-height: 100vh;
-  padding: 80px 20px;
-  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a6e 50%, #0a0a0a 100%);
+  background: linear-gradient(180deg, #0a0a0a 0%, #1a0a2a 100%);
+  padding: 60px 20px;
   position: relative;
   overflow: hidden;
 }
 
-.qc-container-187::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: 
-    radial-gradient(circle at 30% 30%, rgba(0, 255, 255, 0.05) 0%, transparent 50%),
-    radial-gradient(circle at 70% 70%, rgba(255, 0, 255, 0.05) 0%, transparent 50%);
-  pointer-events: none;
-}
-
-.qc-title-187 {
+.qc-header-197 {
   text-align: center;
-  font-size: 2.5rem;
-  font-weight: bold;
-  color: #fff;
   margin-bottom: 60px;
-  text-shadow: 0 0 30px rgba(0, 255, 255, 0.5), 0 0 60px rgba(255, 0, 255, 0.3);
 }
 
-.qc-stage-187 {
+.qc-title-197 {
+  font-size: 48px;
+  font-weight: 700;
+  background: linear-gradient(135deg, #00f0ff, #a020ff, #ff00a0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 0 40px rgba(160, 32, 255, 0.5);
+  margin-bottom: 10px;
+}
+
+.qc-hint-197 {
+  font-size: 18px;
+  color: #80a0ff;
+}
+
+.qc-stage-197 {
   max-width: 1400px;
   margin: 0 auto;
-}
-
-.qc-cards-187 {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   gap: 40px;
-  perspective: 1000px;
+  padding: 20px;
+  perspective: 2000px;
 }
 
-.qc-card-187 {
+.qc-card-wrapper-197 {
+  height: 450px;
   position: relative;
-  padding: 40px 30px;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
-  border: 2px solid rgba(255, 255, 255, 0.2);
-  border-radius: 20px;
-  backdrop-filter: blur(10px);
-  transition: all 0.3s ease;
-  overflow: hidden;
-}
-
-.qc-card-187::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(135deg, 
-    rgba(0, 255, 255, 0.1) 0%, 
-    transparent 50%,
-    rgba(255, 0, 255, 0.1) 100%);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.qc-card-187:hover::before {
-  opacity: 1;
-}
-
-.qc-card-187:hover {
-  transform: translateY(-10px);
-  border-color: rgba(0, 255, 255, 0.5);
-  box-shadow: 0 20px 40px rgba(0, 255, 255, 0.2);
-}
-
-.qc-quantum-187 {
-  position: relative;
-  width: 120px;
-  height: 120px;
-  margin: 0 auto 30px;
-}
-
-.qc-particles-187 {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: radial-gradient(circle, rgba(0, 255, 255, 0.4) 0%, transparent 70%);
-  opacity: 0.4;
-  transition: all 0.3s ease;
-  animation: qc-pulse-187 2s ease-in-out infinite;
-}
-
-@keyframes qc-pulse-187 {
-  0%, 100% { opacity: 0.4; transform: scale(1); }
-  50% { opacity: 0.7; transform: scale(1.2); }
-}
-
-.qc-core-187 {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 80px;
-  height: 80px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.qc-ring-187 {
+.qc-card-197 {
+  position: relative;
+  width: 280px;
+  height: 400px;
+  background: rgba(20, 10, 40, 0.8);
+  border: 1px solid rgba(160, 32, 255, 0.3);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  overflow: visible;
+  transform-style: preserve-3d;
+  transition: box-shadow 0.5s ease;
+}
+
+.qc-card-197:hover {
+  box-shadow: 
+    0 0 30px rgba(160, 32, 255, 0.5),
+    0 0 60px rgba(0, 240, 255, 0.3);
+}
+
+.qc-core-197 {
   position: absolute;
-  border: 2px solid rgba(255, 255, 255, 0.3);
-  border-radius: 50%;
-  transition: border-color 0.3s ease;
-}
-
-.qc-ring-1-187 {
-  width: 40px;
-  height: 40px;
-  animation: qc-rotate-187 3s linear infinite;
-}
-
-.qc-ring-2-187 {
-  width: 60px;
-  height: 60px;
-  animation: qc-rotate-187 4s linear infinite reverse;
-}
-
-.qc-ring-3-187 {
   width: 80px;
   height: 80px;
-  animation: qc-rotate-187 5s linear infinite;
+  background: radial-gradient(circle, rgba(160, 32, 255, 0.8), rgba(0, 240, 255, 0.4), transparent);
+  border-radius: 50%;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0 0 30px rgba(160, 32, 255, 0.8);
+  animation: core-pulse-197 2s infinite;
 }
 
-@keyframes qc-rotate-187 {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+@keyframes core-pulse-197 {
+  0%, 100% { transform: translateX(-50%) scale(1); opacity: 0.8; }
+  50% { transform: translateX(-50%) scale(1.2); opacity: 1; }
 }
 
-.qc-content-187 {
+.qc-orbit-197 {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border: 1px solid rgba(160, 32, 255, 0.2);
+  border-radius: 50%;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.qc-electron-197 {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: radial-gradient(circle, #00f0ff, rgba(0, 240, 255, 0.6));
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(0, 240, 255, 0.8);
+  top: 50%;
+  left: 50%;
+}
+
+.qc-electron-197:nth-child(1) { transform: rotate(0deg) translateX(100px); }
+.qc-electron-197:nth-child(2) { transform: rotate(45deg) translateX(100px); }
+.qc-electron-197:nth-child(3) { transform: rotate(90deg) translateX(100px); }
+.qc-electron-197:nth-child(4) { transform: rotate(135deg) translateX(100px); }
+.qc-electron-197:nth-child(5) { transform: rotate(180deg) translateX(100px); }
+.qc-electron-197:nth-child(6) { transform: rotate(225deg) translateX(100px); }
+.qc-electron-197:nth-child(7) { transform: rotate(270deg) translateX(100px); }
+.qc-electron-197:nth-child(8) { transform: rotate(315deg) translateX(100px); }
+
+.qc-content-197 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 30px 20px;
   text-align: center;
+  z-index: 2;
 }
 
-.qc-icon-187 {
-  font-size: 2.5rem;
+.qc-icon-197 {
+  font-size: 56px;
   margin-bottom: 15px;
-  display: inline-block;
-  transition: transform 0.5s ease;
+  filter: drop-shadow(0 0 15px rgba(160, 32, 255, 0.8));
 }
 
-.qc-content-187 h3 {
-  font-size: 1.4rem;
-  font-weight: bold;
-  color: #fff;
-  margin-bottom: 10px;
+.qc-card-title-197 {
+  font-size: 24px;
+  font-weight: 600;
+  color: #a020ff;
+  margin-bottom: 8px;
 }
 
-.qc-content-187 p {
-  font-size: 1rem;
-  color: rgba(255, 255, 255, 0.7);
+.qc-card-desc-197 {
+  font-size: 14px;
+  color: #80a0ff;
+  line-height: 1.5;
 }
 
-@media (max-width: 768px) {
-  .qc-title-187 {
-    font-size: 1.8rem;
+.qc-ghost-197 {
+  position: absolute;
+  inset: 0;
+  background: rgba(160, 32, 255, 0.1);
+  border: 1px solid rgba(160, 32, 255, 0.3);
+  border-radius: 20px;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@media (max-width: 1024px) {
+  .qc-stage-197 {
+    grid-template-columns: repeat(2, 1fr);
   }
-  
-  .qc-cards-187 {
+}
+
+@media (max-width: 640px) {
+  .qc-stage-197 {
     grid-template-columns: 1fr;
+  }
+
+  .qc-card-197 {
+    width: 240px;
+    height: 360px;
   }
 }
 </style>

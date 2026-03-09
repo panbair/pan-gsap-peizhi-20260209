@@ -22,7 +22,7 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted } from 'vue'
+import { onMounted, onUnmounted } from 'vue'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
@@ -161,6 +161,10 @@ onMounted(() => {
       ease: 'power3.out'
     })
   })
+})
+
+onUnmounted(() => {
+  ctx.revert()
 })
 </script>
 

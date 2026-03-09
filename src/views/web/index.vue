@@ -249,6 +249,16 @@
       <LazyScrollRibbonCards v-if="visibilityState.showScrollRibbonCards" />
       <LazyScrollOrigamiCards v-if="visibilityState.showScrollOrigamiCards" />
       <LazyScrollGlassMorph v-if="visibilityState.showScrollGlassMorph" />
+
+      <!-- 全新创意滚动控制动画组件 (2026-03 超级扩展) -->
+      <LazyScrollEmberCards v-if="visibilityState.showScrollEmberCards" />
+      <LazyScrollPlasmaWaves v-if="visibilityState.showScrollPlasmaWaves" />
+      <LazyScrollCrystalShatter v-if="visibilityState.showScrollCrystalShatter" />
+      <LazyScrollQuantumCards2 v-if="visibilityState.showScrollQuantumCards2" />
+      <LazyScrollHoloCards v-if="visibilityState.showScrollHoloCards" />
+      <LazyScrollLiquidMetal v-if="visibilityState.showScrollLiquidMetal" />
+      <LazyScrollVortexRing v-if="visibilityState.showScrollVortexRing" />
+      <LazyScrollPrismGlow v-if="visibilityState.showScrollPrismGlow" />
     </div>
 
     <!-- 加载指示器 -->
@@ -388,9 +398,6 @@ const LazyScrollLiquidMorph = defineAsyncComponent(
 )
 const LazyScrollNeonPulse = defineAsyncComponent(() => import('./components/ScrollNeonPulse.vue'))
 const LazyScrollTimeWarp = defineAsyncComponent(() => import('./components/ScrollTimeWarp.vue'))
-const LazyScrollCrystalShatter = defineAsyncComponent(
-  () => import('./components/ScrollCrystalShatter.vue')
-)
 
 // 新增懒加载组件
 const LazyScrollTextSplit = defineAsyncComponent(() => import('./components/ScrollTextSplit.vue'))
@@ -611,6 +618,16 @@ const LazyScrollGlassMorph = defineAsyncComponent(
   () => import('./components/ScrollGlassMorph.vue')
 )
 
+// 全新创意滚动控制动画组件 (2026-03 超级扩展)
+const LazyScrollEmberCards = defineAsyncComponent(() => import('./components/ScrollEmberCards.vue'))
+const LazyScrollPlasmaWaves = defineAsyncComponent(() => import('./components/ScrollPlasmaWaves.vue'))
+const LazyScrollCrystalShatter = defineAsyncComponent(() => import('./components/ScrollCrystalShatter.vue'))
+const LazyScrollQuantumCards2 = defineAsyncComponent(() => import('./components/ScrollQuantumCards.vue'))
+const LazyScrollHoloCards = defineAsyncComponent(() => import('./components/ScrollHoloCards.vue'))
+const LazyScrollLiquidMetal = defineAsyncComponent(() => import('./components/ScrollLiquidMetal.vue'))
+const LazyScrollVortexRing = defineAsyncComponent(() => import('./components/ScrollVortexRing.vue'))
+const LazyScrollPrismGlow = defineAsyncComponent(() => import('./components/ScrollPrismGlow.vue'))
+
 // 组件显示状态
 const isLoading = ref(true)
 const componentsContainer = ref<HTMLElement>()
@@ -778,7 +795,15 @@ const visibilityState = ref<Record<string, boolean>>({
   showScrollPixelCards: false,
   showScrollRibbonCards: false,
   showScrollOrigamiCards: false,
-  showScrollGlassMorph: false
+  showScrollGlassMorph: false,
+  showScrollEmberCards: false,
+  showScrollPlasmaWaves: false,
+  showScrollCrystalShatter: false,
+  showScrollQuantumCards2: false,
+  showScrollHoloCards: false,
+  showScrollLiquidMetal: false,
+  showScrollVortexRing: false,
+  showScrollPrismGlow: false
 })
 
 // 组件分批加载配置
@@ -853,7 +878,11 @@ const componentBatches = [
   ['showScrollLiquidText', 'showScrollQuantumCards'],
   ['showScrollAuroraText', 'showScrollVortexCards'],
   ['showScrollPixelCards', 'showScrollRibbonCards'],
-  ['showScrollOrigamiCards', 'showScrollGlassMorph']
+  ['showScrollOrigamiCards', 'showScrollGlassMorph'],
+  ['showScrollEmberCards', 'showScrollPlasmaWaves'],
+  ['showScrollCrystalShatter', 'showScrollQuantumCards2'],
+  ['showScrollHoloCards', 'showScrollLiquidMetal'],
+  ['showScrollVortexRing', 'showScrollPrismGlow']
 ]
 
 // 交叉观察器用于懒加载
@@ -1041,6 +1070,16 @@ onMounted(() => {
   visibilityState.value.showScrollRibbonCards = true
   visibilityState.value.showScrollOrigamiCards = true
   visibilityState.value.showScrollGlassMorph = true
+
+  // 立即显示全新创意滚动控制动画组件 (2026-03 超级扩展)
+  visibilityState.value.showScrollEmberCards = true
+  visibilityState.value.showScrollPlasmaWaves = true
+  visibilityState.value.showScrollCrystalShatter = true
+  visibilityState.value.showScrollQuantumCards2 = true
+  visibilityState.value.showScrollHoloCards = true
+  visibilityState.value.showScrollLiquidMetal = true
+  visibilityState.value.showScrollVortexRing = true
+  visibilityState.value.showScrollPrismGlow = true
 
   // 初始加载后刷新ScrollTrigger
   setTimeout(() => {
