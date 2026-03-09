@@ -1,35 +1,35 @@
 <template>
-  <div class="sld-liquid-distort-section-161" ref="componentRoot">
-    <div class="sld-container-161">
-      <h2 class="sld-title-161">液体扭曲</h2>
-      <p class="sld-subtitle-161">Liquid Distortion</p>
+  <div class="sld-liquid-distort-section-166" ref="componentRoot">
+    <div class="sld-container-166">
+      <h2 class="sld-title-166">液体扭曲</h2>
+      <p class="sld-subtitle-166">Liquid Distortion</p>
 
-      <div class="sld-liquid-stage-161">
-        <canvas ref="liquidCanvas" class="sld-canvas-161"></canvas>
+      <div class="sld-liquid-stage-166">
+        <canvas ref="liquidCanvas" class="sld-canvas-166"></canvas>
 
-        <div class="sld-images-161">
+        <div class="sld-images-166">
           <div
             v-for="(item, index) in liquidItems"
             :key="index"
-            class="sld-liquid-item-161"
+            class="sld-liquid-item-166"
             :ref="el => { if (el) itemRefs[index] = el as HTMLElement }"
             @mousemove="handleLiquidMove($event, index)"
             @mouseleave="handleLiquidLeave(index)"
           >
-            <div class="sld-image-container-161">
-              <div class="sld-image-161" :style="{ backgroundImage: `url(${item.image})` }"></div>
-              <div class="sld-liquid-overlay-161"></div>
-              <div class="sld-ripple-161" v-for="i in 5" :key="i"></div>
+            <div class="sld-image-container-166">
+              <div class="sld-image-166" :style="{ backgroundImage: `url(${item.image})` }"></div>
+              <div class="sld-liquid-overlay-166"></div>
+              <div class="sld-ripple-166" v-for="i in 5" :key="i"></div>
             </div>
-            <div class="sld-item-content-161">
-              <h3 class="sld-item-title-161">{{ item.title }}</h3>
-              <p class="sld-item-desc-161">{{ item.description }}</p>
+            <div class="sld-item-content-166">
+              <h3 class="sld-item-title-166">{{ item.title }}</h3>
+              <p class="sld-item-desc-166">{{ item.description }}</p>
             </div>
           </div>
         </div>
 
-        <div class="sld-particles-161">
-          <div class="sld-particle-161" v-for="i in 30" :key="i"></div>
+        <div class="sld-particles-166">
+          <div class="sld-particle-166" v-for="i in 30" :key="i"></div>
         </div>
       </div>
     </div>
@@ -88,7 +88,7 @@ const handleLiquidMove = (event: MouseEvent, index: number) => {
   const x = ((event.clientX - rect.left) / rect.width) * 2 - 1
   const y = ((event.clientY - rect.top) / rect.height) * 2 - 1
 
-  const image = item.querySelector('.sld-image-161') as HTMLElement
+  const image = item.querySelector('.sld-image-166') as HTMLElement
   if (image) {
     gsap.to(image, {
       scale: 1.1 + Math.abs(x) * 0.1,
@@ -99,7 +99,7 @@ const handleLiquidMove = (event: MouseEvent, index: number) => {
     })
   }
 
-  const overlay = item.querySelector('.sld-liquid-overlay-161') as HTMLElement
+  const overlay = item.querySelector('.sld-liquid-overlay-166') as HTMLElement
   if (overlay) {
     gsap.to(overlay, {
       opacity: 0.4 + Math.abs(x) * 0.3,
@@ -108,8 +108,7 @@ const handleLiquidMove = (event: MouseEvent, index: number) => {
     })
   }
 
-  // 涟漪效果
-  const ripples = item.querySelectorAll('.sld-ripple-161') as NodeListOf<HTMLElement>
+  const ripples = item.querySelectorAll('.sld-ripple-166') as NodeListOf<HTMLElement>
   ripples.forEach((ripple, i) => {
     gsap.fromTo(ripple,
       {
@@ -131,7 +130,7 @@ const handleLiquidLeave = (index: number) => {
   const item = itemRefs.value[index]
   if (!item) return
 
-  const image = item.querySelector('.sld-image-161') as HTMLElement
+  const image = item.querySelector('.sld-image-166') as HTMLElement
   if (image) {
     gsap.to(image, {
       scale: 1,
@@ -142,7 +141,7 @@ const handleLiquidLeave = (index: number) => {
     })
   }
 
-  const overlay = item.querySelector('.sld-liquid-overlay-161') as HTMLElement
+  const overlay = item.querySelector('.sld-liquid-overlay-166') as HTMLElement
   if (overlay) {
     gsap.to(overlay, {
       opacity: 0.3,
@@ -156,7 +155,6 @@ onMounted(() => {
   setTimeout(() => {
     if (!componentRoot.value) return
 
-    // Canvas 液体动画
     const canvas = liquidCanvas.value
     if (!canvas) return
 
@@ -192,8 +190,8 @@ onMounted(() => {
         }
 
         const gradient = liquidCtx.createRadialGradient(drop.x, drop.y, 0, drop.x, drop.y, drop.radius)
-        gradient.addColorStop(0, 'rgba(59, 130, 246, 0.1)')
-        gradient.addColorStop(0.5, 'rgba(59, 130, 246, 0.05)')
+        gradient.addColorStop(0, 'rgba(100, 200, 255, 0.6)')
+        gradient.addColorStop(0.5, 'rgba(50, 150, 255, 0.3)')
         gradient.addColorStop(1, 'transparent')
 
         liquidCtx.beginPath()
@@ -207,17 +205,15 @@ onMounted(() => {
 
     animateLiquid()
 
-    // GSAP 动画
     gsapCtx = gsap.context(() => {
-      const titleEl = gsap.utils.toArray<HTMLElement>('.sld-title-161', componentRoot.value)
-      const subtitleEl = gsap.utils.toArray<HTMLElement>('.sld-subtitle-161', componentRoot.value)
-      const liquidItems = gsap.utils.toArray<HTMLElement>('.sld-liquid-item-161', componentRoot.value)
-      const stageEl = gsap.utils.toArray<HTMLElement>('.sld-liquid-stage-161', componentRoot.value)
-      const itemTitles = gsap.utils.toArray<HTMLElement>('.sld-item-title-161', componentRoot.value)
-      const itemDescs = gsap.utils.toArray<HTMLElement>('.sld-item-desc-161', componentRoot.value)
-      const particles = gsap.utils.toArray<HTMLElement>('.sld-particle-161', componentRoot.value)
+      const titleEl = gsap.utils.toArray<HTMLElement>('.sld-title-166', componentRoot.value)
+      const subtitleEl = gsap.utils.toArray<HTMLElement>('.sld-subtitle-166', componentRoot.value)
+      const liquidItems = gsap.utils.toArray<HTMLElement>('.sld-liquid-item-166', componentRoot.value)
+      const stageEl = gsap.utils.toArray<HTMLElement>('.sld-liquid-stage-166', componentRoot.value)
+      const itemTitles = gsap.utils.toArray<HTMLElement>('.sld-item-title-166', componentRoot.value)
+      const itemDescs = gsap.utils.toArray<HTMLElement>('.sld-item-desc-166', componentRoot.value)
+      const particles = gsap.utils.toArray<HTMLElement>('.sld-particle-166', componentRoot.value)
 
-      // 标题动画
       if (titleEl.length) {
         gsap.from(titleEl, {
           scrollTrigger: {
@@ -227,7 +223,6 @@ onMounted(() => {
           },
           y: 80,
           opacity: 0,
-          filter: 'blur(20px)',
           duration: 1.2,
           ease: 'power3.out'
         })
@@ -242,14 +237,12 @@ onMounted(() => {
           },
           y: 40,
           opacity: 0,
-          filter: 'blur(10px)',
           duration: 1,
           delay: 0.2,
           ease: 'power3.out'
         })
       }
 
-      // 液体项目动画
       if (liquidItems.length) {
         gsap.from(liquidItems, {
           scrollTrigger: {
@@ -259,28 +252,24 @@ onMounted(() => {
           },
           y: 100,
           opacity: 0,
-          scale: 0.8,
-          rotation: (i) => (i % 2 === 0 ? 5 : -5),
+          scale: 0.9,
           duration: 1,
           stagger: 0.2,
           ease: 'back.out(1.7)'
         })
 
-        // 液体项目持续波动
-        liquidItems.forEach((item: HTMLElement, index: number) => {
+        liquidItems.forEach((item) => {
           gsap.to(item, {
             y: -10,
-            rotation: (index % 2 === 0 ? 2 : -2),
-            duration: 2.5,
+            duration: 3,
             repeat: -1,
             yoyo: true,
             ease: 'sine.inOut',
-            delay: index * 0.3
+            delay: Math.random() * 2
           })
         })
       }
 
-      // 内容动画
       if (itemTitles.length) {
         gsap.from(itemTitles, {
           scrollTrigger: {
@@ -288,7 +277,7 @@ onMounted(() => {
             start: 'top 65%',
             toggleActions: 'play none none reverse'
           },
-          y: 30,
+          y: 20,
           opacity: 0,
           duration: 0.8,
           stagger: 0.2,
@@ -313,7 +302,6 @@ onMounted(() => {
         })
       }
 
-      // 粒子动画
       if (particles.length) {
         gsap.from(particles, {
           scrollTrigger: {
@@ -331,35 +319,17 @@ onMounted(() => {
           ease: 'elastic.out(1, 0.5)'
         })
 
-        // 粒子持续动画
-        particles.forEach((particle: HTMLElement) => {
+        particles.forEach((particle) => {
           const duration = 3 + Math.random() * 4
-          const delay = Math.random() * 2
-
           gsap.to(particle, {
-            y: -window.innerHeight * 0.6,
+            y: -window.innerHeight * 0.5,
             x: (Math.random() - 0.5) * 100,
             opacity: 0,
             duration,
             repeat: -1,
-            delay,
+            delay: Math.random() * 2,
             ease: 'none'
           })
-        })
-      }
-
-      // 滚动控制液体强度
-      if (stageEl.length) {
-        ScrollTrigger.create({
-          trigger: stageEl[0],
-          start: 'top 80%',
-          end: 'bottom 20%',
-          onUpdate: (self) => {
-            const progress = self.progress
-            drops.forEach((drop) => {
-              drop.speedY = (1 + Math.random()) * (1 + progress * 2)
-            })
-          }
         })
       }
     }, componentRoot.value)
@@ -373,53 +343,46 @@ onUnmounted(() => {
     cancelAnimationFrame(animationFrame)
   }
 })
-
-onUnmounted(() => {
-  ctx?.revert()
-  if (animationFrame) {
-    cancelAnimationFrame(animationFrame)
-  }
-})
 </script>
 
 <style scoped lang="scss">
-.sld-liquid-distort-section-161 {
+.sld-liquid-distort-section-166 {
   min-height: 150vh;
   padding: 100px 20px;
-  background: linear-gradient(180deg, #0a1525 0%, #0f1f35 50%, #0a1525 100%);
+  background: linear-gradient(180deg, #0a0a20 0%, #0f0a30 50%, #0a0a20 100%);
   position: relative;
   overflow: hidden;
 }
 
-.sld-container-161 {
+.sld-container-166 {
   position: relative;
   max-width: 1400px;
   margin: 0 auto;
   z-index: 1;
 }
 
-.sld-title-161 {
+.sld-title-166 {
   text-align: center;
   font-size: clamp(2.5rem, 6vw, 4rem);
   font-weight: 900;
   margin-bottom: 20px;
-  background: linear-gradient(135deg, #3b82f6, #06b6d4, #10b981);
+  background: linear-gradient(135deg, #64c8ff, #4a90e2, #7eb8ff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  filter: drop-shadow(0 0 30px rgba(59, 130, 246, 0.5));
+  text-shadow: 0 0 60px rgba(100, 200, 255, 0.5);
 }
 
-.sld-subtitle-161 {
+.sld-subtitle-166 {
   text-align: center;
   font-size: 1.2rem;
-  color: rgba(59, 130, 246, 0.6);
+  color: rgba(100, 200, 255, 0.6);
   margin-bottom: 80px;
   letter-spacing: 0.3em;
   text-transform: uppercase;
 }
 
-.sld-liquid-stage-161 {
+.sld-liquid-stage-166 {
   position: relative;
   min-height: 80vh;
   display: flex;
@@ -427,7 +390,7 @@ onUnmounted(() => {
   justify-content: center;
 }
 
-.sld-canvas-161 {
+.sld-canvas-166 {
   position: absolute;
   top: 0;
   left: 0;
@@ -436,81 +399,84 @@ onUnmounted(() => {
   pointer-events: none;
 }
 
-.sld-images-161 {
+.sld-images-166 {
   position: relative;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 40px;
-  z-index: 2;
   max-width: 1200px;
+  z-index: 2;
 }
 
-.sld-liquid-item-161 {
+.sld-liquid-item-166 {
   position: relative;
-  background: rgba(15, 30, 50, 0.8);
-  border-radius: 20px;
+  background: rgba(10, 10, 30, 0.6);
+  backdrop-filter: blur(20px);
+  border-radius: 24px;
   overflow: hidden;
-  border: 1px solid rgba(59, 130, 246, 0.2);
+  border: 1px solid rgba(100, 200, 255, 0.2);
   cursor: pointer;
-  backdrop-filter: blur(10px);
+  transition: border-color 0.4s ease;
+
+  &:hover {
+    border-color: rgba(100, 200, 255, 0.5);
+  }
 }
 
-.sld-image-container-161 {
+.sld-image-container-166 {
   position: relative;
-  width: 100%;
-  aspect-ratio: 4/3;
+  height: 200px;
   overflow: hidden;
 }
 
-.sld-image-161 {
-  position: absolute;
-  inset: 0;
+.sld-image-166 {
+  width: 100%;
+  height: 100%;
   background-size: cover;
   background-position: center;
   transition: transform 0.5s ease;
 }
 
-.sld-liquid-overlay-161 {
+.sld-liquid-overlay-166 {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, transparent 50%, rgba(15, 30, 50, 0.9));
+  background: linear-gradient(135deg, rgba(100, 200, 255, 0.3), rgba(74, 144, 226, 0.3));
   opacity: 0.3;
   transition: opacity 0.5s ease;
 }
 
-.sld-ripple-161 {
+.sld-ripple-166 {
   position: absolute;
+  border: 2px solid rgba(100, 200, 255, 0.5);
+  border-radius: 50%;
   top: 50%;
   left: 50%;
-  width: 100px;
-  height: 100px;
   transform: translate(-50%, -50%);
-  border: 2px solid rgba(59, 130, 246, 0.5);
-  border-radius: 50%;
-  pointer-events: none;
+  opacity: 0;
 }
 
-.sld-item-content-161 {
-  padding: 25px;
+.sld-item-content-166 {
+  position: relative;
+  padding: 30px;
+  text-align: center;
 }
 
-.sld-item-title-161 {
-  font-size: 1.5rem;
+.sld-item-title-166 {
+  font-size: 1.8rem;
   font-weight: 700;
   color: #fff;
   margin-bottom: 10px;
+  text-shadow: 0 0 20px rgba(100, 200, 255, 0.5);
+}
+
+.sld-item-desc-166 {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.7);
   text-transform: uppercase;
   letter-spacing: 0.1em;
 }
 
-.sld-item-desc-161 {
-  font-size: 0.9rem;
-  color: rgba(59, 130, 246, 0.8);
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-}
-
-.sld-particles-161 {
+.sld-particles-166 {
   position: absolute;
   top: 0;
   left: 0;
@@ -520,26 +486,22 @@ onUnmounted(() => {
   overflow: hidden;
 }
 
-.sld-particle-161 {
+.sld-particle-166 {
   position: absolute;
   width: 6px;
   height: 6px;
-  background: radial-gradient(circle, rgba(59, 130, 246, 0.6) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(100, 200, 255, 0.8) 0%, transparent 70%);
   border-radius: 50%;
   bottom: -20px;
 }
 
 @media (max-width: 768px) {
-  .sld-images-161 {
+  .sld-images-166 {
     grid-template-columns: 1fr;
   }
 
-  .sld-item-title-161 {
-    font-size: 1.3rem;
-  }
-
-  .sld-item-desc-161 {
-    font-size: 0.85rem;
+  .sld-item-title-166 {
+    font-size: 1.5rem;
   }
 }
 </style>

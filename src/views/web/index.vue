@@ -12,13 +12,13 @@
     <!-- 组件容器 - 用于懒加载 -->
     <div ref="componentsContainer" class="components-container">
       <!-- 核心组件 - 立即加载 -->
-      <div v-if="1">
-        <Card3DFlipGallery />
-        <Timeline />
-        <TextTypewriter />
-        <Cube3D />
-        <ImageParallax />
-
+      <!--      <div v-if="1">-->
+      <Card3DFlipGallery />
+      <Timeline />
+      <TextTypewriter />
+      <Cube3D />
+      <ImageParallax />
+      <div v-if="0">
         <!-- 3D/视差组件 - 懒加载 -->
         <LazyLiquidWave v-if="visibilityState.showLiquidWave" />
         <LazyParticleExplosion v-if="visibilityState.showParticleExplosion" />
@@ -126,82 +126,106 @@
         <LazyScrollFluidPanels v-if="visibilityState.showScrollFluidPanels" />
         <LazyScrollGravityBounce v-if="visibilityState.showScrollGravityBounce" />
         <LazyScrollPixelCard v-if="visibilityState.showScrollPixelCard" />
+
+        <LazyScrollLaserLine v-if="visibilityState.showScrollLaserLine" />
+        <LazyScrollHologram v-if="visibilityState.showScrollHologram" />
+        <LazyScrollLiquidMorph v-if="visibilityState.showScrollLiquidMorph" />
+
+        <LazyScrollNeonPulse v-if="visibilityState.showScrollNeonPulse" />
+        <LazyScrollTimeWarp v-if="visibilityState.showScrollTimeWarp" />
+        <LazyScrollCrystalShatter v-if="visibilityState.showScrollCrystalShatter" />
+        <LazyQuantumWormhole v-if="visibilityState.showQuantumWormhole" />
+        <LazyMagneticOrbit v-if="visibilityState.showMagneticOrbit" />
+        <LazySpringBounce v-if="visibilityState.showSpringBounce" />
+
+        <!-- 新增高级滚动动画组件 -->
+        <LazyScrollImageReveal v-if="visibilityState.showScrollImageReveal" />
+        <LazyScrollTextSplit v-if="visibilityState.showScrollTextSplit" />
+        <LazyScrollCardFloat v-if="visibilityState.showScrollCardFloat" />
+        <LazyScrollMagnify v-if="visibilityState.showScrollMagnify" />
+        <LazyScrollParallaxText v-if="visibilityState.showScrollParallaxText" />
+        <LazyScroll3DGallery v-if="visibilityState.showScroll3DGallery" />
+
+        <!-- 超级高级滚动动画组件 -->
+        <LazyScrollImageFlow v-if="visibilityState.showScrollImageFlow" />
+        <LazyScrollTextCurtain v-if="visibilityState.showScrollTextCurtain" />
+        <LazyScrollCardWave v-if="visibilityState.showScrollCardWave" />
+
+        <!-- 极致高级滚动动画组件 -->
+        <LazyScrollImageDistort v-if="visibilityState.showScrollImageDistort" />
+        <LazyScrollText3D v-if="visibilityState.showScrollText3D" />
+        <LazyScrollCardPolaroid v-if="visibilityState.showScrollCardPolaroid" />
+
+        <!-- 全新高级滚动动画组件 -->
+        <LazyScrollInkReveal v-if="visibilityState.showScrollInkReveal" />
+        <LazyScrollParticleText v-if="visibilityState.showScrollParticleText" />
+        <LazyScrollFoldCard v-if="visibilityState.showScrollFoldCard" />
+        <LazyScrollMagneticFluid v-if="visibilityState.showScrollMagneticFluid" />
+        <LazyScrollGlitchText v-if="visibilityState.showScrollGlitchText" />
+
+        <!-- 全新高级动画组件 (2026) -->
+        <LazyScrollImageStackReveal v-if="visibilityState.showScrollImageStackReveal" />
+        <LazyScrollTextWaveSplit v-if="visibilityState.showScrollTextWaveSplit" />
+        <LazyScrollCard3DFlip v-if="visibilityState.showScrollCard3DFlip" />
+        <LazyScrollParallaxGallery v-if="visibilityState.showScrollParallaxGallery" />
+        <LazyScrollElasticText v-if="visibilityState.showScrollElasticText" />
+        <LazyScrollMagneticCards v-if="visibilityState.showScrollMagneticCards" />
+        <LazyScrollInfiniteScroll v-if="visibilityState.showScrollInfiniteScroll" />
+        <LazyScrollWaveCards v-if="visibilityState.showScrollWaveCards" />
+
+        <!-- 全新创意动画组件 (2026-03) -->
+        <LazyScrollLensReveal v-if="visibilityState.showScrollLensReveal" />
+        <LazyScrollMorphPath v-if="visibilityState.showScrollMorphPath" />
+        <LazyScrollTimeline v-if="visibilityState.showScrollTimeline" />
+        <LazyScrollTextScatter v-if="visibilityState.showScrollTextScatter" />
+        <LazyScrollCardStack v-if="visibilityState.showScrollCardStack" />
+        <LazyScrollGradientFlow v-if="visibilityState.showScrollGradientFlow" />
+        <LazyScrollParticleWave v-if="visibilityState.showScrollParticleWave" />
+        <LazyScrollImageMosaic v-if="visibilityState.showScrollImageMosaic" />
+        <!--      </div>-->
+        <!-- 全新高级创意动画组件 (2026-03 扩展) -->
+        <LazyScrollFluidText v-if="visibilityState.showScrollFluidText" />
+        <LazyScrollMorphingCards v-if="visibilityState.showScrollMorphingCards" />
+        <LazyScrollRippleCards v-if="visibilityState.showScrollRippleCards" />
+        <LazyScrollDistortGallery v-if="visibilityState.showScrollDistortGallery" />
+        <LazyScrollMagneticGrid v-if="visibilityState.showScrollMagneticGrid" />
+        <LazyScrollFoldEffect v-if="visibilityState.showScrollFoldEffect" />
+        <LazyScroll3DTunnel v-if="visibilityState.showScroll3DTunnel" />
+        <LazyScrollSpiralReveal v-if="visibilityState.showScrollSpiralReveal" />
+
+        <!-- 全新终极创意动画组件 (2026-03 超级扩展) -->
+        <LazyScrollGlitchEffect v-if="visibilityState.showScrollGlitchEffect" />
+        <LazyScrollAuroraField v-if="visibilityState.showScrollAuroraField" />
+        <LazyScrollMagneticOrbitCards v-if="visibilityState.showScrollMagneticOrbitCards" />
+        <LazyScrollNeonTrailCards v-if="visibilityState.showScrollNeonTrailCards" />
+        <LazyScrollHologramGallery v-if="visibilityState.showScrollHologramGallery" />
+        <LazyScrollLiquidDistort v-if="visibilityState.showScrollLiquidDistort" />
+        <LazyScrollPrismCards v-if="visibilityState.showScrollPrismCards" />
+        <LazyScrollTemporalDistortion v-if="visibilityState.showScrollTemporalDistortion" />
+
+        <!-- 全新超级创意动画组件 (2026-03 终极扩展) -->
+        <LazyScrollCyberGrid v-if="visibilityState.showScrollCyberGrid" />
+        <LazyScrollQuantumPortal v-if="visibilityState.showScrollQuantumPortal" />
+        <LazyScrollNeonMatrix v-if="visibilityState.showScrollNeonMatrix" />
+        <LazyScrollCrystalPrism v-if="visibilityState.showScrollCrystalPrism" />
+        <LazyScrollAuroraAurora v-if="visibilityState.showScrollAuroraAurora" />
+        <LazyScrollGalaxyVortex v-if="visibilityState.showScrollGalaxyVortex" />
+        <LazyScrollInfinityMirrors v-if="visibilityState.showScrollInfinityMirrors" />
       </div>
-      <LazyScrollLaserLine v-if="visibilityState.showScrollLaserLine" />
-      <LazyScrollHologram v-if="visibilityState.showScrollHologram" />
-      <LazyScrollLiquidMorph v-if="visibilityState.showScrollLiquidMorph" />
 
-      <LazyScrollNeonPulse v-if="visibilityState.showScrollNeonPulse" />
-      <LazyScrollTimeWarp v-if="visibilityState.showScrollTimeWarp" />
-      <LazyScrollCrystalShatter v-if="visibilityState.showScrollCrystalShatter" />
-      <LazyQuantumWormhole v-if="visibilityState.showQuantumWormhole" />
-      <LazyMagneticOrbit v-if="visibilityState.showMagneticOrbit" />
-      <LazySpringBounce v-if="visibilityState.showSpringBounce" />
+      <LazyScrollNeonRain v-if="visibilityState.showScrollNeonRain" />
 
-      <!-- 新增高级滚动动画组件 -->
-      <LazyScrollImageReveal v-if="visibilityState.showScrollImageReveal" />
-      <LazyScrollTextSplit v-if="visibilityState.showScrollTextSplit" />
-      <LazyScrollCardFloat v-if="visibilityState.showScrollCardFloat" />
-      <LazyScrollMagnify v-if="visibilityState.showScrollMagnify" />
-      <LazyScrollParallaxText v-if="visibilityState.showScrollParallaxText" />
-      <LazyScroll3DGallery v-if="visibilityState.showScroll3DGallery" />
+      <!-- 全新创意滚动控制动画组件 (2026-03) -->
+      <LazyScrollParallaxCardsScroll v-if="visibilityState.showScrollParallaxCardsScroll" />
+      <LazyScrollTextCascadEffect v-if="visibilityState.showScrollTextCascadEffect" />
+      <LazyScrollCardMorphReveal v-if="visibilityState.showScrollCardMorphReveal" />
+      <LazyScrollSplitTransition v-if="visibilityState.showScrollSplitTransition" />
 
-      <!-- 超级高级滚动动画组件 -->
-      <LazyScrollImageFlow v-if="visibilityState.showScrollImageFlow" />
-      <LazyScrollTextCurtain v-if="visibilityState.showScrollTextCurtain" />
-      <LazyScrollCardWave v-if="visibilityState.showScrollCardWave" />
-
-      <!-- 极致高级滚动动画组件 -->
-      <LazyScrollImageDistort v-if="visibilityState.showScrollImageDistort" />
-      <LazyScrollText3D v-if="visibilityState.showScrollText3D" />
-      <LazyScrollCardPolaroid v-if="visibilityState.showScrollCardPolaroid" />
-
-      <!-- 全新高级滚动动画组件 -->
-      <LazyScrollInkReveal v-if="visibilityState.showScrollInkReveal" />
-      <LazyScrollParticleText v-if="visibilityState.showScrollParticleText" />
-      <LazyScrollFoldCard v-if="visibilityState.showScrollFoldCard" />
-      <LazyScrollMagneticFluid v-if="visibilityState.showScrollMagneticFluid" />
-      <LazyScrollGlitchText v-if="visibilityState.showScrollGlitchText" />
-
-      <!-- 全新高级动画组件 (2026) -->
-      <LazyScrollImageStackReveal v-if="visibilityState.showScrollImageStackReveal" />
-      <LazyScrollTextWaveSplit v-if="visibilityState.showScrollTextWaveSplit" />
-      <LazyScrollCard3DFlip v-if="visibilityState.showScrollCard3DFlip" />
-      <LazyScrollParallaxGallery v-if="visibilityState.showScrollParallaxGallery" />
-      <LazyScrollElasticText v-if="visibilityState.showScrollElasticText" />
-      <LazyScrollMagneticCards v-if="visibilityState.showScrollMagneticCards" />
-      <LazyScrollInfiniteScroll v-if="visibilityState.showScrollInfiniteScroll" />
-      <LazyScrollWaveCards v-if="visibilityState.showScrollWaveCards" />
-
-      <!-- 全新创意动画组件 (2026-03) -->
-      <LazyScrollLensReveal v-if="visibilityState.showScrollLensReveal" />
-      <LazyScrollMorphPath v-if="visibilityState.showScrollMorphPath" />
-      <LazyScrollTimeline v-if="visibilityState.showScrollTimeline" />
-      <LazyScrollTextScatter v-if="visibilityState.showScrollTextScatter" />
-      <LazyScrollCardStack v-if="visibilityState.showScrollCardStack" />
-      <LazyScrollGradientFlow v-if="visibilityState.showScrollGradientFlow" />
-      <LazyScrollParticleWave v-if="visibilityState.showScrollParticleWave" />
-      <LazyScrollImageMosaic v-if="visibilityState.showScrollImageMosaic" />
-
-      <!-- 全新高级创意动画组件 (2026-03 扩展) -->
-      <LazyScrollFluidText v-if="visibilityState.showScrollFluidText" />
-      <LazyScrollMorphingCards v-if="visibilityState.showScrollMorphingCards" />
-      <LazyScrollRippleCards v-if="visibilityState.showScrollRippleCards" />
-      <LazyScrollDistortGallery v-if="visibilityState.showScrollDistortGallery" />
-      <LazyScrollMagneticGrid v-if="visibilityState.showScrollMagneticGrid" />
-      <LazyScrollFoldEffect v-if="visibilityState.showScrollFoldEffect" />
-      <LazyScroll3DTunnel v-if="visibilityState.showScroll3DTunnel" />
-      <LazyScrollSpiralReveal v-if="visibilityState.showScrollSpiralReveal" />
-
-      <!-- 全新终极创意动画组件 (2026-03 超级扩展) -->
-      <LazyScrollGlitchEffect v-if="visibilityState.showScrollGlitchEffect" />
-      <LazyScrollAuroraField v-if="visibilityState.showScrollAuroraField" />
-      <LazyScrollMagneticOrbitCards v-if="visibilityState.showScrollMagneticOrbitCards" />
-      <LazyScrollNeonTrailCards v-if="visibilityState.showScrollNeonTrailCards" />
-      <LazyScrollHologramGallery v-if="visibilityState.showScrollHologramGallery" />
-      <LazyScrollLiquidDistort v-if="visibilityState.showScrollLiquidDistort" />
-      <LazyScrollPrismCards v-if="visibilityState.showScrollPrismCards" />
-      <LazyScrollTemporalDistortion v-if="visibilityState.showScrollTemporalDistortion" />
+      <!-- 全新高级滚动控制动画组件 (2026-03) -->
+      <LazyScrollParallaxDepth v-if="visibilityState.showScrollParallaxDepth" />
+      <LazyScrollMagneticField v-if="visibilityState.showScrollMagneticField" />
+      <LazyScrollGeometricFlow v-if="visibilityState.showScrollGeometricFlow" />
+      <LazyScrollWaveReveal v-if="visibilityState.showScrollWaveReveal" />
     </div>
 
     <!-- 加载指示器 -->
@@ -356,60 +380,162 @@ const LazyScroll3DGallery = defineAsyncComponent(() => import('./components/Scro
 
 // 超级高级懒加载组件
 const LazyScrollImageFlow = defineAsyncComponent(() => import('./components/ScrollImageFlow.vue'))
-const LazyScrollTextCurtain = defineAsyncComponent(() => import('./components/ScrollTextCurtain.vue'))
+const LazyScrollTextCurtain = defineAsyncComponent(
+  () => import('./components/ScrollTextCurtain.vue')
+)
 const LazyScrollCardWave = defineAsyncComponent(() => import('./components/ScrollCardWave.vue'))
 
 // 极致高级懒加载组件
-const LazyScrollImageDistort = defineAsyncComponent(() => import('./components/ScrollImageDistort.vue'))
+const LazyScrollImageDistort = defineAsyncComponent(
+  () => import('./components/ScrollImageDistort.vue')
+)
 const LazyScrollText3D = defineAsyncComponent(() => import('./components/ScrollText3D.vue'))
-const LazyScrollCardPolaroid = defineAsyncComponent(() => import('./components/ScrollCardPolaroid.vue'))
+const LazyScrollCardPolaroid = defineAsyncComponent(
+  () => import('./components/ScrollCardPolaroid.vue')
+)
 
 // 全新高级滚动动画组件
 const LazyScrollInkReveal = defineAsyncComponent(() => import('./components/ScrollInkReveal.vue'))
-const LazyScrollParticleText = defineAsyncComponent(() => import('./components/ScrollParticleText.vue'))
+const LazyScrollParticleText = defineAsyncComponent(
+  () => import('./components/ScrollParticleText.vue')
+)
 const LazyScrollFoldCard = defineAsyncComponent(() => import('./components/ScrollFoldCard.vue'))
-const LazyScrollMagneticFluid = defineAsyncComponent(() => import('./components/ScrollMagneticFluid.vue'))
+const LazyScrollMagneticFluid = defineAsyncComponent(
+  () => import('./components/ScrollMagneticFluid.vue')
+)
 const LazyScrollGlitchText = defineAsyncComponent(() => import('./components/ScrollGlitchText.vue'))
 
 // 全新高级动画组件 (2026)
-const LazyScrollImageStackReveal = defineAsyncComponent(() => import('./components/ScrollImageStackReveal.vue'))
-const LazyScrollTextWaveSplit = defineAsyncComponent(() => import('./components/ScrollTextWaveSplit.vue'))
+const LazyScrollImageStackReveal = defineAsyncComponent(
+  () => import('./components/ScrollImageStackReveal.vue')
+)
+const LazyScrollTextWaveSplit = defineAsyncComponent(
+  () => import('./components/ScrollTextWaveSplit.vue')
+)
 const LazyScrollCard3DFlip = defineAsyncComponent(() => import('./components/ScrollCard3DFlip.vue'))
-const LazyScrollParallaxGallery = defineAsyncComponent(() => import('./components/ScrollParallaxGallery.vue'))
-const LazyScrollElasticText = defineAsyncComponent(() => import('./components/ScrollElasticText.vue'))
-const LazyScrollMagneticCards = defineAsyncComponent(() => import('./components/ScrollMagneticCards.vue'))
-const LazyScrollInfiniteScroll = defineAsyncComponent(() => import('./components/ScrollInfiniteScroll.vue'))
+const LazyScrollParallaxGallery = defineAsyncComponent(
+  () => import('./components/ScrollParallaxGallery.vue')
+)
+const LazyScrollElasticText = defineAsyncComponent(
+  () => import('./components/ScrollElasticText.vue')
+)
+const LazyScrollMagneticCards = defineAsyncComponent(
+  () => import('./components/ScrollMagneticCards.vue')
+)
+const LazyScrollInfiniteScroll = defineAsyncComponent(
+  () => import('./components/ScrollInfiniteScroll.vue')
+)
 const LazyScrollWaveCards = defineAsyncComponent(() => import('./components/ScrollWaveCards.vue'))
 
 // 全新创意动画组件 (2026-03)
 const LazyScrollLensReveal = defineAsyncComponent(() => import('./components/ScrollLensReveal.vue'))
 const LazyScrollMorphPath = defineAsyncComponent(() => import('./components/ScrollMorphPath.vue'))
 const LazyScrollTimeline = defineAsyncComponent(() => import('./components/ScrollTimeline.vue'))
-const LazyScrollTextScatter = defineAsyncComponent(() => import('./components/ScrollTextScatter.vue'))
+const LazyScrollTextScatter = defineAsyncComponent(
+  () => import('./components/ScrollTextScatter.vue')
+)
 const LazyScrollCardStack = defineAsyncComponent(() => import('./components/ScrollCardStack.vue'))
-const LazyScrollGradientFlow = defineAsyncComponent(() => import('./components/ScrollGradientFlow.vue'))
-const LazyScrollParticleWave = defineAsyncComponent(() => import('./components/ScrollParticleWave.vue'))
-const LazyScrollImageMosaic = defineAsyncComponent(() => import('./components/ScrollImageMosaic.vue'))
+const LazyScrollGradientFlow = defineAsyncComponent(
+  () => import('./components/ScrollGradientFlow.vue')
+)
+const LazyScrollParticleWave = defineAsyncComponent(
+  () => import('./components/ScrollParticleWave.vue')
+)
+const LazyScrollImageMosaic = defineAsyncComponent(
+  () => import('./components/ScrollImageMosaic.vue')
+)
 
 // 全新高级创意动画组件 (2026-03 扩展)
 const LazyScrollFluidText = defineAsyncComponent(() => import('./components/ScrollFluidText.vue'))
-const LazyScrollMorphingCards = defineAsyncComponent(() => import('./components/ScrollMorphingCards.vue'))
-const LazyScrollRippleCards = defineAsyncComponent(() => import('./components/ScrollRippleCards.vue'))
-const LazyScrollDistortGallery = defineAsyncComponent(() => import('./components/ScrollDistortGallery.vue'))
-const LazyScrollMagneticGrid = defineAsyncComponent(() => import('./components/ScrollMagneticGrid.vue'))
+const LazyScrollMorphingCards = defineAsyncComponent(
+  () => import('./components/ScrollMorphingCards.vue')
+)
+const LazyScrollRippleCards = defineAsyncComponent(
+  () => import('./components/ScrollRippleCards.vue')
+)
+const LazyScrollDistortGallery = defineAsyncComponent(
+  () => import('./components/ScrollDistortGallery.vue')
+)
+const LazyScrollMagneticGrid = defineAsyncComponent(
+  () => import('./components/ScrollMagneticGrid.vue')
+)
 const LazyScrollFoldEffect = defineAsyncComponent(() => import('./components/ScrollFoldEffect.vue'))
 const LazyScroll3DTunnel = defineAsyncComponent(() => import('./components/Scroll3DTunnel.vue'))
-const LazyScrollSpiralReveal = defineAsyncComponent(() => import('./components/ScrollSpiralReveal.vue'))
+const LazyScrollSpiralReveal = defineAsyncComponent(
+  () => import('./components/ScrollSpiralReveal.vue')
+)
 
 // 全新终极创意动画组件 (2026-03 超级扩展)
-const LazyScrollGlitchEffect = defineAsyncComponent(() => import('./components/ScrollGlitchEffect.vue'))
-const LazyScrollAuroraField = defineAsyncComponent(() => import('./components/ScrollAuroraField.vue'))
-const LazyScrollMagneticOrbitCards = defineAsyncComponent(() => import('./components/ScrollMagneticOrbitCards.vue'))
-const LazyScrollNeonTrailCards = defineAsyncComponent(() => import('./components/ScrollNeonTrailCards.vue'))
-const LazyScrollHologramGallery = defineAsyncComponent(() => import('./components/ScrollHologramGallery.vue'))
-const LazyScrollLiquidDistort = defineAsyncComponent(() => import('./components/ScrollLiquidDistort.vue'))
+const LazyScrollGlitchEffect = defineAsyncComponent(
+  () => import('./components/ScrollGlitchEffect.vue')
+)
+const LazyScrollAuroraField = defineAsyncComponent(
+  () => import('./components/ScrollAuroraField.vue')
+)
+const LazyScrollMagneticOrbitCards = defineAsyncComponent(
+  () => import('./components/ScrollMagneticOrbitCards.vue')
+)
+const LazyScrollNeonTrailCards = defineAsyncComponent(
+  () => import('./components/ScrollNeonTrailCards.vue')
+)
+const LazyScrollHologramGallery = defineAsyncComponent(
+  () => import('./components/ScrollHologramGallery.vue')
+)
+const LazyScrollLiquidDistort = defineAsyncComponent(
+  () => import('./components/ScrollLiquidDistort.vue')
+)
 const LazyScrollPrismCards = defineAsyncComponent(() => import('./components/ScrollPrismCards.vue'))
-const LazyScrollTemporalDistortion = defineAsyncComponent(() => import('./components/ScrollTemporalDistortion.vue'))
+const LazyScrollTemporalDistortion = defineAsyncComponent(
+  () => import('./components/ScrollTemporalDistortion.vue')
+)
+
+// 全新超级创意动画组件 (2026-03 终极扩展)
+const LazyScrollCyberGrid = defineAsyncComponent(() => import('./components/ScrollCyberGrid.vue'))
+const LazyScrollQuantumPortal = defineAsyncComponent(
+  () => import('./components/ScrollQuantumPortal.vue')
+)
+const LazyScrollNeonMatrix = defineAsyncComponent(() => import('./components/ScrollNeonMatrix.vue'))
+const LazyScrollCrystalPrism = defineAsyncComponent(
+  () => import('./components/ScrollCrystalPrism.vue')
+)
+const LazyScrollAuroraAurora = defineAsyncComponent(
+  () => import('./components/ScrollAuroraAurora.vue')
+)
+const LazyScrollGalaxyVortex = defineAsyncComponent(
+  () => import('./components/ScrollGalaxyVortex.vue')
+)
+const LazyScrollInfinityMirrors = defineAsyncComponent(
+  () => import('./components/ScrollInfinityMirrors.vue')
+)
+const LazyScrollNeonRain = defineAsyncComponent(() => import('./components/ScrollNeonRain.vue'))
+
+// 全新创意滚动控制动画组件 (2026-03)
+const LazyScrollParallaxCardsScroll = defineAsyncComponent(
+  () => import('./components/ScrollParallaxCardsScroll.vue')
+)
+const LazyScrollTextCascadEffect = defineAsyncComponent(
+  () => import('./components/ScrollTextCascadEffect.vue')
+)
+const LazyScrollCardMorphReveal = defineAsyncComponent(
+  () => import('./components/ScrollCardMorphReveal.vue')
+)
+const LazyScrollSplitTransition = defineAsyncComponent(
+  () => import('./components/ScrollSplitTransition.vue')
+)
+
+// 全新高级滚动控制动画组件 (2026-03)
+const LazyScrollParallaxDepth = defineAsyncComponent(
+  () => import('./components/ScrollParallaxDepth.vue')
+)
+const LazyScrollMagneticField = defineAsyncComponent(
+  () => import('./components/ScrollMagneticField.vue')
+)
+const LazyScrollGeometricFlow = defineAsyncComponent(
+  () => import('./components/ScrollGeometricFlow.vue')
+)
+const LazyScrollWaveReveal = defineAsyncComponent(
+  () => import('./components/ScrollWaveReveal.vue')
+)
 
 // 组件显示状态
 const isLoading = ref(true)
@@ -546,7 +672,23 @@ const visibilityState = ref<Record<string, boolean>>({
   showScrollHologramGallery: false,
   showScrollLiquidDistort: false,
   showScrollPrismCards: false,
-  showScrollTemporalDistortion: false
+  showScrollTemporalDistortion: false,
+  showScrollCyberGrid: false,
+  showScrollQuantumPortal: false,
+  showScrollNeonMatrix: false,
+  showScrollCrystalPrism: false,
+  showScrollAuroraAurora: false,
+  showScrollGalaxyVortex: false,
+  showScrollInfinityMirrors: false,
+  showScrollNeonRain: false,
+  showScrollParallaxCardsScroll: false,
+  showScrollTextCascadEffect: false,
+  showScrollCardMorphReveal: false,
+  showScrollSplitTransition: false,
+  showScrollParallaxDepth: false,
+  showScrollMagneticField: false,
+  showScrollGeometricFlow: false,
+  showScrollWaveReveal: false
 })
 
 // 组件分批加载配置
@@ -601,7 +743,19 @@ const componentBatches = [
   ['showScrollGlitchEffect', 'showScrollAuroraField', 'showScrollMagneticOrbitCards'],
   ['showScrollNeonTrailCards', 'showScrollHologramGallery'],
   ['showScrollLiquidDistort', 'showScrollPrismCards'],
-  ['showScrollTemporalDistortion']
+  ['showScrollTemporalDistortion'],
+  [
+    'showScrollCyberGrid',
+    'showScrollQuantumPortal',
+    'showScrollNeonMatrix',
+    'showScrollCrystalPrism'
+  ],
+  ['showScrollAuroraAurora', 'showScrollGalaxyVortex', 'showScrollInfinityMirrors'],
+  ['showScrollNeonRain'],
+  ['showScrollParallaxCardsScroll', 'showScrollTextCascadEffect'],
+  ['showScrollCardMorphReveal', 'showScrollSplitTransition'],
+  ['showScrollParallaxDepth', 'showScrollMagneticField'],
+  ['showScrollGeometricFlow', 'showScrollWaveReveal']
 ]
 
 // 交叉观察器用于懒加载
@@ -743,6 +897,28 @@ onMounted(() => {
   visibilityState.value.showScrollLiquidDistort = true
   visibilityState.value.showScrollPrismCards = true
   visibilityState.value.showScrollTemporalDistortion = true
+
+  // 立即显示全新超级创意动画组件 (2026-03 终极扩展)
+  visibilityState.value.showScrollCyberGrid = true
+  visibilityState.value.showScrollQuantumPortal = true
+  visibilityState.value.showScrollNeonMatrix = true
+  visibilityState.value.showScrollCrystalPrism = true
+  visibilityState.value.showScrollAuroraAurora = true
+  visibilityState.value.showScrollGalaxyVortex = true
+  visibilityState.value.showScrollInfinityMirrors = true
+  visibilityState.value.showScrollNeonRain = true
+
+  // 立即显示全新创意滚动控制动画组件 (2026-03)
+  visibilityState.value.showScrollParallaxCardsScroll = true
+  visibilityState.value.showScrollTextCascadEffect = true
+  visibilityState.value.showScrollCardMorphReveal = true
+  visibilityState.value.showScrollSplitTransition = true
+
+  // 立即显示全新高级滚动控制动画组件 (2026-03)
+  visibilityState.value.showScrollParallaxDepth = true
+  visibilityState.value.showScrollMagneticField = true
+  visibilityState.value.showScrollGeometricFlow = true
+  visibilityState.value.showScrollWaveReveal = true
 
   // 初始加载后刷新ScrollTrigger
   setTimeout(() => {

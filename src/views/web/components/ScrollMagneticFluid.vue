@@ -79,9 +79,22 @@ const getBlobStyle = (index: number) => {
 }
 
 let gsapCtx: gsap.Context
-let handleMouseMove: (e: MouseEvent) => void = () => {}
 
 onMounted(() => {
+  const handleMouseMove = (e: MouseEvent) => {
+    const centerX = window.innerWidth / 2
+    const centerY = window.innerHeight / 2
+    const deltaX = (e.clientX - centerX) / centerX
+    const deltaY = (e.clientY - centerY) / centerY
+
+    gsap.to('.smf-fluid-stage-133', {
+      x: deltaX * 50,
+      y: deltaY * 30,
+      duration: 0.5,
+      ease: 'power2.out'
+    })
+  }
+
   gsapCtx = gsap.context(() => {
     // 标题磁性吸引
     gsap.from('.smf-section-title-133', {
@@ -247,32 +260,25 @@ onMounted(() => {
       })
     })
 
-    // 鼠标磁性效果
-    const handleMouseMove = (e: MouseEvent) => {
-      const centerX = window.innerWidth / 2
-      const centerY = window.innerHeight / 2
-      const deltaX = (e.clientX - centerX) / centerX
-      const deltaY = (e.clientY - centerY) / centerY
-
-      gsap.to('.smf-fluid-stage-133', {
-        x: deltaX * 50,
-        y: deltaY * 30,
-        duration: 0.5,
-        ease: 'power2.out'
-      })
-    }
-
     window.addEventListener('mousemove', handleMouseMove)
   })
 })
 
 onUnmounted(() => {
   gsapCtx?.revert()
-  window.removeEventListener('mousemove', handleMouseMove)
-})
+  window.removeEventListener('mousemove', (e: MouseEvent) => {
+    const centerX = window.innerWidth / 2
+    const centerY = window.innerHeight / 2
+    const deltaX = (e.clientX - centerX) / centerX
+    const deltaY = (e.clientY - centerY) / centerY
 
-onUnmounted(() => {
-  ctx?.revert()
+    gsap.to('.smf-fluid-stage-133', {
+      x: deltaX * 50,
+      y: deltaY * 30,
+      duration: 0.5,
+      ease: 'power2.out'
+    })
+  })
 })
 </script>
 

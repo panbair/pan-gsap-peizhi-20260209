@@ -1,32 +1,32 @@
 <template>
-  <section class="scg-cyber-grid-section-164" ref="componentRoot">
-    <div class="scg-container-164">
-      <h2 class="scg-title-164">赛博网格</h2>
-      <p class="scg-subtitle-164">Cyber Grid</p>
+  <section class="scg-cyber-grid-section-165" ref="componentRoot">
+    <div class="scg-container-165">
+      <h2 class="scg-title-165">赛博网格</h2>
+      <p class="scg-subtitle-165">Cyber Grid</p>
 
-      <div class="scg-grid-canvas-164">
+      <div class="scg-grid-canvas-165">
         <canvas ref="gridCanvas"></canvas>
       </div>
 
-      <div class="scg-cards-stage-164">
+      <div class="scg-cards-stage-165">
         <div
           v-for="(card, index) in cards"
           :key="index"
-          class="scg-cyber-card-164"
+          class="scg-cyber-card-165"
           :ref="el => { if (el) cardRefs[index] = el as HTMLElement }"
           :data-index="index"
           @mousemove="handleCardMouseMove($event, index)"
           @mouseleave="handleMouseLeave(index)"
         >
-          <div class="scg-card-grid-164">
-            <div class="scg-grid-line-164" v-for="i in 4" :key="i" :data-line="i"></div>
+          <div class="scg-card-grid-165">
+            <div class="scg-grid-line-165" v-for="i in 4" :key="i" :data-line="i"></div>
           </div>
-          <div class="scg-card-content-164">
-            <div class="scg-card-icon-164">{{ card.icon }}</div>
-            <h3 class="scg-card-title-164">{{ card.title }}</h3>
-            <p class="scg-card-desc-164">{{ card.description }}</p>
-            <div class="scg-card-matrix-164">
-              <div class="scg-matrix-cell-164" v-for="i in 9" :key="i"></div>
+          <div class="scg-card-content-165">
+            <div class="scg-card-icon-165">{{ card.icon }}</div>
+            <h3 class="scg-card-title-165">{{ card.title }}</h3>
+            <p class="scg-card-desc-165">{{ card.description }}</p>
+            <div class="scg-card-matrix-165">
+              <div class="scg-matrix-cell-165" v-for="i in 9" :key="i"></div>
             </div>
           </div>
         </div>
@@ -74,7 +74,6 @@ let gridCtx: CanvasRenderingContext2D | null = null
 let animationFrame: number | null = null
 let time = 0
 let resizeCanvas: () => void = () => {}
-let handleMouseMove: (e: MouseEvent) => void = () => {}
 
 const handleCardMouseMove = (event: MouseEvent, index: number) => {
   const card = cardRefs.value[index]
@@ -84,7 +83,7 @@ const handleCardMouseMove = (event: MouseEvent, index: number) => {
   const x = event.clientX - rect.left
   const y = event.clientY - rect.top
 
-  gsap.to(card.querySelector('.scg-card-grid-164'), {
+  gsap.to(card.querySelector('.scg-card-grid-165'), {
     x: (x - rect.width / 2) * 0.1,
     y: (y - rect.height / 2) * 0.1,
     duration: 0.3,
@@ -110,7 +109,7 @@ const handleMouseLeave = (index: number) => {
     ease: 'elastic.out(1, 0.5)'
   })
 
-  gsap.to(card.querySelector('.scg-card-grid-164'), {
+  gsap.to(card.querySelector('.scg-card-grid-165'), {
     x: 0,
     y: 0,
     duration: 0.5,
@@ -172,10 +171,10 @@ onMounted(() => {
     animateGrid()
 
     gsapCtx = gsap.context(() => {
-      const titleEl = gsap.utils.toArray<HTMLElement>('.scg-title-164', componentRoot.value)
-      const subtitleEl = gsap.utils.toArray<HTMLElement>('.scg-subtitle-164', componentRoot.value)
-      const cyberCards = gsap.utils.toArray<HTMLElement>('.scg-cyber-card-164', componentRoot.value)
-      const stageEl = gsap.utils.toArray<HTMLElement>('.scg-cards-stage-164', componentRoot.value)
+      const titleEl = gsap.utils.toArray<HTMLElement>('.scg-title-165', componentRoot.value)
+      const subtitleEl = gsap.utils.toArray<HTMLElement>('.scg-subtitle-165', componentRoot.value)
+      const cyberCards = gsap.utils.toArray<HTMLElement>('.scg-cyber-card-165', componentRoot.value)
+      const stageEl = gsap.utils.toArray<HTMLElement>('.scg-cards-stage-165', componentRoot.value)
 
       if (titleEl.length) {
         gsap.from(titleEl, {
@@ -215,35 +214,22 @@ onMounted(() => {
             toggleActions: 'play none none reverse'
           },
           y: 100,
-          scale: 0.9,
           opacity: 0,
+          scale: 0.8,
+          rotationX: 45,
           duration: 1,
           stagger: 0.15,
           ease: 'back.out(1.7)'
         })
       }
 
-      cardRefs.value.forEach((card, index) => {
+      cardRefs.value.forEach((card) => {
         if (!card) return
 
-        const gridLines = card.querySelectorAll('.scg-grid-line-164')
-        const matrixCells = card.querySelectorAll('.scg-matrix-cell-164')
-
-        gridLines.forEach((line, lineIndex) => {
-          gsap.to(line as HTMLElement, {
-            opacity: 0.3 + Math.random() * 0.7,
-            duration: 0.3 + Math.random() * 0.3,
-            repeat: -1,
-            yoyo: true,
-            ease: 'power1.inOut',
-            delay: lineIndex * 0.1
-          })
-        })
-
+        const matrixCells = card.querySelectorAll('.scg-matrix-cell-165') as NodeListOf<HTMLElement>
         matrixCells.forEach((cell, cellIndex) => {
-          gsap.to(cell as HTMLElement, {
-            opacity: 0.2 + Math.random() * 0.6,
-            backgroundColor: index % 2 === 0 ? 'rgba(0, 255, 255, 0.3)' : 'rgba(255, 0, 255, 0.3)',
+          gsap.to(cell, {
+            opacity: 0.3 + Math.random() * 0.7,
             duration: 0.5,
             repeat: -1,
             yoyo: true,
@@ -263,181 +249,237 @@ onUnmounted(() => {
     cancelAnimationFrame(animationFrame)
   }
 })
-
-onUnmounted(() => {
-  ctx?.revert()
-  if (animationFrame) {
-    cancelAnimationFrame(animationFrame)
-  }
-})
 </script>
 
 <style scoped lang="scss">
-.scg-cyber-grid-section-164 {
-  min-height: 150vh;
-  padding: 100px 20px;
-  background: #050510;
+.scg-cyber-grid-section-165 {
   position: relative;
+  min-height: 200vh;
+  padding: 120px 20px;
+  background: linear-gradient(180deg, #0a0a15 0%, #050510 100%);
   overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+      radial-gradient(ellipse at 20% 50%, rgba(0, 255, 255, 0.03) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 50%, rgba(255, 0, 255, 0.03) 0%, transparent 50%);
+    pointer-events: none;
+  }
 }
 
-.scg-container-164 {
+.scg-container-165 {
   position: relative;
   max-width: 1400px;
   margin: 0 auto;
-  z-index: 2;
+  z-index: 1;
 }
 
-.scg-title-164 {
-  text-align: center;
+.scg-title-165 {
   font-size: clamp(2.5rem, 6vw, 4rem);
-  font-weight: 900;
-  margin-bottom: 20px;
+  font-weight: 700;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
   background: linear-gradient(135deg, #00ffff, #ff00ff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  filter: drop-shadow(0 0 30px rgba(0, 255, 255, 0.5));
+  text-shadow: 0 0 40px rgba(0, 255, 255, 0.3);
 }
 
-.scg-subtitle-164 {
+.scg-subtitle-165 {
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  color: rgba(255, 255, 255, 0.6);
   text-align: center;
-  font-size: 1.2rem;
-  color: rgba(0, 255, 255, 0.6);
   margin-bottom: 80px;
-  letter-spacing: 0.3em;
+  letter-spacing: 0.5em;
   text-transform: uppercase;
 }
 
-.scg-grid-canvas-164 {
+.scg-grid-canvas-165 {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  pointer-events: none;
   z-index: 0;
+  opacity: 0.3;
+  pointer-events: none;
+
+  canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
 }
 
-.scg-cards-stage-164 {
+.scg-cards-stage-165 {
   position: relative;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 40px;
+  padding: 40px 20px;
   z-index: 2;
 }
 
-.scg-cyber-card-164 {
+.scg-cyber-card-165 {
   position: relative;
-  width: 300px;
-  height: 380px;
-  background: rgba(10, 10, 25, 0.9);
+  background: rgba(10, 10, 25, 0.8);
   border: 1px solid rgba(0, 255, 255, 0.2);
-  border-radius: 16px;
+  border-radius: 20px;
+  padding: 40px;
   overflow: hidden;
   cursor: pointer;
-  perspective: 1000px;
   transform-style: preserve-3d;
+  perspective: 1000px;
+  backdrop-filter: blur(10px);
+  box-shadow: 
+    0 0 40px rgba(0, 255, 255, 0.1),
+    inset 0 0 60px rgba(0, 255, 255, 0.05);
+  transition: border-color 0.3s, box-shadow 0.3s;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #00ffff, transparent);
+    animation: cyber-line 3s ease-in-out infinite;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+      linear-gradient(135deg, rgba(0, 255, 255, 0.1) 0%, transparent 50%),
+      linear-gradient(-135deg, rgba(255, 0, 255, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  &:hover {
+    border-color: rgba(0, 255, 255, 0.5);
+    box-shadow: 
+      0 0 60px rgba(0, 255, 255, 0.2),
+      inset 0 0 80px rgba(0, 255, 255, 0.1);
+  }
 }
 
-.scg-card-grid-164 {
+@keyframes cyber-line {
+  0%, 100% {
+    transform: translateX(-100%);
+  }
+  50% {
+    transform: translateX(100%);
+  }
+}
+
+.scg-card-grid-165 {
   position: absolute;
-  inset: 0;
-  pointer-events: none;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   z-index: 1;
+  opacity: 0.3;
+  pointer-events: none;
 }
 
-.scg-grid-line-164 {
+.scg-grid-line-165 {
   position: absolute;
-  width: 100%;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.3), transparent);
-  opacity: 0.5;
-}
-
-.scg-grid-line-164[data-line="1"] { top: 25%; }
-.scg-grid-line-164[data-line="2"] { top: 50%; }
-.scg-grid-line-164[data-line="3"] { top: 75%; }
-.scg-grid-line-164[data-line="4"] { 
-  top: 50%;
-  width: 1px;
-  height: 100%;
   background: linear-gradient(180deg, transparent, rgba(0, 255, 255, 0.3), transparent);
-  left: 50%;
+  pointer-events: none;
+
+  &[data-line="1"] {
+    left: 20%;
+    top: 0;
+    width: 1px;
+    height: 100%;
+  }
+
+  &[data-line="2"] {
+    left: 50%;
+    top: 0;
+    width: 1px;
+    height: 100%;
+  }
+
+  &[data-line="3"] {
+    left: 80%;
+    top: 0;
+    width: 1px;
+    height: 100%;
+  }
+
+  &[data-line="4"] {
+    left: 0;
+    top: 50%;
+    width: 100%;
+    height: 1px;
+  }
 }
 
-.scg-card-content-164 {
+.scg-card-content-165 {
   position: relative;
   z-index: 2;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-  padding: 30px;
 }
 
-.scg-card-icon-164 {
-  font-size: 5rem;
+.scg-card-icon-165 {
+  font-size: 4rem;
+  margin-bottom: 20px;
+  text-align: center;
   filter: drop-shadow(0 0 20px rgba(0, 255, 255, 0.5));
-  transition: transform 0.3s ease;
 }
 
-.scg-cyber-card-164:hover .scg-card-icon-164 {
-  transform: scale(1.2) rotate(10deg);
-}
-
-.scg-card-title-164 {
-  font-size: 2rem;
-  font-weight: 700;
+.scg-card-title-165 {
+  font-size: 1.8rem;
+  font-weight: 600;
   color: #fff;
+  margin-bottom: 10px;
+  text-align: center;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  text-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
 }
 
-.scg-card-desc-164 {
+.scg-card-desc-165 {
   font-size: 1rem;
-  color: rgba(0, 255, 255, 0.7);
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 30px;
+  text-align: center;
+  line-height: 1.6;
 }
 
-.scg-card-matrix-164 {
-  position: absolute;
-  bottom: 20px;
-  left: 20px;
+.scg-card-matrix-165 {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 5px;
+  gap: 8px;
+  margin-top: 20px;
 }
 
-.scg-matrix-cell-164 {
-  width: 8px;
-  height: 8px;
-  background: rgba(0, 255, 255, 0.2);
-  border-radius: 2px;
-  opacity: 0.3;
-}
+.scg-matrix-cell-165 {
+  width: 100%;
+  padding-bottom: 100%;
+  background: rgba(0, 255, 255, 0.1);
+  border: 1px solid rgba(0, 255, 255, 0.2);
+  border-radius: 4px;
+  opacity: 0.1;
+  transition: background 0.3s;
 
-@media (max-width: 768px) {
-  .scg-cards-stage-164 {
-    grid-template-columns: 1fr;
-    justify-items: center;
-  }
-
-  .scg-cyber-card-164 {
-    width: 260px;
-    height: 340px;
-  }
-
-  .scg-card-icon-164 {
-    font-size: 4rem;
-  }
-
-  .scg-card-title-164 {
-    font-size: 1.6rem;
+  &:hover {
+    background: rgba(0, 255, 255, 0.3);
   }
 }
 </style>
