@@ -82,10 +82,11 @@ const getFloatStyle = (index: number) => {
   }
 }
 
-let ctx: gsap.Context
+let gsapCtx: gsap.Context
+let handleMouseMove: (e: MouseEvent) => void = () => {}
 
 onMounted(() => {
-  ctx = gsap.context(() => {
+  gsapCtx = gsap.context(() => {
     // 标题3D动画
     gsap.from('.st3-section-title-128', {
       scrollTrigger: {
@@ -239,16 +240,12 @@ onMounted(() => {
     }
 
     window.addEventListener('mousemove', handleMouseMove)
-
-    // 清理
-    onUnmounted(() => {
-      window.removeEventListener('mousemove', handleMouseMove)
-    })
   })
 })
 
 onUnmounted(() => {
-  ctx?.revert()
+  gsapCtx?.revert()
+  window.removeEventListener('mousemove', handleMouseMove)
 })
 </script>
 

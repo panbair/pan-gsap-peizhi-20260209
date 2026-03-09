@@ -78,10 +78,11 @@ const getBlobStyle = (index: number) => {
   }
 }
 
-let ctx: gsap.Context
+let gsapCtx: gsap.Context
+let handleMouseMove: (e: MouseEvent) => void = () => {}
 
 onMounted(() => {
-  ctx = gsap.context(() => {
+  gsapCtx = gsap.context(() => {
     // 标题磁性吸引
     gsap.from('.smf-section-title-133', {
       scrollTrigger: {
@@ -262,11 +263,12 @@ onMounted(() => {
     }
 
     window.addEventListener('mousemove', handleMouseMove)
-
-    onUnmounted(() => {
-      window.removeEventListener('mousemove', handleMouseMove)
-    })
   })
+})
+
+onUnmounted(() => {
+  gsapCtx?.revert()
+  window.removeEventListener('mousemove', handleMouseMove)
 })
 
 onUnmounted(() => {

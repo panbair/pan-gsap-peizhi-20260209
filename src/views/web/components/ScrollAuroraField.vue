@@ -77,8 +77,9 @@ const cards: Card[] = [
   }
 ]
 
-let ctx: gsap.Context
+let gsapCtx: gsap.Context
 let animationFrame: number | null = null
+let resizeCanvas: () => void = () => {}
 
 onMounted(() => {
   setTimeout(() => {
@@ -88,7 +89,7 @@ onMounted(() => {
     const canvas = auroraCanvas.value
     if (!canvas) return
 
-    const resizeCanvas = () => {
+    resizeCanvas = () => {
       canvas.width = window.innerWidth
       canvas.height = window.innerHeight * 0.8
     }
@@ -136,7 +137,7 @@ onMounted(() => {
     animateAurora()
 
     // GSAP 动画
-    const gsapCtx = gsap.context(() => {
+    gsapCtx = gsap.context(() => {
       const titleEl = gsap.utils.toArray<HTMLElement>('.saf-title-157', componentRoot.value)
       const subtitleEl = gsap.utils.toArray<HTMLElement>('.saf-subtitle-157', componentRoot.value)
       const auroraCards = gsap.utils.toArray<HTMLElement>('.saf-aurora-card-157', componentRoot.value)
@@ -346,19 +347,12 @@ onMounted(() => {
         })
       }
     }, componentRoot.value)
-
-    onUnmounted(() => {
-      gsapCtx.revert()
-      window.removeEventListener('resize', resizeCanvas)
-      if (animationFrame) {
-        cancelAnimationFrame(animationFrame)
-      }
-    })
   }, 100)
 })
 
 onUnmounted(() => {
-  ctx?.revert()
+  gsapCtx?.revert()
+  window.removeEventListener('resize', resizeCanvas)
   if (animationFrame) {
     cancelAnimationFrame(animationFrame)
   }

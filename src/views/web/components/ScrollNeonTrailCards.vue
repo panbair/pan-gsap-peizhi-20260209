@@ -90,10 +90,11 @@ const cards: Card[] = [
   }
 ]
 
-let ctx: gsap.Context
+let gsapCtx: gsap.Context
 let trailCtx: CanvasRenderingContext2D | null = null
 let trails: Array<{ x: number; y: number; age: number; color: string }>[] = []
 let animationFrame: number | null = null
+let resizeCanvas: () => void = () => {}
 
 const handleMouseMove = (event: MouseEvent, index: number) => {
   if (!trailCanvas.value) return
@@ -122,7 +123,7 @@ onMounted(() => {
     const canvas = trailCanvas.value
     if (!canvas) return
 
-    const resizeCanvas = () => {
+    resizeCanvas = () => {
       canvas.width = window.innerWidth
       canvas.height = window.innerHeight * 0.8
     }
@@ -166,7 +167,7 @@ onMounted(() => {
     animateTrails()
 
     // GSAP 动画
-    const gsapCtx = gsap.context(() => {
+    gsapCtx = gsap.context(() => {
       const titleEl = gsap.utils.toArray<HTMLElement>('.sntc-title-159', componentRoot.value)
       const subtitleEl = gsap.utils.toArray<HTMLElement>('.sntc-subtitle-159', componentRoot.value)
       const neonCards = gsap.utils.toArray<HTMLElement>('.sntc-neon-card-159', componentRoot.value)
@@ -371,19 +372,12 @@ onMounted(() => {
         })
       })
     }, componentRoot.value)
-
-    onUnmounted(() => {
-      gsapCtx.revert()
-      window.removeEventListener('resize', resizeCanvas)
-      if (animationFrame) {
-        cancelAnimationFrame(animationFrame)
-      }
-    })
   }, 100)
 })
 
 onUnmounted(() => {
-  ctx?.revert()
+  gsapCtx?.revert()
+  window.removeEventListener('resize', resizeCanvas)
   if (animationFrame) {
     cancelAnimationFrame(animationFrame)
   }

@@ -76,8 +76,9 @@ const liquidItems: LiquidItem[] = [
   }
 ]
 
-let ctx: gsap.Context
+let gsapCtx: gsap.Context
 let animationFrame: number | null = null
+let resizeCanvas: () => void = () => {}
 
 const handleLiquidMove = (event: MouseEvent, index: number) => {
   const item = itemRefs.value[index]
@@ -159,7 +160,7 @@ onMounted(() => {
     const canvas = liquidCanvas.value
     if (!canvas) return
 
-    const resizeCanvas = () => {
+    resizeCanvas = () => {
       canvas.width = window.innerWidth
       canvas.height = window.innerHeight * 0.8
     }
@@ -207,7 +208,7 @@ onMounted(() => {
     animateLiquid()
 
     // GSAP 动画
-    const gsapCtx = gsap.context(() => {
+    gsapCtx = gsap.context(() => {
       const titleEl = gsap.utils.toArray<HTMLElement>('.sld-title-161', componentRoot.value)
       const subtitleEl = gsap.utils.toArray<HTMLElement>('.sld-subtitle-161', componentRoot.value)
       const liquidItems = gsap.utils.toArray<HTMLElement>('.sld-liquid-item-161', componentRoot.value)
@@ -362,15 +363,15 @@ onMounted(() => {
         })
       }
     }, componentRoot.value)
-
-    onUnmounted(() => {
-      gsapCtx.revert()
-      window.removeEventListener('resize', resizeCanvas)
-      if (animationFrame) {
-        cancelAnimationFrame(animationFrame)
-      }
-    })
   }, 100)
+})
+
+onUnmounted(() => {
+  gsapCtx?.revert()
+  window.removeEventListener('resize', resizeCanvas)
+  if (animationFrame) {
+    cancelAnimationFrame(animationFrame)
+  }
 })
 
 onUnmounted(() => {
