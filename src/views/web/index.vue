@@ -280,6 +280,12 @@
       <LazyScrollPortalText v-if="visibilityState.showScrollPortalText" />
       <LazyScrollPrismText v-if="visibilityState.showScrollPrismText" />
       <LazyScrollElasticText v-if="visibilityState.showScrollElasticText" />
+      <LazyScrollNeonText v-if="visibilityState.showScrollNeonText" />
+      <LazyScrollCyberText v-if="visibilityState.showScrollCyberText" />
+      <LazyScrollMatrixText v-if="visibilityState.showScrollMatrixText" />
+      <LazyScrollHoloText v-if="visibilityState.showScrollHoloText" />
+      <LazyScrollFireText v-if="visibilityState.showScrollFireText" />
+      <LazyScrollIceText v-if="visibilityState.showScrollIceText" />
     </div>
 
     <!-- 加载指示器 -->
@@ -689,6 +695,16 @@ const LazyScrollHolographicText = defineAsyncComponent(
 const LazyScrollPortalText = defineAsyncComponent(() => import('./components/ScrollPortalText.vue'))
 const LazyScrollPrismText = defineAsyncComponent(() => import('./components/ScrollPrismText.vue'))
 
+// 全新创意文字动画组件 (扩展)
+const LazyScrollNeonText = defineAsyncComponent(() => import('./components/ScrollNeonText.vue'))
+const LazyScrollCyberText = defineAsyncComponent(() => import('./components/ScrollCyberText.vue'))
+const LazyScrollMatrixText = defineAsyncComponent(() => import('./components/ScrollMatrixText.vue'))
+
+// 全新创意元素文字动画组件
+const LazyScrollHoloText = defineAsyncComponent(() => import('./components/ScrollHoloText.vue'))
+const LazyScrollFireText = defineAsyncComponent(() => import('./components/ScrollFireText.vue'))
+const LazyScrollIceText = defineAsyncComponent(() => import('./components/ScrollIceText.vue'))
+
 // 组件显示状态
 const isLoading = ref(true)
 const componentsContainer = ref<HTMLElement>()
@@ -884,7 +900,13 @@ const visibilityState = ref<Record<string, boolean>>({
   showScrollHolographicText: false,
   showScrollPortalText: false,
   showScrollPrismText: false,
-  showScrollElasticText: false
+  showScrollElasticText: false,
+  showScrollNeonText: false,
+  showScrollCyberText: false,
+  showScrollMatrixText: false,
+  showScrollHoloText: false,
+  showScrollFireText: false,
+  showScrollIceText: false
 })
 
 // 组件分批加载配置
@@ -1249,10 +1271,34 @@ onMounted(() => {
     visibilityState.value.showScrollElasticText = true
   }, 13000)
 
+  setTimeout(() => {
+    visibilityState.value.showScrollNeonText = true
+  }, 14000)
+
+  setTimeout(() => {
+    visibilityState.value.showScrollCyberText = true
+  }, 15000)
+
+  setTimeout(() => {
+    visibilityState.value.showScrollMatrixText = true
+  }, 16000)
+
+  setTimeout(() => {
+    visibilityState.value.showScrollHoloText = true
+  }, 17000)
+
+  setTimeout(() => {
+    visibilityState.value.showScrollFireText = true
+  }, 18000)
+
+  setTimeout(() => {
+    visibilityState.value.showScrollIceText = true
+  }, 19000)
+
   // 初始加载后刷新ScrollTrigger
   setTimeout(() => {
     ScrollTrigger.refresh()
-  }, 14000)
+  }, 20000)
 })
 
 onUnmounted(() => {
