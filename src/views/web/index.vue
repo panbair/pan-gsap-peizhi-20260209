@@ -289,6 +289,8 @@
       <LazyScrollThunderText v-if="visibilityState.showScrollThunderText" />
       <LazyScrollStarText v-if="visibilityState.showScrollStarText" />
       <LazyScrollAuroraText v-if="visibilityState.showScrollAuroraText" />
+      <LazyScrollRainText v-if="visibilityState.showScrollRainText" />
+      <LazyScrollHologramText v-if="visibilityState.showScrollHologramText" />
     </div>
 
     <!-- 加载指示器 -->
@@ -711,7 +713,10 @@ const LazyScrollIceText = defineAsyncComponent(() => import('./components/Scroll
 // 全新天空主题文字动画组件
 const LazyScrollThunderText = defineAsyncComponent(() => import('./components/ScrollThunderText.vue'))
 const LazyScrollStarText = defineAsyncComponent(() => import('./components/ScrollStarText.vue'))
-const LazyScrollAuroraText = defineAsyncComponent(() => import('./components/ScrollAuroraText.vue'))
+
+// 全新天气主题文字动画组件
+const LazyScrollRainText = defineAsyncComponent(() => import('./components/ScrollRainText.vue'))
+const LazyScrollHologramText = defineAsyncComponent(() => import('./components/ScrollHologramText.vue'))
 
 // 组件显示状态
 const isLoading = ref(true)
@@ -1318,10 +1323,18 @@ onMounted(() => {
     visibilityState.value.showScrollAuroraText = true
   }, 22000)
 
+  setTimeout(() => {
+    visibilityState.value.showScrollRainText = true
+  }, 23000)
+
+  setTimeout(() => {
+    visibilityState.value.showScrollHologramText = true
+  }, 24000)
+
   // 初始加载后刷新ScrollTrigger
   setTimeout(() => {
     ScrollTrigger.refresh()
-  }, 23000)
+  }, 25000)
 })
 
 onUnmounted(() => {
