@@ -1,47 +1,47 @@
 <template>
-  <div class="slt-liquid-text-section-168" ref="componentRoot">
-    <div class="slt-container-168">
-      <h2 class="slt-title-168">液体文字变形</h2>
-      <p class="slt-subtitle-168">Liquid Text Morph</p>
+  <div class="slt-liquid-text-section-186" ref="componentRoot">
+    <div class="slt-container-186">
+      <h2 class="slt-title-186">液体文字变形</h2>
+      <p class="slt-subtitle-186">Liquid Text Morph</p>
 
-      <div class="slt-text-stage-168">
-        <div class="slt-liquid-pool-168" ref="liquidPool">
+      <div class="slt-text-stage-186">
+        <div class="slt-liquid-pool-186" ref="liquidPool">
           <canvas ref="liquidCanvas"></canvas>
         </div>
 
-        <div class="slt-text-container-168">
+        <div class="slt-text-container-186">
           <div
             v-for="(item, index) in liquidTexts"
             :key="index"
-            class="slt-text-row-168"
+            class="slt-text-row-186"
             :ref="el => { if (el) textRowRefs[index] = el as HTMLElement }"
           >
-            <div class="slt-letters-168">
+            <div class="slt-letters-186">
               <span
                 v-for="(char, charIndex) in item.letters"
                 :key="charIndex"
-                class="slt-letter-168"
+                class="slt-letter-186"
                 :ref="el => { if (el) letterRefs[`${index}-${charIndex}`] = el as HTMLElement }"
               >{{ char }}</span>
             </div>
           </div>
         </div>
 
-        <div class="slt-droplet-container-168">
+        <div class="slt-droplet-container-186">
           <div
             v-for="n in 20"
             :key="n"
-            class="slt-droplet-168"
+            class="slt-droplet-186"
             :ref="el => { if (el) dropletRefs[n] = el as HTMLElement }"
           ></div>
         </div>
       </div>
 
-      <div class="slt-wave-lines-168">
+      <div class="slt-wave-lines-186">
         <div
           v-for="n in 8"
           :key="n"
-          class="slt-wave-line-168"
+          class="slt-wave-line-186"
           :ref="el => { if (el) waveLineRefs[n] = el as HTMLElement }"
         ></div>
       </div>
@@ -83,11 +83,11 @@ onMounted(() => {
     if (!componentRoot.value) return
 
     ctx = gsap.context(() => {
-      const titleEl = gsap.utils.toArray<HTMLElement>('.slt-title-168', componentRoot.value)
-      const subtitleEl = gsap.utils.toArray<HTMLElement>('.slt-subtitle-168', componentRoot.value)
-      const textRows = gsap.utils.toArray<HTMLElement>('.slt-text-row-168', componentRoot.value)
-      const droplets = gsap.utils.toArray<HTMLElement>('.slt-droplet-168', componentRoot.value)
-      const waveLines = gsap.utils.toArray<HTMLElement>('.slt-wave-line-168', componentRoot.value)
+      const titleEl = gsap.utils.toArray<HTMLElement>('.slt-title-186', componentRoot.value)
+      const subtitleEl = gsap.utils.toArray<HTMLElement>('.slt-subtitle-186', componentRoot.value)
+      const textRows = gsap.utils.toArray<HTMLElement>('.slt-text-row-186', componentRoot.value)
+      const droplets = gsap.utils.toArray<HTMLElement>('.slt-droplet-186', componentRoot.value)
+      const waveLines = gsap.utils.toArray<HTMLElement>('.slt-wave-line-186', componentRoot.value)
 
       // 标题动画
       if (titleEl.length) {
@@ -358,7 +358,7 @@ onUnmounted(() => {
 </script>
 
 <style scoped lang="scss">
-.slt-liquid-text-section-168 {
+.slt-liquid-text-section-186 {
   min-height: 220vh;
   padding: 100px 20px;
   background: linear-gradient(180deg, #0a0a1a 0%, #0a1a2a 50%, #1a0a2a 100%);
@@ -366,14 +366,14 @@ onUnmounted(() => {
   overflow: hidden;
 }
 
-.slt-container-168 {
+.slt-container-186 {
   position: relative;
   max-width: 1400px;
   margin: 0 auto;
   z-index: 1;
 }
 
-.slt-title-168 {
+.slt-title-186 {
   text-align: center;
   font-size: clamp(2.5rem, 6vw, 4.5rem);
   font-weight: 900;
@@ -384,7 +384,7 @@ onUnmounted(() => {
   background-clip: text;
 }
 
-.slt-subtitle-168 {
+.slt-subtitle-186 {
   text-align: center;
   font-size: 1.2rem;
   color: rgba(6, 182, 212, 0.6);
@@ -393,7 +393,7 @@ onUnmounted(() => {
   text-transform: uppercase;
 }
 
-.slt-text-stage-168 {
+.slt-text-stage-186 {
   position: relative;
   min-height: 100vh;
   display: flex;
@@ -403,7 +403,7 @@ onUnmounted(() => {
   gap: 60px;
 }
 
-.slt-liquid-pool-168 {
+.slt-liquid-pool-186 {
   position: absolute;
   top: 0;
   left: 0;
@@ -414,12 +414,12 @@ onUnmounted(() => {
   opacity: 0.5;
 }
 
-.slt-liquid-pool-168 canvas {
+.slt-liquid-pool-186 canvas {
   width: 100%;
   height: 100%;
 }
 
-.slt-text-container-168 {
+.slt-text-container-186 {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -427,13 +427,13 @@ onUnmounted(() => {
   z-index: 1;
 }
 
-.slt-text-row-168 {
+.slt-text-row-186 {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.slt-letters-168 {
+.slt-letters-186 {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -442,7 +442,7 @@ onUnmounted(() => {
   font-weight: 900;
 }
 
-.slt-letter-168 {
+.slt-letter-186 {
   position: relative;
   display: inline-block;
   color: #fff;
@@ -451,7 +451,7 @@ onUnmounted(() => {
   transition: all 0.5s ease;
 }
 
-.slt-droplet-container-168 {
+.slt-droplet-container-186 {
   position: absolute;
   top: 0;
   left: 0;
@@ -461,7 +461,7 @@ onUnmounted(() => {
   z-index: 0;
 }
 
-.slt-droplet-168 {
+.slt-droplet-186 {
   position: absolute;
   width: 8px;
   height: 12px;
@@ -469,7 +469,7 @@ onUnmounted(() => {
   border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
 }
 
-.slt-wave-lines-168 {
+.slt-wave-lines-186 {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -479,7 +479,7 @@ onUnmounted(() => {
   z-index: 0;
 }
 
-.slt-wave-line-168 {
+.slt-wave-line-186 {
   position: absolute;
   width: 100%;
   height: 2px;
@@ -488,18 +488,18 @@ onUnmounted(() => {
 }
 
 @for $i from 1 through 8 {
-  .slt-wave-line-168:nth-child(#{$i}) {
+  .slt-wave-line-186:nth-child(#{$i}) {
     bottom: #{($i - 1) * 12 + 5}%;
     opacity: #{1 - ($i - 1) * 0.12};
   }
 }
 
 @media (max-width: 768px) {
-  .slt-text-container-168 {
+  .slt-text-container-186 {
     gap: 50px;
   }
 
-  .slt-letters-168 {
+  .slt-letters-186 {
     font-size: 4rem;
   }
 }

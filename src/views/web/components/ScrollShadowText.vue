@@ -1,64 +1,64 @@
 <template>
-  <div class="sst-shadow-text-section-167" ref="componentRoot">
-    <div class="sst-container-167">
-      <h2 class="sst-title-167">文字阴影控制</h2>
-      <p class="sst-subtitle-167">Shadow Text Control</p>
+  <div class="sst-shadow-text-section-189" ref="componentRoot">
+    <div class="sst-container-189">
+      <h2 class="sst-title-189">文字阴影控制</h2>
+      <p class="sst-subtitle-189">Shadow Text Control</p>
 
-      <div class="sst-text-stage-167">
-        <div class="sst-shadow-container-167">
+      <div class="sst-text-stage-189">
+        <div class="sst-shadow-container-189">
           <div
             v-for="(item, index) in shadowTexts"
             :key="index"
-            class="sst-shadow-item-167"
+            class="sst-shadow-item-189"
             :ref="el => { if (el) shadowItemRefs[index] = el as HTMLElement }"
           >
             <span
-              class="sst-shadow-text-167"
+              class="sst-shadow-text-189"
               :ref="el => { if (el) textRefs[index] = el as HTMLElement }"
             >{{ item.text }}</span>
-            <div class="sst-info-167">{{ item.info }}</div>
+            <div class="sst-info-189">{{ item.info }}</div>
           </div>
         </div>
 
-        <div class="sst-visualizer-167">
-          <div class="sst-preview-box-167" ref="previewBox">
-            <span class="sst-preview-text-167" ref="previewText">SHADOW</span>
+        <div class="sst-visualizer-189">
+          <div class="sst-preview-box-189" ref="previewBox">
+            <span class="sst-preview-text-189" ref="previewText">SHADOW</span>
           </div>
-          <div class="sst-controls-167">
-            <div class="sst-control-item-167">
-              <span class="sst-label-167">Blur</span>
-              <div class="sst-bar-167" ref="blurBar">
-                <div class="sst-fill-167" ref="blurFill"></div>
+          <div class="sst-controls-189">
+            <div class="sst-control-item-189">
+              <span class="sst-label-189">Blur</span>
+              <div class="sst-bar-189" ref="blurBar">
+                <div class="sst-fill-189" ref="blurFill"></div>
               </div>
             </div>
-            <div class="sst-control-item-167">
-              <span class="sst-label-167">Spread</span>
-              <div class="sst-bar-167" ref="spreadBar">
-                <div class="sst-fill-167" ref="spreadFill"></div>
+            <div class="sst-control-item-189">
+              <span class="sst-label-189">Spread</span>
+              <div class="sst-bar-189" ref="spreadBar">
+                <div class="sst-fill-189" ref="spreadFill"></div>
               </div>
             </div>
-            <div class="sst-control-item-167">
-              <span class="sst-label-167">Opacity</span>
-              <div class="sst-bar-167" ref="opacityBar">
-                <div class="sst-fill-167" ref="opacityFill"></div>
+            <div class="sst-control-item-189">
+              <span class="sst-label-189">Opacity</span>
+              <div class="sst-bar-189" ref="opacityBar">
+                <div class="sst-fill-189" ref="opacityFill"></div>
               </div>
             </div>
           </div>
         </div>
 
-        <div class="sst-light-source-167" ref="lightSource">
-          <div class="sst-light-orb-167"></div>
-          <div class="sst-light-rays-167">
-            <div v-for="n in 8" :key="n" class="sst-ray-167"></div>
+        <div class="sst-light-source-189" ref="lightSource">
+          <div class="sst-light-orb-189"></div>
+          <div class="sst-light-rays-189">
+            <div v-for="n in 8" :key="n" class="sst-ray-189"></div>
           </div>
         </div>
       </div>
 
-      <div class="sst-background-shadows-167">
+      <div class="sst-background-shadows-189">
         <div
           v-for="n in 12"
           :key="n"
-          class="sst-bg-shadow-167"
+          class="sst-bg-shadow-189"
           :ref="el => { if (el) bgShadowRefs[n] = el as HTMLElement }"
         ></div>
       </div>
@@ -106,11 +106,11 @@ onMounted(() => {
     if (!componentRoot.value) return
 
     ctx = gsap.context(() => {
-      const titleEl = gsap.utils.toArray<HTMLElement>('.sst-title-167', componentRoot.value)
-      const subtitleEl = gsap.utils.toArray<HTMLElement>('.sst-subtitle-167', componentRoot.value)
-      const shadowItems = gsap.utils.toArray<HTMLElement>('.sst-shadow-item-167', componentRoot.value)
-      const shadowTextsEl = gsap.utils.toArray<HTMLElement>('.sst-shadow-text-167', componentRoot.value)
-      const bgShadows = gsap.utils.toArray<HTMLElement>('.sst-bg-shadow-167', componentRoot.value)
+      const titleEl = gsap.utils.toArray<HTMLElement>('.sst-title-189', componentRoot.value)
+      const subtitleEl = gsap.utils.toArray<HTMLElement>('.sst-subtitle-189', componentRoot.value)
+      const shadowItems = gsap.utils.toArray<HTMLElement>('.sst-shadow-item-189', componentRoot.value)
+      const shadowTextsEl = gsap.utils.toArray<HTMLElement>('.sst-shadow-text-189', componentRoot.value)
+      const bgShadows = gsap.utils.toArray<HTMLElement>('.sst-bg-shadow-189', componentRoot.value)
 
       // 标题动画
       if (titleEl.length) {
@@ -301,7 +301,7 @@ onMounted(() => {
         })
 
         // 光源脉冲
-        gsap.to('.sst-light-orb-167', {
+        gsap.to('.sst-light-orb-189', {
           scale: 1.5,
           opacity: 0.6,
           duration: 2,
@@ -311,7 +311,7 @@ onMounted(() => {
         })
 
         // 光线旋转
-        gsap.to('.sst-light-rays-167', {
+        gsap.to('.sst-light-rays-189', {
           rotate: 360,
           duration: 30,
           repeat: -1,
@@ -370,7 +370,7 @@ onUnmounted(() => {
 </script>
 
 <style scoped lang="scss">
-.sst-shadow-text-section-167 {
+.sst-shadow-text-section-189 {
   min-height: 200vh;
   padding: 100px 20px;
   background: linear-gradient(180deg, #0a0a1a 0%, #1a0a2a 50%, #0a1a2a 100%);
@@ -378,14 +378,14 @@ onUnmounted(() => {
   overflow: hidden;
 }
 
-.sst-container-167 {
+.sst-container-189 {
   position: relative;
   max-width: 1400px;
   margin: 0 auto;
   z-index: 1;
 }
 
-.sst-title-167 {
+.sst-title-189 {
   text-align: center;
   font-size: clamp(2.5rem, 6vw, 4.5rem);
   font-weight: 900;
@@ -396,7 +396,7 @@ onUnmounted(() => {
   background-clip: text;
 }
 
-.sst-subtitle-167 {
+.sst-subtitle-189 {
   text-align: center;
   font-size: 1.2rem;
   color: rgba(168, 85, 247, 0.6);
@@ -405,7 +405,7 @@ onUnmounted(() => {
   text-transform: uppercase;
 }
 
-.sst-text-stage-167 {
+.sst-text-stage-189 {
   position: relative;
   min-height: 100vh;
   display: flex;
@@ -414,7 +414,7 @@ onUnmounted(() => {
   gap: 100px;
 }
 
-.sst-shadow-container-167 {
+.sst-shadow-container-189 {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -423,7 +423,7 @@ onUnmounted(() => {
   max-width: 800px;
 }
 
-.sst-shadow-item-167 {
+.sst-shadow-item-189 {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -436,7 +436,7 @@ onUnmounted(() => {
   transition: all 0.3s ease;
 }
 
-.sst-shadow-text-167 {
+.sst-shadow-text-189 {
   font-size: clamp(4rem, 10vw, 6rem);
   font-weight: 900;
   text-transform: uppercase;
@@ -445,7 +445,7 @@ onUnmounted(() => {
   transition: all 0.5s ease;
 }
 
-.sst-info-167 {
+.sst-info-189 {
   margin-top: 15px;
   font-size: 1rem;
   color: rgba(255, 255, 255, 0.5);
@@ -453,7 +453,7 @@ onUnmounted(() => {
   text-transform: uppercase;
 }
 
-.sst-visualizer-167 {
+.sst-visualizer-189 {
   width: 100%;
   max-width: 600px;
   padding: 40px;
@@ -462,7 +462,7 @@ onUnmounted(() => {
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.sst-preview-box-167 {
+.sst-preview-box-189 {
   height: 150px;
   display: flex;
   align-items: center;
@@ -472,7 +472,7 @@ onUnmounted(() => {
   margin-bottom: 30px;
 }
 
-.sst-preview-text-167 {
+.sst-preview-text-189 {
   font-size: 4rem;
   font-weight: 900;
   color: #fff;
@@ -480,26 +480,26 @@ onUnmounted(() => {
   letter-spacing: 0.3em;
 }
 
-.sst-controls-167 {
+.sst-controls-189 {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
-.sst-control-item-167 {
+.sst-control-item-189 {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
-.sst-label-167 {
+.sst-label-189 {
   font-size: 0.85rem;
   color: rgba(255, 255, 255, 0.6);
   letter-spacing: 0.2em;
   text-transform: uppercase;
 }
 
-.sst-bar-167 {
+.sst-bar-189 {
   width: 100%;
   height: 6px;
   background: rgba(255, 255, 255, 0.1);
@@ -507,7 +507,7 @@ onUnmounted(() => {
   overflow: hidden;
 }
 
-.sst-fill-167 {
+.sst-fill-189 {
   width: 0;
   height: 100%;
   background: linear-gradient(90deg, #a855f7, #ec4899);
@@ -515,14 +515,14 @@ onUnmounted(() => {
   transition: width 0.1s ease;
 }
 
-.sst-light-source-167 {
+.sst-light-source-189 {
   position: absolute;
   top: 20%;
   left: 10%;
   z-index: 0;
 }
 
-.sst-light-orb-167 {
+.sst-light-orb-189 {
   width: 60px;
   height: 60px;
   background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(168, 85, 247, 0.4) 50%, transparent 100%);
@@ -531,7 +531,7 @@ onUnmounted(() => {
   margin: 0 auto;
 }
 
-.sst-light-rays-167 {
+.sst-light-rays-189 {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -540,7 +540,7 @@ onUnmounted(() => {
   height: 120px;
 }
 
-.sst-ray-167 {
+.sst-ray-189 {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -551,12 +551,12 @@ onUnmounted(() => {
 }
 
 @for $i from 1 through 8 {
-  .sst-ray-167:nth-child(#{$i}) {
+  .sst-ray-189:nth-child(#{$i}) {
     transform: translate(-50%, -100%) rotate(#{$i * 45}deg);
   }
 }
 
-.sst-background-shadows-167 {
+.sst-background-shadows-189 {
   position: absolute;
   top: 0;
   left: 0;
@@ -566,7 +566,7 @@ onUnmounted(() => {
   z-index: 0;
 }
 
-.sst-bg-shadow-167 {
+.sst-bg-shadow-189 {
   position: absolute;
   width: 100px;
   height: 100px;
@@ -575,30 +575,30 @@ onUnmounted(() => {
 }
 
 @for $i from 1 through 12 {
-  .sst-bg-shadow-167:nth-child(#{$i}) {
+  .sst-bg-shadow-189:nth-child(#{$i}) {
     left: #{($i - 1) * 8 + 5}%;
     top: #{20 + ($i % 5) * 15}%;
   }
 }
 
 @media (max-width: 768px) {
-  .sst-shadow-container-167 {
+  .sst-shadow-container-189 {
     gap: 50px;
   }
 
-  .sst-shadow-item-167 {
+  .sst-shadow-item-189 {
     padding: 30px;
   }
 
-  .sst-shadow-text-167 {
+  .sst-shadow-text-189 {
     font-size: 3rem;
   }
 
-  .sst-visualizer-167 {
+  .sst-visualizer-189 {
     padding: 30px;
   }
 
-  .sst-preview-text-167 {
+  .sst-preview-text-189 {
     font-size: 2.5rem;
   }
 }

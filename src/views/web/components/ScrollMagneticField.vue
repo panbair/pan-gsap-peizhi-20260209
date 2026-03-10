@@ -1,29 +1,29 @@
 <template>
-  <div class="magnetic-field-175" ref="componentRoot">
-    <div class="mf-container-175">
-      <h2 class="mf-title-175">🧲 磁场卡片</h2>
-      <p class="mf-desc-175">磁场跟随交互效果</p>
+  <div class="magnetic-field-179" ref="componentRoot">
+    <div class="mf-container-179">
+      <h2 class="mf-title-179">🧲 磁场卡片</h2>
+      <p class="mf-desc-179">磁场跟随交互效果</p>
       
-      <div class="mf-stage-175">
+      <div class="mf-stage-179">
         <div 
           v-for="(card, index) in cards" 
           :key="index"
-          class="mf-card-175"
+          class="mf-card-179"
           :data-index="index"
           ref="cardsRef"
         >
-          <div class="mf-card-inner-175">
-            <div class="mf-card-content-175">
-              <div class="mf-card-icon-175">{{ card.icon }}</div>
-              <div class="mf-card-title-175">{{ card.title }}</div>
-              <div class="mf-card-desc-175">{{ card.desc }}</div>
+          <div class="mf-card-inner-179">
+            <div class="mf-card-content-179">
+              <div class="mf-card-icon-179">{{ card.icon }}</div>
+              <div class="mf-card-title-179">{{ card.title }}</div>
+              <div class="mf-card-desc-179">{{ card.desc }}</div>
             </div>
-            <div class="mf-card-bg-175"></div>
+            <div class="mf-card-bg-179"></div>
           </div>
         </div>
       </div>
       
-      <div class="mf-hint-175">移动鼠标体验磁场效果</div>
+      <div class="mf-hint-179">移动鼠标体验磁场效果</div>
     </div>
   </div>
 </template>
@@ -76,16 +76,16 @@ let ctx: any = null
 onMounted(() => {
   ctx = gsap.context(() => {
     // 初始状态
-    gsap.set('.mf-card-175', {
+    gsap.set('.mf-card-179', {
       scale: 0.8,
       opacity: 0,
       rotateX: 20
     })
 
     // 卡片入场动画
-    gsap.to('.mf-card-175', {
+    gsap.to('.mf-card-179', {
       scrollTrigger: {
-        trigger: '.mf-stage-175',
+        trigger: '.mf-stage-179',
         start: 'top 70%',
         toggleActions: 'play none none reverse'
       },
@@ -98,9 +98,9 @@ onMounted(() => {
     })
 
     // 标题动画
-    gsap.from('.mf-title-175', {
+    gsap.from('.mf-title-179', {
       scrollTrigger: {
-        trigger: '.mf-container-175',
+        trigger: '.mf-container-179',
         start: 'top 80%',
         toggleActions: 'play none none reverse'
       },
@@ -111,9 +111,9 @@ onMounted(() => {
     })
 
     // 描述动画
-    gsap.from('.mf-desc-175', {
+    gsap.from('.mf-desc-179', {
       scrollTrigger: {
-        trigger: '.mf-container-175',
+        trigger: '.mf-container-179',
         start: 'top 70%',
         toggleActions: 'play none none reverse'
       },
@@ -125,9 +125,9 @@ onMounted(() => {
     })
 
     // 提示动画
-    gsap.from('.mf-hint-175', {
+    gsap.from('.mf-hint-179', {
       scrollTrigger: {
-        trigger: '.mf-stage-175',
+        trigger: '.mf-stage-179',
         start: 'bottom 20%',
         toggleActions: 'play none none reverse'
       },
@@ -203,7 +203,7 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
-.mf-container-175 {
+.mf-container-179 {
   width: 100%;
   min-height: 100vh;
   background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
@@ -214,7 +214,7 @@ onUnmounted(() => {
   overflow: hidden;
 }
 
-.mf-title-175 {
+.mf-title-179 {
   font-size: clamp(2rem, 5vw, 3.5rem);
   color: #fff;
   margin-bottom: 10px;
@@ -231,14 +231,14 @@ onUnmounted(() => {
   to { background-position: 200% center; }
 }
 
-.mf-desc-175 {
+.mf-desc-179 {
   font-size: clamp(0.9rem, 2vw, 1.2rem);
   color: rgba(255, 255, 255, 0.7);
   margin-bottom: 40px;
   text-align: center;
 }
 
-.mf-stage-175 {
+.mf-stage-179 {
   width: 100%;
   max-width: 1000px;
   display: grid;
@@ -248,7 +248,7 @@ onUnmounted(() => {
   perspective: 1000px;
 }
 
-.mf-card-175 {
+.mf-card-179 {
   position: relative;
   height: 320px;
   perspective: 1000px;
@@ -256,7 +256,7 @@ onUnmounted(() => {
   transform-style: preserve-3d;
 }
 
-.mf-card-inner-175 {
+.mf-card-inner-179 {
   width: 100%;
   height: 100%;
   position: relative;
@@ -264,7 +264,7 @@ onUnmounted(() => {
   will-change: transform;
 }
 
-.mf-card-content-175 {
+.mf-card-content-179 {
   position: relative;
   z-index: 2;
   width: 100%;
@@ -284,7 +284,7 @@ onUnmounted(() => {
   transform-style: preserve-3d;
 }
 
-.mf-card-bg-175 {
+.mf-card-bg-179 {
   position: absolute;
   top: 0;
   left: 0;
@@ -301,17 +301,17 @@ onUnmounted(() => {
   transition: opacity 0.3s ease;
 }
 
-.mf-card-175:hover .mf-card-bg-175 {
+.mf-card-179:hover .mf-card-bg-179 {
   opacity: 1;
 }
 
-.mf-card-icon-175 {
+.mf-card-icon-179 {
   font-size: 4rem;
   margin-bottom: 20px;
   transform: translateZ(30px);
 }
 
-.mf-card-title-175 {
+.mf-card-title-179 {
   font-size: 1.8rem;
   font-weight: bold;
   color: #fff;
@@ -319,13 +319,13 @@ onUnmounted(() => {
   transform: translateZ(20px);
 }
 
-.mf-card-desc-175 {
+.mf-card-desc-179 {
   font-size: 1rem;
   color: rgba(255, 255, 255, 0.8);
   transform: translateZ(15px);
 }
 
-.mf-hint-175 {
+.mf-hint-179 {
   margin-top: 30px;
   font-size: 0.9rem;
   color: rgba(255, 255, 255, 0.5);
@@ -333,20 +333,20 @@ onUnmounted(() => {
 }
 
 @media (max-width: 768px) {
-  .mf-stage-175 {
+  .mf-stage-179 {
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     gap: 20px;
   }
   
-  .mf-card-175 {
+  .mf-card-179 {
     height: 280px;
   }
   
-  .mf-card-icon-175 {
+  .mf-card-icon-179 {
     font-size: 3rem;
   }
   
-  .mf-card-title-175 {
+  .mf-card-title-179 {
     font-size: 1.5rem;
   }
 }

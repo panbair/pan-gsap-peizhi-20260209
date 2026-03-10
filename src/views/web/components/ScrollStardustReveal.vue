@@ -1,25 +1,25 @@
 <template>
-  <div class="ssr-stardust-reveal-section-169" ref="componentRoot">
-    <div class="ssr-container-169">
-      <h2 class="ssr-title-169">星尘揭示</h2>
-      <p class="ssr-subtitle-169">Stardust Reveal Effect</p>
+  <div class="ssr-stardust-reveal-section-184" ref="componentRoot">
+    <div class="ssr-container-184">
+      <h2 class="ssr-title-184">星尘揭示</h2>
+      <p class="ssr-subtitle-184">Stardust Reveal Effect</p>
 
-      <div class="ssr-reveal-stage-169">
-        <canvas ref="stardustCanvas" class="ssr-canvas-169"></canvas>
+      <div class="ssr-reveal-stage-184">
+        <canvas ref="stardustCanvas" class="ssr-canvas-184"></canvas>
 
-        <div class="ssr-content-layer-169">
-          <div class="ssr-image-reveal-169" ref="imageReveal">
-            <div class="ssr-image-wrapper-169">
-              <img :src="mainImage" alt="Stardust" class="ssr-main-image-169" />
-              <div class="ssr-dust-overlay-169"></div>
+        <div class="ssr-content-layer-184">
+          <div class="ssr-image-reveal-184" ref="imageReveal">
+            <div class="ssr-image-wrapper-184">
+              <img :src="mainImage" alt="Stardust" class="ssr-main-image-184" />
+              <div class="ssr-dust-overlay-184"></div>
             </div>
           </div>
 
-          <div class="ssr-star-particles-169">
+          <div class="ssr-star-particles-184">
             <div
               v-for="n in 40"
               :key="n"
-              class="ssr-star-169"
+              class="ssr-star-184"
               :ref="el => { if (el) starRefs[n] = el as HTMLElement }"
               :style="getStarStyle(n)"
             ></div>
@@ -27,17 +27,17 @@
         </div>
       </div>
 
-      <div class="ssr-text-content-169">
+      <div class="ssr-text-content-184">
         <div
           v-for="(text, index) in textContents"
           :key="index"
-          class="ssr-text-item-169"
+          class="ssr-text-item-184"
           :ref="el => { if (el) textRefs[index] = el as HTMLElement }"
         >
-          <span class="ssr-text-number-169">{{ String(index + 1).padStart(2, '0') }}</span>
-          <div class="ssr-text-inner-169">
-            <h3 class="ssr-text-title-169">{{ text.title }}</h3>
-            <p class="ssr-text-desc-169">{{ text.description }}</p>
+          <span class="ssr-text-number-184">{{ String(index + 1).padStart(2, '0') }}</span>
+          <div class="ssr-text-inner-184">
+            <h3 class="ssr-text-title-184">{{ text.title }}</h3>
+            <p class="ssr-text-desc-184">{{ text.description }}</p>
           </div>
         </div>
       </div>
@@ -147,16 +147,16 @@ onMounted(() => {
     animateStardust()
 
     ctx = gsap.context(() => {
-      const titleEl = gsap.utils.toArray<HTMLElement>('.ssr-title-169', componentRoot.value)
-      const subtitleEl = gsap.utils.toArray<HTMLElement>('.ssr-subtitle-169', componentRoot.value)
-      const imageRevealEl = gsap.utils.toArray<HTMLElement>('.ssr-image-reveal-169', componentRoot.value)
-      const dustOverlay = gsap.utils.toArray<HTMLElement>('.ssr-dust-overlay-169', componentRoot.value)
-      const mainImage = gsap.utils.toArray<HTMLElement>('.ssr-main-image-169', componentRoot.value)
-      const starElements = gsap.utils.toArray<HTMLElement>('.ssr-star-169', componentRoot.value)
-      const textItems = gsap.utils.toArray<HTMLElement>('.ssr-text-item-169', componentRoot.value)
-      const textNumbers = gsap.utils.toArray<HTMLElement>('.ssr-text-number-169', componentRoot.value)
-      const textTitles = gsap.utils.toArray<HTMLElement>('.ssr-text-title-169', componentRoot.value)
-      const textDescs = gsap.utils.toArray<HTMLElement>('.ssr-text-desc-169', componentRoot.value)
+      const titleEl = gsap.utils.toArray<HTMLElement>('.ssr-title-184', componentRoot.value)
+      const subtitleEl = gsap.utils.toArray<HTMLElement>('.ssr-subtitle-184', componentRoot.value)
+      const imageRevealEl = gsap.utils.toArray<HTMLElement>('.ssr-image-reveal-184', componentRoot.value)
+      const dustOverlay = gsap.utils.toArray<HTMLElement>('.ssr-dust-overlay-184', componentRoot.value)
+      const mainImage = gsap.utils.toArray<HTMLElement>('.ssr-main-image-184', componentRoot.value)
+      const starElements = gsap.utils.toArray<HTMLElement>('.ssr-star-184', componentRoot.value)
+      const textItems = gsap.utils.toArray<HTMLElement>('.ssr-text-item-184', componentRoot.value)
+      const textNumbers = gsap.utils.toArray<HTMLElement>('.ssr-text-number-184', componentRoot.value)
+      const textTitles = gsap.utils.toArray<HTMLElement>('.ssr-text-title-184', componentRoot.value)
+      const textDescs = gsap.utils.toArray<HTMLElement>('.ssr-text-desc-184', componentRoot.value)
 
       // 标题动画
       if (titleEl.length) {
@@ -341,7 +341,7 @@ onUnmounted(() => {
 </script>
 
 <style scoped lang="scss">
-.ssr-stardust-reveal-section-169 {
+.ssr-stardust-reveal-section-184 {
   min-height: 100vh;
   padding: 60px 20px;
   background: radial-gradient(ellipse at center, #0a0a2a 0%, #050515 100%);
@@ -349,14 +349,14 @@ onUnmounted(() => {
   overflow: hidden;
 }
 
-.ssr-container-169 {
+.ssr-container-184 {
   position: relative;
   max-width: 1400px;
   margin: 0 auto;
   z-index: 1;
 }
 
-.ssr-title-169 {
+.ssr-title-184 {
   text-align: center;
   font-size: clamp(2.5rem, 6vw, 4.5rem);
   font-weight: 900;
@@ -368,7 +368,7 @@ onUnmounted(() => {
   text-shadow: 0 0 80px rgba(167, 139, 250, 0.5);
 }
 
-.ssr-subtitle-169 {
+.ssr-subtitle-184 {
   text-align: center;
   font-size: 1.2rem;
   color: rgba(167, 139, 250, 0.6);
@@ -377,7 +377,7 @@ onUnmounted(() => {
   text-transform: uppercase;
 }
 
-.ssr-reveal-stage-169 {
+.ssr-reveal-stage-184 {
   position: relative;
   min-height: 60vh;
   display: flex;
@@ -387,7 +387,7 @@ onUnmounted(() => {
   margin-bottom: 60px;
 }
 
-.ssr-canvas-169 {
+.ssr-canvas-184 {
   position: absolute;
   top: 0;
   left: 0;
@@ -396,7 +396,7 @@ onUnmounted(() => {
   pointer-events: none;
 }
 
-.ssr-content-layer-169 {
+.ssr-content-layer-184 {
   position: relative;
   width: 100%;
   max-width: 800px;
@@ -407,7 +407,7 @@ onUnmounted(() => {
   z-index: 10;
 }
 
-.ssr-image-reveal-169 {
+.ssr-image-reveal-184 {
   position: relative;
   width: 100%;
   max-width: 500px;
@@ -416,20 +416,20 @@ onUnmounted(() => {
   box-shadow: 0 20px 60px rgba(167, 139, 250, 0.3);
 }
 
-.ssr-image-wrapper-169 {
+.ssr-image-wrapper-184 {
   position: relative;
   width: 100%;
   aspect-ratio: 1;
 }
 
-.ssr-main-image-169 {
+.ssr-main-image-184 {
   width: 100%;
   height: 100%;
   object-fit: cover;
   transition: transform 0.1s ease;
 }
 
-.ssr-dust-overlay-169 {
+.ssr-dust-overlay-184 {
   position: absolute;
   top: 0;
   left: 0;
@@ -441,7 +441,7 @@ onUnmounted(() => {
   pointer-events: none;
 }
 
-.ssr-star-particles-169 {
+.ssr-star-particles-184 {
   position: absolute;
   top: 0;
   left: 0;
@@ -451,7 +451,7 @@ onUnmounted(() => {
   overflow: hidden;
 }
 
-.ssr-star-169 {
+.ssr-star-184 {
   position: absolute;
   border-radius: 50%;
   animation: star-twinkle 3s ease-in-out infinite;
@@ -468,7 +468,7 @@ onUnmounted(() => {
   }
 }
 
-.ssr-text-content-169 {
+.ssr-text-content-184 {
   display: flex;
   flex-direction: column;
   gap: 30px;
@@ -476,7 +476,7 @@ onUnmounted(() => {
   max-width: 800px;
 }
 
-.ssr-text-item-169 {
+.ssr-text-item-184 {
   display: flex;
   gap: 20px;
   background: rgba(167, 139, 250, 0.05);
@@ -487,13 +487,13 @@ onUnmounted(() => {
   transition: all 0.3s ease;
 }
 
-.ssr-text-item-169:hover {
+.ssr-text-item-184:hover {
   background: rgba(167, 139, 250, 0.1);
   border-color: rgba(167, 139, 250, 0.4);
   transform: translateX(10px);
 }
 
-.ssr-text-number-169 {
+.ssr-text-number-184 {
   font-size: 2rem;
   font-weight: 900;
   color: rgba(167, 139, 250, 0.5);
@@ -501,11 +501,11 @@ onUnmounted(() => {
   font-family: 'Courier New', monospace;
 }
 
-.ssr-text-inner-169 {
+.ssr-text-inner-184 {
   flex: 1;
 }
 
-.ssr-text-title-169 {
+.ssr-text-title-184 {
   font-size: 1.5rem;
   font-weight: 700;
   color: #fff;
@@ -514,7 +514,7 @@ onUnmounted(() => {
   letter-spacing: 0.1em;
 }
 
-.ssr-text-desc-169 {
+.ssr-text-desc-184 {
   font-size: 1rem;
   color: rgba(255, 255, 255, 0.6);
   text-transform: uppercase;
@@ -522,21 +522,21 @@ onUnmounted(() => {
 }
 
 @media (max-width: 768px) {
-  .ssr-image-reveal-169 {
+  .ssr-image-reveal-184 {
     max-width: 100%;
   }
 
-  .ssr-text-item-169 {
+  .ssr-text-item-184 {
     flex-direction: column;
     gap: 15px;
     padding: 20px;
   }
 
-  .ssr-text-number-169 {
+  .ssr-text-number-184 {
     font-size: 1.5rem;
   }
 
-  .ssr-text-title-169 {
+  .ssr-text-title-184 {
     font-size: 1.2rem;
   }
 }

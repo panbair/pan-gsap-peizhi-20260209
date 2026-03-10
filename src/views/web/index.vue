@@ -18,7 +18,7 @@
       <TextTypewriter />
       <Cube3D />
       <ImageParallax />
-      <div v-if="0">
+      <div v-if="isShow">
         <!-- 3D/视差组件 - 懒加载 -->
         <LazyLiquidWave v-if="visibilityState.showLiquidWave" />
         <LazyParticleExplosion v-if="visibilityState.showParticleExplosion" />
@@ -201,6 +201,7 @@
         <LazyScrollHologramGallery v-if="visibilityState.showScrollHologramGallery" />
         <LazyScrollLiquidDistort v-if="visibilityState.showScrollLiquidDistort" />
         <LazyScrollPrismCards v-if="visibilityState.showScrollPrismCards" />
+        <LazyScrollTemporalDistortion v-if="visibilityState.showScrollTemporalDistortion" />
 
         <!-- 全新超级创意动画组件 (2026-03 终极扩展) -->
         <LazyScrollCyberGrid v-if="visibilityState.showScrollCyberGrid" />
@@ -302,7 +303,26 @@
       <LazyScrollTextGlow v-if="visibilityState.showScrollTextGlow" />
       <LazyScrollCardZoom v-if="visibilityState.showScrollCardZoom" />
       <LazyScrollCardRotate3D v-if="visibilityState.showScrollCardRotate3D" />
-    </div>
+      <LazyScrollCardBorder v-if="visibilityState.showScrollCardBorder" />
+      <LazyScrollCardMorph v-if="visibilityState.showScrollCardMorph" />
+      <LazyScrollCardGlass v-if="visibilityState.showScrollCardGlass" />
+      <LazyScrollCardRipple v-if="visibilityState.showScrollCardRipple" />
+        <LazyScrollShapeShift v-if="visibilityState.showScrollShapeShift" />
+        <LazyScrollElasticScale v-if="visibilityState.showScrollElasticScale" />
+        <LazyScrollPerspective v-if="visibilityState.showScrollPerspective" />
+        <LazyScrollParallaxLayers v-if="visibilityState.showScrollParallaxLayers" />
+        <LazyScrollImageClip v-if="visibilityState.showScrollImageClip" />
+        <LazyScrollImageBlur v-if="visibilityState.showScrollImageBlur" />
+        <LazyScrollImageSepia v-if="visibilityState.showScrollImageSepia" />
+        <LazyScrollImageTilt v-if="visibilityState.showScrollImageTilt" />
+        <LazyScrollTextFlow v-if="visibilityState.showScrollTextFlow" />
+        <LazyScrollTextColumns v-if="visibilityState.showScrollTextColumns" />
+        <LazyScrollTextJustify v-if="visibilityState.showScrollTextJustify" />
+        <LazyScrollNavMorph v-if="visibilityState.showScrollNavMorph" />
+        <LazyScrollBreadcrumb v-if="visibilityState.showScrollBreadcrumb" />
+        <LazyScrollTabSwitch v-if="visibilityState.showScrollTabSwitch" />
+        <LazyScrollFloatingNav v-if="visibilityState.showScrollFloatingNav" />
+      </div>
 
     <!-- 加载指示器 -->
     <Transition name="fade">
@@ -320,6 +340,8 @@ import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 gsap.registerPlugin(ScrollTrigger)
+
+let isShow = ref(false)
 
 // 立即加载的核心组件
 import ScrollProgress from './components/ScrollProgress.vue'
@@ -681,6 +703,19 @@ const LazyScrollFrostBreath = defineAsyncComponent(
 const LazyScrollLavaFlow = defineAsyncComponent(() => import('./components/ScrollLavaFlow.vue'))
 
 // 全新超级创意动画组件 (2026-03 终极扩展第二批次)
+const LazyScrollTemporalDistortion = defineAsyncComponent(() => import('./components/ScrollTemporalDistortion.vue'))
+const LazyScrollParallaxLayers = defineAsyncComponent(() => import('./components/ScrollParallaxLayers.vue'))
+const LazyScrollImageClip = defineAsyncComponent(() => import('./components/ScrollImageClip.vue'))
+const LazyScrollImageBlur = defineAsyncComponent(() => import('./components/ScrollImageBlur.vue'))
+const LazyScrollImageSepia = defineAsyncComponent(() => import('./components/ScrollImageSepia.vue'))
+const LazyScrollImageTilt = defineAsyncComponent(() => import('./components/ScrollImageTilt.vue'))
+const LazyScrollTextFlow = defineAsyncComponent(() => import('./components/ScrollTextFlow.vue'))
+const LazyScrollTextColumns = defineAsyncComponent(() => import('./components/ScrollTextColumns.vue'))
+const LazyScrollTextJustify = defineAsyncComponent(() => import('./components/ScrollTextJustify.vue'))
+const LazyScrollNavMorph = defineAsyncComponent(() => import('./components/ScrollNavMorph.vue'))
+const LazyScrollBreadcrumb = defineAsyncComponent(() => import('./components/ScrollBreadcrumb.vue'))
+const LazyScrollTabSwitch = defineAsyncComponent(() => import('./components/ScrollTabSwitch.vue'))
+const LazyScrollFloatingNav = defineAsyncComponent(() => import('./components/ScrollFloatingNav.vue'))
 const LazyScrollEnergyOrb = defineAsyncComponent(() => import('./components/ScrollEnergyOrb.vue'))
 const LazyScrollMorphingText = defineAsyncComponent(
   () => import('./components/ScrollMorphingText.vue')
@@ -752,6 +787,13 @@ const LazyScrollTextMask = defineAsyncComponent(() => import('./components/Scrol
 const LazyScrollTextGlow = defineAsyncComponent(() => import('./components/ScrollTextGlow.vue'))
 const LazyScrollCardZoom = defineAsyncComponent(() => import('./components/ScrollCardZoom.vue'))
 const LazyScrollCardRotate3D = defineAsyncComponent(() => import('./components/ScrollCardRotate3D.vue'))
+const LazyScrollCardBorder = defineAsyncComponent(() => import('./components/ScrollCardBorder.vue'))
+const LazyScrollCardMorph = defineAsyncComponent(() => import('./components/ScrollCardMorph.vue'))
+const LazyScrollCardGlass = defineAsyncComponent(() => import('./components/ScrollCardGlass.vue'))
+const LazyScrollCardRipple = defineAsyncComponent(() => import('./components/ScrollCardRipple.vue'))
+const LazyScrollShapeShift = defineAsyncComponent(() => import('./components/ScrollShapeShift.vue'))
+const LazyScrollElasticScale = defineAsyncComponent(() => import('./components/ScrollElasticScale.vue'))
+const LazyScrollPerspective = defineAsyncComponent(() => import('./components/ScrollPerspective.vue'))
 
 // 组件显示状态
 const isLoading = ref(true)
@@ -888,6 +930,7 @@ const visibilityState = ref<Record<string, boolean>>({
   showScrollHologramGallery: false,
   showScrollLiquidDistort: false,
   showScrollPrismCards: false,
+  showScrollTemporalDistortion: false,
   showScrollCyberGrid: false,
   showScrollQuantumPortal: false,
   showScrollNeonMatrix: false,
@@ -969,7 +1012,26 @@ const visibilityState = ref<Record<string, boolean>>({
   showScrollTextMask: false,
   showScrollTextGlow: false,
   showScrollCardZoom: false,
-  showScrollCardRotate3D: false
+  showScrollCardRotate3D: false,
+  showScrollCardBorder: false,
+  showScrollCardMorph: false,
+  showScrollCardGlass: false,
+  showScrollCardRipple: false,
+  showScrollShapeShift: false,
+  showScrollElasticScale: false,
+  showScrollPerspective: false,
+  showScrollParallaxLayers: false,
+  showScrollImageClip: false,
+  showScrollImageBlur: false,
+  showScrollImageSepia: false,
+  showScrollImageTilt: false,
+  showScrollTextFlow: false,
+  showScrollTextColumns: false,
+  showScrollTextJustify: false,
+  showScrollNavMorph: false,
+  showScrollBreadcrumb: false,
+  showScrollTabSwitch: false,
+  showScrollFloatingNav: false
 })
 
 // 组件分批加载配置
@@ -1052,7 +1114,18 @@ const componentBatches = [
   ['showScrollElectricArc', 'showScrollNeonGrid'],
   ['showScrollIceCrystal', 'showScrollSolarFlare'],
   ['showScrollAuroraNight', 'showScrollCosmicDust'],
-  ['showScrollFrostBreath', 'showScrollLavaFlow']
+  ['showScrollFrostBreath', 'showScrollLavaFlow'],
+  ['showScrollParallaxLayers', 'showScrollImageClip'],
+  ['showScrollImageBlur'],
+  ['showScrollImageSepia'],
+  ['showScrollImageTilt'],
+  ['showScrollTextFlow'],
+  ['showScrollTextColumns'],
+  ['showScrollTextJustify'],
+  ['showScrollNavMorph'],
+  ['showScrollBreadcrumb'],
+  ['showScrollTabSwitch'],
+  ['showScrollFloatingNav']
 ]
 
 // 交叉观察器用于懒加载
@@ -1204,6 +1277,7 @@ onMounted(() => {
   visibilityState.value.showScrollHologramGallery = true
   visibilityState.value.showScrollLiquidDistort = true
   visibilityState.value.showScrollPrismCards = true
+  visibilityState.value.showScrollTemporalDistortion = true
 
   // 立即显示全新超级创意动画组件 (2026-03 终极扩展)
   visibilityState.value.showScrollCyberGrid = true
@@ -1418,10 +1492,86 @@ onMounted(() => {
     visibilityState.value.showScrollCardRotate3D = true
   }, 32500)
 
+  setTimeout(() => {
+    visibilityState.value.showScrollCardBorder = true
+  }, 33500)
+
+  setTimeout(() => {
+    visibilityState.value.showScrollCardMorph = true
+  }, 34500)
+
+  setTimeout(() => {
+    visibilityState.value.showScrollCardGlass = true
+  }, 35500)
+
+  setTimeout(() => {
+    visibilityState.value.showScrollCardRipple = true
+  }, 36500)
+
+  setTimeout(() => {
+    visibilityState.value.showScrollShapeShift = true
+  }, 37500)
+
+  setTimeout(() => {
+    visibilityState.value.showScrollElasticScale = true
+  }, 38500)
+
+  setTimeout(() => {
+    visibilityState.value.showScrollPerspective = true
+  }, 39500)
+
+  setTimeout(() => {
+    visibilityState.value.showScrollParallaxLayers = true
+  }, 40500)
+
+  setTimeout(() => {
+    visibilityState.value.showScrollImageClip = true
+  }, 41500)
+
+  setTimeout(() => {
+    visibilityState.value.showScrollImageBlur = true
+  }, 42500)
+
+  setTimeout(() => {
+    visibilityState.value.showScrollImageSepia = true
+  }, 43500)
+
+  setTimeout(() => {
+    visibilityState.value.showScrollImageTilt = true
+  }, 44500)
+
+  setTimeout(() => {
+    visibilityState.value.showScrollTextFlow = true
+  }, 45500)
+
+  setTimeout(() => {
+    visibilityState.value.showScrollTextColumns = true
+  }, 46500)
+
+  setTimeout(() => {
+    visibilityState.value.showScrollTextJustify = true
+  }, 47500)
+
+  setTimeout(() => {
+    visibilityState.value.showScrollNavMorph = true
+  }, 48500)
+
+  setTimeout(() => {
+    visibilityState.value.showScrollBreadcrumb = true
+  }, 49500)
+
+  setTimeout(() => {
+    visibilityState.value.showScrollTabSwitch = true
+  }, 50500)
+
+  setTimeout(() => {
+    visibilityState.value.showScrollFloatingNav = true
+  }, 51500)
+
   // 初始加载后刷新ScrollTrigger
   setTimeout(() => {
     ScrollTrigger.refresh()
-  }, 33500)
+  }, 45500)
 })
 
 onUnmounted(() => {

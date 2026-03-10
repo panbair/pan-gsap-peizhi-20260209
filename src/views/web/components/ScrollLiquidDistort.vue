@@ -1,35 +1,35 @@
 <template>
-  <div class="sld-liquid-distort-section-166" ref="componentRoot">
-    <div class="sld-container-166">
-      <h2 class="sld-title-166">液体扭曲</h2>
-      <p class="sld-subtitle-166">Liquid Distortion</p>
+  <div class="sld-liquid-distort-section-190" ref="componentRoot">
+    <div class="sld-container-190">
+      <h2 class="sld-title-190">液体扭曲</h2>
+      <p class="sld-subtitle-190">Liquid Distortion</p>
 
-      <div class="sld-liquid-stage-166">
-        <canvas ref="liquidCanvas" class="sld-canvas-166"></canvas>
+      <div class="sld-liquid-stage-190">
+        <canvas ref="liquidCanvas" class="sld-canvas-190"></canvas>
 
-        <div class="sld-images-166">
+        <div class="sld-images-190">
           <div
             v-for="(item, index) in liquidItems"
             :key="index"
-            class="sld-liquid-item-166"
+            class="sld-liquid-item-190"
             :ref="el => { if (el) itemRefs[index] = el as HTMLElement }"
             @mousemove="handleLiquidMove($event, index)"
             @mouseleave="handleLiquidLeave(index)"
           >
-            <div class="sld-image-container-166">
-              <div class="sld-image-166" :style="{ backgroundImage: `url(${item.image})` }"></div>
-              <div class="sld-liquid-overlay-166"></div>
-              <div class="sld-ripple-166" v-for="i in 5" :key="i"></div>
+            <div class="sld-image-container-190">
+              <div class="sld-image-190" :style="{ backgroundImage: `url(${item.image})` }"></div>
+              <div class="sld-liquid-overlay-190"></div>
+              <div class="sld-ripple-190" v-for="i in 5" :key="i"></div>
             </div>
-            <div class="sld-item-content-166">
-              <h3 class="sld-item-title-166">{{ item.title }}</h3>
-              <p class="sld-item-desc-166">{{ item.description }}</p>
+            <div class="sld-item-content-190">
+              <h3 class="sld-item-title-190">{{ item.title }}</h3>
+              <p class="sld-item-desc-190">{{ item.description }}</p>
             </div>
           </div>
         </div>
 
-        <div class="sld-particles-166">
-          <div class="sld-particle-166" v-for="i in 30" :key="i"></div>
+        <div class="sld-particles-190">
+          <div class="sld-particle-190" v-for="i in 30" :key="i"></div>
         </div>
       </div>
     </div>
@@ -88,7 +88,7 @@ const handleLiquidMove = (event: MouseEvent, index: number) => {
   const x = ((event.clientX - rect.left) / rect.width) * 2 - 1
   const y = ((event.clientY - rect.top) / rect.height) * 2 - 1
 
-  const image = item.querySelector('.sld-image-166') as HTMLElement
+  const image = item.querySelector('.sld-image-190') as HTMLElement
   if (image) {
     gsap.to(image, {
       scale: 1.1 + Math.abs(x) * 0.1,
@@ -99,7 +99,7 @@ const handleLiquidMove = (event: MouseEvent, index: number) => {
     })
   }
 
-  const overlay = item.querySelector('.sld-liquid-overlay-166') as HTMLElement
+  const overlay = item.querySelector('.sld-liquid-overlay-190') as HTMLElement
   if (overlay) {
     gsap.to(overlay, {
       opacity: 0.4 + Math.abs(x) * 0.3,
@@ -108,7 +108,7 @@ const handleLiquidMove = (event: MouseEvent, index: number) => {
     })
   }
 
-  const ripples = item.querySelectorAll('.sld-ripple-166') as NodeListOf<HTMLElement>
+  const ripples = item.querySelectorAll('.sld-ripple-190') as NodeListOf<HTMLElement>
   ripples.forEach((ripple, i) => {
     gsap.fromTo(ripple,
       {
@@ -130,7 +130,7 @@ const handleLiquidLeave = (index: number) => {
   const item = itemRefs.value[index]
   if (!item) return
 
-  const image = item.querySelector('.sld-image-166') as HTMLElement
+  const image = item.querySelector('.sld-image-190') as HTMLElement
   if (image) {
     gsap.to(image, {
       scale: 1,
@@ -141,7 +141,7 @@ const handleLiquidLeave = (index: number) => {
     })
   }
 
-  const overlay = item.querySelector('.sld-liquid-overlay-166') as HTMLElement
+  const overlay = item.querySelector('.sld-liquid-overlay-190') as HTMLElement
   if (overlay) {
     gsap.to(overlay, {
       opacity: 0.3,
@@ -206,13 +206,13 @@ onMounted(() => {
     animateLiquid()
 
     gsapCtx = gsap.context(() => {
-      const titleEl = gsap.utils.toArray<HTMLElement>('.sld-title-166', componentRoot.value)
-      const subtitleEl = gsap.utils.toArray<HTMLElement>('.sld-subtitle-166', componentRoot.value)
-      const liquidItems = gsap.utils.toArray<HTMLElement>('.sld-liquid-item-166', componentRoot.value)
-      const stageEl = gsap.utils.toArray<HTMLElement>('.sld-liquid-stage-166', componentRoot.value)
-      const itemTitles = gsap.utils.toArray<HTMLElement>('.sld-item-title-166', componentRoot.value)
-      const itemDescs = gsap.utils.toArray<HTMLElement>('.sld-item-desc-166', componentRoot.value)
-      const particles = gsap.utils.toArray<HTMLElement>('.sld-particle-166', componentRoot.value)
+      const titleEl = gsap.utils.toArray<HTMLElement>('.sld-title-190', componentRoot.value)
+      const subtitleEl = gsap.utils.toArray<HTMLElement>('.sld-subtitle-190', componentRoot.value)
+      const liquidItems = gsap.utils.toArray<HTMLElement>('.sld-liquid-item-190', componentRoot.value)
+      const stageEl = gsap.utils.toArray<HTMLElement>('.sld-liquid-stage-190', componentRoot.value)
+      const itemTitles = gsap.utils.toArray<HTMLElement>('.sld-item-title-190', componentRoot.value)
+      const itemDescs = gsap.utils.toArray<HTMLElement>('.sld-item-desc-190', componentRoot.value)
+      const particles = gsap.utils.toArray<HTMLElement>('.sld-particle-190', componentRoot.value)
 
       if (titleEl.length) {
         gsap.from(titleEl, {
@@ -346,7 +346,7 @@ onUnmounted(() => {
 </script>
 
 <style scoped lang="scss">
-.sld-liquid-distort-section-166 {
+.sld-liquid-distort-section-190 {
   min-height: 150vh;
   padding: 100px 20px;
   background: linear-gradient(180deg, #0a0a20 0%, #0f0a30 50%, #0a0a20 100%);
@@ -354,14 +354,14 @@ onUnmounted(() => {
   overflow: hidden;
 }
 
-.sld-container-166 {
+.sld-container-190 {
   position: relative;
   max-width: 1400px;
   margin: 0 auto;
   z-index: 1;
 }
 
-.sld-title-166 {
+.sld-title-190 {
   text-align: center;
   font-size: clamp(2.5rem, 6vw, 4rem);
   font-weight: 900;
@@ -373,7 +373,7 @@ onUnmounted(() => {
   text-shadow: 0 0 60px rgba(100, 200, 255, 0.5);
 }
 
-.sld-subtitle-166 {
+.sld-subtitle-190 {
   text-align: center;
   font-size: 1.2rem;
   color: rgba(100, 200, 255, 0.6);
@@ -382,7 +382,7 @@ onUnmounted(() => {
   text-transform: uppercase;
 }
 
-.sld-liquid-stage-166 {
+.sld-liquid-stage-190 {
   position: relative;
   min-height: 80vh;
   display: flex;
@@ -390,7 +390,7 @@ onUnmounted(() => {
   justify-content: center;
 }
 
-.sld-canvas-166 {
+.sld-canvas-190 {
   position: absolute;
   top: 0;
   left: 0;
@@ -399,7 +399,7 @@ onUnmounted(() => {
   pointer-events: none;
 }
 
-.sld-images-166 {
+.sld-images-190 {
   position: relative;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -408,7 +408,7 @@ onUnmounted(() => {
   z-index: 2;
 }
 
-.sld-liquid-item-166 {
+.sld-liquid-item-190 {
   position: relative;
   background: rgba(10, 10, 30, 0.6);
   backdrop-filter: blur(20px);
@@ -423,13 +423,13 @@ onUnmounted(() => {
   }
 }
 
-.sld-image-container-166 {
+.sld-image-container-190 {
   position: relative;
   height: 200px;
   overflow: hidden;
 }
 
-.sld-image-166 {
+.sld-image-190 {
   width: 100%;
   height: 100%;
   background-size: cover;
@@ -437,7 +437,7 @@ onUnmounted(() => {
   transition: transform 0.5s ease;
 }
 
-.sld-liquid-overlay-166 {
+.sld-liquid-overlay-190 {
   position: absolute;
   inset: 0;
   background: linear-gradient(135deg, rgba(100, 200, 255, 0.3), rgba(74, 144, 226, 0.3));
@@ -445,7 +445,7 @@ onUnmounted(() => {
   transition: opacity 0.5s ease;
 }
 
-.sld-ripple-166 {
+.sld-ripple-190 {
   position: absolute;
   border: 2px solid rgba(100, 200, 255, 0.5);
   border-radius: 50%;
@@ -455,13 +455,13 @@ onUnmounted(() => {
   opacity: 0;
 }
 
-.sld-item-content-166 {
+.sld-item-content-190 {
   position: relative;
   padding: 30px;
   text-align: center;
 }
 
-.sld-item-title-166 {
+.sld-item-title-190 {
   font-size: 1.8rem;
   font-weight: 700;
   color: #fff;
@@ -469,14 +469,14 @@ onUnmounted(() => {
   text-shadow: 0 0 20px rgba(100, 200, 255, 0.5);
 }
 
-.sld-item-desc-166 {
+.sld-item-desc-190 {
   font-size: 1rem;
   color: rgba(255, 255, 255, 0.7);
   text-transform: uppercase;
   letter-spacing: 0.1em;
 }
 
-.sld-particles-166 {
+.sld-particles-190 {
   position: absolute;
   top: 0;
   left: 0;
@@ -486,7 +486,7 @@ onUnmounted(() => {
   overflow: hidden;
 }
 
-.sld-particle-166 {
+.sld-particle-190 {
   position: absolute;
   width: 6px;
   height: 6px;
@@ -496,11 +496,11 @@ onUnmounted(() => {
 }
 
 @media (max-width: 768px) {
-  .sld-images-166 {
+  .sld-images-190 {
     grid-template-columns: 1fr;
   }
 
-  .sld-item-title-166 {
+  .sld-item-title-190 {
     font-size: 1.5rem;
   }
 }

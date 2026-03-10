@@ -1,47 +1,47 @@
 <template>
-  <div class="scp-cyber-pulse-section-168" ref="componentRoot">
-    <div class="scp-container-168">
-      <h2 class="scp-title-168">赛博脉冲</h2>
-      <p class="scp-subtitle-168">Cyber Pulse Effect</p>
+  <div class="scp-cyber-pulse-section-187" ref="componentRoot">
+    <div class="scp-container-187">
+      <h2 class="scp-title-187">赛博脉冲</h2>
+      <p class="scp-subtitle-187">Cyber Pulse Effect</p>
 
-      <div class="scp-pulse-stage-168">
-        <div class="scp-grid-lines-168">
-          <div v-for="n in 20" :key="'h' + n" class="scp-line-h-168"></div>
-          <div v-for="n in 20" :key="'v' + n" class="scp-line-v-168"></div>
+      <div class="scp-pulse-stage-187">
+        <div class="scp-grid-lines-187">
+          <div v-for="n in 20" :key="'h' + n" class="scp-line-h-187"></div>
+          <div v-for="n in 20" :key="'v' + n" class="scp-line-v-187"></div>
         </div>
 
-        <div class="scp-pulse-center-168" ref="pulseCenter">
-          <div class="scp-pulse-core-168"></div>
-          <div class="scp-pulse-rings-168">
+        <div class="scp-pulse-center-187" ref="pulseCenter">
+          <div class="scp-pulse-core-187"></div>
+          <div class="scp-pulse-rings-187">
             <div
               v-for="n in 6"
               :key="n"
-              class="scp-pulse-ring-168"
+              class="scp-pulse-ring-187"
               :ref="el => { if (el) ringRefs[n] = el as HTMLElement }"
             ></div>
           </div>
-          <div class="scp-data-stream-168" ref="dataStream">
-            <div v-for="n in 40" :key="n" class="scp-data-bit-168"></div>
+          <div class="scp-data-stream-187" ref="dataStream">
+            <div v-for="n in 40" :key="n" class="scp-data-bit-187"></div>
           </div>
         </div>
 
-        <div class="scp-cyber-cards-168">
+        <div class="scp-cyber-cards-187">
           <div
             v-for="(card, index) in cyberCards"
             :key="index"
-            class="scp-cyber-card-168"
+            class="scp-cyber-card-187"
             :ref="el => { if (el) cardRefs[index] = el as HTMLElement }"
           >
-            <div class="scp-card-header-168">
-              <span class="scp-card-id-168">{{ card.id }}</span>
-              <span class="scp-card-status-168" :class="card.status"></span>
+            <div class="scp-card-header-187">
+              <span class="scp-card-id-187">{{ card.id }}</span>
+              <span class="scp-card-status-187" :class="card.status"></span>
             </div>
-            <div class="scp-card-body-168">
-              <div class="scp-card-title-168">{{ card.title }}</div>
-              <div class="scp-card-value-168">{{ card.value }}</div>
+            <div class="scp-card-body-187">
+              <div class="scp-card-title-187">{{ card.title }}</div>
+              <div class="scp-card-value-187">{{ card.value }}</div>
             </div>
-            <div class="scp-card-progress-168">
-              <div class="scp-progress-bar-168" :style="{ width: card.progress + '%' }"></div>
+            <div class="scp-card-progress-187">
+              <div class="scp-progress-bar-187" :style="{ width: card.progress + '%' }"></div>
             </div>
           </div>
         </div>
@@ -86,14 +86,14 @@ onMounted(() => {
     if (!componentRoot.value) return
 
     ctx = gsap.context(() => {
-      const titleEl = gsap.utils.toArray<HTMLElement>('.scp-title-168', componentRoot.value)
-      const subtitleEl = gsap.utils.toArray<HTMLElement>('.scp-subtitle-168', componentRoot.value)
-      const pulseRings = gsap.utils.toArray<HTMLElement>('.scp-pulse-ring-168', componentRoot.value)
-      const dataBits = gsap.utils.toArray<HTMLElement>('.scp-data-bit-168', componentRoot.value)
-      const cyberCards = gsap.utils.toArray<HTMLElement>('.scp-cyber-card-168', componentRoot.value)
-      const cardProgressBars = gsap.utils.toArray<HTMLElement>('.scp-progress-bar-168', componentRoot.value)
-      const gridLinesH = gsap.utils.toArray<HTMLElement>('.scp-line-h-168', componentRoot.value)
-      const gridLinesV = gsap.utils.toArray<HTMLElement>('.scp-line-v-168', componentRoot.value)
+      const titleEl = gsap.utils.toArray<HTMLElement>('.scp-title-187', componentRoot.value)
+      const subtitleEl = gsap.utils.toArray<HTMLElement>('.scp-subtitle-187', componentRoot.value)
+      const pulseRings = gsap.utils.toArray<HTMLElement>('.scp-pulse-ring-187', componentRoot.value)
+      const dataBits = gsap.utils.toArray<HTMLElement>('.scp-data-bit-187', componentRoot.value)
+      const cyberCards = gsap.utils.toArray<HTMLElement>('.scp-cyber-card-187', componentRoot.value)
+      const cardProgressBars = gsap.utils.toArray<HTMLElement>('.scp-progress-bar-187', componentRoot.value)
+      const gridLinesH = gsap.utils.toArray<HTMLElement>('.scp-line-h-187', componentRoot.value)
+      const gridLinesV = gsap.utils.toArray<HTMLElement>('.scp-line-v-187', componentRoot.value)
 
       // 标题故障动画
       if (titleEl.length) {
@@ -311,7 +311,7 @@ onMounted(() => {
               ease: 'power2.out'
             })
 
-            gsap.to(card.querySelector('.scp-card-title-168'), {
+            gsap.to(card.querySelector('.scp-card-title-187'), {
               color: '#06b6d4',
               duration: 0.3
             })
@@ -326,7 +326,7 @@ onMounted(() => {
               ease: 'power2.out'
             })
 
-            gsap.to(card.querySelector('.scp-card-title-168'), {
+            gsap.to(card.querySelector('.scp-card-title-187'), {
               color: '#fff',
               duration: 0.3
             })
@@ -346,7 +346,7 @@ onUnmounted(() => {
 </script>
 
 <style scoped lang="scss">
-.scp-cyber-pulse-section-168 {
+.scp-cyber-pulse-section-187 {
   min-height: 180vh;
   padding: 100px 20px;
   background: linear-gradient(135deg, #0a0a0a 0%, #0a1a1a 50%, #0a0a0a 100%);
@@ -354,14 +354,14 @@ onUnmounted(() => {
   overflow: hidden;
 }
 
-.scp-container-168 {
+.scp-container-187 {
   position: relative;
   max-width: 1400px;
   margin: 0 auto;
   z-index: 1;
 }
 
-.scp-title-168 {
+.scp-title-187 {
   text-align: center;
   font-size: clamp(2.5rem, 6vw, 4.5rem);
   font-weight: 900;
@@ -373,7 +373,7 @@ onUnmounted(() => {
   text-shadow: 0 0 80px rgba(6, 182, 212, 0.5);
 }
 
-.scp-subtitle-168 {
+.scp-subtitle-187 {
   text-align: center;
   font-size: 1.2rem;
   color: rgba(6, 182, 212, 0.6);
@@ -383,7 +383,7 @@ onUnmounted(() => {
   font-family: 'Courier New', monospace;
 }
 
-.scp-pulse-stage-168 {
+.scp-pulse-stage-187 {
   position: relative;
   min-height: 80vh;
   display: flex;
@@ -393,7 +393,7 @@ onUnmounted(() => {
   gap: 80px;
 }
 
-.scp-grid-lines-168 {
+.scp-grid-lines-187 {
   position: absolute;
   top: 0;
   left: 0;
@@ -403,7 +403,7 @@ onUnmounted(() => {
   overflow: hidden;
 }
 
-.scp-line-h-168 {
+.scp-line-h-187 {
   position: absolute;
   width: 100%;
   height: 1px;
@@ -411,27 +411,27 @@ onUnmounted(() => {
   left: 0;
 }
 
-.scp-line-h-168:nth-child(n) { top: 5%; }
-.scp-line-h-168:nth-child(n+2) { top: 10%; }
-.scp-line-h-168:nth-child(n+3) { top: 15%; }
-.scp-line-h-168:nth-child(n+4) { top: 20%; }
-.scp-line-h-168:nth-child(n+5) { top: 25%; }
-.scp-line-h-168:nth-child(n+6) { top: 30%; }
-.scp-line-h-168:nth-child(n+7) { top: 35%; }
-.scp-line-h-168:nth-child(n+8) { top: 40%; }
-.scp-line-h-168:nth-child(n+9) { top: 45%; }
-.scp-line-h-168:nth-child(n+10) { top: 50%; }
-.scp-line-h-168:nth-child(n+11) { top: 55%; }
-.scp-line-h-168:nth-child(n+12) { top: 60%; }
-.scp-line-h-168:nth-child(n+13) { top: 65%; }
-.scp-line-h-168:nth-child(n+14) { top: 70%; }
-.scp-line-h-168:nth-child(n+15) { top: 75%; }
-.scp-line-h-168:nth-child(n+16) { top: 80%; }
-.scp-line-h-168:nth-child(n+17) { top: 85%; }
-.scp-line-h-168:nth-child(n+18) { top: 90%; }
-.scp-line-h-168:nth-child(n+19) { top: 95%; }
+.scp-line-h-187:nth-child(n) { top: 5%; }
+.scp-line-h-187:nth-child(n+2) { top: 10%; }
+.scp-line-h-187:nth-child(n+3) { top: 15%; }
+.scp-line-h-187:nth-child(n+4) { top: 20%; }
+.scp-line-h-187:nth-child(n+5) { top: 25%; }
+.scp-line-h-187:nth-child(n+6) { top: 30%; }
+.scp-line-h-187:nth-child(n+7) { top: 35%; }
+.scp-line-h-187:nth-child(n+8) { top: 40%; }
+.scp-line-h-187:nth-child(n+9) { top: 45%; }
+.scp-line-h-187:nth-child(n+10) { top: 50%; }
+.scp-line-h-187:nth-child(n+11) { top: 55%; }
+.scp-line-h-187:nth-child(n+12) { top: 60%; }
+.scp-line-h-187:nth-child(n+13) { top: 65%; }
+.scp-line-h-187:nth-child(n+14) { top: 70%; }
+.scp-line-h-187:nth-child(n+15) { top: 75%; }
+.scp-line-h-187:nth-child(n+16) { top: 80%; }
+.scp-line-h-187:nth-child(n+17) { top: 85%; }
+.scp-line-h-187:nth-child(n+18) { top: 90%; }
+.scp-line-h-187:nth-child(n+19) { top: 95%; }
 
-.scp-line-v-168 {
+.scp-line-v-187 {
   position: absolute;
   width: 1px;
   height: 100%;
@@ -439,27 +439,27 @@ onUnmounted(() => {
   top: 0;
 }
 
-.scp-line-v-168:nth-child(20n+1) { left: 5%; }
-.scp-line-v-168:nth-child(20n+2) { left: 10%; }
-.scp-line-v-168:nth-child(20n+3) { left: 15%; }
-.scp-line-v-168:nth-child(20n+4) { left: 20%; }
-.scp-line-v-168:nth-child(20n+5) { left: 25%; }
-.scp-line-v-168:nth-child(20n+6) { left: 30%; }
-.scp-line-v-168:nth-child(20n+7) { left: 35%; }
-.scp-line-v-168:nth-child(20n+8) { left: 40%; }
-.scp-line-v-168:nth-child(20n+9) { left: 45%; }
-.scp-line-v-168:nth-child(20n+10) { left: 50%; }
-.scp-line-v-168:nth-child(20n+11) { left: 55%; }
-.scp-line-v-168:nth-child(20n+12) { left: 60%; }
-.scp-line-v-168:nth-child(20n+13) { left: 65%; }
-.scp-line-v-168:nth-child(20n+14) { left: 70%; }
-.scp-line-v-168:nth-child(20n+15) { left: 75%; }
-.scp-line-v-168:nth-child(20n+16) { left: 80%; }
-.scp-line-v-168:nth-child(20n+17) { left: 85%; }
-.scp-line-v-168:nth-child(20n+18) { left: 90%; }
-.scp-line-v-168:nth-child(20n+19) { left: 95%; }
+.scp-line-v-187:nth-child(20n+1) { left: 5%; }
+.scp-line-v-187:nth-child(20n+2) { left: 10%; }
+.scp-line-v-187:nth-child(20n+3) { left: 15%; }
+.scp-line-v-187:nth-child(20n+4) { left: 20%; }
+.scp-line-v-187:nth-child(20n+5) { left: 25%; }
+.scp-line-v-187:nth-child(20n+6) { left: 30%; }
+.scp-line-v-187:nth-child(20n+7) { left: 35%; }
+.scp-line-v-187:nth-child(20n+8) { left: 40%; }
+.scp-line-v-187:nth-child(20n+9) { left: 45%; }
+.scp-line-v-187:nth-child(20n+10) { left: 50%; }
+.scp-line-v-187:nth-child(20n+11) { left: 55%; }
+.scp-line-v-187:nth-child(20n+12) { left: 60%; }
+.scp-line-v-187:nth-child(20n+13) { left: 65%; }
+.scp-line-v-187:nth-child(20n+14) { left: 70%; }
+.scp-line-v-187:nth-child(20n+15) { left: 75%; }
+.scp-line-v-187:nth-child(20n+16) { left: 80%; }
+.scp-line-v-187:nth-child(20n+17) { left: 85%; }
+.scp-line-v-187:nth-child(20n+18) { left: 90%; }
+.scp-line-v-187:nth-child(20n+19) { left: 95%; }
 
-.scp-pulse-center-168 {
+.scp-pulse-center-187 {
   position: relative;
   width: 400px;
   height: 400px;
@@ -468,7 +468,7 @@ onUnmounted(() => {
   justify-content: center;
 }
 
-.scp-pulse-core-168 {
+.scp-pulse-core-187 {
   position: absolute;
   width: 80px;
   height: 80px;
@@ -492,13 +492,13 @@ onUnmounted(() => {
   }
 }
 
-.scp-pulse-rings-168 {
+.scp-pulse-rings-187 {
   position: absolute;
   width: 100%;
   height: 100%;
 }
 
-.scp-pulse-ring-168 {
+.scp-pulse-ring-187 {
   position: absolute;
   border-radius: 50%;
   border: 2px solid rgba(6, 182, 212, 0.5);
@@ -506,14 +506,14 @@ onUnmounted(() => {
   transform: translate(-50%, -50%);
 }
 
-.scp-pulse-ring-168:nth-child(1) { width: 120px; height: 120px; }
-.scp-pulse-ring-168:nth-child(2) { width: 180px; height: 180px; }
-.scp-pulse-ring-168:nth-child(3) { width: 240px; height: 240px; }
-.scp-pulse-ring-168:nth-child(4) { width: 300px; height: 300px; }
-.scp-pulse-ring-168:nth-child(5) { width: 360px; height: 360px; }
-.scp-pulse-ring-168:nth-child(6) { width: 400px; height: 400px; }
+.scp-pulse-ring-187:nth-child(1) { width: 120px; height: 120px; }
+.scp-pulse-ring-187:nth-child(2) { width: 180px; height: 180px; }
+.scp-pulse-ring-187:nth-child(3) { width: 240px; height: 240px; }
+.scp-pulse-ring-187:nth-child(4) { width: 300px; height: 300px; }
+.scp-pulse-ring-187:nth-child(5) { width: 360px; height: 360px; }
+.scp-pulse-ring-187:nth-child(6) { width: 400px; height: 400px; }
 
-.scp-data-stream-168 {
+.scp-data-stream-187 {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -525,7 +525,7 @@ onUnmounted(() => {
   z-index: 5;
 }
 
-.scp-data-bit-168 {
+.scp-data-bit-187 {
   width: 4px;
   height: 4px;
   background: #06b6d4;
@@ -533,7 +533,7 @@ onUnmounted(() => {
   box-shadow: 0 0 10px rgba(6, 182, 212, 0.5);
 }
 
-.scp-cyber-cards-168 {
+.scp-cyber-cards-187 {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 30px;
@@ -542,7 +542,7 @@ onUnmounted(() => {
   z-index: 10;
 }
 
-.scp-cyber-card-168 {
+.scp-cyber-card-187 {
   background: rgba(6, 182, 212, 0.05);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(6, 182, 212, 0.3);
@@ -551,21 +551,21 @@ onUnmounted(() => {
   transition: all 0.3s ease;
 }
 
-.scp-card-header-168 {
+.scp-card-header-187 {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
 }
 
-.scp-card-id-168 {
+.scp-card-id-187 {
   font-family: 'Courier New', monospace;
   font-size: 0.9rem;
   color: rgba(6, 182, 212, 0.7);
   text-transform: uppercase;
 }
 
-.scp-card-status-168 {
+.scp-card-status-187 {
   width: 8px;
   height: 8px;
   border-radius: 50%;
@@ -573,16 +573,16 @@ onUnmounted(() => {
   box-shadow: 0 0 10px #10b981;
 }
 
-.scp-card-status-168.warning {
+.scp-card-status-187.warning {
   background: #f59e0b;
   box-shadow: 0 0 10px #f59e0b;
 }
 
-.scp-card-body-168 {
+.scp-card-body-187 {
   margin-bottom: 20px;
 }
 
-.scp-card-title-168 {
+.scp-card-title-187 {
   font-size: 0.9rem;
   color: #fff;
   text-transform: uppercase;
@@ -591,7 +591,7 @@ onUnmounted(() => {
   transition: color 0.3s ease;
 }
 
-.scp-card-value-168 {
+.scp-card-value-187 {
   font-size: 2rem;
   font-weight: 900;
   color: #06b6d4;
@@ -599,7 +599,7 @@ onUnmounted(() => {
   text-shadow: 0 0 20px rgba(6, 182, 212, 0.5);
 }
 
-.scp-card-progress-168 {
+.scp-card-progress-187 {
   width: 100%;
   height: 4px;
   background: rgba(6, 182, 212, 0.2);
@@ -607,7 +607,7 @@ onUnmounted(() => {
   overflow: hidden;
 }
 
-.scp-progress-bar-168 {
+.scp-progress-bar-187 {
   height: 100%;
   background: linear-gradient(90deg, #06b6d4, #10b981);
   border-radius: 2px;
@@ -616,22 +616,22 @@ onUnmounted(() => {
 }
 
 @media (max-width: 768px) {
-  .scp-pulse-center-168 {
+  .scp-pulse-center-187 {
     width: 300px;
     height: 300px;
   }
 
-  .scp-pulse-core-168 {
+  .scp-pulse-core-187 {
     width: 60px;
     height: 60px;
   }
 
-  .scp-cyber-cards-168 {
+  .scp-cyber-cards-187 {
     grid-template-columns: 1fr;
     gap: 20px;
   }
 
-  .scp-card-value-168 {
+  .scp-card-value-187 {
     font-size: 1.5rem;
   }
 }

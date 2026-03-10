@@ -1,22 +1,22 @@
 <template>
-  <div class="stce-text-cascade-effect-section-171" ref="componentRoot">
-    <div class="stce-container-171">
-      <h2 class="stce-title-171">文字级联效果</h2>
-      <p class="stce-subtitle-171">Text Cascade Effect</p>
+  <div class="stce-text-cascade-effect-section-183" ref="componentRoot">
+    <div class="stce-container-183">
+      <h2 class="stce-title-183">文字级联效果</h2>
+      <p class="stce-subtitle-183">Text Cascade Effect</p>
 
-      <div class="stce-text-blocks-171">
+      <div class="stce-text-blocks-183">
         <div
           v-for="(block, index) in textBlocks"
           :key="index"
-          class="stce-text-block-171"
+          class="stce-text-block-183"
           :ref="el => { if (el) blockRefs[index] = el as HTMLElement }"
         >
-          <div class="stce-block-header-171">
-            <span class="stce-block-number-171">{{ String(index + 1).padStart(2, '0') }}</span>
-            <div class="stce-block-line-171"></div>
+          <div class="stce-block-header-183">
+            <span class="stce-block-number-183">{{ String(index + 1).padStart(2, '0') }}</span>
+            <div class="stce-block-line-183"></div>
           </div>
-          <h3 class="stce-block-title-171">{{ block.title }}</h3>
-          <p class="stce-block-text-171">{{ block.text }}</p>
+          <h3 class="stce-block-title-183">{{ block.title }}</h3>
+          <p class="stce-block-text-183">{{ block.text }}</p>
         </div>
       </div>
     </div>
@@ -63,11 +63,11 @@ onMounted(() => {
   if (!componentRoot.value) return
 
   gsapCtx = gsap.context(() => {
-    const titleEl = gsap.utils.toArray<HTMLElement>('.stce-title-171', componentRoot.value)
-    const subtitleEl = gsap.utils.toArray<HTMLElement>('.stce-subtitle-171', componentRoot.value)
-    const blocks = gsap.utils.toArray<HTMLElement>('.stce-text-block-171', componentRoot.value)
-    const blockNumbers = gsap.utils.toArray<HTMLElement>('.stce-block-number-171', componentRoot.value)
-    const blockLines = gsap.utils.toArray<HTMLElement>('.stce-block-line-171', componentRoot.value)
+    const titleEl = gsap.utils.toArray<HTMLElement>('.stce-title-183', componentRoot.value)
+    const subtitleEl = gsap.utils.toArray<HTMLElement>('.stce-subtitle-183', componentRoot.value)
+    const blocks = gsap.utils.toArray<HTMLElement>('.stce-text-block-183', componentRoot.value)
+    const blockNumbers = gsap.utils.toArray<HTMLElement>('.stce-block-number-183', componentRoot.value)
+    const blockLines = gsap.utils.toArray<HTMLElement>('.stce-block-line-183', componentRoot.value)
 
     if (titleEl.length) {
       gsap.from(titleEl, {
@@ -148,7 +148,7 @@ onUnmounted(() => {
 </script>
 
 <style scoped lang="scss">
-.stce-text-cascade-effect-section-171 {
+.stce-text-cascade-effect-section-183 {
   position: relative;
   min-height: 200vh;
   padding: 120px 20px;
@@ -156,12 +156,12 @@ onUnmounted(() => {
   overflow: hidden;
 }
 
-.stce-container-171 {
+.stce-container-183 {
   max-width: 1000px;
   margin: 0 auto;
 }
 
-.stce-title-171 {
+.stce-title-183 {
   text-align: center;
   font-size: clamp(2.5rem, 6vw, 4rem);
   font-weight: 900;
@@ -172,7 +172,7 @@ onUnmounted(() => {
   background-clip: text;
 }
 
-.stce-subtitle-171 {
+.stce-subtitle-183 {
   text-align: center;
   font-size: 1.2rem;
   color: rgba(255, 255, 255, 0.6);
@@ -181,13 +181,13 @@ onUnmounted(() => {
   text-transform: uppercase;
 }
 
-.stce-text-blocks-171 {
+.stce-text-blocks-183 {
   display: flex;
   flex-direction: column;
   gap: 100px;
 }
 
-.stce-text-block-171 {
+.stce-text-block-183 {
   position: relative;
   padding: 50px 60px;
   background: rgba(255, 255, 255, 0.03);
@@ -202,14 +202,14 @@ onUnmounted(() => {
   }
 }
 
-.stce-block-header-171 {
+.stce-block-header-183 {
   display: flex;
   align-items: center;
   gap: 30px;
   margin-bottom: 30px;
 }
 
-.stce-block-number-171 {
+.stce-block-number-183 {
   font-size: 3.5rem;
   font-weight: 900;
   background: linear-gradient(135deg, #ff6b6b, #feca57);
@@ -220,44 +220,44 @@ onUnmounted(() => {
   min-width: 80px;
 }
 
-.stce-block-line-171 {
+.stce-block-line-183 {
   flex: 1;
   height: 2px;
   background: linear-gradient(90deg, rgba(255, 107, 107, 0.8), transparent);
 }
 
-.stce-block-title-171 {
+.stce-block-title-183 {
   font-size: 2rem;
   font-weight: 700;
   color: #fff;
   margin-bottom: 20px;
 }
 
-.stce-block-text-171 {
+.stce-block-text-183 {
   font-size: 1.1rem;
   color: rgba(255, 255, 255, 0.7);
   line-height: 1.8;
 }
 
 @media (max-width: 768px) {
-  .stce-text-blocks-171 {
+  .stce-text-blocks-183 {
     gap: 60px;
   }
 
-  .stce-text-block-171 {
+  .stce-text-block-183 {
     padding: 30px 40px;
   }
 
-  .stce-block-number-171 {
+  .stce-block-number-183 {
     font-size: 2.5rem;
     min-width: 60px;
   }
 
-  .stce-block-title-171 {
+  .stce-block-title-183 {
     font-size: 1.5rem;
   }
 
-  .stce-block-text-171 {
+  .stce-block-text-183 {
     font-size: 1rem;
   }
 }

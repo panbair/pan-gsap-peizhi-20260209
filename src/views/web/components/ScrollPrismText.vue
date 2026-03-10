@@ -1,53 +1,53 @@
 <template>
-  <div class="spri-prism-text-section-172" ref="componentRoot">
-    <div class="spri-container-172">
-      <h2 class="spri-title-172">棱镜文字</h2>
-      <p class="spri-subtitle-172">Prism Text</p>
+  <div class="spri-prism-text-section-176" ref="componentRoot">
+    <div class="spri-container-176">
+      <h2 class="spri-title-176">棱镜文字</h2>
+      <p class="spri-subtitle-176">Prism Text</p>
 
-      <div class="spri-text-stage-172">
-        <div class="spri-prism-container-172">
-          <div class="spri-prism-172" ref="mainPrism">
-            <div class="spri-prism-face-172"></div>
-            <div class="spri-prism-face-172"></div>
-            <div class="spri-prism-face-172"></div>
+      <div class="spri-text-stage-176">
+        <div class="spri-prism-container-176">
+          <div class="spri-prism-176" ref="mainPrism">
+            <div class="spri-prism-face-176"></div>
+            <div class="spri-prism-face-176"></div>
+            <div class="spri-prism-face-176"></div>
           </div>
         </div>
 
-        <div class="spri-text-container-172">
+        <div class="spri-text-container-176">
           <div
             v-for="(item, index) in prismTexts"
             :key="index"
-            class="spri-text-item-172"
+            class="spri-text-item-176"
             :ref="el => { if (el) textItemRefs[index] = el as HTMLElement }"
           >
-            <div class="spri-spectrum-172" :ref="el => { if (el) spectrumRefs[index] = el as HTMLElement }">
+            <div class="spri-spectrum-176" :ref="el => { if (el) spectrumRefs[index] = el as HTMLElement }">
               <span
                 v-for="(color, colorIndex) in colors"
                 :key="colorIndex"
-                class="spri-spectrum-text-172"
-                :class="`spri-color-${colorIndex}-172`"
+                class="spri-spectrum-text-176"
+                :class="`spri-color-${colorIndex}-176`"
                 :ref="el => { if (el) spectrumTextRefs[`${index}-${colorIndex}`] = el as HTMLElement }"
               >{{ item.text }}</span>
             </div>
-            <span class="spri-main-text-172" :ref="el => { if (el) mainTextRefs[index] = el as HTMLElement }">{{ item.text }}</span>
+            <span class="spri-main-text-176" :ref="el => { if (el) mainTextRefs[index] = el as HTMLElement }">{{ item.text }}</span>
           </div>
         </div>
 
-        <div class="spri-light-rays-172">
+        <div class="spri-light-rays-176">
           <div
             v-for="n in 8"
             :key="n"
-            class="spri-light-ray-172"
+            class="spri-light-ray-176"
             :ref="el => { if (el) lightRayRefs[n] = el as HTMLElement }"
           ></div>
         </div>
       </div>
 
-      <div class="spri-prism-bg-172">
+      <div class="spri-prism-bg-176">
         <div
           v-for="n in 6"
           :key="n"
-          class="spri-bg-prism-172"
+          class="spri-bg-prism-176"
         ></div>
       </div>
     </div>
@@ -88,9 +88,9 @@ onMounted(() => {
     if (!componentRoot.value) return
 
     ctx = gsap.context(() => {
-      const titleEl = gsap.utils.toArray<HTMLElement>('.spri-title-172', componentRoot.value)
-      const subtitleEl = gsap.utils.toArray<HTMLElement>('.spri-subtitle-172', componentRoot.value)
-      const lightRays = gsap.utils.toArray<HTMLElement>('.spri-light-ray-172', componentRoot.value)
+      const titleEl = gsap.utils.toArray<HTMLElement>('.spri-title-176', componentRoot.value)
+      const subtitleEl = gsap.utils.toArray<HTMLElement>('.spri-subtitle-176', componentRoot.value)
+      const lightRays = gsap.utils.toArray<HTMLElement>('.spri-light-ray-176', componentRoot.value)
 
       // 标题动画 - 棱镜折射效果
       if (titleEl.length) {
@@ -286,7 +286,7 @@ onUnmounted(() => {
 </script>
 
 <style scoped lang="scss">
-.spri-prism-text-section-172 {
+.spri-prism-text-section-176 {
   min-height: 220vh;
   padding: 100px 20px;
   background: linear-gradient(180deg, #0a0a1a 0%, #1a0a1a 50%, #0a0a2a 100%);
@@ -294,14 +294,14 @@ onUnmounted(() => {
   overflow: hidden;
 }
 
-.spri-container-172 {
+.spri-container-176 {
   position: relative;
   max-width: 1400px;
   margin: 0 auto;
   z-index: 1;
 }
 
-.spri-title-172 {
+.spri-title-176 {
   text-align: center;
   font-size: clamp(2.5rem, 6vw, 4.5rem);
   font-weight: 900;
@@ -311,15 +311,15 @@ onUnmounted(() => {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   background-size: 200% 100%;
-  animation: spectrumShift-172 5s linear infinite;
+  animation: spectrumShift-176 5s linear infinite;
 }
 
-@keyframes spectrumShift-172 {
+@keyframes spectrumShift-176 {
   0% { background-position: 0% 50%; }
   100% { background-position: 200% 50%; }
 }
 
-.spri-subtitle-172 {
+.spri-subtitle-176 {
   text-align: center;
   font-size: 1.2rem;
   color: rgba(147, 51, 234, 0.6);
@@ -328,7 +328,7 @@ onUnmounted(() => {
   text-transform: uppercase;
 }
 
-.spri-text-stage-172 {
+.spri-text-stage-176 {
   position: relative;
   min-height: 100vh;
   display: flex;
@@ -338,7 +338,7 @@ onUnmounted(() => {
   gap: 80px;
 }
 
-.spri-prism-container-172 {
+.spri-prism-container-176 {
   position: absolute;
   top: 10%;
   right: 10%;
@@ -346,14 +346,14 @@ onUnmounted(() => {
   z-index: 0;
 }
 
-.spri-prism-172 {
+.spri-prism-176 {
   position: relative;
   width: 150px;
   height: 150px;
   transform-style: preserve-3d;
 }
 
-.spri-prism-face-172 {
+.spri-prism-face-176 {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -362,11 +362,11 @@ onUnmounted(() => {
   transform-origin: center;
 }
 
-.spri-prism-face-172:nth-child(1) { transform: rotateY(0deg) translateZ(50px); }
-.spri-prism-face-172:nth-child(2) { transform: rotateY(120deg) translateZ(50px); }
-.spri-prism-face-172:nth-child(3) { transform: rotateY(240deg) translateZ(50px); }
+.spri-prism-face-176:nth-child(1) { transform: rotateY(0deg) translateZ(50px); }
+.spri-prism-face-176:nth-child(2) { transform: rotateY(120deg) translateZ(50px); }
+.spri-prism-face-176:nth-child(3) { transform: rotateY(240deg) translateZ(50px); }
 
-.spri-text-container-172 {
+.spri-text-container-176 {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -374,7 +374,7 @@ onUnmounted(() => {
   z-index: 1;
 }
 
-.spri-text-item-172 {
+.spri-text-item-176 {
   position: relative;
   width: 500px;
   height: 150px;
@@ -383,7 +383,7 @@ onUnmounted(() => {
   justify-content: center;
 }
 
-.spri-spectrum-172 {
+.spri-spectrum-176 {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -392,7 +392,7 @@ onUnmounted(() => {
   justify-content: center;
 }
 
-.spri-spectrum-text-172 {
+.spri-spectrum-text-176 {
   position: absolute;
   font-size: clamp(3rem, 8vw, 4.5rem);
   font-weight: 900;
@@ -402,7 +402,7 @@ onUnmounted(() => {
   mix-blend-mode: screen;
 }
 
-.spri-main-text-172 {
+.spri-main-text-176 {
   position: relative;
   font-size: clamp(3rem, 8vw, 4.5rem);
   font-weight: 900;
@@ -413,7 +413,7 @@ onUnmounted(() => {
   z-index: 1;
 }
 
-.spri-light-rays-172 {
+.spri-light-rays-176 {
   position: absolute;
   top: 0;
   left: 0;
@@ -423,7 +423,7 @@ onUnmounted(() => {
   z-index: 0;
 }
 
-.spri-light-ray-172 {
+.spri-light-ray-176 {
   position: absolute;
   width: 2px;
   height: 200px;
@@ -434,7 +434,7 @@ onUnmounted(() => {
   filter: blur(2px);
 }
 
-.spri-prism-bg-172 {
+.spri-prism-bg-176 {
   position: absolute;
   top: 0;
   left: 0;
@@ -444,41 +444,41 @@ onUnmounted(() => {
   z-index: 0;
 }
 
-.spri-bg-prism-172 {
+.spri-bg-prism-176 {
   position: absolute;
   width: 100px;
   height: 100px;
   background: linear-gradient(135deg, rgba(147, 51, 234, 0.1), rgba(236, 72, 153, 0.1));
   border: 1px solid rgba(147, 51, 234, 0.2);
   transform: rotate(45deg);
-  animation: bgPrismFloat-172 10s ease-in-out infinite;
+  animation: bgPrismFloat-176 10s ease-in-out infinite;
 }
 
 @for $i from 1 through 6 {
-  .spri-bg-prism-172:nth-child(#{$i}) {
+  .spri-bg-prism-176:nth-child(#{$i}) {
     top: #{10 + ($i % 6) * 15}%;
     left: #{5 + ($i % 8) * 12}%;
     animation-delay: #{$i * -2}s;
   }
 }
 
-@keyframes bgPrismFloat-172 {
+@keyframes bgPrismFloat-176 {
   0%, 100% { transform: rotate(45deg) translateY(0); opacity: 0.3; }
   50% { transform: rotate(45deg) translateY(-30px); opacity: 0.5; }
 }
 
 @media (max-width: 768px) {
-  .spri-text-item-172 {
+  .spri-text-item-176 {
     width: 300px;
     height: 120px;
   }
 
-  .spri-spectrum-text-172,
-  .spri-main-text-172 {
+  .spri-spectrum-text-176,
+  .spri-main-text-176 {
     font-size: 2.5rem;
   }
 
-  .spri-prism-container-172 {
+  .spri-prism-container-176 {
     display: none;
   }
 }

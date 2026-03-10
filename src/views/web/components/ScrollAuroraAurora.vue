@@ -1,35 +1,35 @@
 <template>
-  <div class="saa-aurora-aurora-section-170" ref="componentRoot">
-    <div class="saa-container-170">
-      <h2 class="saa-title-170">极光极光</h2>
-      <p class="saa-subtitle-170">Aurora Aurora</p>
+  <div class="saa-aurora-aurora-section-181" ref="componentRoot">
+    <div class="saa-container-181">
+      <h2 class="saa-title-181">极光极光</h2>
+      <p class="saa-subtitle-181">Aurora Aurora</p>
 
-      <div class="saa-aurora-stage-170">
-        <canvas ref="auroraCanvas" class="saa-canvas-170"></canvas>
+      <div class="saa-aurora-stage-181">
+        <canvas ref="auroraCanvas" class="saa-canvas-181"></canvas>
 
-        <div class="saa-aurora-cards-170">
+        <div class="saa-aurora-cards-181">
           <div
             v-for="(card, index) in cards"
             :key="index"
-            class="saa-aurora-card-170"
+            class="saa-aurora-card-181"
             :ref="el => { if (el) cardRefs[index] = el as HTMLElement }"
             :data-aurora="index"
             @mousemove="handleAuroraMove($event, index)"
             @mouseleave="handleAuroraLeave(index)"
           >
-            <div class="saa-card-aurora-170">
-              <div class="saa-aurora-wave-170" v-for="i in 3" :key="i" :style="`--hue: ${card.hue + i * 30}`"></div>
+            <div class="saa-card-aurora-181">
+              <div class="saa-aurora-wave-181" v-for="i in 3" :key="i" :style="`--hue: ${card.hue + i * 30}`"></div>
             </div>
-            <div class="saa-card-content-170">
-              <div class="saa-card-icon-170">{{ card.icon }}</div>
-              <h3 class="saa-card-title-170">{{ card.title }}</h3>
-              <p class="saa-card-desc-170">{{ card.description }}</p>
+            <div class="saa-card-content-181">
+              <div class="saa-card-icon-181">{{ card.icon }}</div>
+              <h3 class="saa-card-title-181">{{ card.title }}</h3>
+              <p class="saa-card-desc-181">{{ card.description }}</p>
             </div>
           </div>
         </div>
 
-        <div class="saa-floating-stars-170">
-          <div class="saa-star-170" v-for="i in 20" :key="i"></div>
+        <div class="saa-floating-stars-181">
+          <div class="saa-star-181" v-for="i in 20" :key="i"></div>
         </div>
       </div>
     </div>
@@ -101,7 +101,7 @@ const handleAuroraMove = (event: MouseEvent, index: number) => {
     ease: 'power2.out'
   })
 
-  const aurora = card.querySelector('.saa-card-aurora-170') as HTMLElement
+  const aurora = card.querySelector('.saa-card-aurora-181') as HTMLElement
   if (aurora) {
     gsap.to(aurora, {
       opacity: 0.8 + Math.abs(x) * 0.2,
@@ -122,7 +122,7 @@ const handleAuroraLeave = (index: number) => {
     ease: 'elastic.out(1, 0.5)'
   })
 
-  const aurora = card.querySelector('.saa-card-aurora-170') as HTMLElement
+  const aurora = card.querySelector('.saa-card-aurora-181') as HTMLElement
   if (aurora) {
     gsap.to(aurora, {
       opacity: 0.6,
@@ -190,14 +190,14 @@ onMounted(() => {
     animateAurora()
 
     gsapCtx = gsap.context(() => {
-      const titleEl = gsap.utils.toArray<HTMLElement>('.saa-title-170', componentRoot.value)
-      const subtitleEl = gsap.utils.toArray<HTMLElement>('.saa-subtitle-170', componentRoot.value)
-      const auroraCards = gsap.utils.toArray<HTMLElement>('.saa-aurora-card-170', componentRoot.value)
-      const stageEl = gsap.utils.toArray<HTMLElement>('.saa-aurora-stage-170', componentRoot.value)
-      const cardIcons = gsap.utils.toArray<HTMLElement>('.saa-card-icon-170', componentRoot.value)
-      const cardTitles = gsap.utils.toArray<HTMLElement>('.saa-card-title-170', componentRoot.value)
-      const cardDescs = gsap.utils.toArray<HTMLElement>('.saa-card-desc-170', componentRoot.value)
-      const stars = gsap.utils.toArray<HTMLElement>('.saa-star-170', componentRoot.value)
+      const titleEl = gsap.utils.toArray<HTMLElement>('.saa-title-181', componentRoot.value)
+      const subtitleEl = gsap.utils.toArray<HTMLElement>('.saa-subtitle-181', componentRoot.value)
+      const auroraCards = gsap.utils.toArray<HTMLElement>('.saa-aurora-card-181', componentRoot.value)
+      const stageEl = gsap.utils.toArray<HTMLElement>('.saa-aurora-stage-181', componentRoot.value)
+      const cardIcons = gsap.utils.toArray<HTMLElement>('.saa-card-icon-181', componentRoot.value)
+      const cardTitles = gsap.utils.toArray<HTMLElement>('.saa-card-title-181', componentRoot.value)
+      const cardDescs = gsap.utils.toArray<HTMLElement>('.saa-card-desc-181', componentRoot.value)
+      const stars = gsap.utils.toArray<HTMLElement>('.saa-star-181', componentRoot.value)
 
       if (titleEl.length) {
         gsap.from(titleEl, {
@@ -345,7 +345,7 @@ onUnmounted(() => {
 </script>
 
 <style scoped lang="scss">
-.saa-aurora-aurora-section-170 {
+.saa-aurora-aurora-section-181 {
   position: relative;
   min-height: 200vh;
   padding: 120px 20px;
@@ -366,14 +366,14 @@ onUnmounted(() => {
   }
 }
 
-.saa-container-170 {
+.saa-container-181 {
   position: relative;
   max-width: 1400px;
   margin: 0 auto;
   z-index: 1;
 }
 
-.saa-title-170 {
+.saa-title-181 {
   text-align: center;
   font-size: clamp(2.5rem, 6vw, 4rem);
   font-weight: 900;
@@ -384,7 +384,7 @@ onUnmounted(() => {
   background-clip: text;
 }
 
-.saa-subtitle-170 {
+.saa-subtitle-181 {
   text-align: center;
   font-size: 1.2rem;
   color: rgba(139, 92, 246, 0.6);
@@ -393,7 +393,7 @@ onUnmounted(() => {
   text-transform: uppercase;
 }
 
-.saa-aurora-stage-170 {
+.saa-aurora-stage-181 {
   position: relative;
   display: flex;
   align-items: center;
@@ -401,7 +401,7 @@ onUnmounted(() => {
   padding: 60px 0;
 }
 
-.saa-canvas-170 {
+.saa-canvas-181 {
   position: absolute;
   top: 0;
   left: 0;
@@ -410,7 +410,7 @@ onUnmounted(() => {
   pointer-events: none;
 }
 
-.saa-aurora-cards-170 {
+.saa-aurora-cards-181 {
   position: relative;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -419,7 +419,7 @@ onUnmounted(() => {
   z-index: 2;
 }
 
-.saa-aurora-card-170 {
+.saa-aurora-card-181 {
   position: relative;
   background: rgba(10, 10, 30, 0.6);
   backdrop-filter: blur(20px);
@@ -435,7 +435,7 @@ onUnmounted(() => {
   }
 }
 
-.saa-card-aurora-170 {
+.saa-card-aurora-181 {
   position: absolute;
   inset: 0;
   opacity: 0.6;
@@ -443,7 +443,7 @@ onUnmounted(() => {
   pointer-events: none;
 }
 
-.saa-aurora-wave-170 {
+.saa-aurora-wave-181 {
   position: absolute;
   inset: 0;
   background: linear-gradient(135deg, hsla(var(--hue), 70%, 60%, 0.3), transparent);
@@ -460,20 +460,20 @@ onUnmounted(() => {
   }
 }
 
-.saa-card-content-170 {
+.saa-card-content-181 {
   position: relative;
   padding: 40px;
   text-align: center;
   z-index: 1;
 }
 
-.saa-card-icon-170 {
+.saa-card-icon-181 {
   font-size: 4rem;
   margin-bottom: 20px;
   filter: drop-shadow(0 0 20px rgba(139, 92, 246, 0.5));
 }
 
-.saa-card-title-170 {
+.saa-card-title-181 {
   font-size: 1.8rem;
   font-weight: 700;
   color: #fff;
@@ -481,14 +481,14 @@ onUnmounted(() => {
   text-shadow: 0 0 20px rgba(139, 92, 246, 0.5);
 }
 
-.saa-card-desc-170 {
+.saa-card-desc-181 {
   font-size: 1rem;
   color: rgba(255, 255, 255, 0.7);
   text-transform: uppercase;
   letter-spacing: 0.1em;
 }
 
-.saa-floating-stars-170 {
+.saa-floating-stars-181 {
   position: absolute;
   top: 0;
   left: 0;
@@ -498,7 +498,7 @@ onUnmounted(() => {
   overflow: hidden;
 }
 
-.saa-star-170 {
+.saa-star-181 {
   position: absolute;
   width: 4px;
   height: 4px;
@@ -510,15 +510,15 @@ onUnmounted(() => {
 }
 
 @media (max-width: 768px) {
-  .saa-aurora-cards-170 {
+  .saa-aurora-cards-181 {
     grid-template-columns: 1fr;
   }
 
-  .saa-card-icon-170 {
+  .saa-card-icon-181 {
     font-size: 3rem;
   }
 
-  .saa-card-title-170 {
+  .saa-card-title-181 {
     font-size: 1.5rem;
   }
 }

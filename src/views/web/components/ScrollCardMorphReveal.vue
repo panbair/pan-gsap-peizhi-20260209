@@ -1,23 +1,23 @@
 <template>
-  <div class="scmr-card-morph-reveal-section-172" ref="componentRoot">
-    <div class="scmr-container-172">
-      <h2 class="scmr-title-172">卡片变形揭示</h2>
-      <p class="scmr-subtitle-172">Card Morph Reveal</p>
+  <div class="scmr-card-morph-reveal-section-178" ref="componentRoot">
+    <div class="scmr-container-178">
+      <h2 class="scmr-title-178">卡片变形揭示</h2>
+      <p class="scmr-subtitle-178">Card Morph Reveal</p>
 
-      <div class="scmr-cards-grid-172">
+      <div class="scmr-cards-grid-178">
         <div
           v-for="(card, index) in cards"
           :key="index"
-          class="scmr-morph-card-172"
+          class="scmr-morph-card-178"
           :ref="el => { if (el) cardRefs[index] = el as HTMLElement }"
         >
-          <div class="scmr-card-visual-172">
-            <div class="scmr-shape-172" :class="`shape-${card.shape}`"></div>
+          <div class="scmr-card-visual-178">
+            <div class="scmr-shape-178" :class="`shape-${card.shape}`"></div>
           </div>
-          <div class="scmr-card-info-172">
-            <span class="scmr-card-id-172">{{ String(index + 1).padStart(2, '0') }}</span>
-            <h3 class="scmr-card-name-172">{{ card.name }}</h3>
-            <p class="scmr-card-type-172">{{ card.type }}</p>
+          <div class="scmr-card-info-178">
+            <span class="scmr-card-id-178">{{ String(index + 1).padStart(2, '0') }}</span>
+            <h3 class="scmr-card-name-178">{{ card.name }}</h3>
+            <p class="scmr-card-type-178">{{ card.type }}</p>
           </div>
         </div>
       </div>
@@ -80,12 +80,12 @@ onMounted(() => {
   if (!componentRoot.value) return
 
   gsapCtx = gsap.context(() => {
-    const titleEl = gsap.utils.toArray<HTMLElement>('.scmr-title-172', componentRoot.value)
-    const subtitleEl = gsap.utils.toArray<HTMLElement>('.scmr-subtitle-172', componentRoot.value)
-    const cards = gsap.utils.toArray<HTMLElement>('.scmr-morph-card-172', componentRoot.value)
-    const cardVisuals = gsap.utils.toArray<HTMLElement>('.scmr-card-visual-172', componentRoot.value)
-    const cardInfos = gsap.utils.toArray<HTMLElement>('.scmr-card-info-172', componentRoot.value)
-    const cardIds = gsap.utils.toArray<HTMLElement>('.scmr-card-id-172', componentRoot.value)
+    const titleEl = gsap.utils.toArray<HTMLElement>('.scmr-title-178', componentRoot.value)
+    const subtitleEl = gsap.utils.toArray<HTMLElement>('.scmr-subtitle-178', componentRoot.value)
+    const cards = gsap.utils.toArray<HTMLElement>('.scmr-morph-card-178', componentRoot.value)
+    const cardVisuals = gsap.utils.toArray<HTMLElement>('.scmr-card-visual-178', componentRoot.value)
+    const cardInfos = gsap.utils.toArray<HTMLElement>('.scmr-card-info-178', componentRoot.value)
+    const cardIds = gsap.utils.toArray<HTMLElement>('.scmr-card-id-178', componentRoot.value)
 
     if (titleEl.length) {
       gsap.from(titleEl, {
@@ -181,7 +181,7 @@ onUnmounted(() => {
 </script>
 
 <style scoped lang="scss">
-.scmr-card-morph-reveal-section-172 {
+.scmr-card-morph-reveal-section-178 {
   position: relative;
   min-height: 200vh;
   padding: 120px 20px;
@@ -189,12 +189,12 @@ onUnmounted(() => {
   overflow: hidden;
 }
 
-.scmr-container-172 {
+.scmr-container-178 {
   max-width: 1400px;
   margin: 0 auto;
 }
 
-.scmr-title-172 {
+.scmr-title-178 {
   text-align: center;
   font-size: clamp(2.5rem, 6vw, 4rem);
   font-weight: 900;
@@ -205,7 +205,7 @@ onUnmounted(() => {
   background-clip: text;
 }
 
-.scmr-subtitle-172 {
+.scmr-subtitle-178 {
   text-align: center;
   font-size: 1.2rem;
   color: rgba(255, 255, 255, 0.6);
@@ -214,13 +214,13 @@ onUnmounted(() => {
   text-transform: uppercase;
 }
 
-.scmr-cards-grid-172 {
+.scmr-cards-grid-178 {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 40px;
 }
 
-.scmr-morph-card-172 {
+.scmr-morph-card-178 {
   position: relative;
   padding: 40px;
   background: rgba(255, 255, 255, 0.03);
@@ -240,7 +240,7 @@ onUnmounted(() => {
   }
 }
 
-.scmr-card-visual-172 {
+.scmr-card-visual-178 {
   position: relative;
   width: 120px;
   height: 120px;
@@ -249,7 +249,7 @@ onUnmounted(() => {
   justify-content: center;
 }
 
-.scmr-shape-172 {
+.scmr-shape-178 {
   position: absolute;
   width: 80px;
   height: 80px;
@@ -281,12 +281,12 @@ onUnmounted(() => {
   }
 }
 
-.scmr-card-info-172 {
+.scmr-card-info-178 {
   text-align: center;
   position: relative;
 }
 
-.scmr-card-id-172 {
+.scmr-card-id-178 {
   position: absolute;
   top: -30px;
   left: 50%;
@@ -300,14 +300,14 @@ onUnmounted(() => {
   line-height: 1;
 }
 
-.scmr-card-name-172 {
+.scmr-card-name-178 {
   font-size: 1.5rem;
   font-weight: 700;
   color: #fff;
   margin-bottom: 8px;
 }
 
-.scmr-card-type-172 {
+.scmr-card-type-178 {
   font-size: 0.85rem;
   color: rgba(255, 255, 255, 0.6);
   letter-spacing: 0.2em;
@@ -315,30 +315,30 @@ onUnmounted(() => {
 }
 
 @media (max-width: 768px) {
-  .scmr-cards-grid-172 {
+  .scmr-cards-grid-178 {
     grid-template-columns: repeat(2, 1fr);
     gap: 30px;
   }
 
-  .scmr-morph-card-172 {
+  .scmr-morph-card-178 {
     padding: 30px;
   }
 
-  .scmr-card-visual-172 {
+  .scmr-card-visual-178 {
     width: 100px;
     height: 100px;
   }
 
-  .scmr-shape-172 {
+  .scmr-shape-178 {
     width: 60px;
     height: 60px;
   }
 
-  .scmr-card-id-172 {
+  .scmr-card-id-178 {
     font-size: 2rem;
   }
 
-  .scmr-card-name-172 {
+  .scmr-card-name-178 {
     font-size: 1.2rem;
   }
 }

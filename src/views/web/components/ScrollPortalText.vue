@@ -1,48 +1,48 @@
 <template>
-  <div class="spt-portal-text-section-171" ref="componentRoot">
-    <div class="spt-container-171">
-      <h2 class="spt-title-171">传送门文字</h2>
-      <p class="spt-subtitle-171">Portal Text</p>
+  <div class="spt-portal-text-section-182" ref="componentRoot">
+    <div class="spt-container-182">
+      <h2 class="spt-title-182">传送门文字</h2>
+      <p class="spt-subtitle-182">Portal Text</p>
 
-      <div class="spt-text-stage-171">
-        <div class="spt-portal-rings-171">
-          <div class="spt-portal-ring-171" style="animation-delay: 0s;"></div>
-          <div class="spt-portal-ring-171" style="animation-delay: -2s;"></div>
-          <div class="spt-portal-ring-171" style="animation-delay: -4s;"></div>
-          <div class="spt-portal-ring-171" style="animation-delay: -6s;"></div>
+      <div class="spt-text-stage-182">
+        <div class="spt-portal-rings-182">
+          <div class="spt-portal-ring-182" style="animation-delay: 0s;"></div>
+          <div class="spt-portal-ring-182" style="animation-delay: -2s;"></div>
+          <div class="spt-portal-ring-182" style="animation-delay: -4s;"></div>
+          <div class="spt-portal-ring-182" style="animation-delay: -6s;"></div>
         </div>
 
-        <div class="spt-text-container-171">
+        <div class="spt-text-container-182">
           <div
             v-for="(item, index) in portalTexts"
             :key="index"
-            class="spt-text-wrapper-171"
+            class="spt-text-wrapper-182"
             :ref="el => { if (el) textWrapperRefs[index] = el as HTMLElement }"
           >
-            <div class="spt-portal-171" :ref="el => { if (el) portalRefs[index] = el as HTMLElement }">
-              <div class="spt-portal-inner-171"></div>
-              <div class="spt-portal-outer-171"></div>
-              <span class="spt-text-171" :ref="el => { if (el) textRefs[index] = el as HTMLElement }">{{ item.text }}</span>
-              <span class="spt-text-dim-171">{{ item.dimText }}</span>
+            <div class="spt-portal-182" :ref="el => { if (el) portalRefs[index] = el as HTMLElement }">
+              <div class="spt-portal-inner-182"></div>
+              <div class="spt-portal-outer-182"></div>
+              <span class="spt-text-182" :ref="el => { if (el) textRefs[index] = el as HTMLElement }">{{ item.text }}</span>
+              <span class="spt-text-dim-182">{{ item.dimText }}</span>
             </div>
           </div>
         </div>
 
-        <div class="spt-energy-stream-171" ref="energyStream">
+        <div class="spt-energy-stream-182" ref="energyStream">
           <div
             v-for="n in 12"
             :key="n"
-            class="spt-energy-line-171"
+            class="spt-energy-line-182"
             :ref="el => { if (el) energyLineRefs[n] = el as HTMLElement }"
           ></div>
         </div>
       </div>
 
-      <div class="spt-starfield-171">
+      <div class="spt-starfield-182">
         <div
           v-for="n in 50"
           :key="n"
-          class="spt-star-171"
+          class="spt-star-182"
           :ref="el => { if (el) starRefs[n] = el as HTMLElement }"
         ></div>
       </div>
@@ -83,10 +83,10 @@ onMounted(() => {
     if (!componentRoot.value) return
 
     ctx = gsap.context(() => {
-      const titleEl = gsap.utils.toArray<HTMLElement>('.spt-title-171', componentRoot.value)
-      const subtitleEl = gsap.utils.toArray<HTMLElement>('.spt-subtitle-171', componentRoot.value)
-      const energyLines = gsap.utils.toArray<HTMLElement>('.spt-energy-line-171', componentRoot.value)
-      const stars = gsap.utils.toArray<HTMLElement>('.spt-star-171', componentRoot.value)
+      const titleEl = gsap.utils.toArray<HTMLElement>('.spt-title-182', componentRoot.value)
+      const subtitleEl = gsap.utils.toArray<HTMLElement>('.spt-subtitle-182', componentRoot.value)
+      const energyLines = gsap.utils.toArray<HTMLElement>('.spt-energy-line-182', componentRoot.value)
+      const stars = gsap.utils.toArray<HTMLElement>('.spt-star-182', componentRoot.value)
 
       // 标题动画 - 传送门效果
       if (titleEl.length) {
@@ -197,7 +197,7 @@ onMounted(() => {
         }, 2)
 
         // 传送门内部脉冲
-        gsap.to(portal.querySelector('.spt-portal-inner-171'), {
+        gsap.to(portal.querySelector('.spt-portal-inner-182'), {
           scale: 1.2,
           opacity: 0.8,
           duration: 1.5,
@@ -207,7 +207,7 @@ onMounted(() => {
         })
 
         // 传送门外环旋转
-        gsap.to(portal.querySelector('.spt-portal-outer-171'), {
+        gsap.to(portal.querySelector('.spt-portal-outer-182'), {
           rotate: 360,
           duration: 8,
           repeat: -1,
@@ -296,7 +296,7 @@ onUnmounted(() => {
 </script>
 
 <style scoped lang="scss">
-.spt-portal-text-section-171 {
+.spt-portal-text-section-182 {
   min-height: 220vh;
   padding: 100px 20px;
   background: radial-gradient(ellipse at center, #1a0a2e 0%, #0a0a1a 50%, #000000 100%);
@@ -304,14 +304,14 @@ onUnmounted(() => {
   overflow: hidden;
 }
 
-.spt-container-171 {
+.spt-container-182 {
   position: relative;
   max-width: 1400px;
   margin: 0 auto;
   z-index: 1;
 }
 
-.spt-title-171 {
+.spt-title-182 {
   text-align: center;
   font-size: clamp(2.5rem, 6vw, 4.5rem);
   font-weight: 900;
@@ -322,7 +322,7 @@ onUnmounted(() => {
   background-clip: text;
 }
 
-.spt-subtitle-171 {
+.spt-subtitle-182 {
   text-align: center;
   font-size: 1.2rem;
   color: rgba(168, 85, 247, 0.6);
@@ -331,7 +331,7 @@ onUnmounted(() => {
   text-transform: uppercase;
 }
 
-.spt-text-stage-171 {
+.spt-text-stage-182 {
   position: relative;
   min-height: 100vh;
   display: flex;
@@ -342,7 +342,7 @@ onUnmounted(() => {
   perspective: 2000px;
 }
 
-.spt-portal-rings-171 {
+.spt-portal-rings-182 {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -351,27 +351,27 @@ onUnmounted(() => {
   z-index: 0;
 }
 
-.spt-portal-ring-171 {
+.spt-portal-ring-182 {
   position: absolute;
   border: 2px solid rgba(168, 85, 247, 0.2);
   border-radius: 50%;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  animation: portalRingPulse-171 8s ease-in-out infinite;
+  animation: portalRingPulse-182 8s ease-in-out infinite;
 }
 
-.spt-portal-ring-171:nth-child(1) { width: 600px; height: 600px; }
-.spt-portal-ring-171:nth-child(2) { width: 500px; height: 500px; }
-.spt-portal-ring-171:nth-child(3) { width: 400px; height: 400px; }
-.spt-portal-ring-171:nth-child(4) { width: 300px; height: 300px; }
+.spt-portal-ring-182:nth-child(1) { width: 600px; height: 600px; }
+.spt-portal-ring-182:nth-child(2) { width: 500px; height: 500px; }
+.spt-portal-ring-182:nth-child(3) { width: 400px; height: 400px; }
+.spt-portal-ring-182:nth-child(4) { width: 300px; height: 300px; }
 
-@keyframes portalRingPulse-171 {
+@keyframes portalRingPulse-182 {
   0%, 100% { opacity: 0.2; transform: translate(-50%, -50%) scale(1); }
   50% { opacity: 0.4; transform: translate(-50%, -50%) scale(1.05); }
 }
 
-.spt-text-container-171 {
+.spt-text-container-182 {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -379,7 +379,7 @@ onUnmounted(() => {
   z-index: 1;
 }
 
-.spt-text-wrapper-171 {
+.spt-text-wrapper-182 {
   position: relative;
   width: 400px;
   height: 200px;
@@ -388,7 +388,7 @@ onUnmounted(() => {
   justify-content: center;
 }
 
-.spt-portal-171 {
+.spt-portal-182 {
   position: relative;
   width: 300px;
   height: 120px;
@@ -398,7 +398,7 @@ onUnmounted(() => {
   transform-style: preserve-3d;
 }
 
-.spt-portal-inner-171 {
+.spt-portal-inner-182 {
   position: absolute;
   width: 80%;
   height: 70%;
@@ -410,7 +410,7 @@ onUnmounted(() => {
   filter: blur(20px);
 }
 
-.spt-portal-outer-171 {
+.spt-portal-outer-182 {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -424,7 +424,7 @@ onUnmounted(() => {
     inset 0 0 20px rgba(168, 85, 247, 0.3);
 }
 
-.spt-text-171 {
+.spt-text-182 {
   position: relative;
   font-size: clamp(3rem, 8vw, 4rem);
   font-weight: 900;
@@ -434,7 +434,7 @@ onUnmounted(() => {
   z-index: 1;
 }
 
-.spt-text-dim-171 {
+.spt-text-dim-182 {
   position: absolute;
   font-size: clamp(1rem, 3vw, 1.2rem);
   font-weight: 400;
@@ -446,7 +446,7 @@ onUnmounted(() => {
   transform: translateX(-50%);
 }
 
-.spt-energy-stream-171 {
+.spt-energy-stream-182 {
   position: absolute;
   top: 0;
   left: 0;
@@ -457,7 +457,7 @@ onUnmounted(() => {
   overflow: hidden;
 }
 
-.spt-energy-line-171 {
+.spt-energy-line-182 {
   position: absolute;
   width: 2px;
   height: 100%;
@@ -466,12 +466,12 @@ onUnmounted(() => {
 }
 
 @for $i from 1 through 12 {
-  .spt-energy-line-171:nth-child(#{$i}) {
+  .spt-energy-line-182:nth-child(#{$i}) {
     left: #{($i - 1) * 8 + 4}%;
   }
 }
 
-.spt-starfield-171 {
+.spt-starfield-182 {
   position: absolute;
   top: 0;
   left: 0;
@@ -481,7 +481,7 @@ onUnmounted(() => {
   z-index: 0;
 }
 
-.spt-star-171 {
+.spt-star-182 {
   position: absolute;
   width: 3px;
   height: 3px;
@@ -491,30 +491,30 @@ onUnmounted(() => {
 }
 
 @for $i from 1 through 50 {
-  .spt-star-171:nth-child(#{$i}) {
+  .spt-star-182:nth-child(#{$i}) {
     top: #{5 + ($i % 20) * 5}%;
     left: #{5 + ($i % 18) * 5}%;
   }
 }
 
 @media (max-width: 768px) {
-  .spt-text-wrapper-171 {
+  .spt-text-wrapper-182 {
     width: 300px;
     height: 180px;
   }
 
-  .spt-portal-171 {
+  .spt-portal-182 {
     width: 250px;
     height: 100px;
   }
 
-  .spt-text-171 {
+  .spt-text-182 {
     font-size: 2.5rem;
   }
 
-  .spt-portal-ring-171:nth-child(1) { width: 400px; height: 400px; }
-  .spt-portal-ring-171:nth-child(2) { width: 350px; height: 350px; }
-  .spt-portal-ring-171:nth-child(3) { width: 300px; height: 300px; }
-  .spt-portal-ring-171:nth-child(4) { width: 250px; height: 250px; }
+  .spt-portal-ring-182:nth-child(1) { width: 400px; height: 400px; }
+  .spt-portal-ring-182:nth-child(2) { width: 350px; height: 350px; }
+  .spt-portal-ring-182:nth-child(3) { width: 300px; height: 300px; }
+  .spt-portal-ring-182:nth-child(4) { width: 250px; height: 250px; }
 }
 </style>

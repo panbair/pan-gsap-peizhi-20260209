@@ -1,49 +1,49 @@
 <template>
-  <div class="spr-pixel-text-section-169" ref="componentRoot">
-    <div class="spr-container-169">
-      <h2 class="spr-title-169">像素文字揭示</h2>
-      <p class="spr-subtitle-169">Pixel Text Reveal</p>
+  <div class="spr-pixel-text-section-185" ref="componentRoot">
+    <div class="spr-container-185">
+      <h2 class="spr-title-185">像素文字揭示</h2>
+      <p class="spr-subtitle-185">Pixel Text Reveal</p>
 
-      <div class="spr-text-stage-169">
-        <div class="spr-grid-container-169">
+      <div class="spr-text-stage-185">
+        <div class="spr-grid-container-185">
           <div
             v-for="(item, index) in pixelTexts"
             :key="index"
-            class="spr-text-item-169"
+            class="spr-text-item-185"
             :ref="el => { if (el) textItemRefs[index] = el as HTMLElement }"
           >
-            <div class="spr-pixel-grid-169" :ref="el => { if (el) gridRefs[index] = el as HTMLElement }">
+            <div class="spr-pixel-grid-185" :ref="el => { if (el) gridRefs[index] = el as HTMLElement }">
               <div
                 v-for="n in item.pixels"
                 :key="n"
-                class="spr-pixel-169"
+                class="spr-pixel-185"
                 :ref="el => { if (el) pixelRefs[`${index}-${n}`] = el as HTMLElement }"
               ></div>
             </div>
-            <span class="spr-text-169" :ref="el => { if (el) finalTextRefs[index] = el as HTMLElement }">{{ item.text }}</span>
+            <span class="spr-text-185" :ref="el => { if (el) finalTextRefs[index] = el as HTMLElement }">{{ item.text }}</span>
           </div>
         </div>
 
-        <div class="spr-glitch-container-169" ref="glitchContainer">
-          <div class="spr-scanline-169"></div>
-          <div class="spr-noise-169"></div>
+        <div class="spr-glitch-container-185" ref="glitchContainer">
+          <div class="spr-scanline-185"></div>
+          <div class="spr-noise-185"></div>
         </div>
 
-        <div class="spr-data-stream-169">
+        <div class="spr-data-stream-185">
           <div
             v-for="n in 10"
             :key="n"
-            class="spr-data-column-169"
+            class="spr-data-column-185"
             :ref="el => { if (el) dataColumnRefs[n] = el as HTMLElement }"
           ></div>
         </div>
       </div>
 
-      <div class="spr-circuit-lines-169">
+      <div class="spr-circuit-lines-185">
         <div
           v-for="n in 15"
           :key="n"
-          class="spr-circuit-169"
+          class="spr-circuit-185"
           :ref="el => { if (el) circuitRefs[n] = el as HTMLElement }"
         ></div>
       </div>
@@ -85,11 +85,11 @@ onMounted(() => {
     if (!componentRoot.value) return
 
     ctx = gsap.context(() => {
-      const titleEl = gsap.utils.toArray<HTMLElement>('.spr-title-169', componentRoot.value)
-      const subtitleEl = gsap.utils.toArray<HTMLElement>('.spr-subtitle-169', componentRoot.value)
-      const textItems = gsap.utils.toArray<HTMLElement>('.spr-text-item-169', componentRoot.value)
-      const dataColumns = gsap.utils.toArray<HTMLElement>('.spr-data-column-169', componentRoot.value)
-      const circuits = gsap.utils.toArray<HTMLElement>('.spr-circuit-169', componentRoot.value)
+      const titleEl = gsap.utils.toArray<HTMLElement>('.spr-title-185', componentRoot.value)
+      const subtitleEl = gsap.utils.toArray<HTMLElement>('.spr-subtitle-185', componentRoot.value)
+      const textItems = gsap.utils.toArray<HTMLElement>('.spr-text-item-185', componentRoot.value)
+      const dataColumns = gsap.utils.toArray<HTMLElement>('.spr-data-column-185', componentRoot.value)
+      const circuits = gsap.utils.toArray<HTMLElement>('.spr-circuit-185', componentRoot.value)
 
       // 标题动画 - 像素化进入
       if (titleEl.length) {
@@ -360,7 +360,7 @@ onUnmounted(() => {
 </script>
 
 <style scoped lang="scss">
-.spr-pixel-text-section-169 {
+.spr-pixel-text-section-185 {
   min-height: 200vh;
   padding: 100px 20px;
   background: linear-gradient(180deg, #0a0a1a 0%, #1a0a2a 50%, #0a0a1a 100%);
@@ -368,14 +368,14 @@ onUnmounted(() => {
   overflow: hidden;
 }
 
-.spr-container-169 {
+.spr-container-185 {
   position: relative;
   max-width: 1400px;
   margin: 0 auto;
   z-index: 1;
 }
 
-.spr-title-169 {
+.spr-title-185 {
   text-align: center;
   font-size: clamp(2.5rem, 6vw, 4.5rem);
   font-weight: 900;
@@ -386,7 +386,7 @@ onUnmounted(() => {
   background-clip: text;
 }
 
-.spr-subtitle-169 {
+.spr-subtitle-185 {
   text-align: center;
   font-size: 1.2rem;
   color: rgba(168, 85, 247, 0.6);
@@ -395,7 +395,7 @@ onUnmounted(() => {
   text-transform: uppercase;
 }
 
-.spr-text-stage-169 {
+.spr-text-stage-185 {
   position: relative;
   min-height: 100vh;
   display: flex;
@@ -405,7 +405,7 @@ onUnmounted(() => {
   gap: 100px;
 }
 
-.spr-grid-container-169 {
+.spr-grid-container-185 {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -413,7 +413,7 @@ onUnmounted(() => {
   z-index: 1;
 }
 
-.spr-text-item-169 {
+.spr-text-item-185 {
   position: relative;
   width: 400px;
   height: 120px;
@@ -422,7 +422,7 @@ onUnmounted(() => {
   justify-content: center;
 }
 
-.spr-pixel-grid-169 {
+.spr-pixel-grid-185 {
   position: absolute;
   display: grid;
   grid-template-columns: repeat(8, 10px);
@@ -433,7 +433,7 @@ onUnmounted(() => {
   transform: translate(-50%, -50%);
 }
 
-.spr-pixel-169 {
+.spr-pixel-185 {
   width: 10px;
   height: 10px;
   border-radius: 1px;
@@ -441,7 +441,7 @@ onUnmounted(() => {
   transition: all 0.3s ease;
 }
 
-.spr-text-169 {
+.spr-text-185 {
   position: relative;
   font-size: clamp(3rem, 8vw, 4.5rem);
   font-weight: 900;
@@ -451,7 +451,7 @@ onUnmounted(() => {
   text-shadow: 0 0 30px rgba(168, 85, 247, 0.8);
 }
 
-.spr-glitch-container-169 {
+.spr-glitch-container-185 {
   position: absolute;
   top: 0;
   left: 0;
@@ -462,23 +462,23 @@ onUnmounted(() => {
   overflow: hidden;
 }
 
-.spr-scanline-169 {
+.spr-scanline-185 {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 4px;
   background: rgba(168, 85, 247, 0.3);
-  animation: scanlineMove-169 8s linear infinite;
+  animation: scanlineMove-185 8s linear infinite;
 }
 
-@keyframes scanlineMove-169 {
+@keyframes scanlineMove-185 {
   0% { top: 0; opacity: 0.3; }
   50% { opacity: 0.6; }
   100% { top: 100%; opacity: 0.3; }
 }
 
-.spr-noise-169 {
+.spr-noise-185 {
   position: absolute;
   top: 0;
   left: 0;
@@ -486,17 +486,17 @@ onUnmounted(() => {
   height: 100%;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
   opacity: 0.03;
-  animation: noiseMove-169 0.5s steps(5) infinite;
+  animation: noiseMove-185 0.5s steps(5) infinite;
 }
 
-@keyframes noiseMove-169 {
+@keyframes noiseMove-185 {
   0%, 100% { transform: translate(0, 0); }
   25% { transform: translate(-1%, 1%); }
   50% { transform: translate(1%, -1%); }
   75% { transform: translate(-1%, -1%); }
 }
 
-.spr-data-stream-169 {
+.spr-data-stream-185 {
   position: absolute;
   top: 0;
   left: 0;
@@ -507,7 +507,7 @@ onUnmounted(() => {
   overflow: hidden;
 }
 
-.spr-data-column-169 {
+.spr-data-column-185 {
   position: absolute;
   width: 1px;
   height: 100%;
@@ -515,13 +515,13 @@ onUnmounted(() => {
 }
 
 @for $i from 1 through 10 {
-  .spr-data-column-169:nth-child(#{$i}) {
+  .spr-data-column-185:nth-child(#{$i}) {
     left: #{($i - 1) * 10 + 5}%;
     opacity: #{1 - ($i - 1) * 0.08};
   }
 }
 
-.spr-circuit-lines-169 {
+.spr-circuit-lines-185 {
   position: absolute;
   top: 0;
   left: 0;
@@ -531,14 +531,14 @@ onUnmounted(() => {
   z-index: 0;
 }
 
-.spr-circuit-169 {
+.spr-circuit-185 {
   position: absolute;
   background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.3), rgba(6, 182, 212, 0.3), transparent);
   height: 1px;
 }
 
 @for $i from 1 through 15 {
-  .spr-circuit-169:nth-child(#{$i}) {
+  .spr-circuit-185:nth-child(#{$i}) {
     width: #{100 + ($i % 5) * 50}px;
     top: #{10 + ($i % 8) * 12}%;
     left: #{($i - 1) * 6 + 2}%;
@@ -546,22 +546,22 @@ onUnmounted(() => {
 }
 
 @media (max-width: 768px) {
-  .spr-text-item-169 {
+  .spr-text-item-185 {
     width: 300px;
     height: 100px;
   }
 
-  .spr-text-169 {
+  .spr-text-185 {
     font-size: 2.5rem;
   }
 
-  .spr-pixel-grid-169 {
+  .spr-pixel-grid-185 {
     grid-template-columns: repeat(8, 8px);
     grid-template-rows: repeat(8, 8px);
     gap: 1px;
   }
 
-  .spr-pixel-169 {
+  .spr-pixel-185 {
     width: 8px;
     height: 8px;
   }

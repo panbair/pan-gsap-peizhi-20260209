@@ -1,60 +1,60 @@
 <template>
-  <div class="stf-temporal-flux-section-172" ref="componentRoot">
-    <div class="stf-container-172">
-      <h2 class="stf-title-172">时空流变</h2>
-      <p class="stf-subtitle-172">Temporal Flux Effect</p>
+  <div class="stf-temporal-flux-section-177" ref="componentRoot">
+    <div class="stf-container-177">
+      <h2 class="stf-title-177">时空流变</h2>
+      <p class="stf-subtitle-177">Temporal Flux Effect</p>
 
-      <div class="stf-flux-stage-172">
-        <canvas ref="fluxCanvas" class="stf-canvas-172"></canvas>
+      <div class="stf-flux-stage-177">
+        <canvas ref="fluxCanvas" class="stf-canvas-177"></canvas>
 
-        <div class="stf-timeline-172">
-          <div class="stf-timeline-line-172" ref="timelineLine">
-            <div class="stf-progress-bar-172" ref="progressBar"></div>
+        <div class="stf-timeline-177">
+          <div class="stf-timeline-line-177" ref="timelineLine">
+            <div class="stf-progress-bar-177" ref="progressBar"></div>
           </div>
 
-          <div class="stf-time-points-172">
+          <div class="stf-time-points-177">
             <div
               v-for="(point, index) in timePoints"
               :key="index"
-              class="stf-time-point-172"
+              class="stf-time-point-177"
               :ref="el => { if (el) pointRefs[index] = el as HTMLElement }"
             >
-              <div class="stf-point-marker-172"></div>
-              <div class="stf-point-content-172">
-                <div class="stf-point-time-172">{{ point.time }}</div>
-                <div class="stf-point-title-172">{{ point.title }}</div>
-                <div class="stf-point-desc-172">{{ point.description }}</div>
+              <div class="stf-point-marker-177"></div>
+              <div class="stf-point-content-177">
+                <div class="stf-point-time-177">{{ point.time }}</div>
+                <div class="stf-point-title-177">{{ point.title }}</div>
+                <div class="stf-point-desc-177">{{ point.description }}</div>
               </div>
             </div>
           </div>
         </div>
 
-        <div class="stf-portal-172" ref="portal">
-          <div class="stf-portal-ring-172 stf-ring-1-172"></div>
-          <div class="stf-portal-ring-172 stf-ring-2-172"></div>
-          <div class="stf-portal-ring-172 stf-ring-3-172"></div>
-          <div class="stf-portal-core-172"></div>
-          <div class="stf-time-particles-172">
+        <div class="stf-portal-177" ref="portal">
+          <div class="stf-portal-ring-177 stf-ring-1-177"></div>
+          <div class="stf-portal-ring-177 stf-ring-2-177"></div>
+          <div class="stf-portal-ring-177 stf-ring-3-177"></div>
+          <div class="stf-portal-core-177"></div>
+          <div class="stf-time-particles-177">
             <div
               v-for="n in 20"
               :key="n"
-              class="stf-time-particle-172"
+              class="stf-time-particle-177"
               :ref="el => { if (el) particleRefs[n] = el as HTMLElement }"
             ></div>
           </div>
         </div>
       </div>
 
-      <div class="stf-flux-metrics-172">
+      <div class="stf-flux-metrics-177">
         <div
           v-for="(metric, index) in fluxMetrics"
           :key="index"
-          class="stf-metric-172"
+          class="stf-metric-177"
           :ref="el => { if (el) metricRefs[index] = el as HTMLElement }"
         >
-          <div class="stf-metric-value-172">{{ metric.value }}</div>
-          <div class="stf-metric-label-172">{{ metric.label }}</div>
-          <div class="stf-metric-wave-172"></div>
+          <div class="stf-metric-value-177">{{ metric.value }}</div>
+          <div class="stf-metric-label-177">{{ metric.label }}</div>
+          <div class="stf-metric-wave-177"></div>
         </div>
       </div>
     </div>
@@ -169,18 +169,18 @@ onMounted(() => {
     animateFlux()
 
     ctx = gsap.context(() => {
-      const titleEl = gsap.utils.toArray<HTMLElement>('.stf-title-172', componentRoot.value)
-      const subtitleEl = gsap.utils.toArray<HTMLElement>('.stf-subtitle-172', componentRoot.value)
-      const timePointsEl = gsap.utils.toArray<HTMLElement>('.stf-time-point-172', componentRoot.value)
-      const pointMarkers = gsap.utils.toArray<HTMLElement>('.stf-point-marker-172', componentRoot.value)
-      const pointContents = gsap.utils.toArray<HTMLElement>('.stf-point-content-172', componentRoot.value)
-      const pointTimes = gsap.utils.toArray<HTMLElement>('.stf-point-time-172', componentRoot.value)
-      const pointTitles = gsap.utils.toArray<HTMLElement>('.stf-point-title-172', componentRoot.value)
-      const pointDescs = gsap.utils.toArray<HTMLElement>('.stf-point-desc-172', componentRoot.value)
-      const portalRings = gsap.utils.toArray<HTMLElement>('.stf-portal-ring-172', componentRoot.value)
-      const portalCore = gsap.utils.toArray<HTMLElement>('.stf-portal-core-172', componentRoot.value)
-      const timeParticles = gsap.utils.toArray<HTMLElement>('.stf-time-particle-172', componentRoot.value)
-      const metrics = gsap.utils.toArray<HTMLElement>('.stf-metric-172', componentRoot.value)
+      const titleEl = gsap.utils.toArray<HTMLElement>('.stf-title-177', componentRoot.value)
+      const subtitleEl = gsap.utils.toArray<HTMLElement>('.stf-subtitle-177', componentRoot.value)
+      const timePointsEl = gsap.utils.toArray<HTMLElement>('.stf-time-point-177', componentRoot.value)
+      const pointMarkers = gsap.utils.toArray<HTMLElement>('.stf-point-marker-177', componentRoot.value)
+      const pointContents = gsap.utils.toArray<HTMLElement>('.stf-point-content-177', componentRoot.value)
+      const pointTimes = gsap.utils.toArray<HTMLElement>('.stf-point-time-177', componentRoot.value)
+      const pointTitles = gsap.utils.toArray<HTMLElement>('.stf-point-title-177', componentRoot.value)
+      const pointDescs = gsap.utils.toArray<HTMLElement>('.stf-point-desc-177', componentRoot.value)
+      const portalRings = gsap.utils.toArray<HTMLElement>('.stf-portal-ring-177', componentRoot.value)
+      const portalCore = gsap.utils.toArray<HTMLElement>('.stf-portal-core-177', componentRoot.value)
+      const timeParticles = gsap.utils.toArray<HTMLElement>('.stf-time-particle-177', componentRoot.value)
+      const metrics = gsap.utils.toArray<HTMLElement>('.stf-metric-177', componentRoot.value)
 
       // 标题动画
       if (titleEl.length) {
@@ -460,7 +460,7 @@ onUnmounted(() => {
 </script>
 
 <style scoped lang="scss">
-.stf-temporal-flux-section-172 {
+.stf-temporal-flux-section-177 {
   min-height: 150vh;
   padding: 80px 20px;
   background: linear-gradient(180deg, #0a0a1a 0%, #1a0a2a 50%, #0a0a1a 100%);
@@ -468,14 +468,14 @@ onUnmounted(() => {
   overflow: hidden;
 }
 
-.stf-container-172 {
+.stf-container-177 {
   position: relative;
   max-width: 1400px;
   margin: 0 auto;
   z-index: 1;
 }
 
-.stf-title-172 {
+.stf-title-177 {
   text-align: center;
   font-size: clamp(2.5rem, 6vw, 4.5rem);
   font-weight: 900;
@@ -487,7 +487,7 @@ onUnmounted(() => {
   text-shadow: 0 0 80px rgba(139, 92, 246, 0.5);
 }
 
-.stf-subtitle-172 {
+.stf-subtitle-177 {
   text-align: center;
   font-size: 1.2rem;
   color: rgba(139, 92, 246, 0.6);
@@ -496,7 +496,7 @@ onUnmounted(() => {
   text-transform: uppercase;
 }
 
-.stf-flux-stage-172 {
+.stf-flux-stage-177 {
   position: relative;
   min-height: 100vh;
   display: flex;
@@ -507,7 +507,7 @@ onUnmounted(() => {
   margin-bottom: 60px;
 }
 
-.stf-canvas-172 {
+.stf-canvas-177 {
   position: absolute;
   top: 0;
   left: 0;
@@ -516,7 +516,7 @@ onUnmounted(() => {
   pointer-events: none;
 }
 
-.stf-timeline-172 {
+.stf-timeline-177 {
   position: relative;
   display: flex;
   gap: 100px;
@@ -524,7 +524,7 @@ onUnmounted(() => {
   z-index: 10;
 }
 
-.stf-timeline-line-172 {
+.stf-timeline-line-177 {
   position: absolute;
   left: 50%;
   top: 0;
@@ -535,25 +535,25 @@ onUnmounted(() => {
   overflow: hidden;
 }
 
-.stf-progress-bar-172 {
+.stf-progress-bar-177 {
   width: 100%;
   height: 0;
   background: linear-gradient(180deg, #8b5cf6, #ec4899);
   box-shadow: 0 0 20px rgba(139, 92, 246, 0.5);
 }
 
-.stf-time-points-172 {
+.stf-time-points-177 {
   display: flex;
   gap: 100px;
 }
 
-.stf-time-point-172 {
+.stf-time-point-177 {
   position: relative;
   width: 200px;
   text-align: center;
 }
 
-.stf-point-marker-172 {
+.stf-point-marker-177 {
   position: absolute;
   left: 50%;
   top: 0;
@@ -568,7 +568,7 @@ onUnmounted(() => {
   z-index: 2;
 }
 
-.stf-point-content-172 {
+.stf-point-content-177 {
   position: relative;
   margin-top: 40px;
   background: rgba(139, 92, 246, 0.1);
@@ -579,7 +579,7 @@ onUnmounted(() => {
   z-index: 1;
 }
 
-.stf-point-time-172 {
+.stf-point-time-177 {
   font-size: 0.8rem;
   color: rgba(139, 92, 246, 0.7);
   text-transform: uppercase;
@@ -588,7 +588,7 @@ onUnmounted(() => {
   font-family: 'Courier New', monospace;
 }
 
-.stf-point-title-172 {
+.stf-point-title-177 {
   font-size: 1.5rem;
   font-weight: 700;
   color: #fff;
@@ -597,14 +597,14 @@ onUnmounted(() => {
   letter-spacing: 0.1em;
 }
 
-.stf-point-desc-172 {
+.stf-point-desc-177 {
   font-size: 0.9rem;
   color: rgba(255, 255, 255, 0.6);
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
 
-.stf-portal-172 {
+.stf-portal-177 {
   position: relative;
   width: 250px;
   height: 250px;
@@ -614,34 +614,34 @@ onUnmounted(() => {
   z-index: 10;
 }
 
-.stf-portal-ring-172 {
+.stf-portal-ring-177 {
   position: absolute;
   border-radius: 50%;
   border: 2px solid;
 }
 
-.stf-ring-1-172 {
+.stf-ring-1-177 {
   width: 80px;
   height: 80px;
   border-color: rgba(139, 92, 246, 0.6);
   box-shadow: 0 0 20px rgba(139, 92, 246, 0.4);
 }
 
-.stf-ring-2-172 {
+.stf-ring-2-177 {
   width: 150px;
   height: 150px;
   border-color: rgba(236, 72, 153, 0.5);
   box-shadow: 0 0 30px rgba(236, 72, 153, 0.3);
 }
 
-.stf-ring-3-172 {
+.stf-ring-3-177 {
   width: 230px;
   height: 230px;
   border-color: rgba(244, 63, 94, 0.4);
   box-shadow: 0 0 40px rgba(244, 63, 94, 0.2);
 }
 
-.stf-portal-core-172 {
+.stf-portal-core-177 {
   position: absolute;
   width: 40px;
   height: 40px;
@@ -653,7 +653,7 @@ onUnmounted(() => {
   z-index: 10;
 }
 
-.stf-time-particles-172 {
+.stf-time-particles-177 {
   position: absolute;
   top: 0;
   left: 0;
@@ -662,7 +662,7 @@ onUnmounted(() => {
   pointer-events: none;
 }
 
-.stf-time-particle-172 {
+.stf-time-particle-177 {
   position: absolute;
   width: 4px;
   height: 4px;
@@ -671,19 +671,19 @@ onUnmounted(() => {
   box-shadow: 0 0 10px rgba(139, 92, 246, 0.5);
 }
 
-.stf-flux-metrics-172 {
+.stf-flux-metrics-177 {
   display: flex;
   gap: 60px;
   justify-content: center;
   flex-wrap: wrap;
 }
 
-.stf-metric-172 {
+.stf-metric-177 {
   text-align: center;
   position: relative;
 }
 
-.stf-metric-value-172 {
+.stf-metric-value-177 {
   font-size: 3rem;
   font-weight: 900;
   color: #8b5cf6;
@@ -691,7 +691,7 @@ onUnmounted(() => {
   text-shadow: 0 0 30px rgba(139, 92, 246, 0.5);
 }
 
-.stf-metric-label-172 {
+.stf-metric-label-177 {
   font-size: 0.9rem;
   color: rgba(139, 92, 246, 0.7);
   text-transform: uppercase;
@@ -699,7 +699,7 @@ onUnmounted(() => {
   margin-bottom: 15px;
 }
 
-.stf-metric-wave-172 {
+.stf-metric-wave-177 {
   width: 100%;
   height: 3px;
   background: linear-gradient(90deg, #8b5cf6, #ec4899);
@@ -720,52 +720,52 @@ onUnmounted(() => {
 }
 
 @media (max-width: 768px) {
-  .stf-timeline-172 {
+  .stf-timeline-177 {
     gap: 40px;
   }
 
-  .stf-time-points-172 {
+  .stf-time-points-177 {
     gap: 40px;
   }
 
-  .stf-time-point-172 {
+  .stf-time-point-177 {
     width: 150px;
   }
 
-  .stf-point-content-172 {
+  .stf-point-content-177 {
     padding: 20px;
   }
 
-  .stf-portal-172 {
+  .stf-portal-177 {
     width: 180px;
     height: 180px;
   }
 
-  .stf-ring-1-172 {
+  .stf-ring-1-177 {
     width: 60px;
     height: 60px;
   }
 
-  .stf-ring-2-172 {
+  .stf-ring-2-177 {
     width: 110px;
     height: 110px;
   }
 
-  .stf-ring-3-172 {
+  .stf-ring-3-177 {
     width: 160px;
     height: 160px;
   }
 
-  .stf-portal-core-172 {
+  .stf-portal-core-177 {
     width: 30px;
     height: 30px;
   }
 
-  .stf-flux-metrics-172 {
+  .stf-flux-metrics-177 {
     gap: 30px;
   }
 
-  .stf-metric-value-172 {
+  .stf-metric-value-177 {
     font-size: 2rem;
   }
 }

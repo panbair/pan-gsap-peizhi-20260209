@@ -1,44 +1,44 @@
 <template>
-  <div class="sql-quantum-leap-section-167" ref="componentRoot">
-    <div class="sql-container-167">
-      <h2 class="sql-title-167">量子跃迁</h2>
-      <p class="sql-subtitle-167">Quantum Leap Effect</p>
+  <div class="sql-quantum-leap-section-188" ref="componentRoot">
+    <div class="sql-container-188">
+      <h2 class="sql-title-188">量子跃迁</h2>
+      <p class="sql-subtitle-188">Quantum Leap Effect</p>
 
-      <div class="sql-quantum-stage-167">
-        <canvas ref="quantumCanvas" class="sql-canvas-167"></canvas>
+      <div class="sql-quantum-stage-188">
+        <canvas ref="quantumCanvas" class="sql-canvas-188"></canvas>
 
-        <div class="sql-quantum-particles-167">
+        <div class="sql-quantum-particles-188">
           <div
             v-for="n in 50"
             :key="n"
-            class="sql-quantum-particle-167"
+            class="sql-quantum-particle-188"
             :ref="el => { if (el) particleRefs[n] = el as HTMLElement }"
             :style="getParticleStyle(n)"
           ></div>
         </div>
 
-        <div class="sql-quantum-orb-167" ref="quantumOrb">
-          <div class="sql-orb-core-167"></div>
-          <div class="sql-orb-shell-1-167"></div>
-          <div class="sql-orb-shell-2-167"></div>
-          <div class="sql-orb-shell-3-167"></div>
-          <div class="sql-electron-1-167" ref="electron1"></div>
-          <div class="sql-electron-2-167" ref="electron2"></div>
-          <div class="sql-electron-3-167" ref="electron3"></div>
+        <div class="sql-quantum-orb-188" ref="quantumOrb">
+          <div class="sql-orb-core-188"></div>
+          <div class="sql-orb-shell-1-188"></div>
+          <div class="sql-orb-shell-2-188"></div>
+          <div class="sql-orb-shell-3-188"></div>
+          <div class="sql-electron-1-188" ref="electron1"></div>
+          <div class="sql-electron-2-188" ref="electron2"></div>
+          <div class="sql-electron-3-188" ref="electron3"></div>
         </div>
       </div>
 
-      <div class="sql-quantum-info-167">
+      <div class="sql-quantum-info-188">
         <div
           v-for="(info, index) in quantumInfo"
           :key="index"
-          class="sql-info-item-167"
+          class="sql-info-item-188"
           :ref="el => { if (el) infoRefs[index] = el as HTMLElement }"
         >
-          <div class="sql-info-icon-167">{{ info.icon }}</div>
-          <div class="sql-info-content-167">
-            <div class="sql-info-title-167">{{ info.title }}</div>
-            <div class="sql-info-desc-167">{{ info.description }}</div>
+          <div class="sql-info-icon-188">{{ info.icon }}</div>
+          <div class="sql-info-content-188">
+            <div class="sql-info-title-188">{{ info.title }}</div>
+            <div class="sql-info-desc-188">{{ info.description }}</div>
           </div>
         </div>
       </div>
@@ -175,14 +175,14 @@ onMounted(() => {
     animateQuantum()
 
     ctx = gsap.context(() => {
-      const titleEl = gsap.utils.toArray<HTMLElement>('.sql-title-167', componentRoot.value)
-      const subtitleEl = gsap.utils.toArray<HTMLElement>('.sql-subtitle-167', componentRoot.value)
-      const orbEl = gsap.utils.toArray<HTMLElement>('.sql-quantum-orb-167', componentRoot.value)
-      const orbCore = gsap.utils.toArray<HTMLElement>('.sql-orb-core-167', componentRoot.value)
+      const titleEl = gsap.utils.toArray<HTMLElement>('.sql-title-188', componentRoot.value)
+      const subtitleEl = gsap.utils.toArray<HTMLElement>('.sql-subtitle-188', componentRoot.value)
+      const orbEl = gsap.utils.toArray<HTMLElement>('.sql-quantum-orb-188', componentRoot.value)
+      const orbCore = gsap.utils.toArray<HTMLElement>('.sql-orb-core-188', componentRoot.value)
       const orbShells = gsap.utils.toArray<HTMLElement>('[class^="sql-orb-shell"]', componentRoot.value)
       const electrons = gsap.utils.toArray<HTMLElement>('[class^="sql-electron"]', componentRoot.value)
-      const particles = gsap.utils.toArray<HTMLElement>('.sql-quantum-particle-167', componentRoot.value)
-      const infoItems = gsap.utils.toArray<HTMLElement>('.sql-info-item-167', componentRoot.value)
+      const particles = gsap.utils.toArray<HTMLElement>('.sql-quantum-particle-188', componentRoot.value)
+      const infoItems = gsap.utils.toArray<HTMLElement>('.sql-info-item-188', componentRoot.value)
 
       // 标题动画
       if (titleEl.length) {
@@ -410,7 +410,7 @@ onUnmounted(() => {
 </script>
 
 <style scoped lang="scss">
-.sql-quantum-leap-section-167 {
+.sql-quantum-leap-section-188 {
   min-height: 150vh;
   padding: 80px 20px;
   background: radial-gradient(ellipse at center, #0a1a2a 0%, #0a0a1a 100%);
@@ -418,14 +418,14 @@ onUnmounted(() => {
   overflow: hidden;
 }
 
-.sql-container-167 {
+.sql-container-188 {
   position: relative;
   max-width: 1400px;
   margin: 0 auto;
   z-index: 1;
 }
 
-.sql-title-167 {
+.sql-title-188 {
   text-align: center;
   font-size: clamp(2.5rem, 6vw, 4.5rem);
   font-weight: 900;
@@ -437,7 +437,7 @@ onUnmounted(() => {
   text-shadow: 0 0 80px rgba(6, 182, 212, 0.5);
 }
 
-.sql-subtitle-167 {
+.sql-subtitle-188 {
   text-align: center;
   font-size: 1.2rem;
   color: rgba(6, 182, 212, 0.6);
@@ -446,7 +446,7 @@ onUnmounted(() => {
   text-transform: uppercase;
 }
 
-.sql-quantum-stage-167 {
+.sql-quantum-stage-188 {
   position: relative;
   min-height: 100vh;
   display: flex;
@@ -456,7 +456,7 @@ onUnmounted(() => {
   margin-bottom: 80px;
 }
 
-.sql-canvas-167 {
+.sql-canvas-188 {
   position: absolute;
   top: 0;
   left: 0;
@@ -465,7 +465,7 @@ onUnmounted(() => {
   pointer-events: none;
 }
 
-.sql-quantum-particles-167 {
+.sql-quantum-particles-188 {
   position: absolute;
   top: 0;
   left: 0;
@@ -475,13 +475,13 @@ onUnmounted(() => {
   overflow: hidden;
 }
 
-.sql-quantum-particle-167 {
+.sql-quantum-particle-188 {
   position: absolute;
   border-radius: 50%;
   box-shadow: 0 0 10px rgba(6, 182, 212, 0.5);
 }
 
-.sql-quantum-orb-167 {
+.sql-quantum-orb-188 {
   position: relative;
   width: 350px;
   height: 350px;
@@ -490,7 +490,7 @@ onUnmounted(() => {
   justify-content: center;
 }
 
-.sql-orb-core-167 {
+.sql-orb-core-188 {
   position: absolute;
   width: 60px;
   height: 60px;
@@ -503,33 +503,33 @@ onUnmounted(() => {
   z-index: 5;
 }
 
-.sql-orb-shell-1-167,
-.sql-orb-shell-2-167,
-.sql-orb-shell-3-167 {
+.sql-orb-shell-1-188,
+.sql-orb-shell-2-188,
+.sql-orb-shell-3-188 {
   position: absolute;
   border-radius: 50%;
   border: 1px solid rgba(6, 182, 212, 0.3);
   box-shadow: 0 0 20px rgba(6, 182, 212, 0.2);
 }
 
-.sql-orb-shell-1-167 {
+.sql-orb-shell-1-188 {
   width: 120px;
   height: 120px;
 }
 
-.sql-orb-shell-2-167 {
+.sql-orb-shell-2-188 {
   width: 200px;
   height: 200px;
 }
 
-.sql-orb-shell-3-167 {
+.sql-orb-shell-3-188 {
   width: 300px;
   height: 300px;
 }
 
-.sql-electron-1-167,
-.sql-electron-2-167,
-.sql-electron-3-167 {
+.sql-electron-1-188,
+.sql-electron-2-188,
+.sql-electron-3-188 {
   position: absolute;
   width: 12px;
   height: 12px;
@@ -541,14 +541,14 @@ onUnmounted(() => {
   z-index: 10;
 }
 
-.sql-quantum-info-167 {
+.sql-quantum-info-188 {
   display: flex;
   gap: 40px;
   justify-content: center;
   flex-wrap: wrap;
 }
 
-.sql-info-item-167 {
+.sql-info-item-188 {
   display: flex;
   align-items: center;
   gap: 20px;
@@ -559,11 +559,11 @@ onUnmounted(() => {
   border: 1px solid rgba(6, 182, 212, 0.2);
 }
 
-.sql-info-icon-167 {
+.sql-info-icon-188 {
   font-size: 2.5rem;
 }
 
-.sql-info-title-167 {
+.sql-info-title-188 {
   font-size: 1.2rem;
   font-weight: 700;
   color: #06b6d4;
@@ -572,7 +572,7 @@ onUnmounted(() => {
   letter-spacing: 0.1em;
 }
 
-.sql-info-desc-167 {
+.sql-info-desc-188 {
   font-size: 0.9rem;
   color: rgba(6, 182, 212, 0.7);
   text-transform: uppercase;
@@ -580,42 +580,42 @@ onUnmounted(() => {
 }
 
 @media (max-width: 768px) {
-  .sql-quantum-orb-167 {
+  .sql-quantum-orb-188 {
     width: 250px;
     height: 250px;
   }
 
-  .sql-orb-core-167 {
+  .sql-orb-core-188 {
     width: 40px;
     height: 40px;
   }
 
-  .sql-orb-shell-1-167 {
+  .sql-orb-shell-1-188 {
     width: 80px;
     height: 80px;
   }
 
-  .sql-orb-shell-2-167 {
+  .sql-orb-shell-2-188 {
     width: 140px;
     height: 140px;
   }
 
-  .sql-orb-shell-3-167 {
+  .sql-orb-shell-3-188 {
     width: 210px;
     height: 210px;
   }
 
-  .sql-quantum-info-167 {
+  .sql-quantum-info-188 {
     gap: 20px;
   }
 
-  .sql-info-item-167 {
+  .sql-info-item-188 {
     padding: 20px 25px;
     flex-direction: column;
     text-align: center;
   }
 
-  .sql-info-icon-167 {
+  .sql-info-icon-188 {
     font-size: 2rem;
   }
 }

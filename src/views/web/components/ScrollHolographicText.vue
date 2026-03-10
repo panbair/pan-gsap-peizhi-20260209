@@ -1,43 +1,43 @@
 <template>
-  <div class="sht-holographic-text-section-170" ref="componentRoot">
-    <div class="sht-container-170">
-      <h2 class="sht-title-170">全息文字</h2>
-      <p class="sht-subtitle-170">Holographic Text</p>
+  <div class="sht-holographic-text-section-180" ref="componentRoot">
+    <div class="sht-container-180">
+      <h2 class="sht-title-180">全息文字</h2>
+      <p class="sht-subtitle-180">Holographic Text</p>
 
-      <div class="sht-text-stage-170">
-        <div class="sht-hologram-base-170" ref="hologramBase">
-          <div class="sht-base-ring-170"></div>
-          <div class="sht-base-ring-170" style="animation-delay: -2s;"></div>
-          <div class="sht-base-ring-170" style="animation-delay: -4s;"></div>
+      <div class="sht-text-stage-180">
+        <div class="sht-hologram-base-180" ref="hologramBase">
+          <div class="sht-base-ring-180"></div>
+          <div class="sht-base-ring-180" style="animation-delay: -2s;"></div>
+          <div class="sht-base-ring-180" style="animation-delay: -4s;"></div>
         </div>
 
-        <div class="sht-text-container-170">
+        <div class="sht-text-container-180">
           <div
             v-for="(item, index) in hologramTexts"
             :key="index"
-            class="sht-text-item-170"
+            class="sht-text-item-180"
             :ref="el => { if (el) textItemRefs[index] = el as HTMLElement }"
           >
-            <div class="sht-hologram-170" :ref="el => { if (el) hologramRefs[index] = el as HTMLElement }">
-              <div class="sht-scanlines-170"></div>
-              <span class="sht-text-170">{{ item.text }}</span>
-              <div class="sht-hologram-glow-170"></div>
+            <div class="sht-hologram-180" :ref="el => { if (el) hologramRefs[index] = el as HTMLElement }">
+              <div class="sht-scanlines-180"></div>
+              <span class="sht-text-180">{{ item.text }}</span>
+              <div class="sht-hologram-glow-180"></div>
             </div>
-            <span class="sht-label-170">{{ item.label }}</span>
+            <span class="sht-label-180">{{ item.label }}</span>
           </div>
         </div>
 
-        <div class="sht-light-beam-170" ref="lightBeam">
-          <div class="sht-beam-170"></div>
-          <div class="sht-beam-170" style="animation-delay: -1.5s;"></div>
+        <div class="sht-light-beam-180" ref="lightBeam">
+          <div class="sht-beam-180"></div>
+          <div class="sht-beam-180" style="animation-delay: -1.5s;"></div>
         </div>
       </div>
 
-      <div class="sht-particles-170">
+      <div class="sht-particles-180">
         <div
           v-for="n in 30"
           :key="n"
-          class="sht-particle-170"
+          class="sht-particle-180"
           :ref="el => { if (el) particleRefs[n] = el as HTMLElement }"
         ></div>
       </div>
@@ -77,11 +77,11 @@ onMounted(() => {
     if (!componentRoot.value) return
 
     ctx = gsap.context(() => {
-      const titleEl = gsap.utils.toArray<HTMLElement>('.sht-title-170', componentRoot.value)
-      const subtitleEl = gsap.utils.toArray<HTMLElement>('.sht-subtitle-170', componentRoot.value)
-      const textItems = gsap.utils.toArray<HTMLElement>('.sht-text-item-170', componentRoot.value)
-      const holograms = gsap.utils.toArray<HTMLElement>('.sht-hologram-170', componentRoot.value)
-      const particles = gsap.utils.toArray<HTMLElement>('.sht-particle-170', componentRoot.value)
+      const titleEl = gsap.utils.toArray<HTMLElement>('.sht-title-180', componentRoot.value)
+      const subtitleEl = gsap.utils.toArray<HTMLElement>('.sht-subtitle-180', componentRoot.value)
+      const textItems = gsap.utils.toArray<HTMLElement>('.sht-text-item-180', componentRoot.value)
+      const holograms = gsap.utils.toArray<HTMLElement>('.sht-hologram-180', componentRoot.value)
+      const particles = gsap.utils.toArray<HTMLElement>('.sht-particle-180', componentRoot.value)
 
       // 标题动画 - 全息投影效果
       if (titleEl.length) {
@@ -198,7 +198,7 @@ onMounted(() => {
         }, 2.5)
 
         // 扫描线动画
-        const scanlines = hologram.querySelector('.sht-scanlines-170')
+        const scanlines = hologram.querySelector('.sht-scanlines-180')
         if (scanlines) {
           gsap.to(scanlines, {
             y: '100%',
@@ -224,7 +224,7 @@ onMounted(() => {
         })
 
         // 基底环持续旋转
-        gsap.to('.sht-base-ring-170', {
+        gsap.to('.sht-base-ring-180', {
           rotate: 360,
           duration: 20,
           repeat: -1,
@@ -250,7 +250,7 @@ onMounted(() => {
         })
 
         // 光束闪烁
-        gsap.to('.sht-beam-170', {
+        gsap.to('.sht-beam-180', {
           opacity: 0.5,
           duration: 0.2,
           repeat: -1,
@@ -316,7 +316,7 @@ onUnmounted(() => {
 </script>
 
 <style scoped lang="scss">
-.sht-holographic-text-section-170 {
+.sht-holographic-text-section-180 {
   min-height: 200vh;
   padding: 100px 20px;
   background: radial-gradient(ellipse at center, #1a0a2e 0%, #0a0a1a 50%, #0a0a0a 100%);
@@ -324,14 +324,14 @@ onUnmounted(() => {
   overflow: hidden;
 }
 
-.sht-container-170 {
+.sht-container-180 {
   position: relative;
   max-width: 1400px;
   margin: 0 auto;
   z-index: 1;
 }
 
-.sht-title-170 {
+.sht-title-180 {
   text-align: center;
   font-size: clamp(2.5rem, 6vw, 4.5rem);
   font-weight: 900;
@@ -342,7 +342,7 @@ onUnmounted(() => {
   background-clip: text;
 }
 
-.sht-subtitle-170 {
+.sht-subtitle-180 {
   text-align: center;
   font-size: 1.2rem;
   color: rgba(6, 182, 212, 0.6);
@@ -351,7 +351,7 @@ onUnmounted(() => {
   text-transform: uppercase;
 }
 
-.sht-text-stage-170 {
+.sht-text-stage-180 {
   position: relative;
   min-height: 100vh;
   display: flex;
@@ -361,7 +361,7 @@ onUnmounted(() => {
   gap: 100px;
 }
 
-.sht-hologram-base-170 {
+.sht-hologram-base-180 {
   position: absolute;
   bottom: 10%;
   left: 50%;
@@ -370,26 +370,26 @@ onUnmounted(() => {
   height: 50px;
 }
 
-.sht-base-ring-170 {
+.sht-base-ring-180 {
   position: absolute;
   border: 2px solid rgba(6, 182, 212, 0.3);
   border-radius: 50%;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  animation: baseRingRotate-170 20s linear infinite;
+  animation: baseRingRotate-180 20s linear infinite;
 }
 
-.sht-base-ring-170:nth-child(1) { width: 100%; height: 100%; }
-.sht-base-ring-170:nth-child(2) { width: 80%; height: 80%; animation-delay: -5s; }
-.sht-base-ring-170:nth-child(3) { width: 60%; height: 60%; animation-delay: -10s; }
+.sht-base-ring-180:nth-child(1) { width: 100%; height: 100%; }
+.sht-base-ring-180:nth-child(2) { width: 80%; height: 80%; animation-delay: -5s; }
+.sht-base-ring-180:nth-child(3) { width: 60%; height: 60%; animation-delay: -10s; }
 
-@keyframes baseRingRotate-170 {
+@keyframes baseRingRotate-180 {
   0% { transform: translate(-50%, -50%) rotate(0deg); }
   100% { transform: translate(-50%, -50%) rotate(360deg); }
 }
 
-.sht-text-container-170 {
+.sht-text-container-180 {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -397,7 +397,7 @@ onUnmounted(() => {
   z-index: 1;
 }
 
-.sht-text-item-170 {
+.sht-text-item-180 {
   position: relative;
   width: 500px;
   height: 150px;
@@ -408,7 +408,7 @@ onUnmounted(() => {
   perspective: 1000px;
 }
 
-.sht-hologram-170 {
+.sht-hologram-180 {
   position: relative;
   width: 100%;
   height: 100%;
@@ -418,7 +418,7 @@ onUnmounted(() => {
   transform-style: preserve-3d;
 }
 
-.sht-scanlines-170 {
+.sht-scanlines-180 {
   position: absolute;
   top: 0;
   left: 0;
@@ -435,7 +435,7 @@ onUnmounted(() => {
   overflow: hidden;
 }
 
-.sht-text-170 {
+.sht-text-180 {
   font-size: clamp(4rem, 10vw, 6rem);
   font-weight: 900;
   color: rgba(6, 182, 212, 0.9);
@@ -449,7 +449,7 @@ onUnmounted(() => {
   z-index: 1;
 }
 
-.sht-hologram-glow-170 {
+.sht-hologram-glow-180 {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -460,7 +460,7 @@ onUnmounted(() => {
   pointer-events: none;
 }
 
-.sht-label-170 {
+.sht-label-180 {
   margin-top: 20px;
   font-size: 1rem;
   color: rgba(6, 182, 212, 0.5);
@@ -468,7 +468,7 @@ onUnmounted(() => {
   text-transform: uppercase;
 }
 
-.sht-light-beam-170 {
+.sht-light-beam-180 {
   position: absolute;
   top: 0;
   left: 50%;
@@ -480,7 +480,7 @@ onUnmounted(() => {
   overflow: hidden;
 }
 
-.sht-beam-170 {
+.sht-beam-180 {
   position: absolute;
   top: 0;
   left: 50%;
@@ -491,7 +491,7 @@ onUnmounted(() => {
   filter: blur(3px);
 }
 
-.sht-particles-170 {
+.sht-particles-180 {
   position: absolute;
   top: 0;
   left: 0;
@@ -501,7 +501,7 @@ onUnmounted(() => {
   z-index: 0;
 }
 
-.sht-particle-170 {
+.sht-particle-180 {
   position: absolute;
   width: 4px;
   height: 4px;
@@ -510,23 +510,23 @@ onUnmounted(() => {
 }
 
 @for $i from 1 through 30 {
-  .sht-particle-170:nth-child(#{$i}) {
+  .sht-particle-180:nth-child(#{$i}) {
     top: #{10 + ($i % 8) * 12}%;
     left: #{10 + ($i % 9) * 10}%;
   }
 }
 
 @media (max-width: 768px) {
-  .sht-text-item-170 {
+  .sht-text-item-180 {
     width: 320px;
     height: 120px;
   }
 
-  .sht-text-170 {
+  .sht-text-180 {
     font-size: 3rem;
   }
 
-  .sht-hologram-base-170 {
+  .sht-hologram-base-180 {
     width: 200px;
     height: 40px;
   }
