@@ -264,33 +264,44 @@
         <LazyScrollCosmicDust v-if="visibilityState.showScrollCosmicDust" />
         <LazyScrollFrostBreath v-if="visibilityState.showScrollFrostBreath" />
         <LazyScrollLavaFlow v-if="visibilityState.showScrollLavaFlow" />
+
+        <!-- 全新超级创意动画组件 (2026-03 终极扩展第二批次) -->
+        <LazyScrollEnergyOrb v-if="visibilityState.showScrollEnergyOrb" />
+        <LazyScrollMorphingText v-if="visibilityState.showScrollMorphingText" />
+        <LazyScrollQuantumLeap v-if="visibilityState.showScrollQuantumLeap" />
+        <LazyScrollCyberPulse v-if="visibilityState.showScrollCyberPulse" />
+        <LazyScrollStardustReveal v-if="visibilityState.showScrollStardustReveal" />
+        <LazyScrollTemporalFlux v-if="visibilityState.showScrollTemporalFlux" />
+        <LazyScrollQuantumTextEntangle v-if="visibilityState.showScrollQuantumTextEntangle" />
+        <LazyScrollShadowText v-if="visibilityState.showScrollShadowText" />
+        <LazyScrollLiquidTextMorph v-if="visibilityState.showScrollLiquidTextMorph" />
+        <LazyScrollPixelTextReveal v-if="visibilityState.showScrollPixelTextReveal" />
+        <LazyScrollHolographicText v-if="visibilityState.showScrollHolographicText" />
+        <LazyScrollPortalText v-if="visibilityState.showScrollPortalText" />
+        <LazyScrollPrismText v-if="visibilityState.showScrollPrismText" />
+        <LazyScrollElasticText v-if="visibilityState.showScrollElasticText" />
+        <LazyScrollNeonText v-if="visibilityState.showScrollNeonText" />
+        <LazyScrollCyberText v-if="visibilityState.showScrollCyberText" />
+        <LazyScrollMatrixText v-if="visibilityState.showScrollMatrixText" />
+        <LazyScrollHoloText v-if="visibilityState.showScrollHoloText" />
+        <LazyScrollFireText v-if="visibilityState.showScrollFireText" />
+        <LazyScrollIceText v-if="visibilityState.showScrollIceText" />
+        <LazyScrollThunderText v-if="visibilityState.showScrollThunderText" />
+        <LazyScrollStarText v-if="visibilityState.showScrollStarText" />
+        <LazyScrollAuroraText v-if="visibilityState.showScrollAuroraText" />
+        <LazyScrollRainText v-if="visibilityState.showScrollRainText" />
       </div>
-      <!-- 全新超级创意动画组件 (2026-03 终极扩展第二批次) -->
-      <LazyScrollEnergyOrb v-if="visibilityState.showScrollEnergyOrb" />
-      <LazyScrollMorphingText v-if="visibilityState.showScrollMorphingText" />
-      <LazyScrollQuantumLeap v-if="visibilityState.showScrollQuantumLeap" />
-      <LazyScrollCyberPulse v-if="visibilityState.showScrollCyberPulse" />
-      <LazyScrollStardustReveal v-if="visibilityState.showScrollStardustReveal" />
-      <LazyScrollTemporalFlux v-if="visibilityState.showScrollTemporalFlux" />
-      <LazyScrollQuantumTextEntangle v-if="visibilityState.showScrollQuantumTextEntangle" />
-      <LazyScrollShadowText v-if="visibilityState.showScrollShadowText" />
-      <LazyScrollLiquidTextMorph v-if="visibilityState.showScrollLiquidTextMorph" />
-      <LazyScrollPixelTextReveal v-if="visibilityState.showScrollPixelTextReveal" />
-      <LazyScrollHolographicText v-if="visibilityState.showScrollHolographicText" />
-      <LazyScrollPortalText v-if="visibilityState.showScrollPortalText" />
-      <LazyScrollPrismText v-if="visibilityState.showScrollPrismText" />
-      <LazyScrollElasticText v-if="visibilityState.showScrollElasticText" />
-      <LazyScrollNeonText v-if="visibilityState.showScrollNeonText" />
-      <LazyScrollCyberText v-if="visibilityState.showScrollCyberText" />
-      <LazyScrollMatrixText v-if="visibilityState.showScrollMatrixText" />
-      <LazyScrollHoloText v-if="visibilityState.showScrollHoloText" />
-      <LazyScrollFireText v-if="visibilityState.showScrollFireText" />
-      <LazyScrollIceText v-if="visibilityState.showScrollIceText" />
-      <LazyScrollThunderText v-if="visibilityState.showScrollThunderText" />
-      <LazyScrollStarText v-if="visibilityState.showScrollStarText" />
-      <LazyScrollAuroraText v-if="visibilityState.showScrollAuroraText" />
-      <LazyScrollRainText v-if="visibilityState.showScrollRainText" />
       <LazyScrollHologramText v-if="visibilityState.showScrollHologramText" />
+      <LazyScrollSplitReveal v-if="visibilityState.showScrollSplitReveal" />
+      <LazyScrollTextScramble v-if="visibilityState.showScrollTextScramble" />
+      <LazyScrollWavyText v-if="visibilityState.showScrollWavyText" />
+      <LazyScrollTextShadow v-if="visibilityState.showScrollTextShadow" />
+      <LazyScrollGradientText v-if="visibilityState.showScrollGradientText" />
+      <LazyScrollOutlineText v-if="visibilityState.showScrollOutlineText" />
+      <LazyScrollTextMask v-if="visibilityState.showScrollTextMask" />
+      <LazyScrollTextGlow v-if="visibilityState.showScrollTextGlow" />
+      <LazyScrollCardZoom v-if="visibilityState.showScrollCardZoom" />
+      <LazyScrollCardRotate3D v-if="visibilityState.showScrollCardRotate3D" />
     </div>
 
     <!-- 加载指示器 -->
@@ -711,12 +722,36 @@ const LazyScrollFireText = defineAsyncComponent(() => import('./components/Scrol
 const LazyScrollIceText = defineAsyncComponent(() => import('./components/ScrollIceText.vue'))
 
 // 全新天空主题文字动画组件
-const LazyScrollThunderText = defineAsyncComponent(() => import('./components/ScrollThunderText.vue'))
+const LazyScrollThunderText = defineAsyncComponent(
+  () => import('./components/ScrollThunderText.vue')
+)
 const LazyScrollStarText = defineAsyncComponent(() => import('./components/ScrollStarText.vue'))
 
 // 全新天气主题文字动画组件
 const LazyScrollRainText = defineAsyncComponent(() => import('./components/ScrollRainText.vue'))
-const LazyScrollHologramText = defineAsyncComponent(() => import('./components/ScrollHologramText.vue'))
+const LazyScrollHologramText = defineAsyncComponent(
+  () => import('./components/ScrollHologramText.vue')
+)
+
+// 全新特效文字动画组件
+const LazyScrollSplitReveal = defineAsyncComponent(
+  () => import('./components/ScrollSplitReveal.vue')
+)
+const LazyScrollTextScramble = defineAsyncComponent(
+  () => import('./components/ScrollTextScramble.vue')
+)
+const LazyScrollWavyText = defineAsyncComponent(() => import('./components/ScrollWavyText.vue'))
+const LazyScrollTextShadow = defineAsyncComponent(() => import('./components/ScrollTextShadow.vue'))
+const LazyScrollGradientText = defineAsyncComponent(
+  () => import('./components/ScrollGradientText.vue')
+)
+const LazyScrollOutlineText = defineAsyncComponent(
+  () => import('./components/ScrollOutlineText.vue')
+)
+const LazyScrollTextMask = defineAsyncComponent(() => import('./components/ScrollTextMask.vue'))
+const LazyScrollTextGlow = defineAsyncComponent(() => import('./components/ScrollTextGlow.vue'))
+const LazyScrollCardZoom = defineAsyncComponent(() => import('./components/ScrollCardZoom.vue'))
+const LazyScrollCardRotate3D = defineAsyncComponent(() => import('./components/ScrollCardRotate3D.vue'))
 
 // 组件显示状态
 const isLoading = ref(true)
@@ -922,7 +957,19 @@ const visibilityState = ref<Record<string, boolean>>({
   showScrollIceText: false,
   showScrollThunderText: false,
   showScrollStarText: false,
-  showScrollAuroraText: false
+  showScrollAuroraText: false,
+  showScrollRainText: false,
+  showScrollHologramText: false,
+  showScrollSplitReveal: false,
+  showScrollTextScramble: false,
+  showScrollWavyText: false,
+  showScrollTextShadow: false,
+  showScrollGradientText: false,
+  showScrollOutlineText: false,
+  showScrollTextMask: false,
+  showScrollTextGlow: false,
+  showScrollCardZoom: false,
+  showScrollCardRotate3D: false
 })
 
 // 组件分批加载配置
@@ -1331,10 +1378,50 @@ onMounted(() => {
     visibilityState.value.showScrollHologramText = true
   }, 24000)
 
+  setTimeout(() => {
+    visibilityState.value.showScrollSplitReveal = true
+  }, 25000)
+
+  setTimeout(() => {
+    visibilityState.value.showScrollTextScramble = true
+  }, 26000)
+
+  setTimeout(() => {
+    visibilityState.value.showScrollWavyText = true
+  }, 27000)
+
+  setTimeout(() => {
+    visibilityState.value.showScrollTextShadow = true
+  }, 28000)
+
+  setTimeout(() => {
+    visibilityState.value.showScrollGradientText = true
+  }, 29000)
+
+  setTimeout(() => {
+    visibilityState.value.showScrollOutlineText = true
+  }, 29500)
+
+  setTimeout(() => {
+    visibilityState.value.showScrollTextMask = true
+  }, 30000)
+
+  setTimeout(() => {
+    visibilityState.value.showScrollTextGlow = true
+  }, 30500)
+
+  setTimeout(() => {
+    visibilityState.value.showScrollCardZoom = true
+  }, 31500)
+
+  setTimeout(() => {
+    visibilityState.value.showScrollCardRotate3D = true
+  }, 32500)
+
   // 初始加载后刷新ScrollTrigger
   setTimeout(() => {
     ScrollTrigger.refresh()
-  }, 25000)
+  }, 33500)
 })
 
 onUnmounted(() => {
