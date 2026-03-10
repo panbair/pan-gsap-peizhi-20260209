@@ -1,290 +1,440 @@
 <template>
-  <div class="at-container-188">
-    <h2 class="at-title-188">极光文字滚动动画</h2>
-    <div class="at-stage-188">
-      <div class="at-text-188">
-        <span v-for="(word, index) in words" :key="index" class="at-word-188">
-          <span v-for="(char, charIndex) in word" :key="charIndex" class="at-char-188">{{ char }}</span>
-        </span>
+  <div class="aurora-text-wrapper-182">
+    <div class="at-stage-182" ref="stageRef">
+      <div class="at-aurora-bg-182">
+        <canvas class="at-aurora-canvas-182" ref="canvasRef"></canvas>
       </div>
-      <div class="at-aurora-188"></div>
-      <div class="at-description-188">
-        <p>滚动触发极光效果</p>
+      <div class="at-wave-layers-182">
+        <div class="at-wave-182" v-for="i in 5" :key="i"></div>
+      </div>
+      <div class="at-aurora-container-182" ref="containerRef">
+        <h2 class="at-title-182">AURORA LIGHTS</h2>
+        <div class="at-color-rings-182">
+          <div class="at-color-ring-182" v-for="i in 3" :key="i"></div>
+        </div>
+        <div class="at-aurora-text-182">
+          <span class="at-char-182" v-for="(char, i) in text.split('')" :key="i">{{ char }}</span>
+        </div>
+        <div class="at-light-particles-182">
+          <div class="at-light-particle-182" v-for="i in 30" :key="i"></div>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { onMounted } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 gsap.registerPlugin(ScrollTrigger)
 
-const words = ['AURORA', 'NORTHERN', 'LIGHTS', 'MAGNETIC', 'FIELD', 'POLAR']
+const stageRef = ref<HTMLElement>()
+const containerRef = ref<HTMLElement>()
+const canvasRef = ref<HTMLCanvasElement>()
+const text = 'NORTHERN LIGHTS'
 
 let ctx: gsap.Context
+let auroraAnimationId: number | null = null
+
+const initAuroraEffect = () => {
+  const canvas = canvasRef.value
+  if (!canvas) return
+
+  const stage = stageRef.value
+  if (!stage) return
+
+  canvas.width = stage.offsetWidth
+  canvas.height = stage.offsetHeight
+
+  const context = canvas.getContext('2d')
+  if (!context) return
+
+  type Wave = {
+    x: number
+    y: number
+    amplitude: number
+    frequency: number
+    speed: number
+    phase: number
+    color: string
+  }
+
+  const waves: Wave[] = [
+    { x: 0, y: canvas.height * 0.3, amplitude: 80, frequency: 0.005, speed: 0.02, phase: 0, color: 'rgba(0, 255, 127, 0.3)' },
+    { x: 0, y: canvas.height * 0.35, amplitude: 100, frequency: 0.004, speed: 0.015, phase: 1, color: 'rgba(0, 191, 255, 0.3)' },
+    { x: 0, y: canvas.height * 0.4, amplitude: 90, frequency: 0.006, speed: 0.018, phase: 2, color: 'rgba(138, 43, 226, 0.25)' },
+    { x: 0, y: canvas.height * 0.45, amplitude: 70, frequency: 0.005, speed: 0.02, phase: 3, color: 'rgba(65, 105, 225, 0.2)' },
+    { x: 0, y: canvas.height * 0.5, amplitude: 60, frequency: 0.004, speed: 0.015, phase: 4, color: 'rgba(0, 206, 209, 0.2)' }
+  ]
+
+  let time = 0
+
+  const update = () => {
+    context.fillStyle = 'rgba(0, 10, 30, 0.05)'
+    context.fillRect(0, 0, canvas.width, canvas.height)
+
+    time += 0.01
+
+    waves.forEach(wave => {
+      wave.phase += wave.speed
+
+      context.beginPath()
+      context.moveTo(0, canvas.height)
+
+      for (let x = 0; x <= canvas.width; x += 5) {
+        const y = wave.y + Math.sin(x * wave.frequency + wave.phase) * wave.amplitude
+        context.lineTo(x, y)
+      }
+
+      context.lineTo(canvas.width, canvas.height)
+      context.closePath()
+
+      context.fillStyle = wave.color
+      context.fill()
+
+      const gradient = context.createLinearGradient(0, wave.y - wave.amplitude, 0, canvas.height)
+      gradient.addColorStop(0, wave.color)
+      gradient.addColorStop(1, 'transparent')
+      context.fillStyle = gradient
+      context.fill()
+    })
+
+    auroraAnimationId = requestAnimationFrame(update)
+  }
+
+  update()
+}
 
 onMounted(() => {
   ctx = gsap.context(() => {
-    // 标题动画
-    gsap.from('.at-title-188', {
-      scrollTrigger: {
-        trigger: '.at-title-188',
-        start: 'top bottom-=100',
-        toggleActions: 'play none none reverse'
-      },
-      y: -50,
-      opacity: 0,
-      duration: 1,
-      ease: 'power3.out'
-    })
+    const stage = stageRef.value
+    const container = containerRef.value
+    if (!stage || !container) return
 
-    // 单词入场动画
-    gsap.utils.toArray<HTMLElement>('.at-word-188').forEach((word, index) => {
-      gsap.from(word, {
-        scrollTrigger: {
-          trigger: word,
-          start: 'top bottom-=100',
-          toggleActions: 'play none none reverse'
-        },
-        y: 100,
-        opacity: 0,
-        scale: 0,
-        duration: 1,
-        ease: 'elastic.out(1, 0.5)',
-        delay: index * 0.1
-      })
-    })
+    initAuroraEffect()
 
-    // 字符极光动画 - 滚动触发
-    gsap.utils.toArray<HTMLElement>('.at-word-188').forEach((word, wordIndex) => {
-      const chars = word.querySelectorAll('.at-char-188')
-      
-      chars.forEach((char, charIndex) => {
-        gsap.to(char, {
+    const chars = gsap.utils.toArray('.at-char-182') as HTMLElement[]
+    const waves = gsap.utils.toArray('.at-wave-182') as HTMLElement[]
+    const colorRings = gsap.utils.toArray('.at-color-ring-182') as HTMLElement[]
+    const lightParticles = gsap.utils.toArray('.at-light-particle-182') as HTMLElement[]
+    const title = stage.querySelector('.at-title-182')
+
+    if (title) {
+      gsap.fromTo(title,
+        { opacity: 0, scale: 0.8, filter: 'blur(10px)' },
+        {
           scrollTrigger: {
-            trigger: word,
-            start: 'top center',
-            end: 'bottom center',
+            trigger: stage,
+            start: 'top 80%',
+            end: 'top 60%',
             scrub: 1
           },
-          color: `hsl(${(wordIndex * 60 + charIndex * 10) % 360}, 100%, 70%)`,
-          textShadow: `0 0 ${10 + charIndex * 2}px hsl(${(wordIndex * 60 + charIndex * 10) % 360}, 100%, 50%)`,
-          y: Math.sin(charIndex * 0.3) * 20,
-          scale: 1.1 + Math.sin(charIndex * 0.5) * 0.1,
-          ease: 'none'
-        })
+          opacity: 1,
+          scale: 1,
+          filter: 'blur(0px)'
+        }
+      )
 
-        // 悬停效果
-        char.addEventListener('mouseenter', () => {
-          gsap.to(char, {
-            scale: 1.5,
-            textShadow: `0 0 30px hsl(${(wordIndex * 60 + charIndex * 10) % 360}, 100%, 50%)`,
-            duration: 0.3,
-            ease: 'elastic.out(1, 0.5)'
-          })
-        })
-
-        char.addEventListener('mouseleave', () => {
-          gsap.to(char, {
-            scale: 1.1,
-            textShadow: `0 0 ${10 + charIndex * 2}px hsl(${(wordIndex * 60 + charIndex * 10) % 360}, 100%, 50%)`,
-            duration: 0.3,
-            ease: 'power2.out'
-          })
-        })
-      })
-    })
-
-    // 极光背景动画
-    gsap.to('.at-aurora-188', {
-      scrollTrigger: {
-        trigger: '.at-aurora-188',
-        start: 'top bottom',
-        end: 'bottom top',
-        scrub: 1
-      },
-      backgroundPosition: '0% 100%',
-      ease: 'none'
-    })
-
-    // 描述动画
-    gsap.from('.at-description-188', {
-      scrollTrigger: {
-        trigger: '.at-description-188',
-        start: 'top bottom-=100',
-        toggleActions: 'play none none reverse'
-      },
-      y: 50,
-      opacity: 0,
-      duration: 1,
-      ease: 'power3.out'
-    })
-
-    // 3D交互
-    const textContainer = document.querySelector('.at-text-188') as HTMLElement
-    if (textContainer) {
-      textContainer.addEventListener('mousemove', (e) => {
-        const rect = textContainer.getBoundingClientRect()
-        const x = (e.clientX - rect.left) / rect.width - 0.5
-        const y = (e.clientY - rect.top) / rect.height - 0.5
-
-        gsap.to(textContainer, {
-          rotateX: y * -15,
-          rotateY: x * 15,
-          duration: 0.3,
-          ease: 'power2.out'
-        })
-      })
-
-      textContainer.addEventListener('mouseleave', () => {
-        gsap.to(textContainer, {
-          rotateX: 0,
-          rotateY: 0,
-          duration: 0.5,
-          ease: 'elastic.out(1, 0.5)'
-        })
+      gsap.to(title, {
+        textShadow: '0 0 30px #00ff7f, 0 0 60px #00bfff',
+        duration: 3,
+        repeat: -1,
+        yoyo: true
       })
     }
-  })
+
+    gsap.fromTo(waves,
+      { scaleY: 0, opacity: 0 },
+      {
+        scrollTrigger: {
+          trigger: stage,
+          start: 'top 70%',
+          end: 'top 50%',
+          scrub: 1
+        },
+        scaleY: 1,
+        opacity: 1,
+        stagger: 0.2
+      }
+    )
+
+    waves.forEach((wave, i) => {
+      gsap.to(wave, {
+        scaleY: 0.8 + Math.sin(i * 0.5) * 0.2,
+        duration: 2 + i * 0.5,
+        repeat: -1,
+        yoyo: true,
+        ease: 'sine.inOut'
+      })
+    })
+
+    gsap.fromTo(colorRings,
+      { scale: 0, opacity: 0 },
+      {
+        scrollTrigger: {
+          trigger: stage,
+          start: 'top 60%',
+          end: 'center 50%',
+          scrub: 1
+        },
+        scale: 1,
+        opacity: 0.5,
+        stagger: 0.3
+      }
+    )
+
+    gsap.fromTo(chars,
+      {
+        color: '#001a1a',
+        textShadow: 'none',
+        opacity: 0,
+        translateY: 50
+      },
+      {
+        scrollTrigger: {
+          trigger: stage,
+          start: 'top 50%',
+          end: 'center 50%',
+          scrub: 1
+        },
+        color: '#00ff7f',
+        textShadow: '0 0 15px #00bfff, 0 0 30px #8a2be2',
+        opacity: 1,
+        translateY: 0,
+        stagger: 0.06
+      }
+    )
+
+    chars.forEach((char) => {
+      char.addEventListener('mouseenter', () => {
+        gsap.to(char, {
+          color: '#fff',
+          textShadow: '0 0 40px #00ff7f, 0 0 80px #00bfff',
+          scale: 1.3,
+          duration: 0.3
+        })
+      })
+      char.addEventListener('mouseleave', () => {
+        gsap.to(char, {
+          color: '#00ff7f',
+          textShadow: '0 0 15px #00bfff, 0 0 30px #8a2be2',
+          scale: 1,
+          duration: 0.3
+        })
+      })
+    })
+
+    gsap.fromTo(lightParticles,
+      { scale: 0, opacity: 0 },
+      {
+        scrollTrigger: {
+          trigger: stage,
+          start: 'top 40%',
+          end: 'bottom 20%',
+          scrub: 1
+        },
+        scale: 1,
+        opacity: 1,
+        stagger: 0.05
+      }
+    )
+
+    lightParticles.forEach((particle) => {
+      gsap.to(particle, {
+        x: (Math.random() - 0.5) * 50,
+        y: (Math.random() - 0.5) * 50,
+        opacity: 0.3 + Math.random() * 0.7,
+        duration: 1 + Math.random() * 2,
+        repeat: -1,
+        yoyo: true
+      })
+    })
+
+    gsap.to(container, {
+      boxShadow: '0 0 80px rgba(0, 255, 127, 0.4), 0 0 120px rgba(0, 191, 255, 0.2)',
+      scrollTrigger: {
+        trigger: stage,
+        start: 'top 30%',
+        end: 'bottom 10%',
+        scrub: 1
+      }
+    })
+
+  }, stageRef.value)
+})
+
+onUnmounted(() => {
+  ctx?.revert()
+  if (auroraAnimationId !== null) {
+    cancelAnimationFrame(auroraAnimationId)
+  }
 })
 </script>
 
-<style scoped>
-.at-container-188 {
-  min-height: 100vh;
-  padding: 80px 20px;
-  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a7e 50%, #0a0a0a 100%);
+<style scoped lang="scss">
+.aurora-text-wrapper-182 {
   position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, #000a14 0%, #001428 30%, #001a33 70%, #000a14 100%);
   overflow: hidden;
+}
+
+.at-stage-182 {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  padding: 60px 40px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
 }
 
-.at-container-188::before {
-  content: '';
+.at-aurora-bg-182 {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: 
-    radial-gradient(circle at 20% 80%, rgba(0, 255, 128, 0.1) 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, rgba(128, 0, 255, 0.1) 0%, transparent 50%);
+  overflow: hidden;
   pointer-events: none;
 }
 
-.at-title-188 {
-  font-size: 2.5rem;
-  font-weight: bold;
-  color: #fff;
-  margin-bottom: 80px;
-  text-align: center;
-  background: linear-gradient(90deg, #00ff80, #8000ff, #00ff80);
-  background-size: 200% auto;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: at-glow-188 3s ease-in-out infinite;
-}
-
-@keyframes at-glow-188 {
-  0%, 100% { background-position: 0% center; }
-  50% { background-position: 200% center; }
-}
-
-.at-stage-188 {
-  max-width: 1400px;
-  width: 100%;
-  position: relative;
-  perspective: 1000px;
-  text-align: center;
-}
-
-.at-text-188 {
-  position: relative;
-  font-size: 3.5rem;
-  font-weight: bold;
-  color: #fff;
-  line-height: 1.8;
-  transform-style: preserve-3d;
-  padding: 40px 20px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 30px;
-}
-
-.at-word-188 {
-  display: inline-flex;
-  gap: 5px;
-}
-
-.at-char-188 {
-  display: inline-block;
-  transition: all 0.3s ease;
-  cursor: pointer;
-  user-select: none;
-}
-
-.at-char-188:hover {
-  transform: scale(1.5) translateY(-10px);
-}
-
-.at-aurora-188 {
+.at-aurora-canvas-182 {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: 
-    linear-gradient(90deg, 
-      transparent 0%, 
-      rgba(0, 255, 128, 0.05) 25%, 
-      rgba(128, 0, 255, 0.05) 50%, 
-      rgba(0, 255, 128, 0.05) 75%, 
-      transparent 100%);
-  background-size: 200% 100%;
+  opacity: 0.6;
+}
+
+.at-wave-layers-182 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   pointer-events: none;
-  opacity: 0.5;
-  animation: at-aurora-188 8s linear infinite;
 }
 
-@keyframes at-aurora-188 {
-  0% { background-position: 0% 0%; }
-  100% { background-position: 200% 0%; }
+.at-wave-182 {
+  position: absolute;
+  top: 20%;
+  left: 0;
+  right: 0;
+  height: 60%;
+  background: linear-gradient(180deg, transparent, rgba(0, 255, 127, 0.1), rgba(0, 191, 255, 0.1), transparent);
+  transform-origin: center;
 }
 
-.at-description-188 {
-  margin-top: 60px;
+.at-aurora-container-182 {
+  position: relative;
   text-align: center;
+  padding: 100px 80px;
+  background: rgba(0, 20, 40, 0.6);
+  border: 2px solid rgba(0, 255, 127, 0.3);
+  border-radius: 20px;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
 }
 
-.at-description-188 p {
-  font-size: 1.5rem;
-  color: rgba(255, 255, 255, 0.7);
+.at-title-182 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 900;
+  color: #00ff7f;
   text-transform: uppercase;
-  letter-spacing: 5px;
+  letter-spacing: 6px;
+  margin-bottom: 30px;
 }
 
-@media (max-width: 768px) {
-  .at-title-188 {
-    font-size: 1.8rem;
-    margin-bottom: 60px;
+.at-color-rings-182 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.at-color-ring-182 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 3px solid;
+  border-radius: 50%;
+  animation: pulseRing 4s ease-in-out infinite;
+}
+
+.at-color-ring-182:nth-child(1) {
+  width: 400px;
+  height: 400px;
+  border-color: rgba(0, 255, 127, 0.3);
+  animation-delay: 0s;
+}
+
+.at-color-ring-182:nth-child(2) {
+  width: 500px;
+  height: 500px;
+  border-color: rgba(0, 191, 255, 0.25);
+  animation-delay: 1s;
+}
+
+.at-color-ring-182:nth-child(3) {
+  width: 600px;
+  height: 600px;
+  border-color: rgba(138, 43, 226, 0.2);
+  animation-delay: 2s;
+}
+
+@keyframes pulseRing {
+  0%, 100% {
+    opacity: 0.3;
+    transform: translate(-50%, -50%) scale(1);
   }
-  
-  .at-text-188 {
-    font-size: 2rem;
-    gap: 15px;
+  50% {
+    opacity: 0.6;
+    transform: translate(-50%, -50%) scale(1.05);
   }
-  
-  .at-description-188 p {
-    font-size: 1.1rem;
-    letter-spacing: 3px;
-  }
+}
+
+.at-aurora-text-182 {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 50px 0;
+}
+
+.at-char-182 {
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  position: relative;
+  display: inline-block;
+  color: #00ff7f;
+  transition: all 0.3s ease;
+}
+
+.at-light-particles-182 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+}
+
+.at-light-particle-182 {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #00ff7f, 0 0 20px #00bfff;
 }
 </style>

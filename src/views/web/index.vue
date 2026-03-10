@@ -286,6 +286,9 @@
       <LazyScrollHoloText v-if="visibilityState.showScrollHoloText" />
       <LazyScrollFireText v-if="visibilityState.showScrollFireText" />
       <LazyScrollIceText v-if="visibilityState.showScrollIceText" />
+      <LazyScrollThunderText v-if="visibilityState.showScrollThunderText" />
+      <LazyScrollStarText v-if="visibilityState.showScrollStarText" />
+      <LazyScrollAuroraText v-if="visibilityState.showScrollAuroraText" />
     </div>
 
     <!-- 加载指示器 -->
@@ -705,6 +708,11 @@ const LazyScrollHoloText = defineAsyncComponent(() => import('./components/Scrol
 const LazyScrollFireText = defineAsyncComponent(() => import('./components/ScrollFireText.vue'))
 const LazyScrollIceText = defineAsyncComponent(() => import('./components/ScrollIceText.vue'))
 
+// 全新天空主题文字动画组件
+const LazyScrollThunderText = defineAsyncComponent(() => import('./components/ScrollThunderText.vue'))
+const LazyScrollStarText = defineAsyncComponent(() => import('./components/ScrollStarText.vue'))
+const LazyScrollAuroraText = defineAsyncComponent(() => import('./components/ScrollAuroraText.vue'))
+
 // 组件显示状态
 const isLoading = ref(true)
 const componentsContainer = ref<HTMLElement>()
@@ -906,7 +914,10 @@ const visibilityState = ref<Record<string, boolean>>({
   showScrollMatrixText: false,
   showScrollHoloText: false,
   showScrollFireText: false,
-  showScrollIceText: false
+  showScrollIceText: false,
+  showScrollThunderText: false,
+  showScrollStarText: false,
+  showScrollAuroraText: false
 })
 
 // 组件分批加载配置
@@ -1295,10 +1306,22 @@ onMounted(() => {
     visibilityState.value.showScrollIceText = true
   }, 19000)
 
+  setTimeout(() => {
+    visibilityState.value.showScrollThunderText = true
+  }, 20000)
+
+  setTimeout(() => {
+    visibilityState.value.showScrollStarText = true
+  }, 21000)
+
+  setTimeout(() => {
+    visibilityState.value.showScrollAuroraText = true
+  }, 22000)
+
   // 初始加载后刷新ScrollTrigger
   setTimeout(() => {
     ScrollTrigger.refresh()
-  }, 20000)
+  }, 23000)
 })
 
 onUnmounted(() => {
