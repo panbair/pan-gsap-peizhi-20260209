@@ -1,37 +1,56 @@
 <template>
-  <section class="et-scroll-elastic-text-136">
-    <div class="et-container-136">
-      <h2 class="et-title-136">弹性文字</h2>
-      <p class="et-subtitle-136">Elastic Text</p>
+  <div class="set-elastic-text-section-173" ref="componentRoot">
+    <div class="set-container-173">
+      <h2 class="set-title-173">弹性文字</h2>
+      <p class="set-subtitle-173">Elastic Text</p>
 
-      <div class="et-stage-136" ref="stage">
-        <div class="et-text-wrapper-136">
+      <div class="set-text-stage-173">
+        <div class="set-text-container-173">
           <div
-            v-for="(char, index) in text.split('')"
+            v-for="(item, index) in elasticTexts"
             :key="index"
-            :ref="el => { if (el) charRefs[index] = el as HTMLElement }"
-            class="et-character-136"
+            class="set-text-row-173"
+            :ref="el => { if (el) textRowRefs[index] = el as HTMLElement }"
           >
-            {{ char }}
+            <div class="set-letters-173">
+              <span
+                v-for="(char, charIndex) in item.letters"
+                :key="charIndex"
+                class="set-letter-173"
+                :ref="el => { if (el) letterRefs[`${index}-${charIndex}`] = el as HTMLElement }"
+              >{{ char }}</span>
+            </div>
           </div>
         </div>
 
-        <div class="et-shadow-text-136">
+        <div class="set-elastic-bands-173">
           <div
-            v-for="(char, index) in text.split('')"
-            :key="index"
-            class="et-shadow-char-136"
-          >
-            {{ char }}
-          </div>
+            v-for="n in 5"
+            :key="n"
+            class="set-elastic-band-173"
+            :ref="el => { if (el) elasticBandRefs[n] = el as HTMLElement }"
+          ></div>
+        </div>
+
+        <div class="set-bounce-particles-173">
+          <div
+            v-for="n in 20"
+            :key="n"
+            class="set-bounce-particle-173"
+            :ref="el => { if (el) bounceParticleRefs[n] = el as HTMLElement }"
+          ></div>
         </div>
       </div>
 
-      <div class="et-elastic-indicator-136">
-        <div class="et-indicator-bar-136" ref="indicatorBar"></div>
+      <div class="set-spring-lines-173">
+        <div
+          v-for="n in 10"
+          :key="n"
+          class="set-spring-line-173"
+        ></div>
       </div>
     </div>
-  </section>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -41,142 +60,216 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 gsap.registerPlugin(ScrollTrigger)
 
-const stage = ref<HTMLElement>()
-const indicatorBar = ref<HTMLElement>()
-const charRefs = ref<HTMLElement[]>([])
+const componentRoot = ref<HTMLElement>()
+const textRowRefs = ref<HTMLElement[]>([])
+const letterRefs = ref<Record<string, HTMLElement>>({})
+const elasticBandRefs = ref<Record<number, HTMLElement>>({})
+const bounceParticleRefs = ref<Record<number, HTMLElement>>({})
 
-const text = 'ELASTIC MAGIC'
+interface ElasticText {
+  letters: string[]
+}
+
+const elasticTexts: ElasticText[] = [
+  { letters: ['B', 'O', 'U', 'N', 'C', 'E'] },
+  { letters: ['S', 'T', 'R', 'E', 'T', 'C', 'H'] },
+  { letters: ['E', 'L', 'A', 'S', 'T', 'I', 'C'] }
+]
 
 let ctx: gsap.Context
 
 onMounted(() => {
-  ctx = gsap.context(() => {
-    // 标题动画
-    gsap.from('.et-title-136', {
-      scrollTrigger: {
-        trigger: '.et-scroll-elastic-text-136',
-        start: 'top 90%',
-        end: 'top 70%',
-        scrub: 1
-      },
-      opacity: 0,
-      scale: 0.8,
-      filter: 'blur(20px)',
-      ease: 'power2.out'
-    })
+  setTimeout(() => {
+    if (!componentRoot.value) return
 
-    gsap.from('.et-subtitle-136', {
-      scrollTrigger: {
-        trigger: '.et-scroll-elastic-text-136',
-        start: 'top 85%',
-        end: 'top 65%',
-        scrub: 1
-      },
-      opacity: 0,
-      y: 30,
-      ease: 'power2.out'
-    })
+    ctx = gsap.context(() => {
+      const titleEl = gsap.utils.toArray<HTMLElement>('.set-title-173', componentRoot.value)
+      const subtitleEl = gsap.utils.toArray<HTMLElement>('.set-subtitle-173', componentRoot.value)
+      const elasticBands = gsap.utils.toArray<HTMLElement>('.set-elastic-band-173', componentRoot.value)
+      const bounceParticles = gsap.utils.toArray<HTMLElement>('.set-bounce-particle-173', componentRoot.value)
 
-    // 字符弹性动画
-    charRefs.value.forEach((char, index) => {
-      const totalChars = text.length
-      const position = index / totalChars
+      // 标题动画 - 弹性效果
+      if (titleEl.length) {
+        gsap.from(titleEl, {
+          scrollTrigger: {
+            trigger: componentRoot.value,
+            start: 'top 85%',
+            toggleActions: 'play none none reverse'
+          },
+          y: -200,
+          scaleY: 2,
+          opacity: 0,
+          duration: 1.5,
+          ease: 'elastic.out(1, 0.5)'
+        })
 
-      // 滚动时的弹性效果
-      gsap.to(char, {
-        scrollTrigger: {
-          trigger: stage.value,
-          start: 'top 80%',
-          end: 'bottom 20%',
-          scrub: 1.5
-        },
-        y: (progress) => {
-          const baseSine = Math.sin(progress * Math.PI * 2 + position * Math.PI * 4)
-          const elasticity = Math.sin(progress * Math.PI * 6 + index * 0.5)
-          return baseSine * 50 + elasticity * 30
-        },
-        scale: (progress) => {
-          const elasticScale = 1 + Math.sin(progress * Math.PI * 8 + index * 0.3) * 0.3
-          return elasticScale
-        },
-        rotation: (progress) => {
-          return Math.sin(progress * Math.PI * 4 + index * 0.2) * 15
-        },
-        ease: 'elastic.out(1, 0.3)'
+        // 标题持续弹跳
+        gsap.to(titleEl, {
+          y: -10,
+          duration: 0.5,
+          repeat: -1,
+          yoyo: true,
+          ease: 'power1.inOut',
+          delay: 1.5
+        })
+      }
+
+      if (subtitleEl.length) {
+        gsap.from(subtitleEl, {
+          scrollTrigger: {
+            trigger: componentRoot.value,
+            start: 'top 80%',
+            toggleActions: 'play none none reverse'
+          },
+          scaleX: 3,
+          opacity: 0,
+          duration: 1,
+          delay: 0.3,
+          ease: 'elastic.out(1, 0.5)'
+        })
+      }
+
+      // 弹性文字动画
+      textRowRefs.value.forEach((row: HTMLElement, index: number) => {
+        const letterSpans = Object.keys(letterRefs.value)
+          .filter(key => key.startsWith(`${index}-`))
+          .map(key => letterRefs.value[key])
+
+        if (!letterSpans.length) return
+
+        // 初始状态 - 字母拉伸
+        letterSpans.forEach((span: HTMLElement, spanIndex: number) => {
+          const stretchY = 2 + Math.random()
+          const scaleY = 0.1 + Math.random() * 0.2
+
+          gsap.set(span, {
+            scaleY: scaleY,
+            y: (Math.random() - 0.5) * 100,
+            opacity: 0.3 + Math.random() * 0.4,
+            filter: 'blur(5px)'
+          })
+        })
+
+        // 滚动弹性动画
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: row,
+            start: 'top 75%',
+            end: 'top 25%',
+            scrub: 0.4
+          }
+        })
+
+        // 第一阶段：字母拉伸释放
+        letterSpans.forEach((span: HTMLElement, spanIndex: number) => {
+          const delay = spanIndex * 0.1
+
+          tl.to(span, {
+            scaleY: 1,
+            y: 0,
+            opacity: 1,
+            filter: 'blur(0px)',
+            ease: 'elastic.out(1, 0.5)'
+          }, delay)
+        })
+
+        // 第二阶段：波浪弹性
+        letterSpans.forEach((span: HTMLElement, spanIndex: number) => {
+          const waveY = Math.sin(spanIndex * 0.8) * 30
+
+          tl.to(span, {
+            y: waveY,
+            ease: 'sine.inOut'
+          }, 1.5)
+        })
+
+        // 第三阶段：字母独立弹跳
+        letterSpans.forEach((span: HTMLElement, spanIndex: number) => {
+          const bounceY = -20 - Math.random() * 20
+
+          tl.to(span, {
+            y: bounceY,
+            ease: 'elastic.out(1, 0.3)'
+          }, 2.5)
+
+          tl.to(span, {
+            y: 0,
+            ease: 'elastic.out(1, 0.5)'
+          }, 2.5 + 0.2 + Math.random() * 0.3)
+        })
+
+        // 持续弹跳动画
+        letterSpans.forEach((span: HTMLElement) => {
+          gsap.to(span, {
+            y: -5 + Math.random() * 10,
+            duration: 0.5 + Math.random() * 0.5,
+            repeat: -1,
+            yoyo: true,
+            ease: 'sine.inOut',
+            delay: Math.random()
+          })
+        })
       })
-    })
 
-    // 颜色渐变效果
-    gsap.to('.et-character-136', {
-      scrollTrigger: {
-        trigger: stage.value,
-        start: 'top 80%',
-        end: 'bottom 20%',
-        scrub: true
-      },
-      color: (index) => {
-        const hue = 250 + (index % 6) * 20
-        return `hsl(${hue}, 80%, 70%)`
-      },
-      ease: 'none'
-    })
+      // 弹性带动画
+      if (elasticBands.length) {
+        gsap.from(elasticBands, {
+          scrollTrigger: {
+            trigger: componentRoot.value,
+            start: 'top 80%',
+            toggleActions: 'play none none reverse'
+          },
+          scaleY: 0,
+          opacity: 0,
+          duration: 1.5,
+          stagger: {
+            each: 0.1
+          },
+          ease: 'elastic.out(1, 0.5)'
+        })
 
-    // 初始入场动画
-    charRefs.value.forEach((char, index) => {
-      gsap.from(char, {
-        scrollTrigger: {
-          trigger: stage.value,
-          start: 'top 75%',
-          end: 'top 55%',
-          scrub: 1.5
-        },
-        y: -200,
-        scale: 0,
-        opacity: 0,
-        rotation: (index % 2 === 0 ? -1 : 1) * 180,
-        filter: 'blur(20px)',
-        delay: index * 0.05,
-        ease: 'elastic.out(1, 0.5)'
-      })
-    })
+        elasticBands.forEach((band: HTMLElement, index: number) => {
+          gsap.to(band, {
+            scaleY: 0.8 + Math.random() * 0.4,
+            duration: 1 + Math.random(),
+            repeat: -1,
+            yoyo: true,
+            ease: 'sine.inOut'
+          })
+        })
+      }
 
-    // 持续的弹性波动
-    charRefs.value.forEach((char, index) => {
-      gsap.to(char, {
-        y: Math.sin(index * 0.3) * 20,
-        duration: 2 + Math.random(),
-        repeat: -1,
-        yoyo: true,
-        ease: 'elastic.out(1, 0.3)',
-        delay: index * 0.05
-      })
-    })
+      // 弹跳粒子动画
+      if (bounceParticles.length) {
+        gsap.from(bounceParticles, {
+          scrollTrigger: {
+            trigger: componentRoot.value,
+            start: 'top 80%',
+            toggleActions: 'play none none reverse'
+          },
+          y: -200,
+          scale: 0,
+          opacity: 0,
+          duration: 1.5,
+          stagger: {
+            each: 0.05,
+            from: 'random'
+          },
+          ease: 'elastic.out(1, 0.5)'
+        })
 
-    // 阴影文字效果
-    gsap.to('.et-shadow-char-136', {
-      scrollTrigger: {
-        trigger: stage.value,
-        start: 'top 80%',
-        end: 'bottom 20%',
-        scrub: 2
-      },
-      y: (progress) => progress * 100,
-      opacity: (progress) => 1 - progress * 0.8,
-      ease: 'none'
-    })
-
-    // 弹性指示器
-    gsap.to('.et-indicator-bar-136', {
-      scrollTrigger: {
-        trigger: stage.value,
-        start: 'top 80%',
-        end: 'bottom 20%',
-        scrub: 0.5
-      },
-      scaleX: 1,
-      ease: 'elastic.out(1, 0.5)'
-    })
-  })
+        bounceParticles.forEach((particle: HTMLElement) => {
+          gsap.to(particle, {
+            y: -100 - Math.random() * 100,
+            duration: 1 + Math.random(),
+            repeat: -1,
+            yoyo: true,
+            ease: 'sine.inOut'
+          })
+        })
+      }
+    }, componentRoot.value)
+  }, 100)
 })
 
 onUnmounted(() => {
@@ -185,136 +278,175 @@ onUnmounted(() => {
 </script>
 
 <style scoped lang="scss">
-.et-scroll-elastic-text-136 {
-  min-height: 350vh;
+.set-elastic-text-section-173 {
+  min-height: 220vh;
   padding: 100px 20px;
-  background: linear-gradient(180deg, #0a0a1a 0%, #1a1a3a 30%, #0f0f2a 60%, #1a1a3a 100%);
+  background: linear-gradient(180deg, #0a1a2a 0%, #1a2a4a 50%, #0a1a2a 100%);
   position: relative;
   overflow: hidden;
 }
 
-.et-container-136 {
+.set-container-173 {
+  position: relative;
   max-width: 1400px;
   margin: 0 auto;
-  position: relative;
+  z-index: 1;
 }
 
-.et-title-136 {
+.set-title-173 {
   text-align: center;
-  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
   font-weight: 900;
   margin-bottom: 20px;
-  background: linear-gradient(135deg, #a855f7, #3b82f6, #ec4899);
+  background: linear-gradient(135deg, #06b6d4, #3b82f6);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  text-shadow: 0 0 80px rgba(168, 85, 247, 0.5);
 }
 
-.et-subtitle-136 {
+.set-subtitle-173 {
   text-align: center;
   font-size: 1.2rem;
-  color: rgba(255, 255, 255, 0.5);
-  margin-bottom: 150px;
-  letter-spacing: 0.3em;
+  color: rgba(6, 182, 212, 0.6);
+  margin-bottom: 120px;
+  letter-spacing: 0.5em;
   text-transform: uppercase;
 }
 
-.et-stage-136 {
+.set-text-stage-173 {
   position: relative;
-  min-height: 600px;
+  min-height: 100vh;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  perspective: 2000px;
+  justify-content: center;
+  gap: 80px;
 }
 
-.et-text-wrapper-136 {
+.set-text-container-173 {
   display: flex;
-  gap: 0.05em;
-  position: relative;
-  z-index: 10;
+  flex-direction: column;
+  align-items: center;
+  gap: 100px;
+  z-index: 1;
 }
 
-.et-character-136 {
-  font-size: clamp(4rem, 12vw, 10rem);
+.set-text-row-173 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.set-letters-173 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.05em;
+  font-size: clamp(4rem, 10vw, 7rem);
   font-weight: 900;
+}
+
+.set-letter-173 {
+  position: relative;
+  display: inline-block;
   color: #fff;
   text-transform: uppercase;
-  display: inline-block;
-  background: linear-gradient(135deg, #fff 0%, rgba(255, 255, 255, 0.9) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  text-shadow: 0 0 40px rgba(168, 85, 247, 0.4);
-  will-change: transform;
-  transition: color 0.3s ease;
+  text-shadow: 0 0 20px rgba(6, 182, 212, 0.5);
+  transition: all 0.3s ease;
 }
 
-.et-shadow-text-136 {
+.set-elastic-bands-173 {
   position: absolute;
-  display: flex;
-  gap: 0.05em;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 1;
-  pointer-events: none;
-}
-
-.et-shadow-char-136 {
-  font-size: clamp(4rem, 12vw, 10rem);
-  font-weight: 900;
-  color: rgba(168, 85, 247, 0.1);
-  text-transform: uppercase;
-  display: inline-block;
-  filter: blur(10px);
-  user-select: none;
-}
-
-.et-elastic-indicator-136 {
-  position: fixed;
-  bottom: 40px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 300px;
-  height: 4px;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 2px;
-  overflow: hidden;
-  z-index: 100;
-}
-
-.et-indicator-bar-136 {
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, #a855f7, #3b82f6, #ec4899);
-  transform-origin: left;
-  transform: scaleX(0);
-  box-shadow: 0 0 20px rgba(168, 85, 247, 0.5);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.set-elastic-band-173 {
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, rgba(6, 182, 212, 0.2), rgba(59, 130, 246, 0.2), transparent);
+  transform-origin: center;
+}
+
+@for $i from 1 through 5 {
+  .set-elastic-band-173:nth-child(#{$i}) {
+    top: #{20 + ($i - 1) * 15}%;
+  }
+}
+
+.set-bounce-particles-173 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.set-bounce-particle-173 {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: radial-gradient(circle, rgba(6, 182, 212, 0.8) 0%, rgba(59, 130, 246, 0.3) 70%, transparent 100%);
+  border-radius: 50%;
+}
+
+@for $i from 1 through 20 {
+  .set-bounce-particle-173:nth-child(#{$i}) {
+    left: #{5 + ($i % 18) * 5}%;
+    animation: bounceParticleFloat-173 #{2 + ($i % 3)}s ease-in-out infinite;
+    animation-delay: #{$i * -0.1}s;
+  }
+}
+
+@keyframes bounceParticleFloat-173 {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-50px); }
+}
+
+.set-spring-lines-173 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 30%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.set-spring-line-173 {
+  position: absolute;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, rgba(6, 182, 212, 0.1), rgba(59, 130, 246, 0.1), transparent);
+  animation: springLinePulse-173 2s ease-in-out infinite;
+}
+
+@for $i from 1 through 10 {
+  .set-spring-line-173:nth-child(#{$i}) {
+    left: #{($i - 1) * 10 + 5}%;
+    animation-delay: #{$i * -0.2}s;
+  }
+}
+
+@keyframes springLinePulse-173 {
+  0%, 100% { opacity: 0.3; transform: scaleY(0.8); }
+  50% { opacity: 0.6; transform: scaleY(1.2); }
 }
 
 @media (max-width: 768px) {
-  .et-character-136,
-  .et-shadow-char-136 {
-    font-size: clamp(2.5rem, 8vw, 5rem);
+  .set-letters-173 {
+    font-size: 3rem;
   }
 
-  .et-title-136 {
-    margin-bottom: 60px;
-  }
-
-  .et-subtitle-136 {
-    margin-bottom: 100px;
-    font-size: 0.9rem;
-  }
-
-  .et-stage-136 {
-    min-height: 400px;
-  }
-
-  .et-elastic-indicator-136 {
-    width: 200px;
+  .set-text-container-173 {
+    gap: 60px;
   }
 }
 </style>
