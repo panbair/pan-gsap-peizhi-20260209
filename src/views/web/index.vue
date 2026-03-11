@@ -274,10 +274,12 @@
       <LazyScrollHoverReveal v-if="visibilityState.showScrollHoverReveal" />
       <LazyScrollDragReveal v-if="visibilityState.showScrollDragReveal" />
       <LazyScrollPinchZoom v-if="visibilityState.showScrollPinchZoom" />
-      <LazyScrollSwipeUp v-if="visibilityState.showScrollSwipeUp" />
-      <LazyScrollThemeSwitch v-if="visibilityState.showScrollThemeSwitch" />
-      <LazyScrollAccentColor v-if="visibilityState.showScrollAccentColor" />
-      <LazyScrollElasticMorph v-if="visibilityState.showScrollElasticMorph" />
+        <LazyScrollSwipeUp v-if="visibilityState.showScrollSwipeUp" />
+        <LazyScrollThemeSwitch v-if="visibilityState.showScrollThemeSwitch" />
+        <LazyScrollAccentColor v-if="visibilityState.showScrollAccentColor" />
+        <LazyScrollElasticMorph v-if="visibilityState.showScrollElasticMorph" />
+        <LazyScrollInkDiffusion v-if="visibilityState.showScrollInkDiffusion" />
+        <LazyScrollLiquidButtons v-if="visibilityState.showScrollLiquidButtons" />
     </div>
     <!-- 加载指示器 -->
     <Transition name="fade">
@@ -693,6 +695,12 @@ const LazyScrollAccentColor = defineAsyncComponent(
 const LazyScrollElasticMorph = defineAsyncComponent(
   () => import('./components/ScrollElasticMorph.vue')
 )
+const LazyScrollInkDiffusion = defineAsyncComponent(
+  () => import('./components/ScrollInkDiffusion.vue')
+)
+const LazyScrollLiquidButtons = defineAsyncComponent(
+  () => import('./components/ScrollLiquidButtons.vue')
+)
 const LazyScrollOrigamiCards = defineAsyncComponent(
   () => import('./components/ScrollOrigamiCards.vue')
 )
@@ -978,6 +986,8 @@ const visibilityState = ref<Record<string, boolean>>({
   showScrollThemeSwitch: false,
   showScrollAccentColor: false,
   showScrollElasticMorph: false,
+  showScrollInkDiffusion: false,
+  showScrollLiquidButtons: false,
   showScrollParallaxLayers: false,
   showScrollImageClip: false,
   showScrollImageBlur: false,
@@ -1077,6 +1087,8 @@ const componentVisibilityConfig: {
     'showScrollThemeSwitch',
     'showScrollAccentColor',
     'showScrollElasticMorph',
+    'showScrollInkDiffusion',
+    'showScrollLiquidButtons',
     // 创意特效组件
     'showCyberpunkCity',
     'showDNAHelix',

@@ -565,9 +565,9 @@ const initSwipeUp = () => {
 
     // 绑定事件
     if (containerEl) {
-      containerEl.addEventListener('touchstart', handleTouchStart)
+      containerEl.addEventListener('touchstart', handleTouchStart, { passive: true })
       containerEl.addEventListener('touchmove', handleTouchMove, { passive: false })
-      containerEl.addEventListener('touchend', handleTouchEnd)
+      containerEl.addEventListener('touchend', handleTouchEnd, { passive: true })
       containerEl.addEventListener('mousedown', handleMouseDown)
     }
 

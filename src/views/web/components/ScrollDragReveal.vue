@@ -382,9 +382,9 @@ const initDragReveal = () => {
     window.addEventListener('mouseup', handleEnd)
 
     // 触摸事件
-    content.addEventListener('touchstart', (e) => handleStart(e.touches[0].clientX))
-    window.addEventListener('touchmove', (e) => handleMove(e.touches[0].clientX))
-    window.addEventListener('touchend', handleEnd)
+    content.addEventListener('touchstart', (e) => handleStart(e.touches[0].clientX), { passive: true })
+    window.addEventListener('touchmove', (e) => handleMove(e.touches[0].clientX), { passive: true })
+    window.addEventListener('touchend', handleEnd, { passive: true })
 
     // 卡片悬停效果
     const hoverCards = gsap.utils.toArray('.scroll-drag-reveal-card-250')

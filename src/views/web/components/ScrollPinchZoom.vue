@@ -402,9 +402,9 @@ const initPinchZoom = () => {
     }
 
     // 触摸事件
-    viewport.value.addEventListener('touchstart', handleTouchStart)
+    viewport.value.addEventListener('touchstart', handleTouchStart, { passive: true })
     viewport.value.addEventListener('touchmove', handleTouchMove, { passive: false })
-    viewport.value.addEventListener('touchend', handleTouchEnd)
+    viewport.value.addEventListener('touchend', handleTouchEnd, { passive: true })
 
     // 鼠标事件
     viewport.value.addEventListener('mousedown', handleMouseDown)
