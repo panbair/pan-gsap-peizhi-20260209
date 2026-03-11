@@ -17,7 +17,7 @@
       <TextTypewriter />
       <Cube3D />
       <ImageParallax />
-      <div>
+      <div v-if="isShow">
         <!-- 3D/视差组件 - 懒加载 -->
         <LazyLiquidWave v-if="visibilityState.showLiquidWave" />
         <LazyParticleExplosion v-if="visibilityState.showParticleExplosion" />
@@ -257,10 +257,13 @@
         <LazyScrollHoloText v-if="visibilityState.showScrollHoloText" />
         <LazyScrollFireText v-if="visibilityState.showScrollFireText" />
         <LazyScrollIceText v-if="visibilityState.showScrollIceText" />
-        <LazyScrollThunderText v-if="visibilityState.showScrollThunderText" />
-        <LazyScrollStarText v-if="visibilityState.showScrollStarText" />
-        <LazyScrollRainText v-if="visibilityState.showScrollRainText" />
       </div>
+      <LazyScrollThunderText v-if="visibilityState.showScrollThunderText" />
+      <LazyScrollStarText v-if="visibilityState.showScrollStarText" />
+      <LazyScrollRainText v-if="visibilityState.showScrollRainText" />
+      <LazyScrollCursorFollower v-if="visibilityState.showScrollCursorFollower" />
+      <LazyScrollMagnetic v-if="visibilityState.showScrollMagnetic" />
+      <LazyScrollStickyReveal v-if="visibilityState.showScrollStickyReveal" />
     </div>
 
     <!-- 加载指示器 -->
@@ -279,6 +282,8 @@ import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 gsap.registerPlugin(ScrollTrigger)
+
+let isShow = ref(false)
 
 // 立即加载的核心组件
 import ScrollProgress from './components/ScrollProgress.vue'
@@ -400,9 +405,13 @@ const LazyScrollLiquidMorph = defineAsyncComponent(
 )
 const LazyScrollNeonPulse = defineAsyncComponent(() => import('./components/ScrollNeonPulse.vue'))
 const LazyScrollTimeWarp = defineAsyncComponent(() => import('./components/ScrollTimeWarp.vue'))
-const LazyScrollCrystalShatter = defineAsyncComponent(() => import('./components/ScrollCrystalShatter.vue'))
+const LazyScrollCrystalShatter = defineAsyncComponent(
+  () => import('./components/ScrollCrystalShatter.vue')
+)
 const LazyScrollWaveReveal = defineAsyncComponent(() => import('./components/ScrollWaveReveal.vue'))
-const LazyScrollParticleExplosion = defineAsyncComponent(() => import('./components/ScrollParticleExplosion.vue'))
+const LazyScrollParticleExplosion = defineAsyncComponent(
+  () => import('./components/ScrollParticleExplosion.vue')
+)
 
 // 新增懒加载组件
 const LazyScrollTextSplit = defineAsyncComponent(() => import('./components/ScrollTextSplit.vue'))
@@ -540,7 +549,9 @@ const LazyScrollInfinityMirrors = defineAsyncComponent(
   () => import('./components/ScrollInfinityMirrors.vue')
 )
 const LazyScrollNeonRain = defineAsyncComponent(() => import('./components/ScrollNeonRain.vue'))
-const LazyScrollTemporalDistortion = defineAsyncComponent(() => import('./components/ScrollTemporalDistortion.vue'))
+const LazyScrollTemporalDistortion = defineAsyncComponent(
+  () => import('./components/ScrollTemporalDistortion.vue')
+)
 
 // 全新高级创意动画组件 (2026-03 扩展)
 const LazyScrollHologramText = defineAsyncComponent(
@@ -563,37 +574,67 @@ const LazyScrollOutlineText = defineAsyncComponent(
 const LazyScrollTextMask = defineAsyncComponent(() => import('./components/ScrollTextMask.vue'))
 const LazyScrollTextGlow = defineAsyncComponent(() => import('./components/ScrollTextGlow.vue'))
 const LazyScrollCardZoom = defineAsyncComponent(() => import('./components/ScrollCardZoom.vue'))
-const LazyScrollCardRotate3D = defineAsyncComponent(() => import('./components/ScrollCardRotate3D.vue'))
+const LazyScrollCardRotate3D = defineAsyncComponent(
+  () => import('./components/ScrollCardRotate3D.vue')
+)
 const LazyScrollCardBorder = defineAsyncComponent(() => import('./components/ScrollCardBorder.vue'))
 const LazyScrollCardMorph = defineAsyncComponent(() => import('./components/ScrollCardMorph.vue'))
 const LazyScrollCardGlass = defineAsyncComponent(() => import('./components/ScrollCardGlass.vue'))
 const LazyScrollCardRipple = defineAsyncComponent(() => import('./components/ScrollCardRipple.vue'))
 const LazyScrollShapeShift = defineAsyncComponent(() => import('./components/ScrollShapeShift.vue'))
-const LazyScrollElasticScale = defineAsyncComponent(() => import('./components/ScrollElasticScale.vue'))
-const LazyScrollPerspective = defineAsyncComponent(() => import('./components/ScrollPerspective.vue'))
-const LazyScrollParallaxLayers = defineAsyncComponent(() => import('./components/ScrollParallaxLayers.vue'))
+const LazyScrollElasticScale = defineAsyncComponent(
+  () => import('./components/ScrollElasticScale.vue')
+)
+const LazyScrollPerspective = defineAsyncComponent(
+  () => import('./components/ScrollPerspective.vue')
+)
+const LazyScrollParallaxLayers = defineAsyncComponent(
+  () => import('./components/ScrollParallaxLayers.vue')
+)
 const LazyScrollImageClip = defineAsyncComponent(() => import('./components/ScrollImageClip.vue'))
 const LazyScrollImageBlur = defineAsyncComponent(() => import('./components/ScrollImageBlur.vue'))
 const LazyScrollImageSepia = defineAsyncComponent(() => import('./components/ScrollImageSepia.vue'))
 const LazyScrollImageTilt = defineAsyncComponent(() => import('./components/ScrollImageTilt.vue'))
 const LazyScrollTextFlow = defineAsyncComponent(() => import('./components/ScrollTextFlow.vue'))
-const LazyScrollTextColumns = defineAsyncComponent(() => import('./components/ScrollTextColumns.vue'))
-const LazyScrollTextJustify = defineAsyncComponent(() => import('./components/ScrollTextJustify.vue'))
+const LazyScrollTextColumns = defineAsyncComponent(
+  () => import('./components/ScrollTextColumns.vue')
+)
+const LazyScrollTextJustify = defineAsyncComponent(
+  () => import('./components/ScrollTextJustify.vue')
+)
 const LazyScrollNavMorph = defineAsyncComponent(() => import('./components/ScrollNavMorph.vue'))
 const LazyScrollBreadcrumb = defineAsyncComponent(() => import('./components/ScrollBreadcrumb.vue'))
 const LazyScrollTabSwitch = defineAsyncComponent(() => import('./components/ScrollTabSwitch.vue'))
-const LazyScrollFloatingNav = defineAsyncComponent(() => import('./components/ScrollFloatingNav.vue'))
+const LazyScrollFloatingNav = defineAsyncComponent(
+  () => import('./components/ScrollFloatingNav.vue')
+)
 const LazyScrollEnergyOrb = defineAsyncComponent(() => import('./components/ScrollEnergyOrb.vue'))
-const LazyScrollMorphingText = defineAsyncComponent(() => import('./components/ScrollMorphingText.vue'))
-const LazyScrollQuantumLeap = defineAsyncComponent(() => import('./components/ScrollQuantumLeap.vue'))
+const LazyScrollMorphingText = defineAsyncComponent(
+  () => import('./components/ScrollMorphingText.vue')
+)
+const LazyScrollQuantumLeap = defineAsyncComponent(
+  () => import('./components/ScrollQuantumLeap.vue')
+)
 const LazyScrollCyberPulse = defineAsyncComponent(() => import('./components/ScrollCyberPulse.vue'))
-const LazyScrollStardustReveal = defineAsyncComponent(() => import('./components/ScrollStardustReveal.vue'))
-const LazyScrollTemporalFlux = defineAsyncComponent(() => import('./components/ScrollTemporalFlux.vue'))
-const LazyScrollQuantumTextEntangle = defineAsyncComponent(() => import('./components/ScrollQuantumTextEntangle.vue'))
+const LazyScrollStardustReveal = defineAsyncComponent(
+  () => import('./components/ScrollStardustReveal.vue')
+)
+const LazyScrollTemporalFlux = defineAsyncComponent(
+  () => import('./components/ScrollTemporalFlux.vue')
+)
+const LazyScrollQuantumTextEntangle = defineAsyncComponent(
+  () => import('./components/ScrollQuantumTextEntangle.vue')
+)
 const LazyScrollShadowText = defineAsyncComponent(() => import('./components/ScrollShadowText.vue'))
-const LazyScrollLiquidTextMorph = defineAsyncComponent(() => import('./components/ScrollLiquidTextMorph.vue'))
-const LazyScrollPixelTextReveal = defineAsyncComponent(() => import('./components/ScrollPixelTextReveal.vue'))
-const LazyScrollHolographicText = defineAsyncComponent(() => import('./components/ScrollHolographicText.vue'))
+const LazyScrollLiquidTextMorph = defineAsyncComponent(
+  () => import('./components/ScrollLiquidTextMorph.vue')
+)
+const LazyScrollPixelTextReveal = defineAsyncComponent(
+  () => import('./components/ScrollPixelTextReveal.vue')
+)
+const LazyScrollHolographicText = defineAsyncComponent(
+  () => import('./components/ScrollHolographicText.vue')
+)
 const LazyScrollPortalText = defineAsyncComponent(() => import('./components/ScrollPortalText.vue'))
 const LazyScrollPrismText = defineAsyncComponent(() => import('./components/ScrollPrismText.vue'))
 const LazyScrollNeonText = defineAsyncComponent(() => import('./components/ScrollNeonText.vue'))
@@ -602,44 +643,91 @@ const LazyScrollMatrixText = defineAsyncComponent(() => import('./components/Scr
 const LazyScrollHoloText = defineAsyncComponent(() => import('./components/ScrollHoloText.vue'))
 const LazyScrollFireText = defineAsyncComponent(() => import('./components/ScrollFireText.vue'))
 const LazyScrollIceText = defineAsyncComponent(() => import('./components/ScrollIceText.vue'))
-const LazyScrollThunderText = defineAsyncComponent(() => import('./components/ScrollThunderText.vue'))
+const LazyScrollThunderText = defineAsyncComponent(
+  () => import('./components/ScrollThunderText.vue')
+)
 const LazyScrollStarText = defineAsyncComponent(() => import('./components/ScrollStarText.vue'))
 const LazyScrollRainText = defineAsyncComponent(() => import('./components/ScrollRainText.vue'))
-const LazyScrollOrigamiCards = defineAsyncComponent(() => import('./components/ScrollOrigamiCards.vue'))
+const LazyScrollCursorFollower = defineAsyncComponent(
+  () => import('./components/ScrollCursorFollower.vue')
+)
+const LazyScrollMagnetic = defineAsyncComponent(() => import('./components/ScrollMagnetic.vue'))
+const LazyScrollStickyReveal = defineAsyncComponent(() => import('./components/ScrollStickyReveal.vue'))
+const LazyScrollOrigamiCards = defineAsyncComponent(
+  () => import('./components/ScrollOrigamiCards.vue')
+)
 const LazyScrollGlassMorph = defineAsyncComponent(() => import('./components/ScrollGlassMorph.vue'))
 const LazyScrollEmberCards = defineAsyncComponent(() => import('./components/ScrollEmberCards.vue'))
-const LazyScrollPlasmaWaves = defineAsyncComponent(() => import('./components/ScrollPlasmaWaves.vue'))
-const LazyScrollQuantumCards = defineAsyncComponent(() => import('./components/ScrollQuantumCards.vue'))
+const LazyScrollPlasmaWaves = defineAsyncComponent(
+  () => import('./components/ScrollPlasmaWaves.vue')
+)
+const LazyScrollQuantumCards = defineAsyncComponent(
+  () => import('./components/ScrollQuantumCards.vue')
+)
 const LazyScrollHoloCards = defineAsyncComponent(() => import('./components/ScrollHoloCards.vue'))
-const LazyScrollLiquidMetal = defineAsyncComponent(() => import('./components/ScrollLiquidMetal.vue'))
+const LazyScrollLiquidMetal = defineAsyncComponent(
+  () => import('./components/ScrollLiquidMetal.vue')
+)
 const LazyScrollVortexRing = defineAsyncComponent(() => import('./components/ScrollVortexRing.vue'))
 const LazyScrollPrismGlow = defineAsyncComponent(() => import('./components/ScrollPrismGlow.vue'))
-const LazyScrollElectricArc = defineAsyncComponent(() => import('./components/ScrollElectricArc.vue'))
+const LazyScrollElectricArc = defineAsyncComponent(
+  () => import('./components/ScrollElectricArc.vue')
+)
 const LazyScrollNeonGrid = defineAsyncComponent(() => import('./components/ScrollNeonGrid.vue'))
 const LazyScrollIceCrystal = defineAsyncComponent(() => import('./components/ScrollIceCrystal.vue'))
 const LazyScrollSolarFlare = defineAsyncComponent(() => import('./components/ScrollSolarFlare.vue'))
-const LazyScrollAuroraNight = defineAsyncComponent(() => import('./components/ScrollAuroraNight.vue'))
+const LazyScrollAuroraNight = defineAsyncComponent(
+  () => import('./components/ScrollAuroraNight.vue')
+)
 const LazyScrollCosmicDust = defineAsyncComponent(() => import('./components/ScrollCosmicDust.vue'))
-const LazyScrollFrostBreath = defineAsyncComponent(() => import('./components/ScrollFrostBreath.vue'))
+const LazyScrollFrostBreath = defineAsyncComponent(
+  () => import('./components/ScrollFrostBreath.vue')
+)
 const LazyScrollLavaFlow = defineAsyncComponent(() => import('./components/ScrollLavaFlow.vue'))
-const LazyScrollParallaxCardsScroll = defineAsyncComponent(() => import('./components/ScrollParallaxCardsScroll.vue'))
-const LazyScrollTextCascadEffect = defineAsyncComponent(() => import('./components/ScrollTextCascadEffect.vue'))
-const LazyScrollCardMorphReveal = defineAsyncComponent(() => import('./components/ScrollCardMorphReveal.vue'))
-const LazyScrollSplitTransition = defineAsyncComponent(() => import('./components/ScrollSplitTransition.vue'))
-const LazyScrollParallaxDepth = defineAsyncComponent(() => import('./components/ScrollParallaxDepth.vue'))
-const LazyScrollMagneticField = defineAsyncComponent(() => import('./components/ScrollMagneticField.vue'))
-const LazyScrollGeometricFlow = defineAsyncComponent(() => import('./components/ScrollGeometricFlow.vue'))
-const LazyScrollLiquidCards = defineAsyncComponent(() => import('./components/ScrollLiquidCards.vue'))
+const LazyScrollParallaxCardsScroll = defineAsyncComponent(
+  () => import('./components/ScrollParallaxCardsScroll.vue')
+)
+const LazyScrollTextCascadEffect = defineAsyncComponent(
+  () => import('./components/ScrollTextCascadEffect.vue')
+)
+const LazyScrollCardMorphReveal = defineAsyncComponent(
+  () => import('./components/ScrollCardMorphReveal.vue')
+)
+const LazyScrollSplitTransition = defineAsyncComponent(
+  () => import('./components/ScrollSplitTransition.vue')
+)
+const LazyScrollParallaxDepth = defineAsyncComponent(
+  () => import('./components/ScrollParallaxDepth.vue')
+)
+const LazyScrollMagneticField = defineAsyncComponent(
+  () => import('./components/ScrollMagneticField.vue')
+)
+const LazyScrollGeometricFlow = defineAsyncComponent(
+  () => import('./components/ScrollGeometricFlow.vue')
+)
+const LazyScrollLiquidCards = defineAsyncComponent(
+  () => import('./components/ScrollLiquidCards.vue')
+)
 const LazyScrollNeonGlow = defineAsyncComponent(() => import('./components/ScrollNeonGlow.vue'))
 const LazyScroll3DCube = defineAsyncComponent(() => import('./components/Scroll3DCube.vue'))
-const LazyScrollOrbitGallery = defineAsyncComponent(() => import('./components/ScrollOrbitGallery.vue'))
-const LazyScrollHologramCards = defineAsyncComponent(() => import('./components/ScrollHologramCards.vue'))
-const LazyScrollMorphGallery = defineAsyncComponent(() => import('./components/ScrollMorphGallery.vue'))
+const LazyScrollOrbitGallery = defineAsyncComponent(
+  () => import('./components/ScrollOrbitGallery.vue')
+)
+const LazyScrollHologramCards = defineAsyncComponent(
+  () => import('./components/ScrollHologramCards.vue')
+)
+const LazyScrollMorphGallery = defineAsyncComponent(
+  () => import('./components/ScrollMorphGallery.vue')
+)
 const LazyScrollLiquidText = defineAsyncComponent(() => import('./components/ScrollLiquidText.vue'))
 const LazyScrollAuroraText = defineAsyncComponent(() => import('./components/ScrollAuroraText.vue'))
-const LazyScrollVortexCards = defineAsyncComponent(() => import('./components/ScrollVortexCards.vue'))
+const LazyScrollVortexCards = defineAsyncComponent(
+  () => import('./components/ScrollVortexCards.vue')
+)
 const LazyScrollPixelCards = defineAsyncComponent(() => import('./components/ScrollPixelCards.vue'))
-const LazyScrollRibbonCards = defineAsyncComponent(() => import('./components/ScrollRibbonCards.vue'))
+const LazyScrollRibbonCards = defineAsyncComponent(
+  () => import('./components/ScrollRibbonCards.vue')
+)
 
 // 组件显示状态
 const isLoading = ref(true)
@@ -834,6 +922,9 @@ const visibilityState = ref<Record<string, boolean>>({
   showScrollCosmicDust: false,
   showScrollFrostBreath: false,
   showScrollLavaFlow: false,
+  showScrollCursorFollower: false,
+  showScrollMagnetic: false,
+  showScrollStickyReveal: false,
   showScrollParallaxLayers: false,
   showScrollImageClip: false,
   showScrollImageBlur: false,
@@ -902,62 +993,196 @@ const componentVisibilityConfig: {
   // 立即显示的组件（高性能、优先级高）
   immediate: [
     // 基础组件
-    'showLiquidWave', 'showParticleExplosion', 'showNumberCounter', 'showBouncingBall', 'showCircularProgress',
-    'showTextReveal', 'showMagneticButton', 'showParallaxCards', 'showRotatingRings', 'showTextDistortion',
-    'showGlassmorphismGallery', 'showInfiniteScrollText', 'showHolographic3D', 'showNeonGlowText', 'showMorphingShapes',
+    'showLiquidWave',
+    'showParticleExplosion',
+    'showNumberCounter',
+    'showBouncingBall',
+    'showCircularProgress',
+    'showTextReveal',
+    'showMagneticButton',
+    'showParallaxCards',
+    'showRotatingRings',
+    'showTextDistortion',
+    'showGlassmorphismGallery',
+    'showInfiniteScrollText',
+    'showHolographic3D',
+    'showNeonGlowText',
+    'showMorphingShapes',
+    'showScrollCursorFollower',
+    'showScrollMagnetic',
+    'showScrollStickyReveal',
     // 创意特效组件
-    'showCyberpunkCity', 'showDNAHelix', 'showAuroraBorealis', 'showGalaxySpiral', 'showOceanWaves', 'showQuantumField',
-    'showVolcanicEruption', 'showSolarSystem', 'showTornado',
+    'showCyberpunkCity',
+    'showDNAHelix',
+    'showAuroraBorealis',
+    'showGalaxySpiral',
+    'showOceanWaves',
+    'showQuantumField',
+    'showVolcanicEruption',
+    'showSolarSystem',
+    'showTornado',
     // 滚动交互组件
-    'showParallaxZoomGallery', 'showRotationCarousel', 'showFadeInStack', 'showScaleWave', 'showHorizontalScroll',
-    'showDiagonalParallax', 'showRotationGallery', 'showTextScroll', 'showScaleShapes', 'showGradientFlow',
-    'showCascadeParallax', 'showFloatingImages', 'showStaggerGrid', 'showStaggerTimeline', 'showStaggerCards',
-    'showCircleGallery', 'showFoldEffect', 'showMorphGrid', 'showWaveReveal', 'showZoomPan', 'showRotateScale',
-    'showParallaxScroll', 'showFixedParallax', 'showTimelineSequence', 'showOverlappingTimeline', 'showNestedTimeline',
-    'showFlipCards', 'showSlidingPanels', 'showMotionPathCards', 'showCircleMotion', 'showInfinityMotion',
-    'showNebulaVortex', 'showAccordionCards', 'showImageComparison', 'showHorizontalScrollCards',
-    'showQuantumWormhole', 'showMagneticOrbit', 'showSpringBounce',
+    'showParallaxZoomGallery',
+    'showRotationCarousel',
+    'showFadeInStack',
+    'showScaleWave',
+    'showHorizontalScroll',
+    'showDiagonalParallax',
+    'showRotationGallery',
+    'showTextScroll',
+    'showScaleShapes',
+    'showGradientFlow',
+    'showCascadeParallax',
+    'showFloatingImages',
+    'showStaggerGrid',
+    'showStaggerTimeline',
+    'showStaggerCards',
+    'showCircleGallery',
+    'showFoldEffect',
+    'showMorphGrid',
+    'showWaveReveal',
+    'showZoomPan',
+    'showRotateScale',
+    'showParallaxScroll',
+    'showFixedParallax',
+    'showTimelineSequence',
+    'showOverlappingTimeline',
+    'showNestedTimeline',
+    'showFlipCards',
+    'showSlidingPanels',
+    'showMotionPathCards',
+    'showCircleMotion',
+    'showInfinityMotion',
+    'showNebulaVortex',
+    'showAccordionCards',
+    'showImageComparison',
+    'showHorizontalScrollCards',
+    'showQuantumWormhole',
+    'showMagneticOrbit',
+    'showSpringBounce',
     // Scroll系列组件
-    'showScrollReveal', 'showScrollCard3D', 'showScrollTextBlur', 'showScrollShapeElastic',
-    'showScrollStaggerWave', 'showScrollParallaxLayer', 'showScrollMagneticRotate', 'showScrollFluidPanels',
-    'showScrollGravityBounce', 'showScrollPixelCard', 'showScrollLaserLine', 'showScrollHologram',
-    'showScrollLiquidMorph', 'showScrollNeonPulse', 'showScrollTimeWarp', 'showScrollCrystalShatter',
-    'showScrollImageReveal', 'showScrollTextSplit', 'showScrollCardFloat',
-    'showScrollMagnify', 'showScrollParallaxText', 'showScroll3DGallery',
-    'showScrollImageFlow', 'showScrollTextCurtain', 'showScrollCardWave',
-    'showScrollImageDistort', 'showScrollText3D', 'showScrollCardPolaroid',
-    'showScrollInkReveal', 'showScrollParticleText', 'showScrollFoldCard',
-    'showScrollMagneticFluid', 'showScrollGlitchText', 'showScrollImageStackReveal',
-    'showScrollTextWaveSplit', 'showScrollCard3DFlip', 'showScrollParallaxGallery',
-    'showScrollElasticText', 'showScrollMagneticCards', 'showScrollInfiniteScroll',
-    'showScrollWaveCards', 'showScrollLensReveal', 'showScrollMorphPath',
-    'showScrollTimeline', 'showScrollTextScatter', 'showScrollCardStack',
-    'showScrollGradientFlow', 'showScrollParticleWave', 'showScrollImageMosaic',
-    'showScrollFluidText', 'showScrollMorphingCards', 'showScrollRippleCards',
-    'showScrollDistortGallery', 'showScrollMagneticGrid', 'showScrollFoldEffect',
-    'showScroll3DTunnel', 'showScrollSpiralReveal', 'showScrollGlitchEffect',
-    'showScrollAuroraField', 'showScrollMagneticOrbitCards', 'showScrollNeonTrailCards',
-    'showScrollHologramGallery', 'showScrollLiquidDistort', 'showScrollPrismCards',
-    'showScrollTemporalDistortion', 'showScrollCyberGrid', 'showScrollQuantumPortal',
-    'showScrollNeonMatrix', 'showScrollCrystalPrism', 'showScrollAuroraAurora',
-    'showScrollGalaxyVortex', 'showScrollInfinityMirrors', 'showScrollNeonRain',
-    'showScrollParallaxCardsScroll', 'showScrollTextCascadEffect', 'showScrollCardMorphReveal',
-    'showScrollSplitTransition', 'showScrollParallaxDepth', 'showScrollMagneticField',
-    'showScrollGeometricFlow', 'showScrollWaveReveal', 'showScrollLiquidCards', 'showScrollNeonGlow',
-    'showScroll3DCube', 'showScrollOrbitGallery', 'showScrollHologramCards',
-    'showScrollParticleExplosion', 'showScrollMorphGallery', 'showScrollLiquidText',
-    'showScrollQuantumCards', 'showScrollAuroraText', 'showScrollVortexCards',
-    'showScrollPixelCards', 'showScrollRibbonCards', 'showScrollOrigamiCards',
-    'showScrollGlassMorph', 'showScrollEmberCards', 'showScrollPlasmaWaves',
+    'showScrollReveal',
+    'showScrollCard3D',
+    'showScrollTextBlur',
+    'showScrollShapeElastic',
+    'showScrollStaggerWave',
+    'showScrollParallaxLayer',
+    'showScrollMagneticRotate',
+    'showScrollFluidPanels',
+    'showScrollGravityBounce',
+    'showScrollPixelCard',
+    'showScrollLaserLine',
+    'showScrollHologram',
+    'showScrollLiquidMorph',
+    'showScrollNeonPulse',
+    'showScrollTimeWarp',
+    'showScrollCrystalShatter',
+    'showScrollImageReveal',
+    'showScrollTextSplit',
+    'showScrollCardFloat',
+    'showScrollMagnify',
+    'showScrollParallaxText',
+    'showScroll3DGallery',
+    'showScrollImageFlow',
+    'showScrollTextCurtain',
+    'showScrollCardWave',
+    'showScrollImageDistort',
+    'showScrollText3D',
+    'showScrollCardPolaroid',
+    'showScrollInkReveal',
+    'showScrollParticleText',
+    'showScrollFoldCard',
+    'showScrollMagneticFluid',
+    'showScrollGlitchText',
+    'showScrollImageStackReveal',
+    'showScrollTextWaveSplit',
+    'showScrollCard3DFlip',
+    'showScrollParallaxGallery',
+    'showScrollElasticText',
+    'showScrollMagneticCards',
+    'showScrollInfiniteScroll',
+    'showScrollWaveCards',
+    'showScrollLensReveal',
+    'showScrollMorphPath',
+    'showScrollTimeline',
+    'showScrollTextScatter',
+    'showScrollCardStack',
+    'showScrollGradientFlow',
+    'showScrollParticleWave',
+    'showScrollImageMosaic',
+    'showScrollFluidText',
+    'showScrollMorphingCards',
+    'showScrollRippleCards',
+    'showScrollDistortGallery',
+    'showScrollMagneticGrid',
+    'showScrollFoldEffect',
+    'showScroll3DTunnel',
+    'showScrollSpiralReveal',
+    'showScrollGlitchEffect',
+    'showScrollAuroraField',
+    'showScrollMagneticOrbitCards',
+    'showScrollNeonTrailCards',
+    'showScrollHologramGallery',
+    'showScrollLiquidDistort',
+    'showScrollPrismCards',
+    'showScrollTemporalDistortion',
+    'showScrollCyberGrid',
+    'showScrollQuantumPortal',
+    'showScrollNeonMatrix',
+    'showScrollCrystalPrism',
+    'showScrollAuroraAurora',
+    'showScrollGalaxyVortex',
+    'showScrollInfinityMirrors',
+    'showScrollNeonRain',
+    'showScrollParallaxCardsScroll',
+    'showScrollTextCascadEffect',
+    'showScrollCardMorphReveal',
+    'showScrollSplitTransition',
+    'showScrollParallaxDepth',
+    'showScrollMagneticField',
+    'showScrollGeometricFlow',
+    'showScrollWaveReveal',
+    'showScrollLiquidCards',
+    'showScrollNeonGlow',
+    'showScroll3DCube',
+    'showScrollOrbitGallery',
+    'showScrollHologramCards',
+    'showScrollParticleExplosion',
+    'showScrollMorphGallery',
+    'showScrollLiquidText',
+    'showScrollQuantumCards',
+    'showScrollAuroraText',
+    'showScrollVortexCards',
+    'showScrollPixelCards',
+    'showScrollRibbonCards',
+    'showScrollOrigamiCards',
+    'showScrollGlassMorph',
+    'showScrollEmberCards',
+    'showScrollPlasmaWaves',
     'showScrollHoloCards',
-    'showScrollLiquidMetal', 'showScrollVortexRing', 'showScrollPrismGlow',
-    'showScrollElectricArc', 'showScrollNeonGrid', 'showScrollIceCrystal',
-    'showScrollSolarFlare', 'showScrollAuroraNight', 'showScrollCosmicDust',
-    'showScrollFrostBreath', 'showScrollLavaFlow',
-    'showScrollParallaxLayers', 'showScrollImageClip', 'showScrollImageBlur',
-    'showScrollImageSepia', 'showScrollImageTilt', 'showScrollTextFlow',
-    'showScrollTextColumns', 'showScrollTextJustify', 'showScrollNavMorph',
-    'showScrollBreadcrumb', 'showScrollTabSwitch', 'showScrollFloatingNav'
+    'showScrollLiquidMetal',
+    'showScrollVortexRing',
+    'showScrollPrismGlow',
+    'showScrollElectricArc',
+    'showScrollNeonGrid',
+    'showScrollIceCrystal',
+    'showScrollSolarFlare',
+    'showScrollAuroraNight',
+    'showScrollCosmicDust',
+    'showScrollFrostBreath',
+    'showScrollLavaFlow',
+    'showScrollParallaxLayers',
+    'showScrollImageClip',
+    'showScrollImageBlur',
+    'showScrollImageSepia',
+    'showScrollImageTilt',
+    'showScrollTextFlow',
+    'showScrollTextColumns',
+    'showScrollTextJustify',
+    'showScrollNavMorph',
+    'showScrollBreadcrumb',
+    'showScrollTabSwitch',
+    'showScrollFloatingNav'
   ],
   // 延迟加载的组件（性能较重的Canvas动画）
   delayed: [
