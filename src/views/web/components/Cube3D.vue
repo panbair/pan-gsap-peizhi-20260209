@@ -46,68 +46,87 @@ const initAnimations = () => {
     opacity: 1
   })
 
+  // 标题入场动画 - 增强效果
+  gsap.from('.section-title-6', {
+    y: 150,
+    opacity: 0,
+    scale: 0.6,
+    rotationX: -30,
+    duration: 1.5,
+    ease: 'back.out(1.7)',
+    scrollTrigger: {
+      trigger: cubeSection.value,
+      start: 'top 85%',
+      toggleActions: 'play none none reverse'
+    }
+  })
+
   // 面也设置为可见
   const faces = cube.value.querySelectorAll('.cube-face-6')
   gsap.set(faces, {
     opacity: 1
   })
 
-  // 立方体入场动画 - 从更大的角度开始（不修改opacity）
+  // 立方体入场动画 - 从更大的角度开始，添加透明度变化
   gsap.from(cube.value, {
-    rotateX: -90,
-    rotateY: -90,
-    scale: 0.5,
-    duration: 1.5,
+    rotateX: -180,
+    rotateY: -180,
+    scale: 0.3,
+    opacity: 0,
+    duration: 2,
     ease: 'back.out(1.7)',
     scrollTrigger: {
       trigger: cubeSection.value,
-      start: 'top 80%',
+      start: 'top 85%',
       toggleActions: 'play none none reverse'
     }
   })
 
   // 滚动时的旋转动画 - 从初始角度旋转
   gsap.to(cube.value, {
-    rotateX: 340,
-    rotateY: 330,
-    duration: 4,
+    rotateX: 360,
+    rotateY: 360,
+    duration: 5,
     ease: 'none',
     scrollTrigger: {
       trigger: cubeSection.value,
       start: 'top 60%',
       end: 'bottom 40%',
-      scrub: 1.5
+      scrub: 2
     }
   })
 
-  // 缩放效果
+  // 缩放效果 - 增强范围
   gsap.fromTo(
     cube.value,
     {
-      scale: 0.8
+      scale: 0.6
     },
     {
-      scale: 1.2,
-      duration: 2,
+      scale: 1.4,
+      duration: 2.5,
       ease: 'power2.inOut',
       scrollTrigger: {
         trigger: cubeSection.value,
         start: 'top 50%',
         end: 'bottom 50%',
-        scrub: 1
+        scrub: 1.5
       }
     }
   )
 
-  // 面的依次入场动画（不修改opacity，只修改scale）
+  // 面的依次入场动画 - 增强效果，添加透明度和旋转
   gsap.from(faces, {
-    scale: 0.5,
-    stagger: 0.1,
-    duration: 0.8,
+    scale: 0.2,
+    opacity: 0,
+    rotateX: -90,
+    rotateY: -90,
+    stagger: 0.12,
+    duration: 1,
     ease: 'back.out(1.7)',
     scrollTrigger: {
       trigger: cubeSection.value,
-      start: 'top 75%',
+      start: 'top 80%',
       toggleActions: 'play none none reverse'
     }
   })

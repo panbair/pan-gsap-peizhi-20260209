@@ -36,19 +36,52 @@ onMounted(() => {
   ctx = gsap.context(() => {
     const neonTexts = [neon1.value, neon2.value, neon3.value].filter(Boolean) as HTMLElement[]
 
+    // 标题入场动画
+    gsap.from('.ngt-section-title-19', {
+      y: 120,
+      opacity: 0,
+      scale: 0.7,
+      rotationX: -30,
+      duration: 1.5,
+      ease: 'back.out(1.7)',
+      scrollTrigger: {
+        trigger: '.ngt-neon-glow-section-19',
+        start: 'top 85%',
+        toggleActions: 'play none none reverse'
+      }
+    })
+
+    // 副标题入场
+    gsap.from('.ngt-subtitle-19', {
+      y: 100,
+      opacity: 0,
+      scale: 0.7,
+      duration: 1.2,
+      delay: 0.2,
+      ease: 'back.out(1.7)',
+      scrollTrigger: {
+        trigger: '.ngt-neon-glow-section-19',
+        start: 'top 80%',
+        toggleActions: 'play none none reverse'
+      }
+    })
+
     neonTexts.forEach((text, textIndex) => {
       const letters = gsap.utils.toArray('.ngt-letter-19', text) as HTMLElement[]
 
-      // 入场动画
+      // 入场动画 - 增强效果
       gsap.from(letters, {
+        y: 150,
         opacity: 0,
         scale: 0,
-        rotation: -180,
-        duration: 1,
-        stagger: 0.15,
+        rotationY: -180,
+        rotationX: 45,
+        duration: 1.5,
+        stagger: 0.12,
+        ease: 'back.out(1.7)',
         scrollTrigger: {
           trigger: text,
-          start: 'top 80%',
+          start: 'top 85%',
           end: 'top 50%',
           toggleActions: 'play none none reverse'
         }
@@ -65,14 +98,14 @@ onMounted(() => {
         {
           textShadow: '0 0 10px #ff00ff, 0 0 20px #ff00ff, 0 0 30px #ff00ff, 0 0 50px #ff00ff',
           color: '#ffffff',
-          scale: 1.15,
-          duration: 1,
+          scale: 1.2,
+          duration: 1.5,
           stagger: 0.05,
           scrollTrigger: {
             trigger: '.ngt-neon-container-19',
             start: 'top 70%',
             end: 'bottom 30%',
-            scrub: 1
+            scrub: 1.5
           }
         }
       )
@@ -80,10 +113,10 @@ onMounted(() => {
       // 滚动时的闪烁效果
       gsap.to(letters, {
         opacity: 0.7,
-        duration: 0.3,
+        duration: 0.4,
         repeat: 2,
         yoyo: true,
-        stagger: 0.03,
+        stagger: 0.04,
         scrollTrigger: {
           trigger: text,
           start: 'top 60%',
@@ -96,12 +129,12 @@ onMounted(() => {
     // 滚动时的颜色变换
     gsap.to('.ngt-neon-text-19', {
       filter: 'hue-rotate(180deg)',
-      duration: 2,
+      duration: 2.5,
       scrollTrigger: {
         trigger: '.ngt-neon-container-19',
         start: 'top bottom',
         end: 'bottom top',
-        scrub: 1
+        scrub: 1.5
       }
     })
   })

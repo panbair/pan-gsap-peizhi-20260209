@@ -54,6 +54,36 @@ let ctx: gsap.Context
 
 onMounted(() => {
   ctx = gsap.context(() => {
+    // 标题入场动画
+    gsap.from('.pc-section-title-13', {
+      y: 100,
+      opacity: 0,
+      scale: 0.8,
+      rotationX: -20,
+      duration: 1.5,
+      ease: 'back.out(1.7)',
+      scrollTrigger: {
+        trigger: '.pc-parallax-cards-section-13',
+        start: 'top 85%',
+        toggleActions: 'play none none reverse'
+      }
+    })
+
+    // 副标题入场
+    gsap.from('.pc-subtitle-13', {
+      y: 80,
+      opacity: 0,
+      scale: 0.8,
+      duration: 1.2,
+      delay: 0.2,
+      ease: 'back.out(1.7)',
+      scrollTrigger: {
+        trigger: '.pc-parallax-cards-section-13',
+        start: 'top 80%',
+        toggleActions: 'play none none reverse'
+      }
+    })
+
     const cards = [
       { card: card1.value, bg: bg1.value },
       { card: card2.value, bg: bg2.value },
@@ -63,62 +93,69 @@ onMounted(() => {
     cards.forEach(({ card, bg }, index) => {
       if (!card || !bg) return
 
-      // 卡片入场
+      // 卡片入场 - 增强效果
       gsap.from(card, {
-        y: 100,
+        y: 200,
         opacity: 0,
-        rotationX: 30,
-        duration: 1,
+        scale: 0.6,
+        rotationX: 60,
+        rotationY: -20,
+        duration: 1.5,
         stagger: 0.2,
         scrollTrigger: {
           trigger: card,
           start: 'top 85%',
           end: 'top 40%',
           toggleActions: 'play none none reverse'
-        }
+        },
+        ease: 'back.out(1.7)'
       })
 
       // 视差滚动效果
       gsap.to(card, {
-        y: -50,
-        rotationX: -5,
-        duration: 1,
+        y: -80,
+        rotationX: -15,
+        rotationY: 10,
+        scale: 1.05,
+        duration: 1.5,
         scrollTrigger: {
           trigger: card,
           start: 'top bottom',
           end: 'bottom top',
-          scrub: 1
+          scrub: 1.5
         }
       })
 
       // 背景移动
       gsap.to(bg, {
-        x: 30,
-        y: 30,
-        rotation: 15,
-        duration: 1,
+        x: 50,
+        y: 50,
+        rotation: 25,
+        scale: 1.2,
+        duration: 1.5,
         scrollTrigger: {
           trigger: card,
           start: 'top bottom',
           end: 'bottom top',
-          scrub: 1
+          scrub: 1.5
         }
       })
 
       // 悬停效果
       card.addEventListener('mouseenter', () => {
         gsap.to(card, {
-          scale: 1.05,
-          y: -20,
-          duration: 0.4,
+          scale: 1.1,
+          y: -30,
+          rotationX: 10,
+          duration: 0.5,
           ease: 'power2.out'
         })
       })
 
       card.addEventListener('mouseleave', () => {
         gsap.to(card, {
-          scale: 1,
-          duration: 0.4,
+          scale: 1.05,
+          duration: 0.5,
           ease: 'power2.out'
         })
       })

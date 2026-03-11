@@ -74,153 +74,164 @@ const triggerWave = () => {
 
 const initAnimations = () => {
   ctx = gsap.context(() => {
-    // 标题词语分别入场
+    // 标题词语分别入场 - 增强效果
     gsap.from('.rs-title-51 .rs-word-51', {
+      scrollTrigger: {
+        trigger: '.rs-rotate-scale-section-51',
+        start: 'top 85%',
+        toggleActions: 'play none none reverse'
+      },
+      x: -200,
+      y: 100,
+      opacity: 0,
+      scale: 0.4,
+      rotationY: 180,
+      rotationX: -45,
+      stagger: 0.25,
+      ease: 'back.out(1.7)',
+      duration: 1.5
+    })
+
+    // 副标题入场 - 增强效果
+    gsap.from('.rs-subtitle-51', {
       scrollTrigger: {
         trigger: '.rs-rotate-scale-section-51',
         start: 'top 80%',
         toggleActions: 'play none none reverse'
       },
-      x: -100,
-      opacity: 0,
-      rotationY: 90,
-      stagger: 0.2,
-      ease: 'back.out(1.7)',
-      duration: 0.8
-    })
-
-    // 副标题入场
-    gsap.from('.rs-subtitle-51', {
-      scrollTrigger: {
-        trigger: '.rs-rotate-scale-section-51',
-        start: 'top 75%',
-        toggleActions: 'play none none reverse'
-      },
       scale: 0,
       opacity: 0,
+      y: 80,
       ease: 'back.out(1.7)',
-      duration: 0.6,
-      delay: 0.3
+      duration: 1,
+      delay: 0.4
     })
 
-    // 旋转容器入场
+    // 旋转容器入场 - 增强效果
     gsap.from('.rs-item-rotator-51', {
       scrollTrigger: {
         trigger: '.rs-rotate-scale-container-51',
-        start: 'top 70%',
+        start: 'top 85%',
         toggleActions: 'play none none reverse'
       },
-      rotation: -180,
-      scale: 0,
+      rotation: -360,
+      scale: 0.3,
       opacity: 0,
+      y: 200,
       stagger: {
-        each: 0.12,
+        each: 0.15,
         ease: 'power2.out'
       },
-      ease: 'back.out(1.5)',
-      duration: 1
+      ease: 'back.out(1.7)',
+      duration: 1.5
     })
 
-    // 图片渐入
+    // 图片渐入 - 增强效果
     gsap.from('.rs-item-image-51', {
       scrollTrigger: {
         trigger: '.rs-rotate-scale-container-51',
-        start: 'top 65%',
+        start: 'top 80%',
         toggleActions: 'play none none reverse'
       },
-      scale: 2,
+      scale: 3,
       opacity: 0,
+      rotation: 180,
       stagger: {
-        each: 0.12,
+        each: 0.15,
         ease: 'power2.out'
       },
-      ease: 'power2.out',
-      duration: 0.8
+      ease: 'back.out(1.7)',
+      duration: 1.2
     })
 
-    // 数字旋转入场
+    // 数字旋转入场 - 增强效果
     gsap.from('.rs-item-number-51', {
       scrollTrigger: {
         trigger: '.rs-rotate-scale-container-51',
-        start: 'top 65%',
+        start: 'top 80%',
         toggleActions: 'play none none reverse'
       },
-      rotation: 360,
+      rotation: 720,
       scale: 0,
       opacity: 0,
+      y: 100,
+      stagger: {
+        each: 0.15,
+        ease: 'power2.out'
+      },
+      ease: 'back.out(1.7)',
+      duration: 1
+    })
+
+    // 信息从底部入场 - 增强效果
+    gsap.from('.rs-item-info-51', {
+      scrollTrigger: {
+        trigger: '.rs-rotate-scale-container-51',
+        start: 'top 75%',
+        toggleActions: 'play none none reverse'
+      },
+      y: 100,
+      opacity: 0,
+      scale: 0.7,
       stagger: {
         each: 0.12,
         ease: 'power2.out'
       },
       ease: 'back.out(1.7)',
-      duration: 0.7
+      duration: 1.2
     })
 
-    // 信息从底部入场
-    gsap.from('.rs-item-info-51', {
-      scrollTrigger: {
-        trigger: '.rs-rotate-scale-container-51',
-        start: 'top 55%',
-        toggleActions: 'play none none reverse'
-      },
-      y: 50,
-      opacity: 0,
-      stagger: {
-        each: 0.1,
-        ease: 'power2.out'
-      },
-      ease: 'power3.out',
-      duration: 0.7
-    })
-
-    // 滚动时容器旋转
+    // 滚动时容器旋转 - 增强效果
     gsap.to('.rs-item-rotator-51', {
-      scrollTrigger: {
-        trigger: '.rs-rotate-scale-container-51',
-        start: 'top bottom',
-        end: 'bottom top',
-        scrub: 1
-      },
-      rotation: (i) => (i - 2.5) * 45,
-      ease: 'none'
-    })
-
-    // 滚动时图片独立旋转
-    gsap.to('.rs-item-image-51', {
       scrollTrigger: {
         trigger: '.rs-rotate-scale-container-51',
         start: 'top bottom',
         end: 'bottom top',
         scrub: 1.5
       },
-      rotation: (i) => (i - 2.5) * -30,
-      scale: (i) => 1 + Math.sin(i * 0.5) * 0.1,
+      rotation: (i) => (i - 2.5) * 90,
+      scale: 1.1,
       ease: 'none'
     })
 
-    // 滚动时数字缩放
+    // 滚动时图片独立旋转 - 增强效果
+    gsap.to('.rs-item-image-51', {
+      scrollTrigger: {
+        trigger: '.rs-rotate-scale-container-51',
+        start: 'top bottom',
+        end: 'bottom top',
+        scrub: 2
+      },
+      rotation: (i) => (i - 2.5) * -60,
+      scale: (i) => 1.15 + Math.sin(i * 0.5) * 0.15,
+      ease: 'none'
+    })
+
+    // 滚动时数字缩放 - 增强效果
     gsap.to('.rs-item-number-51', {
       scrollTrigger: {
         trigger: '.rs-rotate-scale-container-51',
         start: 'top bottom',
         end: 'bottom top',
-        scrub: 1
+        scrub: 1.5
       },
-      scale: 1.3,
+      scale: 1.5,
+      rotation: 90,
       ease: 'none'
     })
 
-    // 控制按钮渐入
+    // 控制按钮渐入 - 增强效果
     gsap.from('.rs-control-btn-51', {
       scrollTrigger: {
         trigger: '.rs-controls-51',
         start: 'top 90%',
         toggleActions: 'play none none reverse'
       },
-      y: 30,
+      y: 80,
       opacity: 0,
-      ease: 'power3.out',
-      duration: 0.6
+      scale: 0.7,
+      ease: 'back.out(1.7)',
+      duration: 1
     })
 
     // 持续旋转动画
@@ -237,21 +248,21 @@ const initAnimations = () => {
       const itemEl = item as HTMLElement
       itemEl.addEventListener('mouseenter', () => {
         gsap.to(itemEl.querySelector('.rs-item-rotator-51'), {
-          scale: 1.15,
-          rotation: (i - 2.5) * 15,
-          duration: 0.4,
+          scale: 1.25,
+          rotation: (i - 2.5) * 25,
+          duration: 0.5,
           ease: 'power2.out'
         })
         gsap.to(itemEl.querySelector('.rs-item-image-51'), {
-          scale: 1.1,
-          rotation: (i - 2.5) * -10,
-          duration: 0.4,
+          scale: 1.2,
+          rotation: (i - 2.5) * -15,
+          duration: 0.5,
           ease: 'power2.out'
         })
         gsap.to(itemEl.querySelector('.rs-item-number-51'), {
-          scale: 1.4,
-          rotation: 45,
-          duration: 0.3,
+          scale: 1.6,
+          rotation: 60,
+          duration: 0.4,
           ease: 'back.out(1.7)'
         })
       })
@@ -260,19 +271,19 @@ const initAnimations = () => {
         gsap.to(itemEl.querySelector('.rs-item-rotator-51'), {
           scale: 1,
           rotation: 0,
-          duration: 0.4,
+          duration: 0.5,
           ease: 'power2.out'
         })
         gsap.to(itemEl.querySelector('.rs-item-image-51'), {
           scale: 1,
           rotation: 0,
-          duration: 0.4,
+          duration: 0.5,
           ease: 'power2.out'
         })
         gsap.to(itemEl.querySelector('.rs-item-number-51'), {
           scale: 1,
           rotation: 0,
-          duration: 0.3,
+          duration: 0.4,
           ease: 'power2.out'
         })
       })

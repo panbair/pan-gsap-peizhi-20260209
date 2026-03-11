@@ -36,15 +36,62 @@ onMounted(() => {
   ctx = gsap.context(() => {
     const buttons = [btn1.value, btn2.value, btn3.value].filter(Boolean) as HTMLElement[]
 
-    // 入场动画
-    gsap.from(buttons, {
+    // 标题入场动画
+    gsap.from('.section-title-12', {
       y: 100,
       opacity: 0,
-      duration: 0.8,
-      stagger: 0.15,
+      scale: 0.8,
+      rotationX: -20,
+      duration: 1.5,
+      ease: 'back.out(1.7)',
       scrollTrigger: {
         trigger: section.value,
-        start: 'top 70%',
+        start: 'top 85%',
+        toggleActions: 'play none none reverse'
+      }
+    })
+
+    // 副标题入场动画
+    gsap.from('.subtitle-12', {
+      y: 80,
+      opacity: 0,
+      scale: 0.8,
+      duration: 1.2,
+      delay: 0.2,
+      ease: 'back.out(1.7)',
+      scrollTrigger: {
+        trigger: section.value,
+        start: 'top 80%',
+        toggleActions: 'play none none reverse'
+      }
+    })
+
+    // 按钮入场动画 - 更明显的效果
+    gsap.from(buttons, {
+      y: 200,
+      opacity: 0,
+      scale: 0.5,
+      rotation: -15,
+      duration: 1.5,
+      stagger: 0.2,
+      ease: 'back.out(1.7)',
+      scrollTrigger: {
+        trigger: section.value,
+        start: 'top 80%',
+        toggleActions: 'play none none reverse'
+      }
+    })
+
+    // 滚动提示入场
+    gsap.from('.scroll-hint-12', {
+      y: 50,
+      opacity: 0,
+      duration: 1,
+      delay: 0.8,
+      ease: 'power3.out',
+      scrollTrigger: {
+        trigger: section.value,
+        start: 'top 75%',
         toggleActions: 'play none none reverse'
       }
     })

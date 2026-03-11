@@ -78,6 +78,36 @@ let ctx: gsap.Context
 
 onMounted(() => {
   ctx = gsap.context(() => {
+    // 标题入场动画 - 增强效果
+    gsap.from('.section-title-22', {
+      y: 150,
+      opacity: 0,
+      scale: 0.6,
+      rotationX: -30,
+      duration: 1.5,
+      ease: 'back.out(1.7)',
+      scrollTrigger: {
+        trigger: '.dna-helix-section-22',
+        start: 'top 85%',
+        toggleActions: 'play none none reverse'
+      }
+    })
+
+    // 副标题入场 - 增强效果
+    gsap.from('.subtitle-22', {
+      y: 120,
+      opacity: 0,
+      scale: 0.6,
+      duration: 1.2,
+      delay: 0.2,
+      ease: 'back.out(1.7)',
+      scrollTrigger: {
+        trigger: '.dna-helix-section-22',
+        start: 'top 80%',
+        toggleActions: 'play none none reverse'
+      }
+    })
+
     // 双螺旋旋转
     gsap.to('.dna-strand-22', {
       rotationY: 360,
@@ -88,9 +118,9 @@ onMounted(() => {
 
     // 碱基对脉动
     gsap.to('.base-22', {
-      scale: 1.2,
-      opacity: 0.8,
-      duration: 1,
+      scale: 1.4,
+      opacity: 0.9,
+      duration: 1.2,
       repeat: -1,
       yoyo: true,
       ease: 'power1.inOut',
@@ -99,44 +129,61 @@ onMounted(() => {
 
     // 连接线闪烁
     gsap.to('.connection-22', {
-      opacity: 0.3,
-      duration: 0.5,
+      opacity: 0.5,
+      duration: 0.6,
       repeat: -1,
       yoyo: true,
       ease: 'none',
-      stagger: 0.05
+      stagger: 0.06
     })
 
     // 粒子漂浮
     gsap.to('.dna-particle-22', {
-      y: '-=20',
-      opacity: 0.5,
-      duration: 2,
+      y: '-=30',
+      opacity: 0.7,
+      duration: 2.5,
       repeat: -1,
       yoyo: true,
       ease: 'power1.inOut',
-      stagger: 0.05
+      stagger: 0.08
     })
 
-    // 滚动时DNA展开
+    // 滚动时DNA展开 - 增强效果
     gsap.to('.dna-helix-22', {
-      rotationX: 30,
-      scale: 1.2,
-      duration: 1,
+      rotationX: 45,
+      scale: 1.4,
+      duration: 1.5,
       scrollTrigger: {
         trigger: '.dna-container-22',
         start: 'top bottom',
         end: 'bottom top',
-        scrub: 1
+        scrub: 1.5
       }
     })
 
-    // 入场动画
+    // 入场动画 - 增强效果
     gsap.from('.dna-helix-22', {
-      y: 300,
+      y: 400,
       opacity: 0,
-      duration: 1.5,
-      ease: 'power3.out',
+      scale: 0.4,
+      rotationY: 180,
+      duration: 2,
+      ease: 'back.out(1.7)',
+      scrollTrigger: {
+        trigger: '.dna-helix-22',
+        start: 'top 85%',
+        toggleActions: 'play none none reverse'
+      }
+    })
+
+    // 碱基对入场 - 增强效果
+    gsap.from('.base-pair-22', {
+      scale: 0,
+      opacity: 0,
+      rotateZ: 180,
+      stagger: 0.03,
+      duration: 1,
+      ease: 'back.out(1.7)',
       scrollTrigger: {
         trigger: '.dna-helix-22',
         start: 'top 80%',
@@ -144,15 +191,17 @@ onMounted(() => {
       }
     })
 
-    // 信息卡片入场
+    // 信息卡片入场 - 增强效果
     gsap.from('.info-card-22', {
-      x: -100,
+      x: -200,
       opacity: 0,
-      duration: 1,
-      ease: 'power2.out',
+      scale: 0.6,
+      rotationY: -45,
+      duration: 1.5,
+      ease: 'back.out(1.7)',
       scrollTrigger: {
         trigger: '.dna-info-22',
-        start: 'top 80%',
+        start: 'top 85%',
         toggleActions: 'play none none reverse'
       }
     })

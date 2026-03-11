@@ -89,6 +89,9 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from 'vue'
 import gsap from 'gsap'
+import ScrollTrigger from 'gsap/ScrollTrigger'
+
+gsap.registerPlugin(ScrollTrigger)
 
 // Refs
 const glitchTextRef = ref<HTMLElement | null>(null)
@@ -110,10 +113,29 @@ onMounted(() => {
 onUnmounted(() => {
   if (tl) tl.kill()
   if (dataInterval) clearInterval(dataInterval)
+  ScrollTrigger.getAll().forEach(trigger => trigger.kill())
 })
 
 const initGlitchEffects = () => {
   tl = gsap.timeline()
+
+  // 为所有section添加滚动入场动画
+  const sections = document.querySelectorAll('.sg-section-222')
+  sections.forEach((section, index) => {
+    gsap.from(section, {
+      opacity: 0,
+      y: 100,
+      scale: 0.8,
+      duration: 0.8,
+      ease: 'back.out(1.7)',
+      scrollTrigger: {
+        trigger: section,
+        start: 'top 80%',
+        end: 'top 20%',
+        toggleActions: 'play none none reverse'
+      }
+    })
+  })
 
   // 01. 文字故障
   initTextGlitch()

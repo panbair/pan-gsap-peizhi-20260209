@@ -59,30 +59,33 @@ const toggleSpeed = () => {
 
 const initAnimations = () => {
   ctx = gsap.context(() => {
-    // 标题动画
+    // 标题动画 - 增强效果
     gsap.from('.mp-motion-path-section-61 .mp-title-61', {
+      scrollTrigger: {
+        trigger: '.mp-motion-path-section-61',
+        start: 'top 85%',
+        toggleActions: 'play none none reverse'
+      },
+      y: 150,
+      opacity: 0,
+      scale: 0.7,
+      rotationX: -30,
+      ease: 'back.out(1.7)',
+      duration: 1.5
+    })
+
+    // 副标题动画 - 增强效果
+    gsap.from('.mp-motion-path-section-61 .mp-subtitle-61', {
       scrollTrigger: {
         trigger: '.mp-motion-path-section-61',
         start: 'top 80%',
         toggleActions: 'play none none reverse'
       },
-      y: 60,
+      y: 120,
       opacity: 0,
-      ease: 'power3.out',
-      duration: 0.8
-    })
-
-    // 副标题动画
-    gsap.from('.mp-motion-path-section-61 .mp-subtitle-61', {
-      scrollTrigger: {
-        trigger: '.mp-motion-path-section-61',
-        start: 'top 75%',
-        toggleActions: 'play none none reverse'
-      },
-      y: 40,
-      opacity: 0,
-      ease: 'power3.out',
-      duration: 0.8,
+      scale: 0.7,
+      ease: 'back.out(1.7)',
+      duration: 1.2,
       delay: 0.2
     })
 
@@ -102,18 +105,20 @@ const initAnimations = () => {
       yoyo: true
     })
 
-    // 点的入场动画
+    // 点的入场动画 - 增强效果
     gsap.from('.mp-motion-dot-61', {
       scrollTrigger: {
         trigger: '.mp-path-container-61',
-        start: 'top 70%',
+        start: 'top 80%',
         toggleActions: 'play none none reverse'
       },
       scale: 0,
       opacity: 0,
+      y: 150,
+      rotation: 180,
       stagger: 0.15,
       ease: 'back.out(1.7)',
-      duration: 0.8
+      duration: 1.2
     })
 
     // 滚动控制 - 使用不同的时间轴
@@ -122,7 +127,7 @@ const initAnimations = () => {
         trigger: '.mp-path-container-61',
         start: 'top bottom',
         end: 'bottom top',
-        scrub: 1
+        scrub: 1.5
       }
     })
 
@@ -133,23 +138,24 @@ const initAnimations = () => {
         alignOrigin: [0.5, 0.5],
         autoRotate: true
       },
-      duration: 1,
+      duration: 1.5,
       stagger: 0.1,
       ease: 'none'
     })
 
-    // 按钮动画
+    // 按钮动画 - 增强效果
     gsap.from('.mp-control-btn-61', {
       scrollTrigger: {
         trigger: '.mp-path-controls-61',
         start: 'top 90%',
         toggleActions: 'play none none reverse'
       },
-      y: 30,
+      y: 80,
       opacity: 0,
-      stagger: 0.1,
-      ease: 'power3.out',
-      duration: 0.6
+      scale: 0.7,
+      stagger: 0.12,
+      ease: 'back.out(1.7)',
+      duration: 1
     })
   })
 }

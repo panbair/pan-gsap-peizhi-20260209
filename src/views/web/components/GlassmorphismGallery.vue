@@ -44,56 +44,90 @@ let ctx: gsap.Context
 
 onMounted(() => {
   ctx = gsap.context(() => {
+    // 标题入场动画
+    gsap.from('.gg-section-title-16', {
+      y: 100,
+      opacity: 0,
+      scale: 0.8,
+      rotationX: -20,
+      duration: 1.5,
+      ease: 'back.out(1.7)',
+      scrollTrigger: {
+        trigger: '.gg-glass-gallery-section-16',
+        start: 'top 85%',
+        toggleActions: 'play none none reverse'
+      }
+    })
+
+    // 副标题入场
+    gsap.from('.gg-subtitle-16', {
+      y: 80,
+      opacity: 0,
+      scale: 0.8,
+      duration: 1.2,
+      delay: 0.2,
+      ease: 'back.out(1.7)',
+      scrollTrigger: {
+        trigger: '.gg-glass-gallery-section-16',
+        start: 'top 80%',
+        toggleActions: 'play none none reverse'
+      }
+    })
+
     cardRefs.value.forEach((card, index) => {
       if (!card) return
 
       const image = card.querySelector('.gg-card-image-16') as HTMLElement
       const content = card.querySelector('.gg-card-content-16') as HTMLElement
 
-      // 入场动画
+      // 入场动画 - 增强效果
       gsap.from(card, {
-        y: 150,
+        y: 250,
         opacity: 0,
-        rotateX: 30,
-        duration: 1,
+        scale: 0.6,
+        rotateX: 45,
+        rotateY: -15,
+        duration: 1.5,
         scrollTrigger: {
           trigger: card,
           start: 'top 85%',
-          end: 'top 50%',
+          end: 'top 40%',
           toggleActions: 'play none none reverse'
-        }
+        },
+        ease: 'back.out(1.7)'
       })
 
       // 图片视差
       gsap.to(image, {
-        y: -30,
-        scale: 1.1,
-        duration: 1,
+        y: -50,
+        scale: 1.2,
+        duration: 1.5,
         scrollTrigger: {
           trigger: card,
           start: 'top bottom',
           end: 'bottom top',
-          scrub: 1
+          scrub: 1.5
         }
       })
 
       // 悬停效果
       card.addEventListener('mouseenter', () => {
         gsap.to(card, {
-          y: -20,
-          scale: 1.02,
+          y: -30,
+          scale: 1.05,
+          rotationX: 5,
           duration: 0.5,
           ease: 'power3.out'
         })
 
         gsap.to(image, {
-          scale: 1.15,
+          scale: 1.25,
           duration: 0.5,
           ease: 'power3.out'
         })
 
         gsap.to(content, {
-          y: -10,
+          y: -15,
           duration: 0.5,
           ease: 'power3.out'
         })
@@ -103,12 +137,13 @@ onMounted(() => {
         gsap.to(card, {
           y: 0,
           scale: 1,
+          rotationX: 0,
           duration: 0.5,
           ease: 'power3.out'
         })
 
         gsap.to(image, {
-          scale: 1.1,
+          scale: 1.2,
           duration: 0.5,
           ease: 'power3.out'
         })

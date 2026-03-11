@@ -66,6 +66,69 @@ onUnmounted(() => {
 })
 
 const initAnimations = () => {
+  // 标题入场动画
+  gsap.from('.section-title-10', {
+    y: 150,
+    opacity: 0,
+    scale: 0.7,
+    rotationX: -30,
+    duration: 1.5,
+    ease: 'back.out(1.7)',
+    scrollTrigger: {
+      trigger: circleSection.value,
+      start: 'top 85%',
+      toggleActions: 'play none none reverse'
+    }
+  })
+
+  // 圆形容器入场动画
+  const circleItems = gsap.utils.toArray('.circle-item-10')
+  gsap.from(circleItems, {
+    y: 200,
+    opacity: 0,
+    scale: 0.5,
+    rotationZ: 180,
+    stagger: 0.15,
+    duration: 1.3,
+    ease: 'back.out(1.7)',
+    scrollTrigger: {
+      trigger: circleContainer.value,
+      start: 'top 80%',
+      toggleActions: 'play none none reverse'
+    }
+  })
+
+  // SVG入场
+  gsap.from('.circle-svg-10', {
+    scale: 0,
+    opacity: 0,
+    stagger: 0.15,
+    duration: 0.8,
+    delay: 0.3,
+    ease: 'back.out(1.7)',
+    scrollTrigger: {
+      trigger: circleContainer.value,
+      start: 'top 80%',
+      toggleActions: 'play none none reverse'
+    }
+  })
+
+  // 标签入场
+  gsap.from('.circle-label-10', {
+    y: 30,
+    opacity: 0,
+    stagger: 0.15,
+    duration: 0.8,
+    delay: 0.5,
+    ease: 'power3.out',
+    scrollTrigger: {
+      trigger: circleContainer.value,
+      start: 'top 75%',
+      toggleActions: 'play none none reverse'
+    }
+  })
+
+  // 圆形进度条和数值动画
   circleRefs.value.forEach((circleEl, index) => {
     const circle = circles.value[index]
     const valueRef = circleValueRefs.value[index]
@@ -73,13 +136,13 @@ const initAnimations = () => {
     gsap.to(circleEl,
       {
         strokeDashoffset: 565.48 - (565.48 * circle.target / 100),
-        duration: 2,
+        duration: 2.5,
         ease: 'power2.inOut',
         scrollTrigger: {
           trigger: circleSection.value,
           start: 'top 70%',
-          end: 'top 30%',
-          scrub: 1
+          end: 'top 20%',
+          scrub: 1.5
         }
       }
     )
@@ -88,13 +151,13 @@ const initAnimations = () => {
       gsap.to(valueRef,
         {
           innerText: circle.target,
-          duration: 2,
+          duration: 2.5,
           snap: { innerText: 1 },
           scrollTrigger: {
             trigger: circleSection.value,
             start: 'top 70%',
-            end: 'top 30%',
-            scrub: 1
+            end: 'top 20%',
+            scrub: 1.5
           }
         }
       )

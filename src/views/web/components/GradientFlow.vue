@@ -52,16 +52,18 @@ let ctx: gsap.Context
 
 onMounted(() => {
   ctx = gsap.context(() => {
-    // 标题动画
+    // 标题动画 - 增强效果
     gsap.from('.section-title-39', {
       scrollTrigger: {
         trigger: '.section-title-39',
-        start: 'top 90%'
+        start: 'top 85%'
       },
-      y: 50,
+      y: 120,
       opacity: 0,
-      duration: 1,
-      ease: 'power3.out'
+      scale: 0.6,
+      rotationX: -30,
+      duration: 1.5,
+      ease: 'back.out(1.7)'
     })
 
     items.value.forEach((item, index) => {
@@ -71,12 +73,13 @@ onMounted(() => {
       const desc = item.querySelector('.card-desc-39') as HTMLElement
       const glow = item.querySelector('.card-glow-39') as HTMLElement
 
-      // 从左侧滑入
+      // 从左侧滑入 - 增强效果
       gsap.fromTo(item,
-        { x: -150, opacity: 0, rotateY: 30 },
+        { x: -350, opacity: 0, scale: 0.4, rotateY: 60 },
         {
           x: 0,
           opacity: 1,
+          scale: 1,
           rotateY: 0,
           scrollTrigger: {
             trigger: item,
@@ -84,34 +87,36 @@ onMounted(() => {
             end: 'top 45%',
             toggleActions: 'play none none reverse'
           },
-          duration: 1,
-          ease: 'power3.out',
-          delay: index * 0.12
+          duration: 1.5,
+          ease: 'back.out(1.7)',
+          delay: index * 0.15
         }
       )
 
-      // 滚动时Y轴移动
+      // 滚动时Y轴移动 - 增强效果
       gsap.fromTo(item,
         { y: 0 },
         {
-          y: -30,
+          y: -50,
+          scale: 1.03,
           scrollTrigger: {
             trigger: item,
             start: 'top 80%',
             end: 'bottom 20%',
-            scrub: 1,
+            scrub: 1.5,
             toggleActions: 'play reverse play reverse'
           },
           ease: 'power1.inOut'
         }
       )
 
-      // 内容淡入
+      // 内容淡入 - 增强效果
       gsap.fromTo(content,
-        { opacity: 0, scale: 0.8 },
+        { opacity: 0, scale: 0.5, rotateX: 45 },
         {
           opacity: 1,
           scale: 1,
+          rotateX: 0,
           scrollTrigger: {
             trigger: item,
             start: 'top 75%',
@@ -121,13 +126,14 @@ onMounted(() => {
         }
       )
 
-      // 数字缩放旋转
+      // 数字缩放旋转 - 增强效果
       gsap.fromTo(number,
-        { scale: 0, rotate: -180, opacity: 0 },
+        { scale: 0, rotate: -270, opacity: 0, y: 100 },
         {
           scale: 1,
           rotate: 0,
           opacity: 1,
+          y: 0,
           scrollTrigger: {
             trigger: item,
             start: 'top 70%',
@@ -137,12 +143,13 @@ onMounted(() => {
         }
       )
 
-      // 标题从右滑入
+      // 标题从右滑入 - 增强效果
       gsap.fromTo(title,
-        { x: 30, opacity: 0 },
+        { x: 60, opacity: 0, scale: 0.7 },
         {
           x: 0,
           opacity: 1,
+          scale: 1,
           scrollTrigger: {
             trigger: item,
             start: 'top 65%',
@@ -152,12 +159,13 @@ onMounted(() => {
         }
       )
 
-      // 描述从下滑入
+      // 描述从下滑入 - 增强效果
       gsap.fromTo(desc,
-        { y: 20, opacity: 0 },
+        { y: 40, opacity: 0, scale: 0.8 },
         {
           y: 0,
           opacity: 1,
+          scale: 1,
           scrollTrigger: {
             trigger: item,
             start: 'top 60%',
@@ -167,12 +175,12 @@ onMounted(() => {
         }
       )
 
-      // 发光效果
+      // 发光效果 - 增强效果
       gsap.fromTo(glow,
-        { opacity: 0, scale: 0.5 },
+        { opacity: 0, scale: 0.3 },
         {
-          opacity: 0.6,
-          scale: 1,
+          opacity: 0.8,
+          scale: 1.2,
           scrollTrigger: {
             trigger: item,
             start: 'top 60%',

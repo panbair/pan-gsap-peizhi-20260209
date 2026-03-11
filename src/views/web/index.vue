@@ -267,6 +267,8 @@
       <LazyScrollParallaxCursor v-if="visibilityState.showScrollParallaxCursor" />
       <LazyScrollScaleOnScroll v-if="visibilityState.showScrollScaleOnScroll" />
       <LazyScrollGlitch v-if="visibilityState.showScrollGlitch" />
+      <LazyScrollInvert v-if="visibilityState.showScrollInvert" />
+      <LazyScrollHueRotate v-if="visibilityState.showScrollHueRotate" />
     </div>
 
     <!-- 加载指示器 -->
@@ -659,6 +661,8 @@ const LazyScrollStickyReveal = defineAsyncComponent(() => import('./components/S
 const LazyScrollParallaxCursor = defineAsyncComponent(() => import('./components/ScrollParallaxCursor.vue'))
 const LazyScrollScaleOnScroll = defineAsyncComponent(() => import('./components/ScrollScaleOnScroll.vue'))
 const LazyScrollGlitch = defineAsyncComponent(() => import('./components/ScrollGlitch.vue'))
+const LazyScrollInvert = defineAsyncComponent(() => import('./components/ScrollInvert.vue'))
+const LazyScrollHueRotate = defineAsyncComponent(() => import('./components/ScrollHueRotate.vue'))
 const LazyScrollOrigamiCards = defineAsyncComponent(
   () => import('./components/ScrollOrigamiCards.vue')
 )
@@ -934,6 +938,8 @@ const visibilityState = ref<Record<string, boolean>>({
   showScrollParallaxCursor: false,
   showScrollScaleOnScroll: false,
   showScrollGlitch: false,
+  showScrollInvert: false,
+  showScrollHueRotate: false,
   showScrollParallaxLayers: false,
   showScrollImageClip: false,
   showScrollImageBlur: false,
@@ -1023,6 +1029,8 @@ const componentVisibilityConfig: {
     'showScrollParallaxCursor',
     'showScrollScaleOnScroll',
     'showScrollGlitch',
+    'showScrollInvert',
+    'showScrollHueRotate',
     // 创意特效组件
     'showCyberpunkCity',
     'showDNAHelix',
@@ -1241,6 +1249,62 @@ const componentVisibilityConfig: {
 }
 
 onMounted(() => {
+  // 页面标题入场动画 - 增强版
+  const pageTitle = document.querySelector('.page-title')
+  if (pageTitle) {
+    gsap.from(pageTitle, {
+      y: 150,
+      opacity: 0,
+      scale: 0.8,
+      rotationX: -45,
+      duration: 1.5,
+      ease: 'back.out(1.7)',
+      scrollTrigger: {
+        trigger: '.page-header',
+        start: 'top 85%',
+        toggleActions: 'play none none reverse'
+      }
+    })
+  }
+
+  // 页面副标题入场动画 - 增强版
+  const pageSubtitle = document.querySelector('.page-subtitle')
+  if (pageSubtitle) {
+    gsap.from(pageSubtitle, {
+      y: 100,
+      opacity: 0,
+      scale: 0.7,
+      rotationY: 30,
+      duration: 1.2,
+      ease: 'back.out(1.7)',
+      scrollTrigger: {
+        trigger: '.page-header',
+        start: 'top 85%',
+        toggleActions: 'play none none reverse'
+      },
+      delay: 0.2
+    })
+  }
+
+  // 核心组件入场动画 - 增强版（带stagger）
+  const coreComponents = gsap.utils.toArray('.components-container > div > *:not([v-if])')
+  if (coreComponents.length > 0) {
+    gsap.from(coreComponents, {
+      y: 200,
+      opacity: 0,
+      scale: 0.6,
+      rotation: -15,
+      duration: 1.5,
+      ease: 'back.out(1.7)',
+      stagger: 0.15,
+      scrollTrigger: {
+        trigger: '.components-container',
+        start: 'top 85%',
+        toggleActions: 'play none none reverse'
+      }
+    })
+  }
+
   // 延迟一段时间后开始加载，确保页面布局稳定
   setTimeout(() => {
     isLoading.value = false
@@ -1256,7 +1320,7 @@ onMounted(() => {
     ScrollTrigger.refresh()
   }, 1500)
 
-  // 延迟加载性能较重的组件
+  // 延迟加载性能较重的组件 - 增强版入场动画
   componentVisibilityConfig.delayed.forEach(({ keys, delay }) => {
     setTimeout(() => {
       keys.forEach(key => {
@@ -1264,6 +1328,28 @@ onMounted(() => {
       })
       // 每批加载后刷新ScrollTrigger
       debounceRefresh()
+
+      // 为新加载的组件添加入场动画
+      setTimeout(() => {
+        const newComponents = document.querySelectorAll('.components-container > div > div[v-if]')
+        if (newComponents.length > 0) {
+          gsap.from(newComponents, {
+            y: 250,
+            opacity: 0,
+            scale: 0.5,
+            rotationX: 45,
+            rotationY: -20,
+            duration: 1.8,
+            ease: 'back.out(1.7)',
+            stagger: 0.2,
+            scrollTrigger: {
+              trigger: '.components-container',
+              start: 'top 85%',
+              toggleActions: 'play none none reverse'
+            }
+          })
+        }
+      }, 100)
     }, delay)
   })
 
@@ -1278,6 +1364,7 @@ onUnmounted(() => {
     clearTimeout(refreshTimeout)
   }
   ScrollTrigger.getAll().forEach(trigger => trigger.kill()) // 清理所有ScrollTrigger
+  gsap.killTweensOf(['.page-title', '.page-subtitle', '.components-container > div > *']) // 清理所有动画
 })
 </script>
 
@@ -1304,16 +1391,22 @@ onUnmounted(() => {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   animation: titleFadeIn 1s ease-out;
+  transform-style: preserve-3d;
+  will-change: transform, opacity;
 }
 
 .page-subtitle {
   font-size: 1.2rem;
   color: #94a3b8;
   animation: subtitleFadeIn 1s ease-out 0.3s both;
+  transform-style: preserve-3d;
+  will-change: transform, opacity;
 }
 
 .components-container {
   position: relative;
+  transform-style: preserve-3d;
+  perspective: 1000px;
 }
 
 .loading-indicator {

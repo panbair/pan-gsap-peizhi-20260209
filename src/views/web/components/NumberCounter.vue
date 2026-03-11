@@ -41,18 +41,81 @@ onUnmounted(() => {
 })
 
 const initAnimations = () => {
+  // 标题入场动画
+  gsap.from('.section-title-8', {
+    y: 150,
+    opacity: 0,
+    scale: 0.7,
+    rotationX: -30,
+    duration: 1.5,
+    ease: 'back.out(1.7)',
+    scrollTrigger: {
+      trigger: counterSection.value,
+      start: 'top 85%',
+      toggleActions: 'play none none reverse'
+    }
+  })
+
+  // 计数器容器入场动画
+  const counterItems = gsap.utils.toArray('.counter-item-8')
+  gsap.from(counterItems, {
+    y: 200,
+    opacity: 0,
+    scale: 0.6,
+    rotationY: 45,
+    stagger: 0.15,
+    duration: 1.3,
+    ease: 'back.out(1.7)',
+    scrollTrigger: {
+      trigger: counterContainer.value,
+      start: 'top 80%',
+      toggleActions: 'play none none reverse'
+    }
+  })
+
+  // 标签入场
+  gsap.from('.counter-label-8', {
+    y: 30,
+    opacity: 0,
+    stagger: 0.15,
+    duration: 0.8,
+    delay: 0.5,
+    ease: 'power3.out',
+    scrollTrigger: {
+      trigger: counterContainer.value,
+      start: 'top 75%',
+      toggleActions: 'play none none reverse'
+    }
+  })
+
+  // 单位入场
+  gsap.from('.counter-unit-8', {
+    scale: 0,
+    opacity: 0,
+    stagger: 0.15,
+    duration: 0.6,
+    delay: 0.7,
+    ease: 'back.out(1.7)',
+    scrollTrigger: {
+      trigger: counterContainer.value,
+      start: 'top 75%',
+      toggleActions: 'play none none reverse'
+    }
+  })
+
+  // 数字滚动动画
   counterRefs.value.forEach((counterEl, index) => {
     const counter = counters.value[index]
     gsap.to(counterEl,
       {
         innerText: counter.target,
-        duration: 2,
+        duration: 2.5,
         snap: { innerText: 1 },
         scrollTrigger: {
           trigger: counterSection.value,
           start: 'top 70%',
-          end: 'top 30%',
-          scrub: 1
+          end: 'top 20%',
+          scrub: 1.5
         }
       }
     )

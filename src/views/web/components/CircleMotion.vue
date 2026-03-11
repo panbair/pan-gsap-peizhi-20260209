@@ -68,36 +68,39 @@ const reverseRotation = () => {
 
 const initAnimations = () => {
   ctx = gsap.context(() => {
-    // 标题动画
+    // 标题动画 - 增强效果
     gsap.from('.section-header-62 .title-62', {
+      scrollTrigger: {
+        trigger: '.cm-motion-wrapper-62',
+        start: 'top 85%',
+        toggleActions: 'play none none reverse'
+      },
+      y: 150,
+      opacity: 0,
+      scale: 0.7,
+      rotationX: -30,
+      ease: 'back.out(1.7)',
+      duration: 1.5
+    })
+
+    // 副标题动画 - 增强效果
+    gsap.from('.section-header-62 .subtitle-62', {
       scrollTrigger: {
         trigger: '.cm-motion-wrapper-62',
         start: 'top 80%',
         toggleActions: 'play none none reverse'
       },
-      y: 60,
+      y: 120,
       opacity: 0,
-      ease: 'power3.out',
-      duration: 0.8
-    })
-
-    // 副标题动画
-    gsap.from('.section-header-62 .subtitle-62', {
-      scrollTrigger: {
-        trigger: '.cm-motion-wrapper-62',
-        start: 'top 75%',
-        toggleActions: 'play none none reverse'
-      },
-      y: 40,
-      opacity: 0,
-      ease: 'power3.out',
-      duration: 0.8,
+      scale: 0.7,
+      ease: 'back.out(1.7)',
+      duration: 1.2,
       delay: 0.2
     })
 
     // 创建圆形运动时间轴 - 使用 MotionPath 插件
     rotationTimeline = gsap.timeline({ paused: true })
-    
+
     cards.value.forEach((_, index) => {
       const cardList = gsap.utils.toArray(`.cm-card-${index}`)
       if (!cardList.length) return
@@ -120,51 +123,54 @@ const initAnimations = () => {
         ease: 'none',
         repeat: -1
       }, 0)
-      
+
       rotationTimeline?.add(tween, 0)
     })
 
-    // 卡片入场
+    // 卡片入场 - 增强效果
     gsap.from('.cm-card-inner-62', {
       scrollTrigger: {
         trigger: '.cm-motion-wrapper-62',
-        start: 'top 70%',
+        start: 'top 80%',
+        toggleActions: 'play none none reverse'
+      },
+      scale: 0,
+      opacity: 0,
+      y: 200,
+      rotation: -540,
+      stagger: 0.12,
+      ease: 'back.out(1.7)',
+      duration: 1.2
+    })
+
+    // 背景渐入 - 增强效果
+    gsap.from('.cm-card-bg-62', {
+      scrollTrigger: {
+        trigger: '.cm-motion-wrapper-62',
+        start: 'top 75%',
+        toggleActions: 'play none none reverse'
+      },
+      scale: 2,
+      opacity: 0,
+      stagger: 0.12,
+      ease: 'back.out(1.7)',
+      duration: 1
+    })
+
+    // 数字动画 - 增强效果
+    gsap.from('.cm-card-number-62', {
+      scrollTrigger: {
+        trigger: '.cm-motion-wrapper-62',
+        start: 'top 75%',
         toggleActions: 'play none none reverse'
       },
       scale: 0,
       opacity: 0,
       rotation: -360,
-      stagger: 0.1,
+      y: 100,
+      stagger: 0.12,
       ease: 'back.out(1.7)',
       duration: 0.8
-    })
-
-    // 背景渐入
-    gsap.from('.cm-card-bg-62', {
-      scrollTrigger: {
-        trigger: '.cm-motion-wrapper-62',
-        start: 'top 65%',
-        toggleActions: 'play none none reverse'
-      },
-      scale: 1.5,
-      opacity: 0,
-      stagger: 0.1,
-      ease: 'power2.out',
-      duration: 0.6
-    })
-
-    // 数字动画
-    gsap.from('.cm-card-number-62', {
-      scrollTrigger: {
-        trigger: '.cm-motion-wrapper-62',
-        start: 'top 65%',
-        toggleActions: 'play none none reverse'
-      },
-      scale: 0,
-      rotation: -180,
-      stagger: 0.1,
-      ease: 'back.out(1.7)',
-      duration: 0.5
     })
 
     // 滚动触发旋转
@@ -175,18 +181,19 @@ const initAnimations = () => {
       onLeave: () => pauseRotation()
     })
 
-    // 按钮动画
+    // 按钮动画 - 增强效果
     gsap.from('.cm-control-btn-62', {
       scrollTrigger: {
         trigger: '.cm-motion-controls-62',
         start: 'top 90%',
         toggleActions: 'play none none reverse'
       },
-      y: 30,
+      y: 80,
       opacity: 0,
-      stagger: 0.1,
-      ease: 'power3.out',
-      duration: 0.6
+      scale: 0.7,
+      stagger: 0.12,
+      ease: 'back.out(1.7)',
+      duration: 1
     })
 
     // 悬停效果 - 使用gsap.utils.toArray自动清理
@@ -194,14 +201,14 @@ const initAnimations = () => {
       const cardEl = card as HTMLElement
       cardEl.addEventListener('mouseenter', () => {
         gsap.to(cardEl.querySelector('.cm-card-bg-62'), {
-          scale: 1.15,
-          duration: 0.4,
+          scale: 1.2,
+          duration: 0.5,
           ease: 'power2.out'
         })
         gsap.to(cardEl.querySelector('.cm-card-number-62'), {
-          scale: 1.3,
-          rotation: 45,
-          duration: 0.3,
+          scale: 1.4,
+          rotation: 60,
+          duration: 0.4,
           ease: 'back.out(1.7)'
         })
       })
@@ -209,13 +216,13 @@ const initAnimations = () => {
       card.addEventListener('mouseleave', () => {
         gsap.to(card.querySelector('.cm-card-bg-62'), {
           scale: 1,
-          duration: 0.4,
+          duration: 0.5,
           ease: 'power2.out'
         })
         gsap.to(card.querySelector('.cm-card-number-62'), {
           scale: 1,
           rotation: 0,
-          duration: 0.3,
+          duration: 0.4,
           ease: 'power2.out'
         })
       })

@@ -41,6 +41,36 @@ onMounted(() => {
     const tracks = [track1.value, track2.value, track3.value].filter(Boolean) as HTMLElement[]
     const scrollTweens: gsap.core.Tween[] = []
 
+    // 标题入场动画
+    gsap.from('.section-title-17', {
+      y: 120,
+      opacity: 0,
+      scale: 0.7,
+      rotationX: -30,
+      duration: 1.5,
+      ease: 'back.out(1.7)',
+      scrollTrigger: {
+        trigger: '.infinite-scroll-section-17',
+        start: 'top 85%',
+        toggleActions: 'play none none reverse'
+      }
+    })
+
+    // 副标题入场
+    gsap.from('.subtitle-17', {
+      y: 100,
+      opacity: 0,
+      scale: 0.7,
+      duration: 1.2,
+      delay: 0.2,
+      ease: 'back.out(1.7)',
+      scrollTrigger: {
+        trigger: '.infinite-scroll-section-17',
+        start: 'top 80%',
+        toggleActions: 'play none none reverse'
+      }
+    })
+
     // 无限滚动动画
     tracks.forEach((track, index) => {
       const direction = index % 2 === 0 ? 1 : -1
@@ -56,7 +86,7 @@ onMounted(() => {
         repeat: -1,
         ease: 'none'
       })
-      
+
       scrollTweens.push(tween)
     })
 
@@ -66,25 +96,42 @@ onMounted(() => {
         trigger: '.infinite-scroll-section-17',
         start: 'top bottom',
         end: 'bottom top',
-        scrub: 1,
+        scrub: 1.5,
         onUpdate: (self) => {
           scrollTweens.forEach(tween => {
-            tween.timeScale(1 + self.progress * 2)
+            tween.timeScale(1 + self.progress * 3)
           })
         }
       }
     })
 
-    // 文字入场效果
+    // 文字入场效果 - 增强
     gsap.from('.scroll-text-17', {
-      y: 100,
+      y: 200,
       opacity: 0,
+      scale: 0.5,
       rotationX: 90,
-      duration: 1,
       stagger: 0.05,
+      duration: 1.5,
+      ease: 'back.out(1.7)',
       scrollTrigger: {
         trigger: '.scroll-container-17',
-        start: 'top 80%',
+        start: 'top 85%',
+        toggleActions: 'play none none reverse'
+      }
+    })
+
+    // 滚动指示器入场
+    gsap.from('.scroll-indicator-17', {
+      y: 60,
+      opacity: 0,
+      scale: 0.8,
+      duration: 1,
+      delay: 0.5,
+      ease: 'back.out(1.7)',
+      scrollTrigger: {
+        trigger: '.infinite-scroll-section-17',
+        start: 'top 75%',
         toggleActions: 'play none none reverse'
       }
     })

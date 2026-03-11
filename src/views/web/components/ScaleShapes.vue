@@ -50,17 +50,18 @@ let ctx: gsap.Context
 
 onMounted(() => {
   ctx = gsap.context(() => {
-    // 标题动画
+    // 标题动画 - 增强效果
     gsap.from('.ss-section-title-38', {
       scrollTrigger: {
         trigger: '.ss-section-title-38',
-        start: 'top 90%'
+        start: 'top 85%'
       },
-      y: 50,
+      y: 120,
       opacity: 0,
-      scale: 0.8,
-      duration: 1,
-      ease: 'power3.out'
+      scale: 0.5,
+      rotationX: -45,
+      duration: 1.5,
+      ease: 'back.out(1.7)'
     })
 
     items.value.forEach((item, index) => {
@@ -68,91 +69,97 @@ onMounted(() => {
       const content = item.querySelector('.ss-shape-content-38') as HTMLElement
       const number = item.querySelector('.ss-shape-number-38') as HTMLElement
 
-      // 从中心缩放入场
+      // 从中心缩放入场 - 增强效果
       gsap.fromTo(item,
-        { scale: 0, opacity: 0, rotate: 180 },
+        { scale: 0, opacity: 0, rotate: 360, y: 200 },
         {
           scale: 1,
           opacity: 1,
           rotate: 0,
+          y: 0,
           scrollTrigger: {
             trigger: item,
             start: 'top 85%',
             end: 'top 45%',
             toggleActions: 'play none none reverse'
           },
-          duration: 1.2,
-          ease: 'elastic.out(1, 0.5)',
-          delay: index * 0.1
+          duration: 1.5,
+          ease: 'elastic.out(1, 0.6)',
+          delay: index * 0.15
         }
       )
 
-      // 内部缩放
+      // 内部缩放 - 增强效果
       gsap.fromTo(inner,
-        { scale: 1.5 },
+        { scale: 2.5, rotateZ: 180 },
         {
           scale: 1,
+          rotateZ: 0,
           scrollTrigger: {
             trigger: item,
             start: 'top 80%',
             end: 'top 30%',
-            scrub: true
+            scrub: 1.5
           },
           ease: 'power2.out'
         }
       )
 
-      // 滚动时旋转
+      // 滚动时旋转 - 增强效果
       gsap.to(inner, {
-        rotate: 360,
+        rotate: 540,
         scrollTrigger: {
           trigger: item,
           start: 'top 100%',
           end: 'bottom 0%',
-          scrub: 1
+          scrub: 1.5
         },
         ease: 'none'
       })
 
-      // 内容渐入
+      // 内容渐入 - 增强效果
       gsap.fromTo(content,
-        { opacity: 0, scale: 0.5 },
+        { opacity: 0, scale: 0.3, rotateX: 90 },
         {
           opacity: 1,
           scale: 1,
+          rotateX: 0,
           scrollTrigger: {
             trigger: item,
             start: 'top 70%',
             end: 'top 30%',
-            scrub: true
+            scrub: 1.5
           }
         }
       )
 
-      // 数字旋转
+      // 数字旋转 - 增强效果
       gsap.fromTo(number,
-        { rotate: -360, scale: 0 },
+        { rotate: -720, scale: 0, opacity: 0, y: 100 },
         {
           rotate: 0,
           scale: 1,
+          opacity: 1,
+          y: 0,
           scrollTrigger: {
             trigger: item,
             start: 'top 65%',
             end: 'top 25%',
-            scrub: true
+            scrub: 1.5
           }
         }
       )
     })
 
-    // 整体容器轻微旋转
+    // 整体容器轻微旋转 - 增强效果
     gsap.to('.ss-shapes-container-38', {
-      rotate: 5,
+      rotate: 10,
+      scale: 1.02,
       scrollTrigger: {
         trigger: '.ss-shapes-container-38',
         start: 'top 100%',
         end: 'bottom 0%',
-        scrub: 0.5
+        scrub: 0.8
       },
       ease: 'none'
     })

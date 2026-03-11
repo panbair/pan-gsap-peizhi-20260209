@@ -154,38 +154,44 @@ onMounted(() => {
       }, 100)
 
       gsap.from('.ac-title-65', {
-        scrollTrigger: { trigger: '.accordion-section-65', start: 'top 80%' },
-        y: 50,
+        scrollTrigger: { trigger: '.accordion-section-65', start: 'top 85%' },
+        y: 120,
         opacity: 0,
-        duration: 0.8,
-        ease: 'power3.out'
+        scale: 0.8,
+        rotationX: -20,
+        duration: 1.5,
+        ease: 'back.out(1.7)'
       })
 
       gsap.from('.ac-subtitle-65', {
-        scrollTrigger: { trigger: '.accordion-section-65', start: 'top 75%' },
-        y: 30,
+        scrollTrigger: { trigger: '.accordion-section-65', start: 'top 80%' },
+        y: 100,
         opacity: 0,
-        duration: 0.8,
+        scale: 0.8,
+        duration: 1.2,
         delay: 0.2,
-        ease: 'power3.out'
+        ease: 'back.out(1.7)'
       })
 
       gsap.from('.accordion-card-65', {
-        scrollTrigger: { trigger: '.accordion-container-65', start: 'top 70%' },
-        y: 60,
+        scrollTrigger: { trigger: '.accordion-container-65', start: 'top 80%' },
+        y: 180,
         opacity: 0,
-        stagger: 0.1,
-        duration: 0.6,
-        ease: 'power3.out'
+        scale: 0.7,
+        rotationY: 30,
+        stagger: 0.12,
+        duration: 1.3,
+        ease: 'back.out(1.7)'
       })
 
       gsap.from('.ac-btn-65', {
         scrollTrigger: { trigger: '.ac-controls-65', start: 'top 90%' },
-        y: 30,
+        y: 60,
         opacity: 0,
-        stagger: 0.1,
-        duration: 0.5,
-        ease: 'power3.out'
+        scale: 0.8,
+        stagger: 0.12,
+        duration: 1,
+        ease: 'back.out(1.7)'
       })
     })
   }, 100)
