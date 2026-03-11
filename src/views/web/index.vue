@@ -277,6 +277,7 @@
       <LazyScrollSwipeUp v-if="visibilityState.showScrollSwipeUp" />
       <LazyScrollThemeSwitch v-if="visibilityState.showScrollThemeSwitch" />
       <LazyScrollAccentColor v-if="visibilityState.showScrollAccentColor" />
+      <LazyScrollElasticMorph v-if="visibilityState.showScrollElasticMorph" />
     </div>
     <!-- 加载指示器 -->
     <Transition name="fade">
@@ -683,8 +684,15 @@ const LazyScrollHoverReveal = defineAsyncComponent(
 const LazyScrollDragReveal = defineAsyncComponent(() => import('./components/ScrollDragReveal.vue'))
 const LazyScrollPinchZoom = defineAsyncComponent(() => import('./components/ScrollPinchZoom.vue'))
 const LazyScrollSwipeUp = defineAsyncComponent(() => import('./components/ScrollSwipeUp.vue'))
-const LazyScrollThemeSwitch = defineAsyncComponent(() => import('./components/ScrollThemeSwitch.vue'))
-const LazyScrollAccentColor = defineAsyncComponent(() => import('./components/ScrollAccentColor.vue'))
+const LazyScrollThemeSwitch = defineAsyncComponent(
+  () => import('./components/ScrollThemeSwitch.vue')
+)
+const LazyScrollAccentColor = defineAsyncComponent(
+  () => import('./components/ScrollAccentColor.vue')
+)
+const LazyScrollElasticMorph = defineAsyncComponent(
+  () => import('./components/ScrollElasticMorph.vue')
+)
 const LazyScrollOrigamiCards = defineAsyncComponent(
   () => import('./components/ScrollOrigamiCards.vue')
 )
@@ -969,6 +977,7 @@ const visibilityState = ref<Record<string, boolean>>({
   showScrollSwipeUp: false,
   showScrollThemeSwitch: false,
   showScrollAccentColor: false,
+  showScrollElasticMorph: false,
   showScrollParallaxLayers: false,
   showScrollImageClip: false,
   showScrollImageBlur: false,
@@ -1067,6 +1076,7 @@ const componentVisibilityConfig: {
     'showScrollSwipeUp',
     'showScrollThemeSwitch',
     'showScrollAccentColor',
+    'showScrollElasticMorph',
     // 创意特效组件
     'showCyberpunkCity',
     'showDNAHelix',
