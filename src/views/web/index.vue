@@ -264,6 +264,9 @@
       <LazyScrollCursorFollower v-if="visibilityState.showScrollCursorFollower" />
       <LazyScrollMagnetic v-if="visibilityState.showScrollMagnetic" />
       <LazyScrollStickyReveal v-if="visibilityState.showScrollStickyReveal" />
+      <LazyScrollParallaxCursor v-if="visibilityState.showScrollParallaxCursor" />
+      <LazyScrollScaleOnScroll v-if="visibilityState.showScrollScaleOnScroll" />
+      <LazyScrollGlitch v-if="visibilityState.showScrollGlitch" />
     </div>
 
     <!-- 加载指示器 -->
@@ -653,6 +656,9 @@ const LazyScrollCursorFollower = defineAsyncComponent(
 )
 const LazyScrollMagnetic = defineAsyncComponent(() => import('./components/ScrollMagnetic.vue'))
 const LazyScrollStickyReveal = defineAsyncComponent(() => import('./components/ScrollStickyReveal.vue'))
+const LazyScrollParallaxCursor = defineAsyncComponent(() => import('./components/ScrollParallaxCursor.vue'))
+const LazyScrollScaleOnScroll = defineAsyncComponent(() => import('./components/ScrollScaleOnScroll.vue'))
+const LazyScrollGlitch = defineAsyncComponent(() => import('./components/ScrollGlitch.vue'))
 const LazyScrollOrigamiCards = defineAsyncComponent(
   () => import('./components/ScrollOrigamiCards.vue')
 )
@@ -925,6 +931,9 @@ const visibilityState = ref<Record<string, boolean>>({
   showScrollCursorFollower: false,
   showScrollMagnetic: false,
   showScrollStickyReveal: false,
+  showScrollParallaxCursor: false,
+  showScrollScaleOnScroll: false,
+  showScrollGlitch: false,
   showScrollParallaxLayers: false,
   showScrollImageClip: false,
   showScrollImageBlur: false,
@@ -1011,6 +1020,9 @@ const componentVisibilityConfig: {
     'showScrollCursorFollower',
     'showScrollMagnetic',
     'showScrollStickyReveal',
+    'showScrollParallaxCursor',
+    'showScrollScaleOnScroll',
+    'showScrollGlitch',
     // 创意特效组件
     'showCyberpunkCity',
     'showDNAHelix',
