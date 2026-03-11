@@ -257,20 +257,27 @@
         <LazyScrollHoloText v-if="visibilityState.showScrollHoloText" />
         <LazyScrollFireText v-if="visibilityState.showScrollFireText" />
         <LazyScrollIceText v-if="visibilityState.showScrollIceText" />
-      </div>
-      <LazyScrollThunderText v-if="visibilityState.showScrollThunderText" />
-      <LazyScrollStarText v-if="visibilityState.showScrollStarText" />
-      <LazyScrollRainText v-if="visibilityState.showScrollRainText" />
-      <LazyScrollCursorFollower v-if="visibilityState.showScrollCursorFollower" />
-      <LazyScrollMagnetic v-if="visibilityState.showScrollMagnetic" />
-      <LazyScrollStickyReveal v-if="visibilityState.showScrollStickyReveal" />
-      <LazyScrollParallaxCursor v-if="visibilityState.showScrollParallaxCursor" />
-      <LazyScrollScaleOnScroll v-if="visibilityState.showScrollScaleOnScroll" />
-      <LazyScrollGlitch v-if="visibilityState.showScrollGlitch" />
-      <LazyScrollInvert v-if="visibilityState.showScrollInvert" />
-      <LazyScrollHueRotate v-if="visibilityState.showScrollHueRotate" />
-    </div>
 
+        <LazyScrollThunderText v-if="visibilityState.showScrollThunderText" />
+        <LazyScrollStarText v-if="visibilityState.showScrollStarText" />
+        <LazyScrollRainText v-if="visibilityState.showScrollRainText" />
+        <LazyScrollCursorFollower v-if="visibilityState.showScrollCursorFollower" />
+        <LazyScrollMagnetic v-if="visibilityState.showScrollMagnetic" />
+        <LazyScrollStickyReveal v-if="visibilityState.showScrollStickyReveal" />
+        <LazyScrollParallaxCursor v-if="visibilityState.showScrollParallaxCursor" />
+        <LazyScrollScaleOnScroll v-if="visibilityState.showScrollScaleOnScroll" />
+        <LazyScrollGlitch v-if="visibilityState.showScrollGlitch" />
+        <LazyScrollInvert v-if="visibilityState.showScrollInvert" />
+      </div>
+      <LazyScrollHueRotate v-if="visibilityState.showScrollHueRotate" />
+      <LazyScrollContrast v-if="visibilityState.showScrollContrast" />
+      <LazyScrollHoverReveal v-if="visibilityState.showScrollHoverReveal" />
+      <LazyScrollDragReveal v-if="visibilityState.showScrollDragReveal" />
+      <LazyScrollPinchZoom v-if="visibilityState.showScrollPinchZoom" />
+      <LazyScrollSwipeUp v-if="visibilityState.showScrollSwipeUp" />
+      <LazyScrollThemeSwitch v-if="visibilityState.showScrollThemeSwitch" />
+      <LazyScrollAccentColor v-if="visibilityState.showScrollAccentColor" />
+    </div>
     <!-- 加载指示器 -->
     <Transition name="fade">
       <div v-if="isLoading" class="loading-indicator">
@@ -657,12 +664,27 @@ const LazyScrollCursorFollower = defineAsyncComponent(
   () => import('./components/ScrollCursorFollower.vue')
 )
 const LazyScrollMagnetic = defineAsyncComponent(() => import('./components/ScrollMagnetic.vue'))
-const LazyScrollStickyReveal = defineAsyncComponent(() => import('./components/ScrollStickyReveal.vue'))
-const LazyScrollParallaxCursor = defineAsyncComponent(() => import('./components/ScrollParallaxCursor.vue'))
-const LazyScrollScaleOnScroll = defineAsyncComponent(() => import('./components/ScrollScaleOnScroll.vue'))
+const LazyScrollStickyReveal = defineAsyncComponent(
+  () => import('./components/ScrollStickyReveal.vue')
+)
+const LazyScrollParallaxCursor = defineAsyncComponent(
+  () => import('./components/ScrollParallaxCursor.vue')
+)
+const LazyScrollScaleOnScroll = defineAsyncComponent(
+  () => import('./components/ScrollScaleOnScroll.vue')
+)
 const LazyScrollGlitch = defineAsyncComponent(() => import('./components/ScrollGlitch.vue'))
 const LazyScrollInvert = defineAsyncComponent(() => import('./components/ScrollInvert.vue'))
 const LazyScrollHueRotate = defineAsyncComponent(() => import('./components/ScrollHueRotate.vue'))
+const LazyScrollContrast = defineAsyncComponent(() => import('./components/ScrollContrast.vue'))
+const LazyScrollHoverReveal = defineAsyncComponent(
+  () => import('./components/ScrollHoverReveal.vue')
+)
+const LazyScrollDragReveal = defineAsyncComponent(() => import('./components/ScrollDragReveal.vue'))
+const LazyScrollPinchZoom = defineAsyncComponent(() => import('./components/ScrollPinchZoom.vue'))
+const LazyScrollSwipeUp = defineAsyncComponent(() => import('./components/ScrollSwipeUp.vue'))
+const LazyScrollThemeSwitch = defineAsyncComponent(() => import('./components/ScrollThemeSwitch.vue'))
+const LazyScrollAccentColor = defineAsyncComponent(() => import('./components/ScrollAccentColor.vue'))
 const LazyScrollOrigamiCards = defineAsyncComponent(
   () => import('./components/ScrollOrigamiCards.vue')
 )
@@ -940,6 +962,13 @@ const visibilityState = ref<Record<string, boolean>>({
   showScrollGlitch: false,
   showScrollInvert: false,
   showScrollHueRotate: false,
+  showScrollContrast: false,
+  showScrollHoverReveal: false,
+  showScrollDragReveal: false,
+  showScrollPinchZoom: false,
+  showScrollSwipeUp: false,
+  showScrollThemeSwitch: false,
+  showScrollAccentColor: false,
   showScrollParallaxLayers: false,
   showScrollImageClip: false,
   showScrollImageBlur: false,
@@ -1031,6 +1060,13 @@ const componentVisibilityConfig: {
     'showScrollGlitch',
     'showScrollInvert',
     'showScrollHueRotate',
+    'showScrollContrast',
+    'showScrollHoverReveal',
+    'showScrollDragReveal',
+    'showScrollPinchZoom',
+    'showScrollSwipeUp',
+    'showScrollThemeSwitch',
+    'showScrollAccentColor',
     // 创意特效组件
     'showCyberpunkCity',
     'showDNAHelix',
