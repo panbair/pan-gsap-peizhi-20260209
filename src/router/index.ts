@@ -64,6 +64,13 @@ const routes: RouteRecordRaw[] = [
   },
 
   {
+    path: '/pet-website',
+    name: 'pet-website',
+    component: () => import('@/views/pet-website/index.vue'),
+    meta: { title: '宠物天堂官网' }
+  },
+
+  {
     path: '/:pathMatch(.*)*',
     name: 'NotFound',
     component: () => import('@/views/Error/404.vue'),
