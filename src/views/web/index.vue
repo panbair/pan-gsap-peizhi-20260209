@@ -17,9 +17,8 @@
       <TextTypewriter />
       <Cube3D />
       <ImageParallax />
-      <div v-if="isShow">
-        <!-- 3D/视差组件 - 懒加载 -->
-        <LazyLiquidWave v-if="visibilityState.showLiquidWave" />
+      <!-- 3D/视差组件 - 懒加载 -->
+      <LazyLiquidWave v-if="visibilityState.showLiquidWave" />
         <LazyParticleExplosion v-if="visibilityState.showParticleExplosion" />
         <LazyNumberCounter v-if="visibilityState.showNumberCounter" />
         <LazyBouncingBall v-if="visibilityState.showBouncingBall" />
@@ -268,18 +267,26 @@
         <LazyScrollScaleOnScroll v-if="visibilityState.showScrollScaleOnScroll" />
         <LazyScrollGlitch v-if="visibilityState.showScrollGlitch" />
         <LazyScrollInvert v-if="visibilityState.showScrollInvert" />
-      </div>
-      <LazyScrollHueRotate v-if="visibilityState.showScrollHueRotate" />
-      <LazyScrollContrast v-if="visibilityState.showScrollContrast" />
+        <LazyScrollContrast v-if="visibilityState.showScrollContrast" />
       <LazyScrollHoverReveal v-if="visibilityState.showScrollHoverReveal" />
       <LazyScrollDragReveal v-if="visibilityState.showScrollDragReveal" />
       <LazyScrollPinchZoom v-if="visibilityState.showScrollPinchZoom" />
-        <LazyScrollSwipeUp v-if="visibilityState.showScrollSwipeUp" />
-        <LazyScrollThemeSwitch v-if="visibilityState.showScrollThemeSwitch" />
-        <LazyScrollAccentColor v-if="visibilityState.showScrollAccentColor" />
-        <LazyScrollElasticMorph v-if="visibilityState.showScrollElasticMorph" />
-        <LazyScrollInkDiffusion v-if="visibilityState.showScrollInkDiffusion" />
-        <LazyScrollLiquidButtons v-if="visibilityState.showScrollLiquidButtons" />
+      <LazyScrollSwipeUp v-if="visibilityState.showScrollSwipeUp" />
+      <LazyScrollThemeSwitch v-if="visibilityState.showScrollThemeSwitch" />
+      <LazyScrollAccentColor v-if="visibilityState.showScrollAccentColor" />
+      <LazyScrollElasticMorph v-if="visibilityState.showScrollElasticMorph" />
+      <LazyScrollInkDiffusion v-if="visibilityState.showScrollInkDiffusion" />
+      <LazyScrollLiquidButtons v-if="visibilityState.showScrollLiquidButtons" />
+      <LazyScrollPaperFold v-if="visibilityState.showScrollPaperFold" />
+      <LazyScrollDynamicShadow v-if="visibilityState.showScrollDynamicShadow" />
+      <LazyScrollTextWaveMorph v-if="visibilityState.showScrollTextWaveMorph" />
+      <LazyScrollSvgPathDraw v-if="visibilityState.showScrollSvgPathDraw" />
+      <LazyScrollBlendModeMix v-if="visibilityState.showScrollBlendModeMix" />
+      <LazyScrollGridMorph v-if="visibilityState.showScrollGridMorph" />
+      <LazyScrollPhysicsBounce v-if="visibilityState.showScrollPhysicsBounce" />
+      <LazyScrollBackgroundPattern v-if="visibilityState.showScrollBackgroundPattern" />
+      <LazyScrollStorytelling v-if="visibilityState.showScrollStorytelling" />
+      <LazyScrollLoadingArt v-if="visibilityState.showScrollLoadingArt" />
     </div>
     <!-- 加载指示器 -->
     <Transition name="fade">
@@ -298,7 +305,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 gsap.registerPlugin(ScrollTrigger)
 
-let isShow = ref(false)
+let isShow = ref(true)
 
 // 立即加载的核心组件
 import ScrollProgress from './components/ScrollProgress.vue'
@@ -424,9 +431,6 @@ const LazyScrollCrystalShatter = defineAsyncComponent(
   () => import('./components/ScrollCrystalShatter.vue')
 )
 const LazyScrollWaveReveal = defineAsyncComponent(() => import('./components/ScrollWaveReveal.vue'))
-const LazyScrollParticleExplosion = defineAsyncComponent(
-  () => import('./components/ScrollParticleExplosion.vue')
-)
 
 // 新增懒加载组件
 const LazyScrollTextSplit = defineAsyncComponent(() => import('./components/ScrollTextSplit.vue'))
@@ -732,6 +736,32 @@ const LazyScrollFrostBreath = defineAsyncComponent(
   () => import('./components/ScrollFrostBreath.vue')
 )
 const LazyScrollLavaFlow = defineAsyncComponent(() => import('./components/ScrollLavaFlow.vue'))
+const LazyScrollPaperFold = defineAsyncComponent(() => import('./components/ScrollPaperFold.vue'))
+const LazyScrollDynamicShadow = defineAsyncComponent(
+  () => import('./components/ScrollDynamicShadow.vue')
+)
+const LazyScrollTextWaveMorph = defineAsyncComponent(
+  () => import('./components/ScrollTextWaveMorph.vue')
+)
+const LazyScrollSvgPathDraw = defineAsyncComponent(
+  () => import('./components/ScrollSvgPathDraw.vue')
+)
+const LazyScrollBlendModeMix = defineAsyncComponent(
+  () => import('./components/ScrollBlendModeMix.vue')
+)
+const LazyScrollGridMorph = defineAsyncComponent(() => import('./components/ScrollGridMorph.vue'))
+const LazyScrollPhysicsBounce = defineAsyncComponent(
+  () => import('./components/ScrollPhysicsBounce.vue')
+)
+const LazyScrollBackgroundPattern = defineAsyncComponent(
+  () => import('./components/ScrollBackgroundPattern.vue')
+)
+const LazyScrollStorytelling = defineAsyncComponent(
+  () => import('./components/ScrollStorytelling.vue')
+)
+const LazyScrollLoadingArt = defineAsyncComponent(
+  () => import('./components/ScrollLoadingArt.vue')
+)
 const LazyScrollParallaxCardsScroll = defineAsyncComponent(
   () => import('./components/ScrollParallaxCardsScroll.vue')
 )
@@ -767,7 +797,6 @@ const LazyScrollHologramCards = defineAsyncComponent(
 const LazyScrollMorphGallery = defineAsyncComponent(
   () => import('./components/ScrollMorphGallery.vue')
 )
-const LazyScrollLiquidText = defineAsyncComponent(() => import('./components/ScrollLiquidText.vue'))
 const LazyScrollAuroraText = defineAsyncComponent(() => import('./components/ScrollAuroraText.vue'))
 const LazyScrollVortexCards = defineAsyncComponent(
   () => import('./components/ScrollVortexCards.vue')
@@ -988,6 +1017,8 @@ const visibilityState = ref<Record<string, boolean>>({
   showScrollElasticMorph: false,
   showScrollInkDiffusion: false,
   showScrollLiquidButtons: false,
+  showScrollPaperFold: false,
+  showScrollDynamicShadow: false,
   showScrollParallaxLayers: false,
   showScrollImageClip: false,
   showScrollImageBlur: false,
@@ -1038,7 +1069,17 @@ const visibilityState = ref<Record<string, boolean>>({
   showScrollCardRipple: false,
   showScrollShapeShift: false,
   showScrollElasticScale: false,
-  showScrollPerspective: false
+  showScrollPerspective: false,
+  showScrollPaperFold: false,
+  showScrollDynamicShadow: false,
+  showScrollTextWaveMorph: false,
+  showScrollSvgPathDraw: false,
+  showScrollBlendModeMix: false,
+  showScrollGridMorph: false,
+  showScrollPhysicsBounce: false,
+  showScrollBackgroundPattern: false,
+  showScrollStorytelling: false,
+  showScrollLoadingArt: false
 })
 
 // 类型定义
@@ -1249,6 +1290,16 @@ const componentVisibilityConfig: {
     'showScrollCosmicDust',
     'showScrollFrostBreath',
     'showScrollLavaFlow',
+    'showScrollPaperFold',
+    'showScrollDynamicShadow',
+    'showScrollTextWaveMorph',
+    'showScrollSvgPathDraw',
+    'showScrollBlendModeMix',
+    'showScrollGridMorph',
+    'showScrollPhysicsBounce',
+    'showScrollBackgroundPattern',
+    'showScrollStorytelling',
+    'showScrollLoadingArt',
     'showScrollParallaxLayers',
     'showScrollImageClip',
     'showScrollImageBlur',
@@ -1285,7 +1336,6 @@ const componentVisibilityConfig: {
     { keys: ['showScrollThunderText'], delay: 20000 },
     { keys: ['showScrollStarText'], delay: 21000 },
     { keys: ['showScrollRainText'], delay: 23000 },
-    { keys: ['showScrollHologramText'], delay: 24000 },
     { keys: ['showScrollSplitReveal'], delay: 25000 },
     { keys: ['showScrollTextScramble'], delay: 26000 },
     { keys: ['showScrollWavyText'], delay: 27000 },
@@ -1302,7 +1352,16 @@ const componentVisibilityConfig: {
     { keys: ['showScrollCardRipple'], delay: 36500 },
     { keys: ['showScrollShapeShift'], delay: 37500 },
     { keys: ['showScrollElasticScale'], delay: 38500 },
-    { keys: ['showScrollPerspective'], delay: 39500 }
+    { keys: ['showScrollPerspective'], delay: 39500 },
+    { keys: ['showScrollPaperFold'], delay: 40500 },
+    { keys: ['showScrollDynamicShadow'], delay: 41500 },
+    { keys: ['showScrollTextWaveMorph'], delay: 42500 },
+    { keys: ['showScrollSvgPathDraw'], delay: 43500 },
+    { keys: ['showScrollBlendModeMix'], delay: 44500 },
+    { keys: ['showScrollGridMorph'], delay: 45500 },
+    { keys: ['showScrollPhysicsBounce'], delay: 46500 },
+    { keys: ['showScrollBackgroundPattern'], delay: 47500 },
+    { keys: ['showScrollStorytelling'], delay: 48500 }
   ]
 }
 
