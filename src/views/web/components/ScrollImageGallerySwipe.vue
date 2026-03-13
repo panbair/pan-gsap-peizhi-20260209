@@ -28,7 +28,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
@@ -136,8 +136,15 @@ const initAnimations = () => {
   })
 }
 
+
+
 // Auto-initialize on mount
-initAnimations()
+onMounted(() => {
+  setTimeout(() => {
+    initAnimations()
+  }, 100)
+})
+
 </script>
 
 <style scoped lang="scss">

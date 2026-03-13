@@ -38,7 +38,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
@@ -91,8 +91,18 @@ const nextImage = () => {
 
 const goToImage = (index: number) => {
   currentIndex.value = index
+  
+  // 安全检查
+  if (!track.value) return
+  
   const items = gsap.utils.toArray('.panorama-item') as HTMLElement[]
   const targetItem = items[index] as HTMLElement
+  
+  if (!targetItem || !targetItem.dataset) {
+    console.warn('Target item not found or dataset undefined')
+    return
+  }
+  
   const x = -parseFloat(targetItem.dataset.x || '0')
 
   gsap.to(track.value, {
@@ -104,11 +114,18 @@ const goToImage = (index: number) => {
 
 // Initialize animations
 const initAnimations = () => {
+  if (!container.value) {
+    console.warn('Container not found')
+    return
+  }
+
   const items = gsap.utils.toArray('.panorama-item') as HTMLElement[]
 
   items.forEach((item, index) => {
     const image = item.querySelector('.panorama-image') as HTMLElement
     const info = item.querySelector('.panorama-info') as HTMLElement
+
+    if (!image || !info) return
 
     // Parallax effect
     gsap.fromTo(
@@ -169,7 +186,21 @@ const initAnimations = () => {
 }
 
 // Auto-initialize on mount
-initAnimations()
+onMounted(() => {
+  // 等待DOM渲染完成
+  setTimeout(() => {
+    initAnimations()
+  }, 100)
+})
+
+onUnmounted(() => {
+  // 清理ScrollTrigger
+  ScrollTrigger.getAll().forEach(trigger => {
+    if (trigger.trigger === container.value) {
+      trigger.kill()
+    }
+  })
+})
 </script>
 
 <style scoped lang="scss">
