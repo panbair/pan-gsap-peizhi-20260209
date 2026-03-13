@@ -98,7 +98,7 @@ const allComponents = shallowRef<ComponentInfo[]>([])
 
 // 初始化组件列表
 const initializeComponents = () => {
-  const componentFiles = import.meta.glob('./components/Scroll*.vue')
+  const componentFiles = import.meta.glob('./components/*.vue')
 
   allComponents.value = Object.keys(componentFiles).map(path => {
     const name = path.split('/').pop()?.replace('.vue', '') || ''
