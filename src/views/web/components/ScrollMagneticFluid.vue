@@ -5,7 +5,7 @@
       <p class="smf-section-subtitle-133">Magnetic Fluid Animation</p>
 
       <div class="smf-fluid-container-133" ref="container">
-        <div class="smf-fluid-stage-133">
+        <div class="smf-fluid-stage-133" ref="fluidStageRef">
           <div
             v-for="n in 12"
             :key="n"
@@ -42,6 +42,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 gsap.registerPlugin(ScrollTrigger)
 
 const container = ref<HTMLElement>()
+const fluidStageRef = ref<HTMLElement>()
 const blobRefs = ref<Record<number, HTMLElement>>({})
 const contentRefs = ref<HTMLElement[]>([])
 
@@ -79,15 +80,18 @@ const getBlobStyle = (index: number) => {
 }
 
 let gsapCtx: gsap.Context
+let handleMouseMove: ((e: MouseEvent) => void) | null = null
 
 onMounted(() => {
-  const handleMouseMove = (e: MouseEvent) => {
+  handleMouseMove = (e: MouseEvent) => {
+    if (!fluidStageRef.value) return
+
     const centerX = window.innerWidth / 2
     const centerY = window.innerHeight / 2
     const deltaX = (e.clientX - centerX) / centerX
     const deltaY = (e.clientY - centerY) / centerY
 
-    gsap.to('.smf-fluid-stage-133', {
+    gsap.to(fluidStageRef.value, {
       x: deltaX * 50,
       y: deltaY * 30,
       duration: 0.5,
@@ -266,19 +270,10 @@ onMounted(() => {
 
 onUnmounted(() => {
   gsapCtx?.revert()
-  window.removeEventListener('mousemove', (e: MouseEvent) => {
-    const centerX = window.innerWidth / 2
-    const centerY = window.innerHeight / 2
-    const deltaX = (e.clientX - centerX) / centerX
-    const deltaY = (e.clientY - centerY) / centerY
-
-    gsap.to('.smf-fluid-stage-133', {
-      x: deltaX * 50,
-      y: deltaY * 30,
-      duration: 0.5,
-      ease: 'power2.out'
-    })
-  })
+  if (handleMouseMove) {
+    window.removeEventListener('mousemove', handleMouseMove)
+    handleMouseMove = null
+  }
 })
 </script>
 

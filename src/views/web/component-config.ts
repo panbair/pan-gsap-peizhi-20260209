@@ -198,6 +198,46 @@ export const imageComponents: ComponentConfig[] = [
     category: 'image',
     priority: 61,
     description: '图片模糊'
+  },
+  {
+    id: 'scroll-image-spectrum',
+    name: 'ScrollImageSpectrum',
+    component: () => import('./components/ScrollImageSpectrum.vue'),
+    category: 'image',
+    priority: 62,
+    description: '图片光谱扫描'
+  },
+  {
+    id: 'scroll-image-holographic',
+    name: 'ScrollImageHolographic',
+    component: () => import('./components/ScrollImageHolographic.vue'),
+    category: 'image',
+    priority: 63,
+    description: '全息图片投影'
+  },
+  {
+    id: 'scroll-image-pixelate',
+    name: 'ScrollImagePixelate',
+    component: () => import('./components/ScrollImagePixelate.vue'),
+    category: 'image',
+    priority: 64,
+    description: '像素化揭示'
+  },
+  {
+    id: 'scroll-image-kaleidoscope',
+    name: 'ScrollImageKaleidoscope',
+    component: () => import('./components/ScrollImageKaleidoscope.vue'),
+    category: 'image',
+    priority: 65,
+    description: '万花筒图片'
+  },
+  {
+    id: 'scroll-image-morph',
+    name: 'ScrollImageMorph',
+    component: () => import('./components/ScrollImageMorph.vue'),
+    category: 'image',
+    priority: 66,
+    description: '图片变形'
   }
   // 继续添加其他图片组件...
 ]

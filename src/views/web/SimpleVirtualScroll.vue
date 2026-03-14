@@ -5,7 +5,6 @@
       <h1 class="page-title">滚动动画组件库</h1>
       <p class="page-subtitle">{{ filteredComponents.length }} 个组件 · 只渲染可见区域</p>
     </header>
-
     <!-- 分类筛选 -->
     <div class="filter-bar">
       <button 

@@ -156,6 +156,7 @@ const alternateRef = ref<HTMLElement | null>(null)
 const mixRef = ref<HTMLElement | null>(null)
 
 let tl: gsap.core.Timeline | null = null
+let scrollHandler: (() => void) | null = null
 
 onMounted(() => {
   initInvertEffects()
@@ -165,7 +166,10 @@ onUnmounted(() => {
   if (tl) tl.kill()
   gsap.killTweensOf('*')
   ScrollTrigger.getAll().forEach(trigger => trigger.kill())
-  window.removeEventListener('scroll', scrollHandler)
+  if (scrollHandler) {
+    window.removeEventListener('scroll', scrollHandler)
+    scrollHandler = null
+  }
 })
 
 const initInvertEffects = () => {
@@ -234,8 +238,10 @@ const initProgressiveInvert = () => {
   if (!card || !progressBar) return
 
   // 滚动控制反转
-  const scrollHandler = () => {
-    const rect = progressiveInvertRef.value!.getBoundingClientRect()
+  scrollHandler = () => {
+    if (!progressiveInvertRef.value) return
+
+    const rect = progressiveInvertRef.value.getBoundingClientRect()
     const windowHeight = window.innerHeight
     const progress = Math.max(0, Math.min(1, 1 - rect.top / (rect.height + windowHeight)))
 
