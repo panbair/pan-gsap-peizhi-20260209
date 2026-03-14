@@ -179,7 +179,7 @@ onUnmounted(() => {
 
 <style scoped lang="scss">
 .mg-morph-grid-48 {
-  min-height: 120vh;
+  min-height: 100vh;
   padding: 100px 0;
   background: linear-gradient(180deg, #0f0f23 0%, #1e3c72 50%, #0f0f23 100%);
   position: relative;

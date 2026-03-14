@@ -211,7 +211,7 @@ onUnmounted(() => {
 
 <style scoped lang="scss">
 .dp-diagonal-parallax-35 {
-  min-height: 180vh;
+  min-height: 100vh;
   padding: 100px 0;
   background: linear-gradient(180deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
   position: relative;

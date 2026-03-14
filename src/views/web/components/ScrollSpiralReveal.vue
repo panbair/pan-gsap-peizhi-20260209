@@ -283,7 +283,7 @@ onUnmounted(() => {
 
 <style scoped lang="scss">
 .ssr-spiral-reveal-section-155 {
-  min-height: 150vh;
+  min-height: 100vh;
   padding: 100px 20px;
   background: linear-gradient(135deg, #0f0f23 0%, #1a1a3e 50%, #0f0f23 100%);
   position: relative;

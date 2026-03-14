@@ -251,7 +251,7 @@ onUnmounted(() => {
 
 <style scoped lang="scss">
 .st3-scroll-text-3d-128 {
-  min-height: 280vh;
+  min-height: 100vh;
   padding: 100px 20px;
   background: linear-gradient(180deg, #0a0a1a 0%, #1e1e3f 50%, #0a0a1a 100%);
   position: relative;

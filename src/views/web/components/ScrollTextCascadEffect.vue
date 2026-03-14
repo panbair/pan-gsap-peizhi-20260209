@@ -150,7 +150,7 @@ onUnmounted(() => {
 <style scoped lang="scss">
 .stce-text-cascade-effect-section-183 {
   position: relative;
-  min-height: 200vh;
+  min-height: 100vh;
   padding: 120px 20px;
   background: linear-gradient(180deg, #0f0f1f 0%, #1a1a3a 50%, #0f0f1f 100%);
   overflow: hidden;

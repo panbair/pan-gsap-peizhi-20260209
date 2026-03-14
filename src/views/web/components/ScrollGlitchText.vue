@@ -288,7 +288,7 @@ onUnmounted(() => {
 
 <style scoped lang="scss">
 .sgt-scroll-glitch-text-134 {
-  min-height: 450vh;
+  min-height: 100vh;
   padding: 100px 20px;
   background: linear-gradient(180deg, #000 0%, #0d0d0d 30%, #1a1a1a 60%, #0d0d0d 100%);
   position: relative;

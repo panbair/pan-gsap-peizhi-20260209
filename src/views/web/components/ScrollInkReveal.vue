@@ -212,7 +212,7 @@ onUnmounted(() => {
 
 <style scoped lang="scss">
 .sik-scroll-ink-reveal-130 {
-  min-height: 500vh;
+  min-height: 100vh;
   padding: 100px 20px;
   background: linear-gradient(180deg, #f8f8f8 0%, #e8e8e8 30%, #f0f0f0 60%, #f5f5f5 100%);
   position: relative;

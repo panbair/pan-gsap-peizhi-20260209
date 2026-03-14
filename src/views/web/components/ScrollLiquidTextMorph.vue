@@ -359,7 +359,7 @@ onUnmounted(() => {
 
 <style scoped lang="scss">
 .slt-liquid-text-section-186 {
-  min-height: 220vh;
+  min-height: 100vh;
   padding: 100px 20px;
   background: linear-gradient(180deg, #0a0a1a 0%, #0a1a2a 50%, #1a0a2a 100%);
   position: relative;

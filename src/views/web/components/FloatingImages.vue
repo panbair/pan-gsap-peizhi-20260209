@@ -201,7 +201,7 @@ onUnmounted(() => {
 
 <style scoped lang="scss">
 .floating-images-42 {
-  min-height: 150vh;
+  min-height: 100vh;
   padding: 100px 0;
   background: linear-gradient(180deg, #1a1a2e 0%, #2d1b69 50%, #1a1a2e 100%);
   display: flex;

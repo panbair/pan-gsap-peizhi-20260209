@@ -151,7 +151,7 @@ onUnmounted(() => {
 
 <style scoped lang="scss">
 .stagger-grid-43 {
-  min-height: 120vh;
+  min-height: 100vh;
   padding: 100px 0;
   background: linear-gradient(180deg, #1a1a2e 0%, #16213e 50%, #1a1a2e 100%);
   position: relative;

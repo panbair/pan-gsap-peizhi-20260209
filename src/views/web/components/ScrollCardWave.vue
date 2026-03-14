@@ -263,7 +263,7 @@ onUnmounted(() => {
 
 <style scoped lang="scss">
 .scw-scroll-card-wave-126 {
-  min-height: 350vh;
+  min-height: 100vh;
   padding: 100px 20px;
   background: linear-gradient(180deg, #0a0a1a 0%, #1e1e3f 50%, #0a0a1a 100%);
   position: relative;

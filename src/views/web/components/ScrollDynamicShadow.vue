@@ -616,7 +616,7 @@ onUnmounted(() => {
 
 <style scoped lang="scss">
 .sds-dynamic-shadow-218 {
-  min-height: 200vh;
+  min-height: 100vh;
   padding: 80px 20px;
   background: linear-gradient(180deg, #0a0a1a 0%, #1a1a3a 30%, #0f0f2a 60%, #1e1e3e 100%);
   position: relative;

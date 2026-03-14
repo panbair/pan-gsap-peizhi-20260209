@@ -277,7 +277,7 @@ onUnmounted(() => {
 
 <style scoped lang="scss">
 .spt-scroll-parallax-text-122 {
-  min-height: 550vh;
+  min-height: 100vh;
   padding: 100px 0;
   background: linear-gradient(180deg, #0a0a1a 0%, #12122a 20%, #1a1a3a 40%, #1e1e4a 60%, #1a1a3a 80%, #0a0a1a 100%);
   position: relative;

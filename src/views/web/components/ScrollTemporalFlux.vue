@@ -461,7 +461,7 @@ onUnmounted(() => {
 
 <style scoped lang="scss">
 .stf-temporal-flux-section-177 {
-  min-height: 150vh;
+  min-height: 100vh;
   padding: 80px 20px;
   background: linear-gradient(180deg, #0a0a1a 0%, #1a0a2a 50%, #0a0a1a 100%);
   position: relative;

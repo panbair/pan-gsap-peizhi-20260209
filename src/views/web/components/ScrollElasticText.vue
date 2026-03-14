@@ -279,7 +279,7 @@ onUnmounted(() => {
 
 <style scoped lang="scss">
 .set-elastic-text-section-173 {
-  min-height: 220vh;
+  min-height: 100vh;
   padding: 100px 20px;
   background: linear-gradient(180deg, #0a1a2a 0%, #1a2a4a 50%, #0a1a2a 100%);
   position: relative;

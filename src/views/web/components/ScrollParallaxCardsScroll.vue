@@ -162,7 +162,7 @@ onUnmounted(() => {
 <style scoped lang="scss">
 .spcs-parallax-cards-scroll-section-170 {
   position: relative;
-  min-height: 250vh;
+  min-height: 100vh;
   padding: 120px 20px;
   background: linear-gradient(180deg, #0a0a1a 0%, #1a1a2e 50%, #0a0a1a 100%);
   overflow: hidden;

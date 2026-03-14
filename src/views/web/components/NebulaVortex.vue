@@ -471,7 +471,7 @@ onUnmounted(() => {
 
 <style scoped lang="scss">
 .nv-nebula-section-64 {
-  min-height: 120vh;
+  min-height: 100vh;
   padding: 80px 20px 100px;
   position: relative;
   overflow: hidden;

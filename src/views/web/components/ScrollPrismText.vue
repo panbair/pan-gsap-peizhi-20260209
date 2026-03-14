@@ -287,7 +287,7 @@ onUnmounted(() => {
 
 <style scoped lang="scss">
 .spri-prism-text-section-176 {
-  min-height: 220vh;
+  min-height: 100vh;
   padding: 100px 20px;
   background: linear-gradient(180deg, #0a0a1a 0%, #1a0a1a 50%, #0a0a2a 100%);
   position: relative;

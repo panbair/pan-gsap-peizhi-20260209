@@ -347,7 +347,7 @@ onUnmounted(() => {
 
 <style scoped lang="scss">
 .sld-liquid-distort-section-190 {
-  min-height: 150vh;
+  min-height: 100vh;
   padding: 100px 20px;
   background: linear-gradient(180deg, #0a0a20 0%, #0f0a30 50%, #0a0a20 100%);
   position: relative;

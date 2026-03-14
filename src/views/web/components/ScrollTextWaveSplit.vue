@@ -145,7 +145,7 @@ onUnmounted(() => {
 
 <style scoped lang="scss">
 .tws-scroll-text-wave-split-133 {
-  min-height: 350vh;
+  min-height: 100vh;
   padding: 100px 20px;
   background: linear-gradient(180deg, #0a0a1a 0%, #1a1a3a 30%, #0f0f2a 60%, #1a1a3a 100%);
   position: relative;

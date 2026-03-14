@@ -347,7 +347,7 @@ onUnmounted(() => {
 
 <style scoped lang="scss">
 .scp-cyber-pulse-section-187 {
-  min-height: 180vh;
+  min-height: 100vh;
   padding: 100px 20px;
   background: linear-gradient(135deg, #0a0a0a 0%, #0a1a1a 50%, #0a0a0a 100%);
   position: relative;

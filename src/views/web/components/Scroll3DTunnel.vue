@@ -226,7 +226,7 @@ onUnmounted(() => {
 
 <style scoped lang="scss">
 .s3dt-tunnel-section-154 {
-  min-height: 150vh;
+  min-height: 100vh;
   padding: 100px 20px;
   background: radial-gradient(ellipse at center, #1a0a2e 0%, #0d0d1a 50%, #000 100%);
   position: relative;

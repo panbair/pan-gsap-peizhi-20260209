@@ -195,7 +195,7 @@ onUnmounted(() => {
 
 <style scoped lang="scss">
 .cg-circle-gallery-46 {
-  min-height: 120vh;
+  min-height: 100vh;
   padding: 100px 0;
   background: linear-gradient(180deg, #0f0f23 0%, #1a1a3e 50%, #0f0f23 100%);
   display: flex;

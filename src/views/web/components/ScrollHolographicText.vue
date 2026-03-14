@@ -317,7 +317,7 @@ onUnmounted(() => {
 
 <style scoped lang="scss">
 .sht-holographic-text-section-180 {
-  min-height: 200vh;
+  min-height: 100vh;
   padding: 100px 20px;
   background: radial-gradient(ellipse at center, #1a0a2e 0%, #0a0a1a 50%, #0a0a0a 100%);
   position: relative;

@@ -438,7 +438,7 @@ onUnmounted(() => {
 
 <style scoped lang="scss">
 .qte-quantum-text-section-166 {
-  min-height: 220vh;
+  min-height: 100vh;
   padding: 120px 20px;
   background: radial-gradient(ellipse at center, #1a0a2e 0%, #0a0a1a 50%, #0a0a0a 100%);
   position: relative;

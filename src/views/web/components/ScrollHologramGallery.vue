@@ -401,7 +401,7 @@ onUnmounted(() => {
 
 <style scoped lang="scss">
 .shg-hologram-gallery-section-160 {
-  min-height: 150vh;
+  min-height: 100vh;
   padding: 100px 20px;
   background: linear-gradient(180deg, #0a0a15 0%, #0f1520 50%, #0a0a15 100%);
   position: relative;

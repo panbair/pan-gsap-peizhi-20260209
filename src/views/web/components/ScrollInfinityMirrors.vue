@@ -324,7 +324,7 @@ onUnmounted(() => {
 <style scoped lang="scss">
 .sim-infinity-mirrors-section-172 {
   position: relative;
-  min-height: 200vh;
+  min-height: 100vh;
   padding: 120px 20px;
   background: linear-gradient(180deg, #0a0a1a 0%, #151530 50%, #0a0a1a 100%);
   overflow: hidden;

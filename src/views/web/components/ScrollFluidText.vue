@@ -221,7 +221,7 @@ onUnmounted(() => {
 
 <style scoped lang="scss">
 .sft-fluid-text-section-148 {
-  min-height: 120vh;
+  min-height: 100vh;
   padding: 100px 20px;
   background: linear-gradient(135deg, #0a0a1a 0%, #1a1a3a 50%, #0a0a2a 100%);
   position: relative;

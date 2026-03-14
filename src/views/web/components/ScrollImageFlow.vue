@@ -246,7 +246,7 @@ onUnmounted(() => {
 
 <style scoped lang="scss">
 .sif-scroll-image-flow-124 {
-  min-height: 250vh;
+  min-height: 100vh;
   padding: 100px 20px;
   background: linear-gradient(180deg, #0a0a1a 0%, #1a1a3e 50%, #0a0a1a 100%);
   position: relative;

@@ -205,7 +205,7 @@ onUnmounted(() => {
 <style scoped lang="scss">
 .snr-neon-rain-section-173 {
   position: relative;
-  min-height: 180vh;
+  min-height: 100vh;
   padding: 120px 20px;
   background: linear-gradient(180deg, #050510 0%, #0a0a20 50%, #050510 100%);
   overflow: hidden;

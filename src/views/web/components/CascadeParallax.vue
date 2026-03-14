@@ -187,7 +187,7 @@ onUnmounted(() => {
 
 <style scoped lang="scss">
 .cp-cascade-parallax-40 {
-  min-height: 200vh;
+  min-height: 100vh;
   padding: 100px 0;
   background: linear-gradient(180deg, #1a1a2e 0%, #4a1942 50%, #1a1a2e 100%);
   position: relative;

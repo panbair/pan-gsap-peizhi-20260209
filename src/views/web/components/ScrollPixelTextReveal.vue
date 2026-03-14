@@ -361,7 +361,7 @@ onUnmounted(() => {
 
 <style scoped lang="scss">
 .spr-pixel-text-section-185 {
-  min-height: 200vh;
+  min-height: 100vh;
   padding: 100px 20px;
   background: linear-gradient(180deg, #0a0a1a 0%, #1a0a2a 50%, #0a0a1a 100%);
   position: relative;

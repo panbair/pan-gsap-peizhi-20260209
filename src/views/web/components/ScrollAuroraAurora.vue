@@ -347,7 +347,7 @@ onUnmounted(() => {
 <style scoped lang="scss">
 .saa-aurora-aurora-section-181 {
   position: relative;
-  min-height: 200vh;
+  min-height: 100vh;
   padding: 120px 20px;
   background: linear-gradient(180deg, #050515 0%, #0a0a25 50%, #050515 100%);
   overflow: hidden;

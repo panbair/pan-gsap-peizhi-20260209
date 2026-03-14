@@ -183,7 +183,7 @@ onUnmounted(() => {
 <style scoped lang="scss">
 .scmr-card-morph-reveal-section-178 {
   position: relative;
-  min-height: 200vh;
+  min-height: 100vh;
   padding: 120px 20px;
   background: linear-gradient(180deg, #0d0d1d 0%, #1a1a3a 50%, #0d0d1d 100%);
   overflow: hidden;

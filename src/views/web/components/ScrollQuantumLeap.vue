@@ -411,7 +411,7 @@ onUnmounted(() => {
 
 <style scoped lang="scss">
 .sql-quantum-leap-section-188 {
-  min-height: 150vh;
+  min-height: 100vh;
   padding: 80px 20px;
   background: radial-gradient(ellipse at center, #0a1a2a 0%, #0a0a1a 100%);
   position: relative;

@@ -200,7 +200,7 @@ onUnmounted(() => {
 
 <style scoped lang="scss">
 .gradient-flow-39 {
-  min-height: 150vh;
+  min-height: 100vh;
   padding: 100px 0;
   background: linear-gradient(180deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%);
   display: flex;

@@ -297,7 +297,7 @@ onUnmounted(() => {
 
 <style scoped lang="scss">
 .spt-portal-text-section-182 {
-  min-height: 220vh;
+  min-height: 100vh;
   padding: 100px 20px;
   background: radial-gradient(ellipse at center, #1a0a2e 0%, #0a0a1a 50%, #000000 100%);
   position: relative;

@@ -436,7 +436,7 @@ onUnmounted(() => {
 
 <style scoped lang="scss">
 .qw-section-100 {
-  min-height: 150vh;
+  min-height: 100vh;
   padding: 100px 20px;
   background: radial-gradient(ellipse at center, #0a0a1a 0%, #000000 100%);
   position: relative;

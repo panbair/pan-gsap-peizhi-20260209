@@ -165,7 +165,7 @@ onUnmounted(() => {
 <style scoped lang="scss">
 .sst-split-transition-section-173 {
   position: relative;
-  min-height: 200vh;
+  min-height: 100vh;
   padding: 120px 20px;
   background: linear-gradient(180deg, #0e0e1e 0%, #1e1e3e 50%, #0e0e1e 100%);
   overflow: hidden;

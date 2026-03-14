@@ -50,14 +50,48 @@ gsap.registerPlugin(ScrollTrigger)
 const componentRoot = ref<HTMLElement>()
 
 let ctx: any = null
+let mouseX = 0
+let mouseY = 0
+
+const handleMouseMove = (e: MouseEvent) => {
+  const stage = document.querySelector('.cb-stage-180') as HTMLElement
+  if (!stage) return
+
+  const rect = stage.getBoundingClientRect()
+  const centerX = rect.left + rect.width / 2
+  const centerY = rect.top + rect.height / 2
+
+  mouseX = (e.clientX - centerX) / 20
+  mouseY = (e.clientY - centerY) / 20
+
+  gsap.to('.cb-cube-180', {
+    rotateX: -20 - mouseY,
+    rotateY: -30 + mouseX,
+    duration: 0.5,
+    ease: 'power2.out'
+  })
+}
+
+const handleMouseLeave = () => {
+  gsap.to('.cb-cube-180', {
+    rotateX: -20,
+    rotateY: -30,
+    duration: 0.8,
+    ease: 'power2.out'
+  })
+}
 
 onMounted(() => {
+  const stage = document.querySelector('.cb-stage-180')
+  if (stage) {
+    stage.addEventListener('mousemove', handleMouseMove)
+    stage.addEventListener('mouseleave', handleMouseLeave)
+  }
+
   ctx = gsap.context(() => {
-    // 初始状态
+    // 初始状态 - 保持CSS的默认transform
     gsap.set('.cb-cube-180', {
-      rotateX: 0,
-      rotateY: 0,
-      scale: 0.8,
+      scale: 0.6,
       opacity: 0
     })
 
@@ -74,10 +108,19 @@ onMounted(() => {
         end: 'bottom top',
         scrub: 1
       },
-      rotateX: 330,
-      rotateY: 495,
+      rotateX: -30,
+      rotateY: 360,
       scale: 1,
       opacity: 1,
+      ease: 'none'
+    })
+
+    // 添加自动持续旋转
+    gsap.to('.cb-cube-180', {
+      rotateY: '+=360',
+      rotateX: '+=30',
+      duration: 20,
+      repeat: -1,
       ease: 'none'
     })
 
@@ -157,6 +200,11 @@ onMounted(() => {
 })
 
 onUnmounted(() => {
+  const stage = document.querySelector('.cb-stage-180')
+  if (stage) {
+    stage.removeEventListener('mousemove', handleMouseMove)
+    stage.removeEventListener('mouseleave', handleMouseLeave)
+  }
   if (ctx) ctx.revert()
 })
 </script>
@@ -205,7 +253,7 @@ onUnmounted(() => {
   display: flex;
   justify-content: center;
   align-items: center;
-  perspective: 1000px;
+  perspective: 2000px;
 }
 
 .cb-cube-180 {
@@ -214,7 +262,12 @@ onUnmounted(() => {
   height: 200px;
   transform-style: preserve-3d;
   will-change: transform, opacity;
-  transform: rotateX(-30deg) rotateY(-45deg);
+  transform: rotateX(-20deg) rotateY(-30deg);
+  transition: transform 0.3s ease;
+}
+
+.cb-stage-180:hover .cb-cube-180 {
+  transform: rotateX(-20deg) rotateY(-30deg) scale(1.1);
 }
 
 .cb-face-180 {
@@ -224,13 +277,26 @@ onUnmounted(() => {
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 2px solid rgba(255, 255, 255, 0.5);
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(5px);
+  border: 3px solid rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
   font-size: 1.5rem;
   color: #fff;
-  box-shadow: inset 0 0 30px rgba(255, 255, 255, 0.1);
+  box-shadow:
+    inset 0 0 30px rgba(255, 255, 255, 0.15),
+    0 0 20px rgba(0, 210, 255, 0.3),
+    0 0 40px rgba(0, 210, 255, 0.1);
   backface-visibility: visible;
+  transition: all 0.3s ease;
+}
+
+.cb-face-180:hover {
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow:
+    inset 0 0 50px rgba(255, 255, 255, 0.2),
+    0 0 30px rgba(0, 210, 255, 0.5),
+    0 0 60px rgba(0, 210, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.9);
 }
 
 .cb-front-180 {
@@ -266,7 +332,11 @@ onUnmounted(() => {
 .cb-face-content-180 {
   font-size: 2rem;
   font-weight: bold;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  text-shadow:
+    0 2px 10px rgba(0, 0, 0, 0.5),
+    0 0 20px rgba(0, 210, 255, 0.5);
+  letter-spacing: 2px;
+  user-select: none;
 }
 
 .cb-particles-180 {

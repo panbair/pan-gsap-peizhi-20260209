@@ -205,7 +205,7 @@ onUnmounted(() => {
 
 <style scoped lang="scss">
 .sfc-scroll-fold-card-132 {
-  min-height: 450vh;
+  min-height: 100vh;
   padding: 100px 20px;
   background: linear-gradient(180deg, #0a0a1a 0%, #1e1e3f 30%, #0f0f2a 60%, #1e1e3f 100%);
   position: relative;

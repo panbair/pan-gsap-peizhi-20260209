@@ -416,7 +416,7 @@ onUnmounted(() => {
 
 <style scoped lang="scss">
 .spc-prism-cards-section-162 {
-  min-height: 150vh;
+  min-height: 100vh;
   padding: 100px 20px;
   background: linear-gradient(180deg, #0f0a15 0%, #1a1025 50%, #0f0a15 100%);
   position: relative;

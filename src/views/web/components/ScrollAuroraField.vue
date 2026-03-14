@@ -361,7 +361,7 @@ onUnmounted(() => {
 
 <style scoped lang="scss">
 .saf-aurora-field-section-157 {
-  min-height: 150vh;
+  min-height: 100vh;
   padding: 100px 20px;
   background: linear-gradient(180deg, #0a0a1a 0%, #0f0a1a 30%, #0a0a2a 60%, #0f0a1a 100%);
   position: relative;

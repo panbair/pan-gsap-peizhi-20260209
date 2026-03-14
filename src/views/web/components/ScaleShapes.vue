@@ -173,7 +173,7 @@ onUnmounted(() => {
 
 <style scoped lang="scss">
 .scale-shapes-38 {
-  min-height: 120vh;
+  min-height: 100vh;
   padding: 100px 0;
   background: linear-gradient(180deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
   display: flex;

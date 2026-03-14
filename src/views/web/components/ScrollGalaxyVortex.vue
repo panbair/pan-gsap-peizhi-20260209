@@ -323,7 +323,7 @@ onUnmounted(() => {
 <style scoped lang="scss">
 .sgv-galaxy-vortex-section-171 {
   position: relative;
-  min-height: 200vh;
+  min-height: 100vh;
   padding: 120px 20px;
   background: linear-gradient(180deg, #020210 0%, #050520 50%, #020210 100%);
   overflow: hidden;

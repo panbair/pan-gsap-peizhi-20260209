@@ -282,7 +282,7 @@ onUnmounted(() => {
 
 <style scoped lang="scss">
 .spl-parallax-section-214 {
-  min-height: 150vh;
+  min-height: 100vh;
   padding: 100px 20px;
   background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
   position: relative;

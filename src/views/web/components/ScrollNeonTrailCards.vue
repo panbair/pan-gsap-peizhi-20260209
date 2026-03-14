@@ -386,7 +386,7 @@ onUnmounted(() => {
 
 <style scoped lang="scss">
 .sntc-neon-trail-cards-section-159 {
-  min-height: 150vh;
+  min-height: 100vh;
   padding: 100px 20px;
   background: linear-gradient(180deg, #050510 0%, #0a0a20 50%, #050510 100%);
   position: relative;

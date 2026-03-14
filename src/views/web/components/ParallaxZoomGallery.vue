@@ -140,7 +140,7 @@ onUnmounted(() => {
 
 <style scoped lang="scss">
 .parallax-zoom-gallery-30 {
-  min-height: 150vh;
+  min-height: 100vh;
   padding: 100px 0;
   background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
   position: relative;

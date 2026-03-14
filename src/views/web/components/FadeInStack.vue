@@ -161,7 +161,7 @@ onUnmounted(() => {
 
 <style scoped lang="scss">
 .fade-in-stack-32 {
-  min-height: 200vh;
+  min-height: 100vh;
   padding: 100px 0;
   background: linear-gradient(180deg, #1a1a2e 0%, #2d1b69 50%, #1a1a2e 100%);
   position: relative;

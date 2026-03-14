@@ -285,7 +285,7 @@ onUnmounted(() => {
 <style scoped lang="scss">
 .scp-crystal-prism-section-169 {
   position: relative;
-  min-height: 200vh;
+  min-height: 100vh;
   padding: 120px 20px;
   background: linear-gradient(180deg, #050515 0%, #0f0f25 50%, #050515 100%);
   overflow: hidden;

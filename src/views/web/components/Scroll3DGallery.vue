@@ -312,7 +312,7 @@ onUnmounted(() => {
 
 <style scoped lang="scss">
 .s3d-scroll-3d-gallery-123 {
-  min-height: 150vh;
+  min-height: 100vh;
   padding: 100px 0;
   background: linear-gradient(135deg, #0a0a1a 0%, #1a1a3a 50%, #0f0f2a 100%);
   position: relative;

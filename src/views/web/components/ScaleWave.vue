@@ -206,7 +206,7 @@ onUnmounted(() => {
 
 <style scoped lang="scss">
 .sw-scale-wave-33 {
-  min-height: 150vh;
+  min-height: 100vh;
   padding: 100px 0;
   background: linear-gradient(180deg, #1e3c72 0%, #2a5298 50%, #1e3c72 100%);
   display: flex;

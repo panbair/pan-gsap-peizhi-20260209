@@ -367,7 +367,7 @@ onUnmounted(() => {
 
 <style scoped lang="scss">
 .seo-energy-orb-section-164 {
-  min-height: 150vh;
+  min-height: 100vh;
   padding: 100px 20px;
   background: radial-gradient(ellipse at center, #1a1a2e 0%, #0a0a1a 100%);
   position: relative;
