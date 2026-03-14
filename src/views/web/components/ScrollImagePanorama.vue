@@ -38,7 +38,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, onMounted, nextTick } from 'vue'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
@@ -90,13 +90,22 @@ const nextImage = () => {
 }
 
 const goToImage = (index: number) => {
+  if (!track.value) return
+
   currentIndex.value = index
   const items = gsap.utils.toArray('.panorama-item') as HTMLElement[]
   const targetItem = items[index] as HTMLElement
-  const x = -parseFloat(targetItem.dataset.x || '0')
+
+  if (!targetItem) {
+    console.warn(`ScrollImagePanorama: Target item at index ${index} not found`)
+    return
+  }
+
+  // Calculate position based on index (100vw per item)
+  const x = -(index * 100)
 
   gsap.to(track.value, {
-    x: x,
+    x: `${x}vw`,
     duration: 1,
     ease: 'power3.inOut'
   })
@@ -104,11 +113,23 @@ const goToImage = (index: number) => {
 
 // Initialize animations
 const initAnimations = () => {
+  if (!container.value || !track.value) return
+
   const items = gsap.utils.toArray('.panorama-item') as HTMLElement[]
+
+  if (items.length === 0) {
+    console.warn('ScrollImagePanorama: No panorama items found')
+    return
+  }
 
   items.forEach((item, index) => {
     const image = item.querySelector('.panorama-image') as HTMLElement
     const info = item.querySelector('.panorama-info') as HTMLElement
+
+    if (!image || !info) {
+      console.warn(`ScrollImagePanorama: Image or info not found for item ${index}`)
+      return
+    }
 
     // Parallax effect
     gsap.fromTo(
@@ -168,8 +189,15 @@ const initAnimations = () => {
   })
 }
 
-// Auto-initialize on mount
-initAnimations()
+// Initialize animations after component is mounted
+onMounted(() => {
+  nextTick(() => {
+    if (container.value && track.value) {
+      initAnimations()
+    }
+  })
+})
+
 </script>
 
 <style scoped lang="scss">

@@ -32,7 +32,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, onMounted, nextTick } from 'vue'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
@@ -163,8 +163,14 @@ const initAnimations = () => {
   })
 }
 
-// Auto-initialize on mount
-initAnimations()
+// Initialize animations after component is mounted
+onMounted(() => {
+  nextTick(() => {
+    if (container.value && track.value) {
+      initAnimations()
+    }
+  })
+})
 </script>
 
 <style scoped lang="scss">
