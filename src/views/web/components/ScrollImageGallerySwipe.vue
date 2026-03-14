@@ -41,7 +41,7 @@ const currentIndex = ref(1)
 
 const images = [
   {
-    src: 'https://images.unsplash.com/photo-1474511320723-9a56873571b7?w=600',
+    src: 'https://images.unsplash.com/photo-1433086966358-54859d0ed716?w=600',
     alt: 'Mountains',
     title: '壮丽山川',
     desc: '探索自然的壮丽景色'

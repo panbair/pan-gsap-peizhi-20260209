@@ -81,6 +81,18 @@
       <span>{{ loadingError }}</span>
       <button @click="loadingError = null" class="close-btn">×</button>
     </div>
+
+    <!-- 返回顶部按钮 -->
+    <button
+      class="back-to-top"
+      :class="{ 'is-visible': showBackToTop }"
+      @click="scrollToTop"
+      title="返回顶部"
+    >
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M12 19V5M5 12l7-7 7 7"/>
+      </svg>
+    </button>
   </div>
 </template>
 
@@ -99,6 +111,7 @@ const currentCategory = ref('animation-1')
 const visibleIndex = ref(0) // 初始只显示第1个组件
 const loadingError = ref<string | null>(null)
 const isLoading = ref(false)
+const showBackToTop = ref(false) // 是否显示返回顶部按钮
 
 // 分类定义 - 动态生成
 const categories = ref<{ id: string; name: string; count: number }[]>([])
@@ -190,6 +203,10 @@ let refreshTimeout: ReturnType<typeof setTimeout> | null = null
 let isScrolling = false
 
 const handleScroll = () => {
+  // 检查是否显示返回顶部按钮
+  const scrollY = window.scrollY || document.documentElement.scrollTop
+  showBackToTop.value = scrollY > 300
+
   if (isScrolling) return
   isScrolling = true
 
@@ -205,6 +222,28 @@ const handleScroll = () => {
     safeRefreshScrollTrigger()
     refreshTimeout = null
   }, 150)
+}
+
+// 返回顶部
+const scrollToTop = () => {
+  // 临时禁用滚动监听，避免触发昂贵的刷新操作
+  window.removeEventListener('scroll', handleScroll)
+  window.removeEventListener('resize', handleScroll)
+  setTimeout(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    })
+  }, 600) // 600ms 足够 smooth 滚动完成
+  // 等待滚动完成后重新启用监听
+  setTimeout(() => {
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    window.addEventListener('resize', handleScroll, { passive: true })
+    // 重置滚动位置相关的状态
+    showBackToTop.value = false
+    // 重新检查可见组件
+    checkVisibleComponents()
+  }, 600) // 600ms 足够 smooth 滚动完成
 }
 
 const checkVisibleComponents = async () => {
@@ -250,14 +289,27 @@ const checkVisibleComponents = async () => {
 watch(currentCategory, async (newCategory) => {
   console.log('[LazyLoad] Category changed to:', newCategory)
   console.log('[LazyLoad] Filtered components count:', filteredComponents.value.length)
-  visibleIndex.value = 0 // 重置为第1个组件
+  
+  // 先重置可见索引，强制重新渲染
+  visibleIndex.value = -1
   isLoading.value = false
+  
   await nextTick()
-  checkVisibleComponents()
-  // 延迟刷新确保新组件完全渲染
-  setTimeout(() => {
-    safeRefreshScrollTrigger()
-  }, 200)
+  
+  // 滚动到顶部
+  window.scrollTo({ top: 0, behavior: 'smooth' })
+  
+  // 等待滚动后再加载组件
+  setTimeout(async () => {
+    visibleIndex.value = 0
+    await nextTick()
+    await checkVisibleComponents()
+    
+    // 延迟刷新确保新组件完全渲染
+    setTimeout(() => {
+      safeRefreshScrollTrigger()
+    }, 200)
+  }, 500)
 })
 
 // 组件类型
@@ -551,6 +603,54 @@ onUnmounted(() => {
   to {
     transform: translateX(0);
     opacity: 1;
+  }
+}
+
+// 返回顶部按钮
+.back-to-top {
+  position: fixed;
+  bottom: 100px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, #a78bfa, #60a5fa);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  z-index: 999;
+  box-shadow: 0 4px 15px rgba(167, 139, 250, 0.4);
+  transition: all 0.3s ease;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+
+  svg {
+    width: 24px;
+    height: 24px;
+    transition: transform 0.3s ease;
+  }
+
+  &.is-visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(167, 139, 250, 0.6);
+
+    svg {
+      transform: translateY(-2px);
+    }
+  }
+
+  &:active {
+    transform: translateY(0);
   }
 }
 </style>
