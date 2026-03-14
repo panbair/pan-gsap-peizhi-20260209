@@ -28,7 +28,6 @@
       >
         <div class="item-header">
           <span class="item-number">#{{ index + 1 }}</span>
-          <span class="item-category">{{ item.category }}</span>
           <span class="item-name">{{ item.name }}</span>
         </div>
 
@@ -72,7 +71,7 @@
       </div>
       <div class="status-item">
         <span>分类:</span>
-        <span>{{ categories.find(c => c.id === currentCategory)?.name }}</span>
+        <span>{{ currentCategory }} ({{ categories.find(c => c.id === currentCategory)?.name }})</span>
       </div>
     </div>
 
@@ -96,23 +95,13 @@ gsap.registerPlugin(ScrollTrigger)
 
 // 状态
 const containerRef = ref<HTMLElement | null>(null)
-const currentCategory = ref('all')
-const visibleIndex = ref(1) // 初始只显示前2个组件 (索引0, 1)
-const loadedComponents = ref<Set<string>>(new Set())
+const currentCategory = ref('animation-1')
+const visibleIndex = ref(0) // 初始只显示第1个组件
 const loadingError = ref<string | null>(null)
 const isLoading = ref(false)
 
-// 分类定义
-const categories = ref([
-  { id: 'all', name: '全部', count: 0 },
-  { id: 'core', name: '核心', count: 0 },
-  { id: 'scroll', name: '滚动', count: 0 },
-  { id: 'creative', name: '创意', count: 0 },
-  { id: 'card', name: '卡片', count: 0 },
-  { id: 'text', name: '文字', count: 0 },
-  { id: 'image', name: '图片', count: 0 },
-  { id: '3d', name: '3D', count: 0 },
-])
+// 分类定义 - 动态生成
+const categories = ref<{ id: string; name: string; count: number }[]>([])
 
 // 所有组件
 const allComponents = shallowRef<ComponentInfo[]>([])
@@ -120,11 +109,12 @@ const allComponents = shallowRef<ComponentInfo[]>([])
 // 初始化组件列表
 const initializeComponents = () => {
   const componentFiles = import.meta.glob('./components/*.vue')
+  const paths = Object.keys(componentFiles)
 
-  allComponents.value = Object.keys(componentFiles).map(path => {
+  allComponents.value = paths.map((path, index) => {
     const name = path.split('/').pop()?.replace('.vue', '') || ''
-    const category = getCategory(name)
-    
+    const category = getCategoryByIndex(index)
+
     // 创建带错误处理的异步组件
     const asyncComponent = defineAsyncComponent({
       loader: () => {
@@ -147,7 +137,7 @@ const initializeComponents = () => {
       delay: 200,
       timeout: 30000 // 增加到30秒
     })
-    
+
     return {
       id: name,
       name,
@@ -159,27 +149,31 @@ const initializeComponents = () => {
   updateCategoryCounts()
 }
 
-// 获取分类
-const getCategory = (name: string): string => {
-  const lowerName = name.toLowerCase()
-  if (lowerName.includes('card')) return 'card'
-  if (lowerName.includes('text')) return 'text'
-  if (lowerName.includes('image')) return 'image'
-  if (lowerName.includes('3d')) return '3d'
-  if (lowerName.includes('cube') || lowerName.includes('galaxy') || lowerName.includes('particle')) return 'creative'
-  return 'scroll'
+// 获取分类 - 基于索引，每20个组件为一组
+const getCategoryByIndex = (index: number): string => {
+  const groupIndex = Math.floor(index / 20)
+  return `animation-${groupIndex + 1}`
 }
 
-// 更新分类计数
+// 更新分类计数 - 动态生成分类
 const updateCategoryCounts = () => {
   const components = allComponents.value
   if (!components || !Array.isArray(components)) return
-  categories.value = categories.value.map(cat => ({
-    ...cat,
-    count: cat.id === 'all'
-      ? components.length
-      : components.filter(c => c.category === cat.id).length
-  }))
+
+  const totalCategories = Math.ceil(components.length / 20)
+  const cats: { id: string; name: string; count: number }[] = []
+
+  for (let i = 0; i < totalCategories; i++) {
+    const start = i * 20
+    const end = Math.min((i + 1) * 20, components.length)
+    cats.push({
+      id: `animation-${i + 1}`,
+      name: `动画${i + 1}`,
+      count: end - start
+    })
+  }
+
+  categories.value = cats
 }
 
 // 过滤后的组件
@@ -187,9 +181,6 @@ const filteredComponents = computed(() => {
   const components = allComponents.value
   if (!components || !Array.isArray(components)) {
     return []
-  }
-  if (currentCategory.value === 'all') {
-    return components
   }
   return components.filter(c => c.category === currentCategory.value)
 })
@@ -256,8 +247,10 @@ const checkVisibleComponents = async () => {
 }
 
 // 监听分类变化,重置可见索引
-watch(currentCategory, async () => {
-  visibleIndex.value = 1 // 重置为前2个组件
+watch(currentCategory, async (newCategory) => {
+  console.log('[LazyLoad] Category changed to:', newCategory)
+  console.log('[LazyLoad] Filtered components count:', filteredComponents.value.length)
+  visibleIndex.value = 0 // 重置为第1个组件
   isLoading.value = false
   await nextTick()
   checkVisibleComponents()
@@ -408,14 +401,6 @@ onUnmounted(() => {
   border-radius: 6px;
   font-size: 12px;
   font-weight: bold;
-}
-
-.item-category {
-  padding: 4px 10px;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 6px;
-  font-size: 12px;
-  color: #94a3b8;
 }
 
 .item-name {
