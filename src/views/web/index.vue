@@ -1388,44 +1388,92 @@ const componentVisibilityConfig = {
 // 当前已加载的组件索引
 const loadedCount = ref(coreComponents.length)
 
-// 分批加载组件（每次加载10个）
-let loadMoreTimeout: ReturnType<typeof setTimeout> | null = null
-const loadMoreComponents = () => {
-  const batchSize = 10
-  const start = loadedCount.value
-  const end = Math.min(start + batchSize, componentVisibilityConfig.lazy.length)
+// 🔥 性能优化：只渲染视口内的组件
+const ITEM_HEIGHT = 600  // 每个组件预估高度
+const VIEWPORT_BUFFER = 2  // 视口前后缓冲的组件数
+const VISIBLE_LIMIT = 12  // 最多同时显示12个组件
 
-  const keysToLoad = componentVisibilityConfig.lazy.slice(start, end)
-  if (keysToLoad.length > 0) {
-    batchUpdateVisibility(keysToLoad)
-    loadedCount.value = end
+// 计算当前应该显示的组件范围
+const getVisibleRange = () => {
+  const scrollTop = window.scrollY || document.documentElement.scrollTop
+  const currentIndex = Math.floor(scrollTop / ITEM_HEIGHT)
 
-    // 刷新ScrollTrigger
-    ScrollTrigger.refresh()
+  // 计算可见范围：前后各加缓冲区，但不超过限制
+  const startIndex = Math.max(0, currentIndex - VIEWPORT_BUFFER)
+  let endIndex = Math.min(
+    componentVisibilityConfig.lazy.length,
+    currentIndex + VIEWPORT_BUFFER + VISIBLE_LIMIT
+  )
+
+  // 确保不超过最大显示数量
+  if (endIndex - startIndex > VISIBLE_LIMIT + VIEWPORT_BUFFER * 2) {
+    endIndex = startIndex + VISIBLE_LIMIT + VIEWPORT_BUFFER * 2
   }
 
-  // 如果还有组件未加载，继续加载
+  return { startIndex, endIndex }
+}
+
+// 智能批量更新组件可见性
+const smartUpdateVisibility = () => {
+  const { startIndex, endIndex } = getVisibleRange()
+
+  // 显示范围内的组件
+  for (let i = startIndex; i < endIndex; i++) {
+    const key = componentVisibilityConfig.lazy[i]
+    if (key) {
+      visibilityState.value[key] = true
+    }
+  }
+
+  // 🔥 关键优化：隐藏超出范围的组件（释放内存）
+  const hiddenThreshold = startIndex - VIEWPORT_BUFFER
+  const visibleThreshold = endIndex + VIEWPORT_BUFFER
+
+  Object.keys(visibilityState.value).forEach(key => {
+    // 跳过核心组件（始终显示）
+    if (coreComponents.includes(key)) return
+
+    // 检查是否在懒加载列表中
+    const index = componentVisibilityConfig.lazy.indexOf(key)
+
+    // 如果超出可见范围，隐藏组件
+    if (index !== -1 && (index < hiddenThreshold || index > visibleThreshold)) {
+      visibilityState.value[key] = false
+    }
+  })
+
+  loadedCount.value = endIndex
+}
+
+// 分批加载组件（基于滚动位置智能加载）
+let loadMoreTimeout: ReturnType<typeof setTimeout> | null = null
+const loadMoreComponents = () => {
+  smartUpdateVisibility()
+
+  // 刷新ScrollTrigger
+  ScrollTrigger.refresh()
+
+  // 检查是否还有更多组件
   if (loadedCount.value < componentVisibilityConfig.lazy.length) {
     if (loadMoreTimeout) {
       clearTimeout(loadMoreTimeout)
     }
+    // 降低频率，减少性能开销
     loadMoreTimeout = setTimeout(loadMoreComponents, 300)
   }
 }
 
-// 监听滚动事件，加速加载可见区域组件
+// 监听滚动事件，智能加载可见区域组件
 let scrollTimeout: ReturnType<typeof setTimeout> | null = null
 const handleScroll = () => {
   if (scrollTimeout) {
     clearTimeout(scrollTimeout)
   }
   scrollTimeout = setTimeout(() => {
-    // 如果还有未加载的组件，加速加载
-    if (loadedCount.value < componentVisibilityConfig.lazy.length) {
-      loadMoreComponents()
-    }
+    // 始终更新可见区域
+    smartUpdateVisibility()
     scrollTimeout = null
-  }, 200)
+  }, 150) // 降低延迟，提高响应速度
 }
 
 onMounted(() => {
@@ -1491,20 +1539,18 @@ onMounted(() => {
   // 延迟一段时间后开始加载，确保页面布局稳定
   setTimeout(() => {
     isLoading.value = false
+  }, 300)
+
+  // 立即显示核心组件
+  batchUpdateVisibility(componentVisibilityConfig.immediate)
+
+  // 🔥 性能优化：初始加载首屏可见的懒加载组件
+  setTimeout(() => {
+    smartUpdateVisibility()
+    ScrollTrigger.refresh()
   }, 500)
 
-  // 立即显示核心组件 - 批量更新
-  setTimeout(() => {
-    batchUpdateVisibility(componentVisibilityConfig.immediate)
-
-    // 刷新ScrollTrigger以显示所有组件
-    ScrollTrigger.refresh()
-
-    // 延迟开始分批加载剩余组件
-    setTimeout(loadMoreComponents, 1000)
-  }, 800)
-
-  // 监听滚动事件，加速加载可见区域组件
+  // 监听滚动事件，智能加载/卸载可见区域组件
   window.addEventListener('scroll', handleScroll, { passive: true })
 })
 
