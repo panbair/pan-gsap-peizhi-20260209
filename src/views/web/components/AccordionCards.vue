@@ -92,7 +92,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, onMounted, onUnmounted, nextTick } from 'vue'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
@@ -322,7 +322,8 @@ const collapseAll = () => {
 }
 
 const animateParticles = () => {
-  gsap.utils.toArray('.ac-particle-65').forEach((particle: any, i) => {
+  const particles = gsap.utils.toArray('.ac-particle-65', sectionRoot.value)
+  particles.forEach((particle: any, i) => {
     gsap.to(particle, {
       y: 'random(-100, -20)',
       x: 'random(-20, 20)',
@@ -337,136 +338,161 @@ const animateParticles = () => {
 }
 
 const animateGlowOrbs = () => {
-  gsap.to('.ac-glow-1-65', {
-    x: '+=30',
-    y: '-=30',
-    scale: 'random(1, 1.3)',
-    duration: 8,
-    repeat: -1,
-    yoyo: true,
-    ease: 'sine.inOut'
-  })
+  const glow1 = gsap.utils.toArray('.ac-glow-1-65', sectionRoot.value)[0]
+  const glow2 = gsap.utils.toArray('.ac-glow-2-65', sectionRoot.value)[0]
 
-  gsap.to('.ac-glow-2-65', {
-    x: '-=30',
-    y: '+=30',
-    scale: 'random(1, 1.3)',
-    duration: 10,
-    repeat: -1,
-    yoyo: true,
-    ease: 'sine.inOut'
-  })
+  if (glow1) {
+    gsap.to(glow1, {
+      x: '+=30',
+      y: '-=30',
+      scale: 'random(1, 1.3)',
+      duration: 8,
+      repeat: -1,
+      yoyo: true,
+      ease: 'sine.inOut'
+    })
+  }
+
+  if (glow2) {
+    gsap.to(glow2, {
+      x: '-=30',
+      y: '+=30',
+      scale: 'random(1, 1.3)',
+      duration: 10,
+      repeat: -1,
+      yoyo: true,
+      ease: 'sine.inOut'
+    })
+  }
 }
 
 onMounted(() => {
-  ctx = gsap.context(() => {
-    // 初始化卡片内容
-    gsap.set('.ac-card-content-65', { height: 0, overflow: 'hidden' })
+  // 等待 DOM 完全渲染
+  nextTick(() => {
+    ctx = gsap.context(() => {
+      // 初始化卡片内容
+      gsap.set('.ac-card-content-65', { height: 0, overflow: 'hidden' })
 
-    // 延迟展开第一个卡片
-    setTimeout(() => {
-      if (cards.value[0]) {
-        toggleCard(0)
-      }
-    }, 500)
+      // 延迟展开第一个卡片
+      setTimeout(() => {
+        if (cards.value[0]) {
+          toggleCard(0)
+        }
+      }, 500)
 
-    // 标题入场动画
-    gsap.from('.ac-title-65', {
-      scrollTrigger: {
-        trigger: '.accordion-section-65',
-        start: 'top 85%',
-        toggleActions: 'play none none reverse'
-      },
-      y: 80,
-      opacity: 0,
-      scale: 0.85,
-      rotationX: -10,
-      duration: 1.2,
-      ease: 'elastic.out(1, 0.7)'
-    })
-
-    // 标题光效
-    gsap.to('.ac-title-shimmer-65', {
-      x: '200%',
-      duration: 3,
-      repeat: -1,
-      ease: 'none'
-    })
-
-    // 副标题动画
-    gsap.from('.ac-subtitle-65', {
-      scrollTrigger: {
-        trigger: '.accordion-section-65',
-        start: 'top 80%',
-        toggleActions: 'play none none reverse'
-      },
-      y: 50,
-      opacity: 0,
-      duration: 1,
-      delay: 0.15,
-      ease: 'power3.out'
-    })
-
-    // 标题分割线动画
-    gsap.from('.ac-title-line-65', {
-      scrollTrigger: {
-        trigger: '.accordion-section-65',
-        start: 'top 75%',
-        toggleActions: 'play none none reverse'
-      },
-      width: 0,
-      duration: 0.8,
-      delay: 0.3,
-      ease: 'power2.out'
-    })
-
-    // 卡片交错入场动画
-    gsap.from('.accordion-card-65', {
-      scrollTrigger: {
-        trigger: '.accordion-container-65',
-        start: 'top 85%',
-        toggleActions: 'play none none reverse'
-      },
-      y: 100,
-      opacity: 0,
-      scale: 0.9,
-      rotationX: 15,
-      stagger: 0.1,
-      duration: 0.9,
-      ease: 'power3.out'
-    })
-
-    // 按钮动画
-    gsap.from('.ac-btn-65', {
-      scrollTrigger: {
-        trigger: '.ac-controls-65',
-        start: 'top 90%',
-        toggleActions: 'play none none reverse'
-      },
-      y: 40,
-      opacity: 0,
-      scale: 0.9,
-      stagger: 0.1,
-      duration: 0.7,
-      ease: 'back.out(1.7)'
-    })
-
-    // 启动粒子动画
-    animateParticles()
-
-    // 启动光晕动画
-    animateGlowOrbs()
-
-    // 数字序号环动画
-    gsap.utils.toArray('.ac-number-ring-65').forEach((ring: any) => {
-      gsap.to(ring, {
-        rotation: 360,
-        duration: 10,
-        repeat: -1,
-        ease: 'none'
+      // 标题入场动画 - 使用 gsap.utils.toArray 安全选择
+      const titleEls = gsap.utils.toArray('.ac-title-65', sectionRoot.value)
+      titleEls.forEach((title: any) => {
+        gsap.from(title, {
+          scrollTrigger: {
+            trigger: sectionRoot.value,
+            start: 'top 85%',
+            toggleActions: 'play none none reverse'
+          },
+          y: 80,
+          opacity: 0,
+          scale: 0.85,
+          rotationX: -10,
+          duration: 1.2,
+          ease: 'elastic.out(1, 0.7)'
+        })
       })
-    })
-  }, sectionRoot.value)
+
+      // 标题光效
+      const shimmerEls = gsap.utils.toArray('.ac-title-shimmer-65', sectionRoot.value)
+      shimmerEls.forEach((shimmer: any) => {
+        gsap.to(shimmer, {
+          x: '200%',
+          duration: 3,
+          repeat: -1,
+          ease: 'none'
+        })
+      })
+
+      // 副标题动画
+      const subtitleEls = gsap.utils.toArray('.ac-subtitle-65', sectionRoot.value)
+      subtitleEls.forEach((subtitle: any) => {
+        gsap.from(subtitle, {
+          scrollTrigger: {
+            trigger: sectionRoot.value,
+            start: 'top 80%',
+            toggleActions: 'play none none reverse'
+          },
+          y: 50,
+          opacity: 0,
+          duration: 1,
+          delay: 0.15,
+          ease: 'power3.out'
+        })
+      })
+
+      // 标题分割线动画
+      const lineEls = gsap.utils.toArray('.ac-title-line-65', sectionRoot.value)
+      lineEls.forEach((line: any) => {
+        gsap.from(line, {
+          scrollTrigger: {
+            trigger: sectionRoot.value,
+            start: 'top 75%',
+            toggleActions: 'play none none reverse'
+          },
+          width: 0,
+          duration: 0.8,
+          delay: 0.3,
+          ease: 'power2.out'
+        })
+      })
+
+      // 卡片交错入场动画
+      const cardEls = gsap.utils.toArray('.accordion-card-65', sectionRoot.value)
+      gsap.from(cardEls, {
+        scrollTrigger: {
+          trigger: gsap.utils.toArray('.accordion-container-65', sectionRoot.value)[0] as Element,
+          start: 'top 85%',
+          toggleActions: 'play none none reverse'
+        },
+        y: 100,
+        opacity: 0,
+        scale: 0.9,
+        rotationX: 15,
+        stagger: 0.1,
+        duration: 0.9,
+        ease: 'power3.out'
+      })
+
+      // 按钮动画
+      const btnEls = gsap.utils.toArray('.ac-btn-65', sectionRoot.value)
+      gsap.from(btnEls, {
+        scrollTrigger: {
+          trigger: gsap.utils.toArray('.ac-controls-65', sectionRoot.value)[0] as Element,
+          start: 'top 90%',
+          toggleActions: 'play none none reverse'
+        },
+        y: 40,
+        opacity: 0,
+        scale: 0.9,
+        stagger: 0.1,
+        duration: 0.7,
+        ease: 'back.out(1.7)'
+      })
+
+      // 启动粒子动画
+      animateParticles()
+
+      // 启动光晕动画
+      animateGlowOrbs()
+
+      // 数字序号环动画
+      const ringEls = gsap.utils.toArray('.ac-number-ring-65', sectionRoot.value)
+      ringEls.forEach((ring: any) => {
+        gsap.to(ring, {
+          rotation: 360,
+          duration: 10,
+          repeat: -1,
+          ease: 'none'
+        })
+      })
+    }, sectionRoot.value)
+  })
 })
 
 onUnmounted(() => {

@@ -180,14 +180,31 @@ const allComponents = ref<any[]>([])
 
 // 初始化组件
 const initializeComponents = async () => {
-  // 动态导入所有组件
-  const componentModules = import.meta.glob('./components/Scroll*.vue')
-  
+  // 动态导入所有组件 (包括 Scroll* 和 AccordionCards 等)
+  const componentModules = {
+    ...import.meta.glob('./components/Scroll*.vue'),
+    ...import.meta.glob('./components/Accordion*.vue'),
+    ...import.meta.glob('./components/Card3D*.vue'),
+    ...import.meta.glob('./components/Timeline*.vue'),
+    ...import.meta.glob('./components/Text*.vue'),
+    ...import.meta.glob('./components/Cube*.vue'),
+    ...import.meta.glob('./components/Image*.vue'),
+    ...import.meta.glob('./components/Horizontal*.vue'),
+    ...import.meta.glob('./components/Parallax*.vue'),
+    ...import.meta.glob('./components/Infinite*.vue'),
+    ...import.meta.glob('./components/Magnetic*.vue'),
+    ...import.meta.glob('./components/Morph*.vue'),
+    ...import.meta.glob('./components/Nebula*.vue'),
+    ...import.meta.glob('./components/Quantum*.vue'),
+    ...import.meta.glob('./components/Rotate*.vue'),
+    ...import.meta.glob('./components/Rotation*.vue')
+  }
+
   const components = await Promise.all(
     Object.entries(componentModules).map(async ([path, module]: [string, any]) => {
       const name = path.split('/').pop()?.replace('.vue', '') || ''
       const category = categorizeComponent(name)
-      
+
       return {
         id: name,
         name,

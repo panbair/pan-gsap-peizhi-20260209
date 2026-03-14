@@ -35,9 +35,20 @@
         <!-- 懒加载组件或占位符 -->
         <template v-if="index <= visibleIndex">
           <KeepAlive>
-            <component
-              :is="item.component"
-            />
+            <Suspense>
+              <template #default>
+                <component
+                  :is="item.component"
+                  :key="item.id"
+                />
+              </template>
+              <template #fallback>
+                <div class="component-loading">
+                  <div class="loading-spinner"></div>
+                  <p>加载组件中...</p>
+                </div>
+              </template>
+            </Suspense>
           </KeepAlive>
         </template>
         <div v-else class="component-placeholder">
@@ -64,6 +75,13 @@
         <span>{{ categories.find(c => c.id === currentCategory)?.name }}</span>
       </div>
     </div>
+
+    <!-- 错误提示 -->
+    <div v-if="loadingError" class="error-toast">
+      <span class="error-icon">⚠️</span>
+      <span>{{ loadingError }}</span>
+      <button @click="loadingError = null" class="close-btn">×</button>
+    </div>
   </div>
 </template>
 
@@ -72,14 +90,17 @@ import { ref, shallowRef, computed, onMounted, onUnmounted, markRaw, nextTick, w
 import { defineAsyncComponent } from 'vue'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { safeRefreshScrollTrigger } from '@/utils/gsapHelper'
 
 gsap.registerPlugin(ScrollTrigger)
 
 // 状态
 const containerRef = ref<HTMLElement | null>(null)
 const currentCategory = ref('all')
-const visibleIndex = ref(2) // 初始显示前3个组件 (索引0, 1, 2)
+const visibleIndex = ref(1) // 初始只显示前2个组件 (索引0, 1)
 const loadedComponents = ref<Set<string>>(new Set())
+const loadingError = ref<string | null>(null)
+const isLoading = ref(false)
 
 // 分类定义
 const categories = ref([
@@ -103,11 +124,30 @@ const initializeComponents = () => {
   allComponents.value = Object.keys(componentFiles).map(path => {
     const name = path.split('/').pop()?.replace('.vue', '') || ''
     const category = getCategory(name)
+    
+    // 创建带错误处理的异步组件
     const asyncComponent = defineAsyncComponent({
-      loader: componentFiles[path] as () => Promise<any>,
-      delay: 100,
-      timeout: 10000
+      loader: () => {
+        console.log(`[LazyLoad] Loading component: ${name}`)
+        return componentFiles[path]().then(module => {
+          console.log(`[LazyLoad] Successfully loaded: ${name}`)
+          return module
+        }).catch(error => {
+          console.error(`[LazyLoad] Failed to load ${name}:`, error)
+          loadingError.value = `Failed to load ${name}: ${error.message}`
+          throw error
+        })
+      },
+      loadingComponent: {
+        template: '<div class="component-loading">加载中...</div>'
+      },
+      errorComponent: {
+        template: '<div class="component-error">加载失败</div>'
+      },
+      delay: 200,
+      timeout: 30000 // 增加到30秒
     })
+    
     return {
       id: name,
       name,
@@ -156,20 +196,28 @@ const filteredComponents = computed(() => {
 
 // 处理滚动加载
 let refreshTimeout: ReturnType<typeof setTimeout> | null = null
+let isScrolling = false
 
 const handleScroll = () => {
+  if (isScrolling) return
+  isScrolling = true
+
+  requestAnimationFrame(() => {
+    checkVisibleComponents()
+    isScrolling = false
+  })
+
   if (refreshTimeout) {
     clearTimeout(refreshTimeout)
   }
   refreshTimeout = setTimeout(() => {
-    checkVisibleComponents()
-    ScrollTrigger.refresh()
+    safeRefreshScrollTrigger()
     refreshTimeout = null
-  }, 100)
+  }, 150)
 }
 
-const checkVisibleComponents = () => {
-  if (!containerRef.value) return
+const checkVisibleComponents = async () => {
+  if (!containerRef.value || isLoading.value) return
 
   const container = containerRef.value
   const containerRect = container.getBoundingClientRect()
@@ -177,23 +225,46 @@ const checkVisibleComponents = () => {
 
   // 找到当前可见的组件
   const wrappers = container.querySelectorAll('.component-wrapper')
+  let newVisibleIndex = visibleIndex.value
+
   wrappers.forEach((wrapper, index) => {
     const rect = wrapper.getBoundingClientRect()
-    const isVisible = rect.top < viewportHeight * 1.5 // 提前加载
+    const isVisible = rect.top < viewportHeight * 1.2 // 只加载即将进入视口的组件
 
     if (isVisible && index > visibleIndex.value) {
-      visibleIndex.value = index
+      newVisibleIndex = index
     }
   })
+
+  // 如果有新的组件需要加载
+  if (newVisibleIndex > visibleIndex.value) {
+    isLoading.value = true
+    
+    // 逐个加载组件,避免同时加载太多
+    for (let i = visibleIndex.value + 1; i <= newVisibleIndex; i++) {
+      visibleIndex.value = i
+      await nextTick()
+      // 短暂延迟,让组件有时间初始化
+      await new Promise(resolve => setTimeout(resolve, 100))
+    }
+    
+    isLoading.value = false
+    
+    // 所有组件加载完成后刷新 ScrollTrigger
+    safeRefreshScrollTrigger()
+  }
 }
 
 // 监听分类变化,重置可见索引
-watch(currentCategory, () => {
-  visibleIndex.value = 2 // 重置为前3个组件
-  nextTick(() => {
-    checkVisibleComponents()
-    ScrollTrigger.refresh()
-  })
+watch(currentCategory, async () => {
+  visibleIndex.value = 1 // 重置为前2个组件
+  isLoading.value = false
+  await nextTick()
+  checkVisibleComponents()
+  // 延迟刷新确保新组件完全渲染
+  setTimeout(() => {
+    safeRefreshScrollTrigger()
+  }, 200)
 })
 
 // 组件类型
@@ -205,7 +276,7 @@ interface ComponentInfo {
 }
 
 // 生命周期
-onMounted(() => {
+onMounted(async () => {
   if (!allComponents.value || !Array.isArray(allComponents.value)) {
     allComponents.value = []
   }
@@ -214,10 +285,13 @@ onMounted(() => {
   window.addEventListener('scroll', handleScroll, { passive: true })
   window.addEventListener('resize', handleScroll, { passive: true })
 
-  nextTick(() => {
-    checkVisibleComponents()
-    ScrollTrigger.refresh()
-  })
+  await nextTick()
+  await checkVisibleComponents()
+
+  // 延迟刷新确保初始组件完全渲染
+  setTimeout(() => {
+    safeRefreshScrollTrigger()
+  }, 300)
 })
 
 onUnmounted(() => {
@@ -226,7 +300,19 @@ onUnmounted(() => {
   if (refreshTimeout) {
     clearTimeout(refreshTimeout)
   }
-  ScrollTrigger.getAll().forEach(trigger => trigger.kill())
+
+  // 清理所有 ScrollTrigger 实例
+  try {
+    ScrollTrigger.getAll().forEach(trigger => {
+      try {
+        trigger.kill()
+      } catch (error) {
+        // 忽略单个 trigger 清理失败
+      }
+    })
+  } catch (error) {
+    console.warn('Error during ScrollTrigger cleanup:', error)
+  }
 })
 </script>
 
@@ -387,6 +473,99 @@ onUnmounted(() => {
   span:last-child {
     color: #e2e8f0;
     font-weight: 600;
+  }
+}
+
+// 加载状态样式
+.component-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0 0 12px 12px;
+  color: #94a3b8;
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(255, 255, 255, 0.1);
+  border-top-color: #a78bfa;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 15px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.component-error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  border-radius: 0 0 12px 12px;
+  color: #f87171;
+}
+
+// 错误提示
+.error-toast {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 20px;
+  background: rgba(239, 68, 68, 0.95);
+  color: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  z-index: 10000;
+  animation: slideIn 0.3s ease-out;
+  max-width: 500px;
+}
+
+.error-icon {
+  font-size: 24px;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 0;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
   }
 }
 </style>

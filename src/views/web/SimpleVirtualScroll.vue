@@ -115,9 +115,26 @@ const allComponents = shallowRef<ComponentInfo[]>([])
 
 // 初始化组件列表
 const initializeComponents = () => {
-  // 动态导入所有Scroll开头的组件
-  const componentFiles = import.meta.glob('./components/Scroll*.vue')
-  
+  // 动态导入所有组件 (包括 Scroll* 和 AccordionCards 等)
+  const componentFiles = {
+    ...import.meta.glob('./components/Scroll*.vue'),
+    ...import.meta.glob('./components/Accordion*.vue'),
+    ...import.meta.glob('./components/Card3D*.vue'),
+    ...import.meta.glob('./components/Timeline*.vue'),
+    ...import.meta.glob('./components/Text*.vue'),
+    ...import.meta.glob('./components/Cube*.vue'),
+    ...import.meta.glob('./components/Image*.vue'),
+    ...import.meta.glob('./components/Horizontal*.vue'),
+    ...import.meta.glob('./components/Parallax*.vue'),
+    ...import.meta.glob('./components/Infinite*.vue'),
+    ...import.meta.glob('./components/Magnetic*.vue'),
+    ...import.meta.glob('./components/Morph*.vue'),
+    ...import.meta.glob('./components/Nebula*.vue'),
+    ...import.meta.glob('./components/Quantum*.vue'),
+    ...import.meta.glob('./components/Rotate*.vue'),
+    ...import.meta.glob('./components/Rotation*.vue')
+  }
+
   allComponents.value = Object.keys(componentFiles).map(path => {
     const name = path.split('/').pop()?.replace('.vue', '') || ''
     const category = getCategory(name)

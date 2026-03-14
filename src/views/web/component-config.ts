@@ -134,6 +134,14 @@ export const scrollComponents: ComponentConfig[] = [
 // 卡片特效组件
 export const cardComponents: ComponentConfig[] = [
   {
+    id: 'accordion-cards',
+    name: 'AccordionCards',
+    component: () => import('./components/AccordionCards.vue'),
+    category: 'card',
+    priority: 38,
+    description: '手风琴卡片'
+  },
+  {
     id: 'scroll-card-zoom',
     name: 'ScrollCardZoom',
     component: () => import('./components/ScrollCardZoom.vue'),

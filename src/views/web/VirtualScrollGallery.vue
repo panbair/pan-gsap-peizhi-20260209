@@ -97,12 +97,15 @@ const componentImports = {
   TextTypewriter: () => import('./components/TextTypewriter.vue'),
   Cube3D: () => import('./components/Cube3D.vue'),
   ImageParallax: () => import('./components/ImageParallax.vue'),
-  
+
+  // 卡片组件
+  AccordionCards: () => import('./components/AccordionCards.vue'),
+
   // 3D组件
   Scroll3DCube: () => import('./components/Scroll3DCube.vue'),
   Scroll3DTunnel: () => import('./components/Scroll3DTunnel.vue'),
   Scroll3DGallery: () => import('./components/Scroll3DGallery.vue'),
-  
+
   // 可以继续添加其他组件...
 }
 
@@ -113,6 +116,7 @@ const componentCategories: Record<string, string> = {
   TextTypewriter: 'core',
   Cube3D: 'core',
   ImageParallax: 'core',
+  AccordionCards: 'card',
   Scroll3DCube: '3d',
   Scroll3DTunnel: '3d',
   Scroll3DGallery: '3d',
