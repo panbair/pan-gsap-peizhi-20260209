@@ -85,6 +85,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 gsap.registerPlugin(ScrollTrigger)
 
 let ctx = null
+const eventListeners = [] // 存储事件监听器用于清理
 
 const items = [
   {
@@ -132,196 +133,280 @@ const items = [
 ]
 
 onMounted(() => {
-  // 延迟确保DOM完全渲染
-  setTimeout(() => {
-    ctx = gsap.context(() => {
-      // 标题入场动画
-      gsap.from('.minimal-title-232', {
-        y: -60,
-        opacity: 0,
-        duration: 1,
-        ease: 'power3.out'
-      })
-
-      gsap.from('.title-main-232', {
-        y: 30,
-        opacity: 0,
+  ctx = gsap.context(() => {
+    // 标题入场动画 - 使用ScrollTrigger
+    gsap.fromTo('.minimal-title-232',
+      { y: -60, opacity: 0 },
+      {
+        scrollTrigger: {
+          trigger: '.minimal-title-232',
+          start: 'top 85%',
+          toggleActions: 'play none none reverse'
+        },
+        y: 0,
+        opacity: 1,
         duration: 0.8,
+        ease: 'power3.out'
+      }
+    )
+
+    gsap.fromTo('.title-main-232',
+      { y: 30, opacity: 0 },
+      {
+        scrollTrigger: {
+          trigger: '.minimal-title-232',
+          start: 'top 85%',
+          toggleActions: 'play none none reverse'
+        },
+        y: 0,
+        opacity: 1,
+        duration: 0.6,
+        delay: 0.1,
+        ease: 'power2.out'
+      }
+    )
+
+    gsap.fromTo('.title-sub-232',
+      { y: 20, opacity: 0 },
+      {
+        scrollTrigger: {
+          trigger: '.minimal-title-232',
+          start: 'top 85%',
+          toggleActions: 'play none none reverse'
+        },
+        y: 0,
+        opacity: 1,
+        duration: 0.6,
         delay: 0.2,
         ease: 'power2.out'
-      })
+      }
+    )
 
-      gsap.from('.title-sub-232', {
-        y: 20,
-        opacity: 0,
-        duration: 0.8,
-        delay: 0.3,
+    gsap.fromTo('.title-line-232',
+      { width: 0 },
+      {
+        scrollTrigger: {
+          trigger: '.minimal-title-232',
+          start: 'top 85%',
+          toggleActions: 'play none none reverse'
+        },
+        width: '60px',
+        duration: 0.6,
+        delay: 0.25,
         ease: 'power2.out'
-      })
+      }
+    )
 
-      gsap.from('.title-line-232', {
-        width: 0,
+    // 几何装饰动画
+    gsap.fromTo('.geo-shape-232',
+      { scale: 0, opacity: 0 },
+      {
+        scrollTrigger: {
+          trigger: '.scroll-minimalist-cards-232',
+          start: 'top 90%',
+          toggleActions: 'play none none reverse'
+        },
+        scale: 1,
+        opacity: 1,
         duration: 0.8,
-        delay: 0.4,
-        ease: 'power2.out'
-      })
-
-      // 几何装饰动画
-      gsap.from('.geo-shape-232', {
-        scale: 0,
-        opacity: 0,
-        duration: 1,
-        stagger: 0.1,
-        delay: 0.3,
+        stagger: 0.08,
         ease: 'back.out(1.7)'
-      })
+      }
+    )
 
-      // 卡片入场 - 使用ScrollTrigger
-      gsap.from('.minimal-card-232', {
+    // 卡片入场 - 使用ScrollTrigger
+    gsap.fromTo('.minimal-card-232',
+      { y: 60, opacity: 0 },
+      {
         scrollTrigger: {
           trigger: '.minimal-container-232',
           start: 'top 80%',
           toggleActions: 'play none none reverse'
         },
-        y: 80,
-        opacity: 0,
-        duration: 0.8,
-        stagger: 0.15,
+        y: 0,
+        opacity: 1,
+        duration: 0.7,
+        stagger: 0.12,
         ease: 'power3.out'
-      })
+      }
+    )
 
-      // 卡片内部元素动画
-      const cards = gsap.utils.toArray('.minimal-card-232')
-      cards.forEach((card, i) => {
-        gsap.from(card.querySelector('.card-number-232'), {
+    // 卡片内部元素动画
+    const cards = gsap.utils.toArray('.minimal-card-232')
+    cards.forEach((card, i) => {
+      gsap.fromTo(card.querySelector('.card-number-232'),
+        { x: -20, opacity: 0 },
+        {
           scrollTrigger: {
             trigger: card,
             start: 'top 85%',
             toggleActions: 'play none none reverse'
           },
-          x: -30,
-          opacity: 0,
-          duration: 0.6,
-          delay: i * 0.15,
-          ease: 'power2.out'
-        })
-
-        gsap.from(card.querySelector('.card-icon-232'), {
-          scrollTrigger: {
-            trigger: card,
-            start: 'top 85%',
-            toggleActions: 'play none none reverse'
-          },
-          scale: 0,
-          opacity: 0,
-          duration: 0.6,
-          delay: i * 0.15 + 0.1,
-          ease: 'back.out(1.7)'
-        })
-
-        gsap.from(card.querySelector('.card-title-232'), {
-          scrollTrigger: {
-            trigger: card,
-            start: 'top 85%',
-            toggleActions: 'play none none reverse'
-          },
-          y: 20,
-          opacity: 0,
-          duration: 0.6,
-          delay: i * 0.15 + 0.2,
-          ease: 'power2.out'
-        })
-
-        gsap.from(card.querySelector('.card-desc-232'), {
-          scrollTrigger: {
-            trigger: card,
-            start: 'top 85%',
-            toggleActions: 'play none none reverse'
-          },
-          y: 15,
-          opacity: 0,
-          duration: 0.6,
-          delay: i * 0.15 + 0.3,
-          ease: 'power2.out'
-        })
-
-        gsap.from(card.querySelectorAll('.tag-232'), {
-          scrollTrigger: {
-            trigger: card,
-            start: 'top 85%',
-            toggleActions: 'play none none reverse'
-          },
-          y: 10,
-          opacity: 0,
+          x: 0,
+          opacity: 1,
           duration: 0.5,
-          stagger: 0.05,
-          delay: i * 0.15 + 0.4,
+          delay: i * 0.12,
           ease: 'power2.out'
-        })
+        }
+      )
 
-        gsap.from(card.querySelector('.progress-fill-232'), {
+      gsap.fromTo(card.querySelector('.card-icon-232'),
+        { scale: 0, opacity: 0 },
+        {
           scrollTrigger: {
             trigger: card,
             start: 'top 85%',
             toggleActions: 'play none none reverse'
           },
-          width: 0,
-          duration: 1,
-          delay: i * 0.15 + 0.5,
+          scale: 1,
+          opacity: 1,
+          duration: 0.5,
+          delay: i * 0.12 + 0.08,
+          ease: 'back.out(1.7)'
+        }
+      )
+
+      gsap.fromTo(card.querySelector('.card-title-232'),
+        { y: 15, opacity: 0 },
+        {
+          scrollTrigger: {
+            trigger: card,
+            start: 'top 85%',
+            toggleActions: 'play none none reverse'
+          },
+          y: 0,
+          opacity: 1,
+          duration: 0.5,
+          delay: i * 0.12 + 0.12,
+          ease: 'power2.out'
+        }
+      )
+
+      gsap.fromTo(card.querySelector('.card-desc-232'),
+        { y: 12, opacity: 0 },
+        {
+          scrollTrigger: {
+            trigger: card,
+            start: 'top 85%',
+            toggleActions: 'play none none reverse'
+          },
+          y: 0,
+          opacity: 1,
+          duration: 0.5,
+          delay: i * 0.12 + 0.16,
+          ease: 'power2.out'
+        }
+      )
+
+      gsap.fromTo(card.querySelectorAll('.tag-232'),
+        { y: 8, opacity: 0 },
+        {
+          scrollTrigger: {
+            trigger: card,
+            start: 'top 85%',
+            toggleActions: 'play none none reverse'
+          },
+          y: 0,
+          opacity: 1,
+          duration: 0.4,
+          stagger: 0.04,
+          delay: i * 0.12 + 0.2,
+          ease: 'power2.out'
+        }
+      )
+
+      gsap.fromTo(card.querySelector('.progress-fill-232'),
+        { width: 0 },
+        {
+          scrollTrigger: {
+            trigger: card,
+            start: 'top 85%',
+            toggleActions: 'play none none reverse'
+          },
+          width: `${items[i].value}%`,
+          duration: 0.8,
+          delay: i * 0.12 + 0.24,
           ease: 'power3.out'
-        })
+        }
+      )
 
-        gsap.from(card.querySelectorAll('.metric-232'), {
+      gsap.fromTo(card.querySelector('.metric-value-232'),
+        { y: 10, opacity: 0 },
+        {
           scrollTrigger: {
             trigger: card,
             start: 'top 85%',
             toggleActions: 'play none none reverse'
           },
-          y: 15,
-          opacity: 0,
-          duration: 0.6,
-          stagger: 0.1,
-          delay: i * 0.15 + 0.6,
+          y: 0,
+          opacity: 1,
+          duration: 0.5,
+          delay: i * 0.12 + 0.28,
+          ease: 'power2.out'
+        }
+      )
+
+      // 鼠标交互 - 添加事件监听器用于清理
+      const mouseEnterHandler = () => {
+        gsap.to(card.querySelector('.icon-box-232'), {
+          scale: 1.1,
+          duration: 0.3,
           ease: 'power2.out'
         })
-      })
 
-      // 鼠标交互
-      cards.forEach(card => {
-        card.addEventListener('mouseenter', () => {
-          gsap.to(card.querySelector('.icon-box-232'), {
-            scale: 1.1,
-            duration: 0.3,
-            ease: 'power2.out'
-          })
+        gsap.to(card.querySelector('.title-underline-232'), {
+          width: '100%',
+          duration: 0.5,
+          ease: 'power2.out'
+        })
+      }
 
-          gsap.to(card.querySelector('.title-underline-232'), {
-            width: '100%',
-            duration: 0.5,
-            ease: 'power2.out'
-          })
+      const mouseLeaveHandler = () => {
+        gsap.to(card.querySelector('.icon-box-232'), {
+          scale: 1,
+          duration: 0.3,
+          ease: 'power2.out'
         })
 
-        card.addEventListener('mouseleave', () => {
-          gsap.to(card.querySelector('.icon-box-232'), {
-            scale: 1,
-            duration: 0.3,
-            ease: 'power2.out'
-          })
-
-          gsap.to(card.querySelector('.title-underline-232'), {
-            width: 0,
-            duration: 0.5,
-            ease: 'power2.out'
-          })
+        gsap.to(card.querySelector('.title-underline-232'), {
+          width: 0,
+          duration: 0.5,
+          ease: 'power2.out'
         })
-      })
+      }
+
+      card.addEventListener('mouseenter', mouseEnterHandler)
+      card.addEventListener('mouseleave', mouseLeaveHandler)
+
+      eventListeners.push({ element: card, event: 'mouseenter', handler: mouseEnterHandler })
+      eventListeners.push({ element: card, event: 'mouseleave', handler: mouseLeaveHandler })
     })
-  }, 100)
+
+    // 底部装饰
+    gsap.fromTo('.minimal-footer-232',
+      { y: 20, opacity: 0 },
+      {
+        scrollTrigger: {
+          trigger: '.minimal-footer-232',
+          start: 'top 90%',
+          toggleActions: 'play none none reverse'
+        },
+        y: 0,
+        opacity: 1,
+        duration: 0.6,
+        ease: 'power2.out'
+      }
+    )
+  })
 })
 
 onUnmounted(() => {
   ctx?.revert()
+  // 清理事件监听器
+  eventListeners.forEach(({ element, event, handler }) => {
+    element.removeEventListener(event, handler)
+  })
+  eventListeners.length = 0
 })
 </script>
 

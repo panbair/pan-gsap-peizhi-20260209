@@ -205,42 +205,48 @@ const initializeComponents = () => {
   const componentFiles = import.meta.glob('./components/*.vue')
   const paths = Object.keys(componentFiles)
 
-  allComponents.value = paths.map((path, index) => {
-    const name = path.split('/').pop()?.replace('.vue', '') || ''
-    const category = getCategoryByIndex(index)
-
-    // 创建带错误处理的异步组件
-    const asyncComponent = defineAsyncComponent({
-      loader: () => {
-        console.log(`[LazyLoad] Loading component: ${name}`)
-        return componentFiles[path]()
-          .then(module => {
-            console.log(`[LazyLoad] Successfully loaded: ${name}`)
-            return module
-          })
-          .catch(error => {
-            console.error(`[LazyLoad] Failed to load ${name}:`, error)
-            loadingError.value = `Failed to load ${name}: ${error.message}`
-            throw error
-          })
-      },
-      loadingComponent: {
-        template: '<div class="component-loading">加载中...</div>'
-      },
-      errorComponent: {
-        template: '<div   class="component-error">加载失败</div>'
-      },
-      delay: 200,
-      timeout: 30000 // 增加到30秒
+  allComponents.value = paths
+    .filter(path => {
+      const name = path.split('/').pop()?.replace('.vue', '') || ''
+      // 排除 CollectionsModal 组件，因为它不应该在画廊中显示
+      return name !== 'CollectionsModal'
     })
+    .map((path, index) => {
+      const name = path.split('/').pop()?.replace('.vue', '') || ''
+      const category = getCategoryByIndex(index)
 
-    return {
-      id: name,
-      name,
-      category,
-      component: markRaw(asyncComponent)
-    }
-  })
+      // 创建带错误处理的异步组件
+      const asyncComponent = defineAsyncComponent({
+        loader: () => {
+          console.log(`[LazyLoad] Loading component: ${name}`)
+          return componentFiles[path]()
+            .then(module => {
+              console.log(`[LazyLoad] Successfully loaded: ${name}`)
+              return module
+            })
+            .catch(error => {
+              console.error(`[LazyLoad] Failed to load ${name}:`, error)
+              loadingError.value = `Failed to load ${name}: ${error.message}`
+              throw error
+            })
+        },
+        loadingComponent: {
+          template: '<div class="component-loading">加载中...</div>'
+        },
+        errorComponent: {
+          template: '<div   class="component-error">加载失败</div>'
+        },
+        delay: 200,
+        timeout: 30000 // 增加到30秒
+      })
+
+      return {
+        id: name,
+        name,
+        category,
+        component: markRaw(asyncComponent)
+      }
+    })
 
   updateCategoryCounts()
 }
@@ -472,11 +478,14 @@ const saveSelections = async () => {
     const transaction = db.transaction('collections', 'readwrite')
     const store = transaction.objectStore('collections')
     const request = store.add(collection)
-
     request.onsuccess = () => {
       const id = request.result as number
       alert(`✅ 保存成功！\n\n名称：${name}\n组件数量：${selections.length}\nID：${id}`)
       db.close()
+
+      // 清除所有选中状态
+      selectedComponents.value.clear()
+      updateCategoryCounts()
     }
 
     request.onerror = () => {

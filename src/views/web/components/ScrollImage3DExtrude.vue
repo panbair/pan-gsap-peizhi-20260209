@@ -5,112 +5,238 @@
     <canvas ref="particleCanvas" class="ie-particles-228"></canvas>
 
     <div class="ie-header-228">
-      <h2 class="ie-title-228">3D 维度挤出</h2>
-      <p class="ie-subtitle-228">3D Dimension Extrusion</p>
+      <h2 class="ie-title-228">3D 极光挤出轮播</h2>
+      <p class="ie-subtitle-228">Aurora 3D Extrusion Carousel</p>
     </div>
 
-    <!-- 3D挤出容器 -->
+    <!-- 控制面板 -->
+    <div class="ie-control-panel-228">
+      <div class="ie-control-group-228">
+        <label class="ie-label-228">挤出深度</label>
+        <input
+          type="range"
+          min="50"
+          max="150"
+          v-model.number="extrudeDepth"
+          class="ie-slider-228"
+        />
+        <span class="ie-value-228">{{ extrudeDepth }}px</span>
+      </div>
+      <div class="ie-control-group-228">
+        <label class="ie-label-228">模糊强度</label>
+        <input
+          type="range"
+          min="0"
+          max="30"
+          v-model.number="blurIntensity"
+          class="ie-slider-228"
+        />
+        <span class="ie-value-228">{{ blurIntensity }}px</span>
+      </div>
+      <div class="ie-control-group-228">
+        <label class="ie-label-228">极光强度</label>
+        <input
+          type="range"
+          min="0"
+          max="100"
+          v-model.number="auroraIntensity"
+          class="ie-slider-228"
+        />
+        <span class="ie-value-228">{{ auroraIntensity }}%</span>
+      </div>
+      <div class="ie-control-group-228">
+        <label class="ie-label-228">混合模式</label>
+        <button
+          v-for="mode in blendModes"
+          :key="mode"
+          class="ie-mode-btn-228"
+          :class="{ 'ie-active-228': currentMode === mode }"
+          @click="setMode(mode)"
+        >
+          {{ mode }}
+        </button>
+      </div>
+    </div>
+
+    <!-- 3D轮播容器 -->
     <div class="ie-extrude-container-228">
-      <div ref="scene" class="ie-scene-228">
-        <!-- 多层3D卡片 -->
-        <div ref="card3D" class="ie-card-3d-228">
-          <!-- 底层卡片 -->
-          <div class="ie-card-layer-228 ie-layer-back-228" :style="layerStyle(0)">
-            <div class="ie-layer-content-228">
-              <img :src="currentImage" alt="3D Layer" />
-            </div>
-          </div>
-
-          <!-- 中间卡片层 -->
+      <div ref="carouselWrapper" class="ie-carousel-wrapper-228">
+        <!-- 轮播轨道 -->
+        <div ref="carouselTrack" class="ie-carousel-track-228">
+          <!-- 每个3D挤出卡片 -->
           <div
-            v-for="i in 6"
-            :key="`mid-${i}`"
-            :ref="el => { if (el) midLayerRefs[i] = el as HTMLElement }"
-            class="ie-card-layer-228 ie-layer-mid-228"
-            :style="layerStyle(i * 0.15)"
+            v-for="(img, index) in images"
+            :key="index"
+            ref="carouselItems"
+            class="ie-carousel-item-228"
+            :class="{ 'ie-active-228': activeIndex === index }"
+            :style="getItemStyle(index)"
           >
-            <div class="ie-layer-content-228">
-              <img :src="currentImage" alt="3D Layer" />
+            <!-- 3D挤出结构 -->
+            <div class="ie-card-3d-228">
+              <!-- 极光遮罩层 -->
+              <div class="ie-aurora-mask-228">
+                <div v-for="i in 3" :key="`wave-${i}`" class="ie-aurora-wave-228"></div>
+              </div>
+
+              <!-- 模糊层 -->
+              <div class="ie-blur-layer-228" :style="{ filter: `blur(${blurIntensity}px)` }"></div>
+
+              <!-- 底层卡片 -->
+              <div class="ie-card-layer-228 ie-layer-back-228">
+                <div class="ie-layer-content-228">
+                  <img :src="img" :alt="`Image ${index + 1}`" />
+                </div>
+              </div>
+
+              <!-- 中间卡片层 -->
+              <div v-for="i in 6" :key="`mid-${index}-${i}`" class="ie-card-layer-228 ie-layer-mid-228" :style="layerStyle(i * 0.15)">
+                <div class="ie-layer-content-228">
+                  <img :src="img" :alt="`Layer ${i}`" />
+                </div>
+              </div>
+
+              <!-- 顶层卡片 -->
+              <div class="ie-card-layer-228 ie-layer-front-228">
+                <div class="ie-layer-content-228">
+                  <img :src="img" :alt="`Image ${index + 1}`" />
+                  <!-- 极光光效 -->
+                  <div class="ie-aurora-glow-228" :style="{ opacity: auroraIntensity / 100, mixBlendMode: currentMode }"></div>
+                  <!-- 卡片信息 -->
+                  <div class="ie-card-info-228">
+                    <h3 class="ie-card-title-228">{{ imageTitles[index] }}</h3>
+                    <p class="ie-card-desc-228">{{ imageDescs[index] }}</p>
+                    <!-- 模糊指示器 -->
+                    <div class="ie-blur-indicator-228">
+                      <div class="ie-blur-from-228">{{ blurIntensity }}px</div>
+                      <div class="ie-blur-arrow-228">→</div>
+                      <div class="ie-blur-to-228">0px</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 侧边3D面 -->
+              <div
+                v-for="side in ['top', 'right', 'bottom', 'left']"
+                :key="`side-${index}-${side}`"
+                class="ie-card-side-228"
+                :class="`ie-side-${side}-228`"
+                :style="sideStyle(side)"
+              ></div>
             </div>
           </div>
-
-          <!-- 顶层卡片 -->
-          <div
-            ref="frontLayer"
-            class="ie-card-layer-228 ie-layer-front-228"
-            :style="layerStyle(1)"
-          >
-            <div class="ie-layer-content-228">
-              <img :src="currentImage" alt="3D Layer" />
-              <div class="ie-layer-glow-228"></div>
-            </div>
-          </div>
-
-          <!-- 侧边3D面 -->
-          <div
-            v-for="side in ['top', 'right', 'bottom', 'left']"
-            :key="side"
-            :ref="el => { if (el) sideRefs[side] = el as HTMLElement }"
-            class="ie-card-side-228"
-            :class="`ie-side-${side}-228`"
-            :style="sideStyle(side)"
-          ></div>
         </div>
+
+        <!-- 轮播导航 -->
+        <div class="ie-carousel-nav-228">
+          <button class="ie-nav-btn-228 ie-prev-228" @click="prevSlide">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+          <div class="ie-indicators-228">
+            <span
+              v-for="(img, index) in images"
+              :key="`ind-${index}`"
+              class="ie-indicator-228"
+              :class="{ 'ie-active-228': activeIndex === index }"
+              @click="goToSlide(index)"
+            ></span>
+          </div>
+          <button class="ie-nav-btn-228 ie-next-228" @click="nextSlide">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- 滚动进度条 -->
+      <div class="ie-progress-bar-228">
+        <div class="ie-progress-fill-228" :style="{ width: scrollProgress + '%' }"></div>
       </div>
     </div>
 
     <!-- 装饰性光效 -->
     <div class="ie-decorative-lights-228">
-      <div
-        v-for="i in 3"
-        :key="i"
-        :ref="el => { if (el) lightRefs[i] = el as HTMLElement }"
-        class="ie-light-228"
-        :class="`ie-light-${i}-228`"
-      ></div>
+      <div v-for="i in 3" :key="`light-${i}`" class="ie-light-228" :class="`ie-light-${i}-228`"></div>
     </div>
   </section>
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted, onUnmounted } from 'vue'
+import { ref, computed, watch, onMounted, onUnmounted } from 'vue'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 gsap.registerPlugin(ScrollTrigger)
 
 const extrudeSection = ref<HTMLElement>()
-const scene = ref<HTMLElement>()
-const card3D = ref<HTMLElement>()
-const frontLayer = ref<HTMLElement>()
+const carouselWrapper = ref<HTMLElement>()
+const carouselTrack = ref<HTMLElement>()
+const carouselItems = ref<HTMLElement[]>([])
 const particleCanvas = ref<HTMLCanvasElement>()
-const midLayerRefs = ref<Record<number, HTMLElement>>({})
-const sideRefs = ref<Record<string, HTMLElement>>({})
-const lightRefs = ref<Record<number, HTMLElement>>({})
 
-// 当前图片索引
-const currentImageIndex = ref(0)
+// 当前激活的索引
+const activeIndex = ref(0)
+const scrollProgress = ref(0)
+
+// 控制参数
+const extrudeDepth = ref(100)
+const blurIntensity = ref(15)
+const auroraIntensity = ref(50)
+const currentMode = ref('overlay')
+
+const blendModes = ['overlay', 'screen', 'color-dodge', 'exclusion', 'lighten', 'hard-light']
 
 // 图片列表
 const images = [
   new URL('@/assets/image/1.png', import.meta.url).href,
   new URL('@/assets/image/2.png', import.meta.url).href,
-  new URL('@/assets/image/3.png', import.meta.url).href
+  new URL('@/assets/image/3.png', import.meta.url).href,
+  new URL('@/assets/image/4.png', import.meta.url).href,
+  new URL('@/assets/image/5.png', import.meta.url).href,
+  new URL('@/assets/image/6.png', import.meta.url).href
 ]
 
-// 当前图片
-const currentImage = computed(() => images[currentImageIndex.value])
+// 图片标题和描述
+const imageTitles = ['山川日出', '碧海蓝天', '森林晨曦', '星空璀璨', '都市夜景', '日落黄昏']
+const imageDescs = ['Mountain Sunrise', 'Ocean Blue', 'Forest Dawn', 'Starry Night', 'City Lights', 'Sunset Glow']
+
+// 3D轮播半径
+const carouselRadius = 450
 
 // 卡片尺寸
-const cardSize = {
-  width: 400,
-  height: 280,
-  depth: 120
+const cardSize = ref({
+  width: 320,
+  height: 240,
+  depth: 100
+})
+
+// 计算每个轮播项的3D位置样式
+const getItemStyle = (index: number) => {
+  const offset = (index - activeIndex.value + images.length) % images.length
+  const angle = offset * (360 / images.length) * (Math.PI / 180)
+  const x = Math.sin(angle) * carouselRadius
+  const z = Math.cos(angle) * carouselRadius - carouselRadius
+  const scale = 1 + (offset === 0 ? 0.2 : 0)
+  const opacity = offset === 0 ? 1 : 0.5
+  const zIndex = offset === 0 ? 10 : 1
+  const rotateY = offset * (360 / images.length)
+  const blur = offset === 0 ? 0 : blurIntensity.value * (1 - offset / images.length)
+
+  return {
+    transform: `translateX(${x}px) translateZ(${z}px) scale(${scale}) rotateY(${rotateY}deg)`,
+    opacity,
+    zIndex,
+    filter: `blur(${blur}px)`
+  }
 }
 
 // 计算层样式
 const layerStyle = (progress: number) => {
-  const zOffset = progress * cardSize.depth
+  const zOffset = progress * extrudeDepth.value
   return {
     transform: `translateZ(${zOffset}px)`,
     opacity: 0.9 + progress * 0.1
@@ -119,7 +245,7 @@ const layerStyle = (progress: number) => {
 
 // 计算侧边样式
 const sideStyle = (side: string) => {
-  const depth = cardSize.depth
+  const depth = extrudeDepth.value
   const style: Record<string, string> = {
     position: 'absolute'
   }
@@ -128,7 +254,7 @@ const sideStyle = (side: string) => {
     case 'top':
       return {
         ...style,
-        width: `${cardSize.width}px`,
+        width: `${cardSize.value.width}px`,
         height: `${depth}px`,
         top: `-${depth}px`,
         left: '0',
@@ -139,7 +265,7 @@ const sideStyle = (side: string) => {
       return {
         ...style,
         width: `${depth}px`,
-        height: `${cardSize.height}px`,
+        height: `${cardSize.value.height}px`,
         top: '0',
         right: `-${depth}px`,
         transform: `rotateY(90deg)`,
@@ -148,7 +274,7 @@ const sideStyle = (side: string) => {
     case 'bottom':
       return {
         ...style,
-        width: `${cardSize.width}px`,
+        width: `${cardSize.value.width}px`,
         height: `${depth}px`,
         bottom: `-${depth}px`,
         left: '0',
@@ -159,7 +285,7 @@ const sideStyle = (side: string) => {
       return {
         ...style,
         width: `${depth}px`,
-        height: `${cardSize.height}px`,
+        height: `${cardSize.value.height}px`,
         top: '0',
         left: `-${depth}px`,
         transform: `rotateY(-90deg)`,
@@ -169,110 +295,282 @@ const sideStyle = (side: string) => {
   return style
 }
 
-let ctx: gsap.Context
+// 设置混合模式
+const setMode = (mode: string) => {
+  currentMode.value = mode
+  updateAuroraEffect()
+}
 
-// 初始化3D挤出动画
-const initExtrudeAnimation = () => {
-  if (!card3D.value || !extrudeSection.value) return
+// 更新极光效果
+const updateAuroraEffect = () => {
+  const auroraGlows = document.querySelectorAll('.ie-aurora-glow-228')
+  auroraGlows.forEach(glow => {
+    const el = glow as HTMLElement
+    el.style.mixBlendMode = currentMode.value
+    el.style.opacity = (auroraIntensity.value / 100).toString()
+  })
+}
+
+// 下一张
+const nextSlide = () => {
+  gsap.to(
+    {},
+    {
+      duration: 0.5,
+      ease: 'power2.inOut',
+      onComplete: () => {
+        activeIndex.value = (activeIndex.value + 1) % images.length
+      }
+    }
+  )
+}
+
+// 上一张
+const prevSlide = () => {
+  gsap.to(
+    {},
+    {
+      duration: 0.5,
+      ease: 'power2.inOut',
+      onComplete: () => {
+        activeIndex.value = (activeIndex.value - 1 + images.length) % images.length
+      }
+    }
+  )
+}
+
+// 跳转到指定张
+const goToSlide = (index: number) => {
+  gsap.to(
+    {},
+    {
+      duration: 0.5,
+      ease: 'power2.inOut',
+      onComplete: () => {
+        activeIndex.value = index
+      }
+    }
+  )
+}
+
+let ctx: gsap.Context
+let auroraTimeline: gsap.core.Timeline | null = null
+
+// 初始化3D轮播动画
+const initCarouselAnimation = () => {
+  if (!extrudeSection.value || !carouselTrack.value) return
 
   ctx = gsap.context(() => {
-    // 卡片3D旋转
-    gsap.from(card3D.value!, {
-      rotateX: 0,
-      rotateY: 0,
-      rotateZ: 0,
-      scale: 0.8,
+    // 标题动画
+    gsap.from('.ie-title-228', {
       scrollTrigger: {
-        trigger: extrudeSection.value,
-        start: 'top bottom',
-        end: 'center center',
-        scrub: 1.2
+        trigger: '.ie-header-228',
+        start: 'top 90%'
+      },
+      y: 50,
+      opacity: 0,
+      rotateY: 30,
+      duration: 1,
+      ease: 'power3.out'
+    })
+
+    // 控制面板动画
+    gsap.from('.ie-control-panel-228', {
+      scrollTrigger: {
+        trigger: '.ie-control-panel-228',
+        start: 'top 90%'
+      },
+      y: 30,
+      opacity: 0,
+      duration: 0.8,
+      ease: 'power3.out'
+    })
+
+    // 轮播入场动画
+    gsap.from('.ie-carousel-item-228', {
+      scrollTrigger: {
+        trigger: '.ie-carousel-wrapper-228',
+        start: 'top 80%'
+      },
+      opacity: 0,
+      scale: 0.3,
+      rotateY: 180,
+      rotateX: 30,
+      duration: 1.5,
+      ease: 'back.out(1.7)',
+      stagger: 0.1
+    })
+
+    // 导航按钮动画
+    gsap.from('.ie-nav-btn-228', {
+      scrollTrigger: {
+        trigger: '.ie-carousel-nav-228',
+        start: 'top 85%'
+      },
+      scale: 0,
+      rotation: 180,
+      duration: 0.6,
+      ease: 'back.out(2)',
+      stagger: 0.2
+    })
+
+    // 指示器动画
+    gsap.from('.ie-indicator-228', {
+      scrollTrigger: {
+        trigger: '.ie-indicators-228',
+        start: 'top 85%'
+      },
+      scale: 0,
+      opacity: 0,
+      duration: 0.5,
+      ease: 'back.out(1.5)',
+      stagger: 0.08
+    })
+
+    // 极光波浪动画
+    initAuroraAnimation()
+
+    // 滚动时轮播旋转
+    gsap.to(
+      {},
+      {
+        scrollTrigger: {
+          trigger: '.ie-carousel-wrapper-228',
+          start: 'top 90%',
+          end: 'bottom 10%',
+          scrub: 0.5,
+          onUpdate: self => {
+            const totalRotation = self.progress * images.length * 2
+            activeIndex.value = Math.floor(totalRotation) % images.length
+          }
+        }
+      }
+    )
+
+    // 滚动进度
+    ScrollTrigger.create({
+      trigger: extrudeSection.value,
+      start: 'top top',
+      end: 'bottom bottom',
+      scrub: 0.3,
+      onUpdate: self => {
+        scrollProgress.value = self.progress * 100
       }
     })
 
-    // 中间层挤出效果
-    Object.values(midLayerRefs.value).forEach((layer, index) => {
-      const zOffset = ((index + 1) / 7) * cardSize.depth
-
+    // 挤出层动画
+    const midLayers = document.querySelectorAll('.ie-layer-mid-228')
+    midLayers.forEach((layer, index) => {
       gsap.from(layer, {
-        transform: 'translateZ(0px)',
-        opacity: 0.8,
         scrollTrigger: {
-          trigger: extrudeSection.value,
-          start: 'top bottom',
-          end: 'center center',
-          scrub: 1
-        }
-      })
-
-      // 悬停效果
-      layer.addEventListener('mouseenter', () => {
-        gsap.to(layer, {
-          scale: 1.02,
-          boxShadow: '0 0 20px rgba(168, 85, 247, 0.4)',
-          duration: 0.3,
-          ease: 'power2.out'
-        })
-      })
-
-      layer.addEventListener('mouseleave', () => {
-        gsap.to(layer, {
-          scale: 1,
-          boxShadow: 'none',
-          duration: 0.3,
-          ease: 'power2.out'
-        })
-      })
-    })
-
-    // 侧边渐显
-    Object.values(sideRefs.value).forEach((side) => {
-      gsap.from(side, {
-        opacity: 0,
-        scrollTrigger: {
-          trigger: extrudeSection.value,
-          start: 'top 60%',
+          trigger: '.ie-carousel-wrapper-228',
+          start: 'top 70%',
           end: 'center center',
           scrub: 0.8
-        }
+        },
+        transform: 'translateZ(0px)',
+        opacity: 0.6,
+        duration: 1,
+        delay: index * 0.05
       })
     })
 
-    // 装饰光效动画
-    Object.values(lightRefs.value).forEach((light, index) => {
-      gsap.from(light, {
-        scale: 0,
-        opacity: 0,
+    // 侧边面动画
+    const sideFaces = document.querySelectorAll('.ie-card-side-228')
+    sideFaces.forEach((side, index) => {
+      gsap.from(side, {
         scrollTrigger: {
-          trigger: extrudeSection.value,
-          start: 'top bottom',
+          trigger: '.ie-carousel-wrapper-228',
+          start: 'top 60%',
           end: 'center center',
-          scrub: 1
-        }
+          scrub: 0.6
+        },
+        opacity: 0,
+        duration: 0.8,
+        delay: index * 0.05
       })
     })
 
-    // 前层卡片悬停效果
-    if (frontLayer.value) {
-      frontLayer.value.addEventListener('mouseenter', () => {
-        gsap.to(frontLayer.value, {
-          scale: 1.03,
-          boxShadow: '0 25px 80px rgba(236, 72, 153, 0.4)',
-          duration: 0.4,
-          ease: 'power2.out'
-        })
+    // 模糊揭示动画 - 激活卡片
+    const blurLayers = document.querySelectorAll('.ie-blur-layer-228')
+    blurLayers.forEach((blurLayer, index) => {
+      gsap.fromTo(
+        blurLayer,
+        { opacity: 0.8 },
+        {
+          opacity: 0,
+          scrollTrigger: {
+            trigger: `.ie-carousel-item-228:nth-child(${index + 1})`,
+            start: 'top 80%',
+            end: 'top 30%',
+            scrub: 1.5
+          },
+          ease: 'power2.inOut'
+        }
+      )
+    })
+
+    // 卡片悬停效果
+    const items = document.querySelectorAll('.ie-carousel-item-228')
+    items.forEach(item => {
+      const frontLayer = item.querySelector('.ie-layer-front-228') as HTMLElement
+      const auroraGlow = item.querySelector('.ie-aurora-glow-228') as HTMLElement
+
+      item.addEventListener('mouseenter', () => {
+        if (frontLayer) {
+          gsap.to(frontLayer, {
+            scale: 1.03,
+            duration: 0.4,
+            ease: 'power2.out'
+          })
+        }
+        if (auroraGlow) {
+          gsap.to(auroraGlow, {
+            opacity: auroraIntensity.value / 100,
+            duration: 0.3
+          })
+        }
       })
 
-      frontLayer.value.addEventListener('mouseleave', () => {
-        gsap.to(frontLayer.value, {
-          scale: 1,
-          boxShadow: '0 20px 60px rgba(0, 0, 0, 0.4)',
-          duration: 0.4,
-          ease: 'power2.out'
-        })
+      item.addEventListener('mouseleave', () => {
+        if (frontLayer) {
+          gsap.to(frontLayer, {
+            scale: 1,
+            duration: 0.4,
+            ease: 'power2.out'
+          })
+        }
+        if (auroraGlow) {
+          gsap.to(auroraGlow, {
+            opacity: 0,
+            duration: 0.3
+          })
+        }
       })
-    }
+    })
   }, extrudeSection.value)
+}
+
+// 极光波浪动画
+const initAuroraAnimation = () => {
+  if (auroraTimeline) {
+    auroraTimeline.kill()
+  }
+
+  const waves = document.querySelectorAll('.ie-aurora-wave-228')
+
+  auroraTimeline = gsap.timeline({ repeat: -1, yoyo: true })
+
+  waves.forEach((wave, index) => {
+    auroraTimeline!.to(wave, {
+      xPercent: -50,
+      yPercent: -30,
+      rotation: 15,
+      duration: 3 + index * 0.5,
+      ease: 'sine.inOut',
+      opacity: 0.3 + (index * 0.15)
+    }, 0)
+  })
 }
 
 // 粒子系统
@@ -280,7 +578,7 @@ const initParticles = () => {
   if (!particleCanvas.value) return
 
   const canvas = particleCanvas.value
-  const ctx = canvas.getContext('2d')
+  const ctx = canvas.getContext('2d', { willReadFrequently: true })
   if (!ctx) return
 
   canvas.width = window.innerWidth
@@ -296,7 +594,7 @@ const initParticles = () => {
     color: string
   }> = []
 
-  const colors = ['#6366f1', '#a855f7', '#ec4899', '#06b6d4']
+  const colors = ['#6366f1', '#a855f7', '#ec4899', '#06b6d4', '#f59e0b']
 
   const createParticle = () => {
     return {
@@ -346,42 +644,54 @@ const initParticles = () => {
   })
 }
 
+// 监听参数变化
+watch([extrudeDepth, blurIntensity, auroraIntensity], () => {
+  updateAuroraEffect()
+})
+
 onMounted(() => {
   setTimeout(() => {
     initParticles()
     setTimeout(() => {
-      initExtrudeAnimation()
+      initCarouselAnimation()
     }, 100)
   }, 200)
 })
 
 onUnmounted(() => {
   ctx?.revert()
+  if (auroraTimeline) {
+    auroraTimeline.kill()
+  }
+  ScrollTrigger.getAll().forEach(trigger => trigger.kill())
 })
 </script>
 
 <style scoped lang="scss">
 .ie-section-228 {
   min-height: 100vh;
-  padding: 60px 20px;
-  background: linear-gradient(135deg, #0a0a1a 0%, #1a1a3a 30%, #0f0f2f 70%, #1a1a3a 100%);
+  padding: 100px 20px;
+  background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
   display: flex;
   flex-direction: column;
   align-items: center;
-  overflow: hidden;
   position: relative;
-}
+  overflow: hidden;
+  perspective: 2000px;
 
-.ie-bg-gradient-228 {
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(circle at 20% 30%, rgba(99, 102, 241, 0.15) 0%, transparent 40%),
-    radial-gradient(circle at 80% 70%, rgba(168, 85, 247, 0.15) 0%, transparent 40%),
-    radial-gradient(circle at 50% 50%, rgba(236, 72, 153, 0.1) 0%, transparent 50%);
-  pointer-events: none;
-  z-index: 1;
-  animation: bgPulse 8s ease-in-out infinite;
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+      radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.15) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+    animation: bgPulse 8s ease-in-out infinite;
+  }
 }
 
 @keyframes bgPulse {
@@ -391,6 +701,16 @@ onUnmounted(() => {
   50% {
     opacity: 0.7;
   }
+}
+
+.ie-bg-gradient-228 {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 30% 70%, rgba(102, 126, 234, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 70% 30%, rgba(240, 147, 251, 0.1) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 1;
 }
 
 .ie-particles-228 {
@@ -411,65 +731,171 @@ onUnmounted(() => {
 }
 
 .ie-title-228 {
-  font-size: 3.5rem;
+  font-size: clamp(2rem, 5vw, 3.5rem);
   font-weight: 900;
   margin-bottom: 15px;
-  background: linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #ec4899 100%);
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  letter-spacing: 4px;
-  text-shadow: 0 0 60px rgba(99, 102, 241, 0.4);
-  animation: titleGlow 3s ease-in-out infinite;
-}
 
-@keyframes titleGlow {
-  0%, 100% {
-    filter: brightness(1);
-    transform: scale(1);
-  }
-  50% {
-    filter: brightness(1.2);
-    transform: scale(1.02);
+  &::after {
+    content: '';
+    display: block;
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);
+    margin: 20px auto 0;
+    border-radius: 2px;
   }
 }
 
 .ie-subtitle-228 {
   font-size: 1.2rem;
-  color: rgba(255, 255, 255, 0.7);
-  font-weight: 400;
-  letter-spacing: 8px;
+  color: rgba(255, 255, 255, 0.6);
+  letter-spacing: 0.2em;
   text-transform: uppercase;
 }
 
-// 3D挤出容器
+// 控制面板
+.ie-control-panel-228 {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 25px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 60px;
+  z-index: 10;
+  position: relative;
+}
+
+.ie-control-group-228 {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 150px;
+}
+
+.ie-label-228 {
+  font-size: 14px;
+  color: #94a3b8;
+  font-weight: 500;
+}
+
+.ie-slider-228 {
+  width: 100%;
+  height: 6px;
+  -webkit-appearance: none;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+  outline: none;
+  cursor: pointer;
+
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 18px;
+    height: 18px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.2s;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+}
+
+.ie-value-228 {
+  font-size: 13px;
+  color: #667eea;
+  font-weight: 600;
+}
+
+.ie-mode-btn-228 {
+  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-size: 12px;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+  &.ie-active-228 {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-color: transparent;
+  }
+}
+
+// 3D轮播容器
 .ie-extrude-container-228 {
   position: relative;
   width: 100%;
-  max-width: 900px;
-  height: 600px;
+  max-width: 1400px;
+  padding: 0 40px;
   z-index: 10;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
-.ie-scene-228 {
-  position: relative;
+.ie-carousel-wrapper-228 {
   width: 100%;
-  height: 100%;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  perspective: 2000px;
+  position: relative;
 }
 
-.ie-card-3d-228 {
+.ie-carousel-track-228 {
+  width: 100%;
+  height: 450px;
   position: relative;
-  width: 400px;
-  height: 280px;
   transform-style: preserve-3d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ie-carousel-item-228 {
+  position: absolute;
+  width: 320px;
+  height: 240px;
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
   cursor: pointer;
+  transform-style: preserve-3d;
+
+  &.ie-active-228 {
+    .ie-layer-front-228 {
+      box-shadow:
+        0 40px 80px rgba(102, 126, 234, 0.4),
+        0 0 60px rgba(236, 72, 153, 0.3),
+        inset 0 0 60px rgba(236, 72, 153, 0.2);
+    }
+  }
+
+  &:hover {
+    .ie-layer-front-228 {
+      box-shadow:
+        0 50px 100px rgba(102, 126, 234, 0.5),
+        0 0 80px rgba(236, 72, 153, 0.4),
+        inset 0 0 80px rgba(236, 72, 153, 0.3);
+    }
+  }
+
+  .ie-card-3d-228 {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+  }
 }
 
 .ie-card-layer-228 {
@@ -479,8 +905,8 @@ onUnmounted(() => {
   border-radius: 16px;
   overflow: hidden;
   backface-visibility: hidden;
-  transition: all 0.3s;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 }
 
 .ie-layer-back-228 {
@@ -491,16 +917,16 @@ onUnmounted(() => {
 .ie-layer-mid-228 {
   background: rgba(168, 85, 247, 0.05);
   border: 1px solid rgba(168, 85, 247, 0.2);
-  cursor: pointer;
 }
 
 .ie-layer-front-228 {
   z-index: 100;
   border: 3px solid rgba(236, 72, 153, 0.4);
   box-shadow:
-    0 20px 60px rgba(0, 0, 0, 0.4),
+    0 30px 60px rgba(0, 0, 0, 0.4),
     0 0 40px rgba(236, 72, 153, 0.3),
     inset 0 0 60px rgba(236, 72, 153, 0.1);
+  transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 .ie-layer-content-228 {
@@ -514,20 +940,210 @@ onUnmounted(() => {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: transform 0.4s ease;
   }
 }
 
-.ie-layer-glow-228 {
+.ie-carousel-item-228:hover .ie-layer-content-228 img {
+  transform: scale(1.1);
+}
+
+// 极光遮罩层
+.ie-aurora-mask-228 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 50;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.ie-carousel-item-228.ie-active-228 .ie-aurora-mask-228 {
+  opacity: 0.4;
+}
+
+.ie-aurora-wave-228 {
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    135deg,
+    rgba(167, 139, 250, 0.3) 0%,
+    rgba(96, 165, 250, 0.2) 50%,
+    rgba(244, 114, 182, 0.3) 100%
+  );
+  border-radius: 50%;
+  filter: blur(60px);
+  mix-blend-mode: screen;
+}
+
+// 模糊层
+.ie-blur-layer-228 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3);
+  pointer-events: none;
+  z-index: 60;
+  border-radius: 16px;
+}
+
+// 极光光效
+.ie-aurora-glow-228 {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(236, 72, 153, 0.2), transparent);
-  pointer-events: none;
+  background: radial-gradient(circle at center, rgba(167, 139, 250, 0.6) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s;
   mix-blend-mode: overlay;
+  pointer-events: none;
+  z-index: 101;
 }
 
 .ie-card-side-228 {
   backface-visibility: hidden;
-  transition: all 0.3s;
+  transition: all 0.4s;
+}
+
+// 卡片信息
+.ie-card-info-228 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 0%, transparent 100%);
+  transform: translateY(100%);
+  opacity: 0;
+  transition: all 0.4s ease;
+  z-index: 102;
+}
+
+.ie-carousel-item-228:hover .ie-card-info-228 {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.ie-card-title-228 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 5px;
+}
+
+.ie-card-desc-228 {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 15px;
+}
+
+.ie-blur-indicator-228 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.ie-blur-from-228 {
+  color: #a78bfa;
+}
+
+.ie-blur-arrow-228 {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.ie-blur-to-228 {
+  color: #4ade80;
+}
+
+// 轮播导航
+.ie-carousel-nav-228 {
+  margin-top: 80px;
+  display: flex;
+  align-items: center;
+  gap: 50px;
+}
+
+.ie-nav-btn-228 {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  &:hover {
+    background: rgba(102, 126, 234, 0.8);
+    border-color: #667eea;
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(102, 126, 234, 0.5);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+}
+
+.ie-indicators-228 {
+  display: flex;
+  gap: 14px;
+}
+
+.ie-indicator-228 {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &.ie-active-228 {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-color: transparent;
+    transform: scale(1.4);
+    box-shadow: 0 0 15px rgba(102, 126, 234, 0.5);
+  }
+
+  &:hover {
+    transform: scale(1.3);
+    border-color: #667eea;
+  }
+}
+
+// 滚动进度条
+.ie-progress-bar-228 {
+  width: 100%;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-top: 40px;
+}
+
+.ie-progress-fill-228 {
+  height: 100%;
+  background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);
+  transition: width 0.3s;
 }
 
 // 装饰性光效
@@ -587,28 +1203,69 @@ onUnmounted(() => {
 // 响应式设计
 @media (max-width: 768px) {
   .ie-title-228 {
-    font-size: 2.2rem;
-    letter-spacing: 2px;
+    font-size: 2rem;
   }
 
   .ie-subtitle-228 {
     font-size: 0.9rem;
-    letter-spacing: 4px;
+    letter-spacing: 0.1em;
+  }
+
+  .ie-control-panel-228 {
+    padding: 20px;
+    gap: 20px;
+  }
+
+  .ie-control-group-228 {
+    min-width: 120px;
   }
 
   .ie-extrude-container-228 {
-    height: 450px;
-    padding: 20px;
+    padding: 0 20px;
   }
 
-  .ie-card-3d-228 {
-    width: 280px;
-    height: 196px;
+  .ie-carousel-track-228 {
+    height: 350px;
+  }
+
+  .ie-carousel-item-228 {
+    width: 260px;
+    height: 195px;
+  }
+
+  .ie-carousel-nav-228 {
+    gap: 30px;
+  }
+
+  .ie-nav-btn-228 {
+    width: 46px;
+    height: 46px;
+
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  .ie-indicator-228 {
+    width: 12px;
+    height: 12px;
   }
 
   .ie-light-228 {
     width: 120px;
     height: 120px;
+  }
+}
+
+@media (max-width: 480px) {
+  .ie-control-panel-228 {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .ie-control-group-228 {
+    min-width: auto;
   }
 }
 </style>
