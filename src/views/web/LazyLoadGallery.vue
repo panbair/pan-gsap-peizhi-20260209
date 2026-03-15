@@ -9,9 +9,15 @@
     <!-- 搜索框 -->
     <div class="search-container">
       <div class="search-wrapper">
-        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <circle cx="11" cy="11" r="8"/>
-          <path d="M21 21l-4.35-4.35"/>
+        <svg
+          class="search-icon"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <circle cx="11" cy="11" r="8" />
+          <path d="M21 21l-4.35-4.35" />
         </svg>
         <input
           v-model="searchQuery"
@@ -20,14 +26,9 @@
           placeholder="搜索组件名称..."
           @input="handleSearch"
         />
-        <button
-          v-if="searchQuery"
-          class="search-clear"
-          @click="clearSearch"
-          title="清空搜索"
-        >
+        <button v-if="searchQuery" class="search-clear" title="清空搜索" @click="clearSearch">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M18 6L6 18M6 6l12 12"/>
+            <path d="M18 6L6 18M6 6l12 12" />
           </svg>
         </button>
       </div>
@@ -49,23 +50,47 @@
         v-for="cat in categories"
         :key="cat.id"
         :class="['filter-btn', { active: currentCategory === cat.id && !searchQuery }]"
-        @click="handleCategoryChange(cat.id)"
         :disabled="!!searchQuery"
+        :data-category="cat.id"
+        @click="handleCategoryChange(cat.id)"
       >
         {{ cat.name }} ({{ cat.count }})
+      </button>
+
+      <button v-if="selectedComponents.size > 0" :key="88888888" :class="['filter-btn', 'clear-btn']" @click="clearAllSelections" title="清除所有选中">
+        清除 ({{ selectedComponents.size }})
+      </button>
+
+      <button v-if="selectedComponents.size > 0" :key="9999999" :class="['filter-btn', 'save-btn']" @click="saveSelections" title="保存到IndexedDB">
+        保存到数据库
+      </button>
+
+      <button :key="7777777" :class="['filter-btn', 'load-btn']" @click="openCollectionsModal" title="查看已保存的收藏集">
+        📚 我的收藏
       </button>
     </div>
 
     <!-- 组件容器 -->
-    <div class="components-container" ref="containerRef">
+    <div ref="containerRef" class="components-container">
       <div
         v-for="(item, index) in filteredComponents"
         :key="item.id"
         class="component-wrapper"
-        :class="{ 'component-visible': index <= visibleIndex }"
+        :class="{
+          'component-visible': index <= visibleIndex,
+          'selected-wrapper': selectedComponents.has(item.id)
+        }"
       >
         <div class="item-header">
           <span class="item-number">#{{ index + 1 }}</span>
+          <label class="item-checkbox" :class="{ checked: selectedComponents.has(item.id) }">
+            <input
+              type="checkbox"
+              :checked="selectedComponents.has(item.id)"
+              @change="toggleComponentSelection(item.id)"
+            />
+            <span class="checkmark"></span>
+          </label>
           <span class="item-name">{{ item.name }}</span>
         </div>
 
@@ -74,10 +99,7 @@
           <KeepAlive>
             <Suspense>
               <template #default>
-                <component
-                  :is="item.component"
-                  :key="item.id"
-                />
+                <component :is="item.component" :key="item.id" />
               </template>
               <template #fallback>
                 <div class="component-loading">
@@ -101,7 +123,10 @@
     <div class="status-bar">
       <div class="status-item">
         <span>已加载:</span>
-        <span>{{ Math.min(visibleIndex + 1, filteredComponents.length) }} / {{ filteredComponents.length }}</span>
+        <span>
+          {{ Math.min(visibleIndex + 1, filteredComponents.length) }} /
+          {{ filteredComponents.length }}
+        </span>
       </div>
       <div class="status-item">
         <span>当前:</span>
@@ -109,26 +134,38 @@
       </div>
       <div class="status-item">
         <span>分类:</span>
-        <span>{{ currentCategory }} ({{ categories.find(c => c.id === currentCategory)?.name }})</span>
+        <span>{{ categories.find(c => c.id === currentCategory)?.name || currentCategory }}</span>
+      </div>
+      <div v-if="selectedComponents.size > 0" class="status-item selected-highlight">
+        <span>已选中:</span>
+        <span>{{ selectedComponents.size }} 个组件</span>
       </div>
     </div>
+
+    <!-- 收藏集弹窗 -->
+    <CollectionsModal
+      :visible="showCollectionsModal"
+      @close="closeCollectionsModal"
+      @load="handleLoadCollection"
+      @delete="closeCollectionsModal"
+    />
 
     <!-- 错误提示 -->
     <div v-if="loadingError" class="error-toast">
       <span class="error-icon">⚠️</span>
       <span>{{ loadingError }}</span>
-      <button @click="loadingError = null" class="close-btn">×</button>
+      <button class="close-btn" @click="loadingError = null">×</button>
     </div>
 
     <!-- 返回顶部按钮 -->
     <button
       class="back-to-top"
       :class="{ 'is-visible': showBackToTop }"
-      @click="scrollToTop"
       title="返回顶部"
+      @click="scrollToTop"
     >
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <path d="M12 19V5M5 12l7-7 7 7"/>
+        <path d="M12 19V5M5 12l7-7 7 7" />
       </svg>
     </button>
   </div>
@@ -140,6 +177,7 @@ import { defineAsyncComponent } from 'vue'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { safeRefreshScrollTrigger } from '@/utils/gsapHelper'
+import CollectionsModal from './components/CollectionsModal.vue'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -151,6 +189,10 @@ const visibleIndex = ref(0) // 初始只显示第1个组件
 const loadingError = ref<string | null>(null)
 const isLoading = ref(false)
 const showBackToTop = ref(false) // 是否显示返回顶部按钮
+const showCollectionsModal = ref(false) // 是否显示收藏集弹窗
+
+// 选中的组件集合
+const selectedComponents = ref<Set<string>>(new Set())
 
 // 分类定义 - 动态生成
 const categories = ref<{ id: string; name: string; count: number }[]>([])
@@ -171,14 +213,16 @@ const initializeComponents = () => {
     const asyncComponent = defineAsyncComponent({
       loader: () => {
         console.log(`[LazyLoad] Loading component: ${name}`)
-        return componentFiles[path]().then(module => {
-          console.log(`[LazyLoad] Successfully loaded: ${name}`)
-          return module
-        }).catch(error => {
-          console.error(`[LazyLoad] Failed to load ${name}:`, error)
-          loadingError.value = `Failed to load ${name}: ${error.message}`
-          throw error
-        })
+        return componentFiles[path]()
+          .then(module => {
+            console.log(`[LazyLoad] Successfully loaded: ${name}`)
+            return module
+          })
+          .catch(error => {
+            console.error(`[LazyLoad] Failed to load ${name}:`, error)
+            loadingError.value = `Failed to load ${name}: ${error.message}`
+            throw error
+          })
       },
       loadingComponent: {
         template: '<div class="component-loading">加载中...</div>'
@@ -215,6 +259,7 @@ const updateCategoryCounts = () => {
   const totalCategories = Math.ceil(components.length / 20)
   const cats: { id: string; name: string; count: number }[] = []
 
+  // 添加动画分类
   for (let i = 0; i < totalCategories; i++) {
     const start = i * 20
     const end = Math.min((i + 1) * 20, components.length)
@@ -224,6 +269,13 @@ const updateCategoryCounts = () => {
       count: end - start
     })
   }
+
+  // 添加选中分类
+  cats.push({
+    id: 'selected',
+    name: '✓ 已选中',
+    count: selectedComponents.value.size
+  })
 
   categories.value = cats
 }
@@ -256,6 +308,11 @@ const filteredComponents = computed(() => {
 
     console.log('[搜索] 结果数:', results.length)
     return results
+  }
+
+  // 选中分类：显示选中的组件
+  if (currentCategory.value === 'selected') {
+    return components.filter(c => selectedComponents.value.has(c.id))
   }
 
   // 否则按分类过滤
@@ -357,6 +414,115 @@ const handleCategoryChange = (categoryId: string) => {
   })
 }
 
+// 切换组件选中状态
+const toggleComponentSelection = (componentId: string) => {
+  if (selectedComponents.value.has(componentId)) {
+    selectedComponents.value.delete(componentId)
+  } else {
+    selectedComponents.value.add(componentId)
+  }
+  // 更新选中分类的计数
+  updateCategoryCounts()
+}
+
+// 清除所有选中
+const clearAllSelections = () => {
+  if (confirm('确定要清除所有已选中的组件吗？')) {
+    selectedComponents.value.clear()
+    updateCategoryCounts()
+  }
+}
+
+// IndexedDB 数据库初始化
+const initDB = (): Promise<IDBDatabase> => {
+  return new Promise((resolve, reject) => {
+    const request = indexedDB.open('AnimationGalleryDB', 1)
+
+    request.onerror = () => reject(request.error)
+    request.onsuccess = () => resolve(request.result)
+
+    request.onupgradeneeded = (event) => {
+      const db = (event.target as IDBOpenDBRequest).result
+      if (!db.objectStoreNames.contains('collections')) {
+        const store = db.createObjectStore('collections', { keyPath: 'id', autoIncrement: true })
+        store.createIndex('name', 'name', { unique: false })
+        store.createIndex('createdAt', 'createdAt', { unique: false })
+      }
+    }
+  })
+}
+
+// 保存选中状态到 IndexedDB
+const saveSelections = async () => {
+  const name = prompt('请输入收藏集名称：', `收藏集 ${new Date().toLocaleDateString()}`)
+  if (!name || name.trim() === '') {
+    alert('请输入有效的名称！')
+    return
+  }
+
+  const selections = Array.from(selectedComponents.value)
+  const collection = {
+    name: name.trim(),
+    data: JSON.stringify(selections),
+    createdAt: new Date().toISOString()
+  }
+
+  try {
+    const db = await initDB()
+    const transaction = db.transaction('collections', 'readwrite')
+    const store = transaction.objectStore('collections')
+    const request = store.add(collection)
+
+    request.onsuccess = () => {
+      const id = request.result as number
+      alert(`✅ 保存成功！\n\n名称：${name}\n组件数量：${selections.length}\nID：${id}`)
+      db.close()
+    }
+
+    request.onerror = () => {
+      alert(`❌ 保存失败：${request.error?.message}`)
+      db.close()
+    }
+  } catch (error) {
+    console.error('[IndexedDB] 保存失败:', error)
+    alert(`❌ 保存失败：${error}`)
+  }
+}
+
+// 打开收藏集弹窗
+const openCollectionsModal = () => {
+  showCollectionsModal.value = true
+}
+
+// 关闭收藏集弹窗
+const closeCollectionsModal = () => {
+  showCollectionsModal.value = false
+}
+
+// 加载收藏集到选中状态
+const handleLoadCollection = (selections: string[]) => {
+  selectedComponents.value = new Set(selections)
+  updateCategoryCounts()
+
+  // 切换到"已选中"分类
+  currentCategory.value = 'selected'
+
+  // 清空搜索
+  searchQuery.value = ''
+
+  // 重置可见索引
+  visibleIndex.value = -1
+  nextTick(() => {
+    visibleIndex.value = 0
+    setTimeout(() => {
+      checkVisibleComponents()
+    }, 100)
+  })
+
+  // alert(`✅ 已加载收藏集，共 ${selections.length} 个组件`)
+  closeCollectionsModal()
+}
+
 const checkVisibleComponents = async () => {
   if (!containerRef.value || isLoading.value) return
 
@@ -380,7 +546,7 @@ const checkVisibleComponents = async () => {
   // 如果有新的组件需要加载
   if (newVisibleIndex > visibleIndex.value) {
     isLoading.value = true
-    
+
     // 逐个加载组件,避免同时加载太多
     for (let i = visibleIndex.value + 1; i <= newVisibleIndex; i++) {
       visibleIndex.value = i
@@ -388,34 +554,34 @@ const checkVisibleComponents = async () => {
       // 短暂延迟,让组件有时间初始化
       await new Promise(resolve => setTimeout(resolve, 100))
     }
-    
+
     isLoading.value = false
-    
+
     // 所有组件加载完成后刷新 ScrollTrigger
     safeRefreshScrollTrigger()
   }
 }
 
 // 监听分类变化,重置可见索引
-watch(currentCategory, async (newCategory) => {
+watch(currentCategory, async newCategory => {
   console.log('[LazyLoad] Category changed to:', newCategory)
   console.log('[LazyLoad] Filtered components count:', filteredComponents.value.length)
-  
+
   // 先重置可见索引，强制重新渲染
   visibleIndex.value = -1
   isLoading.value = false
-  
+
   await nextTick()
-  
+
   // 滚动到顶部
   window.scrollTo({ top: 0, behavior: 'smooth' })
-  
+
   // 等待滚动后再加载组件
   setTimeout(async () => {
     visibleIndex.value = 0
     await nextTick()
     await checkVisibleComponents()
-    
+
     // 延迟刷新确保新组件完全渲染
     setTimeout(() => {
       safeRefreshScrollTrigger()
@@ -431,12 +597,30 @@ interface ComponentInfo {
   component: any
 }
 
+// 从 localStorage 恢复选中状态
+const restoreSelections = () => {
+  const saved = localStorage.getItem('selected-components')
+  if (saved) {
+    try {
+      const selections = JSON.parse(saved)
+      selectedComponents.value = new Set(selections)
+      updateCategoryCounts()
+      console.log('[LazyLoad] 恢复选中状态:', selections.length, '个组件')
+    } catch (error) {
+      console.error('[LazyLoad] 恢复选中状态失败:', error)
+    }
+  }
+}
+
 // 生命周期
 onMounted(async () => {
   if (!allComponents.value || !Array.isArray(allComponents.value)) {
     allComponents.value = []
   }
   initializeComponents()
+
+  // 恢复之前保存的选中状态
+  restoreSelections()
 
   window.addEventListener('scroll', handleScroll, { passive: true })
   window.addEventListener('resize', handleScroll, { passive: true })
@@ -679,6 +863,11 @@ onUnmounted(() => {
   &.active {
     background: linear-gradient(135deg, #a78bfa, #60a5fa);
     border-color: transparent;
+
+    // 选中分类的特殊样式
+    &[data-category='selected'] {
+      background: linear-gradient(135deg, #22c55e, #16a34a);
+    }
   }
 
   &:disabled {
@@ -688,6 +877,39 @@ onUnmounted(() => {
 
     &:hover {
       background: rgba(255, 255, 255, 0.05);
+    }
+  }
+
+  &.clear-btn {
+    background: rgba(239, 68, 68, 0.2);
+    border-color: rgba(239, 68, 68, 0.4);
+
+    &:hover {
+      background: rgba(239, 68, 68, 0.3);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(239, 68, 68, 0.3);
+    }
+  }
+
+  &.save-btn {
+    background: rgba(34, 197, 94, 0.2);
+    border-color: rgba(34, 197, 94, 0.4);
+
+    &:hover {
+      background: rgba(34, 197, 94, 0.3);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(34, 197, 94, 0.3);
+    }
+  }
+
+  &.load-btn {
+    background: rgba(59, 130, 246, 0.2);
+    border-color: rgba(59, 130, 246, 0.4);
+
+    &:hover {
+      background: rgba(59, 130, 246, 0.3);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
     }
   }
 }
@@ -701,6 +923,17 @@ onUnmounted(() => {
   margin-bottom: 40px;
   min-height: 400px;
   transition: all 0.3s;
+
+  &.selected-wrapper {
+    border: 2px solid rgba(34, 197, 94, 0.5);
+    border-radius: 14px;
+    box-shadow: 0 0 20px rgba(34, 197, 94, 0.15);
+
+    .item-header {
+      background: rgba(34, 197, 94, 0.1);
+      border-color: rgba(34, 197, 94, 0.3);
+    }
+  }
 }
 
 .item-header {
@@ -719,6 +952,62 @@ onUnmounted(() => {
   border-radius: 6px;
   font-size: 12px;
   font-weight: bold;
+}
+
+.item-checkbox {
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+
+  .checkmark {
+    width: 20px;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+
+    &::after {
+      content: '✓';
+      color: white;
+      font-size: 14px;
+      font-weight: bold;
+      opacity: 0;
+      transform: scale(0);
+      transition: all 0.2s ease;
+    }
+  }
+
+  &.checked .checkmark {
+    background: linear-gradient(135deg, #a78bfa, #60a5fa);
+    border-color: transparent;
+
+    &::after {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  &:hover .checkmark {
+    border-color: rgba(167, 139, 250, 0.6);
+  }
+
+  &.checked:hover .checkmark {
+    background: linear-gradient(135deg, #8b5cf6, #3b82f6);
+  }
 }
 
 .item-name {
@@ -776,6 +1065,16 @@ onUnmounted(() => {
   span:last-child {
     color: #e2e8f0;
     font-weight: 600;
+  }
+
+  &.selected-highlight {
+    background: rgba(34, 197, 94, 0.2);
+    padding: 4px 12px;
+    border-radius: 6px;
+
+    span:last-child {
+      color: #22c55e;
+    }
   }
 }
 
