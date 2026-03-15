@@ -300,7 +300,7 @@ const initAnimations = () => {
     // Live scanner indicator
     if (liveScanner.value && scanBar.value) {
       gsap.to(scanBar, {
-        x: '100%',
+        xPercent: 100,
         duration: 2 / (scanSpeed.value / 5),
         ease: 'none',
         repeat: -1,

@@ -5,16 +5,52 @@
       <h1 class="page-title">滚动动画组件库</h1>
       <p class="page-subtitle">{{ filteredComponents.length }} 个组件 · 懒加载优化</p>
     </header>
-<!--    <div>
-      查询
-    </div>-->
+
+    <!-- 搜索框 -->
+    <div class="search-container">
+      <div class="search-wrapper">
+        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"/>
+          <path d="M21 21l-4.35-4.35"/>
+        </svg>
+        <input
+          v-model="searchQuery"
+          type="text"
+          class="search-input"
+          placeholder="搜索组件名称..."
+          @input="handleSearch"
+        />
+        <button
+          v-if="searchQuery"
+          class="search-clear"
+          @click="clearSearch"
+          title="清空搜索"
+        >
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 6L6 18M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+      <div v-if="searchQuery && filteredComponents.length === 0" class="search-empty">
+        <div class="empty-icon">🔍</div>
+        <p>未找到匹配的组件</p>
+        <p class="empty-hint">尝试搜索其他关键词</p>
+        <button class="clear-search-btn" @click="clearSearch">清空搜索</button>
+      </div>
+      <div v-if="searchQuery && filteredComponents.length > 0" class="search-result-count">
+        <span class="result-icon">✓</span>
+        在所有分类中找到 {{ filteredComponents.length }} 个匹配组件
+      </div>
+    </div>
+
     <!-- 分类筛选 -->
     <div class="filter-bar">
       <button
         v-for="cat in categories"
         :key="cat.id"
-        :class="['filter-btn', { active: currentCategory === cat.id }]"
-        @click="currentCategory = cat.id"
+        :class="['filter-btn', { active: currentCategory === cat.id && !searchQuery }]"
+        @click="handleCategoryChange(cat.id)"
+        :disabled="!!searchQuery"
       >
         {{ cat.name }} ({{ cat.count }})
       </button>
@@ -110,6 +146,7 @@ gsap.registerPlugin(ScrollTrigger)
 // 状态
 const containerRef = ref<HTMLElement | null>(null)
 const currentCategory = ref('animation-1')
+const searchQuery = ref('')
 const visibleIndex = ref(0) // 初始只显示第1个组件
 const loadingError = ref<string | null>(null)
 const isLoading = ref(false)
@@ -147,7 +184,7 @@ const initializeComponents = () => {
         template: '<div class="component-loading">加载中...</div>'
       },
       errorComponent: {
-        template: '<div class="component-error">加载失败</div>'
+        template: '<div   class="component-error">加载失败</div>'
       },
       delay: 200,
       timeout: 30000 // 增加到30秒
@@ -197,6 +234,31 @@ const filteredComponents = computed(() => {
   if (!components || !Array.isArray(components)) {
     return []
   }
+
+  // 如果有搜索词，在所有组件中搜索
+  if (searchQuery.value && searchQuery.value.trim()) {
+    const query = searchQuery.value.toLowerCase().trim()
+    console.log('[搜索] 搜索词:', query)
+    console.log('[搜索] 总组件数:', components.length)
+
+    const results = components.filter(c => {
+      const name = c.name.toLowerCase()
+      // 移除空格、连字符、下划线，使搜索更灵活
+      const normalizedName = name.replace(/[\s-_]/g, '')
+      const normalizedQuery = query.replace(/[\s-_]/g, '')
+      const matches = normalizedName.includes(normalizedQuery)
+
+      if (matches) {
+        console.log('[搜索] 匹配:', c.name)
+      }
+      return matches
+    })
+
+    console.log('[搜索] 结果数:', results.length)
+    return results
+  }
+
+  // 否则按分类过滤
   return components.filter(c => c.category === currentCategory.value)
 })
 
@@ -246,6 +308,53 @@ const scrollToTop = () => {
     // 重新检查可见组件
     checkVisibleComponents()
   }, 600) // 600ms 足够 smooth 滚动完成
+}
+
+// 搜索相关方法
+const handleSearch = () => {
+  // 搜索时重置可见索引
+  visibleIndex.value = -1
+  nextTick(() => {
+    visibleIndex.value = 0
+    // 延迟检查可见组件
+    setTimeout(() => {
+      checkVisibleComponents()
+    }, 100)
+  })
+}
+
+const clearSearch = () => {
+  searchQuery.value = ''
+  visibleIndex.value = -1
+  nextTick(() => {
+    visibleIndex.value = 0
+    setTimeout(() => {
+      checkVisibleComponents()
+    }, 100)
+  })
+}
+
+const handleCategoryChange = (categoryId: string) => {
+  currentCategory.value = categoryId
+  // 切换分类时清空搜索
+  searchQuery.value = ''
+  visibleIndex.value = -1
+  nextTick(() => {
+    visibleIndex.value = 0
+    // 滚动到顶部
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+    // 延迟加载新组件
+    setTimeout(async () => {
+      visibleIndex.value = 0
+      await nextTick()
+      await checkVisibleComponents()
+
+      // 延迟刷新确保新组件完全渲染
+      setTimeout(() => {
+        safeRefreshScrollTrigger()
+      }, 200)
+    }, 500)
+  })
 }
 
 const checkVisibleComponents = async () => {
@@ -395,6 +504,151 @@ onUnmounted(() => {
   color: #94a3b8;
 }
 
+// 搜索框样式
+.search-container {
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.search-wrapper {
+  position: relative;
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.search-icon {
+  position: absolute;
+  left: 16px;
+  width: 20px;
+  height: 20px;
+  color: #94a3b8;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.search-input {
+  width: 100%;
+  padding: 14px 50px 14px 45px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  color: #fff;
+  font-size: 15px;
+  transition: all 0.3s;
+  backdrop-filter: blur(10px);
+
+  &::placeholder {
+    color: #64748b;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: #a78bfa;
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 0 0 3px rgba(167, 139, 250, 0.2);
+  }
+}
+
+.search-clear {
+  position: absolute;
+  right: 12px;
+  width: 28px;
+  height: 28px;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  color: #94a3b8;
+
+  svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  &:hover {
+    background: rgba(239, 68, 68, 0.2);
+    color: #f87171;
+  }
+}
+
+.search-empty {
+  text-align: center;
+  padding: 40px 20px;
+  color: #94a3b8;
+  margin-top: 20px;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.empty-icon {
+  font-size: 48px;
+  margin-bottom: 15px;
+}
+
+.clear-search-btn {
+  margin-top: 15px;
+  padding: 10px 24px;
+  background: linear-gradient(135deg, #a78bfa, #60a5fa);
+  border: none;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.3s;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(167, 139, 250, 0.4);
+  }
+}
+
+.search-result-count {
+  text-align: center;
+  padding: 12px 20px;
+  background: rgba(34, 197, 94, 0.1);
+  border: 1px solid rgba(34, 197, 94, 0.2);
+  border-radius: 8px;
+  color: #22c55e;
+  font-size: 14px;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  animation: slideDown 0.3s ease-out;
+}
+
+.result-icon {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.empty-hint {
+  font-size: 13px;
+  color: #64748b;
+  margin-top: 5px;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .filter-bar {
   display: flex;
   gap: 10px;
@@ -418,13 +672,23 @@ onUnmounted(() => {
   transition: all 0.3s;
   font-size: 14px;
 
-  &:hover {
+  &:hover:not(:disabled) {
     background: rgba(255, 255, 255, 0.2);
   }
 
   &.active {
     background: linear-gradient(135deg, #a78bfa, #60a5fa);
     border-color: transparent;
+  }
+
+  &:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    background: rgba(255, 255, 255, 0.05);
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.05);
+    }
   }
 }
 
