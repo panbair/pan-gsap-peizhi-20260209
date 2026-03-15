@@ -70,15 +70,12 @@ const routes: RouteRecordRaw[] = [
     meta: { title: '宠物天堂官网' }
   },
 
-
   {
     path: '/web-demo',
     name: 'web-demo',
     component: () => import('@/views/web-demo/index.vue'),
     meta: { title: '我的第一个宠物官网' }
   },
-
-
 
   {
     path: '/:pathMatch(.*)*',
