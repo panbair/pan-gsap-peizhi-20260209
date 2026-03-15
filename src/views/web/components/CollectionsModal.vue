@@ -174,22 +174,22 @@ const handleCopy = async (collection: Collection) => {
       data = collection.data
     }
 
-    const copyData = {
-      id: collection.id,
-      name: collection.name,
-      data: data,
-      createdAt: collection.createdAt
+    // 如果是数组，提取组件名称用逗号分隔
+    let copyText = ''
+    if (Array.isArray(data)) {
+      copyText = data.join(',')
+    } else {
+      // 如果不是数组，尝试提取 name 字段或直接使用数据
+      copyText = typeof data === 'object' ? JSON.stringify(data) : String(data)
     }
 
-    const text = JSON.stringify(copyData, null, 2)
-
-    console.log('[Clipboard] 准备复制的内容:', text)
-    console.log('[Clipboard] 复制数据长度:', text.length)
+    console.log('[Clipboard] 准备复制的内容:', copyText)
+    console.log('[Clipboard] 复制数据长度:', copyText.length)
 
     // 方法1: 使用 Clipboard API (现代浏览器)
     if (navigator.clipboard && navigator.clipboard.writeText) {
       try {
-        await navigator.clipboard.writeText(text)
+        await navigator.clipboard.writeText(copyText)
         const componentCount = Array.isArray(data) ? data.length : '未知'
         alert(`✅ 已复制收藏集：${collection.name}\n共 ${componentCount} 个组件`)
         return
@@ -201,7 +201,7 @@ const handleCopy = async (collection: Collection) => {
 
     // 方法2: 使用 execCommand (兼容旧浏览器)
     const textArea = document.createElement('textarea')
-    textArea.value = text
+    textArea.value = copyText
     textArea.style.position = 'fixed'
     textArea.style.left = '-9999px'
     textArea.style.top = '0'
