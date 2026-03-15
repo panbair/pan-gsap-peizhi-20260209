@@ -1,806 +1,541 @@
 <template>
-  <div class="sip-pixelate-section-229" ref="componentRoot">
-    <div class="sip-container-229">
-      <h2 class="sip-title-229">像素化揭示</h2>
-      <p class="sip-subtitle-229">Image Pixelate Reveal</p>
+  <section ref="pixelateSection" class="px-section-232">
+    <!-- 动态背景 -->
+    <div class="px-bg-grid-232"></div>
+    <canvas ref="particleCanvas" class="px-particle-canvas-232"></canvas>
 
-      <!-- 像素化控制 -->
-      <div class="sip-pixel-control-panel-229">
-        <div class="sip-control-group-229">
-          <label class="sip-label-229">像素大小</label>
-          <input
-            type="range"
-            min="5"
-            max="50"
-            v-model.number="pixelSize"
-            class="sip-slider-229"
-          />
-          <span class="sip-value-229">{{ pixelSize }}px</span>
-        </div>
-        <div class="sip-control-group-229">
-          <label class="sip-label-229">过渡速度</label>
-          <input
-            type="range"
-            min="1"
-            max="10"
-            v-model.number="transitionSpeed"
-            class="sip-slider-229"
-          />
-          <span class="sip-value-229">{{ transitionSpeed }}x</span>
-        </div>
-        <div class="sip-control-group-229">
-          <label class="sip-label-229">像素模式</label>
-          <div class="sip-mode-buttons-229">
-            <button
-              v-for="mode in modes"
-              :key="mode.id"
-              class="sip-mode-btn-229"
-              :class="{ 'sip-active-229': currentMode === mode.id }"
-              @click="setMode(mode.id)"
-            >
-              {{ mode.name }}
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <!-- 像素化画廊 -->
-      <div class="sip-pixelate-gallery-229">
-        <div
-          v-for="(item, index) in galleryItems"
-          :key="index"
-          class="sip-pixelate-item-229"
-          ref="pixelateItems"
-        >
-          <div class="sip-pixelate-wrapper-229">
-            <!-- 像素化层 -->
-            <div class="sip-pixelated-layer-229">
-              <canvas
-                :ref="el => { if (el) canvasRefs[index] = el as HTMLCanvasElement }"
-                class="sip-pixel-canvas-229"
-                :data-pixel-size="pixelSize"
-              ></canvas>
-            </div>
-
-            <!-- 原始图片层 -->
-            <div class="sip-original-layer-229">
-              <img :src="item.image" :alt="item.title" class="sip-original-image-229" />
-            </div>
-
-            <!-- 像素网格叠加 -->
-            <div class="sip-pixel-grid-229" :style="{ backgroundSize: `${pixelSize}px ${pixelSize}px` }"></div>
-
-            <!-- 像素粒子效果 -->
-            <div class="sip-pixel-particles-229" ref="pixelParticles">
-              <div class="sip-particle-229" v-for="i in 20" :key="i" :style="{ '--i': i }"></div>
-            </div>
-
-            <!-- 信息覆盖层 -->
-            <div class="sip-pixelate-overlay-229">
-              <div class="sip-pixelate-content-229">
-                <div class="sip-pixel-badge-229">
-                  <span class="sip-pixel-icon-229">■</span>
-                  {{ pixelSize }}px
-                </div>
-                <h3 class="sip-card-title-229">{{ item.title }}</h3>
-                <p class="sip-card-desc-229">{{ item.desc }}</p>
-                <div class="sip-pixel-metrics-229">
-                  <div class="sip-metric-229">
-                    <span class="sip-metric-label-229">分辨率</span>
-                    <span class="sip-metric-value-229">{{ calculateResolution(item) }}</span>
-                  </div>
-                  <div class="sip-metric-229">
-                    <span class="sip-metric-label-229">过渡</span>
-                    <span class="sip-metric-value-229">{{ transitionSpeed }}x</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 像素化状态指示器 -->
-      <div class="sip-pixelate-status-229" ref="statusIndicator">
-        <div class="sip-pixel-grid-display-229">
-          <div class="sip-pixel-display-229" v-for="i in 12" :key="i"></div>
-        </div>
-        <div class="sip-pixel-info-229">
-          <span class="sip-info-label-229">像素化引擎</span>
-          <span class="sip-info-value-229">{{ statusText }}</span>
+    <!-- 标题区域 -->
+    <div class="px-header-232">
+      <div class="px-title-container-232">
+        <h2 class="px-title-232">
+          <span class="px-title-text-232">PIXEL</span>
+          <span class="px-title-accent-232">MORPH</span>
+        </h2>
+        <div class="px-subtitle-232">
+          <span class="px-subtitle-text-232">数字像素转换 · 量子重组艺术</span>
         </div>
       </div>
     </div>
-  </div>
+
+    <!-- 主显示区域 -->
+    <div class="px-main-container-232">
+      <!-- 像素画布 -->
+      <div class="px-canvas-wrapper-232">
+        <canvas ref="pixelCanvas" class="px-canvas-232"></canvas>
+
+        <!-- 扫描线效果 -->
+        <div class="px-scanline-232"></div>
+        <div class="px-scanline-glow-232"></div>
+      </div>
+    </div>
+
+    <!-- 原始图片（隐藏，用于提取像素） -->
+    <img
+      ref="sourceImage"
+      :src="currentImage"
+      alt="Source"
+      style="display: none;"
+      @load="onImageLoad"
+    />
+  </section>
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted, onUnmounted, watch } from 'vue'
+import { ref, computed, onMounted, onUnmounted } from 'vue'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 gsap.registerPlugin(ScrollTrigger)
 
-const componentRoot = ref<HTMLElement>()
-const pixelateItems = ref<HTMLElement[]>([])
-const canvasRefs = ref<(HTMLCanvasElement | null)[]>([])
-const pixelParticles = ref<HTMLElement[]>([])
-const statusIndicator = ref<HTMLElement>()
+const pixelateSection = ref<HTMLElement>()
+const pixelCanvas = ref<HTMLCanvasElement>()
+const particleCanvas = ref<HTMLCanvasElement>()
+const sourceImage = ref<HTMLImageElement>()
 
-const pixelSize = ref(15)
-const transitionSpeed = ref(5)
-const currentMode = ref<'reveal' | 'dissolve' | 'scatter'>('reveal')
+// 图片索引
+const currentImageIndex = ref(0)
 
-const statusText = computed(() => {
-  return `模式: ${currentMode.value} | 像素: ${pixelSize.value}px`
-})
-
-interface PixelMode {
-  id: 'reveal' | 'dissolve' | 'scatter'
-  name: string
-}
-
-const modes: PixelMode[] = [
-  { id: 'reveal', name: '揭示' },
-  { id: 'dissolve', name: '溶解' },
-  { id: 'scatter', name: '散射' }
+// 图片列表
+const images = [
+  new URL('@/assets/image/1.png', import.meta.url).href,
+  new URL('@/assets/image/2.png', import.meta.url).href,
+  new URL('@/assets/image/3.png', import.meta.url).href
 ]
 
-interface GalleryItem {
-  image: string
-  title: string
-  desc: string
-  width?: number
-  height?: number
+const currentImage = computed(() => images[currentImageIndex.value])
+
+// 固定配置（由滚动控制效果）
+const pixelSize = 12
+const morphStrength = 50
+const rotation = 90
+const speed = 1
+
+// 像素数据
+interface Pixel {
+  x: number
+  y: number
+  targetX: number
+  targetY: number
+  color: string
+  brightness: number
+  size: number
+  rotation: number
+  targetRotation: number
+  opacity: number
+  delay: number
+  element?: HTMLElement
 }
 
-const galleryItems: GalleryItem[] = [
-  {
-    image: 'https://images.unsplash.com/photo-1519681393784-d120267933ba?w=800',
-    title: '星空像素',
-    desc: '复古像素风格星空'
-  },
-  {
-    image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800',
-    title: '山脉像素',
-    desc: '8位风格山脉景观'
-  },
-  {
-    image: 'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=800',
-    title: '森林像素',
-    desc: '像素化森林场景'
-  },
-  {
-    image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800',
-    title: '海滩像素',
-    desc: '复古海滩像素艺术'
+const pixels = ref<Pixel[]>([])
+
+// Canvas上下文
+let ctx: CanvasRenderingContext2D | null = null
+let particleCtx: CanvasRenderingContext2D | null = null
+let animationId: number | null = null
+let particleAnimationId: number | null = null
+let isAnimating = false
+
+let ctxGSAP: gsap.Context
+
+// 生成像素网格
+const generatePixels = () => {
+  if (!sourceImage.value || !pixelCanvas.value) return
+
+  const img = sourceImage.value
+
+  if (!img.complete || img.naturalWidth === 0) {
+    setTimeout(generatePixels, 100)
+    return
   }
-]
 
-const calculateResolution = (item: GalleryItem) => {
-  const w = item.width || 800
-  const h = item.height || 600
-  const rw = Math.round(w / pixelSize.value)
-  const rh = Math.round(h / pixelSize.value)
-  return `${rw}x${rh}`
-}
+  const canvas = pixelCanvas.value
+  const maxSize = 600
+  const scale = Math.min(maxSize / img.naturalWidth, maxSize / img.naturalHeight)
+  const width = Math.floor(img.naturalWidth * scale)
+  const height = Math.floor(img.naturalHeight * scale)
 
-let ctx: gsap.Context
-const loadedImages: Map<string, HTMLImageElement> = new Map()
+  canvas.width = width
+  canvas.height = height
 
-const setMode = (mode: 'reveal' | 'dissolve' | 'scatter') => {
-  currentMode.value = mode
-  ScrollTrigger.refresh()
-}
-
-// 像素化图像处理
-const pixelateImage = (canvas: HTMLCanvasElement, imageUrl: string, size: number) => {
-  const ctx = canvas.getContext('2d')
+  ctx = canvas.getContext('2d')
   if (!ctx) return
 
-  const img = new Image()
-  img.crossOrigin = 'anonymous'
-  img.src = imageUrl
+  // 绘制图片到临时canvas
+  const tempCanvas = document.createElement('canvas')
+  const tempCtx = tempCanvas.getContext('2d')
+  if (!tempCtx) return
 
-  img.onload = () => {
-    // 设置canvas大小
-    canvas.width = img.width
-    canvas.height = img.height
+  tempCanvas.width = width
+  tempCanvas.height = height
+  tempCtx.drawImage(img, 0, 0, width, height)
 
-    // 小尺寸绘制
-    const smallCanvas = document.createElement('canvas')
-    const smallCtx = smallCanvas.getContext('2d')!
-    const sw = Math.ceil(img.width / size)
-    const sh = Math.ceil(img.height / size)
+  // 获取像素数据
+  const imageData = tempCtx.getImageData(0, 0, width, height)
+  const data = imageData.data
 
-    smallCanvas.width = sw
-    smallCanvas.height = sh
-    smallCtx.drawImage(img, 0, 0, sw, sh)
+  const cols = Math.ceil(width / pixelSize)
+  const rows = Math.ceil(height / pixelSize)
+  const newPixels: Pixel[] = []
 
-    // 放大回原尺寸
-    ctx.imageSmoothingEnabled = false
-    ctx.drawImage(smallCanvas, 0, 0, sw, sh, 0, 0, canvas.width, canvas.height)
+  for (let row = 0; row < rows; row++) {
+    for (let col = 0; col < cols; col++) {
+      const x = col * pixelSize
+      const y = row * pixelSize
+
+      // 采样中心像素颜色
+      const sampleX = Math.min(x + Math.floor(pixelSize / 2), width - 1)
+      const sampleY = Math.min(y + Math.floor(pixelSize / 2), height - 1)
+      const index = (sampleY * width + sampleX) * 4
+
+      const r = data[index]
+      const g = data[index + 1]
+      const b = data[index + 2]
+      const a = data[index + 3]
+
+      if (a < 50) continue
+
+      const brightness = (r * 0.299 + g * 0.587 + b * 0.114) / 255
+      const distance = Math.sqrt(
+        Math.pow(col - cols / 2, 2) +
+        Math.pow(row - rows / 2, 2)
+      )
+      const maxDistance = Math.sqrt(Math.pow(cols / 2, 2) + Math.pow(rows / 2, 2))
+
+      newPixels.push({
+        x: x,
+        y: y,
+        targetX: x,
+        targetY: y,
+        color: `rgb(${r}, ${g}, ${b})`,
+        brightness,
+        size: pixelSize * (0.8 + brightness * 0.4),
+        rotation: 0,
+        targetRotation: 0,
+        opacity: 1,
+        delay: distance / maxDistance
+      })
+    }
   }
+
+  pixels.value = newPixels
+
+  // 开始动画
+  startPixelAnimation()
 }
 
-const initAnimations = () => {
-  ctx = gsap.context(() => {
-    const items = gsap.utils.toArray('.sip-pixelate-item-229') as HTMLElement[]
+// 像素动画
+const startPixelAnimation = () => {
+  if (!pixelateSection.value || !ctx) return
 
-    items.forEach((item, index) => {
-      const wrapper = item.querySelector('.sip-pixelate-wrapper-229') as HTMLElement
-      const pixelatedLayer = item.querySelector('.sip-pixelated-layer-229') as HTMLElement
-      const originalLayer = item.querySelector('.sip-original-layer-229') as HTMLElement
-      const pixelGrid = item.querySelector('.sip-pixel-grid-229') as HTMLElement
-      const particleContainer = item.querySelector('.sip-pixel-particles-229') as HTMLElement
-      const overlay = item.querySelector('.sip-pixelate-overlay-229') as HTMLElement
+  isAnimating = true
+  const strength = morphStrength / 100
 
-      // 初始化canvas像素化
-      const canvas = canvasRefs.value[index]
-      if (canvas && galleryItems[index]) {
-        pixelateImage(canvas, galleryItems[index].image, pixelSize.value)
-      }
+  ctxGSAP = gsap.context(() => {
+    pixels.value.forEach((pixel, i) => {
+      // 随机散开位置
+      const scatterX = (Math.random() - 0.5) * 200 * strength
+      const scatterY = (Math.random() - 0.5) * 200 * strength
 
-      // Initial reveal animation
-      gsap.fromTo(
-        wrapper,
-        { y: 100, opacity: 0, scale: 0.9 },
-        {
-          y: 0,
-          opacity: 1,
-          scale: 1,
-          duration: 1.2,
-          ease: 'power3.out',
-          scrollTrigger: {
-            trigger: item,
-            start: 'top 85%',
-            end: 'top 35%',
-            scrub: 1
-          }
-        }
-      )
-
-      // Pixelated layer opacity animation
-      gsap.fromTo(
-        pixelatedLayer,
-        { opacity: 1 },
-        {
-          opacity: 0,
-          duration: 2 / (transitionSpeed.value / 5),
-          ease: 'power2.out',
-          scrollTrigger: {
-            trigger: item,
-            start: 'top 70%',
-            end: 'center center',
-            scrub: 1
-          }
-        }
-      )
-
-      // Original layer reveal
-      gsap.fromTo(
-        originalLayer,
-        { opacity: 0, filter: `blur(${pixelSize.value / 2}px)` },
-        {
-          opacity: 1,
-          filter: 'blur(0px)',
-          duration: 2 / (transitionSpeed.value / 5),
-          ease: 'power2.out',
-          scrollTrigger: {
-            trigger: item,
-            start: 'top 70%',
-            end: 'center center',
-            scrub: 1
-          }
-        }
-      )
-
-      // Pixel grid fade out
-      gsap.fromTo(
-        pixelGrid,
-        { opacity: 0.5 },
-        {
-          opacity: 0,
-          duration: 1.5 / (transitionSpeed.value / 5),
-          ease: 'power2.out',
-          scrollTrigger: {
-            trigger: item,
-            start: 'top 60%',
-            end: 'top 25%',
-            scrub: 1
-          }
-        }
-      )
-
-      // Pixel particles animation based on mode
-      const particles = particleContainer.querySelectorAll('.sip-particle-229')
-      if (currentMode.value === 'scatter') {
-        gsap.fromTo(
-          particles,
-          {
-            x: 0,
-            y: 0,
-            opacity: 1,
-            scale: 1
-          },
-          {
-            x: () => gsap.utils.random(-200, 200),
-            y: () => gsap.utils.random(-200, 200),
-            opacity: 0,
-            scale: 0,
-            duration: 2 / (transitionSpeed.value / 5),
-            stagger: 0.05,
-            ease: 'power2.out',
-            scrollTrigger: {
-              trigger: item,
-              start: 'top 60%',
-              end: 'top 20%',
-              scrub: 1
-            }
-          }
-        )
-      } else if (currentMode.value === 'dissolve') {
-        gsap.fromTo(
-          particles,
-          { opacity: 1, scale: 1 },
-          {
-            opacity: 0,
-            scale: 0,
-            duration: 1.5 / (transitionSpeed.value / 5),
-            stagger: {
-              each: 0.1,
-              from: 'random'
-            },
-            ease: 'power2.out',
-            scrollTrigger: {
-              trigger: item,
-              start: 'top 60%',
-              end: 'top 20%',
-              scrub: 1
-            }
-          }
-        )
-      }
-
-      // Overlay reveal
-      gsap.fromTo(
-        overlay,
-        { opacity: 0, y: 60 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 1,
-          ease: 'power2.out',
-          scrollTrigger: {
-            trigger: item,
-            start: 'top 45%',
-            toggleActions: 'play none none reverse'
-          }
-        }
-      )
-
-      // Content stagger animation
-      const contentElements = overlay.querySelectorAll('.sip-pixel-badge-229, h3, p, .sip-pixel-metrics-229')
-      gsap.from(contentElements, {
-        y: 25,
-        opacity: 0,
-        duration: 0.8,
-        stagger: 0.1,
-        ease: 'power2.out',
+      // 使用 from 实现双向滚动
+      gsap.from(pixel, {
+        x: pixel.targetX + scatterX,
+        y: pixel.targetY + scatterY,
+        size: pixelSize * 0.3,
+        rotation: rotation,
+        opacity: 0.3,
         scrollTrigger: {
-          trigger: item,
-          start: 'top 40%',
-          toggleActions: 'play none none reverse'
-        }
+          trigger: pixelateSection.value,
+          start: 'top bottom',
+          end: 'center center',
+          scrub: 1.5
+        },
+        onUpdate: () => {
+          pixel.size = pixelSize * (0.8 + pixel.brightness * 0.4)
+        },
+        ease: 'elastic.out(1, 0.5)'
       })
     })
+  }, pixelateSection.value)
 
-    // Status indicator grid animation
-    if (statusIndicator.value) {
-      const gridCells = statusIndicator.value.querySelectorAll('.sip-pixel-display-229')
-      gsap.to(gridCells, {
-        opacity: () => Math.random(),
-        scale: () => 0.8 + Math.random() * 0.4,
-        duration: 0.5,
-        stagger: 0.05,
-        repeat: -1,
-        ease: 'sine.inOut',
-        yoyo: true
-      })
-    }
-  }, componentRoot.value)
+  // 开始渲染循环
+  renderLoop()
 }
 
-// Update pixelation when settings change
-watch([pixelSize, transitionSpeed, currentMode], () => {
-  canvasRefs.value.forEach((canvas, index) => {
-    if (canvas && galleryItems[index]) {
-      pixelateImage(canvas, galleryItems[index].image, pixelSize.value)
+// 渲染循环
+const renderLoop = () => {
+  if (!ctx || !pixelCanvas.value || !isAnimating) return
+
+  const canvas = pixelCanvas.value
+  ctx.clearRect(0, 0, canvas.width, canvas.height)
+
+  // 绘制像素
+  pixels.value.forEach(pixel => {
+    ctx.save()
+    ctx.translate(pixel.x + pixel.size / 2, pixel.y + pixel.size / 2)
+    ctx.rotate((pixel.rotation * Math.PI) / 180)
+
+    ctx.globalAlpha = pixel.opacity
+    ctx.fillStyle = pixel.color
+    ctx.shadowColor = pixel.color
+    ctx.shadowBlur = 10 * pixel.brightness
+
+    ctx.fillRect(-pixel.size / 2, -pixel.size / 2, pixel.size, pixel.size)
+    ctx.restore()
+  })
+
+  animationId = requestAnimationFrame(renderLoop)
+}
+
+// 初始化背景粒子
+const initParticles = () => {
+  if (!particleCanvas.value || !pixelateSection.value) return
+
+  const canvas = particleCanvas.value
+  const rect = pixelateSection.value.getBoundingClientRect()
+
+  canvas.width = rect.width
+  canvas.height = rect.height
+
+  particleCtx = canvas.getContext('2d')
+  if (!particleCtx) return
+
+  // 创建粒子
+  const particles: Array<{
+    x: number
+    y: number
+    vx: number
+    vy: number
+    size: number
+    life: number
+    color: string
+  }> = []
+
+  for (let i = 0; i < 80; i++) {
+    particles.push({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      vx: (Math.random() - 0.5) * 0.8,
+      vy: (Math.random() - 0.5) * 0.8,
+      size: Math.random() * 3 + 1,
+      life: Math.random(),
+      color: Math.random() > 0.5 ? '#22d3ee' : '#a3e635'
+    })
+  }
+
+  // 启动粒子动画
+  const particleLoop = () => {
+    if (!particleCtx || !particleCanvas.value) return
+
+    particleCtx.clearRect(0, 0, canvas.width, canvas.height)
+
+    particles.forEach(p => {
+      p.x += p.vx
+      p.y += p.vy
+      p.life -= 0.002
+
+      // 边界检查
+      if (p.x < 0 || p.x > canvas.width) p.vx *= -1
+      if (p.y < 0 || p.y > canvas.height) p.vy *= -1
+
+      // 重置死亡粒子
+      if (p.life <= 0) {
+        p.x = Math.random() * canvas.width
+        p.y = Math.random() * canvas.height
+        p.life = 1
+      }
+
+      // 绘制粒子
+      particleCtx.beginPath()
+      particleCtx.arc(p.x, p.y, p.size * p.life, 0, Math.PI * 2)
+      particleCtx.fillStyle = p.color
+      particleCtx.globalAlpha = p.life * 0.6
+      particleCtx.fill()
+    })
+
+    particleAnimationId = requestAnimationFrame(particleLoop)
+  }
+
+  particleLoop()
+
+  // 窗口大小变化
+  window.addEventListener('resize', () => {
+    if (particleCanvas.value && pixelateSection.value) {
+      const rect = pixelateSection.value.getBoundingClientRect()
+      particleCanvas.value.width = rect.width
+      particleCanvas.value.height = rect.height
     }
   })
-  ScrollTrigger.refresh()
-})
+}
+
+// 图片加载完成
+const onImageLoad = () => {
+  setTimeout(generatePixels, 150)
+}
 
 onMounted(() => {
-  initAnimations()
+  initParticles()
+
+  // 检查图片是否已加载
+  if (sourceImage.value?.complete) {
+    onImageLoad()
+  }
 })
 
 onUnmounted(() => {
-  if (ctx) ctx.revert()
-  ScrollTrigger.getAll().forEach(t => t.kill())
+  isAnimating = false
+
+  ctxGSAP?.revert()
+
+  if (animationId) cancelAnimationFrame(animationId)
+  if (particleAnimationId) cancelAnimationFrame(particleAnimationId)
 })
 </script>
 
 <style scoped lang="scss">
-.sip-pixelate-section-229 {
+.px-section-232 {
   min-height: 100vh;
   padding: 60px 20px;
-  background: linear-gradient(135deg, #0a0a1a 0%, #1a1a3a 50%, #0a0a2a 100%);
-  position: relative;
+  background: linear-gradient(135deg, #0a0a1f 0%, #1a1a3f 50%, #0f0f2f 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   overflow: hidden;
+  position: relative;
+}
+
+// 背景网格
+.px-bg-grid-232 {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(34, 211, 238, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(34, 211, 238, 0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+  animation: gridFloat 30s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes gridFloat {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(-40px, -40px); }
+}
+
+// 背景粒子Canvas
+.px-particle-canvas-232 {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+// 标题区域
+.px-header-232 {
+  text-align: center;
+  margin-bottom: 50px;
+  z-index: 10;
+}
+
+.px-title-container-232 {
+  animation: titleFloat 4s ease-in-out infinite;
+}
+
+@keyframes titleFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.px-title-232 {
+  font-size: 4rem;
+  font-weight: 900;
+  margin-bottom: 15px;
+  letter-spacing: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.px-title-text-232 {
+  background: linear-gradient(135deg, #22d3ee, #818cf8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 0 40px rgba(34, 211, 238, 0.5);
+}
+
+.px-title-accent-232 {
+  background: linear-gradient(135deg, #a3e635, #22d3ee);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 0 40px rgba(163, 230, 53, 0.5);
+}
+
+.px-subtitle-232 {
+  margin-top: 20px;
+}
+
+.px-subtitle-text-232 {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.6);
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+// 主容器
+.px-main-container-232 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  z-index: 10;
+  width: 100%;
+  max-width: 800px;
+}
+
+// 画布包装器
+.px-canvas-wrapper-232 {
+  position: relative;
+  padding: 20px;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  cursor: pointer;
 
   &::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23334455' fill-opacity='0.05'%3E%3Cpath d='M0 0h20v20H0V0zm20 20h20v20H20V20z'/%3E%3C/g%3E%3C/svg%3E");
-    pointer-events: none;
+    inset: -2px;
+    background: linear-gradient(135deg, #22d3ee, #a3e635, #818cf8);
+    border-radius: 26px;
+    z-index: -1;
+    opacity: 0.3;
+    filter: blur(20px);
+    animation: borderGlow 3s ease-in-out infinite;
   }
 }
 
-.sip-container-229 {
-  max-width: 1400px;
-  margin: 0 auto;
-  position: relative;
-  z-index: 1;
+@keyframes borderGlow {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.6; }
 }
 
-.sip-title-229 {
-  font-size: 3rem;
-  font-weight: 800;
-  text-align: center;
-  margin-bottom: 10px;
-  background: linear-gradient(135deg, #ff6b6b, #feca57, #48dbfb, #ff9ff3);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  text-shadow: 0 0 40px rgba(255, 107, 107, 0.3);
-  font-family: 'Courier New', monospace;
-  letter-spacing: -2px;
-}
-
-.sip-subtitle-229 {
-  text-align: center;
-  color: #48dbfb;
-  font-size: 1.2rem;
-  margin-bottom: 40px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  font-family: 'Courier New', monospace;
-}
-
-.sip-pixel-control-panel-229 {
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  flex-wrap: wrap;
-  margin-bottom: 50px;
-  padding: 25px;
-  background: rgba(255, 107, 107, 0.03);
-  border: 2px solid rgba(255, 107, 107, 0.2);
+.px-canvas-232 {
+  display: block;
   border-radius: 16px;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 0 30px rgba(255, 107, 107, 0.1);
+  background: rgba(0, 0, 0, 0.3);
 }
 
-.sip-control-group-229 {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
-
-.sip-label-229 {
-  color: #ff6b6b;
-  font-size: 14px;
-  font-weight: 600;
-  white-space: nowrap;
-  font-family: 'Courier New', monospace;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-.sip-slider-229 {
-  width: 120px;
-  height: 6px;
-  -webkit-appearance: none;
-  background: rgba(255, 107, 107, 0.2);
-  border-radius: 3px;
-  cursor: pointer;
-
-  &::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    width: 16px;
-    height: 16px;
-    background: #ff6b6b;
-    border: 2px solid #0a0a1a;
-    border-radius: 0;
-    cursor: pointer;
-    box-shadow: 0 0 10px rgba(255, 107, 107, 0.8);
-  }
-}
-
-.sip-value-229 {
-  color: #48dbfb;
-  font-size: 14px;
-  font-weight: 600;
-  min-width: 50px;
-  font-family: 'Courier New', monospace;
-}
-
-.sip-mode-buttons-229 {
-  display: flex;
-  gap: 8px;
-}
-
-.sip-mode-btn-229 {
-  padding: 8px 16px;
-  background: rgba(255, 107, 107, 0.1);
-  border: 2px solid rgba(255, 107, 107, 0.3);
-  color: #ff6b6b;
-  border-radius: 0;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  font-size: 13px;
-  font-family: 'Courier New', monospace;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-
-  &:hover {
-    background: rgba(255, 107, 107, 0.2);
-    border-color: rgba(255, 107, 107, 0.6);
-  }
-
-  &.sip-active-229 {
-    background: #ff6b6b;
-    border-color: #ff6b6b;
-    color: #0a0a1a;
-    font-weight: 700;
-  }
-}
-
-.sip-pixelate-gallery-229 {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
-  gap: 50px;
-  margin-bottom: 60px;
-}
-
-.sip-pixelate-item-229 {
-  perspective: 2000px;
-}
-
-.sip-pixelate-wrapper-229 {
-  position: relative;
-  border-radius: 0;
-  overflow: hidden;
-  background: #0a0a1a;
-  border: 3px solid rgba(255, 107, 107, 0.3);
-  box-shadow:
-    0 0 40px rgba(255, 107, 107, 0.2),
-    inset 0 0 40px rgba(255, 107, 107, 0.05);
-  transform-style: preserve-3d;
-}
-
-.sip-pixelated-layer-229 {
+// 扫描线效果
+.px-scanline-232 {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 2;
+  inset: 20px;
+  background: linear-gradient(
+    transparent 0%,
+    rgba(34, 211, 238, 0.03) 50%,
+    transparent 100%
+  );
+  background-size: 100% 4px;
+  animation: scanline 0.1s linear infinite;
   pointer-events: none;
 }
 
-.sip-pixel-canvas-229 {
-  width: 100%;
-  height: 400px;
-  object-fit: cover;
-  display: block;
+@keyframes scanline {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(4px); }
 }
 
-.sip-original-layer-229 {
+.px-scanline-glow-232 {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
+  top: 20px;
+  left: 20px;
+  right: 20px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #22d3ee, transparent);
+  animation: scanlineMove 3s ease-in-out infinite;
   pointer-events: none;
+  opacity: 0.5;
 }
 
-.sip-original-image-229 {
-  width: 100%;
-  height: 400px;
-  object-fit: cover;
-  display: block;
+@keyframes scanlineMove {
+  0%, 100% { top: 20px; opacity: 0; }
+  50% { opacity: 0.8; }
+  100% { top: calc(100% - 20px); opacity: 0; }
 }
 
-.sip-pixel-grid-229 {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 3;
-  pointer-events: none;
-  background-image:
-    linear-gradient(rgba(255, 107, 107, 0.1) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 107, 107, 0.1) 1px, transparent 1px);
-  background-size: 15px 15px;
-}
-
-.sip-pixel-particles-229 {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 4;
-  pointer-events: none;
-}
-
-.sip-particle-229 {
-  position: absolute;
-  width: 8px;
-  height: 8px;
-  background: linear-gradient(135deg, #ff6b6b, #48dbfb);
-  top: 20%;
-  left: 20%;
-  opacity: 0.8;
-  transform: translate(calc(var(--i) * 30px), calc(var(--i) * 20px));
-}
-
-.sip-pixelate-overlay-229 {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 30px;
-  background: linear-gradient(transparent, rgba(10, 10, 26, 0.98));
-  z-index: 10;
-  border-top: 3px solid rgba(255, 107, 107, 0.4);
-}
-
-.sip-pixelate-content-229 {
-  transform: translateZ(10px);
-}
-
-.sip-pixel-badge-229 {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 6px 14px;
-  background: rgba(255, 107, 107, 0.2);
-  border: 2px solid rgba(255, 107, 107, 0.5);
-  color: #ff6b6b;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  margin-bottom: 12px;
-  font-family: 'Courier New', monospace;
-}
-
-.sip-pixel-icon-229 {
-  font-size: 16px;
-  line-height: 1;
-}
-
-.sip-card-title-229 {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #48dbfb;
-  margin-bottom: 8px;
-  font-family: 'Courier New', monospace;
-  text-shadow: 0 0 20px rgba(72, 219, 251, 0.5);
-}
-
-.sip-card-desc-229 {
-  font-size: 1rem;
-  color: #94a3b8;
-  margin-bottom: 20px;
-  line-height: 1.6;
-  font-family: 'Courier New', monospace;
-}
-
-.sip-pixel-metrics-229 {
-  display: flex;
-  gap: 20px;
-}
-
-.sip-metric-229 {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.sip-metric-label-229 {
-  font-size: 11px;
-  color: #64748b;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  font-family: 'Courier New', monospace;
-}
-
-.sip-metric-value-229 {
-  font-size: 13px;
-  color: #48dbfb;
-  font-weight: 600;
-  font-family: 'Courier New', monospace;
-}
-
-.sip-pixelate-status-229 {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 40px;
-  padding: 30px;
-  background: rgba(255, 107, 107, 0.03);
-  border: 3px solid rgba(255, 107, 107, 0.2);
-  border-radius: 0;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 0 30px rgba(255, 107, 107, 0.1);
-}
-
-.sip-pixel-grid-display-229 {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 4px;
-  width: 120px;
-  height: 80px;
-}
-
-.sip-pixel-display-229 {
-  background: linear-gradient(135deg, #ff6b6b, #48dbfb);
-  border: 1px solid rgba(255, 107, 107, 0.3);
-}
-
-.sip-pixel-info-229 {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.sip-info-label-229 {
-  font-size: 11px;
-  color: #64748b;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  font-family: 'Courier New', monospace;
-}
-
-.sip-info-value-229 {
-  font-size: 14px;
-  color: #48dbfb;
-  font-weight: 600;
-  font-family: 'Courier New', monospace;
-}
-
+// 响应式
 @media (max-width: 768px) {
-  .sip-title-229 {
-    font-size: 2rem;
-  }
-
-  .sip-pixelate-gallery-229 {
-    grid-template-columns: 1fr;
-  }
-
-  .sip-pixel-control-panel-229 {
+  .px-title-232 {
+    font-size: 2.5rem;
     flex-direction: column;
-    gap: 20px;
+    gap: 10px;
+    letter-spacing: 4px;
   }
 }
 </style>
