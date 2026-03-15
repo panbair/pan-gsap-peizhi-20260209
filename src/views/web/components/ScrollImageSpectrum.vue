@@ -55,7 +55,8 @@
         >
           <div class="sir-spectrum-wrapper-227">
             <div class="sir-image-layers-227">
-              <img :src="item.image" :alt="item.title" class="sir-base-image-227" />
+              <img :src="item.image" :alt="item.title" class="sir-base-image-227" @error="handleImageError" />
+              <div class="sir-fallback-bg-227" :style="getFallbackBg(index)"></div>
               <div class="sir-spectrum-scan-227" :style="{ width: `${spectrumWidth}px` }">
                 <div class="sir-spectrum-gradient-227"></div>
               </div>
@@ -156,6 +157,25 @@ const galleryItems: GalleryItem[] = [
   }
 ]
 
+// 图片加载错误处理
+const handleImageError = (event: Event) => {
+  const img = event.target as HTMLImageElement
+  img.style.display = 'none' // 隐藏失败的图片，显示背景
+}
+
+// 获取备用背景
+const getFallbackBg = (index: number) => {
+  const gradients = [
+    'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+    'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
+    'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
+    'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)'
+  ]
+  return {
+    background: gradients[index % gradients.length]
+  }
+}
+
 let ctx: gsap.Context
 
 const setMode = (mode: 'horizontal' | 'vertical' | 'diagonal') => {
@@ -163,32 +183,47 @@ const setMode = (mode: 'horizontal' | 'vertical' | 'diagonal') => {
 }
 
 const initAnimations = () => {
+  // 清理之前的动画
+  if (ctx) {
+    ctx.revert()
+  }
+
   ctx = gsap.context(() => {
     const items = gsap.utils.toArray('.sir-spectrum-item-227') as HTMLElement[]
 
-    items.forEach((item) => {
+    if (items.length === 0) {
+      console.warn('[ScrollImageSpectrum] No items found')
+      return
+    }
+
+    items.forEach((item, index) => {
       const wrapper = item.querySelector('.sir-spectrum-wrapper-227') as HTMLElement
       const scanLine = item.querySelector('.sir-spectrum-scan-227') as HTMLElement
       const spectrumGradient = item.querySelector('.sir-spectrum-gradient-227') as HTMLElement
       const overlay = item.querySelector('.sir-overlay-227') as HTMLElement
       const rgbChannels = item.querySelector('.sir-spectrum-rgb-227') as HTMLElement
 
+      if (!wrapper || !scanLine || !overlay) {
+        console.warn(`[ScrollImageSpectrum] Missing elements in item ${index}`)
+        return
+      }
+
       // Spectrum scan animation based on mode
       const getScanAnimation = () => {
         switch (currentMode.value) {
           case 'horizontal':
-            return { x: -100 + '%', xPercent: 0 }
+            return { x: '-100%' }
           case 'vertical':
-            return { y: -100 + '%', yPercent: 0 }
+            return { y: '-100%' }
           case 'diagonal':
-            return { x: -100 + '%', y: -100 + '%', xPercent: 0, yPercent: 0 }
+            return { x: '-100%', y: '-100%' }
           default:
-            return { x: -100 + '%', xPercent: 0 }
+            return { x: '-100%' }
         }
       }
 
-      // Initial state
-      gsap.set(scanLine, { opacity: 0 })
+      // Initial state - 确保元素可见
+      gsap.set(scanLine, { opacity: 0.8, x: 0, y: 0 })
 
       // Reveal animation
       gsap.fromTo(
@@ -209,16 +244,14 @@ const initAnimations = () => {
         }
       )
 
-      // Spectrum scan animation
+      // Spectrum scan animation - 修复位置问题
       const scanAnim = gsap.fromTo(
         scanLine,
-        { opacity: 1, ...getScanAnimation() },
+        { opacity: 0.8, ...getScanAnimation() },
         {
-          opacity: 1,
-          x: currentMode.value === 'vertical' ? 0 : '100%',
-          y: currentMode.value === 'horizontal' ? 0 : '100%',
-          xPercent: currentMode.value === 'vertical' ? 0 : 100,
-          yPercent: currentMode.value === 'horizontal' ? 0 : 100,
+          opacity: 0.8,
+          x: currentMode.value === 'vertical' ? 0 : scanLine.offsetWidth,
+          y: currentMode.value === 'horizontal' ? 0 : scanLine.offsetHeight,
           duration: 2 / (scanSpeed.value / 5),
           ease: 'none',
           scrollTrigger: {
@@ -231,21 +264,23 @@ const initAnimations = () => {
       )
 
       // RGB color separation effect
-      gsap.fromTo(
-        rgbChannels,
-        { opacity: 0.8 },
-        {
-          opacity: 0,
-          duration: 0.5,
-          stagger: 0.1,
-          scrollTrigger: {
-            trigger: item,
-            start: 'top 60%',
-            end: 'top 20%',
-            scrub: 1
+      if (rgbChannels) {
+        gsap.fromTo(
+          rgbChannels,
+          { opacity: 0.8 },
+          {
+            opacity: 0.2,
+            duration: 0.5,
+            stagger: 0.1,
+            scrollTrigger: {
+              trigger: item,
+              start: 'top 60%',
+              end: 'top 20%',
+              scrub: 1
+            }
           }
-        }
-      )
+        )
+      }
 
       // Overlay content reveal
       gsap.fromTo(
@@ -282,11 +317,13 @@ const initAnimations = () => {
       // Internal scanner animation
       const scannerDots = overlay.querySelector('.sir-scan-dots-227')
       if (scannerDots) {
+        const dotsWidth = scannerDots.offsetWidth || 100
         gsap.to(scannerDots, {
-          x: '200%',
+          x: dotsWidth * 2,
           duration: 2 / (scanSpeed.value / 5),
           ease: 'none',
           repeat: -1,
+          yoyo: true,
           scrollTrigger: {
             trigger: item,
             start: 'top 40%',
@@ -299,8 +336,10 @@ const initAnimations = () => {
 
     // Live scanner indicator
     if (liveScanner.value && scanBar.value) {
-      gsap.to(scanBar, {
-        xPercent: 100,
+      // 计算扫描条的最大移动距离
+      const maxDistance = 240 // 像素值
+      gsap.to(scanBar.value, {
+        x: maxDistance,
         duration: 2 / (scanSpeed.value / 5),
         ease: 'none',
         repeat: -1,
@@ -332,11 +371,11 @@ onUnmounted(() => {
 
 <style scoped lang="scss">
 .sir-spectrum-section-227 {
-  min-height: 100vh;
+  min-height: auto;
   padding: 60px 20px;
   background: linear-gradient(135deg, #0a0a1a 0%, #1a1a3a 50%, #0a0a2a 100%);
   position: relative;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .sir-container-227 {
@@ -476,6 +515,18 @@ onUnmounted(() => {
 .sir-image-layers-227 {
   position: relative;
   overflow: hidden;
+  min-height: 400px;
+  background: linear-gradient(135deg, #1a1a3a 0%, #0a0a2a 100%);
+}
+
+.sir-fallback-bg-227 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  z-index: 0;
 }
 
 .sir-base-image-227 {
@@ -483,6 +534,10 @@ onUnmounted(() => {
   height: 400px;
   object-fit: cover;
   display: block;
+  background: transparent;
+  min-width: 100%;
+  position: relative;
+  z-index: 1;
 }
 
 .sir-spectrum-scan-227 {
@@ -490,9 +545,10 @@ onUnmounted(() => {
   top: 0;
   left: 0;
   height: 100%;
-  opacity: 0;
+  opacity: 0.8;
   z-index: 2;
   pointer-events: none;
+  overflow: visible;
 }
 
 .sir-spectrum-gradient-227 {
@@ -538,8 +594,8 @@ onUnmounted(() => {
   transform: translateX(-2px);
 }
 
-.sir-blue-227 {
-  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg"><rect width="100%" height="100%" fill="rgba(0, 0, 255, 0.1)"/></svg>');
+.sir-rgb-227 {
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg"><rect width="100%" height="100%" fill="rgba(0, 0, 255, 0.2)"/></svg>');
   transform: translateY(0);
 }
 

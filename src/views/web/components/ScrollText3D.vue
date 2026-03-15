@@ -46,6 +46,7 @@ gsap.registerPlugin(ScrollTrigger)
 const stage = ref<HTMLElement | null>(null)
 const textRows = ref<HTMLElement[]>([])
 const floatElements = ref<HTMLElement[]>([])
+let handleMouseMove: ((e: MouseEvent) => void) | null = null
 
 const textRowsData = [
   'CREATE',
@@ -83,7 +84,6 @@ const getFloatStyle = (index: number) => {
 }
 
 let gsapCtx: gsap.Context
-let handleMouseMove: (e: MouseEvent) => void = () => {}
 
 onMounted(() => {
   gsapCtx = gsap.context(() => {
@@ -224,19 +224,24 @@ onMounted(() => {
     })
 
     // 鼠标视差效果 - 增强交互
-    const handleMouseMove = (e: MouseEvent) => {
+    handleMouseMove = (e: MouseEvent) => {
+      if (!stage.value) return
+
       const centerX = window.innerWidth / 2
       const centerY = window.innerHeight / 2
       const deltaX = (e.clientX - centerX) / centerX
       const deltaY = (e.clientY - centerY) / centerY
 
-      gsap.to('.st3-text-rows-128', {
-        rotateY: deltaX * 20,
-        rotateX: -deltaY * 15,
-        translateZ: deltaX * 50,
-        duration: 0.8,
-        ease: 'power2.out'
-      })
+      const textRowsEl = stage.value.querySelector('.st3-text-rows-128')
+      if (textRowsEl) {
+        gsap.to(textRowsEl, {
+          rotateY: deltaX * 20,
+          rotateX: -deltaY * 15,
+          translateZ: deltaX * 50,
+          duration: 0.8,
+          ease: 'power2.out'
+        })
+      }
     }
 
     window.addEventListener('mousemove', handleMouseMove)
@@ -245,7 +250,9 @@ onMounted(() => {
 
 onUnmounted(() => {
   gsapCtx?.revert()
-  window.removeEventListener('mousemove', handleMouseMove)
+  if (handleMouseMove) {
+    window.removeEventListener('mousemove', handleMouseMove)
+  }
 })
 </script>
 

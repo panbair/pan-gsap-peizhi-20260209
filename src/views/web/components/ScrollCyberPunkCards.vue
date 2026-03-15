@@ -80,11 +80,11 @@
           <div class="data-row-228">
             <div class="data-item-228">
               <span class="data-label-228">SPEED</span>
-              <span class="data-value-228" :style="{ color: card.color }}">{{ card.speed }}%</span>
+              <span class="data-value-228" :style="{ color: card.color }">{{ card.speed }}%</span>
             </div>
             <div class="data-item-228">
               <span class="data-label-228">POWER</span>
-              <span class="data-value-228" :style="{ color: card.color }}">{{ card.power }}%</span>
+              <span class="data-value-228" :style="{ color: card.color }">{{ card.power }}%</span>
             </div>
           </div>
         </div>
