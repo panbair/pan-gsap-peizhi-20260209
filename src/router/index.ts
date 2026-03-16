@@ -49,6 +49,14 @@ const routes: RouteRecordRaw[] = [
     meta: { title: 'preview动画' }
   },
 
+
+  {
+    path: '/aos',
+    name: 'aos',
+    component: () => import('@/views/aos/index.vue'),
+    meta: { title: 'aos动画' }
+  },
+
   {
     path: '/web',
     name: 'web',
