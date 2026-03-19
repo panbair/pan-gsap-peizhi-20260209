@@ -171,18 +171,22 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
+/* GSAP opacity fix: ensure content is always visible */
+
 .mp-motion-path-section-61 {
   min-height: 100vh;
   padding: 80px 40px;
   background: linear-gradient(135deg, #0f0f23 0%, #1a1a3e 50%, #2d1b69 100%);
   position: relative;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .mp-section-header-61 {
   text-align: center;
   margin-bottom: 60px;
-}
+
+  opacity: 1 !important;}
 
 .mp-title-61 {
   font-size: 56px;
@@ -191,7 +195,8 @@ onUnmounted(() => {
   letter-spacing: 6px;
   text-transform: uppercase;
   text-shadow: 0 0 30px rgba(45, 27, 105, 0.5);
-}
+
+  opacity: 1 !important;}
 
 .mp-subtitle-61 {
   font-size: 18px;
@@ -199,18 +204,21 @@ onUnmounted(() => {
   margin-top: 16px;
   letter-spacing: 3px;
   text-transform: uppercase;
-}
+
+  opacity: 1 !important;}
 
 .mp-path-container-61 {
   max-width: 1400px;
   margin: 0 auto;
   padding: 40px 0;
-}
+
+  opacity: 1 !important;}
 
 .mp-path-svg-61 {
   width: 100%;
   height: 600px;
-}
+
+  opacity: 1 !important;}
 
 .mp-motion-path-61 {
   filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
@@ -246,7 +254,8 @@ onUnmounted(() => {
   text-transform: uppercase;
   letter-spacing: 2px;
   box-shadow: 0 10px 30px rgba(45, 27, 105, 0.3);
-}
+
+  opacity: 1 !important;}
 
 .mp-control-btn-61:hover {
   transform: translateY(-3px);
@@ -257,14 +266,17 @@ onUnmounted(() => {
   .mp-title-61 {
     font-size: 32px;
     letter-spacing: 3px;
-  }
+  
+  opacity: 1 !important;}
 
   .mp-subtitle-61 {
     font-size: 14px;
-  }
+  
+  opacity: 1 !important;}
 
   .mp-path-svg-61 {
     height: 400px;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

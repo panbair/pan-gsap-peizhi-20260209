@@ -184,6 +184,8 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
+/* GSAP opacity fix: ensure content is always visible */
+
 .morph-path-141 {
   width: 100%;
   min-height: 100vh;
@@ -193,7 +195,8 @@ onUnmounted(() => {
   flex-direction: column;
   align-items: center;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .mp-container-141 {
   width: 100%;
@@ -201,7 +204,8 @@ onUnmounted(() => {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
+
+  opacity: 1 !important;}
 
 .mp-title-141 {
   font-size: clamp(2rem, 5vw, 3.5rem);
@@ -212,14 +216,16 @@ onUnmounted(() => {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-}
+
+  opacity: 1 !important;}
 
 .mp-desc-141 {
   font-size: clamp(0.9rem, 2vw, 1.2rem);
   color: rgba(255, 255, 255, 0.7);
   margin-bottom: 40px;
   text-align: center;
-}
+
+  opacity: 1 !important;}
 
 .mp-stage-141 {
   width: 100%;
@@ -230,13 +236,15 @@ onUnmounted(() => {
   border-radius: 20px;
   overflow: hidden;
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-}
+
+  opacity: 1 !important;}
 
 .mp-svg-141 {
   width: 100%;
   height: 100%;
   will-change: transform;
-}
+
+  opacity: 1 !important;}
 
 .mp-path-141,
 .mp-path-2-141,
@@ -252,7 +260,8 @@ onUnmounted(() => {
   width: 100%;
   height: 100%;
   pointer-events: none;
-}
+
+  opacity: 1 !important;}
 
 .mp-particle-141 {
   position: absolute;
@@ -261,7 +270,8 @@ onUnmounted(() => {
   background: rgba(255, 255, 255, 0.6);
   border-radius: 50%;
   will-change: transform, opacity;
-}
+
+  opacity: 1 !important;}
 
 .mp-particle-141:nth-child(1) { top: 10%; left: 10%; }
 .mp-particle-141:nth-child(2) { top: 20%; left: 80%; }
@@ -289,12 +299,14 @@ onUnmounted(() => {
   font-size: 0.9rem;
   color: rgba(255, 255, 255, 0.5);
   text-align: center;
-}
+
+  opacity: 1 !important;}
 
 @media (max-width: 768px) {
   .mp-stage-141 {
     height: 400px;
-  }
+  
+  opacity: 1 !important;}
   
   .mp-svg-141 {
     transform: scale(0.8);

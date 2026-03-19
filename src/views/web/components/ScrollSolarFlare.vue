@@ -166,18 +166,22 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
+/* GSAP opacity fix: ensure content is always visible */
+
 .solar-flare-container-205 {
   min-height: 100vh;
   background: linear-gradient(180deg, #1a0a00 0%, #2a1500 100%);
   padding: 60px 20px;
   position: relative;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .sf-header-205 {
   text-align: center;
   margin-bottom: 60px;
-}
+
+  opacity: 1 !important;}
 
 .sf-title-205 {
   font-size: 48px;
@@ -188,12 +192,14 @@ onUnmounted(() => {
   background-clip: text;
   text-shadow: 0 0 40px rgba(255, 200, 0, 0.5);
   margin-bottom: 10px;
-}
+
+  opacity: 1 !important;}
 
 .sf-hint-205 {
   font-size: 18px;
   color: #ffcc00;
-}
+
+  opacity: 1 !important;}
 
 .sf-stage-205 {
   max-width: 1200px;
@@ -202,7 +208,8 @@ onUnmounted(() => {
   grid-template-columns: repeat(4, 1fr);
   gap: 40px;
   padding: 20px;
-}
+
+  opacity: 1 !important;}
 
 .sf-flare-wrapper-205 {
   height: 400px;
@@ -210,7 +217,8 @@ onUnmounted(() => {
   display: flex;
   justify-content: center;
   align-items: center;
-}
+
+  opacity: 1 !important;}
 
 .sf-flare-205 {
   position: relative;
@@ -221,7 +229,8 @@ onUnmounted(() => {
   border: 2px solid rgba(255, 200, 0, 0.3);
   overflow: hidden;
   transition: all 0.5s ease;
-}
+
+  opacity: 1 !important;}
 
 .sf-flare-205:hover {
   transform: translateY(-10px);
@@ -246,13 +255,15 @@ onUnmounted(() => {
   align-items: center;
   justify-content: center;
   text-align: center;
-}
+
+  opacity: 1 !important;}
 
 .sf-icon-205 {
   font-size: 72px;
   margin-bottom: 20px;
   filter: drop-shadow(0 0 20px rgba(255, 200, 0, 0.8));
-}
+
+  opacity: 1 !important;}
 
 .sf-flare-title-205 {
   font-size: 28px;
@@ -260,13 +271,15 @@ onUnmounted(() => {
   color: #ffcc00;
   margin-bottom: 10px;
   text-shadow: 0 0 20px rgba(255, 200, 0, 0.5);
-}
+
+  opacity: 1 !important;}
 
 .sf-flare-desc-205 {
   font-size: 14px;
   color: #ff9900;
   line-height: 1.6;
-}
+
+  opacity: 1 !important;}
 
 @media (max-width: 1024px) {
   .sf-stage-205 {
@@ -281,6 +294,7 @@ onUnmounted(() => {
 
   .sf-title-205 {
     font-size: 32px;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

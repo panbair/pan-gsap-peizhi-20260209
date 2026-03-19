@@ -221,7 +221,8 @@ onUnmounted(() => {
       radial-gradient(ellipse at 20% 80%, rgba(0, 255, 255, 0.1) 0%, transparent 50%),
       radial-gradient(ellipse at 80% 20%, rgba(255, 0, 255, 0.1) 0%, transparent 50%);
     pointer-events: none;
-  }
+  
+  opacity: 1 !important;}
 }
 
 .snr-container-173 {
@@ -229,7 +230,8 @@ onUnmounted(() => {
   max-width: 1400px;
   margin: 0 auto;
   z-index: 2;
-}
+
+  opacity: 1 !important;}
 
 .snr-title-173 {
   font-size: clamp(3rem, 8vw, 5rem);
@@ -244,7 +246,8 @@ onUnmounted(() => {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   position: relative;
-}
+
+  opacity: 1 !important;}
 
 .snr-subtitle-173 {
   font-size: clamp(1.2rem, 3vw, 2rem);
@@ -254,7 +257,8 @@ onUnmounted(() => {
   letter-spacing: 0.5em;
   text-transform: uppercase;
   text-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
-}
+
+  opacity: 1 !important;}
 
 .snr-cards-stage-173 {
   position: relative;
@@ -264,7 +268,8 @@ onUnmounted(() => {
   padding: 60px 40px;
   z-index: 2;
   margin-top: 100px;
-}
+
+  opacity: 1 !important;}
 
 .snr-neon-card-173 {
   position: relative;
@@ -337,13 +342,15 @@ onUnmounted(() => {
   pointer-events: none;
   transition: all 0.3s;
   z-index: 1;
-}
+
+  opacity: 1 !important;}
 
 .snr-card-content-173 {
   position: relative;
   z-index: 3;
   text-align: center;
-}
+
+  opacity: 1 !important;}
 
 .snr-card-number-173 {
   font-size: 5rem;
@@ -352,7 +359,8 @@ onUnmounted(() => {
   margin-bottom: 20px;
   transition: all 0.3s;
   text-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
-}
+
+  opacity: 1 !important;}
 
 .snr-card-title-173 {
   font-size: 2.5rem;
@@ -362,7 +370,8 @@ onUnmounted(() => {
   text-transform: uppercase;
   letter-spacing: 0.2em;
   text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
-}
+
+  opacity: 1 !important;}
 
 .snr-card-desc-173 {
   font-size: 1.2rem;
@@ -370,13 +379,15 @@ onUnmounted(() => {
   margin-bottom: 30px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-}
+
+  opacity: 1 !important;}
 
 .snr-card-icon-173 {
   font-size: 5rem;
   filter: drop-shadow(0 0 30px currentColor);
   animation: icon-float 3s ease-in-out infinite;
-}
+
+  opacity: 1 !important;}
 
 @keyframes icon-float {
   0%, 100% {

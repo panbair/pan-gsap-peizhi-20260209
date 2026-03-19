@@ -174,13 +174,16 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
+/* GSAP opacity fix: ensure content is always visible */
+
 .hc-container-182 {
   min-height: 100vh;
   padding: 80px 20px;
   background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #0a0a0a 100%);
   position: relative;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .hc-container-182::before {
   content: '';
@@ -207,7 +210,8 @@ onUnmounted(() => {
   background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: hc-glow-182 3s ease-in-out infinite;
-}
+
+  opacity: 1 !important;}
 
 @keyframes hc-glow-182 {
   0%, 100% { background-position: 0% center; }
@@ -221,7 +225,8 @@ onUnmounted(() => {
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 40px;
   perspective: 1000px;
-}
+
+  opacity: 1 !important;}
 
 .hc-card-182 {
   position: relative;
@@ -231,7 +236,8 @@ onUnmounted(() => {
   will-change: transform;
   cursor: pointer;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .hc-hologram-182 {
   position: absolute;
@@ -248,7 +254,8 @@ onUnmounted(() => {
     rgba(0, 255, 255, 0.05) 100%);
   backdrop-filter: blur(10px);
   transition: border-color 0.3s ease;
-}
+
+  opacity: 1 !important;}
 
 .hc-lines-182 {
   position: absolute;
@@ -267,7 +274,8 @@ onUnmounted(() => {
   background-size: 100% 20px;
   background-position: 0% 0%;
   animation: hc-scan-182 2s linear infinite;
-}
+
+  opacity: 1 !important;}
 
 @keyframes hc-scan-182 {
   0% { background-position: 0% 0%; }
@@ -299,7 +307,8 @@ onUnmounted(() => {
   padding: 30px;
   text-align: center;
   z-index: 1;
-}
+
+  opacity: 1 !important;}
 
 .hc-content-182 h3 {
   font-size: 1.8rem;
@@ -319,7 +328,8 @@ onUnmounted(() => {
 @media (max-width: 768px) {
   .hc-title-182 {
     font-size: 1.8rem;
-  }
+  
+  opacity: 1 !important;}
   
   .hc-stage-182 {
     grid-template-columns: 1fr;
@@ -328,6 +338,7 @@ onUnmounted(() => {
   
   .hc-card-182 {
     height: 240px;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

@@ -316,7 +316,8 @@ onUnmounted(() => {
       radial-gradient(circle at 25% 25%, rgba(236, 72, 153, 0.08) 0%, transparent 50%),
       radial-gradient(circle at 75% 75%, rgba(168, 85, 247, 0.08) 0%, transparent 50%);
     pointer-events: none;
-  }
+  
+  opacity: 1 !important;}
 }
 
 .src-container-150 {
@@ -324,7 +325,8 @@ onUnmounted(() => {
   margin: 0 auto;
   position: relative;
   z-index: 1;
-}
+
+  opacity: 1 !important;}
 
 .src-title-150 {
   text-align: center;
@@ -336,7 +338,8 @@ onUnmounted(() => {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-}
+
+  opacity: 1 !important;}
 
 .src-subtitle-150 {
   text-align: center;
@@ -345,7 +348,8 @@ onUnmounted(() => {
   margin-bottom: 80px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-}
+
+  opacity: 1 !important;}
 
 .src-cards-grid-150 {
   display: grid;
@@ -366,7 +370,8 @@ onUnmounted(() => {
 
   &:hover {
     box-shadow: 0 20px 60px rgba(236, 72, 153, 0.2);
-  }
+  
+  opacity: 1 !important;}
 }
 
 .src-ripple-effect-150 {
@@ -387,11 +392,13 @@ onUnmounted(() => {
   background: radial-gradient(circle, rgba(236, 72, 153, 0.3), transparent);
   transform: translate(-50%, -50%);
   pointer-events: none;
-}
+
+  opacity: 1 !important;}
 
 .src-card-content-150 {
   padding: 30px;
-}
+
+  opacity: 1 !important;}
 
 .src-card-image-150 {
   width: 100%;
@@ -403,7 +410,8 @@ onUnmounted(() => {
   overflow: hidden;
   position: relative;
   transition: transform 0.5s ease;
-}
+
+  opacity: 1 !important;}
 
 .src-card-overlay-150 {
   position: absolute;
@@ -412,7 +420,8 @@ onUnmounted(() => {
   right: 0;
   bottom: 0;
   background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.3) 100%);
-}
+
+  opacity: 1 !important;}
 
 .src-card-title-150 {
   font-size: 1.8rem;
@@ -420,13 +429,15 @@ onUnmounted(() => {
   color: #fff;
   margin-bottom: 12px;
   letter-spacing: 0.05em;
-}
+
+  opacity: 1 !important;}
 
 .src-card-description-150 {
   font-size: 1rem;
   color: rgba(255, 255, 255, 0.7);
   line-height: 1.6;
-}
+
+  opacity: 1 !important;}
 
 .src-ripple-particles-150 {
   position: absolute;
@@ -447,7 +458,8 @@ onUnmounted(() => {
   left: var(--particle-left);
   top: var(--particle-top);
   animation: float var(--delay) ease-in-out infinite;
-}
+
+  opacity: 1 !important;}
 
 @keyframes float {
   0%, 100% {
@@ -466,10 +478,12 @@ onUnmounted(() => {
 
   .src-card-image-150 {
     height: 200px;
-  }
+  
+  opacity: 1 !important;}
 
   .src-card-title-150 {
     font-size: 1.5rem;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

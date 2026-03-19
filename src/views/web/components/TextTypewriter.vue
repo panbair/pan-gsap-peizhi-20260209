@@ -85,7 +85,8 @@ const initAnimations = () => {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-}
+
+  opacity: 1 !important;}
 
 .tt-section-title-5 {
   font-size: 2.5rem;
@@ -96,11 +97,13 @@ const initAnimations = () => {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   text-align: center;
-}
+
+  opacity: 1 !important;}
 
 .tt-typewriter-section-5 {
   background: linear-gradient(180deg, transparent, rgba(79, 172, 254, 0.1), transparent);
-}
+
+  opacity: 1 !important;}
 
 .tt-typewriter-container-5 {
   position: relative;
@@ -109,7 +112,8 @@ const initAnimations = () => {
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 20px;
   backdrop-filter: blur(10px);
-}
+
+  opacity: 1 !important;}
 
 .tt-typewriter-text-5 {
   font-size: 3rem;
@@ -120,7 +124,8 @@ const initAnimations = () => {
   justify-content: center;
   gap: 5px;
   letter-spacing: 5px;
-}
+
+  opacity: 1 !important;}
 
 .tt-char-5 {
   display: inline-block;
@@ -132,7 +137,8 @@ const initAnimations = () => {
   height: 60px;
   background: #fff;
   animation: tt-blink 1s infinite;
-}
+
+  opacity: 1 !important;}
 
 @keyframes tt-blink {
   0%, 100% { opacity: 1; }
@@ -142,6 +148,7 @@ const initAnimations = () => {
 @media (max-width: 768px) {
   .tt-typewriter-text-5 {
     font-size: 1.8rem;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

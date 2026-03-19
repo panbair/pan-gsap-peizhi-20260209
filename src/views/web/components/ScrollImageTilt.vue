@@ -361,9 +361,9 @@ onUnmounted(() => {
   margin-bottom: 60px;
 }
 
-.tilt-wrapper-218 {
-  perspective: 1000px;
-}
+.tilt-wrapper-218 { perspective: 1000px;
+      opacity: 1;
+    }
 
 .tilt-card-218 {
   position: relative;
@@ -383,11 +383,11 @@ onUnmounted(() => {
   box-shadow: 0 20px 60px rgba(102, 126, 234, 0.3);
 }
 
-.tilt-image-218 {
-  position: relative;
+.tilt-image-218 { position: relative;
   height: 350px;
   overflow: hidden;
-}
+      opacity: 1;
+    }
 
 .tilt-img-218 {
   width: 100%;
@@ -416,10 +416,10 @@ onUnmounted(() => {
   opacity: 0.6;
 }
 
-.tilt-content-218 {
-  padding: 30px;
+.tilt-content-218 { padding: 30px;
   transform: translateZ(30px);
-}
+      opacity: 1;
+    }
 
 .tilt-title-218 {
   font-size: 1.8rem;
@@ -511,15 +511,15 @@ onUnmounted(() => {
   overflow: hidden;
 }
 
-.axis-fill-218 {
-  position: absolute;
+.axis-fill-218 { position: absolute;
   top: 0;
   left: 0;
   height: 100%;
   width: 50%;
   background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
   border-radius: 4px;
-}
+      opacity: 1;
+    }
 
 .axis-x-218 {
   background: linear-gradient(90deg, #f093fb 0%, #f5576c 100%);
@@ -587,9 +587,9 @@ onUnmounted(() => {
     grid-template-columns: 1fr;
   }
 
-  .tilt-image-218 {
-    height: 280px;
-  }
+  .tilt-image-218 { height: 280px;
+      opacity: 1;
+    }
 
   .tilt-title-218 {
     font-size: 1.5rem;

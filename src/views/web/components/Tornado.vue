@@ -200,11 +200,13 @@ onUnmounted(() => {
   position: relative;
   overflow: hidden;
   background: linear-gradient(180deg, #1a1a2a 0%, #2a2a3a 50%, #3a3a4a 100%);
-}
+
+  opacity: 1 !important;}
 
 .content-29 {
   text-align: center;
-}
+
+  opacity: 1 !important;}
 
 .tor-section-title-29 {
   font-size: clamp(2rem, 4vw, 2.5rem);
@@ -212,13 +214,15 @@ onUnmounted(() => {
   margin-bottom: 16px;
   color: #6b7280;
   text-shadow: 0 0 20px rgba(107, 114, 128, 0.6);
-}
+
+  opacity: 1 !important;}
 
 .tor-subtitle-29 {
   font-size: 1.1rem;
   color: #94a3b8;
   margin-bottom: 40px;
-}
+
+  opacity: 1 !important;}
 
 .tornado-container-29 {
   position: relative;
@@ -229,13 +233,15 @@ onUnmounted(() => {
   border-radius: 20px;
   overflow: hidden;
   box-shadow: 0 0 60px rgba(107, 114, 128, 0.3);
-}
+
+  opacity: 1 !important;}
 
 .storm-sky-29 {
   position: absolute;
   inset: 0;
   background: linear-gradient(180deg, #1a1a2a, #2a2a3a 60%, #3a3a4a);
-}
+
+  opacity: 1 !important;}
 
 .lightning-29 {
   position: absolute;
@@ -265,7 +271,8 @@ onUnmounted(() => {
   background: linear-gradient(180deg, #4a4a5a, #3a3a4a);
   border-radius: 30px;
   filter: blur(10px);
-}
+
+  opacity: 1 !important;}
 
 .cloud-1 {
   top: 10%;
@@ -297,7 +304,8 @@ onUnmounted(() => {
   border-radius: 50%;
   background: linear-gradient(180deg, #6b7280, #4b5563);
   animation: segmentSpin 3s linear infinite;
-}
+
+  opacity: 1 !important;}
 
 @keyframes segmentSpin {
   0% {
@@ -319,7 +327,8 @@ onUnmounted(() => {
   background: #6b7280;
   border-radius: 3px;
   animation: debrisFly 3s ease-out infinite;
-}
+
+  opacity: 1 !important;}
 
 @keyframes debrisFly {
   0% {
@@ -339,7 +348,8 @@ onUnmounted(() => {
   right: 0;
   height: 150px;
   background: linear-gradient(180deg, transparent, rgba(75, 85, 99, 0.4));
-}
+
+  opacity: 1 !important;}
 
 .ground-dust-29 {
   position: absolute;
@@ -354,7 +364,8 @@ onUnmounted(() => {
   background: rgba(107, 114, 128, 0.4);
   border-radius: 50%;
   filter: blur(20px);
-}
+
+  opacity: 1 !important;}
 
 .wind-lines-29 {
   position: absolute;
@@ -367,7 +378,8 @@ onUnmounted(() => {
   height: 2px;
   background: linear-gradient(90deg, transparent, rgba(107, 114, 128, 0.6), transparent);
   animation: windFlow 2s ease-out infinite;
-}
+
+  opacity: 1 !important;}
 
 @keyframes windFlow {
   0% {
@@ -386,6 +398,7 @@ onUnmounted(() => {
 @media (max-width: 768px) {
   .tornado-container-29 {
     height: 400px;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

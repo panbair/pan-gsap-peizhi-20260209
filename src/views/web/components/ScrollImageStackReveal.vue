@@ -180,13 +180,15 @@ onUnmounted(() => {
   background: linear-gradient(180deg, #0a0a1a 0%, #1a1a3a 50%, #0f0f2a 100%);
   position: relative;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .sir-container-132 {
   max-width: 1400px;
   margin: 0 auto;
   position: relative;
-}
+
+  opacity: 1 !important;}
 
 .sir-title-132 {
   text-align: center;
@@ -198,7 +200,8 @@ onUnmounted(() => {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   text-shadow: 0 0 80px rgba(168, 85, 247, 0.5);
-}
+
+  opacity: 1 !important;}
 
 .sir-subtitle-132 {
   text-align: center;
@@ -207,7 +210,8 @@ onUnmounted(() => {
   margin-bottom: 120px;
   letter-spacing: 0.3em;
   text-transform: uppercase;
-}
+
+  opacity: 1 !important;}
 
 .sir-stage-132 {
   position: relative;
@@ -217,7 +221,8 @@ onUnmounted(() => {
   justify-content: center;
   align-items: center;
   perspective: 2000px;
-}
+
+  opacity: 1 !important;}
 
 .sir-image-layer-132 {
   position: absolute;
@@ -231,7 +236,8 @@ onUnmounted(() => {
   cursor: pointer;
   transition: transform 0.5s ease;
   will-change: transform;
-}
+
+  opacity: 1 !important;}
 
 .sir-image-layer-132::before {
   content: '';
@@ -284,7 +290,8 @@ onUnmounted(() => {
   font-size: 0.9rem;
   text-transform: uppercase;
   letter-spacing: 0.2em;
-}
+
+  opacity: 1 !important;}
 
 .sir-arrow-132 {
   width: 24px;
@@ -292,13 +299,15 @@ onUnmounted(() => {
   border-right: 3px solid rgba(255, 255, 255, 0.5);
   border-bottom: 3px solid rgba(255, 255, 255, 0.5);
   transform: rotate(45deg);
-}
+
+  opacity: 1 !important;}
 
 @media (max-width: 768px) {
   .sir-image-layer-132 {
     width: 280px;
     height: 350px;
-  }
+  
+  opacity: 1 !important;}
 
   .sir-title-132 {
     margin-bottom: 60px;
@@ -307,11 +316,13 @@ onUnmounted(() => {
   .sir-subtitle-132 {
     margin-bottom: 80px;
     font-size: 0.9rem;
-  }
+  
+  opacity: 1 !important;}
 
   .sir-stage-132 {
     height: 400px;
-  }
+  
+  opacity: 1 !important;}
 
   .sir-image-caption-132 h3 {
     font-size: 1.3rem;

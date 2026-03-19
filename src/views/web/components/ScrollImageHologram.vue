@@ -390,7 +390,8 @@ onUnmounted(() => {
   padding: 60px 20px;
   position: relative;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .saii-section-232::before {
   content: '';
@@ -410,7 +411,8 @@ onUnmounted(() => {
   margin: 0 auto;
   position: relative;
   z-index: 1;
-}
+
+  opacity: 1 !important;}
 
 .saii-title-232 {
   font-size: 3rem;
@@ -421,14 +423,16 @@ onUnmounted(() => {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   text-align: center;
-}
+
+  opacity: 1 !important;}
 
 .saii-subtitle-232 {
   font-size: 1.2rem;
   color: #94a3b8;
   text-align: center;
   margin-bottom: 40px;
-}
+
+  opacity: 1 !important;}
 
 .saii-control-panel-232 {
   display: flex;
@@ -441,20 +445,23 @@ onUnmounted(() => {
   border-radius: 16px;
   border: 1px solid rgba(255, 255, 255, 0.1);
   margin-bottom: 40px;
-}
+
+  opacity: 1 !important;}
 
 .saii-control-group-232 {
   display: flex;
   flex-direction: column;
   gap: 10px;
   min-width: 200px;
-}
+
+  opacity: 1 !important;}
 
 .saii-label-232 {
   font-size: 14px;
   color: #94a3b8;
   font-weight: 500;
-}
+
+  opacity: 1 !important;}
 
 .saii-slider-232 {
   width: 100%;
@@ -475,7 +482,8 @@ onUnmounted(() => {
 
     &:hover {
       transform: scale(1.2);
-    }
+    
+  opacity: 1 !important;}
   }
 }
 
@@ -483,7 +491,8 @@ onUnmounted(() => {
   font-size: 13px;
   color: #60a5fa;
   font-weight: 600;
-}
+
+  opacity: 1 !important;}
 
 .saii-hologram-stage-232 {
   display: grid;
@@ -505,7 +514,8 @@ onUnmounted(() => {
   &.saii-active-232 {
     border-color: #60a5fa;
     box-shadow: 0 0 30px rgba(96, 165, 250, 0.3);
-  }
+  
+  opacity: 1 !important;}
 
   &:hover {
     transform: translateY(-5px);
@@ -521,7 +531,8 @@ onUnmounted(() => {
   width: 200px;
   height: 200px;
   z-index: 1;
-}
+
+  opacity: 1 !important;}
 
 .saii-base-ring-232 {
   position: absolute;
@@ -531,7 +542,8 @@ onUnmounted(() => {
   border: 2px solid rgba(96, 165, 250, 0.3);
   border-radius: 50%;
 
-  &:nth-child(1) { width: 200px; height: 200px; }
+  &:nth-child(1) { width: 200px; height: 200px; 
+  opacity: 1 !important;}
   &:nth-child(2) { width: 150px; height: 150px; border-color: rgba(192, 132, 252, 0.3); }
   &:nth-child(3) { width: 100px; height: 100px; border-color: rgba(244, 114, 182, 0.3); }
 }
@@ -547,7 +559,8 @@ onUnmounted(() => {
   border-radius: 50%;
   box-shadow: 0 0 30px rgba(96, 165, 250, 0.6);
   animation: pulse 2s ease-in-out infinite;
-}
+
+  opacity: 1 !important;}
 
 @keyframes pulse {
   0%, 100% { transform: translate(-50%, -50%) scale(1); }
@@ -558,7 +571,8 @@ onUnmounted(() => {
   position: relative;
   height: 300px;
   perspective: 1000px;
-}
+
+  opacity: 1 !important;}
 
 .saii-scan-layer-232 {
   position: absolute;
@@ -576,7 +590,8 @@ onUnmounted(() => {
   height: 3px;
   background: linear-gradient(90deg, transparent, rgba(96, 165, 250, 0.8), transparent);
   box-shadow: 0 0 10px rgba(96, 165, 250, 0.8);
-}
+
+  opacity: 1 !important;}
 
 .saii-scan-beam-232 {
   position: absolute;
@@ -587,7 +602,8 @@ onUnmounted(() => {
   background: linear-gradient(180deg, rgba(96, 165, 250, 0.3) 0%, transparent 100%);
   transform: translateX(-50%);
   filter: blur(20px);
-}
+
+  opacity: 1 !important;}
 
 .saii-image-layer-232 {
   position: absolute;
@@ -605,7 +621,8 @@ onUnmounted(() => {
   object-fit: cover;
   border-radius: 10px;
   filter: brightness(1.2) contrast(1.1);
-}
+
+  opacity: 1 !important;}
 
 .saii-image-overlay-232 {
   position: absolute;
@@ -623,7 +640,8 @@ onUnmounted(() => {
   height: 25%;
   background: linear-gradient(90deg, rgba(96, 165, 250, 0.1) 0%, transparent 100%);
 
-  &:nth-child(1) { top: 0; }
+  &:nth-child(1) { top: 0; 
+  opacity: 1 !important;}
   &:nth-child(2) { top: 25%; }
   &:nth-child(3) { top: 50%; }
   &:nth-child(4) { top: 75%; }
@@ -646,7 +664,8 @@ onUnmounted(() => {
   background: rgba(96, 165, 250, 0.6);
   border-radius: 50%;
   box-shadow: 0 0 10px rgba(96, 165, 250, 0.6);
-}
+
+  opacity: 1 !important;}
 
 .saii-glitch-effect-232 {
   position: absolute;
@@ -663,7 +682,8 @@ onUnmounted(() => {
   background: rgba(192, 132, 252, 0.4);
   filter: blur(2px);
 
-  &:nth-child(1) { top: 20%; }
+  &:nth-child(1) { top: 20%; 
+  opacity: 1 !important;}
   &:nth-child(2) { top: 40%; }
   &:nth-child(3) { top: 60%; }
   &:nth-child(4) { top: 80%; }
@@ -688,7 +708,8 @@ onUnmounted(() => {
   height: 100%;
   background: linear-gradient(180deg, transparent 0%, rgba(96, 165, 250, 0.5) 100%);
   filter: blur(2px);
-}
+
+  opacity: 1 !important;}
 
 .saii-energy-ring-232 {
   position: absolute;
@@ -700,7 +721,8 @@ onUnmounted(() => {
   border: 2px solid rgba(96, 165, 250, 0.6);
   border-radius: 50%;
   filter: blur(2px);
-}
+
+  opacity: 1 !important;}
 
 .saii-image-info-232 {
   position: absolute;
@@ -711,20 +733,23 @@ onUnmounted(() => {
   background: rgba(0, 0, 0, 0.7);
   backdrop-filter: blur(10px);
   border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
+
+  opacity: 1 !important;}
 
 .saii-image-title-232 {
   font-size: 1.2rem;
   font-weight: 600;
   color: #e2e8f0;
   margin-bottom: 5px;
-}
+
+  opacity: 1 !important;}
 
 .saii-image-desc-232 {
   font-size: 0.9rem;
   color: #94a3b8;
   margin-bottom: 10px;
-}
+
+  opacity: 1 !important;}
 
 .saii-projection-status-232 {
   display: flex;
@@ -738,7 +763,8 @@ onUnmounted(() => {
   background: #22c55e;
   border-radius: 50%;
   animation: statusPulse 1s ease-in-out infinite;
-}
+
+  opacity: 1 !important;}
 
 @keyframes statusPulse {
   0%, 100% { opacity: 1; }
@@ -749,7 +775,8 @@ onUnmounted(() => {
   font-size: 12px;
   color: #22c55e;
   font-weight: 600;
-}
+
+  opacity: 1 !important;}
 
 .saii-hologram-controls-232 {
   display: flex;
@@ -774,12 +801,14 @@ onUnmounted(() => {
     background: rgba(96, 165, 250, 0.3);
     transform: translateY(-2px);
     box-shadow: 0 4px 20px rgba(96, 165, 250, 0.4);
-  }
+  
+  opacity: 1 !important;}
 
   &.saii-active-232 {
     background: linear-gradient(135deg, #60a5fa, #c084fc);
     border-color: transparent;
-  }
+  
+  opacity: 1 !important;}
 }
 
 .saii-data-panel-232 {
@@ -791,7 +820,8 @@ onUnmounted(() => {
   backdrop-filter: blur(10px);
   border-radius: 16px;
   border: 1px solid rgba(255, 255, 255, 0.1);
-}
+
+  opacity: 1 !important;}
 
 .saii-data-row-232 {
   display: flex;
@@ -800,16 +830,19 @@ onUnmounted(() => {
   padding: 10px;
   background: rgba(255, 255, 255, 0.02);
   border-radius: 8px;
-}
+
+  opacity: 1 !important;}
 
 .saii-data-label-232 {
   font-size: 13px;
   color: #94a3b8;
-}
+
+  opacity: 1 !important;}
 
 .saii-data-value-232 {
   font-size: 14px;
   font-weight: 600;
   color: #60a5fa;
-}
+
+  opacity: 1 !important;}
 </style>

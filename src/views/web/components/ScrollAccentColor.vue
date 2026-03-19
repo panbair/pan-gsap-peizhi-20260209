@@ -458,7 +458,8 @@ onUnmounted(() => {
   overflow: hidden;
   background: linear-gradient(135deg, var(--accent, #ff0000) 0%, #1a1a2e 100%);
   transition: background 0.1s linear;
-}
+
+  opacity: 1 !important;}
 
 .ac-container-254 {
   text-align: center;
@@ -466,7 +467,8 @@ onUnmounted(() => {
   z-index: 1;
   width: 100%;
   max-width: 1200px;
-}
+
+  opacity: 1 !important;}
 
 .ac-title-254 {
   font-size: clamp(2rem, 4vw, 3rem);
@@ -474,13 +476,15 @@ onUnmounted(() => {
   margin-bottom: 16px;
   color: white;
   text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-}
+
+  opacity: 1 !important;}
 
 .ac-subtitle-254 {
   font-size: 1.1rem;
   color: rgba(255, 255, 255, 0.8);
   margin-bottom: 60px;
-}
+
+  opacity: 1 !important;}
 
 .ac-scroll-indicator-254 {
   display: flex;
@@ -493,25 +497,29 @@ onUnmounted(() => {
   border-radius: 16px;
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
-}
+
+  opacity: 1 !important;}
 
 .ac-indicator-line-254 {
   width: 80px;
   height: 2px;
   background: linear-gradient(90deg, transparent, white, transparent);
-}
+
+  opacity: 1 !important;}
 
 .ac-indicator-text-254 {
   font-size: 1.2rem;
   font-weight: 600;
   color: white;
   letter-spacing: 2px;
-}
+
+  opacity: 1 !important;}
 
 .ac-color-track-254 {
   margin-bottom: 60px;
   padding: 0 40px;
-}
+
+  opacity: 1 !important;}
 
 .ac-progress-track-254 {
   width: 100%;
@@ -520,7 +528,8 @@ onUnmounted(() => {
   border-radius: 4px;
   overflow: hidden;
   margin-bottom: 20px;
-}
+
+  opacity: 1 !important;}
 
 .ac-progress-bar-254 {
   width: 0%;
@@ -528,20 +537,23 @@ onUnmounted(() => {
   background: linear-gradient(90deg, #ff0000, #00ff00, #0000ff, #9400d3);
   border-radius: 4px;
   transition: width 0.1s linear;
-}
+
+  opacity: 1 !important;}
 
 .ac-color-labels-254 {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 10px;
-}
+
+  opacity: 1 !important;}
 
 .ac-color-label-254 {
   font-size: 0.9rem;
   color: rgba(255, 255, 255, 0.7);
   font-weight: 500;
-}
+
+  opacity: 1 !important;}
 
 .ac-content-254 {
   display: flex;
@@ -549,7 +561,8 @@ onUnmounted(() => {
   align-items: center;
   gap: 60px;
   width: 100%;
-}
+
+  opacity: 1 !important;}
 
 .ac-color-display-254 {
   display: flex;
@@ -561,7 +574,8 @@ onUnmounted(() => {
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
   border: 2px solid rgba(255, 255, 255, 0.2);
-}
+
+  opacity: 1 !important;}
 
 .ac-current-color-254 {
   width: 100px;
@@ -570,7 +584,8 @@ onUnmounted(() => {
   background: var(--accent, #ff0000);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
   border: 4px solid white;
-}
+
+  opacity: 1 !important;}
 
 .ac-color-code-254 {
   font-size: 1.5rem;
@@ -578,7 +593,8 @@ onUnmounted(() => {
   color: white;
   font-family: 'Courier New', monospace;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-}
+
+  opacity: 1 !important;}
 
 .ac-cards-grid-254 {
   display: grid;
@@ -586,7 +602,8 @@ onUnmounted(() => {
   gap: 30px;
   width: 100%;
   max-width: 1000px;
-}
+
+  opacity: 1 !important;}
 
 .ac-card-253 {
   padding: 40px 30px;
@@ -597,7 +614,8 @@ onUnmounted(() => {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   position: relative;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .ac-card-accent-254 {
   position: absolute;
@@ -607,24 +625,28 @@ onUnmounted(() => {
   height: 4px;
   background: var(--accent, #ff0000);
   transition: background 0.1s linear;
-}
+
+  opacity: 1 !important;}
 
 .ac-card-icon-254 {
   font-size: 3rem;
   margin-bottom: 20px;
-}
+
+  opacity: 1 !important;}
 
 .ac-card-title-254 {
   font-size: 1.3rem;
   font-weight: 700;
   color: #333;
   margin-bottom: 12px;
-}
+
+  opacity: 1 !important;}
 
 .ac-card-desc-254 {
   font-size: 0.95rem;
   color: #666;
-}
+
+  opacity: 1 !important;}
 
 .ac-gradient-preview-254 {
   text-align: center;
@@ -633,14 +655,16 @@ onUnmounted(() => {
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
   border: 2px solid rgba(255, 255, 255, 0.2);
-}
+
+  opacity: 1 !important;}
 
 .ac-gradient-title-254 {
   font-size: 1.2rem;
   font-weight: 700;
   color: white;
   margin-bottom: 30px;
-}
+
+  opacity: 1 !important;}
 
 .ac-gradient-bar-254 {
   display: flex;
@@ -656,7 +680,8 @@ onUnmounted(() => {
   cursor: pointer;
   transition: transform 0.3s ease;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-}
+
+  opacity: 1 !important;}
 
 .ac-interactive-demo-254 {
   text-align: center;
@@ -665,14 +690,16 @@ onUnmounted(() => {
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
   border: 2px solid rgba(255, 255, 255, 0.2);
-}
+
+  opacity: 1 !important;}
 
 .ac-demo-title-254 {
   font-size: 1.2rem;
   font-weight: 700;
   color: white;
   margin-bottom: 30px;
-}
+
+  opacity: 1 !important;}
 
 .ac-demo-button-254 {
   display: flex;
@@ -689,39 +716,46 @@ onUnmounted(() => {
   cursor: pointer;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
   transition: all 0.4s ease;
-}
+
+  opacity: 1 !important;}
 
 .ac-button-icon {
   font-size: 1.3rem;
-}
+
+  opacity: 1 !important;}
 
 .ac-footer-254 {
   margin-top: 60px;
   padding: 20px 40px;
-}
+
+  opacity: 1 !important;}
 
 .ac-footer-text-254 {
   font-size: 0.9rem;
   color: rgba(255, 255, 255, 0.6);
   letter-spacing: 1px;
-}
+
+  opacity: 1 !important;}
 
 @media (max-width: 768px) {
   .ac-scroll-indicator-254 {
     flex-direction: column;
     gap: 20px;
     padding: 25px 30px;
-  }
+  
+  opacity: 1 !important;}
 
   .ac-indicator-line-254 {
     width: 60px;
     height: 2px;
     transform: rotate(90deg);
-  }
+  
+  opacity: 1 !important;}
 
   .ac-indicator-text-254 {
     font-size: 1rem;
-  }
+  
+  opacity: 1 !important;}
 
   .ac-cards-grid-254 {
     grid-template-columns: 1fr;
@@ -729,12 +763,14 @@ onUnmounted(() => {
 
   .ac-color-display-254 {
     padding: 30px 40px;
-  }
+  
+  opacity: 1 !important;}
 
   .ac-current-color-254 {
     width: 80px;
     height: 80px;
-  }
+  
+  opacity: 1 !important;}
 
   .ac-gradient-bar-254 {
     gap: 8px;
@@ -743,6 +779,7 @@ onUnmounted(() => {
   .ac-gradient-color-254 {
     width: 40px;
     height: 40px;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

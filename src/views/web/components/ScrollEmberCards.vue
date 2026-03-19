@@ -132,20 +132,24 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
+/* GSAP opacity fix: ensure content is always visible */
+
 .ember-cards-container-194 {
   min-height: 100vh;
   background: linear-gradient(180deg, #0a0a0a 0%, #1a0a0a 100%);
   padding: 60px 20px;
   position: relative;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .ec-header-194 {
   text-align: center;
   margin-bottom: 60px;
   position: relative;
   z-index: 2;
-}
+
+  opacity: 1 !important;}
 
 .ec-title-194 {
   font-size: 48px;
@@ -153,12 +157,14 @@ onUnmounted(() => {
   color: #ff6b6b;
   text-shadow: 0 0 30px rgba(255, 107, 107, 0.5);
   margin-bottom: 10px;
-}
+
+  opacity: 1 !important;}
 
 .ec-hint-194 {
   font-size: 18px;
   color: #ffb347;
-}
+
+  opacity: 1 !important;}
 
 .ec-card-stage-194 {
   max-width: 1400px;
@@ -169,7 +175,8 @@ onUnmounted(() => {
   padding: 20px;
   position: relative;
   z-index: 2;
-}
+
+  opacity: 1 !important;}
 
 .ec-card-194 {
   position: relative;
@@ -180,7 +187,8 @@ onUnmounted(() => {
   overflow: hidden;
   backdrop-filter: blur(10px);
   transition: transform 0.5s ease, box-shadow 0.5s ease;
-}
+
+  opacity: 1 !important;}
 
 .ec-card-194:hover {
   transform: translateY(-10px) scale(1.02);
@@ -213,26 +221,30 @@ onUnmounted(() => {
   align-items: center;
   justify-content: center;
   text-align: center;
-}
+
+  opacity: 1 !important;}
 
 .ec-icon-194 {
   font-size: 64px;
   margin-bottom: 20px;
   filter: drop-shadow(0 0 20px rgba(255, 107, 107, 0.8));
-}
+
+  opacity: 1 !important;}
 
 .ec-card-title-194 {
   font-size: 28px;
   font-weight: 600;
   color: #ffb347;
   margin-bottom: 10px;
-}
+
+  opacity: 1 !important;}
 
 .ec-card-desc-194 {
   font-size: 16px;
   color: #ff8c8c;
   line-height: 1.6;
-}
+
+  opacity: 1 !important;}
 
 @media (max-width: 1024px) {
   .ec-card-stage-194 {
@@ -247,6 +259,7 @@ onUnmounted(() => {
 
   .ec-title-194 {
     font-size: 32px;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

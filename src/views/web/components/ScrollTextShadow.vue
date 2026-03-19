@@ -240,13 +240,16 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
+/* GSAP opacity fix: ensure content is always visible */
+
 .text-shadow-wrapper-193 {
   position: relative;
   width: 100%;
   min-height: 100vh;
   background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .tss-stage-193 {
   position: relative;
@@ -257,7 +260,8 @@ onUnmounted(() => {
   justify-content: center;
   padding: 60px 20px;
   perspective: 1500px;
-}
+
+  opacity: 1 !important;}
 
 .tss-3d-space-193 {
   position: absolute;
@@ -290,7 +294,8 @@ onUnmounted(() => {
   );
   transform: rotateX(60deg);
   transform-origin: bottom center;
-}
+
+  opacity: 1 !important;}
 
 .tss-grid-wall-193 {
   position: absolute;
@@ -314,14 +319,16 @@ onUnmounted(() => {
   );
   transform: rotateY(-60deg);
   transform-origin: left center;
-}
+
+  opacity: 1 !important;}
 
 .tss-container-193 {
   position: relative;
   text-align: center;
   z-index: 10;
   max-width: 900px;
-}
+
+  opacity: 1 !important;}
 
 .tss-title-193 {
   font-size: 3rem;
@@ -331,7 +338,8 @@ onUnmounted(() => {
   text-shadow: 0 0 30px rgba(255, 107, 107, 0.8);
   letter-spacing: 6px;
   transform-style: preserve-3d;
-}
+
+  opacity: 1 !important;}
 
 .tss-shadow-container-193 {
   padding: 40px 60px;
@@ -341,7 +349,8 @@ onUnmounted(() => {
   border: 1px solid rgba(255, 107, 107, 0.3);
   margin-bottom: 40px;
   transform-style: preserve-3d;
-}
+
+  opacity: 1 !important;}
 
 .tss-text-line-193 {
   display: flex;
@@ -357,7 +366,8 @@ onUnmounted(() => {
   min-width: 20px;
   height: 50px;
   transform-style: preserve-3d;
-}
+
+  opacity: 1 !important;}
 
 .tss-char-front-193,
 .tss-char-shadow-193 {
@@ -372,7 +382,8 @@ onUnmounted(() => {
   justify-content: center;
   transform-style: preserve-3d;
   transition: all 0.3s ease;
-}
+
+  opacity: 1 !important;}
 
 .tss-char-front-193 {
   z-index: 2;
@@ -382,7 +393,8 @@ onUnmounted(() => {
   z-index: 1;
   color: #ff6b6b;
   filter: blur(3px);
-}
+
+  opacity: 1 !important;}
 
 .tss-shadow-depth-indicator-193 {
   display: flex;
@@ -393,7 +405,8 @@ onUnmounted(() => {
   background: rgba(0, 0, 0, 0.3);
   border-radius: 10px;
   backdrop-filter: blur(10px);
-}
+
+  opacity: 1 !important;}
 
 .tss-depth-bar-193 {
   width: 12px;
@@ -401,16 +414,19 @@ onUnmounted(() => {
   background: linear-gradient(180deg, #ff6b6b, #ff4444);
   border-radius: 6px;
   transform-origin: bottom;
-}
+
+  opacity: 1 !important;}
 
 @media (max-width: 768px) {
   .tss-title-193 {
     font-size: 2rem;
-  }
+  
+  opacity: 1 !important;}
 
   .tss-char-front-193,
   .tss-char-shadow-193 {
     font-size: 1.5rem;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

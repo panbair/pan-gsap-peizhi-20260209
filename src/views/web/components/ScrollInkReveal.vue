@@ -229,7 +229,8 @@ onUnmounted(() => {
       radial-gradient(circle at 20% 30%, rgba(0, 0, 0, 0.03) 0%, transparent 50%),
       radial-gradient(circle at 80% 70%, rgba(0, 0, 0, 0.03) 0%, transparent 50%);
     pointer-events: none;
-  }
+  
+  opacity: 1 !important;}
 }
 
 .sik-container-130 {
@@ -237,7 +238,8 @@ onUnmounted(() => {
   margin: 0 auto;
   position: relative;
   z-index: 1;
-}
+
+  opacity: 1 !important;}
 
 .sik-section-title-130 {
   text-align: center;
@@ -253,7 +255,8 @@ onUnmounted(() => {
   display: inline-block;
   left: 50%;
   transform: translateX(-50%);
-}
+
+  opacity: 1 !important;}
 
 .sik-section-subtitle-130 {
   text-align: center;
@@ -262,7 +265,8 @@ onUnmounted(() => {
   margin-bottom: 120px;
   letter-spacing: 0.3em;
   text-transform: uppercase;
-}
+
+  opacity: 1 !important;}
 
 .sik-reveal-container-130 {
   display: flex;
@@ -278,7 +282,8 @@ onUnmounted(() => {
   align-items: center;
   justify-content: center;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .sik-ink-drop-130 {
   position: absolute;
@@ -292,14 +297,16 @@ onUnmounted(() => {
   pointer-events: none;
   z-index: 5;
   mix-blend-mode: multiply;
-}
+
+  opacity: 1 !important;}
 
 .sik-content-wrapper-130 {
   position: relative;
   width: 100%;
   max-width: 900px;
   z-index: 10;
-}
+
+  opacity: 1 !important;}
 
 .sik-content-130 {
   position: relative;
@@ -315,7 +322,8 @@ onUnmounted(() => {
     object-fit: cover;
     display: block;
     filter: grayscale(20%) contrast(110%);
-  }
+  
+  opacity: 1 !important;}
 }
 
 .sik-overlay-130 {
@@ -354,7 +362,8 @@ onUnmounted(() => {
 
     h3 {
       font-size: 1.5rem;
-    }
+    
+  opacity: 1 !important;}
 
     p {
       font-size: 0.9rem;
@@ -368,6 +377,7 @@ onUnmounted(() => {
   .sik-section-subtitle-130 {
     margin-bottom: 80px;
     font-size: 0.9rem;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

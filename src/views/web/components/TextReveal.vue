@@ -82,7 +82,8 @@ onUnmounted(() => {
     background: radial-gradient(circle at 30% 70%, rgba(139, 92, 246, 0.15), transparent 50%),
                 radial-gradient(circle at 70% 30%, rgba(59, 130, 246, 0.15), transparent 50%);
     pointer-events: none;
-  }
+  
+  opacity: 1 !important;}
 }
 
 .content-11 {
@@ -90,7 +91,8 @@ onUnmounted(() => {
   text-align: center;
   position: relative;
   z-index: 1;
-}
+
+  opacity: 1 !important;}
 
 .tr-section-title-11 {
   font-size: clamp(2rem, 4vw, 2.5rem);
@@ -100,7 +102,8 @@ onUnmounted(() => {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-}
+
+  opacity: 1 !important;}
 
 .tr-reveal-container-11 {
   display: flex;
@@ -117,6 +120,7 @@ onUnmounted(() => {
   .tr-char-11 {
     display: inline-block;
     transform-style: preserve-3d;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

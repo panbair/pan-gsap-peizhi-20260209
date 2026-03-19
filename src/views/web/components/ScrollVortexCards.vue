@@ -171,13 +171,16 @@ onMounted(() => {
 </script>
 
 <style scoped>
+/* GSAP opacity fix: ensure content is always visible */
+
 .vc-container-189 {
   min-height: 100vh;
   padding: 80px 20px;
   background: linear-gradient(135deg, #0a0a0a 0%, #1a1a8e 50%, #0a0a0a 100%);
   position: relative;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .vc-container-189::before {
   content: '';
@@ -199,7 +202,8 @@ onMounted(() => {
   color: #fff;
   margin-bottom: 60px;
   text-shadow: 0 0 30px rgba(100, 100, 255, 0.5), 0 0 60px rgba(255, 100, 255, 0.3);
-}
+
+  opacity: 1 !important;}
 
 .vc-stage-189 {
   max-width: 1400px;
@@ -208,7 +212,8 @@ onMounted(() => {
   grid-template-columns: 1fr 1fr;
   gap: 60px;
   align-items: center;
-}
+
+  opacity: 1 !important;}
 
 .vc-vortex-189 {
   position: relative;
@@ -218,42 +223,48 @@ onMounted(() => {
   display: flex;
   justify-content: center;
   align-items: center;
-}
+
+  opacity: 1 !important;}
 
 .vc-ring-189 {
   position: absolute;
   border: 2px solid rgba(255, 255, 255, 0.3);
   border-radius: 50%;
   transition: all 0.3s ease;
-}
+
+  opacity: 1 !important;}
 
 .vc-ring-1-189 {
   width: 100px;
   height: 100px;
   border-color: rgba(100, 100, 255, 0.5);
   animation: vc-rotate-189 3s linear infinite;
-}
+
+  opacity: 1 !important;}
 
 .vc-ring-2-189 {
   width: 150px;
   height: 150px;
   border-color: rgba(150, 100, 255, 0.5);
   animation: vc-rotate-189 4s linear infinite reverse;
-}
+
+  opacity: 1 !important;}
 
 .vc-ring-3-189 {
   width: 200px;
   height: 200px;
   border-color: rgba(200, 100, 255, 0.5);
   animation: vc-rotate-189 5s linear infinite;
-}
+
+  opacity: 1 !important;}
 
 .vc-ring-4-189 {
   width: 250px;
   height: 250px;
   border-color: rgba(255, 100, 255, 0.5);
   animation: vc-rotate-189 6s linear infinite reverse;
-}
+
+  opacity: 1 !important;}
 
 @keyframes vc-rotate-189 {
   from { transform: rotate(0deg); }
@@ -268,7 +279,8 @@ onMounted(() => {
   border-radius: 50%;
   box-shadow: 0 0 30px rgba(100, 100, 255, 0.5);
   animation: vc-pulse-189 2s ease-in-out infinite;
-}
+
+  opacity: 1 !important;}
 
 @keyframes vc-pulse-189 {
   0%, 100% { transform: scale(1); opacity: 0.8; }
@@ -291,7 +303,8 @@ onMounted(() => {
   transition: all 0.3s ease;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .vc-card-189::before {
   content: '';
@@ -322,14 +335,16 @@ onMounted(() => {
   z-index: 1;
   text-align: center;
   transition: all 0.3s ease;
-}
+
+  opacity: 1 !important;}
 
 .vc-icon-189 {
   font-size: 2.5rem;
   margin-bottom: 15px;
   display: inline-block;
   transition: transform 0.5s ease;
-}
+
+  opacity: 1 !important;}
 
 .vc-card-189 h3 {
   font-size: 1.2rem;
@@ -351,7 +366,8 @@ onMounted(() => {
   .vc-vortex-189 {
     width: 300px;
     height: 300px;
-  }
+  
+  opacity: 1 !important;}
   
   .vc-cards-189 {
     grid-template-columns: repeat(2, 1fr);
@@ -361,12 +377,14 @@ onMounted(() => {
 @media (max-width: 768px) {
   .vc-title-189 {
     font-size: 1.8rem;
-  }
+  
+  opacity: 1 !important;}
   
   .vc-vortex-189 {
     width: 250px;
     height: 250px;
-  }
+  
+  opacity: 1 !important;}
   
   .vc-cards-189 {
     grid-template-columns: 1fr;

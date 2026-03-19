@@ -466,14 +466,16 @@ onUnmounted(() => {
   background: linear-gradient(180deg, #0a0a1a 0%, #1a0a2a 50%, #0a0a1a 100%);
   position: relative;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .stf-container-177 {
   position: relative;
   max-width: 1400px;
   margin: 0 auto;
   z-index: 1;
-}
+
+  opacity: 1 !important;}
 
 .stf-title-177 {
   text-align: center;
@@ -485,7 +487,8 @@ onUnmounted(() => {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   text-shadow: 0 0 80px rgba(139, 92, 246, 0.5);
-}
+
+  opacity: 1 !important;}
 
 .stf-subtitle-177 {
   text-align: center;
@@ -494,7 +497,8 @@ onUnmounted(() => {
   margin-bottom: 100px;
   letter-spacing: 0.3em;
   text-transform: uppercase;
-}
+
+  opacity: 1 !important;}
 
 .stf-flux-stage-177 {
   position: relative;
@@ -505,7 +509,8 @@ onUnmounted(() => {
   justify-content: center;
   gap: 60px;
   margin-bottom: 60px;
-}
+
+  opacity: 1 !important;}
 
 .stf-canvas-177 {
   position: absolute;
@@ -514,7 +519,8 @@ onUnmounted(() => {
   width: 100%;
   height: 100%;
   pointer-events: none;
-}
+
+  opacity: 1 !important;}
 
 .stf-timeline-177 {
   position: relative;
@@ -533,14 +539,16 @@ onUnmounted(() => {
   background: rgba(139, 92, 246, 0.3);
   transform: translateX(-50%);
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .stf-progress-bar-177 {
   width: 100%;
   height: 0;
   background: linear-gradient(180deg, #8b5cf6, #ec4899);
   box-shadow: 0 0 20px rgba(139, 92, 246, 0.5);
-}
+
+  opacity: 1 !important;}
 
 .stf-time-points-177 {
   display: flex;
@@ -551,7 +559,8 @@ onUnmounted(() => {
   position: relative;
   width: 200px;
   text-align: center;
-}
+
+  opacity: 1 !important;}
 
 .stf-point-marker-177 {
   position: absolute;
@@ -566,7 +575,8 @@ onUnmounted(() => {
     0 0 20px rgba(139, 92, 246, 0.8),
     0 0 40px rgba(139, 92, 246, 0.4);
   z-index: 2;
-}
+
+  opacity: 1 !important;}
 
 .stf-point-content-177 {
   position: relative;
@@ -577,7 +587,8 @@ onUnmounted(() => {
   border-radius: 15px;
   border: 1px solid rgba(139, 92, 246, 0.2);
   z-index: 1;
-}
+
+  opacity: 1 !important;}
 
 .stf-point-time-177 {
   font-size: 0.8rem;
@@ -586,7 +597,8 @@ onUnmounted(() => {
   letter-spacing: 0.2em;
   margin-bottom: 10px;
   font-family: 'Courier New', monospace;
-}
+
+  opacity: 1 !important;}
 
 .stf-point-title-177 {
   font-size: 1.5rem;
@@ -595,14 +607,16 @@ onUnmounted(() => {
   margin-bottom: 8px;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-}
+
+  opacity: 1 !important;}
 
 .stf-point-desc-177 {
   font-size: 0.9rem;
   color: rgba(255, 255, 255, 0.6);
   text-transform: uppercase;
   letter-spacing: 0.05em;
-}
+
+  opacity: 1 !important;}
 
 .stf-portal-177 {
   position: relative;
@@ -612,34 +626,39 @@ onUnmounted(() => {
   align-items: center;
   justify-content: center;
   z-index: 10;
-}
+
+  opacity: 1 !important;}
 
 .stf-portal-ring-177 {
   position: absolute;
   border-radius: 50%;
   border: 2px solid;
-}
+
+  opacity: 1 !important;}
 
 .stf-ring-1-177 {
   width: 80px;
   height: 80px;
   border-color: rgba(139, 92, 246, 0.6);
   box-shadow: 0 0 20px rgba(139, 92, 246, 0.4);
-}
+
+  opacity: 1 !important;}
 
 .stf-ring-2-177 {
   width: 150px;
   height: 150px;
   border-color: rgba(236, 72, 153, 0.5);
   box-shadow: 0 0 30px rgba(236, 72, 153, 0.3);
-}
+
+  opacity: 1 !important;}
 
 .stf-ring-3-177 {
   width: 230px;
   height: 230px;
   border-color: rgba(244, 63, 94, 0.4);
   box-shadow: 0 0 40px rgba(244, 63, 94, 0.2);
-}
+
+  opacity: 1 !important;}
 
 .stf-portal-core-177 {
   position: absolute;
@@ -651,7 +670,8 @@ onUnmounted(() => {
     0 0 40px rgba(139, 92, 246, 0.8),
     0 0 80px rgba(236, 72, 153, 0.5);
   z-index: 10;
-}
+
+  opacity: 1 !important;}
 
 .stf-time-particles-177 {
   position: absolute;
@@ -660,7 +680,8 @@ onUnmounted(() => {
   width: 100%;
   height: 100%;
   pointer-events: none;
-}
+
+  opacity: 1 !important;}
 
 .stf-time-particle-177 {
   position: absolute;
@@ -669,7 +690,8 @@ onUnmounted(() => {
   background: #8b5cf6;
   border-radius: 50%;
   box-shadow: 0 0 10px rgba(139, 92, 246, 0.5);
-}
+
+  opacity: 1 !important;}
 
 .stf-flux-metrics-177 {
   display: flex;
@@ -681,7 +703,8 @@ onUnmounted(() => {
 .stf-metric-177 {
   text-align: center;
   position: relative;
-}
+
+  opacity: 1 !important;}
 
 .stf-metric-value-177 {
   font-size: 3rem;
@@ -689,7 +712,8 @@ onUnmounted(() => {
   color: #8b5cf6;
   margin-bottom: 10px;
   text-shadow: 0 0 30px rgba(139, 92, 246, 0.5);
-}
+
+  opacity: 1 !important;}
 
 .stf-metric-label-177 {
   font-size: 0.9rem;
@@ -697,7 +721,8 @@ onUnmounted(() => {
   text-transform: uppercase;
   letter-spacing: 0.2em;
   margin-bottom: 15px;
-}
+
+  opacity: 1 !important;}
 
 .stf-metric-wave-177 {
   width: 100%;
@@ -706,7 +731,8 @@ onUnmounted(() => {
   border-radius: 2px;
   box-shadow: 0 0 10px rgba(139, 92, 246, 0.5);
   animation: wave-flow 2s ease-in-out infinite;
-}
+
+  opacity: 1 !important;}
 
 @keyframes wave-flow {
   0%, 100% {
@@ -730,36 +756,43 @@ onUnmounted(() => {
 
   .stf-time-point-177 {
     width: 150px;
-  }
+  
+  opacity: 1 !important;}
 
   .stf-point-content-177 {
     padding: 20px;
-  }
+  
+  opacity: 1 !important;}
 
   .stf-portal-177 {
     width: 180px;
     height: 180px;
-  }
+  
+  opacity: 1 !important;}
 
   .stf-ring-1-177 {
     width: 60px;
     height: 60px;
-  }
+  
+  opacity: 1 !important;}
 
   .stf-ring-2-177 {
     width: 110px;
     height: 110px;
-  }
+  
+  opacity: 1 !important;}
 
   .stf-ring-3-177 {
     width: 160px;
     height: 160px;
-  }
+  
+  opacity: 1 !important;}
 
   .stf-portal-core-177 {
     width: 30px;
     height: 30px;
-  }
+  
+  opacity: 1 !important;}
 
   .stf-flux-metrics-177 {
     gap: 30px;
@@ -767,6 +800,7 @@ onUnmounted(() => {
 
   .stf-metric-value-177 {
     font-size: 2rem;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

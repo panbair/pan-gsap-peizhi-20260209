@@ -226,7 +226,8 @@ onUnmounted(() => {
       radial-gradient(circle at 30% 40%, rgba(102, 126, 234, 0.15) 0%, transparent 50%),
       radial-gradient(circle at 70% 60%, rgba(240, 147, 251, 0.1) 0%, transparent 50%);
     pointer-events: none;
-  }
+  
+  opacity: 1 !important;}
 }
 
 .sw-container-33 {
@@ -235,7 +236,8 @@ onUnmounted(() => {
   padding: 0 40px;
   position: relative;
   z-index: 1;
-}
+
+  opacity: 1 !important;}
 
 .sw-section-title-33 {
   text-align: center;
@@ -257,7 +259,8 @@ onUnmounted(() => {
     background: linear-gradient(90deg, #667eea, #764ba2);
     margin: 20px auto 0;
     border-radius: 2px;
-  }
+  
+  opacity: 1 !important;}
 }
 
 .sw-wave-container-33 {
@@ -267,7 +270,8 @@ onUnmounted(() => {
   gap: 30px;
   padding: 60px 0;
   perspective: 1000px;
-}
+
+  opacity: 1 !important;}
 
 .sw-wave-item-33 {
   width: 220px;
@@ -282,7 +286,8 @@ onUnmounted(() => {
   &:hover {
     transform: translateY(-15px) scale(1.05);
     box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
-  }
+  
+  opacity: 1 !important;}
 }
 
 .sw-item-wrapper-33 {
@@ -290,7 +295,8 @@ onUnmounted(() => {
   height: 100%;
   position: relative;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .sw-wave-item-33:hover img {
   transform: scale(1.1);
@@ -309,7 +315,8 @@ onUnmounted(() => {
   align-items: center;
   padding: 30px 20px;
   pointer-events: none;
-}
+
+  opacity: 1 !important;}
 
 .sw-item-index-33 {
   font-size: 3.5rem;
@@ -331,7 +338,8 @@ onUnmounted(() => {
   margin: 0;
   text-align: center;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-}
+
+  opacity: 1 !important;}
 
 @media (max-width: 1024px) {
   .sw-wave-container-33 {
@@ -341,15 +349,18 @@ onUnmounted(() => {
   .sw-wave-item-33 {
     width: 160px;
     height: 220px;
-  }
+  
+  opacity: 1 !important;}
 
   .sw-item-index-33 {
     font-size: 2.5rem;
-  }
+  
+  opacity: 1 !important;}
 
   .sw-item-name-33 {
     font-size: 1rem;
-  }
+  
+  opacity: 1 !important;}
 }
 
 @media (max-width: 768px) {
@@ -361,10 +372,12 @@ onUnmounted(() => {
   .sw-wave-item-33 {
     width: calc(50% - 10px);
     height: 200px;
-  }
+  
+  opacity: 1 !important;}
 
   .sw-section-title-33 {
     font-size: 2rem;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

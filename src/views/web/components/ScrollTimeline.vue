@@ -179,6 +179,8 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
+/* GSAP opacity fix: ensure content is always visible */
+
 .timeline-142 {
   width: 100%;
   min-height: 100vh;
@@ -188,7 +190,8 @@ onUnmounted(() => {
   flex-direction: column;
   align-items: center;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .tl-container-142 {
   width: 100%;
@@ -196,7 +199,8 @@ onUnmounted(() => {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
+
+  opacity: 1 !important;}
 
 .tl-title-142 {
   font-size: clamp(2rem, 5vw, 3.5rem);
@@ -204,20 +208,23 @@ onUnmounted(() => {
   margin-bottom: 10px;
   text-align: center;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-}
+
+  opacity: 1 !important;}
 
 .tl-desc-142 {
   font-size: clamp(0.9rem, 2vw, 1.2rem);
   color: rgba(255, 255, 255, 0.8);
   margin-bottom: 40px;
   text-align: center;
-}
+
+  opacity: 1 !important;}
 
 .tl-stage-142 {
   width: 100%;
   position: relative;
   padding: 40px 0;
-}
+
+  opacity: 1 !important;}
 
 .tl-line-142 {
   position: absolute;
@@ -227,7 +234,8 @@ onUnmounted(() => {
   width: 4px;
   background: rgba(255, 255, 255, 0.2);
   border-radius: 2px;
-}
+
+  opacity: 1 !important;}
 
 .tl-progress-142 {
   position: absolute;
@@ -238,7 +246,8 @@ onUnmounted(() => {
   border-radius: 2px;
   transform-origin: top;
   box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
-}
+
+  opacity: 1 !important;}
 
 .tl-events-142 {
   position: relative;
@@ -265,7 +274,8 @@ onUnmounted(() => {
   border-radius: 50%;
   box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.3);
   will-change: transform;
-}
+
+  opacity: 1 !important;}
 
 .tl-content-142 {
   background: rgba(255, 255, 255, 0.15);
@@ -273,7 +283,8 @@ onUnmounted(() => {
   border-radius: 16px;
   padding: 20px;
   border: 1px solid rgba(255, 255, 255, 0.2);
-}
+
+  opacity: 1 !important;}
 
 .tl-year-142 {
   font-size: 2rem;
@@ -281,27 +292,31 @@ onUnmounted(() => {
   color: #fff;
   margin-bottom: 8px;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-}
+
+  opacity: 1 !important;}
 
 .tl-title-text-142 {
   font-size: 1.3rem;
   font-weight: bold;
   color: #fff;
   margin-bottom: 8px;
-}
+
+  opacity: 1 !important;}
 
 .tl-description-142 {
   font-size: 0.95rem;
   color: rgba(255, 255, 255, 0.8);
   line-height: 1.6;
-}
+
+  opacity: 1 !important;}
 
 .tl-hint-142 {
   margin-top: 30px;
   font-size: 0.9rem;
   color: rgba(255, 255, 255, 0.6);
   text-align: center;
-}
+
+  opacity: 1 !important;}
 
 @media (max-width: 768px) {
   .tl-line-142 {
@@ -316,18 +331,22 @@ onUnmounted(() => {
     left: -38px;
     width: 16px;
     height: 16px;
-  }
+  
+  opacity: 1 !important;}
   
   .tl-content-142 {
     padding: 15px;
-  }
+  
+  opacity: 1 !important;}
   
   .tl-year-142 {
     font-size: 1.5rem;
-  }
+  
+  opacity: 1 !important;}
   
   .tl-title-text-142 {
     font-size: 1.1rem;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

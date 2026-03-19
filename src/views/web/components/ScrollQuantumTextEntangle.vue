@@ -443,14 +443,16 @@ onUnmounted(() => {
   background: radial-gradient(ellipse at center, #1a0a2e 0%, #0a0a1a 50%, #0a0a0a 100%);
   position: relative;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .qte-container-166 {
   position: relative;
   max-width: 1600px;
   margin: 0 auto;
   z-index: 1;
-}
+
+  opacity: 1 !important;}
 
 .qte-title-166 {
   text-align: center;
@@ -463,7 +465,8 @@ onUnmounted(() => {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   animation: gradientShift-166 8s ease infinite;
-}
+
+  opacity: 1 !important;}
 
 @keyframes gradientShift-166 {
   0%, 100% { background-position: 0% 50%; }
@@ -477,7 +480,8 @@ onUnmounted(() => {
   margin-bottom: 140px;
   letter-spacing: 0.5em;
   text-transform: uppercase;
-}
+
+  opacity: 1 !important;}
 
 .qte-text-stage-166 {
   position: relative;
@@ -487,7 +491,8 @@ onUnmounted(() => {
   align-items: center;
   justify-content: center;
   gap: 100px;
-}
+
+  opacity: 1 !important;}
 
 .qte-quantum-container-166 {
   display: flex;
@@ -505,7 +510,8 @@ onUnmounted(() => {
   justify-content: center;
   perspective: 1000px;
   transform-style: preserve-3d;
-}
+
+  opacity: 1 !important;}
 
 .qte-particle-layer-166 {
   position: absolute;
@@ -515,7 +521,8 @@ onUnmounted(() => {
   gap: 0.1em;
   font-size: clamp(3rem, 8vw, 5rem);
   font-weight: 900;
-}
+
+  opacity: 1 !important;}
 
 .qte-particle-166 {
   position: relative;
@@ -526,7 +533,8 @@ onUnmounted(() => {
   background-clip: text;
   filter: drop-shadow(0 0 20px rgba(168, 85, 247, 0.8));
   transition: all 0.3s ease;
-}
+
+  opacity: 1 !important;}
 
 .qte-entangled-166 {
   position: absolute;
@@ -539,7 +547,8 @@ onUnmounted(() => {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   filter: drop-shadow(0 0 30px rgba(236, 72, 153, 0.8));
-}
+
+  opacity: 1 !important;}
 
 .qte-quantum-field-166 {
   position: absolute;
@@ -563,7 +572,8 @@ onUnmounted(() => {
   right: 80px;
   width: 200px;
   height: 200px;
-}
+
+  opacity: 1 !important;}
 
 .qte-progress-text-166 {
   font-family: 'Courier New', monospace;
@@ -578,7 +588,8 @@ onUnmounted(() => {
   height: 100%;
   pointer-events: none;
   z-index: 0;
-}
+
+  opacity: 1 !important;}
 
 .qte-entangle-line-166 {
   position: absolute;
@@ -586,13 +597,15 @@ onUnmounted(() => {
   height: 80px;
   background: linear-gradient(180deg, transparent, rgba(168, 85, 247, 0.4), rgba(236, 72, 153, 0.4), transparent);
   transform-origin: top center;
-}
+
+  opacity: 1 !important;}
 
 @media (max-width: 768px) {
   .qte-quantum-text-166 {
     width: 320px;
     height: 90px;
-  }
+  
+  opacity: 1 !important;}
 
   .qte-quantum-container-166 {
     gap: 80px;
@@ -604,10 +617,12 @@ onUnmounted(() => {
     transform: translateX(50%);
     width: 150px;
     height: 150px;
-  }
+  
+  opacity: 1 !important;}
 
   .qte-entangle-line-166 {
     height: 50px;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

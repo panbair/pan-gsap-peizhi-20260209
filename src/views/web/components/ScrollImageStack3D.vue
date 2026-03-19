@@ -199,7 +199,8 @@ onMounted(() => {
           height: 100%;
           object-fit: cover;
           transition: transform 0.3s ease;
-        }
+        
+  opacity: 1 !important;}
 
         .image-overlay {
           position: absolute;
@@ -215,7 +216,8 @@ onMounted(() => {
             color: #fff;
             margin: 0 0 15px 0;
             text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-          }
+          
+  opacity: 1 !important;}
 
           p {
             font-size: 1rem;
@@ -241,13 +243,15 @@ onMounted(() => {
       color: #fff;
       font-size: 0.9rem;
       margin-bottom: 10px;
-    }
+    
+  opacity: 1 !important;}
 
     .scroll-arrow {
       font-size: 2rem;
       color: #667eea;
       animation: bounce 2s infinite;
-    }
+    
+  opacity: 1 !important;}
   }
 }
 
@@ -267,8 +271,9 @@ onMounted(() => {
   .scroll-image-stack-3d {
     height: 80vh;
 
+
     .stack-3d-container {
-      .stack-3d-wrapper {
+    .stack-3d-wrapper {
         .stack-3d-item {
           width: 90%;
           max-width: 100%;
@@ -278,7 +283,8 @@ onMounted(() => {
 
             h3 {
               font-size: 1.5rem;
-            }
+            
+  opacity: 1 !important;}
 
             p {
               font-size: 0.9rem;

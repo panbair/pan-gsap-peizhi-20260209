@@ -330,12 +330,15 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
+/* GSAP opacity fix: ensure content is always visible */
+
 .scroll-sticky-reveal-wrapper-219 {
   position: relative;
   width: 100%;
   min-height: 100vh;
   background: linear-gradient(135deg, #0f0f1a 0%, #1a1a2e 50%, #16213e 100%);
-}
+
+  opacity: 1 !important;}
 
 /* 粘性标题 */
 .ssr-sticky-header-219 {
@@ -347,7 +350,8 @@ onUnmounted(() => {
   backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   text-align: center;
-}
+
+  opacity: 1 !important;}
 
 .ssr-sticky-title-219 {
   font-size: clamp(2rem, 5vw, 3rem);
@@ -357,22 +361,26 @@ onUnmounted(() => {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-}
+
+  opacity: 1 !important;}
 
 .ssr-sticky-subtitle-219 {
   font-size: 1.1rem;
   color: #94a3b8;
-}
+
+  opacity: 1 !important;}
 
 /* 粘性区域 */
 .ssr-sticky-section-219 {
   position: relative;
   height: 150vh;
-}
+
+  opacity: 1 !important;}
 
 .ssr-sticky-section-219.ssr-tall-219 {
   height: 200vh;
-}
+
+  opacity: 1 !important;}
 
 .ssr-sticky-content-219 {
   position: sticky;
@@ -382,7 +390,8 @@ onUnmounted(() => {
   justify-content: center;
   align-items: center;
   padding: 20px;
-}
+
+  opacity: 1 !important;}
 
 /* 粘性卡片 */
 .ssr-sticky-card-219 {
@@ -393,37 +402,44 @@ onUnmounted(() => {
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 24px;
   backdrop-filter: blur(20px);
-}
+
+  opacity: 1 !important;}
 
 .ssr-purple-219 {
   border-color: rgba(167, 139, 250, 0.3);
   box-shadow: 0 20px 60px rgba(167, 139, 250, 0.2);
-}
+
+  opacity: 1 !important;}
 
 .ssr-blue-219 {
   border-color: rgba(96, 165, 250, 0.3);
   box-shadow: 0 20px 60px rgba(96, 165, 250, 0.2);
-}
+
+  opacity: 1 !important;}
 
 .ssr-pink-219 {
   border-color: rgba(244, 114, 182, 0.3);
   box-shadow: 0 20px 60px rgba(244, 114, 182, 0.2);
-}
+
+  opacity: 1 !important;}
 
 .ssr-green-219 {
   border-color: rgba(74, 222, 128, 0.3);
   box-shadow: 0 20px 60px rgba(74, 222, 128, 0.2);
-}
+
+  opacity: 1 !important;}
 
 .ssr-orange-219 {
   border-color: rgba(251, 146, 60, 0.3);
   box-shadow: 0 20px 60px rgba(251, 146, 60, 0.2);
-}
+
+  opacity: 1 !important;}
 
 .ssr-cyan-219 {
   border-color: rgba(34, 211, 238, 0.3);
   box-shadow: 0 20px 60px rgba(34, 211, 238, 0.2);
-}
+
+  opacity: 1 !important;}
 
 .ssr-card-number-219 {
   position: absolute;
@@ -439,21 +455,24 @@ onUnmounted(() => {
   font-size: 2.5rem;
   font-weight: 900;
   color: #fff;
-}
+
+  opacity: 1 !important;}
 
 .ssr-card-title-219 {
   font-size: 2rem;
   font-weight: 800;
   color: #e2e8f0;
   margin-bottom: 16px;
-}
+
+  opacity: 1 !important;}
 
 .ssr-card-desc-219 {
   font-size: 1.1rem;
   color: #94a3b8;
   line-height: 1.8;
   margin-bottom: 40px;
-}
+
+  opacity: 1 !important;}
 
 /* 卡片视觉 */
 .ssr-card-visual-219 {
@@ -470,20 +489,23 @@ onUnmounted(() => {
   background: rgba(255, 255, 255, 0.1);
   border-radius: 4px;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .ssr-progress-fill-219 {
   width: 0;
   height: 100%;
   background: linear-gradient(90deg, #a78bfa, #60a5fa);
   border-radius: 4px;
-}
+
+  opacity: 1 !important;}
 
 .ssr-progress-text-219 {
   font-size: 0.9rem;
   color: #64748b;
   font-weight: 600;
-}
+
+  opacity: 1 !important;}
 
 /* 展开动画 */
 .ssr-expand-animation-219 {
@@ -492,14 +514,16 @@ onUnmounted(() => {
   gap: 12px;
   width: 100%;
   max-width: 400px;
-}
+
+  opacity: 1 !important;}
 
 .ssr-expand-item-219 {
   width: 0;
   height: 12px;
   background: linear-gradient(90deg, #60a5fa, #34d399);
   border-radius: 6px;
-}
+
+  opacity: 1 !important;}
 
 /* 网格揭示 */
 .ssr-reveal-grid-219 {
@@ -513,7 +537,8 @@ onUnmounted(() => {
   height: 60px;
   background: linear-gradient(135deg, #f472b6, #ec4899);
   border-radius: 12px;
-}
+
+  opacity: 1 !important;}
 
 /* 分段内容 */
 .ssr-segments-219 {
@@ -536,13 +561,15 @@ onUnmounted(() => {
   font-weight: 700;
   color: #e2e8f0;
   margin-bottom: 8px;
-}
+
+  opacity: 1 !important;}
 
 .ssr-segment-text-219 {
   font-size: 1rem;
   color: #94a3b8;
   line-height: 1.6;
-}
+
+  opacity: 1 !important;}
 
 /* 图像揭示 */
 .ssr-image-reveal-219 {
@@ -551,7 +578,8 @@ onUnmounted(() => {
   height: 200px;
   overflow: hidden;
   border-radius: 16px;
-}
+
+  opacity: 1 !important;}
 
 .ssr-image-layer-219 {
   position: absolute;
@@ -560,19 +588,23 @@ onUnmounted(() => {
   width: 100%;
   height: 100%;
   border-radius: 16px;
-}
+
+  opacity: 1 !important;}
 
 .ssr-layer-1-219 {
   background: linear-gradient(135deg, #fb923c, #f97316);
-}
+
+  opacity: 1 !important;}
 
 .ssr-layer-2-219 {
   background: linear-gradient(135deg, #a78bfa, #8b5cf6);
-}
+
+  opacity: 1 !important;}
 
 .ssr-layer-3-219 {
   background: linear-gradient(135deg, #2dd4bf, #14b8a6);
-}
+
+  opacity: 1 !important;}
 
 /* 圆环揭示 */
 .ssr-circles-reveal-219 {
@@ -582,13 +614,15 @@ onUnmounted(() => {
   display: flex;
   justify-content: center;
   align-items: center;
-}
+
+  opacity: 1 !important;}
 
 .ssr-circle-219 {
   position: absolute;
   border-radius: 50%;
   background: linear-gradient(135deg, #22d3ee, #06b6d4);
-}
+
+  opacity: 1 !important;}
 
 .ssr-circle-219:nth-child(1) {
   width: 200px;
@@ -612,38 +646,46 @@ onUnmounted(() => {
 @media (max-width: 768px) {
   .ssr-sticky-card-219 {
     padding: 40px 24px;
-  }
+  
+  opacity: 1 !important;}
 
   .ssr-card-number-219 {
     width: 60px;
     height: 60px;
     font-size: 1.8rem;
-  }
+  
+  opacity: 1 !important;}
 
   .ssr-card-title-219 {
     font-size: 1.5rem;
-  }
+  
+  opacity: 1 !important;}
 
   .ssr-card-desc-219 {
     font-size: 1rem;
-  }
+  
+  opacity: 1 !important;}
 
   .ssr-sticky-section-219 {
     height: 120vh;
-  }
+  
+  opacity: 1 !important;}
 
   .ssr-sticky-section-219.ssr-tall-219 {
     height: 160vh;
-  }
+  
+  opacity: 1 !important;}
 
   .ssr-image-reveal-219 {
     height: 150px;
-  }
+  
+  opacity: 1 !important;}
 
   .ssr-circles-reveal-219 {
     width: 150px;
     height: 150px;
-  }
+  
+  opacity: 1 !important;}
 
   .ssr-circle-219:nth-child(1) {
     width: 150px;

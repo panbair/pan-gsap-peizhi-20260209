@@ -138,14 +138,16 @@ onUnmounted(() => {
     bottom: 0;
     background: radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.1), transparent 60%);
     pointer-events: none;
-  }
+  
+  opacity: 1 !important;}
 }
 
 .rr-content-14 {
   text-align: center;
   position: relative;
   z-index: 1;
-}
+
+  opacity: 1 !important;}
 
 .rr-section-title-14 {
   font-size: clamp(2rem, 4vw, 2.5rem);
@@ -155,20 +157,23 @@ onUnmounted(() => {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-}
+
+  opacity: 1 !important;}
 
 .rr-subtitle-14 {
   font-size: 1.1rem;
   color: #94a3b8;
   margin-bottom: 80px;
-}
+
+  opacity: 1 !important;}
 
 .rr-rings-container-14 {
   position: relative;
   width: 400px;
   height: 400px;
   margin: 0 auto;
-}
+
+  opacity: 1 !important;}
 
 .rr-ring-14 {
   position: absolute;
@@ -177,28 +182,32 @@ onUnmounted(() => {
   border-radius: 50%;
   border: 2px solid rgba(255, 255, 255, 0.1);
   transform: translate(-50%, -50%);
-}
+
+  opacity: 1 !important;}
 
 .rr-ring-outer-14 {
   width: 360px;
   height: 360px;
   border-color: rgba(96, 165, 250, 0.3);
   box-shadow: 0 0 30px rgba(96, 165, 250, 0.2);
-}
+
+  opacity: 1 !important;}
 
 .rr-ring-middle-14 {
   width: 260px;
   height: 260px;
   border-color: rgba(167, 139, 250, 0.4);
   box-shadow: 0 0 25px rgba(167, 139, 250, 0.2);
-}
+
+  opacity: 1 !important;}
 
 .rr-ring-inner-14 {
   width: 160px;
   height: 160px;
   border-color: rgba(236, 72, 153, 0.5);
   box-shadow: 0 0 20px rgba(236, 72, 153, 0.2);
-}
+
+  opacity: 1 !important;}
 
 .rr-ring-dot-14 {
   position: absolute;
@@ -207,22 +216,26 @@ onUnmounted(() => {
   background: currentColor;
   border-radius: 50%;
   box-shadow: 0 0 10px currentColor;
-}
+
+  opacity: 1 !important;}
 
 .rr-ring-outer-14 .rr-ring-dot-14 {
   color: #60a5fa;
   animation: orbit 8s linear infinite;
-}
+
+  opacity: 1 !important;}
 
 .rr-ring-middle-14 .rr-ring-dot-14 {
   color: #a78bfa;
   animation: orbit 6s linear infinite reverse;
-}
+
+  opacity: 1 !important;}
 
 .rr-ring-inner-14 .rr-ring-dot-14 {
   color: #ec4899;
   animation: orbit 4s linear infinite;
-}
+
+  opacity: 1 !important;}
 
 @for $i from 1 through 8 {
   .rr-ring-outer-14 .rr-ring-dot-14:nth-child(#{$i}) {
@@ -255,14 +268,16 @@ onUnmounted(() => {
   align-items: center;
   justify-content: center;
   box-shadow: 0 0 40px rgba(96, 165, 250, 0.4);
-}
+
+  opacity: 1 !important;}
 
 .rr-center-text-14 {
   font-size: 1.2rem;
   font-weight: 800;
   color: white;
   letter-spacing: 1px;
-}
+
+  opacity: 1 !important;}
 
 @keyframes orbit {
   from {
@@ -280,27 +295,32 @@ onUnmounted(() => {
   .rr-rings-container-14 {
     width: 300px;
     height: 300px;
-  }
+  
+  opacity: 1 !important;}
 
   .rr-ring-outer-14 {
     width: 270px;
     height: 270px;
-  }
+  
+  opacity: 1 !important;}
 
   .rr-ring-middle-14 {
     width: 190px;
     height: 190px;
-  }
+  
+  opacity: 1 !important;}
 
   .rr-ring-inner-14 {
     width: 120px;
     height: 120px;
-  }
+  
+  opacity: 1 !important;}
 
   .rr-center-circle-14 {
     width: 60px;
     height: 60px;
-  }
+  
+  opacity: 1 !important;}
 
   @for $i from 1 through 8 {
     .rr-ring-outer-14 .rr-ring-dot-14:nth-child(#{$i}) {

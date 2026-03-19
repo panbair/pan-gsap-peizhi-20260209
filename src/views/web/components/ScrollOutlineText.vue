@@ -165,13 +165,16 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
+/* GSAP opacity fix: ensure content is always visible */
+
 .outline-text-wrapper-195 {
   position: relative;
   width: 100%;
   min-height: 100vh;
   background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .ot-stage-195 {
   position: relative;
@@ -181,7 +184,8 @@ onUnmounted(() => {
   align-items: center;
   justify-content: center;
   padding: 60px 20px;
-}
+
+  opacity: 1 !important;}
 
 .ot-particles-bg-195 {
   position: absolute;
@@ -198,14 +202,16 @@ onUnmounted(() => {
   height: 4px;
   background: rgba(255, 255, 255, 0.5);
   border-radius: 50%;
-}
+
+  opacity: 1 !important;}
 
 .ot-container-195 {
   position: relative;
   text-align: center;
   z-index: 10;
   max-width: 900px;
-}
+
+  opacity: 1 !important;}
 
 .ot-title-195 {
   font-size: 3rem;
@@ -214,7 +220,8 @@ onUnmounted(() => {
   letter-spacing: 6px;
   color: #ffffff;
   text-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
-}
+
+  opacity: 1 !important;}
 
 .ot-text-stage-195 {
   padding: 40px 60px;
@@ -223,7 +230,8 @@ onUnmounted(() => {
   backdrop-filter: blur(10px);
   border: 2px solid rgba(255, 255, 255, 0.2);
   margin-bottom: 40px;
-}
+
+  opacity: 1 !important;}
 
 .ot-text-line-195 {
   display: flex;
@@ -242,7 +250,8 @@ onUnmounted(() => {
   transition: all 0.3s ease;
   min-width: 25px;
   position: relative;
-}
+
+  opacity: 1 !important;}
 
 .ot-char-195::before {
   content: attr(data-char);
@@ -260,7 +269,8 @@ onUnmounted(() => {
   border-radius: 4px;
   overflow: hidden;
   margin-bottom: 30px;
-}
+
+  opacity: 1 !important;}
 
 .ot-progress-bar-195 {
   height: 100%;
@@ -268,27 +278,32 @@ onUnmounted(() => {
   background: linear-gradient(90deg, #00d9ff, #00ff88, #ff6b6b);
   border-radius: 4px;
   transform-origin: left;
-}
+
+  opacity: 1 !important;}
 
 .ot-hint-195 {
   font-size: 1rem;
   color: rgba(255, 255, 255, 0.5);
   letter-spacing: 2px;
   text-transform: uppercase;
-}
+
+  opacity: 1 !important;}
 
 @media (max-width: 768px) {
   .ot-title-195 {
     font-size: 2rem;
-  }
+  
+  opacity: 1 !important;}
 
   .ot-char-195 {
     font-size: 2rem;
     min-width: 18px;
-  }
+  
+  opacity: 1 !important;}
 
   .ot-text-stage-195 {
     padding: 30px 20px;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

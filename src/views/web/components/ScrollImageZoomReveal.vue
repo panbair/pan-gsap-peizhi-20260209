@@ -220,7 +220,8 @@ onMounted(() => {
             min-height: 100%;
             object-fit: cover;
             scale: var(--zoom-level);
-          }
+          
+  opacity: 1 !important;}
 
           .zoom-overlay {
             position: absolute;
@@ -235,7 +236,8 @@ onMounted(() => {
               color: #fff;
               margin: 0 0 20px 0;
               text-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
-            }
+            
+  opacity: 1 !important;}
 
             p {
               font-size: 1.2rem;
@@ -256,7 +258,8 @@ onMounted(() => {
               font-weight: 600;
               color: #fff;
               box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
-            }
+            
+  opacity: 1 !important;}
           }
         }
       }
@@ -291,7 +294,8 @@ onMounted(() => {
         background: linear-gradient(90deg, #667eea, #764ba2);
         border-radius: 3px;
         transition: width 0.1s ease;
-      }
+      
+  opacity: 1 !important;}
     }
 
     .progress-text {
@@ -300,22 +304,27 @@ onMounted(() => {
       color: #fff;
       min-width: 50px;
       text-align: center;
-    }
+    
+  opacity: 1 !important;}
   }
 }
 
 @media (max-width: 768px) {
+
   .scroll-image-zoom-reveal {
     .zoom-reveal-container {
+
       .zoom-reveal-wrapper {
-        .zoom-reveal-item {
+    .zoom-reveal-item {
+
           .zoom-image-container {
-            .zoom-overlay {
+    .zoom-overlay {
               padding: 30px;
 
               h3 {
                 font-size: 2rem;
-              }
+              
+  opacity: 1 !important;}
 
               p {
                 font-size: 1rem;
@@ -333,11 +342,13 @@ onMounted(() => {
 
       .progress-track {
         width: 150px;
-      }
+      
+  opacity: 1 !important;}
 
       .progress-text {
         font-size: 0.9rem;
-      }
+      
+  opacity: 1 !important;}
     }
   }
 }

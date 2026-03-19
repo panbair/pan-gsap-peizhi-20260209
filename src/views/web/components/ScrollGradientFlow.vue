@@ -181,6 +181,8 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
+/* GSAP opacity fix: ensure content is always visible */
+
 .gradient-flow-145 {
   width: 100%;
   min-height: 100vh;
@@ -190,7 +192,8 @@ onUnmounted(() => {
   flex-direction: column;
   align-items: center;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .gf-container-145 {
   width: 100%;
@@ -198,7 +201,8 @@ onUnmounted(() => {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
+
+  opacity: 1 !important;}
 
 .gf-title-145 {
   font-size: clamp(2rem, 5vw, 3.5rem);
@@ -211,7 +215,8 @@ onUnmounted(() => {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   animation: gfGradientShift-145 3s ease infinite;
-}
+
+  opacity: 1 !important;}
 
 @keyframes gfGradientShift-145 {
   0%, 100% { background-position: 0% 50%; }
@@ -223,7 +228,8 @@ onUnmounted(() => {
   color: rgba(255, 255, 255, 0.7);
   margin-bottom: 40px;
   text-align: center;
-}
+
+  opacity: 1 !important;}
 
 .gf-stage-145 {
   width: 100%;
@@ -234,7 +240,8 @@ onUnmounted(() => {
   border-radius: 20px;
   overflow: hidden;
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-}
+
+  opacity: 1 !important;}
 
 .gf-layer-145 {
   position: absolute;
@@ -249,22 +256,26 @@ onUnmounted(() => {
 .gf-layer-1-145 {
   background: conic-gradient(from 0deg, #f093fb, #f5576c, #f093fb);
   animation: gfRotate-145 20s linear infinite;
-}
+
+  opacity: 1 !important;}
 
 .gf-layer-2-145 {
   background: conic-gradient(from 90deg, #4facfe, #00f2fe, #4facfe);
   animation: gfRotate-145 25s linear infinite reverse;
-}
+
+  opacity: 1 !important;}
 
 .gf-layer-3-145 {
   background: conic-gradient(from 180deg, #43e97b, #38f9d7, #43e97b);
   animation: gfRotate-145 30s linear infinite;
-}
+
+  opacity: 1 !important;}
 
 .gf-layer-4-145 {
   background: conic-gradient(from 270deg, #fa709a, #fee140, #fa709a);
   animation: gfRotate-145 35s linear infinite reverse;
-}
+
+  opacity: 1 !important;}
 
 @keyframes gfRotate-145 {
   from { transform: rotate(0deg); }
@@ -281,7 +292,8 @@ onUnmounted(() => {
   justify-content: center;
   align-items: center;
   z-index: 10;
-}
+
+  opacity: 1 !important;}
 
 .gf-card-145 {
   background: rgba(255, 255, 255, 0.1);
@@ -291,7 +303,8 @@ onUnmounted(() => {
   border: 1px solid rgba(255, 255, 255, 0.2);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
   text-align: center;
-}
+
+  opacity: 1 !important;}
 
 .gf-card-title-145 {
   font-size: 2rem;
@@ -299,35 +312,42 @@ onUnmounted(() => {
   color: #fff;
   margin-bottom: 15px;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-}
+
+  opacity: 1 !important;}
 
 .gf-card-text-145 {
   font-size: 1.1rem;
   color: rgba(255, 255, 255, 0.8);
-}
+
+  opacity: 1 !important;}
 
 .gf-hint-145 {
   margin-top: 30px;
   font-size: 0.9rem;
   color: rgba(255, 255, 255, 0.5);
   text-align: center;
-}
+
+  opacity: 1 !important;}
 
 @media (max-width: 768px) {
   .gf-stage-145 {
     height: 500px;
-  }
+  
+  opacity: 1 !important;}
   
   .gf-card-145 {
     padding: 30px;
-  }
+  
+  opacity: 1 !important;}
   
   .gf-card-title-145 {
     font-size: 1.5rem;
-  }
+  
+  opacity: 1 !important;}
   
   .gf-card-text-145 {
     font-size: 0.95rem;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

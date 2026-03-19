@@ -175,7 +175,8 @@ const initAnimations = () => {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-}
+
+  opacity: 1 !important;}
 
 .section-title-10 {
   font-size: 2.5rem;
@@ -186,11 +187,13 @@ const initAnimations = () => {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   text-align: center;
-}
+
+  opacity: 1 !important;}
 
 .circle-section-10 {
   background: linear-gradient(180deg, transparent, rgba(236, 72, 153, 0.1), transparent);
-}
+
+  opacity: 1 !important;}
 
 .circle-container-10 {
   display: grid;
@@ -198,7 +201,8 @@ const initAnimations = () => {
   gap: 30px;
   max-width: 1000px;
   width: 100%;
-}
+
+  opacity: 1 !important;}
 
 .circle-item-10 {
   display: flex;
@@ -211,7 +215,8 @@ const initAnimations = () => {
   width: 150px;
   height: 150px;
   transform: rotate(-90deg);
-}
+
+  opacity: 1 !important;}
 
 .circle-progress-10 {
   transition: stroke-dashoffset 0.3s;
@@ -220,13 +225,15 @@ const initAnimations = () => {
 .circle-label-10 {
   font-size: 1rem;
   color: #94a3b8;
-}
+
+  opacity: 1 !important;}
 
 .circle-value-10 {
   font-size: 1.5rem;
   font-weight: bold;
   color: #fff;
-}
+
+  opacity: 1 !important;}
 
 @media (max-width: 768px) {
   .circle-container-10 {
@@ -237,6 +244,7 @@ const initAnimations = () => {
   .circle-svg-10 {
     width: 120px;
     height: 120px;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

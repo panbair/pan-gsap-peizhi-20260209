@@ -213,13 +213,16 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
+/* GSAP opacity fix: ensure content is always visible */
+
 .rain-text-wrapper-187 {
   position: relative;
   width: 100%;
   min-height: 100vh;
   background: linear-gradient(180deg, #1a2a3a 0%, #0d1b2a 50%, #061220 100%);
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .rt-stage-187 {
   position: relative;
@@ -229,7 +232,8 @@ onUnmounted(() => {
   align-items: center;
   justify-content: center;
   padding: 60px 20px;
-}
+
+  opacity: 1 !important;}
 
 .rt-rain-bg-187 {
   position: absolute;
@@ -243,7 +247,8 @@ onUnmounted(() => {
 .rt-rain-canvas-187 {
   width: 100%;
   height: 100%;
-}
+
+  opacity: 1 !important;}
 
 .rt-ripple-container-187 {
   position: absolute;
@@ -253,7 +258,8 @@ onUnmounted(() => {
   width: 300px;
   height: 150px;
   pointer-events: none;
-}
+
+  opacity: 1 !important;}
 
 .rt-ripple-187 {
   position: absolute;
@@ -264,13 +270,15 @@ onUnmounted(() => {
   border: 2px solid rgba(100, 180, 255, 0.6);
   border-radius: 50%;
   transform: translateX(-50%);
-}
+
+  opacity: 1 !important;}
 
 .rt-rain-container-187 {
   position: relative;
   text-align: center;
   z-index: 10;
-}
+
+  opacity: 1 !important;}
 
 .rt-title-187 {
   font-size: 3rem;
@@ -279,7 +287,8 @@ onUnmounted(() => {
   margin-bottom: 40px;
   text-shadow: 0 0 30px rgba(79, 195, 247, 0.5);
   letter-spacing: 4px;
-}
+
+  opacity: 1 !important;}
 
 .rt-rain-drops-187 {
   position: absolute;
@@ -296,7 +305,8 @@ onUnmounted(() => {
   height: 20px;
   background: linear-gradient(180deg, transparent, rgba(100, 180, 255, 0.8));
   border-radius: 2px;
-}
+
+  opacity: 1 !important;}
 
 .rt-text-container-187 {
   display: inline-block;
@@ -307,7 +317,8 @@ onUnmounted(() => {
   border-radius: 10px;
   backdrop-filter: blur(10px);
   border: 1px solid rgba(100, 180, 255, 0.3);
-}
+
+  opacity: 1 !important;}
 
 .rt-char-187 {
   display: inline-block;
@@ -317,7 +328,8 @@ onUnmounted(() => {
   text-transform: uppercase;
   letter-spacing: 8px;
   transition: all 0.3s ease;
-}
+
+  opacity: 1 !important;}
 
 .rt-puddles-187 {
   position: absolute;
@@ -334,20 +346,24 @@ onUnmounted(() => {
   height: 30px;
   background: radial-gradient(ellipse, rgba(100, 180, 255, 0.4) 0%, transparent 70%);
   border-radius: 50%;
-}
+
+  opacity: 1 !important;}
 
 @media (max-width: 768px) {
   .rt-title-187 {
     font-size: 2rem;
-  }
+  
+  opacity: 1 !important;}
 
   .rt-char-187 {
     font-size: 2.5rem;
     letter-spacing: 4px;
-  }
+  
+  opacity: 1 !important;}
 
   .rt-text-container-187 {
     padding: 20px 30px;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

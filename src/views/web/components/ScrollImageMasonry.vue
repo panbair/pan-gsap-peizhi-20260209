@@ -149,9 +149,7 @@ onMounted(() => {
     // Image parallax
     gsap.fromTo(
       image,
-      {
-        scale: 1.2
-      },
+      { scale: 1.2, opacity: 1 },
       {
         scale: 1,
         ease: 'none',
@@ -273,6 +271,7 @@ onMounted(() => {
             height: 100%;
             object-fit: cover;
             transition: transform 0.3s ease;
+            opacity: 1;
           }
 
           .masonry-overlay {
@@ -289,6 +288,7 @@ onMounted(() => {
               color: #fff;
               margin: 0 0 10px 0;
               text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+              opacity: 1 !important;
             }
 
             p {
@@ -317,8 +317,9 @@ onMounted(() => {
     align-items: center;
     gap: 15px;
 
+
     .stat-item {
-      .stat-number {
+    .stat-number {
         display: block;
         font-size: 2rem;
         font-weight: 700;
@@ -326,21 +327,25 @@ onMounted(() => {
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
+        opacity: 1 !important;
       }
 
       .stat-label {
         font-size: 0.9rem;
         color: rgba(255, 255, 255, 0.7);
+        opacity: 1 !important;
       }
     }
   }
 }
 
 @media (max-width: 1024px) {
+
   .scroll-image-masonry {
     .masonry-container {
+
       .masonry-grid {
-        .masonry-item {
+    .masonry-item {
           &.size-large {
             grid-column: span 1;
           }
@@ -353,9 +358,11 @@ onMounted(() => {
       right: 20px;
       padding: 15px 20px;
 
+
       .stat-item {
-        .stat-number {
+    .stat-number {
           font-size: 1.5rem;
+          opacity: 1 !important;
         }
       }
     }
@@ -366,19 +373,22 @@ onMounted(() => {
   .scroll-image-masonry {
     padding: 40px 20px;
 
+
     .masonry-container {
-      .masonry-grid {
+    .masonry-grid {
         grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
         grid-auto-rows: 250px;
         gap: 15px;
 
+
         .masonry-item {
-          .masonry-card {
+    .masonry-card {
             .masonry-overlay {
               padding: 15px;
 
               h3 {
                 font-size: 1.2rem;
+                opacity: 1;
               }
 
               p {

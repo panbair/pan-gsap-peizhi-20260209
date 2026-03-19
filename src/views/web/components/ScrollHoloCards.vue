@@ -170,6 +170,8 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
+/* GSAP opacity fix: ensure content is always visible */
+
 .holo-cards-container-198 {
   min-height: 100vh;
   background: linear-gradient(180deg, #0a0a15 0%, #0a1520 100%);
@@ -177,12 +179,14 @@ onUnmounted(() => {
   position: relative;
   overflow: hidden;
   perspective: 2000px;
-}
+
+  opacity: 1 !important;}
 
 .hc-header-198 {
   text-align: center;
   margin-bottom: 60px;
-}
+
+  opacity: 1 !important;}
 
 .hc-title-198 {
   font-size: 48px;
@@ -193,12 +197,14 @@ onUnmounted(() => {
   background-clip: text;
   text-shadow: 0 0 40px rgba(0, 160, 255, 0.5);
   margin-bottom: 10px;
-}
+
+  opacity: 1 !important;}
 
 .hc-hint-198 {
   font-size: 18px;
   color: #00a0ff;
-}
+
+  opacity: 1 !important;}
 
 .hc-stage-198 {
   max-width: 1400px;
@@ -207,7 +213,8 @@ onUnmounted(() => {
   grid-template-columns: repeat(3, 1fr);
   gap: 50px;
   padding: 20px;
-}
+
+  opacity: 1 !important;}
 
 .hc-card-wrapper-198 {
   height: 400px;
@@ -215,7 +222,8 @@ onUnmounted(() => {
   display: flex;
   justify-content: center;
   align-items: center;
-}
+
+  opacity: 1 !important;}
 
 .hc-card-198 {
   position: relative;
@@ -223,7 +231,8 @@ onUnmounted(() => {
   height: 380px;
   transform-style: preserve-3d;
   transition: box-shadow 0.5s ease;
-}
+
+  opacity: 1 !important;}
 
 .hc-card-198:hover {
   box-shadow: 0 0 50px rgba(0, 160, 255, 0.4);
@@ -239,7 +248,8 @@ onUnmounted(() => {
   transform: translateZ(50px);
   overflow: hidden;
   transform-style: preserve-3d;
-}
+
+  opacity: 1 !important;}
 
 .hc-scan-lines-198 {
   position: absolute;
@@ -254,7 +264,8 @@ onUnmounted(() => {
   background-size: 100% 200%;
   pointer-events: none;
   z-index: 2;
-}
+
+  opacity: 1 !important;}
 
 .hc-hologram-198::before {
   content: '';
@@ -287,13 +298,15 @@ onUnmounted(() => {
   justify-content: center;
   text-align: center;
   transform: translateZ(25px);
-}
+
+  opacity: 1 !important;}
 
 .hc-icon-198 {
   font-size: 72px;
   margin-bottom: 20px;
   filter: drop-shadow(0 0 20px rgba(0, 255, 255, 0.8));
-}
+
+  opacity: 1 !important;}
 
 .hc-card-title-198 {
   font-size: 26px;
@@ -301,13 +314,15 @@ onUnmounted(() => {
   color: #00ffff;
   margin-bottom: 10px;
   text-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
-}
+
+  opacity: 1 !important;}
 
 .hc-card-desc-198 {
   font-size: 14px;
   color: #00a0ff;
   line-height: 1.6;
-}
+
+  opacity: 1 !important;}
 
 .hc-base-198 {
   position: absolute;
@@ -317,7 +332,8 @@ onUnmounted(() => {
   width: 280px;
   height: 60px;
   transform-style: preserve-3d;
-}
+
+  opacity: 1 !important;}
 
 .hc-base-ring-198 {
   position: absolute;
@@ -325,7 +341,8 @@ onUnmounted(() => {
   border: 2px solid rgba(0, 255, 255, 0.3);
   border-radius: 50%;
   animation: base-ring-rotate-198 10s linear infinite;
-}
+
+  opacity: 1 !important;}
 
 @keyframes base-ring-rotate-198 {
   from { transform: rotateX(60deg); }
@@ -355,6 +372,7 @@ onUnmounted(() => {
   .hc-card-198 {
     width: 260px;
     height: 340px;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

@@ -238,7 +238,8 @@ onUnmounted(() => {
   background: linear-gradient(135deg, #0a0a2a 0%, #1a1a4a 50%, #0a0a2a 100%);
   overflow: hidden;
   padding: 80px 20px;
-}
+
+  opacity: 1 !important;}
 
 .vortex-container-163 {
   position: absolute;
@@ -253,7 +254,8 @@ onUnmounted(() => {
 .vortex-canvas-163 {
   width: 100%;
   height: 100%;
-}
+
+  opacity: 1 !important;}
 
 .cards-container-163 {
   position: relative;
@@ -264,7 +266,8 @@ onUnmounted(() => {
   max-width: 1400px;
   margin: 0 auto;
   perspective: 1000px;
-}
+
+  opacity: 1 !important;}
 
 .temporal-card-163 {
   position: relative;
@@ -315,7 +318,8 @@ onUnmounted(() => {
   background: rgba(0, 0, 0, 0.6);
   border-radius: 14px;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .card-inner-163::after {
   content: '';
@@ -342,7 +346,8 @@ onUnmounted(() => {
   position: relative;
   z-index: 1;
   text-align: center;
-}
+
+  opacity: 1 !important;}
 
 .card-content-163 h3 {
   font-size: 1.8rem;
@@ -380,7 +385,8 @@ onUnmounted(() => {
 
   .card-inner-163 {
     padding: 20px;
-  }
+  
+  opacity: 1 !important;}
 
   .card-content-163 h3 {
     font-size: 1.4rem;

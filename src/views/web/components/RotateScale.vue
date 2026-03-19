@@ -301,18 +301,22 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
+/* GSAP opacity fix: ensure content is always visible */
+
 .rs-rotate-scale-section-51 {
   min-height: 100vh;
   padding: 80px 40px;
   background: linear-gradient(135deg, #1a0a2e 0%, #2d1b69 50%, #4a0e4e 100%);
   position: relative;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .rs-section-header-51 {
   text-align: center;
   margin-bottom: 80px;
-}
+
+  opacity: 1 !important;}
 
 .rs-title-51 {
   font-size: 64px;
@@ -322,7 +326,8 @@ onUnmounted(() => {
   justify-content: center;
   gap: 40px;
   text-shadow: 0 0 30px rgba(255, 0, 128, 0.5);
-}
+
+  opacity: 1 !important;}
 
 .rs-title-51 .rs-word-51 {
   display: inline-block;
@@ -335,7 +340,8 @@ onUnmounted(() => {
   margin-top: 20px;
   letter-spacing: 4px;
   text-transform: uppercase;
-}
+
+  opacity: 1 !important;}
 
 .rs-rotate-scale-container-51 {
   display: grid;
@@ -344,7 +350,8 @@ onUnmounted(() => {
   max-width: 1400px;
   margin: 0 auto;
   padding: 40px 0;
-}
+
+  opacity: 1 !important;}
 
 .rs-rotate-scale-item-51 {
   display: flex;
@@ -362,7 +369,8 @@ onUnmounted(() => {
   cursor: pointer;
   box-shadow: 0 10px 40px rgba(255, 0, 128, 0.3);
   transition: box-shadow 0.4s ease;
-}
+
+  opacity: 1 !important;}
 
 .rs-item-rotator-51:hover {
   box-shadow: 0 20px 60px rgba(255, 0, 128, 0.5);
@@ -374,7 +382,8 @@ onUnmounted(() => {
   background-size: cover;
   background-position: center;
   transition: transform 0.4s ease;
-}
+
+  opacity: 1 !important;}
 
 .rs-item-number-51 {
   position: absolute;
@@ -394,11 +403,13 @@ onUnmounted(() => {
   color: #fff;
   border: 2px solid rgba(255, 0, 128, 0.5);
   transition: all 0.4s ease;
-}
+
+  opacity: 1 !important;}
 
 .rs-item-info-51 {
   text-align: center;
-}
+
+  opacity: 1 !important;}
 
 .rs-item-info-51 h3 {
   font-size: 24px;
@@ -433,7 +444,8 @@ onUnmounted(() => {
   box-shadow: 0 10px 30px rgba(255, 0, 128, 0.4);
   text-transform: uppercase;
   letter-spacing: 2px;
-}
+
+  opacity: 1 !important;}
 
 .rs-control-btn-51:hover {
   transform: translateY(-3px);
@@ -448,15 +460,18 @@ onUnmounted(() => {
   .rs-title-51 {
     font-size: 40px;
     gap: 20px;
-  }
+  
+  opacity: 1 !important;}
 
   .rs-subtitle-51 {
     font-size: 14px;
-  }
+  
+  opacity: 1 !important;}
 
   .rs-item-rotator-51 {
     width: 220px;
     height: 220px;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

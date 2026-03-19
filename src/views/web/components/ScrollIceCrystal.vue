@@ -130,18 +130,22 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
+/* GSAP opacity fix: ensure content is always visible */
+
 .ice-crystal-container-204 {
   min-height: 100vh;
   background: linear-gradient(180deg, #0a0a15 0%, #0a1520 100%);
   padding: 60px 20px;
   position: relative;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .ic-header-204 {
   text-align: center;
   margin-bottom: 60px;
-}
+
+  opacity: 1 !important;}
 
 .ic-title-204 {
   font-size: 48px;
@@ -152,12 +156,14 @@ onUnmounted(() => {
   background-clip: text;
   text-shadow: 0 0 40px rgba(255, 255, 255, 0.5);
   margin-bottom: 10px;
-}
+
+  opacity: 1 !important;}
 
 .ic-hint-204 {
   font-size: 18px;
   color: #a0c4ff;
-}
+
+  opacity: 1 !important;}
 
 .ic-stage-204 {
   max-width: 1200px;
@@ -166,7 +172,8 @@ onUnmounted(() => {
   grid-template-columns: repeat(4, 1fr);
   gap: 40px;
   padding: 20px;
-}
+
+  opacity: 1 !important;}
 
 .ic-crystal-wrapper-204 {
   height: 400px;
@@ -174,7 +181,8 @@ onUnmounted(() => {
   display: flex;
   justify-content: center;
   align-items: center;
-}
+
+  opacity: 1 !important;}
 
 .ic-crystal-204 {
   position: relative;
@@ -185,7 +193,8 @@ onUnmounted(() => {
   border: 2px solid rgba(160, 196, 255, 0.3);
   overflow: hidden;
   transition: all 0.5s ease;
-}
+
+  opacity: 1 !important;}
 
 .ic-crystal-204:hover {
   transform: translateY(-10px);
@@ -209,13 +218,15 @@ onUnmounted(() => {
   align-items: center;
   justify-content: center;
   text-align: center;
-}
+
+  opacity: 1 !important;}
 
 .ic-icon-204 {
   font-size: 72px;
   margin-bottom: 20px;
   filter: drop-shadow(0 0 20px rgba(160, 196, 255, 0.8));
-}
+
+  opacity: 1 !important;}
 
 .ic-crystal-title-204 {
   font-size: 28px;
@@ -223,13 +234,15 @@ onUnmounted(() => {
   color: #ffffff;
   margin-bottom: 10px;
   text-shadow: 0 0 20px rgba(160, 196, 255, 0.5);
-}
+
+  opacity: 1 !important;}
 
 .ic-crystal-desc-204 {
   font-size: 14px;
   color: #a0c4ff;
   line-height: 1.6;
-}
+
+  opacity: 1 !important;}
 
 @media (max-width: 1024px) {
   .ic-stage-204 {
@@ -244,6 +257,7 @@ onUnmounted(() => {
 
   .ic-title-204 {
     font-size: 32px;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

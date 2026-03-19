@@ -282,7 +282,8 @@ onUnmounted(() => {
   justify-content: center;
   background: linear-gradient(180deg, #000a14 0%, #001428 30%, #001a33 70%, #000a14 100%);
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .at-stage-182 {
   position: relative;
@@ -292,7 +293,8 @@ onUnmounted(() => {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
+
+  opacity: 1 !important;}
 
 .at-aurora-bg-182 {
   position: absolute;
@@ -330,7 +332,8 @@ onUnmounted(() => {
   height: 60%;
   background: linear-gradient(180deg, transparent, rgba(0, 255, 127, 0.1), rgba(0, 191, 255, 0.1), transparent);
   transform-origin: center;
-}
+
+  opacity: 1 !important;}
 
 .at-aurora-container-182 {
   position: relative;
@@ -341,7 +344,8 @@ onUnmounted(() => {
   border-radius: 20px;
   overflow: hidden;
   backdrop-filter: blur(10px);
-}
+
+  opacity: 1 !important;}
 
 .at-title-182 {
   font-size: clamp(2rem, 5vw, 3rem);
@@ -350,7 +354,8 @@ onUnmounted(() => {
   text-transform: uppercase;
   letter-spacing: 6px;
   margin-bottom: 30px;
-}
+
+  opacity: 1 !important;}
 
 .at-color-rings-182 {
   position: absolute;
@@ -368,7 +373,8 @@ onUnmounted(() => {
   border: 3px solid;
   border-radius: 50%;
   animation: pulseRing 4s ease-in-out infinite;
-}
+
+  opacity: 1 !important;}
 
 .at-color-ring-182:nth-child(1) {
   width: 400px;
@@ -408,7 +414,8 @@ onUnmounted(() => {
   flex-wrap: wrap;
   gap: 6px;
   margin: 50px 0;
-}
+
+  opacity: 1 !important;}
 
 .at-char-182 {
   font-size: clamp(3rem, 8vw, 6rem);
@@ -418,7 +425,8 @@ onUnmounted(() => {
   display: inline-block;
   color: #00ff7f;
   transition: all 0.3s ease;
-}
+
+  opacity: 1 !important;}
 
 .at-light-particles-182 {
   position: absolute;
@@ -436,5 +444,6 @@ onUnmounted(() => {
   background: #fff;
   border-radius: 50%;
   box-shadow: 0 0 10px #00ff7f, 0 0 20px #00bfff;
-}
+
+  opacity: 1 !important;}
 </style>

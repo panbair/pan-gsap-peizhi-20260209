@@ -376,13 +376,16 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
+/* GSAP opacity fix: ensure content is always visible */
+
 .scroll-cyberpunk-cards-228 {
   min-height: 100vh;
   background: linear-gradient(135deg, #0a0a0f 0%, #1a0a1f 50%, #0f1a1a 100%);
   padding: 80px 20px;
   position: relative;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 /* 赛博网格背景 */
 .cyber-grid-228 {
@@ -405,7 +408,8 @@ onUnmounted(() => {
     linear-gradient(0deg, transparent 49%, #ff00aa 49%, #ff00aa 51%, transparent 51%);
   background-size: 100px 100px;
   animation: gridMove 20s linear infinite;
-}
+
+  opacity: 1 !important;}
 
 @keyframes gridMove {
   0% { transform: translate(0, 0); }
@@ -429,7 +433,8 @@ onUnmounted(() => {
   height: 20px;
   background: linear-gradient(to bottom, transparent, #00f0ff, transparent);
   animation: rainFall linear infinite;
-}
+
+  opacity: 1 !important;}
 
 @keyframes rainFall {
   0% {
@@ -463,7 +468,8 @@ onUnmounted(() => {
   margin-bottom: 80px;
   position: relative;
   z-index: 3;
-}
+
+  opacity: 1 !important;}
 
 .title-text-228 {
   display: block;
@@ -482,7 +488,8 @@ onUnmounted(() => {
   position: relative;
   text-transform: uppercase;
   text-shadow: 0 0 30px #00f0ff40;
-}
+
+  opacity: 1 !important;}
 
 .title-glitch-228::before,
 .title-glitch-228::after {
@@ -531,7 +538,8 @@ onUnmounted(() => {
   text-transform: uppercase;
   font-weight: 700;
   text-shadow: 0 0 20px #ff00aa60;
-}
+
+  opacity: 1 !important;}
 
 .title-border-228 {
   width: 300px;
@@ -539,7 +547,8 @@ onUnmounted(() => {
   background: linear-gradient(90deg, transparent, #00f0ff, #ff00aa, transparent);
   margin: 20px auto;
   position: relative;
-}
+
+  opacity: 1 !important;}
 
 .title-border-228::before {
   content: '';
@@ -562,7 +571,8 @@ onUnmounted(() => {
   padding: 20px;
   position: relative;
   z-index: 3;
-}
+
+  opacity: 1 !important;}
 
 /* 卡片样式 */
 .cyber-card-228 {
@@ -574,7 +584,8 @@ onUnmounted(() => {
   backdrop-filter: blur(20px);
   transform-style: preserve-3d;
   perspective: 1000px;
-}
+
+  opacity: 1 !important;}
 
 /* 卡片光效 */
 .card-glow-228 {
@@ -694,7 +705,8 @@ onUnmounted(() => {
   display: flex;
   align-items: center;
   justify-content: center;
-}
+
+  opacity: 1 !important;}
 
 .icon-ring-228 {
   position: absolute;
@@ -707,7 +719,8 @@ onUnmounted(() => {
 
 .icon-text-228 {
   font-size: 36px;
-}
+
+  opacity: 1 !important;}
 
 /* 标题 */
 .card-title-228 {
@@ -718,7 +731,8 @@ onUnmounted(() => {
   letter-spacing: 3px;
   position: relative;
   display: inline-block;
-}
+
+  opacity: 1 !important;}
 
 .title-underline-228 {
   position: absolute;
@@ -727,11 +741,13 @@ onUnmounted(() => {
   width: 0;
   height: 3px;
   transition: width 0.3s ease;
-}
+
+  opacity: 1 !important;}
 
 .cyber-card-228:hover .title-underline-228 {
   width: 100%;
-}
+
+  opacity: 1 !important;}
 
 /* 描述 */
 .card-desc-228 {
@@ -739,7 +755,8 @@ onUnmounted(() => {
   font-size: 16px;
   margin-bottom: 30px;
   letter-spacing: 1px;
-}
+
+  opacity: 1 !important;}
 
 /* 能量条 */
 .energy-bar-228 {
@@ -747,7 +764,8 @@ onUnmounted(() => {
   height: 8px;
   margin-bottom: 25px;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .energy-track-228 {
   position: absolute;
@@ -757,7 +775,8 @@ onUnmounted(() => {
   bottom: 0;
   background: rgba(255, 255, 255, 0.1);
   border-radius: 4px;
-}
+
+  opacity: 1 !important;}
 
 .energy-fill-228 {
   position: absolute;
@@ -766,7 +785,8 @@ onUnmounted(() => {
   height: 100%;
   border-radius: 4px;
   transition: width 0.5s ease;
-}
+
+  opacity: 1 !important;}
 
 .energy-value-228 {
   position: absolute;
@@ -774,7 +794,8 @@ onUnmounted(() => {
   right: 0;
   font-size: 14px;
   font-weight: 700;
-}
+
+  opacity: 1 !important;}
 
 /* 数据行 */
 .data-row-228 {
@@ -786,7 +807,8 @@ onUnmounted(() => {
 
 .data-item-228 {
   text-align: center;
-}
+
+  opacity: 1 !important;}
 
 .data-label-228 {
   display: block;
@@ -794,13 +816,15 @@ onUnmounted(() => {
   color: #666;
   letter-spacing: 2px;
   margin-bottom: 5px;
-}
+
+  opacity: 1 !important;}
 
 .data-value-228 {
   display: block;
   font-size: 20px;
   font-weight: 700;
-}
+
+  opacity: 1 !important;}
 
 /* 悬停光效 */
 .hover-light-228 {
@@ -847,14 +871,16 @@ onUnmounted(() => {
   margin-top: 60px;
   position: relative;
   z-index: 3;
-}
+
+  opacity: 1 !important;}
 
 .deco-line-228 {
   width: 100px;
   height: 2px;
   background: linear-gradient(90deg, transparent, #00f0ff, transparent);
   margin: 0 auto 15px;
-}
+
+  opacity: 1 !important;}
 
 .deco-text-228 {
   color: #00f0ff;
@@ -862,7 +888,8 @@ onUnmounted(() => {
   letter-spacing: 5px;
   text-transform: uppercase;
   animation: blink 2s infinite;
-}
+
+  opacity: 1 !important;}
 
 @keyframes blink {
   0%, 100% { opacity: 1; }
@@ -874,12 +901,14 @@ onUnmounted(() => {
   .title-glitch-228 {
     font-size: 36px;
     letter-spacing: 5px;
-  }
+  
+  opacity: 1 !important;}
 
   .title-sub-228 {
     font-size: 16px;
     letter-spacing: 10px;
-  }
+  
+  opacity: 1 !important;}
 
   .cards-container-228 {
     grid-template-columns: 1fr;
@@ -888,6 +917,7 @@ onUnmounted(() => {
 
   .card-content-228 {
     padding: 20px;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

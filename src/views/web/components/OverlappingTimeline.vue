@@ -301,18 +301,22 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
+/* GSAP opacity fix: ensure content is always visible */
+
 .overlapping-timeline-section-56 {
   min-height: 100vh;
   padding: 80px 40px;
   background: linear-gradient(135deg, #0d1b2a 0%, #1b263b 50%, #415a77 100%);
   position: relative;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .olt-section-header-56 {
   text-align: center;
   margin-bottom: 80px;
-}
+
+  opacity: 1 !important;}
 
 .olt-title-56 {
   font-size: 56px;
@@ -321,7 +325,8 @@ onUnmounted(() => {
   letter-spacing: 6px;
   text-transform: uppercase;
   text-shadow: 0 0 30px rgba(65, 90, 119, 0.5);
-}
+
+  opacity: 1 !important;}
 
 .olt-subtitle-56 {
   font-size: 18px;
@@ -329,7 +334,8 @@ onUnmounted(() => {
   margin-top: 16px;
   letter-spacing: 3px;
   text-transform: uppercase;
-}
+
+  opacity: 1 !important;}
 
 .olt-overlapping-container-56 {
   display: grid;
@@ -338,7 +344,8 @@ onUnmounted(() => {
   max-width: 1400px;
   margin: 0 auto;
   padding: 40px 0;
-}
+
+  opacity: 1 !important;}
 
 .olt-overlap-card-56 {
   display: flex;
@@ -349,7 +356,8 @@ onUnmounted(() => {
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   transition: box-shadow 0.4s ease;
-}
+
+  opacity: 1 !important;}
 
 .olt-overlap-card-56:hover {
   box-shadow: 0 15px 40px rgba(65, 90, 119, 0.3);
@@ -362,7 +370,8 @@ onUnmounted(() => {
   height: 140px;
   border-radius: 16px;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .olt-card-image-56 {
   width: 100%;
@@ -370,7 +379,8 @@ onUnmounted(() => {
   background-size: cover;
   background-position: center;
   transition: transform 0.4s ease;
-}
+
+  opacity: 1 !important;}
 
 .olt-card-badge-56 {
   position: absolute;
@@ -389,7 +399,8 @@ onUnmounted(() => {
   color: #fff;
   border: 2px solid rgba(65, 90, 119, 0.5);
   transition: all 0.4s ease;
-}
+
+  opacity: 1 !important;}
 
 .olt-card-text-56 {
   display: flex;
@@ -432,7 +443,8 @@ onUnmounted(() => {
   background: rgba(255, 255, 255, 0.1);
   color: #fff;
   border: 2px solid rgba(255, 255, 255, 0.2);
-}
+
+  opacity: 1 !important;}
 
 .olt-control-btn-56:hover {
   background: rgba(255, 255, 255, 0.2);
@@ -444,7 +456,8 @@ onUnmounted(() => {
   background: linear-gradient(135deg, #415a77 0%, #778da9 100%);
   border-color: transparent;
   box-shadow: 0 10px 30px rgba(65, 90, 119, 0.3);
-}
+
+  opacity: 1 !important;}
 
 .olt-control-btn.full-56:hover {
   box-shadow: 0 15px 40px rgba(65, 90, 119, 0.4);
@@ -454,11 +467,13 @@ onUnmounted(() => {
   .olt-title-56 {
     font-size: 32px;
     letter-spacing: 3px;
-  }
+  
+  opacity: 1 !important;}
 
   .olt-subtitle-56 {
     font-size: 14px;
-  }
+  
+  opacity: 1 !important;}
 
   .olt-overlap-card-56 {
     flex-direction: column;
@@ -468,6 +483,7 @@ onUnmounted(() => {
   .olt-card-visual-56 {
     width: 100%;
     height: 180px;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

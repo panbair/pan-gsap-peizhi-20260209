@@ -117,7 +117,7 @@ onMounted(() => {
 
     // 轨道项目依次出现
     items.forEach((_, index) => {
-      const item = `.og-orbit-item-181:nth-child(${index + 1})`
+      const item = `.og-orbit-item-181:nth-child(${ index + 1})`
 
       gsap.to(item, {
         scrollTrigger: {
@@ -227,6 +227,8 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
+/* GSAP opacity fix: ensure content is always visible */
+
 .og-container-181 {
   width: 100%;
   min-height: 100vh;
@@ -236,7 +238,8 @@ onUnmounted(() => {
   flex-direction: column;
   align-items: center;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .og-title-181 {
   font-size: clamp(2rem, 5vw, 3.5rem);
@@ -249,7 +252,8 @@ onUnmounted(() => {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   animation: shimmer 3s linear infinite;
-}
+
+  opacity: 1 !important;}
 
 @keyframes shimmer {
   to { background-position: 300% center; }
@@ -260,7 +264,8 @@ onUnmounted(() => {
   color: rgba(255, 255, 255, 0.7);
   margin-bottom: 40px;
   text-align: center;
-}
+
+  opacity: 1 !important;}
 
 .og-stage-181 {
   width: 100%;
@@ -270,7 +275,8 @@ onUnmounted(() => {
   display: flex;
   justify-content: center;
   align-items: center;
-}
+
+  opacity: 1 !important;}
 
 .og-orbit-181 {
   position: absolute;
@@ -279,10 +285,10 @@ onUnmounted(() => {
   border-radius: 50%;
   border: 2px dashed rgba(255, 255, 255, 0.2);
   will-change: transform;
-}
 
-.og-orbit-item-181 {
-  position: absolute;
+  opacity: 1 !important;}
+
+.og-orbit-item-181 { position: absolute;
   width: 120px;
   height: 120px;
   top: 50%;
@@ -290,10 +296,10 @@ onUnmounted(() => {
   transform: translate(-50%, -50%) rotate(var(--angle)) translateY(-250px) rotate(calc(var(--angle) * -1));
   cursor: pointer;
   will-change: transform, opacity;
-}
+      opacity: 1;
+    }
 
-.og-orbit-card-181 {
-  width: 100%;
+.og-orbit-card-181 { width: 100%;
   height: 100%;
   border-radius: 12px;
   overflow: hidden;
@@ -301,17 +307,19 @@ onUnmounted(() => {
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.2);
   transition: box-shadow 0.3s ease;
-}
+      opacity: 1;
+    }
 
-.og-orbit-card-181:hover {
-  box-shadow: 0 10px 30px var(--orbit-color);
-}
+.og-orbit-card-181:hover { box-shadow: 0 10px 30px var(--orbit-color);
+      opacity: 1;
+    }
 
 .og-card-image-181 {
   width: 100%;
   height: 80px;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .og-card-image-181 img {
   width: 100%;
@@ -322,19 +330,22 @@ onUnmounted(() => {
 .og-card-info-181 {
   padding: 8px;
   text-align: center;
-}
+
+  opacity: 1 !important;}
 
 .og-card-title-181 {
   font-size: 0.9rem;
   font-weight: bold;
   color: #fff;
   margin-bottom: 4px;
-}
+
+  opacity: 1 !important;}
 
 .og-card-desc-181 {
   font-size: 0.75rem;
   color: rgba(255, 255, 255, 0.7);
-}
+
+  opacity: 1 !important;}
 
 .og-orbit-line-181 {
   position: absolute;
@@ -345,7 +356,8 @@ onUnmounted(() => {
   background: linear-gradient(to bottom, var(--orbit-color), transparent);
   transform-origin: top;
   transform: translateY(-100%);
-}
+
+  opacity: 1 !important;}
 
 .og-center-181 {
   position: absolute;
@@ -354,8 +366,7 @@ onUnmounted(() => {
   align-items: center;
 }
 
-.og-center-core-181 {
-  width: 80px;
+.og-center-core-181 { width: 80px;
   height: 80px;
   border-radius: 50%;
   background: radial-gradient(circle, #00d2ff, #3a7bd5);
@@ -363,7 +374,8 @@ onUnmounted(() => {
     0 0 40px rgba(0, 210, 255, 0.6),
     0 0 80px rgba(0, 210, 255, 0.3);
   will-change: transform, opacity;
-}
+      opacity: 1;
+    }
 
 .og-center-ring-181 {
   position: absolute;
@@ -373,43 +385,49 @@ onUnmounted(() => {
   border: 2px solid rgba(0, 210, 255, 0.5);
   box-shadow: 0 0 20px rgba(0, 210, 255, 0.3);
   will-change: transform;
-}
+
+  opacity: 1 !important;}
 
 .og-hint-181 {
   margin-top: 30px;
   font-size: 0.9rem;
   color: rgba(255, 255, 255, 0.5);
   text-align: center;
-}
+
+  opacity: 1 !important;}
 
 @media (max-width: 768px) {
   .og-stage-181 {
     height: 500px;
-  }
+  
+  opacity: 1 !important;}
   
   .og-orbit-181 {
     width: 350px;
     height: 350px;
-  }
   
-  .og-orbit-item-181 {
-    width: 90px;
+  opacity: 1 !important;}
+  
+  .og-orbit-item-181 { width: 90px;
     height: 90px;
     transform: translate(-50%, -50%) rotate(var(--angle)) translateY(-175px) rotate(calc(var(--angle) * -1));
-  }
+      opacity: 1;
+    }
   
   .og-card-image-181 {
     height: 60px;
-  }
   
-  .og-center-core-181 {
-    width: 60px;
+  opacity: 1 !important;}
+  
+  .og-center-core-181 { width: 60px;
     height: 60px;
-  }
+      opacity: 1;
+    }
   
   .og-center-ring-181 {
     width: 90px;
     height: 90px;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

@@ -476,11 +476,13 @@ onUnmounted(() => {
   position: relative;
   overflow: hidden;
   background: linear-gradient(180deg, #0a0a1a 0%, #1a1a3a 30%, #0a0a2a 70%, #050510 100%);
-}
+
+  opacity: 1 !important;}
 
 .nv-content-64 {
   text-align: center;
-}
+
+  opacity: 1 !important;}
 
 .nv-section-title-64 {
   font-size: clamp(2.5rem, 5vw, 4rem);
@@ -491,7 +493,8 @@ onUnmounted(() => {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   text-shadow: 0 0 40px rgba(139, 92, 246, 0.3);
-}
+
+  opacity: 1 !important;}
 
 .nv-subtitle-64 {
   font-size: 1.2rem;
@@ -499,7 +502,8 @@ onUnmounted(() => {
   margin-bottom: 60px;
   letter-spacing: 3px;
   text-transform: uppercase;
-}
+
+  opacity: 1 !important;}
 
 .nv-vortex-container-64 {
   position: relative;
@@ -512,13 +516,15 @@ onUnmounted(() => {
   box-shadow:
     0 0 100px rgba(139, 92, 246, 0.2),
     inset 0 0 100px rgba(6, 182, 212, 0.1);
-}
+
+  opacity: 1 !important;}
 
 .nv-galaxy-bg-64 {
   position: absolute;
   inset: 0;
   background: radial-gradient(circle, #0a0a1a 0%, #1a1a3a 100%);
-}
+
+  opacity: 1 !important;}
 
 .nv-star-field-64 {
   position: absolute;
@@ -530,7 +536,8 @@ onUnmounted(() => {
   background: #fff;
   border-radius: 50%;
   animation: starTwinkle 2s ease-in-out infinite;
-}
+
+  opacity: 1 !important;}
 
 @keyframes starTwinkle {
   0%,
@@ -559,7 +566,8 @@ onUnmounted(() => {
   border: 2px solid;
   border-radius: 50%;
   transition: border-color 0.3s ease;
-}
+
+  opacity: 1 !important;}
 
 .nv-ring-particles-64 {
   position: absolute;
@@ -577,7 +585,8 @@ onUnmounted(() => {
   border-radius: 50%;
   transform: rotate(var(--angle)) translate(var(--radius));
   box-shadow: 0 0 10px currentColor;
-}
+
+  opacity: 1 !important;}
 
 .nv-black-hole-64 {
   position: absolute;
@@ -587,7 +596,8 @@ onUnmounted(() => {
   width: 80px;
   height: 80px;
   z-index: 10;
-}
+
+  opacity: 1 !important;}
 
 .nv-event-horizon-64 {
   width: 100%;
@@ -595,7 +605,8 @@ onUnmounted(() => {
   background: radial-gradient(circle, #000 0%, #0a0a1a 60%, transparent 100%);
   border-radius: 50%;
   box-shadow: 0 0 50px rgba(0, 0, 0, 0.8);
-}
+
+  opacity: 1 !important;}
 
 .nv-accretion-disk-64 {
   position: absolute;
@@ -617,7 +628,8 @@ onUnmounted(() => {
   border: 2px solid rgba(139, 92, 246, 0.5);
   border-radius: 50%;
   animation: gravityWave 2s ease-out infinite;
-}
+
+  opacity: 1 !important;}
 
 @keyframes gravityWave {
   0% {
@@ -642,7 +654,8 @@ onUnmounted(() => {
   transform: translate(-50%, -50%);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 50%;
-}
+
+  opacity: 1 !important;}
 
 .nv-planet-64 {
   position: absolute;
@@ -676,7 +689,8 @@ onUnmounted(() => {
   background: linear-gradient(90deg, transparent, #fff);
   animation: meteorFly 3s ease-in infinite;
   transform-origin: left center;
-}
+
+  opacity: 1 !important;}
 
 @keyframes meteorFly {
   0% {
@@ -719,12 +733,14 @@ onUnmounted(() => {
   gap: 40px;
   margin: 40px 0;
   flex-wrap: wrap;
-}
+
+  opacity: 1 !important;}
 
 .nv-readout-item-64 {
   width: 200px;
   text-align: left;
-}
+
+  opacity: 1 !important;}
 
 .nv-readout-label-64 {
   display: block;
@@ -733,7 +749,8 @@ onUnmounted(() => {
   margin-bottom: 8px;
   text-transform: uppercase;
   letter-spacing: 2px;
-}
+
+  opacity: 1 !important;}
 
 .nv-readout-bar-64 {
   width: 100%;
@@ -741,14 +758,16 @@ onUnmounted(() => {
   background: rgba(255, 255, 255, 0.1);
   border-radius: 3px;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .nv-readout-fill-64 {
   height: 100%;
   background: linear-gradient(90deg, #8b5cf6, #06b6d4);
   border-radius: 3px;
   transition: width 0.3s ease;
-}
+
+  opacity: 1 !important;}
 
 .nv-controls-64 {
   display: flex;
@@ -769,7 +788,8 @@ onUnmounted(() => {
   transition: all 0.3s ease;
   text-transform: uppercase;
   letter-spacing: 2px;
-}
+
+  opacity: 1 !important;}
 
 .nv-control-btn-64:hover {
   background: rgba(255, 255, 255, 0.1);
@@ -781,7 +801,8 @@ onUnmounted(() => {
   background: linear-gradient(135deg, #8b5cf6, #06b6d4);
   border-color: transparent;
   box-shadow: 0 10px 30px rgba(139, 92, 246, 0.3);
-}
+
+  opacity: 1 !important;}
 
 .nv-btn-primary-64:hover {
   box-shadow: 0 15px 40px rgba(139, 92, 246, 0.4);
@@ -791,7 +812,8 @@ onUnmounted(() => {
 @media (max-width: 768px) {
   .nv-vortex-container-64 {
     height: 500px;
-  }
+  
+  opacity: 1 !important;}
 
   .nv-energy-readout-64 {
     gap: 20px;
@@ -799,6 +821,7 @@ onUnmounted(() => {
 
   .nv-readout-item-64 {
     width: 150px;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

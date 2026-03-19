@@ -226,13 +226,16 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
+/* GSAP opacity fix: ensure content is always visible */
+
 .gradient-text-wrapper-194 {
   position: relative;
   width: 100%;
   min-height: 100vh;
   background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .gt-stage-194 {
   position: relative;
@@ -242,7 +245,8 @@ onUnmounted(() => {
   align-items: center;
   justify-content: center;
   padding: 60px 20px;
-}
+
+  opacity: 1 !important;}
 
 .gt-gradient-bg-194 {
   position: absolute;
@@ -271,7 +275,8 @@ onUnmounted(() => {
   );
   background-size: 400% 400%;
   filter: blur(40px);
-}
+
+  opacity: 1 !important;}
 
 .gt-light-rays-194 {
   position: absolute;
@@ -281,7 +286,8 @@ onUnmounted(() => {
   width: 800px;
   height: 800px;
   pointer-events: none;
-}
+
+  opacity: 1 !important;}
 
 .gt-ray-194 {
   position: absolute;
@@ -291,14 +297,16 @@ onUnmounted(() => {
   height: 4px;
   background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
   transform-origin: left center;
-}
+
+  opacity: 1 !important;}
 
 .gt-container-194 {
   position: relative;
   text-align: center;
   z-index: 10;
   max-width: 900px;
-}
+
+  opacity: 1 !important;}
 
 .gt-title-194 {
   font-size: 3rem;
@@ -320,7 +328,8 @@ onUnmounted(() => {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   text-shadow: 0 0 30px rgba(255, 107, 107, 0.5);
-}
+
+  opacity: 1 !important;}
 
 .gt-text-container-194 {
   padding: 40px 60px;
@@ -329,7 +338,8 @@ onUnmounted(() => {
   backdrop-filter: blur(10px);
   border: 2px solid rgba(255, 107, 107, 0.3);
   margin-bottom: 40px;
-}
+
+  opacity: 1 !important;}
 
 .gt-gradient-line-194 {
   display: flex;
@@ -358,7 +368,8 @@ onUnmounted(() => {
   background-clip: text;
   transition: all 0.3s ease;
   min-width: 20px;
-}
+
+  opacity: 1 !important;}
 
 .gt-flow-indicator-194 {
   display: flex;
@@ -369,7 +380,8 @@ onUnmounted(() => {
   background: rgba(0, 0, 0, 0.3);
   border-radius: 10px;
   backdrop-filter: blur(10px);
-}
+
+  opacity: 1 !important;}
 
 .gt-flow-bar-194 {
   width: 10px;
@@ -386,7 +398,8 @@ onUnmounted(() => {
   );
   background-size: 100% 400%;
   transform-origin: bottom;
-}
+
+  opacity: 1 !important;}
 
 @keyframes gradientFlow {
   0% {
@@ -400,10 +413,12 @@ onUnmounted(() => {
 @media (max-width: 768px) {
   .gt-title-194 {
     font-size: 2rem;
-  }
+  
+  opacity: 1 !important;}
 
   .gt-char-194 {
     font-size: 1.5rem;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

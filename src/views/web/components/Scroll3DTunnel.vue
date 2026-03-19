@@ -234,7 +234,8 @@ onUnmounted(() => {
   display: flex;
   align-items: center;
   justify-content: center;
-}
+
+  opacity: 1 !important;}
 
 .s3dt-container-154 {
   width: 100%;
@@ -242,7 +243,8 @@ onUnmounted(() => {
   margin: 0 auto;
   position: relative;
   z-index: 1;
-}
+
+  opacity: 1 !important;}
 
 .s3dt-title-154 {
   text-align: center;
@@ -254,7 +256,8 @@ onUnmounted(() => {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-}
+
+  opacity: 1 !important;}
 
 .s3dt-subtitle-154 {
   text-align: center;
@@ -263,7 +266,8 @@ onUnmounted(() => {
   margin-bottom: 80px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-}
+
+  opacity: 1 !important;}
 
 .s3dt-tunnel-154 {
   position: relative;
@@ -273,7 +277,8 @@ onUnmounted(() => {
   display: flex;
   align-items: center;
   justify-content: center;
-}
+
+  opacity: 1 !important;}
 
 .s3dt-ring-154 {
   position: absolute;
@@ -282,7 +287,8 @@ onUnmounted(() => {
   border: 2px solid rgba(236, 72, 153, 0.3);
   border-radius: 50%;
   pointer-events: none;
-}
+
+  opacity: 1 !important;}
 
 .s3dt-ring-inner-154 {
   width: 100%;
@@ -290,7 +296,8 @@ onUnmounted(() => {
   border: 1px solid rgba(168, 85, 247, 0.2);
   border-radius: 50%;
   animation: rotate var(--speed) linear infinite;
-}
+
+  opacity: 1 !important;}
 
 @keyframes rotate {
   from {
@@ -313,7 +320,8 @@ onUnmounted(() => {
   box-shadow:
     0 0 60px rgba(236, 72, 153, 0.3),
     inset 0 0 60px rgba(168, 85, 247, 0.2);
-}
+
+  opacity: 1 !important;}
 
 .s3dt-center-title-154 {
   font-size: clamp(2.5rem, 5vw, 4rem);
@@ -321,13 +329,15 @@ onUnmounted(() => {
   color: #fff;
   margin-bottom: 16px;
   text-shadow: 0 0 30px rgba(236, 72, 153, 0.8);
-}
+
+  opacity: 1 !important;}
 
 .s3dt-center-desc-154 {
   font-size: 1.2rem;
   color: rgba(255, 255, 255, 0.8);
   letter-spacing: 0.1em;
-}
+
+  opacity: 1 !important;}
 
 .s3dt-stars-154 {
   position: absolute;
@@ -349,7 +359,8 @@ onUnmounted(() => {
   top: var(--y);
   animation: twinkle var(--speed) ease-in-out infinite;
   animation-delay: var(--delay);
-}
+
+  opacity: 1 !important;}
 
 @keyframes twinkle {
   0%, 100% {
@@ -365,23 +376,28 @@ onUnmounted(() => {
 @media (max-width: 768px) {
   .s3dt-tunnel-154 {
     height: 500px;
-  }
+  
+  opacity: 1 !important;}
 
   .s3dt-ring-154 {
     width: 400px;
     height: 400px;
-  }
+  
+  opacity: 1 !important;}
 
   .s3dt-center-content-154 {
     padding: 40px;
-  }
+  
+  opacity: 1 !important;}
 
   .s3dt-center-title-154 {
     font-size: clamp(2rem, 4vw, 3rem);
-  }
+  
+  opacity: 1 !important;}
 
   .s3dt-center-desc-154 {
     font-size: 1rem;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

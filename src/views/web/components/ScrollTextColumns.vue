@@ -389,25 +389,30 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
+/* GSAP opacity fix: ensure content is always visible */
+
 .text-columns-section-220 {
   position: relative;
   min-height: 100vh;
   background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
   padding: 80px 20px;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .container {
   max-width: 1400px;
   margin: 0 auto;
   position: relative;
   z-index: 1;
-}
+
+  opacity: 1 !important;}
 
 .title-wrapper-220 {
   text-align: center;
   margin-bottom: 50px;
-}
+
+  opacity: 1 !important;}
 
 .section-title-220 {
   font-size: 3.5rem;
@@ -417,7 +422,8 @@ onUnmounted(() => {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   margin-bottom: 10px;
-}
+
+  opacity: 1 !important;}
 
 .title-text-220 {
   display: block;
@@ -449,7 +455,8 @@ onUnmounted(() => {
   border-radius: 20px;
   border: 1px solid rgba(255, 255, 255, 0.1);
   margin-bottom: 50px;
-}
+
+  opacity: 1 !important;}
 
 .indicator-bars-220 {
   display: flex;
@@ -463,15 +470,18 @@ onUnmounted(() => {
   border-radius: 4px;
   overflow: hidden;
   transition: all 0.3s ease;
-}
+
+  opacity: 1 !important;}
 
 .indicator-bar-220.active {
   background: rgba(102, 126, 234, 0.2);
-}
+
+  opacity: 1 !important;}
 
 .indicator-bar-220.active .bar-fill-220 {
   width: 100%;
-}
+
+  opacity: 1 !important;}
 
 .bar-fill-220 {
   width: 0;
@@ -479,7 +489,8 @@ onUnmounted(() => {
   background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
   border-radius: 4px;
   transition: width 0.3s ease;
-}
+
+  opacity: 1 !important;}
 
 .indicator-label-220 {
   font-size: 1rem;
@@ -506,7 +517,8 @@ onUnmounted(() => {
   border-radius: 20px;
   padding: 30px;
   transition: all 0.3s ease;
-}
+
+  opacity: 1 !important;}
 
 .column-item-220:hover {
   transform: translateY(-5px);
@@ -525,7 +537,8 @@ onUnmounted(() => {
   font-size: 1.8rem;
   font-weight: 700;
   color: #fff;
-}
+
+  opacity: 1 !important;}
 
 .column-badge-220 {
   display: flex;
@@ -538,11 +551,13 @@ onUnmounted(() => {
   color: #fff;
   font-size: 1.5rem;
   font-weight: 800;
-}
+
+  opacity: 1 !important;}
 
 .column-content-220 {
   min-height: 200px;
-}
+
+  opacity: 1 !important;}
 
 .column-text-220 {
   font-size: 1rem;
@@ -552,7 +567,8 @@ onUnmounted(() => {
   column-count: 1;
   column-gap: 20px;
   column-rule: 1px solid rgba(255, 255, 255, 0.1);
-}
+
+  opacity: 1 !important;}
 
 .column-tags-220 {
   display: flex;
@@ -570,12 +586,14 @@ onUnmounted(() => {
   font-size: 0.85rem;
   font-weight: 600;
   transition: all 0.3s ease;
-}
+
+  opacity: 1 !important;}
 
 .column-item-220:hover .column-tag-220 {
   background: rgba(102, 126, 234, 0.3);
   transform: scale(1.05);
-}
+
+  opacity: 1 !important;}
 
 .column-footer-220 {
   display: flex;
@@ -596,7 +614,8 @@ onUnmounted(() => {
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 0 5px 20px rgba(102, 126, 234, 0.3);
-}
+
+  opacity: 1 !important;}
 
 .btn-text-220 {
   position: relative;
@@ -606,7 +625,8 @@ onUnmounted(() => {
 .btn-arrow-220 {
   font-size: 1.2rem;
   transition: transform 0.3s ease;
-}
+
+  opacity: 1 !important;}
 
 .progress-bar-220 {
   position: relative;
@@ -615,7 +635,8 @@ onUnmounted(() => {
   backdrop-filter: blur(10px);
   border-radius: 20px;
   border: 1px solid rgba(255, 255, 255, 0.1);
-}
+
+  opacity: 1 !important;}
 
 .progress-fill-220 {
   width: 0;
@@ -623,7 +644,8 @@ onUnmounted(() => {
   background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
   border-radius: 3px;
   margin-bottom: 15px;
-}
+
+  opacity: 1 !important;}
 
 .progress-labels-220 {
   display: flex;
@@ -633,7 +655,8 @@ onUnmounted(() => {
   color: rgba(255, 255, 255, 0.7);
   text-transform: uppercase;
   letter-spacing: 0.1em;
-}
+
+  opacity: 1 !important;}
 
 .columns-particles-220 {
   position: absolute;
@@ -643,16 +666,19 @@ onUnmounted(() => {
   height: 100%;
   pointer-events: none;
   z-index: 0;
-}
+
+  opacity: 1 !important;}
 
 @media (max-width: 768px) {
   .section-title-220 {
     font-size: 2rem;
-  }
+  
+  opacity: 1 !important;}
 
   .title-subtitle-220 {
     font-size: 1rem;
-  }
+  
+  opacity: 1 !important;}
 
   .columns-container-220 {
     grid-template-columns: 1fr;
@@ -660,17 +686,20 @@ onUnmounted(() => {
 
   .column-title-220 {
     font-size: 1.5rem;
-  }
+  
+  opacity: 1 !important;}
 
   .column-text-220 {
     font-size: 0.9rem;
-  }
+  
+  opacity: 1 !important;}
 
   .column-indicator-220 {
     flex-direction: column;
     gap: 15px;
     text-align: center;
-  }
+  
+  opacity: 1 !important;}
 
   .indicator-bars-220 {
     justify-content: center;

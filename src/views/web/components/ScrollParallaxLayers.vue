@@ -299,7 +299,8 @@ onUnmounted(() => {
       radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.1) 0%, transparent 50%),
       radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.1) 0%, transparent 50%);
     pointer-events: none;
-  }
+  
+  opacity: 1 !important;}
 }
 
 .spl-container-214 {
@@ -307,7 +308,8 @@ onUnmounted(() => {
   margin: 0 auto;
   position: relative;
   z-index: 10;
-}
+
+  opacity: 1 !important;}
 
 .spl-title-214 {
   text-align: center;
@@ -319,7 +321,8 @@ onUnmounted(() => {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-}
+
+  opacity: 1 !important;}
 
 .spl-subtitle-214 {
   text-align: center;
@@ -328,13 +331,15 @@ onUnmounted(() => {
   margin-bottom: 80px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-}
+
+  opacity: 1 !important;}
 
 .spl-parallax-wrapper-214 {
   position: relative;
   height: 800px;
   perspective: 1000px;
-}
+
+  opacity: 1 !important;}
 
 .spl-layer-214 {
   position: absolute;
@@ -376,7 +381,8 @@ onUnmounted(() => {
   display: flex;
   align-items: center;
   justify-content: center;
-}
+
+  opacity: 1 !important;}
 
 .spl-bg-pattern-214 {
   position: absolute;
@@ -387,7 +393,8 @@ onUnmounted(() => {
     radial-gradient(circle at 75% 75%, rgba(240, 147, 251, 0.1) 2px, transparent 2px);
   background-size: 60px 60px;
   animation: splBgPattern-214 20s linear infinite;
-}
+
+  opacity: 1 !important;}
 
 @keyframes splBgPattern-214 {
   0% {
@@ -411,7 +418,8 @@ onUnmounted(() => {
   background: linear-gradient(135deg, #667eea, #764ba2);
   top: 10%;
   left: 10%;
-}
+
+  opacity: 1 !important;}
 
 .spl-shape-2-214 {
   width: 200px;
@@ -419,7 +427,8 @@ onUnmounted(() => {
   background: linear-gradient(135deg, #f093fb, #f5576c);
   bottom: 20%;
   right: 15%;
-}
+
+  opacity: 1 !important;}
 
 .spl-shape-3-214 {
   width: 150px;
@@ -427,7 +436,8 @@ onUnmounted(() => {
   background: linear-gradient(135deg, #4facfe, #00f2fe);
   top: 20%;
   right: 20%;
-}
+
+  opacity: 1 !important;}
 
 .spl-shape-4-214 {
   width: 180px;
@@ -435,7 +445,8 @@ onUnmounted(() => {
   background: linear-gradient(135deg, #43e97b, #38f9d7);
   bottom: 15%;
   left: 25%;
-}
+
+  opacity: 1 !important;}
 
 .spl-shape-5-214 {
   width: 120px;
@@ -444,7 +455,8 @@ onUnmounted(() => {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-}
+
+  opacity: 1 !important;}
 
 .spl-card-214 {
   width: 280px;
@@ -466,12 +478,14 @@ onUnmounted(() => {
     transform: translateY(-10px) scale(1.05);
     box-shadow: 0 20px 60px rgba(102, 126, 234, 0.3);
     border-color: rgba(102, 126, 234, 0.3);
-  }
+  
+  opacity: 1 !important;}
 }
 
 .spl-card-inner-214 {
   text-align: center;
-}
+
+  opacity: 1 !important;}
 
 .spl-card-number-214 {
   position: absolute;
@@ -481,7 +495,8 @@ onUnmounted(() => {
   font-weight: 900;
   color: rgba(255, 255, 255, 0.15);
   font-family: monospace;
-}
+
+  opacity: 1 !important;}
 
 .spl-card-title-214 {
   font-size: 1.8rem;
@@ -489,13 +504,15 @@ onUnmounted(() => {
   color: #fff;
   margin-bottom: 16px;
   letter-spacing: 0.05em;
-}
+
+  opacity: 1 !important;}
 
 .spl-card-desc-214 {
   font-size: 1rem;
   color: rgba(255, 255, 255, 0.7);
   line-height: 1.6;
-}
+
+  opacity: 1 !important;}
 
 .spl-particle-214 {
   position: absolute;
@@ -505,7 +522,8 @@ onUnmounted(() => {
   border-radius: 50%;
   animation: splParticleFloat-214 3s ease-in-out infinite;
   animation-delay: var(--delay, 0s);
-}
+
+  opacity: 1 !important;}
 
 @keyframes splParticleFloat-214 {
   0%, 100% {
@@ -529,30 +547,35 @@ onUnmounted(() => {
   border-radius: 2px;
   overflow: hidden;
   z-index: 100;
-}
+
+  opacity: 1 !important;}
 
 .spl-progress-fill-214 {
   height: 100%;
   width: 0;
   background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);
   border-radius: 2px;
-}
+
+  opacity: 1 !important;}
 
 @media (max-width: 768px) {
   .spl-parallax-wrapper-214 {
     height: 1000px;
-  }
+  
+  opacity: 1 !important;}
 
   .spl-card-214 {
     width: calc(50% - 20px);
     height: 280px;
     margin: 10px;
     padding: 25px;
-  }
+  
+  opacity: 1 !important;}
 
   .spl-card-title-214 {
     font-size: 1.3rem;
-  }
+  
+  opacity: 1 !important;}
 
   .spl-shape-214 {
     opacity: 0.15;
@@ -561,6 +584,7 @@ onUnmounted(() => {
   .spl-progress-bar-214 {
     width: 200px;
     bottom: 20px;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

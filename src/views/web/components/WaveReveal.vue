@@ -239,18 +239,22 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
+/* GSAP opacity fix: ensure content is always visible */
+
 .wr-wave-reveal-section-49 {
   min-height: 100vh;
   padding: 80px 40px;
   background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
   position: relative;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .wr-section-header-49 {
   text-align: center;
   margin-bottom: 80px;
-}
+
+  opacity: 1 !important;}
 
 .wr-title-49 {
   font-size: 64px;
@@ -259,7 +263,8 @@ onUnmounted(() => {
   display: inline-block;
   overflow: hidden;
   perspective: 1000px;
-}
+
+  opacity: 1 !important;}
 
 .wr-title-49 .wr-char-49 {
   display: inline-block;
@@ -271,7 +276,8 @@ onUnmounted(() => {
   color: rgba(255, 255, 255, 0.6);
   margin-top: 20px;
   letter-spacing: 4px;
-}
+
+  opacity: 1 !important;}
 
 .wr-wave-container-49 {
   display: grid;
@@ -280,7 +286,8 @@ onUnmounted(() => {
   max-width: 1400px;
   margin: 0 auto;
   padding: 40px 0;
-}
+
+  opacity: 1 !important;}
 
 .wr-wave-card-49 {
   background: rgba(255, 255, 255, 0.05);
@@ -291,7 +298,8 @@ onUnmounted(() => {
   position: relative;
   transform-style: preserve-3d;
   transition: box-shadow 0.3s ease;
-}
+
+  opacity: 1 !important;}
 
 .wr-wave-card-49:hover {
   box-shadow: 0 20px 60px rgba(0, 255, 255, 0.2);
@@ -301,7 +309,8 @@ onUnmounted(() => {
   position: relative;
   height: 280px;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .wr-card-image-49 {
   width: 100%;
@@ -309,7 +318,8 @@ onUnmounted(() => {
   background-size: cover;
   background-position: center;
   transition: transform 0.4s ease;
-}
+
+  opacity: 1 !important;}
 
 .wr-wave-overlay-49 {
   position: absolute;
@@ -319,7 +329,8 @@ onUnmounted(() => {
   height: 100%;
   background: linear-gradient(to bottom, transparent 0%, rgba(26, 26, 46, 0.8) 100%);
   pointer-events: none;
-}
+
+  opacity: 1 !important;}
 
 .wr-card-number-49 {
   position: absolute;
@@ -338,12 +349,14 @@ onUnmounted(() => {
   color: #00ffff;
   border: 2px solid rgba(0, 255, 255, 0.3);
   transition: all 0.4s ease;
-}
+
+  opacity: 1 !important;}
 
 .wr-card-content-49 {
   padding: 30px;
   transform: translateZ(20px);
-}
+
+  opacity: 1 !important;}
 
 .wr-card-content-49 h3 {
   font-size: 28px;
@@ -372,7 +385,8 @@ onUnmounted(() => {
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 0 10px 30px rgba(0, 255, 255, 0.3);
-}
+
+  opacity: 1 !important;}
 
 .wr-replay-btn-49:hover {
   transform: translateY(-3px);
@@ -386,11 +400,13 @@ onUnmounted(() => {
 @media (max-width: 768px) {
   .wr-title-49 {
     font-size: 36px;
-  }
+  
+  opacity: 1 !important;}
 
   .wr-subtitle-49 {
     font-size: 14px;
-  }
+  
+  opacity: 1 !important;}
 
   .wr-wave-container-49 {
     gap: 24px;
@@ -398,6 +414,7 @@ onUnmounted(() => {
 
   .wr-card-image-wrapper-49 {
     height: 220px;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

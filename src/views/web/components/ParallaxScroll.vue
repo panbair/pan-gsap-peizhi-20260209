@@ -262,18 +262,22 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
+/* GSAP opacity fix: ensure content is always visible */
+
 .ps-parallax-scroll-section-53 {
   min-height: 100vh;
   padding: 80px 40px;
   background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
   position: relative;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .ps-section-header-53 {
   text-align: center;
   margin-bottom: 80px;
-}
+
+  opacity: 1 !important;}
 
 .ps-title-53 {
   font-size: 56px;
@@ -282,7 +286,8 @@ onUnmounted(() => {
   letter-spacing: 6px;
   text-transform: uppercase;
   text-shadow: 0 0 30px rgba(15, 52, 96, 0.5);
-}
+
+  opacity: 1 !important;}
 
 .ps-subtitle-53 {
   font-size: 18px;
@@ -290,7 +295,8 @@ onUnmounted(() => {
   margin-top: 16px;
   letter-spacing: 3px;
   text-transform: uppercase;
-}
+
+  opacity: 1 !important;}
 
 .ps-parallax-container-53 {
   display: grid;
@@ -299,7 +305,8 @@ onUnmounted(() => {
   max-width: 1400px;
   margin: 0 auto;
   padding: 60px 0;
-}
+
+  opacity: 1 !important;}
 
 .ps-parallax-layer-53 {
   perspective: 1000px;
@@ -316,7 +323,8 @@ onUnmounted(() => {
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
   transform-style: preserve-3d;
   transition: box-shadow 0.4s ease;
-}
+
+  opacity: 1 !important;}
 
 .ps-layer-card-53:hover {
   box-shadow: 0 20px 60px rgba(15, 52, 96, 0.5);
@@ -328,7 +336,8 @@ onUnmounted(() => {
   background-size: cover;
   background-position: center;
   transition: transform 0.5s ease;
-}
+
+  opacity: 1 !important;}
 
 .ps-card-overlay-53 {
   position: absolute;
@@ -339,7 +348,8 @@ onUnmounted(() => {
   background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.8) 100%);
   pointer-events: none;
   transition: opacity 0.4s ease;
-}
+
+  opacity: 1 !important;}
 
 .ps-card-content-53 {
   position: absolute;
@@ -348,7 +358,8 @@ onUnmounted(() => {
   width: 100%;
   padding: 32px;
   transform: translateZ(30px);
-}
+
+  opacity: 1 !important;}
 
 .ps-card-number-53 {
   position: absolute;
@@ -367,7 +378,8 @@ onUnmounted(() => {
   color: #fff;
   border: 2px solid rgba(15, 52, 96, 0.5);
   transition: all 0.4s ease;
-}
+
+  opacity: 1 !important;}
 
 .ps-card-content-53 h3 {
   font-size: 32px;
@@ -392,7 +404,8 @@ onUnmounted(() => {
   display: inline-block;
   margin-left: 50%;
   transform: translateX(-50%);
-}
+
+  opacity: 1 !important;}
 
 .ps-parallax-hint-53 span {
   font-size: 14px;
@@ -405,11 +418,13 @@ onUnmounted(() => {
   .ps-title-53 {
     font-size: 32px;
     letter-spacing: 3px;
-  }
+  
+  opacity: 1 !important;}
 
   .ps-subtitle-53 {
     font-size: 14px;
-  }
+  
+  opacity: 1 !important;}
 
   .ps-parallax-container-53 {
     gap: 24px;
@@ -417,6 +432,7 @@ onUnmounted(() => {
 
   .ps-layer-card-53 {
     height: 320px;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

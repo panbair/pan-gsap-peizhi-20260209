@@ -275,7 +275,8 @@ onUnmounted(() => {
       radial-gradient(ellipse at 20% 80%, rgba(168, 85, 247, 0.05) 0%, transparent 50%),
       radial-gradient(ellipse at 80% 20%, rgba(59, 130, 246, 0.05) 0%, transparent 50%);
     pointer-events: none;
-  }
+  
+  opacity: 1 !important;}
 }
 
 .sid-container-127 {
@@ -283,7 +284,8 @@ onUnmounted(() => {
   margin: 0 auto;
   position: relative;
   z-index: 1;
-}
+
+  opacity: 1 !important;}
 
 .sid-section-title-127 {
   text-align: center;
@@ -296,7 +298,8 @@ onUnmounted(() => {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   text-shadow: 0 0 60px rgba(236, 72, 153, 0.4);
-}
+
+  opacity: 1 !important;}
 
 .sid-section-subtitle-127 {
   text-align: center;
@@ -305,7 +308,8 @@ onUnmounted(() => {
   margin-bottom: 150px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-}
+
+  opacity: 1 !important;}
 
 .sid-distort-wrapper-127 {
   display: flex;
@@ -313,20 +317,23 @@ onUnmounted(() => {
   align-items: flex-start;
   max-width: 1300px;
   margin: 0 auto;
-}
+
+  opacity: 1 !important;}
 
 .sid-main-image-127 {
   flex: 1;
   position: relative;
   height: 600px;
   perspective: 2000px;
-}
+
+  opacity: 1 !important;}
 
 .sid-image-layers-127 {
   width: 100%;
   height: 100%;
   position: relative;
-}
+
+  opacity: 1 !important;}
 
 .sid-image-layer-127 {
   position: absolute;
@@ -345,7 +352,8 @@ onUnmounted(() => {
     height: 100%;
     object-fit: cover;
     display: block;
-  }
+  
+  opacity: 1 !important;}
 
   &:hover {
     box-shadow: 0 35px 100px rgba(236, 72, 153, 0.5);
@@ -360,14 +368,16 @@ onUnmounted(() => {
   padding: 40px;
   background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, transparent 100%);
   pointer-events: none;
-}
+
+  opacity: 1 !important;}
 
 .sid-layer-title-127 {
   font-size: 2rem;
   font-weight: 800;
   color: #fff;
   text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-}
+
+  opacity: 1 !important;}
 
 .sid-info-panel-127 {
   flex: 0 0 350px;
@@ -379,7 +389,8 @@ onUnmounted(() => {
   border: 1px solid rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-}
+
+  opacity: 1 !important;}
 
 .sid-info-content-127 {
   position: relative;
@@ -393,7 +404,8 @@ onUnmounted(() => {
   font-size: 1.5rem;
   font-weight: 900;
   color: #fff;
-}
+
+  opacity: 1 !important;}
 
 .sid-current-127 {
   font-size: 3rem;
@@ -401,15 +413,18 @@ onUnmounted(() => {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-}
+
+  opacity: 1 !important;}
 
 .sid-separator-127 {
   color: rgba(255, 255, 255, 0.3);
-}
+
+  opacity: 1 !important;}
 
 .sid-total-127 {
   color: rgba(255, 255, 255, 0.3);
-}
+
+  opacity: 1 !important;}
 
 .sid-progress-bar-127 {
   width: 100%;
@@ -418,7 +433,8 @@ onUnmounted(() => {
   border-radius: 2px;
   margin-bottom: 40px;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .sid-progress-fill-127 {
   height: 100%;
@@ -426,7 +442,8 @@ onUnmounted(() => {
   background: linear-gradient(90deg, #ec4899, #a855f7, #3b82f6);
   border-radius: 2px;
   transition: width 0.1s ease;
-}
+
+  opacity: 1 !important;}
 
 .sid-main-title-127 {
   font-size: 2rem;
@@ -438,13 +455,15 @@ onUnmounted(() => {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-}
+
+  opacity: 1 !important;}
 
 .sid-main-desc-127 {
   font-size: 1rem;
   color: rgba(255, 255, 255, 0.7);
   line-height: 1.8;
-}
+
+  opacity: 1 !important;}
 
 @media (max-width: 768px) {
   .sid-distort-wrapper-127 {
@@ -454,25 +473,30 @@ onUnmounted(() => {
 
   .sid-main-image-127 {
     height: 400px;
-  }
+  
+  opacity: 1 !important;}
 
   .sid-info-panel-127 {
     flex: none;
     width: 100%;
     position: static;
-  }
+  
+  opacity: 1 !important;}
 
   .sid-current-127 {
     font-size: 2rem;
-  }
+  
+  opacity: 1 !important;}
 
   .sid-main-title-127 {
     font-size: 1.5rem;
-  }
+  
+  opacity: 1 !important;}
 
   .sid-layer-title-127 {
     font-size: 1.5rem;
-  }
+  
+  opacity: 1 !important;}
 
   .sid-section-title-127 {
     margin-bottom: 80px;
@@ -481,10 +505,12 @@ onUnmounted(() => {
   .sid-section-subtitle-127 {
     margin-bottom: 60px;
     font-size: 0.9rem;
-  }
+  
+  opacity: 1 !important;}
 
   .sid-container-127 {
     padding: 0 20px;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

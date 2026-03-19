@@ -332,18 +332,22 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
+/* GSAP opacity fix: ensure content is always visible */
+
 .nt-nested-timeline-section-57 {
   min-height: 100vh;
   padding: 80px 40px;
   background: linear-gradient(135deg, #1a0a2e 0%, #2d1b69 50%, #4a0e4e 100%);
   position: relative;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .nt-section-header-57 {
   text-align: center;
   margin-bottom: 80px;
-}
+
+  opacity: 1 !important;}
 
 .nt-title-57 {
   font-size: 56px;
@@ -352,7 +356,8 @@ onUnmounted(() => {
   letter-spacing: 6px;
   text-transform: uppercase;
   text-shadow: 0 0 30px rgba(74, 14, 78, 0.5);
-}
+
+  opacity: 1 !important;}
 
 .nt-subtitle-57 {
   font-size: 18px;
@@ -360,7 +365,8 @@ onUnmounted(() => {
   margin-top: 16px;
   letter-spacing: 3px;
   text-transform: uppercase;
-}
+
+  opacity: 1 !important;}
 
 .nt-nested-container-57 {
   display: grid;
@@ -369,7 +375,8 @@ onUnmounted(() => {
   max-width: 1400px;
   margin: 0 auto;
   padding: 40px 0;
-}
+
+  opacity: 1 !important;}
 
 .nt-nested-card-57 {
   perspective: 1000px;
@@ -383,7 +390,8 @@ onUnmounted(() => {
   transform-style: preserve-3d;
   transition: box-shadow 0.4s ease;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
-}
+
+  opacity: 1 !important;}
 
 .nt-card-wrapper-57:hover {
   box-shadow: 0 20px 60px rgba(74, 14, 78, 0.5);
@@ -394,7 +402,8 @@ onUnmounted(() => {
   height: 100%;
   position: relative;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .nt-card-bg-57 {
   width: 100%;
@@ -402,7 +411,8 @@ onUnmounted(() => {
   background-size: cover;
   background-position: center;
   transition: transform 0.4s ease;
-}
+
+  opacity: 1 !important;}
 
 .nt-card-overlay-57 {
   position: absolute;
@@ -412,7 +422,8 @@ onUnmounted(() => {
   height: 100%;
   background: linear-gradient(to bottom, transparent 0%, rgba(26, 10, 46, 0.9) 100%);
   pointer-events: none;
-}
+
+  opacity: 1 !important;}
 
 .nt-card-number-57 {
   position: absolute;
@@ -431,7 +442,8 @@ onUnmounted(() => {
   color: #fff;
   border: 2px solid rgba(74, 14, 78, 0.5);
   transition: all 0.4s ease;
-}
+
+  opacity: 1 !important;}
 
 .nt-card-content-57 {
   position: absolute;
@@ -440,7 +452,8 @@ onUnmounted(() => {
   width: 100%;
   padding: 32px;
   transform: translateZ(30px);
-}
+
+  opacity: 1 !important;}
 
 .nt-card-content-57 h3 {
   font-size: 28px;
@@ -474,13 +487,15 @@ onUnmounted(() => {
   transition: all 0.3s ease;
   text-transform: uppercase;
   letter-spacing: 2px;
-}
+
+  opacity: 1 !important;}
 
 .nt-play-all-57 {
   background: linear-gradient(135deg, #4a0e4e 0%, #7b2d8b 100%);
   color: #fff;
   box-shadow: 0 10px 30px rgba(74, 14, 78, 0.4);
-}
+
+  opacity: 1 !important;}
 
 .nt-play-all-57:hover {
   transform: translateY(-3px);
@@ -491,7 +506,8 @@ onUnmounted(() => {
   background: rgba(255, 255, 255, 0.1);
   color: #fff;
   border: 2px solid rgba(255, 255, 255, 0.2);
-}
+
+  opacity: 1 !important;}
 
 .nt-play-random-57:hover {
   background: rgba(255, 255, 255, 0.2);
@@ -502,7 +518,8 @@ onUnmounted(() => {
   background: transparent;
   color: rgba(255, 255, 255, 0.6);
   border: 2px solid rgba(255, 255, 255, 0.1);
-}
+
+  opacity: 1 !important;}
 
 .nt-reset-all-57:hover {
   border-color: rgba(255, 255, 255, 0.3);
@@ -513,14 +530,17 @@ onUnmounted(() => {
   .nt-title-57 {
     font-size: 32px;
     letter-spacing: 3px;
-  }
+  
+  opacity: 1 !important;}
 
   .nt-subtitle-57 {
     font-size: 14px;
-  }
+  
+  opacity: 1 !important;}
 
   .nt-card-wrapper-57 {
     height: 320px;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

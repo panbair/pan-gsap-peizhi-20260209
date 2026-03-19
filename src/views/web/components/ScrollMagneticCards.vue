@@ -208,13 +208,15 @@ onUnmounted(() => {
   background: linear-gradient(180deg, #0a0a1a 0%, #1a1a3a 30%, #0f0f2a 60%, #1a1a3a 100%);
   position: relative;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .mc-container-137 {
   max-width: 1400px;
   margin: 0 auto;
   position: relative;
-}
+
+  opacity: 1 !important;}
 
 .mc-title-137 {
   text-align: center;
@@ -226,7 +228,8 @@ onUnmounted(() => {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   text-shadow: 0 0 80px rgba(168, 85, 247, 0.5);
-}
+
+  opacity: 1 !important;}
 
 .mc-subtitle-137 {
   text-align: center;
@@ -235,7 +238,8 @@ onUnmounted(() => {
   margin-bottom: 120px;
   letter-spacing: 0.3em;
   text-transform: uppercase;
-}
+
+  opacity: 1 !important;}
 
 .mc-stage-137 {
   position: relative;
@@ -246,7 +250,8 @@ onUnmounted(() => {
   gap: 40px;
   flex-wrap: wrap;
   perspective: 2000px;
-}
+
+  opacity: 1 !important;}
 
 .mc-card-137 {
   width: 300px;
@@ -255,7 +260,8 @@ onUnmounted(() => {
   transform-style: preserve-3d;
   cursor: pointer;
   will-change: transform;
-}
+
+  opacity: 1 !important;}
 
 .mc-card-content-137 {
   position: absolute;
@@ -273,7 +279,8 @@ onUnmounted(() => {
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
   overflow: hidden;
   transition: box-shadow 0.3s ease;
-}
+
+  opacity: 1 !important;}
 
 .mc-card-content-137:hover {
   box-shadow: 0 30px 60px rgba(168, 85, 247, 0.3);
@@ -283,7 +290,8 @@ onUnmounted(() => {
   font-size: 5rem;
   filter: drop-shadow(0 0 20px rgba(168, 85, 247, 0.5));
   transition: transform 0.3s ease;
-}
+
+  opacity: 1 !important;}
 
 .mc-card-137:hover .mc-card-icon-137 {
   transform: scale(1.1) rotate(5deg);
@@ -296,14 +304,16 @@ onUnmounted(() => {
   text-align: center;
   margin-bottom: 10px;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-}
+
+  opacity: 1 !important;}
 
 .mc-card-desc-137 {
   font-size: 1rem;
   color: rgba(255, 255, 255, 0.7);
   text-align: center;
   line-height: 1.6;
-}
+
+  opacity: 1 !important;}
 
 .mc-card-glow-137 {
   position: absolute;
@@ -327,29 +337,35 @@ onUnmounted(() => {
   letter-spacing: 0.2em;
   text-transform: uppercase;
   margin-top: 60px;
-}
+
+  opacity: 1 !important;}
 
 @media (max-width: 768px) {
   .mc-card-137 {
     width: 260px;
     height: 350px;
-  }
+  
+  opacity: 1 !important;}
 
   .mc-stage-137 {
     gap: 30px;
     min-height: 600px;
-  }
+  
+  opacity: 1 !important;}
 
   .mc-card-icon-137 {
     font-size: 4rem;
-  }
+  
+  opacity: 1 !important;}
 
   .mc-card-title-137 {
     font-size: 1.5rem;
-  }
+  
+  opacity: 1 !important;}
 
   .mc-card-desc-137 {
     font-size: 0.9rem;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

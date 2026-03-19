@@ -215,7 +215,8 @@ onUnmounted(() => {
       radial-gradient(circle at 20% 30%, rgba(237, 100, 166, 0.1) 0%, transparent 40%),
       radial-gradient(circle at 80% 70%, rgba(102, 126, 234, 0.1) 0%, transparent 40%);
     pointer-events: none;
-  }
+  
+  opacity: 1 !important;}
 }
 
 .container-47 {
@@ -224,7 +225,8 @@ onUnmounted(() => {
   padding: 0 40px;
   position: relative;
   z-index: 1;
-}
+
+  opacity: 1 !important;}
 
 .section-title-47 {
   text-align: center;
@@ -246,7 +248,8 @@ onUnmounted(() => {
     background: linear-gradient(90deg, #ed64a6, #667eea);
     margin: 20px auto 0;
     border-radius: 2px;
-  }
+  
+  opacity: 1 !important;}
 }
 
 .fold-container-47 {
@@ -255,7 +258,8 @@ onUnmounted(() => {
   gap: 20px;
   padding: 40px 0;
   perspective: 1000px;
-}
+
+  opacity: 1 !important;}
 
 .fold-panel-47 {
   height: 400px;
@@ -264,7 +268,8 @@ onUnmounted(() => {
   transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
   cursor: pointer;
   width: 100%;
-}
+
+  opacity: 1 !important;}
 
 .panel-front-47 {
   position: absolute;
@@ -277,7 +282,8 @@ onUnmounted(() => {
   overflow: hidden;
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
   background: #fff;
-}
+
+  opacity: 1 !important;}
 
 .fold-panel-47 img {
   width: 100%;
@@ -293,7 +299,8 @@ onUnmounted(() => {
 .panel-content-47 {
   padding: 25px;
   background: linear-gradient(135deg, #ed64a6 0%, #667eea 100%);
-}
+
+  opacity: 1 !important;}
 
 .panel-number-47 {
   display: block;
@@ -311,7 +318,8 @@ onUnmounted(() => {
   color: #fff;
   margin: 0;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-}
+
+  opacity: 1 !important;}
 
 .panel-back-47 {
   position: absolute;
@@ -327,7 +335,8 @@ onUnmounted(() => {
   align-items: center;
   justify-content: center;
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
-}
+
+  opacity: 1 !important;}
 
 .back-content-47 {
   text-align: center;
@@ -336,7 +345,8 @@ onUnmounted(() => {
   h3 {
     font-size: 1.8rem;
     margin: 0 0 10px;
-  }
+  
+  opacity: 1 !important;}
 
   p {
     font-size: 1rem;
@@ -362,7 +372,8 @@ onUnmounted(() => {
   &:hover {
     transform: translateY(-3px);
     box-shadow: 0 15px 40px rgba(237, 100, 166, 0.4);
-  }
+  
+  opacity: 1 !important;}
 
   &:active {
     transform: translateY(-1px);
@@ -382,6 +393,7 @@ onUnmounted(() => {
 
   .section-title-47 {
     font-size: 2rem;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

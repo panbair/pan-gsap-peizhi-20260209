@@ -204,14 +204,16 @@ onUnmounted(() => {
     bottom: 0;
     background: radial-gradient(circle at 50% 50%, rgba(139, 92, 246, 0.12), transparent 60%);
     pointer-events: none;
-  }
+  
+  opacity: 1 !important;}
 }
 
 .content-18 {
   text-align: center;
   position: relative;
   z-index: 1;
-}
+
+  opacity: 1 !important;}
 
 .section-title-18 {
   font-size: clamp(2rem, 4vw, 2.5rem);
@@ -221,13 +223,15 @@ onUnmounted(() => {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-}
+
+  opacity: 1 !important;}
 
 .subtitle-18 {
   font-size: 1.1rem;
   color: #94a3b8;
   margin-bottom: 80px;
-}
+
+  opacity: 1 !important;}
 
 .hologram-container-18 {
   position: relative;
@@ -235,7 +239,8 @@ onUnmounted(() => {
   height: 300px;
   margin: 0 auto 60px;
   transform-style: preserve-3d;
-}
+
+  opacity: 1 !important;}
 
 .hologram-base-18 {
   position: absolute;
@@ -246,7 +251,8 @@ onUnmounted(() => {
   height: 250px;
   background: radial-gradient(circle, rgba(139, 92, 246, 0.2), transparent 70%);
   border-radius: 50%;
-}
+
+  opacity: 1 !important;}
 
 .hologram-ring-18 {
   position: absolute;
@@ -256,22 +262,26 @@ onUnmounted(() => {
   border-radius: 50%;
   border: 2px solid rgba(139, 92, 246, 0.3);
   transform-style: preserve-3d;
-}
+
+  opacity: 1 !important;}
 
 .ring-1 {
   width: 280px;
   height: 280px;
-}
+
+  opacity: 1 !important;}
 
 .ring-2 {
   width: 220px;
   height: 220px;
-}
+
+  opacity: 1 !important;}
 
 .ring-3 {
   width: 160px;
   height: 160px;
-}
+
+  opacity: 1 !important;}
 
 .hologram-core-18 {
   position: absolute;
@@ -281,7 +291,8 @@ onUnmounted(() => {
   width: 100px;
   height: 100px;
   transform-style: preserve-3d;
-}
+
+  opacity: 1 !important;}
 
 .core-inner-18 {
   position: absolute;
@@ -290,7 +301,8 @@ onUnmounted(() => {
   border-radius: 50%;
   box-shadow: 0 0 40px rgba(167, 139, 250, 0.6),
               inset 0 0 20px rgba(255, 255, 255, 0.3);
-}
+
+  opacity: 1 !important;}
 
 .core-glow-18 {
   position: absolute;
@@ -301,7 +313,8 @@ onUnmounted(() => {
   height: 100%;
   background: radial-gradient(circle, rgba(167, 139, 250, 0.4), transparent 70%);
   border-radius: 50%;
-}
+
+  opacity: 1 !important;}
 
 .hologram-particles-18 {
   position: absolute;
@@ -316,7 +329,8 @@ onUnmounted(() => {
   background: #a78bfa;
   border-radius: 50%;
   box-shadow: 0 0 10px #a78bfa;
-}
+
+  opacity: 1 !important;}
 
 @for $i from 1 through 24 {
   .particle-18:nth-child(#{$i}) {
@@ -349,5 +363,6 @@ onUnmounted(() => {
   color: #94a3b8;
   font-size: 0.9rem;
   animation: blink 3s infinite;
-}
+
+  opacity: 1 !important;}
 </style>

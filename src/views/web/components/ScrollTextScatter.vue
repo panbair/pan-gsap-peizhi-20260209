@@ -142,6 +142,8 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
+/* GSAP opacity fix: ensure content is always visible */
+
 .text-scatter-143 {
   width: 100%;
   min-height: 100vh;
@@ -151,7 +153,8 @@ onUnmounted(() => {
   flex-direction: column;
   align-items: center;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .ts-container-143 {
   width: 100%;
@@ -159,7 +162,8 @@ onUnmounted(() => {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
+
+  opacity: 1 !important;}
 
 .ts-title-143 {
   font-size: clamp(2rem, 5vw, 3.5rem);
@@ -167,14 +171,16 @@ onUnmounted(() => {
   margin-bottom: 10px;
   text-align: center;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-}
+
+  opacity: 1 !important;}
 
 .ts-desc-143 {
   font-size: clamp(0.9rem, 2vw, 1.2rem);
   color: rgba(255, 255, 255, 0.9);
   margin-bottom: 60px;
   text-align: center;
-}
+
+  opacity: 1 !important;}
 
 .ts-stage-143 {
   width: 100%;
@@ -189,7 +195,8 @@ onUnmounted(() => {
   border-radius: 20px;
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.3);
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .ts-text-wrapper-143 {
   position: relative;
@@ -208,7 +215,8 @@ onUnmounted(() => {
   will-change: transform, opacity;
   display: inline-block;
   padding: 2px;
-}
+
+  opacity: 1 !important;}
 
 .ts-glow-143 {
   position: absolute;
@@ -220,22 +228,26 @@ onUnmounted(() => {
   transform: translate(-50%, -50%);
   pointer-events: none;
   z-index: 5;
-}
+
+  opacity: 1 !important;}
 
 .ts-hint-143 {
   margin-top: 30px;
   font-size: 0.9rem;
   color: rgba(255, 255, 255, 0.8);
   text-align: center;
-}
+
+  opacity: 1 !important;}
 
 @media (max-width: 768px) {
   .ts-stage-143 {
     height: 400px;
-  }
+  
+  opacity: 1 !important;}
   
   .ts-char-143 {
     font-size: clamp(1.5rem, 3vw, 2rem);
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

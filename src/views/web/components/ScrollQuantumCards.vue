@@ -132,18 +132,22 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
+/* GSAP opacity fix: ensure content is always visible */
+
 .quantum-cards-container-197 {
   min-height: 100vh;
   background: linear-gradient(180deg, #0a0a0a 0%, #1a0a2a 100%);
   padding: 60px 20px;
   position: relative;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .qc-header-197 {
   text-align: center;
   margin-bottom: 60px;
-}
+
+  opacity: 1 !important;}
 
 .qc-title-197 {
   font-size: 48px;
@@ -154,12 +158,14 @@ onUnmounted(() => {
   background-clip: text;
   text-shadow: 0 0 40px rgba(160, 32, 255, 0.5);
   margin-bottom: 10px;
-}
+
+  opacity: 1 !important;}
 
 .qc-hint-197 {
   font-size: 18px;
   color: #80a0ff;
-}
+
+  opacity: 1 !important;}
 
 .qc-stage-197 {
   max-width: 1400px;
@@ -169,7 +175,8 @@ onUnmounted(() => {
   gap: 40px;
   padding: 20px;
   perspective: 2000px;
-}
+
+  opacity: 1 !important;}
 
 .qc-card-wrapper-197 {
   height: 450px;
@@ -177,7 +184,8 @@ onUnmounted(() => {
   display: flex;
   justify-content: center;
   align-items: center;
-}
+
+  opacity: 1 !important;}
 
 .qc-card-197 {
   position: relative;
@@ -190,7 +198,8 @@ onUnmounted(() => {
   overflow: visible;
   transform-style: preserve-3d;
   transition: box-shadow 0.5s ease;
-}
+
+  opacity: 1 !important;}
 
 .qc-card-197:hover {
   box-shadow: 
@@ -209,7 +218,8 @@ onUnmounted(() => {
   transform: translateX(-50%);
   box-shadow: 0 0 30px rgba(160, 32, 255, 0.8);
   animation: core-pulse-197 2s infinite;
-}
+
+  opacity: 1 !important;}
 
 @keyframes core-pulse-197 {
   0%, 100% { transform: translateX(-50%) scale(1); opacity: 0.8; }
@@ -225,7 +235,8 @@ onUnmounted(() => {
   top: 20px;
   left: 50%;
   transform: translateX(-50%);
-}
+
+  opacity: 1 !important;}
 
 .qc-electron-197 {
   position: absolute;
@@ -236,7 +247,8 @@ onUnmounted(() => {
   box-shadow: 0 0 10px rgba(0, 240, 255, 0.8);
   top: 50%;
   left: 50%;
-}
+
+  opacity: 1 !important;}
 
 .qc-electron-197:nth-child(1) { transform: rotate(0deg) translateX(100px); }
 .qc-electron-197:nth-child(2) { transform: rotate(45deg) translateX(100px); }
@@ -255,26 +267,30 @@ onUnmounted(() => {
   padding: 30px 20px;
   text-align: center;
   z-index: 2;
-}
+
+  opacity: 1 !important;}
 
 .qc-icon-197 {
   font-size: 56px;
   margin-bottom: 15px;
   filter: drop-shadow(0 0 15px rgba(160, 32, 255, 0.8));
-}
+
+  opacity: 1 !important;}
 
 .qc-card-title-197 {
   font-size: 24px;
   font-weight: 600;
   color: #a020ff;
   margin-bottom: 8px;
-}
+
+  opacity: 1 !important;}
 
 .qc-card-desc-197 {
   font-size: 14px;
   color: #80a0ff;
   line-height: 1.5;
-}
+
+  opacity: 1 !important;}
 
 .qc-ghost-197 {
   position: absolute;
@@ -301,6 +317,7 @@ onUnmounted(() => {
   .qc-card-197 {
     width: 240px;
     height: 360px;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

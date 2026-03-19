@@ -157,18 +157,22 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
+/* GSAP opacity fix: ensure content is always visible */
+
 .electric-arc-container-202 {
   min-height: 100vh;
   background: linear-gradient(180deg, #0a0a0a 0%, #1a1a00 100%);
   padding: 60px 20px;
   position: relative;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .ea-header-202 {
   text-align: center;
   margin-bottom: 60px;
-}
+
+  opacity: 1 !important;}
 
 .ea-title-202 {
   font-size: 48px;
@@ -179,12 +183,14 @@ onUnmounted(() => {
   background-clip: text;
   text-shadow: 0 0 40px rgba(255, 255, 0, 0.5);
   margin-bottom: 10px;
-}
+
+  opacity: 1 !important;}
 
 .ea-hint-202 {
   font-size: 18px;
   color: #ffff00;
-}
+
+  opacity: 1 !important;}
 
 .ea-stage-202 {
   max-width: 1200px;
@@ -193,7 +199,8 @@ onUnmounted(() => {
   grid-template-columns: repeat(4, 1fr);
   gap: 40px;
   padding: 20px;
-}
+
+  opacity: 1 !important;}
 
 .ea-arc-wrapper-202 {
   height: 400px;
@@ -201,7 +208,8 @@ onUnmounted(() => {
   display: flex;
   justify-content: center;
   align-items: center;
-}
+
+  opacity: 1 !important;}
 
 .ea-arc-202 {
   position: relative;
@@ -212,7 +220,8 @@ onUnmounted(() => {
   border: 2px solid rgba(255, 255, 0, 0.3);
   overflow: hidden;
   transition: all 0.5s ease;
-}
+
+  opacity: 1 !important;}
 
 .ea-arc-202:hover {
   transform: translateY(-10px);
@@ -237,14 +246,16 @@ onUnmounted(() => {
   align-items: center;
   justify-content: center;
   text-align: center;
-}
+
+  opacity: 1 !important;}
 
 .ea-icon-202 {
   font-size: 72px;
   margin-bottom: 20px;
   filter: drop-shadow(0 0 20px rgba(255, 255, 0, 0.8));
   animation: electric-pulse-202 0.5s infinite;
-}
+
+  opacity: 1 !important;}
 
 @keyframes electric-pulse-202 {
   0%, 100% { transform: scale(1); }
@@ -257,13 +268,15 @@ onUnmounted(() => {
   color: #ffff00;
   margin-bottom: 10px;
   text-shadow: 0 0 20px rgba(255, 255, 0, 0.5);
-}
+
+  opacity: 1 !important;}
 
 .ea-arc-desc-202 {
   font-size: 14px;
   color: #ffcc00;
   line-height: 1.6;
-}
+
+  opacity: 1 !important;}
 
 @media (max-width: 1024px) {
   .ea-stage-202 {
@@ -278,6 +291,7 @@ onUnmounted(() => {
 
   .ea-title-202 {
     font-size: 32px;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

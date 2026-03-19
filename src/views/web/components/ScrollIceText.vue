@@ -346,7 +346,8 @@ onUnmounted(() => {
   justify-content: center;
   background: linear-gradient(180deg, #051025 0%, #0a1525 50%, #051025 100%);
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .it-stage-179 {
   position: relative;
@@ -356,7 +357,8 @@ onUnmounted(() => {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
+
+  opacity: 1 !important;}
 
 .it-ice-bg-179 {
   position: absolute;
@@ -393,7 +395,8 @@ onUnmounted(() => {
   background: linear-gradient(135deg, rgba(135, 206, 235, 0.4), rgba(173, 216, 230, 0.2));
   clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
   transform-origin: center;
-}
+
+  opacity: 1 !important;}
 
 .it-ice-container-179 {
   position: relative;
@@ -404,7 +407,8 @@ onUnmounted(() => {
   border-radius: 20px;
   overflow: hidden;
   backdrop-filter: blur(10px);
-}
+
+  opacity: 1 !important;}
 
 .it-title-179 {
   font-size: clamp(2rem, 5vw, 3rem);
@@ -413,7 +417,8 @@ onUnmounted(() => {
   text-transform: uppercase;
   letter-spacing: 6px;
   margin-bottom: 30px;
-}
+
+  opacity: 1 !important;}
 
 .it-snowflakes-179 {
   position: absolute;
@@ -423,7 +428,8 @@ onUnmounted(() => {
   bottom: 0;
   pointer-events: none;
   font-size: 20px;
-}
+
+  opacity: 1 !important;}
 
 .it-snowflake-179 {
   position: absolute;
@@ -438,7 +444,8 @@ onUnmounted(() => {
   flex-wrap: wrap;
   gap: 6px;
   margin: 50px 0;
-}
+
+  opacity: 1 !important;}
 
 .it-char-179 {
   font-size: clamp(3rem, 8vw, 6rem);
@@ -448,7 +455,8 @@ onUnmounted(() => {
   display: inline-block;
   color: #87ceeb;
   transition: all 0.3s ease;
-}
+
+  opacity: 1 !important;}
 
 .it-frost-lines-179 {
   display: flex;
@@ -463,7 +471,8 @@ onUnmounted(() => {
   background: linear-gradient(180deg, transparent, rgba(135, 206, 235, 0.6), rgba(173, 216, 230, 0.3), transparent);
   border-radius: 2px;
   transform-origin: center;
-}
+
+  opacity: 1 !important;}
 
 .it-freeze-rays-179 {
   position: absolute;
@@ -473,7 +482,8 @@ onUnmounted(() => {
   height: 600px;
   transform: translate(-50%, -50%);
   pointer-events: none;
-}
+
+  opacity: 1 !important;}
 
 .it-freeze-ray-179 {
   position: absolute;
@@ -483,5 +493,6 @@ onUnmounted(() => {
   height: 50%;
   background: linear-gradient(180deg, transparent, rgba(135, 206, 235, 0.4), transparent);
   transform-origin: top center;
-}
+
+  opacity: 1 !important;}
 </style>

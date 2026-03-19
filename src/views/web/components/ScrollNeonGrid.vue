@@ -163,18 +163,22 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
+/* GSAP opacity fix: ensure content is always visible */
+
 .neon-grid-container-203 {
   min-height: 100vh;
   background: linear-gradient(180deg, #0a0a0a 0%, #0a0a1a 100%);
   padding: 60px 20px;
   position: relative;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .ng-header-203 {
   text-align: center;
   margin-bottom: 60px;
-}
+
+  opacity: 1 !important;}
 
 .ng-title-203 {
   font-size: 48px;
@@ -185,12 +189,14 @@ onUnmounted(() => {
   background-clip: text;
   text-shadow: 0 0 40px rgba(0, 255, 255, 0.5);
   margin-bottom: 10px;
-}
+
+  opacity: 1 !important;}
 
 .ng-hint-203 {
   font-size: 18px;
   color: #00ffff;
-}
+
+  opacity: 1 !important;}
 
 .ng-stage-203 {
   max-width: 1200px;
@@ -199,7 +205,8 @@ onUnmounted(() => {
   grid-template-columns: repeat(4, 1fr);
   gap: 40px;
   padding: 20px;
-}
+
+  opacity: 1 !important;}
 
 .ng-grid-wrapper-203 {
   height: 400px;
@@ -207,7 +214,8 @@ onUnmounted(() => {
   display: flex;
   justify-content: center;
   align-items: center;
-}
+
+  opacity: 1 !important;}
 
 .ng-grid-203 {
   position: relative;
@@ -218,7 +226,8 @@ onUnmounted(() => {
   border: 2px solid rgba(0, 255, 255, 0.3);
   overflow: hidden;
   transition: all 0.5s ease;
-}
+
+  opacity: 1 !important;}
 
 .ng-grid-203:hover {
   transform: translateY(-10px);
@@ -243,13 +252,15 @@ onUnmounted(() => {
   align-items: center;
   justify-content: center;
   text-align: center;
-}
+
+  opacity: 1 !important;}
 
 .ng-icon-203 {
   font-size: 72px;
   margin-bottom: 20px;
   filter: drop-shadow(0 0 20px rgba(0, 255, 255, 0.8));
-}
+
+  opacity: 1 !important;}
 
 .ng-grid-title-203 {
   font-size: 28px;
@@ -257,13 +268,15 @@ onUnmounted(() => {
   color: #ffffff;
   margin-bottom: 10px;
   text-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
-}
+
+  opacity: 1 !important;}
 
 .ng-grid-desc-203 {
   font-size: 14px;
   color: #00ffff;
   line-height: 1.6;
-}
+
+  opacity: 1 !important;}
 
 @media (max-width: 1024px) {
   .ng-stage-203 {
@@ -278,6 +291,7 @@ onUnmounted(() => {
 
   .ng-title-203 {
     font-size: 32px;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

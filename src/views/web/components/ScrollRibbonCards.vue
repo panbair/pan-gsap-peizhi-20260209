@@ -155,13 +155,16 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
+/* GSAP opacity fix: ensure content is always visible */
+
 .rc-container-191 {
   min-height: 100vh;
   padding: 80px 20px;
   background: linear-gradient(135deg, #0a0a0a 0%, #1a1aae 50%, #0a0a0a 100%);
   position: relative;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .rc-container-191::before {
   content: '';
@@ -188,7 +191,8 @@ onUnmounted(() => {
   background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: rc-glow-191 3s ease-in-out infinite;
-}
+
+  opacity: 1 !important;}
 
 @keyframes rc-glow-191 {
   0%, 100% { background-position: 0% center; }
@@ -198,7 +202,8 @@ onUnmounted(() => {
 .rc-stage-191 {
   max-width: 1400px;
   margin: 0 auto;
-}
+
+  opacity: 1 !important;}
 
 .rc-ribbons-191 {
   display: flex;
@@ -216,7 +221,8 @@ onUnmounted(() => {
   transition: all 0.3s ease;
   overflow: hidden;
   transform-style: preserve-3d;
-}
+
+  opacity: 1 !important;}
 
 .rc-ribbon-191::before {
   content: '';
@@ -229,10 +235,14 @@ onUnmounted(() => {
   border-radius: 15px 0 0 15px;
 }
 
-.rc-ribbon-1-191 { --ribbon-color: #ff00ff; }
-.rc-ribbon-2-191 { --ribbon-color: #00ffff; }
-.rc-ribbon-3-191 { --ribbon-color: #ffff00; }
-.rc-ribbon-4-191 { --ribbon-color: #ff6600; }
+.rc-ribbon-1-191 { --ribbon-color: #ff00ff; 
+  opacity: 1 !important;}
+.rc-ribbon-2-191 { --ribbon-color: #00ffff; 
+  opacity: 1 !important;}
+.rc-ribbon-3-191 { --ribbon-color: #ffff00; 
+  opacity: 1 !important;}
+.rc-ribbon-4-191 { --ribbon-color: #ff6600; 
+  opacity: 1 !important;}
 
 .rc-fold-191 {
   position: absolute;
@@ -244,7 +254,8 @@ onUnmounted(() => {
   border-radius: 0 15px 0 0;
   transition: all 0.5s ease;
   box-shadow: 0 0 20px var(--ribbon-color);
-}
+
+  opacity: 1 !important;}
 
 .rc-ribbon-191:hover {
   transform: translateY(-5px);
@@ -261,7 +272,8 @@ onUnmounted(() => {
 .rc-icon-191 {
   font-size: 3rem;
   transition: transform 0.5s ease;
-}
+
+  opacity: 1 !important;}
 
 .rc-content-191 h3 {
   font-size: 1.5rem;
@@ -278,15 +290,18 @@ onUnmounted(() => {
 @media (max-width: 768px) {
   .rc-title-191 {
     font-size: 1.8rem;
-  }
+  
+  opacity: 1 !important;}
   
   .rc-ribbon-191 {
     padding: 30px 40px 30px 60px;
-  }
+  
+  opacity: 1 !important;}
   
   .rc-content-191 {
     flex-direction: column;
     text-align: center;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

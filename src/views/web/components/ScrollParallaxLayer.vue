@@ -84,25 +84,30 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
+/* GSAP opacity fix: ensure content is always visible */
+
 .spl-section-107 {
   min-height: 100vh;
   background: linear-gradient(135deg, #2d1b4e 0%, #1a1a2e 100%);
   overflow: hidden;
   padding: 100px 20px;
-}
+
+  opacity: 1 !important;}
 
 .spl-content-107 {
   max-width: 1400px;
   margin: 0 auto;
   position: relative;
-}
+
+  opacity: 1 !important;}
 
 .spl-text-107 {
   text-align: center;
   margin-bottom: 80px;
   position: relative;
   z-index: 10;
-}
+
+  opacity: 1 !important;}
 
 .spl-title-107 {
   font-size: clamp(2.5rem, 5vw, 4rem);
@@ -112,12 +117,14 @@ onUnmounted(() => {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-}
+
+  opacity: 1 !important;}
 
 .spl-desc-107 {
   font-size: 1.3rem;
   color: #a0aec0;
-}
+
+  opacity: 1 !important;}
 
 .spl-layers-107 {
   display: flex;
@@ -137,25 +144,29 @@ onUnmounted(() => {
   width: 300px;
   height: 400px;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-}
+
+  opacity: 1 !important;}
 
 .spl-layer-2-107 {
   width: 250px;
   height: 350px;
   background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-}
+
+  opacity: 1 !important;}
 
 .spl-layer-3-107 {
   width: 200px;
   height: 300px;
   background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-}
+
+  opacity: 1 !important;}
 
 @media (max-width: 768px) {
   .spl-layer-107 {
     width: 100%;
     max-width: 280px;
     height: 350px;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

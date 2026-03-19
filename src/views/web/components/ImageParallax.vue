@@ -250,13 +250,15 @@ const initAnimations = () => {
   align-items: center;
   background: linear-gradient(180deg, #0f0f23 0%, #1a1a3e 50%, #0f0f23 100%);
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .ip-hero-content-7 {
   text-align: center;
   margin-bottom: 40px;
   z-index: 10;
-}
+
+  opacity: 1 !important;}
 
 .ip-section-title-7 {
   font-size: 3rem;
@@ -268,14 +270,16 @@ const initAnimations = () => {
   background-clip: text;
   text-align: center;
   letter-spacing: 2px;
-}
+
+  opacity: 1 !important;}
 
 .ip-subtitle-7 {
   font-size: 1.2rem;
   color: rgba(255, 255, 255, 0.7);
   font-weight: 300;
   letter-spacing: 4px;
-}
+
+  opacity: 1 !important;}
 
 .ip-parallax-container-7 {
   position: relative;
@@ -285,7 +289,8 @@ const initAnimations = () => {
   overflow: hidden;
   border-radius: 30px;
   box-shadow: 0 25px 80px rgba(102, 126, 234, 0.3);
-}
+
+  opacity: 1 !important;}
 
 .ip-parallax-layer-7 {
   position: absolute;
@@ -296,7 +301,8 @@ const initAnimations = () => {
   display: flex;
   align-items: center;
   justify-content: center;
-}
+
+  opacity: 1 !important;}
 
 // 背景层
 .ip-layer-bg-7 {
@@ -314,14 +320,16 @@ const initAnimations = () => {
     position: absolute;
     width: 100%;
     height: 100%;
-  }
+  
+  opacity: 1 !important;}
 
   .ip-particle-7 {
     position: absolute;
     background: rgba(255, 255, 255, 0.5);
     border-radius: 50%;
     animation: floatParticle infinite ease-in-out;
-  }
+  
+  opacity: 1 !important;}
 }
 
 @keyframes floatParticle {
@@ -346,7 +354,8 @@ const initAnimations = () => {
     gap: 30px;
     width: 100%;
     max-width: 1000px;
-  }
+  
+  opacity: 1 !important;}
 
   .ip-parallax-card-7 {
     position: relative;
@@ -361,7 +370,8 @@ const initAnimations = () => {
     &:hover {
       transform: translateY(-10px) scale(1.02);
       box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-    }
+    
+  opacity: 1 !important;}
   }
 
   .ip-card-image-7 {
@@ -375,7 +385,8 @@ const initAnimations = () => {
       height: 100%;
       object-fit: cover;
       transition: transform 0.5s ease;
-    }
+    
+  opacity: 1 !important;}
 
     .ip-card-overlay-7 {
       position: absolute;
@@ -405,7 +416,8 @@ const initAnimations = () => {
       font-weight: bold;
       color: #fff;
       margin-bottom: 8px;
-    }
+    
+  opacity: 1 !important;}
 
     p {
       font-size: 0.9rem;
@@ -424,13 +436,15 @@ const initAnimations = () => {
     position: absolute;
     width: 100%;
     height: 100%;
-  }
+  
+  opacity: 1 !important;}
 
   .ip-float-element-7 {
     position: absolute;
     font-size: 2.5rem;
     filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
-  }
+  
+  opacity: 1 !important;}
 
   .ip-icon-1 {
     top: 10%;
@@ -466,7 +480,8 @@ const initAnimations = () => {
       text-shadow: 0 4px 30px rgba(102, 126, 234, 0.5);
       letter-spacing: 8px;
       margin-bottom: 10px;
-    }
+    
+  opacity: 1 !important;}
 
     .ip-sub-text-7 {
       font-size: 1.2rem;
@@ -474,7 +489,8 @@ const initAnimations = () => {
       font-weight: 300;
       letter-spacing: 6px;
       text-transform: uppercase;
-    }
+    
+  opacity: 1 !important;}
   }
 }
 
@@ -491,7 +507,8 @@ const initAnimations = () => {
   backdrop-filter: blur(10px);
   border-radius: 20px;
   border: 1px solid rgba(255, 255, 255, 0.1);
-}
+
+  opacity: 1 !important;}
 
 .ip-stat-item-7 {
   text-align: center;
@@ -504,14 +521,16 @@ const initAnimations = () => {
     -webkit-text-fill-color: transparent;
     background-clip: text;
     margin-bottom: 8px;
-  }
+  
+  opacity: 1 !important;}
 
   .ip-stat-label-7 {
     font-size: 0.9rem;
     color: rgba(255, 255, 255, 0.7);
     letter-spacing: 2px;
     text-transform: uppercase;
-  }
+  
+  opacity: 1 !important;}
 }
 
 @media (max-width: 1024px) {
@@ -523,11 +542,13 @@ const initAnimations = () => {
 @media (max-width: 768px) {
   .ip-section-title-7 {
     font-size: 2rem;
-  }
+  
+  opacity: 1 !important;}
 
   .ip-parallax-container-7 {
     height: 500px;
-  }
+  
+  opacity: 1 !important;}
 
   .ip-layer-mid-7 {
     padding: 20px;
@@ -535,22 +556,26 @@ const initAnimations = () => {
     .ip-card-wrapper-7 {
       grid-template-columns: 1fr;
       gap: 20px;
-    }
+    
+  opacity: 1 !important;}
   }
 
   .ip-center-text-7 .ip-main-text-7 {
     font-size: 2.5rem;
     letter-spacing: 4px;
-  }
+  
+  opacity: 1 !important;}
 
   .ip-stats-container-7 {
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
     padding: 30px;
-  }
+  
+  opacity: 1 !important;}
 
   .ip-stat-value-7 {
     font-size: 2rem;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

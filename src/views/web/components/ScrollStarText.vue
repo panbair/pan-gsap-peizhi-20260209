@@ -281,7 +281,8 @@ onUnmounted(() => {
   justify-content: center;
   background: radial-gradient(ellipse at center, #0a0a30 0%, #050515 50%, #000005 100%);
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .st-stage-181 {
   position: relative;
@@ -291,7 +292,8 @@ onUnmounted(() => {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
+
+  opacity: 1 !important;}
 
 .st-stars-bg-181 {
   position: absolute;
@@ -322,7 +324,8 @@ onUnmounted(() => {
     radial-gradient(ellipse at 20% 30%, rgba(147, 112, 219, 0.15), transparent 50%),
     radial-gradient(ellipse at 80% 70%, rgba(255, 182, 193, 0.1), transparent 50%);
   pointer-events: none;
-}
+
+  opacity: 1 !important;}
 
 .st-star-container-181 {
   position: relative;
@@ -333,7 +336,8 @@ onUnmounted(() => {
   border-radius: 20px;
   overflow: hidden;
   backdrop-filter: blur(10px);
-}
+
+  opacity: 1 !important;}
 
 .st-title-181 {
   font-size: clamp(2rem, 5vw, 3rem);
@@ -342,7 +346,8 @@ onUnmounted(() => {
   text-transform: uppercase;
   letter-spacing: 6px;
   margin-bottom: 30px;
-}
+
+  opacity: 1 !important;}
 
 .st-twinkling-stars-181 {
   position: absolute;
@@ -360,7 +365,8 @@ onUnmounted(() => {
   background: #fff;
   border-radius: 50%;
   box-shadow: 0 0 10px #ffd700, 0 0 20px #ffff00;
-}
+
+  opacity: 1 !important;}
 
 .st-star-text-181 {
   display: flex;
@@ -369,7 +375,8 @@ onUnmounted(() => {
   gap: 6px;
   margin: 50px 0;
   perspective: 1000px;
-}
+
+  opacity: 1 !important;}
 
 .st-char-181 {
   font-size: clamp(3rem, 8vw, 6rem);
@@ -380,7 +387,8 @@ onUnmounted(() => {
   color: #ffd700;
   transition: all 0.3s ease;
   transform-style: preserve-3d;
-}
+
+  opacity: 1 !important;}
 
 .st-shooting-stars-181 {
   position: absolute;
@@ -398,7 +406,8 @@ onUnmounted(() => {
   background: linear-gradient(90deg, #fff, transparent);
   transform-origin: left center;
   box-shadow: 0 0 10px #ffd700;
-}
+
+  opacity: 1 !important;}
 
 .st-constellation-181 {
   position: absolute;
@@ -416,5 +425,6 @@ onUnmounted(() => {
   background: #ffd700;
   border-radius: 50%;
   box-shadow: 0 0 15px #ffff00, 0 0 30px #ffd700;
-}
+
+  opacity: 1 !important;}
 </style>

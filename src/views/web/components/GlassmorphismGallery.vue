@@ -170,12 +170,14 @@ onUnmounted(() => {
   position: relative;
   overflow: hidden;
   background: linear-gradient(180deg, #0a0a1a 0%, #1a1a3a 50%, #0a0a1a 100%);
-}
+
+  opacity: 1 !important;}
 
 .gg-content-16 {
   max-width: 1400px;
   margin: 0 auto;
-}
+
+  opacity: 1 !important;}
 
 .gg-section-title-16 {
   font-size: clamp(2rem, 4vw, 2.5rem);
@@ -186,14 +188,16 @@ onUnmounted(() => {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-}
+
+  opacity: 1 !important;}
 
 .gg-subtitle-16 {
   font-size: 1.1rem;
   color: rgba(255, 255, 255, 0.6);
   text-align: center;
   margin-bottom: 80px;
-}
+
+  opacity: 1 !important;}
 
 .gg-gallery-grid-16 {
   display: grid;
@@ -221,7 +225,8 @@ onUnmounted(() => {
     inset: 0;
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), transparent);
     pointer-events: none;
-  }
+  
+  opacity: 1 !important;}
 
   &::after {
     content: '';
@@ -244,13 +249,15 @@ onUnmounted(() => {
   position: relative;
   height: 220px;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .gg-image-overlay-16 {
   position: absolute;
   inset: 0;
   background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.6));
-}
+
+  opacity: 1 !important;}
 
 .gg-card-content-16 {
   position: relative;
@@ -258,7 +265,8 @@ onUnmounted(() => {
   background: linear-gradient(to bottom, rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.95));
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-}
+
+  opacity: 1 !important;}
 
 .gg-card-content-16 h3 {
   font-size: 1.5rem;
@@ -288,7 +296,8 @@ onUnmounted(() => {
   font-size: 0.8rem;
   color: #c4b5fd;
   font-weight: 500;
-}
+
+  opacity: 1 !important;}
 
 @media (max-width: 768px) {
   .gg-gallery-grid-16 {

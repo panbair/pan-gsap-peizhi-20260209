@@ -313,7 +313,8 @@ onUnmounted(() => {
   padding: 60px 20px;
   position: relative;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .smi-section-231::before {
   content: '';
@@ -333,7 +334,8 @@ onUnmounted(() => {
   margin: 0 auto;
   position: relative;
   z-index: 1;
-}
+
+  opacity: 1 !important;}
 
 .smi-title-231 {
   font-size: 3rem;
@@ -344,14 +346,16 @@ onUnmounted(() => {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   text-align: center;
-}
+
+  opacity: 1 !important;}
 
 .smi-subtitle-231 {
   font-size: 1.2rem;
   color: #94a3b8;
   text-align: center;
   margin-bottom: 40px;
-}
+
+  opacity: 1 !important;}
 
 .smi-control-panel-231 {
   display: flex;
@@ -364,20 +368,23 @@ onUnmounted(() => {
   border-radius: 16px;
   border: 1px solid rgba(255, 255, 255, 0.1);
   margin-bottom: 40px;
-}
+
+  opacity: 1 !important;}
 
 .smi-control-group-231 {
   display: flex;
   flex-direction: column;
   gap: 10px;
   min-width: 200px;
-}
+
+  opacity: 1 !important;}
 
 .smi-label-231 {
   font-size: 14px;
   color: #94a3b8;
   font-weight: 500;
-}
+
+  opacity: 1 !important;}
 
 .smi-slider-231 {
   width: 100%;
@@ -398,7 +405,8 @@ onUnmounted(() => {
 
     &:hover {
       transform: scale(1.2);
-    }
+    
+  opacity: 1 !important;}
   }
 }
 
@@ -406,7 +414,8 @@ onUnmounted(() => {
   font-size: 13px;
   color: #c084fc;
   font-weight: 600;
-}
+
+  opacity: 1 !important;}
 
 .smi-mirror-gallery-231 {
   display: grid;
@@ -427,7 +436,8 @@ onUnmounted(() => {
   &.smi-active-231 {
     border-color: #c084fc;
     box-shadow: 0 0 30px rgba(192, 132, 252, 0.3);
-  }
+  
+  opacity: 1 !important;}
 
   &:hover {
     transform: translateY(-5px);
@@ -441,7 +451,8 @@ onUnmounted(() => {
   overflow: hidden;
   background: rgba(0, 0, 0, 0.3);
   perspective: 1000px;
-}
+
+  opacity: 1 !important;}
 
 .smi-original-231 {
   position: absolute;
@@ -450,13 +461,15 @@ onUnmounted(() => {
   right: 0;
   height: 200px;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .smi-base-image-231 {
   width: 100%;
   height: 100%;
   object-fit: cover;
-}
+
+  opacity: 1 !important;}
 
 .smi-original-overlay-231 {
   position: absolute;
@@ -471,7 +484,8 @@ onUnmounted(() => {
   width: 100%;
   height: 100%;
   background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.3) 100%);
-}
+
+  opacity: 1 !important;}
 
 .smi-mirror-surface-231 {
   position: absolute;
@@ -482,7 +496,8 @@ onUnmounted(() => {
   backdrop-filter: blur(5px);
   border-top: 1px solid rgba(255, 255, 255, 0.2);
   transition: all 0.3s;
-}
+
+  opacity: 1 !important;}
 
 .smi-mirror-glow-231 {
   width: 100%;
@@ -499,14 +514,16 @@ onUnmounted(() => {
   height: 200px;
   overflow: hidden;
   pointer-events: none;
-}
+
+  opacity: 1 !important;}
 
 .smi-reflection-image-231 {
   width: 100%;
   height: 100%;
   object-fit: cover;
   transition: all 0.3s;
-}
+
+  opacity: 1 !important;}
 
 .smi-reflection-overlay-231 {
   position: absolute;
@@ -528,25 +545,29 @@ onUnmounted(() => {
     transparent 100%
   );
   filter: blur(10px);
-}
+
+  opacity: 1 !important;}
 
 .smi-image-info-231 {
   padding: 20px;
   background: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(10px);
-}
+
+  opacity: 1 !important;}
 
 .smi-image-title-231 {
   font-size: 1.2rem;
   font-weight: 600;
   color: #e2e8f0;
   margin-bottom: 5px;
-}
+
+  opacity: 1 !important;}
 
 .smi-image-desc-231 {
   font-size: 0.9rem;
   color: #94a3b8;
-}
+
+  opacity: 1 !important;}
 
 .smi-effect-toggles-231 {
   display: flex;
@@ -559,7 +580,8 @@ onUnmounted(() => {
   backdrop-filter: blur(10px);
   border-radius: 16px;
   border: 1px solid rgba(255, 255, 255, 0.1);
-}
+
+  opacity: 1 !important;}
 
 .smi-toggle-231 {
   display: flex;
@@ -573,7 +595,8 @@ onUnmounted(() => {
     width: 18px;
     height: 18px;
     accent-color: #c084fc;
-  }
+  
+  opacity: 1 !important;}
 
   span {
     font-size: 14px;
@@ -588,7 +611,8 @@ onUnmounted(() => {
   backdrop-filter: blur(10px);
   border-radius: 16px;
   border: 1px solid rgba(255, 255, 255, 0.1);
-}
+
+  opacity: 1 !important;}
 
 .smi-status-bar-231 {
   height: 6px;
@@ -596,13 +620,15 @@ onUnmounted(() => {
   border-radius: 3px;
   overflow: hidden;
   margin-bottom: 10px;
-}
+
+  opacity: 1 !important;}
 
 .smi-status-fill-231 {
   height: 100%;
   background: linear-gradient(90deg, #c084fc, #f472b6, #fb923c);
   transition: width 0.1s;
-}
+
+  opacity: 1 !important;}
 
 .smi-status-info-231 {
   display: flex;
@@ -613,11 +639,13 @@ onUnmounted(() => {
 .smi-status-label-231 {
   font-size: 13px;
   color: #94a3b8;
-}
+
+  opacity: 1 !important;}
 
 .smi-status-value-231 {
   font-size: 16px;
   font-weight: 600;
   color: #c084fc;
-}
+
+  opacity: 1 !important;}
 </style>

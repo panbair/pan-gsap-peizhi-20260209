@@ -492,13 +492,16 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
+/* GSAP opacity fix: ensure content is always visible */
+
 .scroll-aurora-nebula-cards-230 {
   min-height: 100vh;
   background: linear-gradient(135deg, #0a0a1a 0%, #1a0a2a 50%, #0a1a2a 100%);
   padding: 80px 20px;
   position: relative;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 /* 星空背景 */
 .starfield-230 {
@@ -516,7 +519,8 @@ onUnmounted(() => {
   border-radius: 50%;
   background: white;
   animation: starTwinkle ease-in-out infinite;
-}
+
+  opacity: 1 !important;}
 
 @keyframes starTwinkle {
   0%, 100% { opacity: 0.3; }
@@ -540,7 +544,8 @@ onUnmounted(() => {
   right: 0;
   height: 300%;
   animation: auroraFlow ease-in-out infinite;
-}
+
+  opacity: 1 !important;}
 
 @keyframes auroraFlow {
   0%, 100% { transform: translateY(-33.33%); }
@@ -587,7 +592,8 @@ onUnmounted(() => {
   height: 2px;
   background: linear-gradient(to right, transparent, white, transparent);
   animation: shooting linear infinite;
-}
+
+  opacity: 1 !important;}
 
 @keyframes shooting {
   0% {
@@ -608,7 +614,8 @@ onUnmounted(() => {
   margin-bottom: 80px;
   position: relative;
   z-index: 10;
-}
+
+  opacity: 1 !important;}
 
 .title-glow-230 {
   position: relative;
@@ -624,7 +631,8 @@ onUnmounted(() => {
   border-radius: 50%;
   border: 2px solid rgba(255, 107, 107, 0.3);
   animation: glowRingExpand 3s ease-in-out infinite;
-}
+
+  opacity: 1 !important;}
 
 .glow-ring-230:nth-child(1) { width: 150px; height: 150px; }
 .glow-ring-230:nth-child(2) { width: 200px; height: 200px; animation-delay: -0.5s; }
@@ -657,7 +665,8 @@ onUnmounted(() => {
   background-clip: text;
   letter-spacing: 6px;
   text-shadow: 0 0 40px rgba(255, 107, 107, 0.5);
-}
+
+  opacity: 1 !important;}
 
 .title-sub-230 {
   display: block;
@@ -665,7 +674,8 @@ onUnmounted(() => {
   color: #888;
   letter-spacing: 12px;
   margin-top: 10px;
-}
+
+  opacity: 1 !important;}
 
 /* 卡片容器 */
 .nebula-container-230 {
@@ -677,7 +687,8 @@ onUnmounted(() => {
   padding: 20px;
   position: relative;
   z-index: 10;
-}
+
+  opacity: 1 !important;}
 
 /* 卡片样式 */
 .planet-card-230 {
@@ -689,7 +700,8 @@ onUnmounted(() => {
   backdrop-filter: blur(20px);
   transform-style: preserve-3d;
   perspective: 1000px;
-}
+
+  opacity: 1 !important;}
 
 /* 星云背景 */
 .card-nebula-230 {
@@ -711,7 +723,8 @@ onUnmounted(() => {
   width: 100%;
   height: 100%;
   pointer-events: none;
-}
+
+  opacity: 1 !important;}
 
 .orbit-ring-230 {
   position: absolute;
@@ -720,11 +733,15 @@ onUnmounted(() => {
   transform: translate(-50%, -50%);
   border-radius: 50%;
   border: 1px solid;
-}
 
-.orbit-1-230 { width: 200px; height: 200px; }
-.orbit-2-230 { width: 280px; height: 280px; }
-.orbit-3-230 { width: 360px; height: 360px; }
+  opacity: 1 !important;}
+
+.orbit-1-230 { width: 200px; height: 200px; 
+  opacity: 1 !important;}
+.orbit-2-230 { width: 280px; height: 280px; 
+  opacity: 1 !important;}
+.orbit-3-230 { width: 360px; height: 360px; 
+  opacity: 1 !important;}
 
 /* 卡片内容 */
 .card-planet-230 {
@@ -740,7 +757,8 @@ onUnmounted(() => {
   height: 140px;
   margin: 0 auto 30px;
   position: relative;
-}
+
+  opacity: 1 !important;}
 
 .planet-body-230 {
   width: 100%;
@@ -748,7 +766,8 @@ onUnmounted(() => {
   border-radius: 50%;
   position: relative;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .planet-atmosphere-230 {
   position: absolute;
@@ -758,7 +777,8 @@ onUnmounted(() => {
   bottom: -50%;
   background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
   animation: atmosphereGlow 3s ease-in-out infinite;
-}
+
+  opacity: 1 !important;}
 
 @keyframes atmosphereGlow {
   0%, 100% { opacity: 0.5; }
@@ -784,7 +804,8 @@ onUnmounted(() => {
   margin-bottom: 15px;
   letter-spacing: 3px;
   position: relative;
-}
+
+  opacity: 1 !important;}
 
 .name-stars-230 {
   font-size: 20px;
@@ -804,7 +825,8 @@ onUnmounted(() => {
   font-size: 16px;
   margin-bottom: 30px;
   letter-spacing: 1px;
-}
+
+  opacity: 1 !important;}
 
 /* 行星数据 */
 .planet-data-230 {
@@ -819,13 +841,15 @@ onUnmounted(() => {
   padding: 15px 10px;
   background: rgba(255, 255, 255, 0.03);
   border-radius: 15px;
-}
+
+  opacity: 1 !important;}
 
 .data-icon-230 {
   display: block;
   font-size: 24px;
   margin-bottom: 8px;
-}
+
+  opacity: 1 !important;}
 
 .data-label-230 {
   display: block;
@@ -833,13 +857,15 @@ onUnmounted(() => {
   color: #666;
   letter-spacing: 1px;
   margin-bottom: 5px;
-}
+
+  opacity: 1 !important;}
 
 .data-value-230 {
   display: block;
   font-size: 14px;
   font-weight: 700;
-}
+
+  opacity: 1 !important;}
 
 /* 探索按钮 */
 .explore-btn-230 {
@@ -855,7 +881,8 @@ onUnmounted(() => {
   position: relative;
   overflow: hidden;
   transition: all 0.3s ease;
-}
+
+  opacity: 1 !important;}
 
 .explore-btn-230:hover {
   transform: scale(1.05);
@@ -878,7 +905,8 @@ onUnmounted(() => {
   background: white;
   border-radius: 50%;
   animation: btnStarMove 2s linear infinite;
-}
+
+  opacity: 1 !important;}
 
 @keyframes btnStarMove {
   0% { transform: translate(0, 0); opacity: 0; }
@@ -903,7 +931,8 @@ onUnmounted(() => {
   background: white;
   border-radius: 50%;
   animation: miniStarTwinkle ease-in-out infinite;
-}
+
+  opacity: 1 !important;}
 
 @keyframes miniStarTwinkle {
   0%, 100% { opacity: 0.2; }
@@ -932,7 +961,8 @@ onUnmounted(() => {
   margin-top: 60px;
   position: relative;
   z-index: 10;
-}
+
+  opacity: 1 !important;}
 
 .footer-galaxy-230 {
   display: inline-block;
@@ -946,7 +976,8 @@ onUnmounted(() => {
   background: radial-gradient(circle, #ff6b6b80, transparent);
   border-radius: 50%;
   animation: galaxyCorePulse 2s ease-in-out infinite;
-}
+
+  opacity: 1 !important;}
 
 @keyframes galaxyCorePulse {
   0%, 100% { transform: scale(1); opacity: 0.5; }
@@ -966,7 +997,8 @@ onUnmounted(() => {
   height: 2px;
   background: linear-gradient(to right, transparent, #4ecdc4, transparent);
   animation: galaxyArmRotate 10s linear infinite;
-}
+
+  opacity: 1 !important;}
 
 .galaxy-arm-230:nth-child(1) { transform: rotate(0deg); }
 .galaxy-arm-230:nth-child(2) { transform: rotate(90deg); }
@@ -984,7 +1016,8 @@ onUnmounted(() => {
   font-size: 16px;
   letter-spacing: 5px;
   animation: footerTextBlink 3s infinite;
-}
+
+  opacity: 1 !important;}
 
 @keyframes footerTextBlink {
   0%, 100% { opacity: 0.6; }
@@ -996,7 +1029,8 @@ onUnmounted(() => {
   .title-main-230 {
     font-size: 32px;
     letter-spacing: 3px;
-  }
+  
+  opacity: 1 !important;}
 
   .nebula-container-230 {
     grid-template-columns: 1fr;

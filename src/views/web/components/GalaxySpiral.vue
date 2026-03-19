@@ -180,13 +180,15 @@ onUnmounted(() => {
   position: relative;
   overflow: hidden;
   background: #000;
-}
+
+  opacity: 1 !important;}
 
 .content-24 {
   text-align: center;
   position: relative;
   z-index: 10;
-}
+
+  opacity: 1 !important;}
 
 .section-title-24 {
   font-size: clamp(2rem, 4vw, 2.5rem);
@@ -195,20 +197,23 @@ onUnmounted(() => {
   color: #fff;
   text-shadow: 0 0 20px rgba(139, 92, 246, 0.8),
                0 0 40px rgba(139, 92, 246, 0.5);
-}
+
+  opacity: 1 !important;}
 
 .subtitle-24 {
   font-size: 1.1rem;
   color: #a78bfa;
   margin-bottom: 60px;
-}
+
+  opacity: 1 !important;}
 
 .galaxy-container-24 {
   position: relative;
   width: 600px;
   height: 600px;
   margin: 0 auto;
-}
+
+  opacity: 1 !important;}
 
 .galaxy-core-24 {
   position: absolute;
@@ -218,7 +223,8 @@ onUnmounted(() => {
   width: 60px;
   height: 60px;
   z-index: 10;
-}
+
+  opacity: 1 !important;}
 
 .core-glow-24 {
   position: absolute;
@@ -227,7 +233,8 @@ onUnmounted(() => {
   border-radius: 50%;
   box-shadow: 0 0 60px rgba(255, 200, 100, 0.6),
               0 0 120px rgba(255, 200, 100, 0.3);
-}
+
+  opacity: 1 !important;}
 
 .core-pulse-24 {
   position: absolute;
@@ -235,7 +242,8 @@ onUnmounted(() => {
   background: radial-gradient(circle, transparent, rgba(255, 200, 100, 0.1));
   border-radius: 50%;
   animation: pulse 2s ease-in-out infinite;
-}
+
+  opacity: 1 !important;}
 
 @keyframes pulse {
   0%, 100% {
@@ -268,22 +276,26 @@ onUnmounted(() => {
 .arm-1 .star-cluster-24 {
   background: radial-gradient(circle, #a78bfa, #8b5cf6);
   box-shadow: 0 0 10px rgba(167, 139, 250, 0.6);
-}
+
+  opacity: 1 !important;}
 
 .arm-2 .star-cluster-24 {
   background: radial-gradient(circle, #60a5fa, #3b82f6);
   box-shadow: 0 0 10px rgba(96, 165, 250, 0.6);
-}
+
+  opacity: 1 !important;}
 
 .arm-3 .star-cluster-24 {
   background: radial-gradient(circle, #f472b6, #ec4899);
   box-shadow: 0 0 10px rgba(244, 114, 182, 0.6);
-}
+
+  opacity: 1 !important;}
 
 .arm-4 .star-cluster-24 {
   background: radial-gradient(circle, #34d399, #10b981);
   box-shadow: 0 0 10px rgba(52, 211, 153, 0.6);
-}
+
+  opacity: 1 !important;}
 
 @keyframes starTwinkle {
   0%, 100% {
@@ -309,7 +321,8 @@ onUnmounted(() => {
   background: rgba(139, 92, 246, 0.4);
   border-radius: 50%;
   animation: dustFloat 4s ease-in-out infinite;
-}
+
+  opacity: 1 !important;}
 
 @keyframes dustFloat {
   0%, 100% {
@@ -339,24 +352,28 @@ onUnmounted(() => {
   top: 10%;
   left: 10%;
   background: radial-gradient(circle, rgba(139, 92, 246, 0.4), transparent);
-}
+
+  opacity: 1 !important;}
 
 .nebula-2 {
   bottom: 10%;
   right: 10%;
   background: radial-gradient(circle, rgba(96, 165, 250, 0.4), transparent);
-}
+
+  opacity: 1 !important;}
 
 .nebula-3 {
   top: 50%;
   right: 20%;
   background: radial-gradient(circle, rgba(244, 114, 182, 0.3), transparent);
-}
+
+  opacity: 1 !important;}
 
 @media (max-width: 768px) {
   .galaxy-container-24 {
     width: 400px;
     height: 400px;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

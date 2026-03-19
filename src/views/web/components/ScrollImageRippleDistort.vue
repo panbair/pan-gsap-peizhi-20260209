@@ -342,7 +342,8 @@ onUnmounted(() => {
   align-items: center;
   overflow: hidden;
   position: relative;
-}
+
+  opacity: 1 !important;}
 
 .ir-bg-gradient-230 {
   position: absolute;
@@ -352,7 +353,8 @@ onUnmounted(() => {
     radial-gradient(circle at 70% 50%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
   pointer-events: none;
   z-index: 1;
-}
+
+  opacity: 1 !important;}
 
 .ir-particles-230 {
   position: absolute;
@@ -362,13 +364,15 @@ onUnmounted(() => {
   height: 100%;
   pointer-events: none;
   z-index: 2;
-}
+
+  opacity: 1 !important;}
 
 .ir-header-230 {
   text-align: center;
   margin-bottom: 40px;
   z-index: 10;
-}
+
+  opacity: 1 !important;}
 
 .ir-title-230 {
   font-size: 3rem;
@@ -380,7 +384,8 @@ onUnmounted(() => {
   background-clip: text;
   letter-spacing: 2px;
   animation: titleGlow 3s ease-in-out infinite;
-}
+
+  opacity: 1 !important;}
 
 @keyframes titleGlow {
   0%, 100% {
@@ -396,7 +401,8 @@ onUnmounted(() => {
   color: rgba(255, 255, 255, 0.6);
   font-weight: 300;
   letter-spacing: 4px;
-}
+
+  opacity: 1 !important;}
 
 // 涟漪容器
 .ir-ripple-container-230 {
@@ -407,7 +413,8 @@ onUnmounted(() => {
   margin-bottom: 40px;
   perspective: 1000px;
   z-index: 10;
-}
+
+  opacity: 1 !important;}
 
 .ir-original-image-230 {
   position: relative;
@@ -421,7 +428,8 @@ onUnmounted(() => {
     width: 100%;
     height: 100%;
     object-fit: cover;
-  }
+  
+  opacity: 1 !important;}
 }
 
 .ir-ripple-canvas-230 {
@@ -446,7 +454,8 @@ onUnmounted(() => {
   height: 100%;
   pointer-events: none;
   z-index: 5;
-}
+
+  opacity: 1 !important;}
 
 .ir-wave-indicator-230 {
   position: absolute;
@@ -476,10 +485,12 @@ onUnmounted(() => {
 @media (max-width: 768px) {
   .ir-title-230 {
     font-size: 2rem;
-  }
+  
+  opacity: 1 !important;}
 
   .ir-ripple-container-230 {
     height: 400px;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

@@ -168,7 +168,8 @@ onUnmounted(() => {
       radial-gradient(circle at 20% 40%, rgba(102, 126, 234, 0.1) 0%, transparent 40%),
       radial-gradient(circle at 80% 60%, rgba(240, 147, 251, 0.1) 0%, transparent 40%);
     pointer-events: none;
-  }
+  
+  opacity: 1 !important;}
 }
 
 .sg-container-43 {
@@ -177,7 +178,8 @@ onUnmounted(() => {
   padding: 0 40px;
   position: relative;
   z-index: 1;
-}
+
+  opacity: 1 !important;}
 
 .sg-section-title-43 {
   text-align: center;
@@ -199,7 +201,8 @@ onUnmounted(() => {
     background: linear-gradient(90deg, #667eea, #f093fb);
     margin: 20px auto 0;
     border-radius: 2px;
-  }
+  
+  opacity: 1 !important;}
 }
 
 .sg-grid-container-43 {
@@ -207,7 +210,8 @@ onUnmounted(() => {
   grid-template-columns: repeat(3, 1fr);
   gap: 30px;
   padding: 40px 0;
-}
+
+  opacity: 1 !important;}
 
 .sg-grid-item-43 {
   position: relative;
@@ -221,7 +225,8 @@ onUnmounted(() => {
   &:hover {
     transform: translateY(-10px) scale(1.02);
     box-shadow: 0 30px 70px rgba(0, 0, 0, 0.4);
-  }
+  
+  opacity: 1 !important;}
 }
 
 .sg-grid-item-43:hover .sg-item-inner-43 img {
@@ -233,7 +238,8 @@ onUnmounted(() => {
   height: 100%;
   position: relative;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .sg-item-inner-43 img {
   width: 100%;
@@ -250,7 +256,8 @@ onUnmounted(() => {
   background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.4) 60%, transparent 100%);
   padding: 30px;
   pointer-events: none;
-}
+
+  opacity: 1 !important;}
 
 .sg-item-number-43 {
   display: block;
@@ -271,7 +278,8 @@ onUnmounted(() => {
   color: #fff;
   margin: 0;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-}
+
+  opacity: 1 !important;}
 
 .sg-replay-btn-43 {
   display: block;
@@ -290,7 +298,8 @@ onUnmounted(() => {
   &:hover {
     transform: translateY(-3px);
     box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
-  }
+  
+  opacity: 1 !important;}
 
   &:active {
     transform: translateY(-1px);
@@ -310,6 +319,7 @@ onUnmounted(() => {
 
   .sg-section-title-43 {
     font-size: 2rem;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

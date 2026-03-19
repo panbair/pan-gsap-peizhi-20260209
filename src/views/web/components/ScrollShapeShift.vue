@@ -266,25 +266,30 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
+/* GSAP opacity fix: ensure content is always visible */
+
 .shape-shift-wrapper-211 {
   position: relative;
   min-height: 100vh;
   background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #0f172a 100%);
   overflow: hidden;
   padding: 60px 20px;
-}
+
+  opacity: 1 !important;}
 
 .ss-container-211 {
   position: relative;
   max-width: 1400px;
   margin: 0 auto;
   z-index: 10;
-}
+
+  opacity: 1 !important;}
 
 .ss-header-211 {
   text-align: center;
   margin-bottom: 60px;
-}
+
+  opacity: 1 !important;}
 
 .ss-title-211 {
   font-size: 3rem;
@@ -294,12 +299,14 @@ onUnmounted(() => {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   margin-bottom: 16px;
-}
+
+  opacity: 1 !important;}
 
 .ss-subtitle-211 {
   font-size: 1.2rem;
   color: #94a3b8;
-}
+
+  opacity: 1 !important;}
 
 .ss-shapes-211 {
   display: grid;
@@ -324,7 +331,8 @@ onUnmounted(() => {
   transition: clip-path 1.2s ease, border-radius 1.2s ease;
   cursor: pointer;
   box-shadow: 0 0 40px rgba(139, 92, 246, 0.3);
-}
+
+  opacity: 1 !important;}
 
 .ss-shape-content-211 {
   display: flex;
@@ -333,18 +341,21 @@ onUnmounted(() => {
   gap: 8px;
   color: #fff;
   text-align: center;
-}
+
+  opacity: 1 !important;}
 
 .ss-shape-icon-211 {
   font-size: 3rem;
-}
+
+  opacity: 1 !important;}
 
 .ss-shape-label-211 {
   font-size: 0.9rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1px;
-}
+
+  opacity: 1 !important;}
 
 .ss-indicators-211 {
   display: flex;
@@ -365,7 +376,8 @@ onUnmounted(() => {
   cursor: pointer;
   transition: all 0.3s;
   backdrop-filter: blur(10px);
-}
+
+  opacity: 1 !important;}
 
 .ss-indicator-211:hover {
   background: rgba(139, 92, 246, 0.2);
@@ -377,7 +389,8 @@ onUnmounted(() => {
   border-color: transparent;
   color: #fff;
   transform: scale(1.05);
-}
+
+  opacity: 1 !important;}
 
 .ss-info-211 {
   display: flex;
@@ -399,14 +412,16 @@ onUnmounted(() => {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-}
+
+  opacity: 1 !important;}
 
 .ss-info-label-211 {
   font-size: 0.9rem;
   color: #64748b;
   text-transform: uppercase;
   letter-spacing: 1px;
-}
+
+  opacity: 1 !important;}
 
 .ss-progress-211 {
   width: 100%;
@@ -414,14 +429,16 @@ onUnmounted(() => {
   background: rgba(255, 255, 255, 0.1);
   border-radius: 2px;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .ss-progress-bar-211 {
   width: 0;
   height: 100%;
   background: linear-gradient(90deg, #8b5cf6 0%, #ec4899 100%);
   border-radius: 2px;
-}
+
+  opacity: 1 !important;}
 
 .ss-particles-211 {
   position: fixed;
@@ -431,7 +448,8 @@ onUnmounted(() => {
   height: 100%;
   pointer-events: none;
   z-index: 1;
-}
+
+  opacity: 1 !important;}
 
 .ss-particle-211 {
   position: absolute;
@@ -440,7 +458,8 @@ onUnmounted(() => {
 @media (max-width: 768px) {
   .ss-title-211 {
     font-size: 2rem;
-  }
+  
+  opacity: 1 !important;}
 
   .ss-shapes-211 {
     grid-template-columns: repeat(2, 1fr);

@@ -221,7 +221,8 @@ onUnmounted(() => {
     height: 100%;
     background: linear-gradient(180deg, transparent 0%, #667eea 10%, #f093fb 90%, transparent 100%);
     pointer-events: none;
-  }
+  
+  opacity: 1 !important;}
 }
 
 .stl-container-44 {
@@ -230,7 +231,8 @@ onUnmounted(() => {
   padding: 0 40px;
   position: relative;
   z-index: 1;
-}
+
+  opacity: 1 !important;}
 
 .stl-section-title-44 {
   text-align: center;
@@ -252,13 +254,15 @@ onUnmounted(() => {
     background: linear-gradient(90deg, #667eea, #f093fb);
     margin: 20px auto 0;
     border-radius: 2px;
-  }
+  
+  opacity: 1 !important;}
 }
 
 .stl-timeline-container-44 {
   position: relative;
   padding: 40px 0;
-}
+
+  opacity: 1 !important;}
 
 .stl-timeline-item-44 {
   position: relative;
@@ -291,12 +295,14 @@ onUnmounted(() => {
   border-radius: 50%;
   box-shadow: 0 0 20px rgba(102, 126, 234, 0.5);
   z-index: 2;
-}
+
+  opacity: 1 !important;}
 
 .stl-timeline-content-44 {
   width: 45%;
   padding: 0 40px;
-}
+
+  opacity: 1 !important;}
 
 .stl-content-inner-44 {
   background: #fff;
@@ -308,7 +314,8 @@ onUnmounted(() => {
   &:hover {
     transform: translateY(-10px);
     box-shadow: 0 30px 70px rgba(0, 0, 0, 0.4);
-  }
+  
+  opacity: 1 !important;}
 }
 
 .stl-content-inner-44 img {
@@ -319,7 +326,8 @@ onUnmounted(() => {
 
 .stl-content-info-44 {
   padding: 25px;
-}
+
+  opacity: 1 !important;}
 
 .stl-content-year-44 {
   display: block;
@@ -331,20 +339,23 @@ onUnmounted(() => {
   background-clip: text;
   margin-bottom: -10px;
   font-family: 'Arial', sans-serif;
-}
+
+  opacity: 1 !important;}
 
 .stl-content-title-44 {
   font-size: 1.5rem;
   font-weight: 700;
   color: #1a1a2e;
   margin: 0 0 10px;
-}
+
+  opacity: 1 !important;}
 
 .stl-content-desc-44 {
   font-size: 1rem;
   color: #666;
   margin: 0;
-}
+
+  opacity: 1 !important;}
 
 @media (max-width: 768px) {
   .stl-timeline-item-44 {
@@ -359,10 +370,12 @@ onUnmounted(() => {
   .stl-timeline-content-44 {
     width: 100%;
     padding-left: 50px;
-  }
+  
+  opacity: 1 !important;}
 
   .stl-section-title-44 {
     font-size: 2rem;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

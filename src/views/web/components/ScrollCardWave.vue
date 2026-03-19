@@ -280,7 +280,8 @@ onUnmounted(() => {
       radial-gradient(ellipse at 30% 50%, rgba(59, 130, 246, 0.06) 0%, transparent 60%),
       radial-gradient(ellipse at 70% 50%, rgba(236, 72, 153, 0.06) 0%, transparent 60%);
     pointer-events: none;
-  }
+  
+  opacity: 1 !important;}
 }
 
 .scw-container-126 {
@@ -288,7 +289,8 @@ onUnmounted(() => {
   margin: 0 auto;
   position: relative;
   z-index: 1;
-}
+
+  opacity: 1 !important;}
 
 .scw-section-title-126 {
   text-align: center;
@@ -301,7 +303,8 @@ onUnmounted(() => {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   text-shadow: 0 0 60px rgba(59, 130, 246, 0.4);
-}
+
+  opacity: 1 !important;}
 
 .scw-section-subtitle-126 {
   text-align: center;
@@ -310,7 +313,8 @@ onUnmounted(() => {
   margin-bottom: 120px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-}
+
+  opacity: 1 !important;}
 
 .scw-wave-container-126 {
   display: flex;
@@ -326,7 +330,8 @@ onUnmounted(() => {
   height: 380px;
   position: relative;
   perspective: 1500px;
-}
+
+  opacity: 1 !important;}
 
 .scw-card-inner-126 {
   width: 100%;
@@ -334,7 +339,8 @@ onUnmounted(() => {
   position: relative;
   transform-style: preserve-3d;
   transition: transform 0.6s ease;
-}
+
+  opacity: 1 !important;}
 
 .scw-card-front-126,
 .scw-card-back-126 {
@@ -345,7 +351,8 @@ onUnmounted(() => {
   border-radius: 24px;
   overflow: hidden;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
-}
+
+  opacity: 1 !important;}
 
 .scw-card-front-126 {
   background: linear-gradient(135deg, rgba(30, 30, 63, 0.9) 0%, rgba(15, 15, 47, 0.9) 100%);
@@ -357,12 +364,14 @@ onUnmounted(() => {
   align-items: center;
   text-align: center;
   transition: box-shadow 0.4s ease, border-color 0.4s ease;
-}
+
+  opacity: 1 !important;}
 
 .scw-card-126:hover .scw-card-front-126 {
   border-color: rgba(168, 85, 247, 0.5);
   box-shadow: 0 0 30px rgba(168, 85, 247, 0.2), inset 0 0 30px rgba(168, 85, 247, 0.05);
-}
+
+  opacity: 1 !important;}
 
 .scw-card-back-126 {
   background: linear-gradient(135deg, rgba(236, 72, 153, 0.9) 0%, rgba(168, 85, 247, 0.9) 100%);
@@ -372,7 +381,8 @@ onUnmounted(() => {
   justify-content: center;
   padding: 40px;
   border: 1px solid rgba(255, 255, 255, 0.2);
-}
+
+  opacity: 1 !important;}
 
 .scw-card-icon-126 {
   width: 80px;
@@ -384,25 +394,29 @@ onUnmounted(() => {
   justify-content: center;
   margin-bottom: 30px;
   border: 2px solid rgba(59, 130, 246, 0.3);
-}
+
+  opacity: 1 !important;}
 
 .scw-icon-126 {
   font-size: 2.5rem;
-}
+
+  opacity: 1 !important;}
 
 .scw-card-title-126 {
   font-size: 1.5rem;
   font-weight: 700;
   color: #fff;
   margin-bottom: 16px;
-}
+
+  opacity: 1 !important;}
 
 .scw-card-desc-126 {
   font-size: 0.95rem;
   color: rgba(255, 255, 255, 0.7);
   line-height: 1.6;
   margin-bottom: auto;
-}
+
+  opacity: 1 !important;}
 
 .scw-card-number-126 {
   position: absolute;
@@ -413,12 +427,14 @@ onUnmounted(() => {
   color: transparent;
   -webkit-text-stroke: 2px rgba(255, 255, 255, 0.2);
   font-family: 'Arial', sans-serif;
-}
+
+  opacity: 1 !important;}
 
 .scw-back-content-126 {
   text-align: center;
   color: #fff;
-}
+
+  opacity: 1 !important;}
 
 .scw-back-content-126 h4 {
   font-size: 1.4rem;
@@ -440,29 +456,35 @@ onUnmounted(() => {
   .scw-card-126 {
     flex: 0 0 250px;
     height: 340px;
-  }
+  
+  opacity: 1 !important;}
 
   .scw-card-front-126 {
     padding: 30px 20px;
-  }
+  
+  opacity: 1 !important;}
 
   .scw-card-icon-126 {
     width: 70px;
     height: 70px;
     margin-bottom: 20px;
-  }
+  
+  opacity: 1 !important;}
 
   .scw-icon-126 {
     font-size: 2rem;
-  }
+  
+  opacity: 1 !important;}
 
   .scw-card-title-126 {
     font-size: 1.3rem;
-  }
+  
+  opacity: 1 !important;}
 
   .scw-card-desc-126 {
     font-size: 0.85rem;
-  }
+  
+  opacity: 1 !important;}
 
   .scw-section-title-126 {
     margin-bottom: 80px;
@@ -471,10 +493,12 @@ onUnmounted(() => {
   .scw-section-subtitle-126 {
     margin-bottom: 60px;
     font-size: 0.9rem;
-  }
+  
+  opacity: 1 !important;}
 
   .scw-container-126 {
     padding: 0 20px;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

@@ -204,13 +204,16 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
+/* GSAP opacity fix: ensure content is always visible */
+
 .pe-container-183 {
   min-height: 100vh;
   padding: 80px 20px;
   background: linear-gradient(135deg, #0a0a0a 0%, #1a0a2e 50%, #0a0a0a 100%);
   position: relative;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .pe-container-183::before {
   content: '';
@@ -232,12 +235,14 @@ onUnmounted(() => {
   color: #fff;
   margin-bottom: 60px;
   text-shadow: 0 0 30px rgba(255, 255, 0, 0.5);
-}
+
+  opacity: 1 !important;}
 
 .pe-stage-183 {
   max-width: 1400px;
   margin: 0 auto;
-}
+
+  opacity: 1 !important;}
 
 .pe-canvas-container-183 {
   position: relative;
@@ -248,13 +253,15 @@ onUnmounted(() => {
   overflow: hidden;
   background: rgba(0, 0, 0, 0.3);
   border: 2px solid rgba(255, 255, 255, 0.1);
-}
+
+  opacity: 1 !important;}
 
 .pe-canvas-183 {
   display: block;
   width: 100%;
   height: 100%;
-}
+
+  opacity: 1 !important;}
 
 .pe-cards-183 {
   display: grid;
@@ -272,7 +279,8 @@ onUnmounted(() => {
   backdrop-filter: blur(10px);
   transition: all 0.3s ease;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .pe-card-183::before {
   content: '';
@@ -301,7 +309,8 @@ onUnmounted(() => {
   margin-bottom: 20px;
   display: inline-block;
   transition: transform 0.3s ease;
-}
+
+  opacity: 1 !important;}
 
 .pe-card-183 h3 {
   font-size: 1.6rem;
@@ -318,11 +327,13 @@ onUnmounted(() => {
 @media (max-width: 768px) {
   .pe-title-183 {
     font-size: 1.8rem;
-  }
+  
+  opacity: 1 !important;}
   
   .pe-canvas-container-183 {
     height: 300px;
-  }
+  
+  opacity: 1 !important;}
   
   .pe-cards-183 {
     grid-template-columns: 1fr;

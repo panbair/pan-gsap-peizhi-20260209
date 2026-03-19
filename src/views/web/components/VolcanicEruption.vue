@@ -217,11 +217,13 @@ onUnmounted(() => {
   position: relative;
   overflow: hidden;
   background: linear-gradient(180deg, #1a0a0a 0%, #2a1a0a 50%, #0a0a0a 100%);
-}
+
+  opacity: 1 !important;}
 
 .content-27 {
   text-align: center;
-}
+
+  opacity: 1 !important;}
 
 .ve-section-title-27 {
   font-size: clamp(2rem, 4vw, 2.5rem);
@@ -231,13 +233,15 @@ onUnmounted(() => {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-}
+
+  opacity: 1 !important;}
 
 .ve-subtitle-27 {
   font-size: 1.1rem;
   color: #94a3b8;
   margin-bottom: 40px;
-}
+
+  opacity: 1 !important;}
 
 .volcano-container-27 {
   position: relative;
@@ -248,13 +252,15 @@ onUnmounted(() => {
   border-radius: 20px;
   overflow: hidden;
   box-shadow: 0 0 60px rgba(239, 68, 68, 0.3);
-}
+
+  opacity: 1 !important;}
 
 .sky-background-27 {
   position: absolute;
   inset: 0;
   background: linear-gradient(180deg, #1a0a0a, #2a1a1a 60%, #3a2a1a);
-}
+
+  opacity: 1 !important;}
 
 .cloud-27 {
   position: absolute;
@@ -263,7 +269,8 @@ onUnmounted(() => {
   background: rgba(50, 40, 40, 0.6);
   border-radius: 20px;
   filter: blur(10px);
-}
+
+  opacity: 1 !important;}
 
 .cloud-1 {
   top: 10%;
@@ -299,7 +306,8 @@ onUnmounted(() => {
   transform: translateX(-50%);
   width: 400px;
   height: 300px;
-}
+
+  opacity: 1 !important;}
 
 .mountain-left-27 {
   position: absolute;
@@ -309,7 +317,8 @@ onUnmounted(() => {
   height: 300px;
   background: linear-gradient(135deg, #4a3a2a, #3a2a1a);
   clip-path: polygon(100% 0%, 0% 100%, 100% 100%);
-}
+
+  opacity: 1 !important;}
 
 .mountain-right-27 {
   position: absolute;
@@ -319,7 +328,8 @@ onUnmounted(() => {
   height: 300px;
   background: linear-gradient(225deg, #4a3a2a, #3a2a1a);
   clip-path: polygon(0% 0%, 0% 100%, 100% 100%);
-}
+
+  opacity: 1 !important;}
 
 .mountain-center-27 {
   position: absolute;
@@ -330,7 +340,8 @@ onUnmounted(() => {
   height: 280px;
   background: linear-gradient(180deg, #5a4a3a, #3a2a1a);
   clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-}
+
+  opacity: 1 !important;}
 
 .crater-27 {
   position: absolute;
@@ -342,7 +353,8 @@ onUnmounted(() => {
   background: radial-gradient(ellipse, #2a1a0a, #3a2a1a);
   border-radius: 50%;
   box-shadow: 0 0 30px rgba(239, 68, 68, 0.5);
-}
+
+  opacity: 1 !important;}
 
 .magma-chamber-27 {
   position: absolute;
@@ -351,7 +363,8 @@ onUnmounted(() => {
   transform: translateX(-50%);
   width: 60px;
   height: 60px;
-}
+
+  opacity: 1 !important;}
 
 .magma-glow-27 {
   position: absolute;
@@ -359,7 +372,8 @@ onUnmounted(() => {
   background: radial-gradient(circle, #fbbf24, #f97316, transparent);
   border-radius: 50%;
   box-shadow: 0 0 40px rgba(251, 191, 36, 0.6);
-}
+
+  opacity: 1 !important;}
 
 .lava-streams-27 {
   position: absolute;
@@ -369,13 +383,15 @@ onUnmounted(() => {
   width: 400px;
   height: 150px;
   pointer-events: none;
-}
+
+  opacity: 1 !important;}
 
 .lava-stream-27 {
   position: absolute;
   width: 20px;
   height: 100px;
-}
+
+  opacity: 1 !important;}
 
 .stream-1 {
   left: 120px;
@@ -399,7 +415,8 @@ onUnmounted(() => {
   border-radius: 50%;
   box-shadow: 0 0 10px rgba(251, 191, 36, 0.8);
   animation: lavaFlow 3s ease-out infinite;
-}
+
+  opacity: 1 !important;}
 
 @keyframes lavaFlow {
   0% {
@@ -426,7 +443,8 @@ onUnmounted(() => {
   background: rgba(100, 80, 80, 0.6);
   border-radius: 50%;
   animation: ashFall 5s linear infinite;
-}
+
+  opacity: 1 !important;}
 
 @keyframes ashFall {
   0% {
@@ -447,7 +465,8 @@ onUnmounted(() => {
   width: 100px;
   height: 200px;
   pointer-events: none;
-}
+
+  opacity: 1 !important;}
 
 .column-column-27 {
   position: absolute;
@@ -458,7 +477,8 @@ onUnmounted(() => {
   height: 150px;
   background: linear-gradient(180deg, rgba(239, 68, 68, 0.4), rgba(249, 115, 22, 0.2), transparent);
   border-radius: 50% 50% 0 0;
-}
+
+  opacity: 1 !important;}
 
 .column-sparks-27 {
   position: absolute;
@@ -473,7 +493,8 @@ onUnmounted(() => {
   border-radius: 50%;
   box-shadow: 0 0 10px #fbbf24;
   animation: sparkFly 2s ease-out infinite;
-}
+
+  opacity: 1 !important;}
 
 @keyframes sparkFly {
   0% {
@@ -493,7 +514,8 @@ onUnmounted(() => {
   right: 0;
   height: 100px;
   background: linear-gradient(180deg, transparent, rgba(239, 68, 68, 0.3));
-}
+
+  opacity: 1 !important;}
 
 .pool-surface-27 {
   position: absolute;
@@ -505,7 +527,8 @@ onUnmounted(() => {
   background: linear-gradient(180deg, #f97316, #ea580c);
   border-radius: 50%;
   box-shadow: 0 0 30px rgba(249, 115, 22, 0.6);
-}
+
+  opacity: 1 !important;}
 
 .pool-ripple-27 {
   position: absolute;
@@ -517,7 +540,8 @@ onUnmounted(() => {
   border: 2px solid rgba(251, 191, 36, 0.6);
   border-radius: 50%;
   animation: rippleExpand 2s ease-out infinite;
-}
+
+  opacity: 1 !important;}
 
 @keyframes rippleExpand {
   0% {

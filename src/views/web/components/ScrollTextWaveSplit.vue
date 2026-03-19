@@ -150,13 +150,15 @@ onUnmounted(() => {
   background: linear-gradient(180deg, #0a0a1a 0%, #1a1a3a 30%, #0f0f2a 60%, #1a1a3a 100%);
   position: relative;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .tws-container-133 {
   max-width: 1400px;
   margin: 0 auto;
   position: relative;
-}
+
+  opacity: 1 !important;}
 
 .tws-title-133 {
   text-align: center;
@@ -168,7 +170,8 @@ onUnmounted(() => {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   text-shadow: 0 0 80px rgba(168, 85, 247, 0.5);
-}
+
+  opacity: 1 !important;}
 
 .tws-subtitle-133 {
   text-align: center;
@@ -177,7 +180,8 @@ onUnmounted(() => {
   margin-bottom: 150px;
   letter-spacing: 0.3em;
   text-transform: uppercase;
-}
+
+  opacity: 1 !important;}
 
 .tws-text-stage-133 {
   position: relative;
@@ -188,7 +192,8 @@ onUnmounted(() => {
   align-items: center;
   gap: 80px;
   perspective: 2000px;
-}
+
+  opacity: 1 !important;}
 
 .tws-word-row-133 {
   display: flex;
@@ -209,7 +214,8 @@ onUnmounted(() => {
   text-shadow: 0 0 40px rgba(168, 85, 247, 0.4);
   will-change: transform;
   transition: all 0.3s ease;
-}
+
+  opacity: 1 !important;}
 
 .tws-progress-bar-133 {
   position: fixed;
@@ -222,7 +228,8 @@ onUnmounted(() => {
   border-radius: 2px;
   overflow: hidden;
   z-index: 100;
-}
+
+  opacity: 1 !important;}
 
 .tws-progress-133 {
   width: 100%;
@@ -231,12 +238,14 @@ onUnmounted(() => {
   transform-origin: left;
   transform: scaleX(0);
   box-shadow: 0 0 20px rgba(168, 85, 247, 0.5);
-}
+
+  opacity: 1 !important;}
 
 @media (max-width: 768px) {
   .tws-character-133 {
     font-size: clamp(2.5rem, 8vw, 5rem);
-  }
+  
+  opacity: 1 !important;}
 
   .tws-title-133 {
     margin-bottom: 60px;
@@ -245,15 +254,18 @@ onUnmounted(() => {
   .tws-subtitle-133 {
     margin-bottom: 100px;
     font-size: 0.9rem;
-  }
+  
+  opacity: 1 !important;}
 
   .tws-text-stage-133 {
     gap: 50px;
     min-height: 400px;
-  }
+  
+  opacity: 1 !important;}
 
   .tws-progress-bar-133 {
     width: 200px;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

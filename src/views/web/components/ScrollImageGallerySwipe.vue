@@ -192,7 +192,8 @@ onMounted(() => {
             height: 80%;
             object-fit: cover;
             transition: transform 0.3s ease;
-          }
+          
+  opacity: 1 !important;}
 
           .image-info {
             position: absolute;
@@ -206,7 +207,8 @@ onMounted(() => {
               font-size: 1.5rem;
               color: #fff;
               margin: 0 0 10px 0;
-            }
+            
+  opacity: 1 !important;}
 
             p {
               font-size: 0.9rem;
@@ -233,7 +235,8 @@ onMounted(() => {
       color: #fff;
       font-size: 0.9rem;
       font-weight: 600;
-    }
+    
+  opacity: 1 !important;}
 
     .progress-bar {
       width: 200px;
@@ -248,7 +251,8 @@ onMounted(() => {
         background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
         border-radius: 2px;
         transition: width 0.1s ease;
-      }
+      
+  opacity: 1 !important;}
     }
   }
 }
@@ -257,8 +261,9 @@ onMounted(() => {
   .scroll-image-gallery-swipe {
     height: 80vh;
 
+
     .gallery-swipe-container {
-      .gallery-swipe-track {
+    .gallery-swipe-track {
         .gallery-swipe-item {
           padding: 20px;
 
@@ -269,7 +274,8 @@ onMounted(() => {
             .image-info {
               h3 {
                 font-size: 1.2rem;
-              }
+              
+  opacity: 1 !important;}
 
               p {
                 font-size: 0.8rem;
@@ -287,7 +293,8 @@ onMounted(() => {
 
       .progress-bar {
         width: 150px;
-      }
+      
+  opacity: 1 !important;}
     }
   }
 }

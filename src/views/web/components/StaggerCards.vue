@@ -243,7 +243,8 @@ onUnmounted(() => {
       radial-gradient(circle at 30% 30%, rgba(102, 126, 234, 0.1) 0%, transparent 40%),
       radial-gradient(circle at 70% 70%, rgba(240, 147, 251, 0.1) 0%, transparent 40%);
     pointer-events: none;
-  }
+  
+  opacity: 1 !important;}
 }
 
 .sc-container-45 {
@@ -252,7 +253,8 @@ onUnmounted(() => {
   padding: 0 40px;
   position: relative;
   z-index: 1;
-}
+
+  opacity: 1 !important;}
 
 .sc-section-title-45 {
   text-align: center;
@@ -274,7 +276,8 @@ onUnmounted(() => {
     background: linear-gradient(90deg, #667eea, #f093fb);
     margin: 20px auto 0;
     border-radius: 2px;
-  }
+  
+  opacity: 1 !important;}
 }
 
 .sc-cards-container-45 {
@@ -282,7 +285,8 @@ onUnmounted(() => {
   grid-template-columns: repeat(3, 1fr);
   gap: 30px;
   padding: 40px 0;
-}
+
+  opacity: 1 !important;}
 
 .sc-card-item-45 {
   position: relative;
@@ -296,7 +300,8 @@ onUnmounted(() => {
   &:hover {
     transform: translateY(-10px) scale(1.02);
     box-shadow: 0 30px 70px rgba(0, 0, 0, 0.4);
-  }
+  
+  opacity: 1 !important;}
 }
 
 .sc-card-bg-45 {
@@ -317,7 +322,8 @@ onUnmounted(() => {
   justify-content: space-between;
   padding: 30px;
   color: #fff;
-}
+
+  opacity: 1 !important;}
 
 .sc-card-number-45 {
   font-size: 3.5rem;
@@ -331,7 +337,8 @@ onUnmounted(() => {
   font-weight: 700;
   margin: 0 0 10px;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-}
+
+  opacity: 1 !important;}
 
 .sc-card-desc-45 {
   font-size: 1rem;
@@ -343,7 +350,8 @@ onUnmounted(() => {
   font-size: 3rem;
   align-self: flex-end;
   animation: bounce 2s infinite;
-}
+
+  opacity: 1 !important;}
 
 @keyframes bounce {
   0%, 100% {
@@ -371,7 +379,8 @@ onUnmounted(() => {
   &:hover {
     transform: translateY(-3px);
     box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
-  }
+  
+  opacity: 1 !important;}
 
   &:active {
     transform: translateY(-1px);
@@ -391,6 +400,7 @@ onUnmounted(() => {
 
   .sc-section-title-45 {
     font-size: 2rem;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

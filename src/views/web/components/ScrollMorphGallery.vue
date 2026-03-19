@@ -155,13 +155,16 @@ onMounted(() => {
 </script>
 
 <style scoped>
+/* GSAP opacity fix: ensure content is always visible */
+
 .mg-container-184 {
   min-height: 100vh;
   padding: 80px 20px;
   background: linear-gradient(135deg, #0a0a0a 0%, #1a1a3e 50%, #0a0a0a 100%);
   position: relative;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .mg-container-184::before {
   content: '';
@@ -188,7 +191,8 @@ onMounted(() => {
   background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: mg-glow-184 3s ease-in-out infinite;
-}
+
+  opacity: 1 !important;}
 
 @keyframes mg-glow-184 {
   0%, 100% { background-position: 0% center; }
@@ -198,7 +202,8 @@ onMounted(() => {
 .mg-stage-184 {
   max-width: 1400px;
   margin: 0 auto;
-}
+
+  opacity: 1 !important;}
 
 .mg-gallery-184 {
   display: grid;
@@ -216,7 +221,8 @@ onMounted(() => {
   border-radius: 20px;
   backdrop-filter: blur(10px);
   transition: all 0.3s ease;
-}
+
+  opacity: 1 !important;}
 
 .mg-item-184:hover {
   background: rgba(255, 255, 255, 0.05);
@@ -230,7 +236,8 @@ onMounted(() => {
   margin-bottom: 25px;
   transition: all 0.5s ease;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .mg-shape-1-184 {
   border-radius: 50%;
@@ -263,11 +270,13 @@ onMounted(() => {
   background-size: cover;
   background-position: center;
   transition: transform 0.3s ease;
-}
+
+  opacity: 1 !important;}
 
 .mg-info-184 {
   text-align: center;
-}
+
+  opacity: 1 !important;}
 
 .mg-info-184 h3 {
   font-size: 1.5rem;
@@ -284,7 +293,8 @@ onMounted(() => {
 @media (max-width: 768px) {
   .mg-title-184 {
     font-size: 1.8rem;
-  }
+  
+  opacity: 1 !important;}
   
   .mg-gallery-184 {
     grid-template-columns: 1fr;
@@ -293,6 +303,7 @@ onMounted(() => {
   .mg-shape-184 {
     width: 150px;
     height: 150px;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

@@ -194,18 +194,22 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
+/* GSAP opacity fix: ensure content is always visible */
+
 .vortex-ring-container-200 {
   min-height: 100vh;
   background: linear-gradient(180deg, #0a0a0a 0%, #1a0a1a 100%);
   padding: 60px 20px;
   position: relative;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .vr-header-200 {
   text-align: center;
   margin-bottom: 60px;
-}
+
+  opacity: 1 !important;}
 
 .vr-title-200 {
   font-size: 48px;
@@ -216,12 +220,14 @@ onUnmounted(() => {
   background-clip: text;
   text-shadow: 0 0 40px rgba(255, 0, 255, 0.5);
   margin-bottom: 10px;
-}
+
+  opacity: 1 !important;}
 
 .vr-hint-200 {
   font-size: 18px;
   color: #ff00ff;
-}
+
+  opacity: 1 !important;}
 
 .vr-stage-200 {
   max-width: 1200px;
@@ -231,7 +237,8 @@ onUnmounted(() => {
   gap: 40px;
   padding: 20px;
   margin-bottom: 100px;
-}
+
+  opacity: 1 !important;}
 
 .vr-ring-wrapper-200 {
   height: 380px;
@@ -239,7 +246,8 @@ onUnmounted(() => {
   display: flex;
   justify-content: center;
   align-items: center;
-}
+
+  opacity: 1 !important;}
 
 .vr-ring-200 {
   position: relative;
@@ -253,7 +261,8 @@ onUnmounted(() => {
   justify-content: center;
   transition: all 0.5s ease;
   overflow: visible;
-}
+
+  opacity: 1 !important;}
 
 .vr-particles-200 {
   position: absolute;
@@ -268,7 +277,8 @@ onUnmounted(() => {
   background: radial-gradient(circle, rgba(255, 255, 255, 0.3), transparent);
   border-radius: 50%;
   animation: core-pulse-200 2s infinite;
-}
+
+  opacity: 1 !important;}
 
 @keyframes core-pulse-200 {
   0%, 100% { transform: scale(1); opacity: 0.5; }
@@ -280,13 +290,15 @@ onUnmounted(() => {
   z-index: 1;
   text-align: center;
   padding: 20px;
-}
+
+  opacity: 1 !important;}
 
 .vr-icon-200 {
   font-size: 56px;
   margin-bottom: 15px;
   filter: drop-shadow(0 0 15px rgba(255, 0, 255, 0.8));
-}
+
+  opacity: 1 !important;}
 
 .vr-ring-title-200 {
   font-size: 24px;
@@ -294,13 +306,15 @@ onUnmounted(() => {
   color: #ff00ff;
   margin-bottom: 8px;
   text-shadow: 0 0 10px rgba(255, 0, 255, 0.5);
-}
+
+  opacity: 1 !important;}
 
 .vr-ring-desc-200 {
   font-size: 14px;
   color: #00ffff;
   line-height: 1.5;
-}
+
+  opacity: 1 !important;}
 
 .vr-center-200 {
   height: 400px;
@@ -308,13 +322,15 @@ onUnmounted(() => {
   justify-content: center;
   align-items: center;
   position: relative;
-}
+
+  opacity: 1 !important;}
 
 .vr-vortex-200 {
   position: relative;
   width: 400px;
   height: 400px;
-}
+
+  opacity: 1 !important;}
 
 .vr-vortex-line-200 {
   position: absolute;
@@ -342,6 +358,7 @@ onUnmounted(() => {
   .vr-vortex-200 {
     width: 300px;
     height: 300px;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

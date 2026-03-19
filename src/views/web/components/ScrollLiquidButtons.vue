@@ -653,17 +653,21 @@ function initInteractiveLiquid() {
 </script>
 
 <style scoped>
+/* GSAP opacity fix: ensure content is always visible */
+
 .liquid-buttons-container-219 {
   min-height: 100vh;
   background: linear-gradient(180deg, #0f0f23 0%, #1a1a3e 50%, #0f0f23 100%);
   padding: 40px 20px;
   overflow-x: hidden;
-}
+
+  opacity: 1 !important;}
 
 .liquid-header-219 {
   text-align: center;
   margin-bottom: 60px;
-}
+
+  opacity: 1 !important;}
 
 .liquid-title-219 {
   font-size: 3rem;
@@ -673,13 +677,15 @@ function initInteractiveLiquid() {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-}
+
+  opacity: 1 !important;}
 
 .liquid-subtitle-219 {
   font-size: 1.2rem;
   color: rgba(255, 255, 255, 0.7);
   margin-bottom: 30px;
-}
+
+  opacity: 1 !important;}
 
 .scroll-progress-219 {
   width: 300px;
@@ -689,14 +695,16 @@ function initInteractiveLiquid() {
   margin: 0 auto;
   position: relative;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .progress-bar-219 {
   width: 0%;
   height: 100%;
   background: linear-gradient(90deg, #00d2ff, #3a7bd5, #00d2ff);
   border-radius: 4px;
-}
+
+  opacity: 1 !important;}
 
 .progress-text-219 {
   position: absolute;
@@ -706,13 +714,15 @@ function initInteractiveLiquid() {
   font-size: 0.9rem;
   font-weight: 700;
   color: rgba(255, 255, 255, 0.9);
-}
+
+  opacity: 1 !important;}
 
 /* 液体区块 */
 .liquid-section-219 {
   max-width: 1200px;
   margin: 0 auto 60px;
-}
+
+  opacity: 1 !important;}
 
 .section-title-219 {
   font-size: 1.5rem;
@@ -720,7 +730,8 @@ function initInteractiveLiquid() {
   color: rgba(255, 255, 255, 0.9);
   margin-bottom: 30px;
   text-align: center;
-}
+
+  opacity: 1 !important;}
 
 .buttons-row-219 {
   display: flex;
@@ -743,7 +754,8 @@ function initInteractiveLiquid() {
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
   transition: transform 0.3s, box-shadow 0.3s;
-}
+
+  opacity: 1 !important;}
 
 .liquid-btn-219:hover {
   transform: translateY(-3px);
@@ -764,19 +776,23 @@ function initInteractiveLiquid() {
   background: linear-gradient(90deg, #00d2ff, #3a7bd5);
   z-index: 1;
   transition: width 0.3s ease;
-}
+
+  opacity: 1 !important;}
 
 .btn-basic-1-219 .liquid-fill-219 {
   background: linear-gradient(90deg, #00d2ff, #3a7bd5);
-}
+
+  opacity: 1 !important;}
 
 .btn-basic-2-219 .liquid-fill-219 {
   background: linear-gradient(90deg, #a8edea, #fed6e3);
-}
+
+  opacity: 1 !important;}
 
 .btn-basic-3-219 .liquid-fill-219 {
   background: linear-gradient(90deg, #667eea, #764ba2);
-}
+
+  opacity: 1 !important;}
 
 /* 渐变液体按钮 */
 .btn-gradient-1-219,
@@ -784,7 +800,8 @@ function initInteractiveLiquid() {
 .btn-gradient-3-219 {
   border: 2px solid transparent;
   background-clip: padding-box;
-}
+
+  opacity: 1 !important;}
 
 .liquid-gradient-219 {
   position: absolute;
@@ -796,17 +813,20 @@ function initInteractiveLiquid() {
   background-size: 200% 100%;
   z-index: -1;
   border-radius: 52px;
-}
+
+  opacity: 1 !important;}
 
 .btn-gradient-2-219 .liquid-gradient-219 {
   background: linear-gradient(90deg, #ff9a9e, #fecfef, #ff9a9e);
   background-size: 200% 100%;
-}
+
+  opacity: 1 !important;}
 
 .btn-gradient-3-219 .liquid-gradient-219 {
   background: linear-gradient(90deg, #a18cd1, #fbc2eb, #a18cd1);
   background-size: 200% 100%;
-}
+
+  opacity: 1 !important;}
 
 /* 涟漪按钮 */
 .ripple-btn-219 {
@@ -821,7 +841,8 @@ function initInteractiveLiquid() {
   overflow: hidden;
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
-}
+
+  opacity: 1 !important;}
 
 .ripple-btn-219 .btn-text-219 {
   position: relative;
@@ -838,7 +859,8 @@ function initInteractiveLiquid() {
   border-radius: 50%;
   background: rgba(0, 210, 255, 0.3);
   z-index: 1;
-}
+
+  opacity: 1 !important;}
 
 .ripple-delay-219 {
   animation-delay: 0.3s;
@@ -861,7 +883,8 @@ function initInteractiveLiquid() {
   overflow: hidden;
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
-}
+
+  opacity: 1 !important;}
 
 .shape-liquid-btn-219 .btn-text-219 {
   position: relative;
@@ -892,7 +915,8 @@ function initInteractiveLiquid() {
   overflow: hidden;
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
-}
+
+  opacity: 1 !important;}
 
 .gooey-btn-219 .btn-text-219 {
   position: relative;
@@ -909,15 +933,18 @@ function initInteractiveLiquid() {
   background: linear-gradient(135deg, #f093fb, #f5576c);
   border-radius: 50%;
   z-index: 1;
-}
+
+  opacity: 1 !important;}
 
 .btn-gooey-2-219 .gooey-liquid-219 {
   background: linear-gradient(135deg, #fa709a, #fee140);
-}
+
+  opacity: 1 !important;}
 
 .btn-gooey-3-219 .gooey-liquid-219 {
   background: linear-gradient(135deg, #434343, #000000);
-}
+
+  opacity: 1 !important;}
 
 /* 液体加载按钮 */
 .load-btn-219 {
@@ -932,7 +959,8 @@ function initInteractiveLiquid() {
   overflow: hidden;
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
-}
+
+  opacity: 1 !important;}
 
 .load-btn-219 .btn-text-219 {
   position: relative;
@@ -947,7 +975,8 @@ function initInteractiveLiquid() {
   width: 0%;
   background: linear-gradient(90deg, #00d2ff, #3a7bd5);
   z-index: 1;
-}
+
+  opacity: 1 !important;}
 
 .loading-wave-219 {
   position: absolute;
@@ -957,7 +986,8 @@ function initInteractiveLiquid() {
   height: 100%;
   background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
   z-index: 1;
-}
+
+  opacity: 1 !important;}
 
 .wave-offset-219 {
   animation-delay: 0.5s;
@@ -973,7 +1003,8 @@ function initInteractiveLiquid() {
   background: #00d2ff;
   border-radius: 50%;
   z-index: 1;
-}
+
+  opacity: 1 !important;}
 
 /* 悬停液体按钮 */
 .hover-btn-219 {
@@ -988,7 +1019,8 @@ function initInteractiveLiquid() {
   overflow: hidden;
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
-}
+
+  opacity: 1 !important;}
 
 .hover-btn-219 .btn-text-219 {
   position: relative;
@@ -1013,19 +1045,22 @@ function initInteractiveLiquid() {
 
 .btn-hover-2-219 .hover-liquid-219 {
   background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), #00d2ff, transparent);
-}
+
+  opacity: 1 !important;}
 
 .btn-hover-3-219 .hover-liquid-219 {
   background: linear-gradient(45deg, #00d2ff, #3a7bd5, #00d2ff);
   background-size: 200% 200%;
-}
+
+  opacity: 1 !important;}
 
 /* 交互液体按钮 */
 .liquid-interactive-219 {
   max-width: 600px;
   margin: 0 auto;
   padding: 40px 20px;
-}
+
+  opacity: 1 !important;}
 
 .interactive-wrapper-219 {
   display: flex;
@@ -1045,7 +1080,8 @@ function initInteractiveLiquid() {
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
   border: 2px solid rgba(0, 210, 255, 0.3);
-}
+
+  opacity: 1 !important;}
 
 .interactive-liquid-btn-219 .btn-text-219 {
   position: relative;
@@ -1060,13 +1096,15 @@ function initInteractiveLiquid() {
   height: 100%;
   z-index: 1;
   border-radius: 48px;
-}
+
+  opacity: 1 !important;}
 
 /* 响应式 */
 @media (max-width: 768px) {
   .liquid-title-219 {
     font-size: 2rem;
-  }
+  
+  opacity: 1 !important;}
 
   .buttons-row-219 {
     gap: 15px;
@@ -1080,11 +1118,13 @@ function initInteractiveLiquid() {
   .hover-btn-219 {
     padding: 12px 30px;
     font-size: 1rem;
-  }
+  
+  opacity: 1 !important;}
 
   .interactive-liquid-btn-219 {
     padding: 15px 40px;
     font-size: 1rem;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

@@ -159,6 +159,7 @@ onUnmounted(() => {
 @media (max-width: 768px) {
   .scroll-image-parallax-zoom {
     height: 80vh;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

@@ -376,14 +376,16 @@ onUnmounted(() => {
   background: linear-gradient(180deg, #0a0a1a 0%, #1a0a2a 50%, #0a1a2a 100%);
   position: relative;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .sst-container-189 {
   position: relative;
   max-width: 1400px;
   margin: 0 auto;
   z-index: 1;
-}
+
+  opacity: 1 !important;}
 
 .sst-title-189 {
   text-align: center;
@@ -394,7 +396,8 @@ onUnmounted(() => {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-}
+
+  opacity: 1 !important;}
 
 .sst-subtitle-189 {
   text-align: center;
@@ -403,7 +406,8 @@ onUnmounted(() => {
   margin-bottom: 120px;
   letter-spacing: 0.5em;
   text-transform: uppercase;
-}
+
+  opacity: 1 !important;}
 
 .sst-text-stage-189 {
   position: relative;
@@ -412,7 +416,8 @@ onUnmounted(() => {
   flex-direction: column;
   align-items: center;
   gap: 100px;
-}
+
+  opacity: 1 !important;}
 
 .sst-shadow-container-189 {
   display: flex;
@@ -421,7 +426,8 @@ onUnmounted(() => {
   gap: 80px;
   width: 100%;
   max-width: 800px;
-}
+
+  opacity: 1 !important;}
 
 .sst-shadow-item-189 {
   position: relative;
@@ -434,7 +440,8 @@ onUnmounted(() => {
   border-radius: 20px;
   backdrop-filter: blur(10px);
   transition: all 0.3s ease;
-}
+
+  opacity: 1 !important;}
 
 .sst-shadow-text-189 {
   font-size: clamp(4rem, 10vw, 6rem);
@@ -443,7 +450,8 @@ onUnmounted(() => {
   letter-spacing: 0.2em;
   color: #fff;
   transition: all 0.5s ease;
-}
+
+  opacity: 1 !important;}
 
 .sst-info-189 {
   margin-top: 15px;
@@ -451,7 +459,8 @@ onUnmounted(() => {
   color: rgba(255, 255, 255, 0.5);
   letter-spacing: 0.3em;
   text-transform: uppercase;
-}
+
+  opacity: 1 !important;}
 
 .sst-visualizer-189 {
   width: 100%;
@@ -460,7 +469,8 @@ onUnmounted(() => {
   background: rgba(0, 0, 0, 0.3);
   border-radius: 20px;
   border: 1px solid rgba(255, 255, 255, 0.1);
-}
+
+  opacity: 1 !important;}
 
 .sst-preview-box-189 {
   height: 150px;
@@ -470,7 +480,8 @@ onUnmounted(() => {
   background: rgba(255, 255, 255, 0.02);
   border-radius: 15px;
   margin-bottom: 30px;
-}
+
+  opacity: 1 !important;}
 
 .sst-preview-text-189 {
   font-size: 4rem;
@@ -478,7 +489,8 @@ onUnmounted(() => {
   color: #fff;
   text-transform: uppercase;
   letter-spacing: 0.3em;
-}
+
+  opacity: 1 !important;}
 
 .sst-controls-189 {
   display: flex;
@@ -497,7 +509,8 @@ onUnmounted(() => {
   color: rgba(255, 255, 255, 0.6);
   letter-spacing: 0.2em;
   text-transform: uppercase;
-}
+
+  opacity: 1 !important;}
 
 .sst-bar-189 {
   width: 100%;
@@ -505,7 +518,8 @@ onUnmounted(() => {
   background: rgba(255, 255, 255, 0.1);
   border-radius: 3px;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .sst-fill-189 {
   width: 0;
@@ -513,7 +527,8 @@ onUnmounted(() => {
   background: linear-gradient(90deg, #a855f7, #ec4899);
   border-radius: 3px;
   transition: width 0.1s ease;
-}
+
+  opacity: 1 !important;}
 
 .sst-light-source-189 {
   position: absolute;
@@ -529,7 +544,8 @@ onUnmounted(() => {
   border-radius: 50%;
   position: relative;
   margin: 0 auto;
-}
+
+  opacity: 1 !important;}
 
 .sst-light-rays-189 {
   position: absolute;
@@ -538,7 +554,8 @@ onUnmounted(() => {
   transform: translate(-50%, -50%);
   width: 120px;
   height: 120px;
-}
+
+  opacity: 1 !important;}
 
 .sst-ray-189 {
   position: absolute;
@@ -548,7 +565,8 @@ onUnmounted(() => {
   height: 40px;
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.4), transparent);
   transform-origin: bottom center;
-}
+
+  opacity: 1 !important;}
 
 @for $i from 1 through 8 {
   .sst-ray-189:nth-child(#{$i}) {
@@ -564,7 +582,8 @@ onUnmounted(() => {
   height: 100%;
   pointer-events: none;
   z-index: 0;
-}
+
+  opacity: 1 !important;}
 
 .sst-bg-shadow-189 {
   position: absolute;
@@ -572,7 +591,8 @@ onUnmounted(() => {
   height: 100px;
   border-radius: 50%;
   background: radial-gradient(circle, rgba(168, 85, 247, 0.3) 0%, transparent 70%);
-}
+
+  opacity: 1 !important;}
 
 @for $i from 1 through 12 {
   .sst-bg-shadow-189:nth-child(#{$i}) {
@@ -588,18 +608,22 @@ onUnmounted(() => {
 
   .sst-shadow-item-189 {
     padding: 30px;
-  }
+  
+  opacity: 1 !important;}
 
   .sst-shadow-text-189 {
     font-size: 3rem;
-  }
+  
+  opacity: 1 !important;}
 
   .sst-visualizer-189 {
     padding: 30px;
-  }
+  
+  opacity: 1 !important;}
 
   .sst-preview-text-189 {
     font-size: 2.5rem;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

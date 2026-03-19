@@ -416,14 +416,16 @@ onUnmounted(() => {
   background: radial-gradient(ellipse at center, #0a1a2a 0%, #0a0a1a 100%);
   position: relative;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .sql-container-188 {
   position: relative;
   max-width: 1400px;
   margin: 0 auto;
   z-index: 1;
-}
+
+  opacity: 1 !important;}
 
 .sql-title-188 {
   text-align: center;
@@ -435,7 +437,8 @@ onUnmounted(() => {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   text-shadow: 0 0 80px rgba(6, 182, 212, 0.5);
-}
+
+  opacity: 1 !important;}
 
 .sql-subtitle-188 {
   text-align: center;
@@ -444,7 +447,8 @@ onUnmounted(() => {
   margin-bottom: 100px;
   letter-spacing: 0.3em;
   text-transform: uppercase;
-}
+
+  opacity: 1 !important;}
 
 .sql-quantum-stage-188 {
   position: relative;
@@ -454,7 +458,8 @@ onUnmounted(() => {
   align-items: center;
   justify-content: center;
   margin-bottom: 80px;
-}
+
+  opacity: 1 !important;}
 
 .sql-canvas-188 {
   position: absolute;
@@ -463,7 +468,8 @@ onUnmounted(() => {
   width: 100%;
   height: 100%;
   pointer-events: none;
-}
+
+  opacity: 1 !important;}
 
 .sql-quantum-particles-188 {
   position: absolute;
@@ -473,7 +479,8 @@ onUnmounted(() => {
   height: 100%;
   pointer-events: none;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .sql-quantum-particle-188 {
   position: absolute;
@@ -488,7 +495,8 @@ onUnmounted(() => {
   display: flex;
   align-items: center;
   justify-content: center;
-}
+
+  opacity: 1 !important;}
 
 .sql-orb-core-188 {
   position: absolute;
@@ -501,7 +509,8 @@ onUnmounted(() => {
     0 0 120px rgba(139, 92, 246, 0.5),
     0 0 180px rgba(236, 72, 153, 0.3);
   z-index: 5;
-}
+
+  opacity: 1 !important;}
 
 .sql-orb-shell-1-188,
 .sql-orb-shell-2-188,
@@ -510,22 +519,26 @@ onUnmounted(() => {
   border-radius: 50%;
   border: 1px solid rgba(6, 182, 212, 0.3);
   box-shadow: 0 0 20px rgba(6, 182, 212, 0.2);
-}
+
+  opacity: 1 !important;}
 
 .sql-orb-shell-1-188 {
   width: 120px;
   height: 120px;
-}
+
+  opacity: 1 !important;}
 
 .sql-orb-shell-2-188 {
   width: 200px;
   height: 200px;
-}
+
+  opacity: 1 !important;}
 
 .sql-orb-shell-3-188 {
   width: 300px;
   height: 300px;
-}
+
+  opacity: 1 !important;}
 
 .sql-electron-1-188,
 .sql-electron-2-188,
@@ -539,7 +552,8 @@ onUnmounted(() => {
     0 0 20px #06b6d4,
     0 0 40px #8b5cf6;
   z-index: 10;
-}
+
+  opacity: 1 !important;}
 
 .sql-quantum-info-188 {
   display: flex;
@@ -557,11 +571,13 @@ onUnmounted(() => {
   padding: 25px 35px;
   border-radius: 20px;
   border: 1px solid rgba(6, 182, 212, 0.2);
-}
+
+  opacity: 1 !important;}
 
 .sql-info-icon-188 {
   font-size: 2.5rem;
-}
+
+  opacity: 1 !important;}
 
 .sql-info-title-188 {
   font-size: 1.2rem;
@@ -570,40 +586,47 @@ onUnmounted(() => {
   margin-bottom: 5px;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-}
+
+  opacity: 1 !important;}
 
 .sql-info-desc-188 {
   font-size: 0.9rem;
   color: rgba(6, 182, 212, 0.7);
   text-transform: uppercase;
   letter-spacing: 0.05em;
-}
+
+  opacity: 1 !important;}
 
 @media (max-width: 768px) {
   .sql-quantum-orb-188 {
     width: 250px;
     height: 250px;
-  }
+  
+  opacity: 1 !important;}
 
   .sql-orb-core-188 {
     width: 40px;
     height: 40px;
-  }
+  
+  opacity: 1 !important;}
 
   .sql-orb-shell-1-188 {
     width: 80px;
     height: 80px;
-  }
+  
+  opacity: 1 !important;}
 
   .sql-orb-shell-2-188 {
     width: 140px;
     height: 140px;
-  }
+  
+  opacity: 1 !important;}
 
   .sql-orb-shell-3-188 {
     width: 210px;
     height: 210px;
-  }
+  
+  opacity: 1 !important;}
 
   .sql-quantum-info-188 {
     gap: 20px;
@@ -613,10 +636,12 @@ onUnmounted(() => {
     padding: 20px 25px;
     flex-direction: column;
     text-align: center;
-  }
+  
+  opacity: 1 !important;}
 
   .sql-info-icon-188 {
     font-size: 2rem;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

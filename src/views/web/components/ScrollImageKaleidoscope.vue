@@ -449,7 +449,8 @@ onUnmounted(() => {
       radial-gradient(circle at 50% 50%, rgba(168, 85, 247, 0.05) 0%, transparent 50%),
       radial-gradient(circle at 20% 80%, rgba(236, 72, 153, 0.05) 0%, transparent 50%);
     pointer-events: none;
-  }
+  
+  opacity: 1 !important;}
 }
 
 .sik-container-230 {
@@ -457,7 +458,8 @@ onUnmounted(() => {
   margin: 0 auto;
   position: relative;
   z-index: 1;
-}
+
+  opacity: 1 !important;}
 
 .sik-title-230 {
   font-size: 3rem;
@@ -470,7 +472,8 @@ onUnmounted(() => {
   background-clip: text;
   text-shadow: 0 0 40px rgba(168, 85, 247, 0.3);
   animation: sik-gradient-rotate-230 8s linear infinite;
-}
+
+  opacity: 1 !important;}
 
 @keyframes sik-gradient-rotate-230 {
   0% { filter: hue-rotate(0deg); }
@@ -484,7 +487,8 @@ onUnmounted(() => {
   margin-bottom: 40px;
   letter-spacing: 3px;
   text-transform: uppercase;
-}
+
+  opacity: 1 !important;}
 
 .sik-kaleido-control-panel-230 {
   display: flex;
@@ -497,7 +501,8 @@ onUnmounted(() => {
   border: 1px solid rgba(168, 85, 247, 0.3);
   border-radius: 16px;
   backdrop-filter: blur(10px);
-}
+
+  opacity: 1 !important;}
 
 .sik-control-group-230 {
   display: flex;
@@ -510,7 +515,8 @@ onUnmounted(() => {
   font-size: 14px;
   font-weight: 600;
   white-space: nowrap;
-}
+
+  opacity: 1 !important;}
 
 .sik-slider-230 {
   width: 120px;
@@ -528,7 +534,8 @@ onUnmounted(() => {
     border-radius: 50%;
     cursor: pointer;
     box-shadow: 0 0 10px rgba(168, 85, 247, 0.8);
-  }
+  
+  opacity: 1 !important;}
 }
 
 .sik-value-230 {
@@ -536,7 +543,8 @@ onUnmounted(() => {
   font-size: 14px;
   font-weight: 600;
   min-width: 50px;
-}
+
+  opacity: 1 !important;}
 
 .sik-mode-buttons-230 {
   display: flex;
@@ -556,14 +564,16 @@ onUnmounted(() => {
   &:hover {
     background: rgba(168, 85, 247, 0.2);
     border-color: rgba(168, 85, 247, 0.6);
-  }
+  
+  opacity: 1 !important;}
 
   &.sik-active-230 {
     background: linear-gradient(135deg, #a855f7, #ec4899);
     border-color: transparent;
     color: white;
     font-weight: 600;
-  }
+  
+  opacity: 1 !important;}
 }
 
 .sik-kaleidoscope-gallery-230 {
@@ -587,7 +597,8 @@ onUnmounted(() => {
     0 0 60px rgba(168, 85, 247, 0.2),
     inset 0 0 60px rgba(168, 85, 247, 0.05);
   transform-style: preserve-3d;
-}
+
+  opacity: 1 !important;}
 
 .sik-kaleidoscope-container-230 {
   position: relative;
@@ -598,7 +609,8 @@ onUnmounted(() => {
   overflow: hidden;
   transform-style: preserve-3d;
   perspective: 1000px;
-}
+
+  opacity: 1 !important;}
 
 .sik-kaleidoscope-rotation-230 {
   position: absolute;
@@ -607,7 +619,8 @@ onUnmounted(() => {
   width: 100%;
   height: 100%;
   transform-style: preserve-3d;
-}
+
+  opacity: 1 !important;}
 
 .sik-segment-230 {
   position: absolute;
@@ -616,7 +629,8 @@ onUnmounted(() => {
   width: 100%;
   height: 100%;
   transform-origin: 50% 50%;
-}
+
+  opacity: 1 !important;}
 
 .sik-segment-content-230 {
   position: absolute;
@@ -625,7 +639,8 @@ onUnmounted(() => {
   width: 100%;
   height: 100%;
   transform-origin: 50% 50%;
-}
+
+  opacity: 1 !important;}
 
 .sik-segment-image-230 {
   position: absolute;
@@ -635,7 +650,8 @@ onUnmounted(() => {
   height: 100%;
   object-fit: cover;
   filter: saturate(1.5) brightness(1.1);
-}
+
+  opacity: 1 !important;}
 
 .sik-center-pattern-230 {
   position: absolute;
@@ -647,7 +663,8 @@ onUnmounted(() => {
   display: flex;
   align-items: center;
   justify-content: center;
-}
+
+  opacity: 1 !important;}
 
 .sik-center-ring-230 {
   position: absolute;
@@ -655,7 +672,8 @@ onUnmounted(() => {
   height: 100%;
   border: 2px solid rgba(168, 85, 247, 0.5);
   border-radius: 50%;
-}
+
+  opacity: 1 !important;}
 
 .sik-center-core-230 {
   width: 40px;
@@ -663,7 +681,8 @@ onUnmounted(() => {
   background: linear-gradient(135deg, #a855f7, #ec4899);
   border-radius: 50%;
   box-shadow: 0 0 20px rgba(168, 85, 247, 0.8);
-}
+
+  opacity: 1 !important;}
 
 .sik-kaleido-particles-230 {
   position: absolute;
@@ -672,7 +691,8 @@ onUnmounted(() => {
   width: 100%;
   height: 100%;
   pointer-events: none;
-}
+
+  opacity: 1 !important;}
 
 .sik-particle-230 {
   position: absolute;
@@ -684,7 +704,8 @@ onUnmounted(() => {
   left: 50%;
   transform: translate(-50%, -50%);
   box-shadow: 0 0 10px rgba(168, 85, 247, 0.8);
-}
+
+  opacity: 1 !important;}
 
 .sik-original-preview-230 {
   position: absolute;
@@ -702,7 +723,8 @@ onUnmounted(() => {
   width: 100%;
   height: 100%;
   object-fit: cover;
-}
+
+  opacity: 1 !important;}
 
 .sik-kaleidoscope-overlay-230 {
   position: absolute;
@@ -713,7 +735,8 @@ onUnmounted(() => {
   background: linear-gradient(transparent, rgba(10, 10, 26, 0.95));
   z-index: 10;
   border-top: 1px solid rgba(168, 85, 247, 0.3);
-}
+
+  opacity: 1 !important;}
 
 .sik-kaleidoscope-content-230 {
   transform: translateZ(20px);
@@ -733,7 +756,8 @@ onUnmounted(() => {
   letter-spacing: 1px;
   text-transform: uppercase;
   margin-bottom: 12px;
-}
+
+  opacity: 1 !important;}
 
 .sik-card-title-230 {
   font-size: 1.5rem;
@@ -741,14 +765,16 @@ onUnmounted(() => {
   color: #ec4899;
   margin-bottom: 8px;
   text-shadow: 0 0 20px rgba(236, 72, 153, 0.5);
-}
+
+  opacity: 1 !important;}
 
 .sik-card-desc-230 {
   font-size: 1rem;
   color: #94a3b8;
   margin-bottom: 20px;
   line-height: 1.6;
-}
+
+  opacity: 1 !important;}
 
 .sik-kaleido-metrics-230 {
   display: flex;
@@ -766,13 +792,15 @@ onUnmounted(() => {
   color: #64748b;
   text-transform: uppercase;
   letter-spacing: 1px;
-}
+
+  opacity: 1 !important;}
 
 .sik-metric-value-230 {
   font-size: 14px;
   color: #ec4899;
   font-weight: 600;
-}
+
+  opacity: 1 !important;}
 
 .sik-kaleidoscope-status-230 {
   display: flex;
@@ -784,7 +812,8 @@ onUnmounted(() => {
   border: 1px solid rgba(168, 85, 247, 0.3);
   border-radius: 12px;
   backdrop-filter: blur(10px);
-}
+
+  opacity: 1 !important;}
 
 .sik-kaleido-display-230 {
   display: flex;
@@ -796,12 +825,14 @@ onUnmounted(() => {
   width: 50px;
   height: 50px;
   color: #a855f7;
-}
+
+  opacity: 1 !important;}
 
 .sik-icon-svg-230 {
   width: 100%;
   height: 100%;
-}
+
+  opacity: 1 !important;}
 
 .sik-status-info-230 {
   display: flex;
@@ -814,13 +845,15 @@ onUnmounted(() => {
   color: #64748b;
   text-transform: uppercase;
   letter-spacing: 1px;
-}
+
+  opacity: 1 !important;}
 
 .sik-status-text-230 {
   font-size: 14px;
   color: #ec4899;
   font-weight: 600;
-}
+
+  opacity: 1 !important;}
 
 .sik-kaleido-rings-230 {
   display: flex;
@@ -829,7 +862,8 @@ onUnmounted(() => {
   gap: 8px;
   width: 80px;
   height: 80px;
-}
+
+  opacity: 1 !important;}
 
 .sik-status-ring-230 {
   position: absolute;
@@ -839,7 +873,8 @@ onUnmounted(() => {
   border-radius: 50%;
 
 
-  &:nth-child(1) { width: 40px; height: 40px; }
+  &:nth-child(1) { width: 40px; height: 40px; 
+  opacity: 1 !important;}
   &:nth-child(2) { width: 60px; height: 60px; }
   &:nth-child(3) { width: 80px; height: 80px; }
 }
@@ -847,7 +882,8 @@ onUnmounted(() => {
 @media (max-width: 768px) {
   .sik-title-230 {
     font-size: 2rem;
-  }
+  
+  opacity: 1 !important;}
 
   .sik-kaleidoscope-gallery-230 {
     grid-template-columns: 1fr;
@@ -861,6 +897,7 @@ onUnmounted(() => {
   .sik-kaleidoscope-container-230 {
     width: 300px;
     height: 300px;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

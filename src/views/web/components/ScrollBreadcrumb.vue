@@ -369,13 +369,16 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
+/* GSAP opacity fix: ensure content is always visible */
+
 .scroll-breadcrumb-section-223 {
   min-height: 100vh;
   padding: 80px 20px;
   background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
   position: relative;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .particle-canvas-223 {
   position: fixed;
@@ -385,14 +388,16 @@ onUnmounted(() => {
   height: 100%;
   pointer-events: none;
   z-index: 1;
-}
+
+  opacity: 1 !important;}
 
 .section-header-223 {
   text-align: center;
   margin-bottom: 60px;
   position: relative;
   z-index: 2;
-}
+
+  opacity: 1 !important;}
 
 .section-title-223 {
   font-size: 3rem;
@@ -403,14 +408,16 @@ onUnmounted(() => {
   background-clip: text;
   margin-bottom: 16px;
   text-shadow: 0 0 40px rgba(16, 185, 129, 0.3);
-}
+
+  opacity: 1 !important;}
 
 .section-subtitle-223 {
   font-size: 1.25rem;
   color: #64748b;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-}
+
+  opacity: 1 !important;}
 
 .breadcrumb-demo-223 {
   max-width: 1200px;
@@ -422,7 +429,8 @@ onUnmounted(() => {
   border: 1px solid rgba(16, 185, 129, 0.1);
   position: relative;
   z-index: 2;
-}
+
+  opacity: 1 !important;}
 
 .demo-label-223 {
   font-size: 0.875rem;
@@ -434,7 +442,8 @@ onUnmounted(() => {
   display: inline-block;
   font-weight: 600;
   letter-spacing: 0.05em;
-}
+
+  opacity: 1 !important;}
 
 /* 水平面包屑 */
 .breadcrumb-container-223 {
@@ -454,7 +463,8 @@ onUnmounted(() => {
   cursor: pointer;
   transition: all 0.3s ease;
   border: 1px solid rgba(16, 185, 129, 0.2);
-}
+
+  opacity: 1 !important;}
 
 .crumb-item-223:hover {
   background: rgba(16, 185, 129, 0.1);
@@ -466,28 +476,33 @@ onUnmounted(() => {
   background: rgba(16, 185, 129, 0.15);
   border-color: #10b981;
   box-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
-}
+
+  opacity: 1 !important;}
 
 .crumb-icon-223 {
   font-size: 1.25rem;
-}
+
+  opacity: 1 !important;}
 
 .crumb-text-223 {
   font-size: 1rem;
   font-weight: 500;
   color: #e2e8f0;
-}
+
+  opacity: 1 !important;}
 
 .crumb-active-223 .crumb-text-223 {
   color: #10b981;
   font-weight: 600;
-}
+
+  opacity: 1 !important;}
 
 .crumb-separator-223 {
   color: #64748b;
   font-size: 1.25rem;
   font-weight: 300;
-}
+
+  opacity: 1 !important;}
 
 .breadcrumb-info-223 {
   margin-top: 20px;
@@ -503,7 +518,8 @@ onUnmounted(() => {
   color: #10b981;
   font-size: 0.875rem;
   font-weight: 600;
-}
+
+  opacity: 1 !important;}
 
 /* 垂直面包屑 */
 .breadcrumb-vertical-223 {
@@ -516,7 +532,8 @@ onUnmounted(() => {
   width: 100%;
   justify-content: flex-start;
   padding: 16px 24px;
-}
+
+  opacity: 1 !important;}
 
 .crumb-dot-223 {
   width: 12px;
@@ -525,12 +542,14 @@ onUnmounted(() => {
   background: rgba(255, 255, 255, 0.3);
   border: 2px solid #10b981;
   flex-shrink: 0;
-}
+
+  opacity: 1 !important;}
 
 .crumb-active-223 .crumb-dot-223 {
   background: #10b981;
   box-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
-}
+
+  opacity: 1 !important;}
 
 /* 卡片式面包屑 */
 .breadcrumb-cards-223 {
@@ -549,7 +568,8 @@ onUnmounted(() => {
   min-width: 120px;
   cursor: pointer;
   transition: all 0.3s ease;
-}
+
+  opacity: 1 !important;}
 
 .crumb-card-223:hover {
   background: rgba(16, 185, 129, 0.1);
@@ -561,7 +581,8 @@ onUnmounted(() => {
   background: rgba(16, 185, 129, 0.15);
   border-color: #10b981;
   box-shadow: 0 0 25px rgba(16, 185, 129, 0.3);
-}
+
+  opacity: 1 !important;}
 
 .crumb-card-icon-223 {
   width: 48px;
@@ -574,31 +595,36 @@ onUnmounted(() => {
   font-size: 1.25rem;
   font-weight: 700;
   color: #fff;
-}
+
+  opacity: 1 !important;}
 
 .crumb-card-text-223 {
   font-size: 0.875rem;
   font-weight: 500;
   color: #e2e8f0;
   text-align: center;
-}
+
+  opacity: 1 !important;}
 
 .crumb-card-active-223 .crumb-card-text-223 {
   color: #10b981;
   font-weight: 600;
-}
+
+  opacity: 1 !important;}
 
 .crumb-arrow-223 {
   color: #64748b;
   font-size: 1.5rem;
   font-weight: 300;
-}
+
+  opacity: 1 !important;}
 
 /* 进度条面包屑 */
 .progress-breadcrumb-wrapper-223 {
   width: 100%;
   position: relative;
-}
+
+  opacity: 1 !important;}
 
 .progress-line-223 {
   position: absolute;
@@ -609,7 +635,8 @@ onUnmounted(() => {
   background: rgba(255, 255, 255, 0.1);
   border-radius: 2px;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .progress-fill-223 {
   height: 100%;
@@ -617,14 +644,16 @@ onUnmounted(() => {
   background: linear-gradient(90deg, #10b981 0%, #34d399 100%);
   border-radius: 2px;
   box-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
-}
+
+  opacity: 1 !important;}
 
 .progress-crumbs-223 {
   display: flex;
   justify-content: space-between;
   position: relative;
   padding: 0 16px;
-}
+
+  opacity: 1 !important;}
 
 .progress-crumb-item-223 {
   display: flex;
@@ -647,24 +676,28 @@ onUnmounted(() => {
   font-weight: 600;
   color: #e2e8f0;
   transition: all 0.3s ease;
-}
+
+  opacity: 1 !important;}
 
 .progress-crumb-active-223 .progress-crumb-circle-223 {
   background: linear-gradient(135deg, #10b981 0%, #34d399 100%);
   color: #fff;
   box-shadow: 0 0 20px rgba(16, 185, 129, 0.4);
-}
+
+  opacity: 1 !important;}
 
 .progress-crumb-label-223 {
   font-size: 0.875rem;
   font-weight: 500;
   color: #94a3b8;
-}
+
+  opacity: 1 !important;}
 
 .progress-crumb-active-223 .progress-crumb-label-223 {
   color: #10b981;
   font-weight: 600;
-}
+
+  opacity: 1 !important;}
 
 /* 圆形进度面包屑 */
 .circle-crumbs-223 {
@@ -684,13 +717,15 @@ onUnmounted(() => {
   width: 80px;
   height: 80px;
   transform: rotate(-90deg);
-}
+
+  opacity: 1 !important;}
 
 .circle-bg-223 {
   fill: none;
   stroke: rgba(255, 255, 255, 0.1);
   stroke-width: 3;
-}
+
+  opacity: 1 !important;}
 
 .circle-fill-223 {
   fill: none;
@@ -698,7 +733,8 @@ onUnmounted(() => {
   stroke-width: 3;
   stroke-linecap: round;
   transition: stroke-dasharray 0.6s ease;
-}
+
+  opacity: 1 !important;}
 
 .circle-fill-complete-223 {
   stroke: #10b981;
@@ -709,22 +745,26 @@ onUnmounted(() => {
   font-size: 0.875rem;
   font-weight: 500;
   color: #94a3b8;
-}
+
+  opacity: 1 !important;}
 
 .circle-crumb-active-223 .circle-crumb-text-223 {
   color: #10b981;
   font-weight: 600;
-}
+
+  opacity: 1 !important;}
 
 /* 响应式 */
 @media (max-width: 768px) {
   .section-title-223 {
     font-size: 2rem;
-  }
+  
+  opacity: 1 !important;}
 
   .breadcrumb-demo-223 {
     padding: 24px;
-  }
+  
+  opacity: 1 !important;}
 
   .breadcrumb-container-223 {
     flex-wrap: wrap;
@@ -732,7 +772,8 @@ onUnmounted(() => {
 
   .crumb-item-223 {
     padding: 10px 16px;
-  }
+  
+  opacity: 1 !important;}
 
   .circle-crumbs-223 {
     gap: 20px;
@@ -741,17 +782,20 @@ onUnmounted(() => {
   .circle-progress-223 {
     width: 60px;
     height: 60px;
-  }
+  
+  opacity: 1 !important;}
 
   .crumb-card-223 {
     min-width: 80px;
     padding: 16px 20px;
-  }
+  
+  opacity: 1 !important;}
 
   .crumb-card-icon-223 {
     width: 40px;
     height: 40px;
     font-size: 1rem;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

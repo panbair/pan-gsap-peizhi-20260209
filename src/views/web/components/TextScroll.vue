@@ -121,7 +121,8 @@ onUnmounted(() => {
     height: 800px;
     background: radial-gradient(circle, rgba(255, 107, 107, 0.1) 0%, transparent 70%);
     pointer-events: none;
-  }
+  
+  opacity: 1 !important;}
 }
 
 .ts-container-37 {
@@ -130,7 +131,8 @@ onUnmounted(() => {
   padding: 0 40px;
   position: relative;
   z-index: 1;
-}
+
+  opacity: 1 !important;}
 
 .ts-section-title-37 {
   text-align: center;
@@ -152,7 +154,8 @@ onUnmounted(() => {
     background: linear-gradient(90deg, #ff6b6b, #ee5a24, #f39c12);
     margin: 20px auto 0;
     border-radius: 2px;
-  }
+  
+  opacity: 1 !important;}
 }
 
 .ts-text-container-37 {
@@ -160,7 +163,8 @@ onUnmounted(() => {
   flex-direction: column;
   gap: 30px;
   padding: 60px 0;
-}
+
+  opacity: 1 !important;}
 
 .ts-text-line-37 {
   display: flex;
@@ -181,16 +185,19 @@ onUnmounted(() => {
   &:hover {
     color: #ff6b6b;
     cursor: default;
-  }
+  
+  opacity: 1 !important;}
 }
 
 @media (max-width: 768px) {
   .ts-text-char-37 {
     font-size: 2.5rem;
-  }
+  
+  opacity: 1 !important;}
 
   .ts-section-title-37 {
     font-size: 2rem;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

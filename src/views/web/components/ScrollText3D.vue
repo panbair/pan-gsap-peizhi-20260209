@@ -278,7 +278,8 @@ onUnmounted(() => {
       radial-gradient(circle at 50% 50%, rgba(168, 85, 247, 0.08) 0%, transparent 80%);
     pointer-events: none;
     animation: glow 8s ease-in-out infinite;
-  }
+  
+  opacity: 1 !important;}
 }
 
 .st3-container-128 {
@@ -286,7 +287,8 @@ onUnmounted(() => {
   margin: 0 auto;
   position: relative;
   z-index: 1;
-}
+
+  opacity: 1 !important;}
 
 .st3-section-title-128 {
   text-align: center;
@@ -300,7 +302,8 @@ onUnmounted(() => {
   background-clip: text;
   text-shadow: 0 0 60px rgba(59, 130, 246, 0.4);
   transform-style: preserve-3d;
-}
+
+  opacity: 1 !important;}
 
 .st3-section-subtitle-128 {
   text-align: center;
@@ -310,14 +313,16 @@ onUnmounted(() => {
   letter-spacing: 0.2em;
   text-transform: uppercase;
   transform-style: preserve-3d;
-}
+
+  opacity: 1 !important;}
 
 .st3-3d-stage-128 {
   position: relative;
   min-height: 600px;
   perspective: 1500px;
   transform-style: preserve-3d;
-}
+
+  opacity: 1 !important;}
 
 .st3-text-rows-128 {
   position: relative;
@@ -334,7 +339,8 @@ onUnmounted(() => {
   transform-style: preserve-3d;
   cursor: pointer;
   margin: 30px 0;
-}
+
+  opacity: 1 !important;}
 
 .st3-text-layer-128 {
   position: absolute;
@@ -345,7 +351,8 @@ onUnmounted(() => {
   border-radius: 20px;
   pointer-events: none;
   filter: blur(10px);
-}
+
+  opacity: 1 !important;}
 
 .st3-text-content-128 {
   position: relative;
@@ -370,7 +377,8 @@ onUnmounted(() => {
   position: relative;
   transform-style: preserve-3d;
   transition: all 0.3s ease;
-}
+
+  opacity: 1 !important;}
 
 .st3-floating-elements-128 {
   position: absolute;
@@ -380,7 +388,8 @@ onUnmounted(() => {
   height: 100%;
   pointer-events: none;
   z-index: 0;
-}
+
+  opacity: 1 !important;}
 
 .st3-float-element-128 {
   position: absolute;
@@ -410,11 +419,13 @@ onUnmounted(() => {
   .st3-text-row-128 {
     height: 80px;
     margin: 20px 0;
-  }
+  
+  opacity: 1 !important;}
 
   .st3-text-128 {
     font-size: 2.5rem;
-  }
+  
+  opacity: 1 !important;}
 
   .st3-section-title-128 {
     margin-bottom: 80px;
@@ -423,14 +434,17 @@ onUnmounted(() => {
   .st3-section-subtitle-128 {
     margin-bottom: 80px;
     font-size: 0.9rem;
-  }
+  
+  opacity: 1 !important;}
 
   .st3-3d-stage-128 {
     min-height: 400px;
-  }
+  
+  opacity: 1 !important;}
 
   .st3-container-128 {
     padding: 0 20px;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

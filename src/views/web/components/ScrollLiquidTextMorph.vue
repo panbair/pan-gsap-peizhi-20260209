@@ -364,14 +364,16 @@ onUnmounted(() => {
   background: linear-gradient(180deg, #0a0a1a 0%, #0a1a2a 50%, #1a0a2a 100%);
   position: relative;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .slt-container-186 {
   position: relative;
   max-width: 1400px;
   margin: 0 auto;
   z-index: 1;
-}
+
+  opacity: 1 !important;}
 
 .slt-title-186 {
   text-align: center;
@@ -382,7 +384,8 @@ onUnmounted(() => {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-}
+
+  opacity: 1 !important;}
 
 .slt-subtitle-186 {
   text-align: center;
@@ -391,7 +394,8 @@ onUnmounted(() => {
   margin-bottom: 120px;
   letter-spacing: 0.5em;
   text-transform: uppercase;
-}
+
+  opacity: 1 !important;}
 
 .slt-text-stage-186 {
   position: relative;
@@ -401,7 +405,8 @@ onUnmounted(() => {
   align-items: center;
   justify-content: center;
   gap: 60px;
-}
+
+  opacity: 1 !important;}
 
 .slt-liquid-pool-186 {
   position: absolute;
@@ -440,7 +445,8 @@ onUnmounted(() => {
   gap: 0.1em;
   font-size: clamp(5rem, 12vw, 8rem);
   font-weight: 900;
-}
+
+  opacity: 1 !important;}
 
 .slt-letter-186 {
   position: relative;
@@ -449,7 +455,8 @@ onUnmounted(() => {
   text-transform: uppercase;
   text-shadow: 0 0 30px rgba(6, 182, 212, 0.5);
   transition: all 0.5s ease;
-}
+
+  opacity: 1 !important;}
 
 .slt-droplet-container-186 {
   position: absolute;
@@ -459,7 +466,8 @@ onUnmounted(() => {
   height: 100%;
   pointer-events: none;
   z-index: 0;
-}
+
+  opacity: 1 !important;}
 
 .slt-droplet-186 {
   position: absolute;
@@ -467,7 +475,8 @@ onUnmounted(() => {
   height: 12px;
   background: radial-gradient(ellipse at center, rgba(6, 182, 212, 0.8) 0%, rgba(59, 130, 246, 0.3) 70%, transparent 100%);
   border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
-}
+
+  opacity: 1 !important;}
 
 .slt-wave-lines-186 {
   position: absolute;
@@ -477,7 +486,8 @@ onUnmounted(() => {
   height: 30%;
   pointer-events: none;
   z-index: 0;
-}
+
+  opacity: 1 !important;}
 
 .slt-wave-line-186 {
   position: absolute;
@@ -485,7 +495,8 @@ onUnmounted(() => {
   height: 2px;
   background: linear-gradient(90deg, transparent, rgba(6, 182, 212, 0.3), rgba(59, 130, 246, 0.3), rgba(139, 92, 246, 0.3), transparent);
   transform-origin: left center;
-}
+
+  opacity: 1 !important;}
 
 @for $i from 1 through 8 {
   .slt-wave-line-186:nth-child(#{$i}) {
@@ -501,6 +512,7 @@ onUnmounted(() => {
 
   .slt-letters-186 {
     font-size: 4rem;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

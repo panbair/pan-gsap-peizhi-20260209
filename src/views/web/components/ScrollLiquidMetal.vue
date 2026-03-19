@@ -161,18 +161,22 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
+/* GSAP opacity fix: ensure content is always visible */
+
 .liquid-metal-container-199 {
   min-height: 100vh;
   background: linear-gradient(180deg, #0a0a0a 0%, #1a1a1a 100%);
   padding: 60px 20px;
   position: relative;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .lm-header-199 {
   text-align: center;
   margin-bottom: 60px;
-}
+
+  opacity: 1 !important;}
 
 .lm-title-199 {
   font-size: 48px;
@@ -183,12 +187,14 @@ onUnmounted(() => {
   background-clip: text;
   text-shadow: 0 0 40px rgba(192, 192, 192, 0.3);
   margin-bottom: 10px;
-}
+
+  opacity: 1 !important;}
 
 .lm-hint-199 {
   font-size: 18px;
   color: #a0a0a0;
-}
+
+  opacity: 1 !important;}
 
 .lm-stage-199 {
   max-width: 1400px;
@@ -197,7 +203,8 @@ onUnmounted(() => {
   grid-template-columns: repeat(4, 1fr);
   gap: 40px;
   padding: 20px;
-}
+
+  opacity: 1 !important;}
 
 .lm-item-wrapper-199 {
   height: 420px;
@@ -205,7 +212,8 @@ onUnmounted(() => {
   display: flex;
   justify-content: center;
   align-items: center;
-}
+
+  opacity: 1 !important;}
 
 .lm-metal-199 {
   position: relative;
@@ -213,7 +221,8 @@ onUnmounted(() => {
   height: 380px;
   transition: transform 0.5s ease, box-shadow 0.5s ease;
   transform-style: preserve-3d;
-}
+
+  opacity: 1 !important;}
 
 .lm-droplets-199 {
   position: absolute;
@@ -236,7 +245,8 @@ onUnmounted(() => {
     inset 0 -2px 10px rgba(0, 0, 0, 0.3);
   transition: all 0.5s ease;
   animation: metal-flow-199 8s ease-in-out infinite;
-}
+
+  opacity: 1 !important;}
 
 @keyframes metal-flow-199 {
   0%, 100% { background-position: 0% 50%; }
@@ -272,13 +282,15 @@ onUnmounted(() => {
   justify-content: center;
   text-align: center;
   transform: translateZ(20px);
-}
+
+  opacity: 1 !important;}
 
 .lm-icon-199 {
   font-size: 64px;
   margin-bottom: 20px;
   filter: drop-shadow(0 0 15px rgba(192, 192, 192, 0.8));
-}
+
+  opacity: 1 !important;}
 
 .lm-item-title-199 {
   font-size: 26px;
@@ -286,13 +298,15 @@ onUnmounted(() => {
   color: #404040;
   margin-bottom: 10px;
   text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-}
+
+  opacity: 1 !important;}
 
 .lm-item-desc-199 {
   font-size: 14px;
   color: #606060;
   line-height: 1.6;
-}
+
+  opacity: 1 !important;}
 
 @media (max-width: 1024px) {
   .lm-stage-199 {
@@ -308,6 +322,7 @@ onUnmounted(() => {
   .lm-metal-199 {
     width: 240px;
     height: 340px;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

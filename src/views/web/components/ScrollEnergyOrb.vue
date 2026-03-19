@@ -372,14 +372,16 @@ onUnmounted(() => {
   background: radial-gradient(ellipse at center, #1a1a2e 0%, #0a0a1a 100%);
   position: relative;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .seo-container-164 {
   position: relative;
   max-width: 1400px;
   margin: 0 auto;
   z-index: 1;
-}
+
+  opacity: 1 !important;}
 
 .seo-title-164 {
   text-align: center;
@@ -391,7 +393,8 @@ onUnmounted(() => {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   text-shadow: 0 0 80px rgba(255, 215, 0, 0.5);
-}
+
+  opacity: 1 !important;}
 
 .seo-subtitle-164 {
   text-align: center;
@@ -400,7 +403,8 @@ onUnmounted(() => {
   margin-bottom: 100px;
   letter-spacing: 0.3em;
   text-transform: uppercase;
-}
+
+  opacity: 1 !important;}
 
 .seo-orb-stage-164 {
   position: relative;
@@ -410,7 +414,8 @@ onUnmounted(() => {
   align-items: center;
   justify-content: center;
   margin-bottom: 80px;
-}
+
+  opacity: 1 !important;}
 
 .seo-canvas-164 {
   position: absolute;
@@ -419,7 +424,8 @@ onUnmounted(() => {
   width: 100%;
   height: 100%;
   pointer-events: none;
-}
+
+  opacity: 1 !important;}
 
 .seo-orb-container-164 {
   position: relative;
@@ -435,7 +441,8 @@ onUnmounted(() => {
   display: flex;
   align-items: center;
   justify-content: center;
-}
+
+  opacity: 1 !important;}
 
 .seo-orb-core-164 {
   position: absolute;
@@ -449,7 +456,8 @@ onUnmounted(() => {
     0 0 180px rgba(255, 69, 0, 0.4);
   z-index: 3;
   animation: core-pulse 2s ease-in-out infinite;
-}
+
+  opacity: 1 !important;}
 
 @keyframes core-pulse {
   0%, 100% {
@@ -467,27 +475,31 @@ onUnmounted(() => {
   border-radius: 50%;
   border: 2px solid rgba(255, 215, 0, 0.5);
   box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
-}
+
+  opacity: 1 !important;}
 
 .seo-ring-1-164 {
   width: 150px;
   height: 150px;
   z-index: 2;
-}
+
+  opacity: 1 !important;}
 
 .seo-ring-2-164 {
   width: 200px;
   height: 200px;
   border-color: rgba(255, 140, 0, 0.4);
   z-index: 1;
-}
+
+  opacity: 1 !important;}
 
 .seo-ring-3-164 {
   width: 280px;
   height: 280px;
   border-color: rgba(255, 69, 0, 0.3);
   z-index: 0;
-}
+
+  opacity: 1 !important;}
 
 .seo-orb-glow-164 {
   position: absolute;
@@ -496,7 +508,8 @@ onUnmounted(() => {
   background: radial-gradient(circle, rgba(255, 215, 0, 0.2) 0%, transparent 70%);
   border-radius: 50%;
   z-index: -1;
-}
+
+  opacity: 1 !important;}
 
 .seo-energy-particles-164 {
   position: absolute;
@@ -504,7 +517,8 @@ onUnmounted(() => {
   height: 300px;
   pointer-events: none;
   z-index: 4;
-}
+
+  opacity: 1 !important;}
 
 .seo-particle-164 {
   position: absolute;
@@ -526,7 +540,8 @@ onUnmounted(() => {
   padding: 30px 40px;
   border-radius: 20px;
   border: 1px solid rgba(255, 215, 0, 0.2);
-}
+
+  opacity: 1 !important;}
 
 .seo-data-value-164 {
   font-size: 3rem;
@@ -534,50 +549,59 @@ onUnmounted(() => {
   color: #ffd700;
   margin-bottom: 10px;
   text-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
-}
+
+  opacity: 1 !important;}
 
 .seo-data-label-164 {
   font-size: 1rem;
   color: rgba(255, 215, 0, 0.7);
   text-transform: uppercase;
   letter-spacing: 0.2em;
-}
+
+  opacity: 1 !important;}
 
 @media (max-width: 768px) {
   .seo-energy-orb-164 {
     width: 200px;
     height: 200px;
-  }
+  
+  opacity: 1 !important;}
 
   .seo-orb-core-164 {
     width: 70px;
     height: 70px;
-  }
+  
+  opacity: 1 !important;}
 
   .seo-ring-1-164 {
     width: 100px;
     height: 100px;
-  }
+  
+  opacity: 1 !important;}
 
   .seo-ring-2-164 {
     width: 140px;
     height: 140px;
-  }
+  
+  opacity: 1 !important;}
 
   .seo-ring-3-164 {
     width: 190px;
     height: 190px;
-  }
+  
+  opacity: 1 !important;}
 
   .seo-orb-glow-164 {
     width: 230px;
     height: 230px;
-  }
+  
+  opacity: 1 !important;}
 
   .seo-energy-particles-164 {
     width: 200px;
     height: 200px;
-  }
+  
+  opacity: 1 !important;}
 
   .seo-data-display-164 {
     gap: 20px;
@@ -585,10 +609,12 @@ onUnmounted(() => {
 
   .seo-data-item-164 {
     padding: 20px 30px;
-  }
+  
+  opacity: 1 !important;}
 
   .seo-data-value-164 {
     font-size: 2rem;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

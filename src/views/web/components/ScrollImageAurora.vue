@@ -276,7 +276,8 @@ watch([flowSpeed, glowIntensity], () => {
   padding: 60px 20px;
   position: relative;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .sai-section-228::before {
   content: '';
@@ -296,7 +297,8 @@ watch([flowSpeed, glowIntensity], () => {
   margin: 0 auto;
   position: relative;
   z-index: 1;
-}
+
+  opacity: 1 !important;}
 
 .sai-title-228 {
   font-size: 3rem;
@@ -307,14 +309,16 @@ watch([flowSpeed, glowIntensity], () => {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   text-align: center;
-}
+
+  opacity: 1 !important;}
 
 .sai-subtitle-228 {
   font-size: 1.2rem;
   color: #94a3b8;
   text-align: center;
   margin-bottom: 40px;
-}
+
+  opacity: 1 !important;}
 
 .sai-control-panel-228 {
   display: flex;
@@ -327,20 +331,23 @@ watch([flowSpeed, glowIntensity], () => {
   border-radius: 16px;
   border: 1px solid rgba(255, 255, 255, 0.1);
   margin-bottom: 40px;
-}
+
+  opacity: 1 !important;}
 
 .sai-control-group-228 {
   display: flex;
   flex-direction: column;
   gap: 10px;
   min-width: 200px;
-}
+
+  opacity: 1 !important;}
 
 .sai-label-228 {
   font-size: 14px;
   color: #94a3b8;
   font-weight: 500;
-}
+
+  opacity: 1 !important;}
 
 .sai-slider-228 {
   width: 100%;
@@ -361,7 +368,8 @@ watch([flowSpeed, glowIntensity], () => {
 
     &:hover {
       transform: scale(1.2);
-    }
+    
+  opacity: 1 !important;}
   }
 }
 
@@ -369,7 +377,8 @@ watch([flowSpeed, glowIntensity], () => {
   font-size: 13px;
   color: #a78bfa;
   font-weight: 600;
-}
+
+  opacity: 1 !important;}
 
 .sai-mode-btn-228 {
   padding: 8px 16px;
@@ -383,12 +392,14 @@ watch([flowSpeed, glowIntensity], () => {
 
   &:hover {
     background: rgba(255, 255, 255, 0.2);
-  }
+  
+  opacity: 1 !important;}
 
   &.sai-active-228 {
     background: linear-gradient(135deg, #a78bfa, #60a5fa);
     border-color: transparent;
-  }
+  
+  opacity: 1 !important;}
 }
 
 .sai-aurora-gallery-228 {
@@ -410,7 +421,8 @@ watch([flowSpeed, glowIntensity], () => {
   &.sai-active-228 {
     border-color: #a78bfa;
     box-shadow: 0 0 30px rgba(167, 139, 250, 0.3);
-  }
+  
+  opacity: 1 !important;}
 
   &:hover {
     transform: translateY(-5px);
@@ -423,14 +435,16 @@ watch([flowSpeed, glowIntensity], () => {
   width: 100%;
   height: 250px;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .sai-base-image-228 {
   width: 100%;
   height: 100%;
   object-fit: cover;
   transition: transform 0.5s;
-}
+
+  opacity: 1 !important;}
 
 .sai-aurora-overlay-228 {
   position: absolute;
@@ -455,7 +469,8 @@ watch([flowSpeed, glowIntensity], () => {
   border-radius: 50%;
   filter: blur(60px);
   mix-blend-mode: screen;
-}
+
+  opacity: 1 !important;}
 
 .sai-glow-effect-228 {
   position: absolute;
@@ -474,30 +489,35 @@ watch([flowSpeed, glowIntensity], () => {
   padding: 20px;
   background: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(10px);
-}
+
+  opacity: 1 !important;}
 
 .sai-image-title-228 {
   font-size: 1.2rem;
   font-weight: 600;
   color: #e2e8f0;
   margin-bottom: 5px;
-}
+
+  opacity: 1 !important;}
 
 .sai-image-desc-228 {
   font-size: 0.9rem;
   color: #94a3b8;
-}
+
+  opacity: 1 !important;}
 
 .sai-progress-bar-228 {
   height: 4px;
   background: rgba(255, 255, 255, 0.1);
   border-radius: 2px;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .sai-progress-fill-228 {
   height: 100%;
   background: linear-gradient(90deg, #a78bfa, #60a5fa, #f472b6);
   transition: width 0.3s;
-}
+
+  opacity: 1 !important;}
 </style>

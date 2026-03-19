@@ -127,6 +127,8 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
+/* GSAP opacity fix: ensure content is always visible */
+
 .lr-container-140 {
   width: 100%;
   min-height: 100vh;
@@ -136,7 +138,8 @@ onUnmounted(() => {
   flex-direction: column;
   align-items: center;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .lr-title-140 {
   font-size: clamp(2rem, 5vw, 3.5rem);
@@ -147,14 +150,16 @@ onUnmounted(() => {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-}
+
+  opacity: 1 !important;}
 
 .lr-desc-140 {
   font-size: clamp(0.9rem, 2vw, 1.2rem);
   color: rgba(255, 255, 255, 0.7);
   margin-bottom: 40px;
   text-align: center;
-}
+
+  opacity: 1 !important;}
 
 .lr-stage-140 {
   width: 100%;
@@ -165,20 +170,23 @@ onUnmounted(() => {
   overflow: hidden;
   background: #0a0a1a;
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-}
+
+  opacity: 1 !important;}
 
 .lr-background-140 {
   width: 100%;
   height: 100%;
   position: relative;
-}
+
+  opacity: 1 !important;}
 
 .lr-hidden-content-140 {
   width: 100%;
   height: 100%;
   position: relative;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .lr-bg-image-140 {
   width: 100%;
@@ -186,7 +194,8 @@ onUnmounted(() => {
   object-fit: cover;
   filter: brightness(0.4) blur(2px);
   transform: scale(1.1);
-}
+
+  opacity: 1 !important;}
 
 .lr-text-140 {
   position: absolute;
@@ -197,7 +206,8 @@ onUnmounted(() => {
   color: rgba(255, 255, 255, 0.3);
   font-weight: bold;
   letter-spacing: 4px;
-}
+
+  opacity: 1 !important;}
 
 .lr-lens-wrapper-140 {
   position: absolute;
@@ -207,7 +217,8 @@ onUnmounted(() => {
   height: 150px;
   transform: translate(-50%, -50%);
   z-index: 10;
-}
+
+  opacity: 1 !important;}
 
 .lr-lens-140 {
   width: 100%;
@@ -220,14 +231,16 @@ onUnmounted(() => {
     0 0 30px rgba(245, 87, 108, 0.6),
     inset 0 0 30px rgba(0, 0, 0, 0.5);
   will-change: transform;
-}
+
+  opacity: 1 !important;}
 
 .lr-lens-content-140 {
   width: 100%;
   height: 100%;
   position: relative;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .lr-lens-image-140 {
   width: 400px;
@@ -237,7 +250,8 @@ onUnmounted(() => {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-}
+
+  opacity: 1 !important;}
 
 .lr-lens-text-140 {
   position: absolute;
@@ -249,14 +263,16 @@ onUnmounted(() => {
   font-weight: bold;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
   white-space: nowrap;
-}
+
+  opacity: 1 !important;}
 
 .lr-hint-140 {
   margin-top: 30px;
   font-size: 0.9rem;
   color: rgba(255, 255, 255, 0.5);
   text-align: center;
-}
+
+  opacity: 1 !important;}
 
 @media (max-width: 768px) {
   lr-stage-140 {
@@ -266,6 +282,7 @@ onUnmounted(() => {
   .lr-lens-wrapper-140 {
     width: 100px;
     height: 100px;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

@@ -47,5 +47,6 @@ const initAnimations = () => {
   transform-origin: left center;
   transform: scaleX(0);
   z-index: 1000;
-}
+
+  opacity: 1 !important;}
 </style>

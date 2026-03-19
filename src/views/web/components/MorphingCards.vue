@@ -257,18 +257,22 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
+/* GSAP opacity fix: ensure content is always visible */
+
 .mc-morphing-cards-section-60 {
   min-height: 100vh;
   padding: 80px 40px;
   background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
   position: relative;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .mc-section-header-60 {
   text-align: center;
   margin-bottom: 80px;
-}
+
+  opacity: 1 !important;}
 
 .mc-title-60 {
   font-size: 56px;
@@ -277,7 +281,8 @@ onUnmounted(() => {
   letter-spacing: 6px;
   text-transform: uppercase;
   text-shadow: 0 0 30px rgba(15, 52, 96, 0.5);
-}
+
+  opacity: 1 !important;}
 
 .mc-subtitle-60 {
   font-size: 18px;
@@ -285,7 +290,8 @@ onUnmounted(() => {
   margin-top: 16px;
   letter-spacing: 3px;
   text-transform: uppercase;
-}
+
+  opacity: 1 !important;}
 
 .mc-morphing-container-60 {
   display: grid;
@@ -294,7 +300,8 @@ onUnmounted(() => {
   max-width: 1400px;
   margin: 0 auto;
   padding: 40px 0;
-}
+
+  opacity: 1 !important;}
 
 .mc-morphing-card-60 {
   cursor: pointer;
@@ -310,7 +317,8 @@ onUnmounted(() => {
   position: relative;
   transition: box-shadow 0.4s ease;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
-}
+
+  opacity: 1 !important;}
 
 .mc-card-inner-60:hover {
   box-shadow: 0 20px 60px rgba(15, 52, 96, 0.5);
@@ -322,12 +330,14 @@ onUnmounted(() => {
   background-size: cover;
   background-position: center;
   transition: transform 0.5s ease;
-}
+
+  opacity: 1 !important;}
 
 .mc-card-content-60 {
   position: relative;
   padding: 24px;
-}
+
+  opacity: 1 !important;}
 
 .mc-card-number-60 {
   position: absolute;
@@ -346,7 +356,8 @@ onUnmounted(() => {
   color: #fff;
   border: 2px solid rgba(15, 52, 96, 0.5);
   transition: all 0.4s ease;
-}
+
+  opacity: 1 !important;}
 
 .mc-card-content-60 h3 {
   font-size: 24px;
@@ -382,7 +393,8 @@ onUnmounted(() => {
   text-transform: uppercase;
   letter-spacing: 2px;
   box-shadow: 0 10px 30px rgba(15, 52, 96, 0.3);
-}
+
+  opacity: 1 !important;}
 
 .mc-control-btn-60:hover {
   transform: translateY(-3px);
@@ -393,18 +405,22 @@ onUnmounted(() => {
   .mc-title-60 {
     font-size: 32px;
     letter-spacing: 3px;
-  }
+  
+  opacity: 1 !important;}
 
   .mc-subtitle-60 {
     font-size: 14px;
-  }
+  
+  opacity: 1 !important;}
 
   .mc-card-inner-60 {
     height: 320px;
-  }
+  
+  opacity: 1 !important;}
 
   .mc-card-image-60 {
     height: 180px;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

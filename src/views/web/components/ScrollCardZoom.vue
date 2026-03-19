@@ -239,13 +239,16 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
+/* GSAP opacity fix: ensure content is always visible */
+
 .card-zoom-wrapper-198 {
   position: relative;
   width: 100%;
   min-height: 100vh;
   background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .cz-stage-198 {
   position: relative;
@@ -256,7 +259,8 @@ onUnmounted(() => {
   justify-content: center;
   padding: 60px 20px;
   perspective: 1500px;
-}
+
+  opacity: 1 !important;}
 
 .cz-bg-effects-198 {
   position: absolute;
@@ -274,14 +278,16 @@ onUnmounted(() => {
   border-radius: 50%;
   background: radial-gradient(circle, rgba(100, 200, 255, 0.3) 0%, transparent 70%);
   filter: blur(40px);
-}
+
+  opacity: 1 !important;}
 
 .cz-container-198 {
   position: relative;
   text-align: center;
   z-index: 10;
   max-width: 1200px;
-}
+
+  opacity: 1 !important;}
 
 .cz-title-198 {
   font-size: 3rem;
@@ -290,7 +296,8 @@ onUnmounted(() => {
   letter-spacing: 6px;
   color: #ffffff;
   text-shadow: 0 0 30px rgba(100, 200, 255, 0.5);
-}
+
+  opacity: 1 !important;}
 
 .cz-subtitle-198 {
   font-size: 1.2rem;
@@ -298,7 +305,8 @@ onUnmounted(() => {
   letter-spacing: 2px;
   margin-bottom: 60px;
   text-transform: uppercase;
-}
+
+  opacity: 1 !important;}
 
 .cz-cards-wrapper-198 {
   display: flex;
@@ -307,7 +315,8 @@ onUnmounted(() => {
   gap: 30px;
   padding: 40px 20px;
   perspective: 2000px;
-}
+
+  opacity: 1 !important;}
 
 .cz-card-198 {
   width: 200px;
@@ -316,7 +325,8 @@ onUnmounted(() => {
   cursor: pointer;
   transform-style: preserve-3d;
   transition: all 0.4s ease;
-}
+
+  opacity: 1 !important;}
 
 .cz-card-inner-198 {
   position: relative;
@@ -328,12 +338,14 @@ onUnmounted(() => {
   backdrop-filter: blur(20px);
   overflow: hidden;
   transition: all 0.4s ease;
-}
+
+  opacity: 1 !important;}
 
 .cz-card-198.active .cz-card-inner-198 {
   border-color: rgba(100, 200, 255, 0.6);
   box-shadow: 0 30px 60px rgba(100, 200, 255, 0.4);
-}
+
+  opacity: 1 !important;}
 
 .cz-card-image-198 {
   height: 120px;
@@ -341,16 +353,19 @@ onUnmounted(() => {
   align-items: center;
   justify-content: center;
   background: linear-gradient(135deg, rgba(100, 200, 255, 0.2), rgba(150, 100, 255, 0.2));
-}
+
+  opacity: 1 !important;}
 
 .cz-image-placeholder-198 {
   font-size: 3rem;
-}
+
+  opacity: 1 !important;}
 
 .cz-card-content-198 {
   padding: 20px;
   text-align: left;
-}
+
+  opacity: 1 !important;}
 
 .cz-card-number-198 {
   font-size: 0.8rem;
@@ -358,20 +373,23 @@ onUnmounted(() => {
   font-weight: 700;
   margin-bottom: 10px;
   letter-spacing: 2px;
-}
+
+  opacity: 1 !important;}
 
 .cz-card-title-198 {
   font-size: 1.5rem;
   font-weight: 700;
   color: #ffffff;
   margin-bottom: 8px;
-}
+
+  opacity: 1 !important;}
 
 .cz-card-desc-198 {
   font-size: 0.9rem;
   color: rgba(255, 255, 255, 0.6);
   line-height: 1.4;
-}
+
+  opacity: 1 !important;}
 
 .cz-card-glow-198 {
   position: absolute;
@@ -402,14 +420,16 @@ onUnmounted(() => {
   border: 2px solid rgba(255, 255, 255, 0.3);
   transition: all 0.3s ease;
   cursor: pointer;
-}
+
+  opacity: 1 !important;}
 
 .cz-dot-198.active {
   background: #64c8ff;
   border-color: #64c8ff;
   box-shadow: 0 0 15px rgba(100, 200, 255, 0.6);
   transform: scale(1.3);
-}
+
+  opacity: 1 !important;}
 
 .cz-dot-198:hover {
   background: rgba(100, 200, 255, 0.5);
@@ -418,7 +438,8 @@ onUnmounted(() => {
 @media (max-width: 768px) {
   .cz-title-198 {
     font-size: 2rem;
-  }
+  
+  opacity: 1 !important;}
 
   .cz-cards-wrapper-198 {
     gap: 15px;
@@ -427,14 +448,17 @@ onUnmounted(() => {
   .cz-card-198 {
     width: 150px;
     height: 220px;
-  }
+  
+  opacity: 1 !important;}
 
   .cz-card-title-198 {
     font-size: 1.2rem;
-  }
+  
+  opacity: 1 !important;}
 
   .cz-icon-198 {
     font-size: 2.5rem;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

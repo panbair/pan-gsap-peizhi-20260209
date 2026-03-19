@@ -366,14 +366,16 @@ onUnmounted(() => {
   background: linear-gradient(180deg, #0a0a1a 0%, #1a0a2a 50%, #0a0a1a 100%);
   position: relative;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .spr-container-185 {
   position: relative;
   max-width: 1400px;
   margin: 0 auto;
   z-index: 1;
-}
+
+  opacity: 1 !important;}
 
 .spr-title-185 {
   text-align: center;
@@ -384,7 +386,8 @@ onUnmounted(() => {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-}
+
+  opacity: 1 !important;}
 
 .spr-subtitle-185 {
   text-align: center;
@@ -393,7 +396,8 @@ onUnmounted(() => {
   margin-bottom: 120px;
   letter-spacing: 0.5em;
   text-transform: uppercase;
-}
+
+  opacity: 1 !important;}
 
 .spr-text-stage-185 {
   position: relative;
@@ -403,7 +407,8 @@ onUnmounted(() => {
   align-items: center;
   justify-content: center;
   gap: 100px;
-}
+
+  opacity: 1 !important;}
 
 .spr-grid-container-185 {
   display: flex;
@@ -420,7 +425,8 @@ onUnmounted(() => {
   display: flex;
   align-items: center;
   justify-content: center;
-}
+
+  opacity: 1 !important;}
 
 .spr-pixel-grid-185 {
   position: absolute;
@@ -439,7 +445,8 @@ onUnmounted(() => {
   border-radius: 1px;
   background: rgba(168, 85, 247, 0.6);
   transition: all 0.3s ease;
-}
+
+  opacity: 1 !important;}
 
 .spr-text-185 {
   position: relative;
@@ -449,7 +456,8 @@ onUnmounted(() => {
   text-transform: uppercase;
   letter-spacing: 0.2em;
   text-shadow: 0 0 30px rgba(168, 85, 247, 0.8);
-}
+
+  opacity: 1 !important;}
 
 .spr-glitch-container-185 {
   position: absolute;
@@ -460,7 +468,8 @@ onUnmounted(() => {
   pointer-events: none;
   z-index: 0;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .spr-scanline-185 {
   position: absolute;
@@ -470,7 +479,8 @@ onUnmounted(() => {
   height: 4px;
   background: rgba(168, 85, 247, 0.3);
   animation: scanlineMove-185 8s linear infinite;
-}
+
+  opacity: 1 !important;}
 
 @keyframes scanlineMove-185 {
   0% { top: 0; opacity: 0.3; }
@@ -505,14 +515,16 @@ onUnmounted(() => {
   pointer-events: none;
   z-index: 0;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .spr-data-column-185 {
   position: absolute;
   width: 1px;
   height: 100%;
   background: linear-gradient(180deg, transparent, rgba(168, 85, 247, 0.4), rgba(236, 72, 153, 0.4), transparent);
-}
+
+  opacity: 1 !important;}
 
 @for $i from 1 through 10 {
   .spr-data-column-185:nth-child(#{$i}) {
@@ -529,13 +541,15 @@ onUnmounted(() => {
   height: 100%;
   pointer-events: none;
   z-index: 0;
-}
+
+  opacity: 1 !important;}
 
 .spr-circuit-185 {
   position: absolute;
   background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.3), rgba(6, 182, 212, 0.3), transparent);
   height: 1px;
-}
+
+  opacity: 1 !important;}
 
 @for $i from 1 through 15 {
   .spr-circuit-185:nth-child(#{$i}) {
@@ -549,11 +563,13 @@ onUnmounted(() => {
   .spr-text-item-185 {
     width: 300px;
     height: 100px;
-  }
+  
+  opacity: 1 !important;}
 
   .spr-text-185 {
     font-size: 2.5rem;
-  }
+  
+  opacity: 1 !important;}
 
   .spr-pixel-grid-185 {
     grid-template-columns: repeat(8, 8px);
@@ -564,6 +580,7 @@ onUnmounted(() => {
   .spr-pixel-185 {
     width: 8px;
     height: 8px;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

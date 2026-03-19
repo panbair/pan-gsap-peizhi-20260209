@@ -260,13 +260,16 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
+/* GSAP opacity fix: ensure content is always visible */
+
 .hologram-text-wrapper-188 {
   position: relative;
   width: 100%;
   min-height: 100vh;
   background: linear-gradient(180deg, #0a0a1a 0%, #050510 50%, #020208 100%);
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .hgt-stage-188 {
   position: relative;
@@ -277,7 +280,8 @@ onUnmounted(() => {
   justify-content: center;
   padding: 60px 20px;
   perspective: 1500px;
-}
+
+  opacity: 1 !important;}
 
 .hgt-holo-bg-188 {
   position: absolute;
@@ -291,7 +295,8 @@ onUnmounted(() => {
 .hgt-grid-canvas-188 {
   width: 100%;
   height: 100%;
-}
+
+  opacity: 1 !important;}
 
 .hgt-scan-lines-188 {
   position: absolute;
@@ -308,7 +313,8 @@ onUnmounted(() => {
   right: 0;
   height: 2px;
   background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.5), transparent);
-}
+
+  opacity: 1 !important;}
 
 .hgt-projection-base-188 {
   position: absolute;
@@ -318,7 +324,8 @@ onUnmounted(() => {
   width: 300px;
   height: 100px;
   pointer-events: none;
-}
+
+  opacity: 1 !important;}
 
 .hgt-base-ring-188 {
   position: absolute;
@@ -327,7 +334,8 @@ onUnmounted(() => {
   transform: translateX(-50%);
   border: 2px solid rgba(0, 255, 255, 0.6);
   border-radius: 50%;
-}
+
+  opacity: 1 !important;}
 
 .hgt-base-ring-188:nth-child(1) {
   width: 200px;
@@ -349,7 +357,8 @@ onUnmounted(() => {
   text-align: center;
   z-index: 10;
   transform-style: preserve-3d;
-}
+
+  opacity: 1 !important;}
 
 .hgt-projection-cone-188 {
   position: absolute;
@@ -363,7 +372,8 @@ onUnmounted(() => {
   border-bottom: 300px solid rgba(0, 255, 255, 0.1);
   filter: blur(5px);
   pointer-events: none;
-}
+
+  opacity: 1 !important;}
 
 .hgt-title-188 {
   font-size: 3rem;
@@ -373,7 +383,8 @@ onUnmounted(() => {
   text-shadow: 0 0 30px rgba(0, 255, 255, 0.8), 0 0 60px rgba(0, 255, 255, 0.4);
   letter-spacing: 8px;
   text-transform: uppercase;
-}
+
+  opacity: 1 !important;}
 
 .hgt-holo-text-188 {
   display: inline-block;
@@ -385,7 +396,8 @@ onUnmounted(() => {
   backdrop-filter: blur(5px);
   border: 2px solid rgba(0, 255, 255, 0.3);
   transform-style: preserve-3d;
-}
+
+  opacity: 1 !important;}
 
 .hgt-char-188 {
   display: inline-block;
@@ -396,7 +408,8 @@ onUnmounted(() => {
   letter-spacing: 10px;
   transition: all 0.3s ease;
   transform-style: preserve-3d;
-}
+
+  opacity: 1 !important;}
 
 .hgt-data-particles-188 {
   position: absolute;
@@ -414,7 +427,8 @@ onUnmounted(() => {
   background: #00ffff;
   border-radius: 50%;
   box-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
-}
+
+  opacity: 1 !important;}
 
 .hgt-hologram-layer-188 {
   position: absolute;
@@ -430,20 +444,24 @@ onUnmounted(() => {
     rgba(0, 255, 255, 0.03) 4px
   );
   pointer-events: none;
-}
+
+  opacity: 1 !important;}
 
 @media (max-width: 768px) {
   .hgt-title-188 {
     font-size: 2rem;
-  }
+  
+  opacity: 1 !important;}
 
   .hgt-char-188 {
     font-size: 2.8rem;
     letter-spacing: 5px;
-  }
+  
+  opacity: 1 !important;}
 
   .hgt-holo-text-188 {
     padding: 30px 40px;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

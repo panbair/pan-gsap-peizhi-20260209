@@ -352,14 +352,16 @@ onUnmounted(() => {
   background: linear-gradient(135deg, #0a0a0a 0%, #0a1a1a 50%, #0a0a0a 100%);
   position: relative;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .scp-container-187 {
   position: relative;
   max-width: 1400px;
   margin: 0 auto;
   z-index: 1;
-}
+
+  opacity: 1 !important;}
 
 .scp-title-187 {
   text-align: center;
@@ -371,7 +373,8 @@ onUnmounted(() => {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   text-shadow: 0 0 80px rgba(6, 182, 212, 0.5);
-}
+
+  opacity: 1 !important;}
 
 .scp-subtitle-187 {
   text-align: center;
@@ -381,7 +384,8 @@ onUnmounted(() => {
   letter-spacing: 0.3em;
   text-transform: uppercase;
   font-family: 'Courier New', monospace;
-}
+
+  opacity: 1 !important;}
 
 .scp-pulse-stage-187 {
   position: relative;
@@ -391,7 +395,8 @@ onUnmounted(() => {
   align-items: center;
   justify-content: center;
   gap: 80px;
-}
+
+  opacity: 1 !important;}
 
 .scp-grid-lines-187 {
   position: absolute;
@@ -401,7 +406,8 @@ onUnmounted(() => {
   height: 100%;
   pointer-events: none;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .scp-line-h-187 {
   position: absolute;
@@ -409,7 +415,8 @@ onUnmounted(() => {
   height: 1px;
   background: rgba(6, 182, 212, 0.1);
   left: 0;
-}
+
+  opacity: 1 !important;}
 
 .scp-line-h-187:nth-child(n) { top: 5%; }
 .scp-line-h-187:nth-child(n+2) { top: 10%; }
@@ -437,7 +444,8 @@ onUnmounted(() => {
   height: 100%;
   background: rgba(6, 182, 212, 0.1);
   top: 0;
-}
+
+  opacity: 1 !important;}
 
 .scp-line-v-187:nth-child(20n+1) { left: 5%; }
 .scp-line-v-187:nth-child(20n+2) { left: 10%; }
@@ -466,7 +474,8 @@ onUnmounted(() => {
   display: flex;
   align-items: center;
   justify-content: center;
-}
+
+  opacity: 1 !important;}
 
 .scp-pulse-core-187 {
   position: absolute;
@@ -479,7 +488,8 @@ onUnmounted(() => {
     0 0 120px rgba(16, 185, 129, 0.5);
   z-index: 10;
   animation: core-pulse 2s ease-in-out infinite;
-}
+
+  opacity: 1 !important;}
 
 @keyframes core-pulse {
   0%, 100% {
@@ -496,7 +506,8 @@ onUnmounted(() => {
   position: absolute;
   width: 100%;
   height: 100%;
-}
+
+  opacity: 1 !important;}
 
 .scp-pulse-ring-187 {
   position: absolute;
@@ -504,7 +515,8 @@ onUnmounted(() => {
   border: 2px solid rgba(6, 182, 212, 0.5);
   box-shadow: 0 0 20px rgba(6, 182, 212, 0.3);
   transform: translate(-50%, -50%);
-}
+
+  opacity: 1 !important;}
 
 .scp-pulse-ring-187:nth-child(1) { width: 120px; height: 120px; }
 .scp-pulse-ring-187:nth-child(2) { width: 180px; height: 180px; }
@@ -523,7 +535,8 @@ onUnmounted(() => {
   gap: 5px;
   pointer-events: none;
   z-index: 5;
-}
+
+  opacity: 1 !important;}
 
 .scp-data-bit-187 {
   width: 4px;
@@ -531,7 +544,8 @@ onUnmounted(() => {
   background: #06b6d4;
   border-radius: 50%;
   box-shadow: 0 0 10px rgba(6, 182, 212, 0.5);
-}
+
+  opacity: 1 !important;}
 
 .scp-cyber-cards-187 {
   display: grid;
@@ -540,7 +554,8 @@ onUnmounted(() => {
   width: 100%;
   max-width: 1200px;
   z-index: 10;
-}
+
+  opacity: 1 !important;}
 
 .scp-cyber-card-187 {
   background: rgba(6, 182, 212, 0.05);
@@ -549,7 +564,8 @@ onUnmounted(() => {
   border-radius: 15px;
   padding: 25px;
   transition: all 0.3s ease;
-}
+
+  opacity: 1 !important;}
 
 .scp-card-header-187 {
   display: flex;
@@ -563,7 +579,8 @@ onUnmounted(() => {
   font-size: 0.9rem;
   color: rgba(6, 182, 212, 0.7);
   text-transform: uppercase;
-}
+
+  opacity: 1 !important;}
 
 .scp-card-status-187 {
   width: 8px;
@@ -571,12 +588,14 @@ onUnmounted(() => {
   border-radius: 50%;
   background: #10b981;
   box-shadow: 0 0 10px #10b981;
-}
+
+  opacity: 1 !important;}
 
 .scp-card-status-187.warning {
   background: #f59e0b;
   box-shadow: 0 0 10px #f59e0b;
-}
+
+  opacity: 1 !important;}
 
 .scp-card-body-187 {
   margin-bottom: 20px;
@@ -589,7 +608,8 @@ onUnmounted(() => {
   letter-spacing: 0.1em;
   margin-bottom: 10px;
   transition: color 0.3s ease;
-}
+
+  opacity: 1 !important;}
 
 .scp-card-value-187 {
   font-size: 2rem;
@@ -597,7 +617,8 @@ onUnmounted(() => {
   color: #06b6d4;
   font-family: 'Courier New', monospace;
   text-shadow: 0 0 20px rgba(6, 182, 212, 0.5);
-}
+
+  opacity: 1 !important;}
 
 .scp-card-progress-187 {
   width: 100%;
@@ -605,7 +626,8 @@ onUnmounted(() => {
   background: rgba(6, 182, 212, 0.2);
   border-radius: 2px;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .scp-progress-bar-187 {
   height: 100%;
@@ -613,18 +635,21 @@ onUnmounted(() => {
   border-radius: 2px;
   box-shadow: 0 0 10px rgba(6, 182, 212, 0.5);
   transition: width 0.3s ease;
-}
+
+  opacity: 1 !important;}
 
 @media (max-width: 768px) {
   .scp-pulse-center-187 {
     width: 300px;
     height: 300px;
-  }
+  
+  opacity: 1 !important;}
 
   .scp-pulse-core-187 {
     width: 60px;
     height: 60px;
-  }
+  
+  opacity: 1 !important;}
 
   .scp-cyber-cards-187 {
     grid-template-columns: 1fr;
@@ -633,6 +658,7 @@ onUnmounted(() => {
 
   .scp-card-value-187 {
     font-size: 1.5rem;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

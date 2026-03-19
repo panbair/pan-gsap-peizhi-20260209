@@ -411,7 +411,8 @@ onUnmounted(() => {
       radial-gradient(circle at 20% 30%, rgba(100, 200, 255, 0.05) 0%, transparent 50%),
       radial-gradient(circle at 80% 70%, rgba(100, 200, 255, 0.05) 0%, transparent 50%);
     pointer-events: none;
-  }
+  
+  opacity: 1 !important;}
 }
 
 .sih-container-228 {
@@ -419,7 +420,8 @@ onUnmounted(() => {
   margin: 0 auto;
   position: relative;
   z-index: 1;
-}
+
+  opacity: 1 !important;}
 
 .sih-title-228 {
   font-size: 3rem;
@@ -432,7 +434,8 @@ onUnmounted(() => {
   background-clip: text;
   text-shadow: 0 0 40px rgba(100, 200, 255, 0.3);
   animation: sih-holo-pulse-228 3s ease-in-out infinite;
-}
+
+  opacity: 1 !important;}
 
 @keyframes sih-holo-pulse-228 {
   0%, 100% { opacity: 0.8; }
@@ -446,7 +449,8 @@ onUnmounted(() => {
   margin-bottom: 40px;
   letter-spacing: 3px;
   text-transform: uppercase;
-}
+
+  opacity: 1 !important;}
 
 .sih-holo-control-panel-228 {
   display: flex;
@@ -459,7 +463,8 @@ onUnmounted(() => {
   border: 1px solid rgba(100, 200, 255, 0.2);
   border-radius: 16px;
   backdrop-filter: blur(10px);
-}
+
+  opacity: 1 !important;}
 
 .sih-control-group-228 {
   display: flex;
@@ -472,7 +477,8 @@ onUnmounted(() => {
   font-size: 14px;
   font-weight: 500;
   white-space: nowrap;
-}
+
+  opacity: 1 !important;}
 
 .sih-slider-228 {
   width: 120px;
@@ -490,7 +496,8 @@ onUnmounted(() => {
     border-radius: 50%;
     cursor: pointer;
     box-shadow: 0 0 10px rgba(100, 200, 255, 0.8);
-  }
+  
+  opacity: 1 !important;}
 }
 
 .sih-value-228 {
@@ -498,7 +505,8 @@ onUnmounted(() => {
   font-size: 14px;
   font-weight: 600;
   min-width: 50px;
-}
+
+  opacity: 1 !important;}
 
 .sih-mode-buttons-228 {
   display: flex;
@@ -518,14 +526,16 @@ onUnmounted(() => {
   &:hover {
     background: rgba(100, 200, 255, 0.2);
     border-color: rgba(100, 200, 255, 0.6);
-  }
+  
+  opacity: 1 !important;}
 
   &.sih-active-228 {
     background: linear-gradient(135deg, #64c8ff, #00ffff);
     border-color: transparent;
     color: #0a0a1a;
     font-weight: 600;
-  }
+  
+  opacity: 1 !important;}
 }
 
 .sih-holographic-gallery-228 {
@@ -549,7 +559,8 @@ onUnmounted(() => {
     0 0 60px rgba(100, 200, 255, 0.2),
     inset 0 0 60px rgba(100, 200, 255, 0.05);
   transform-style: preserve-3d;
-}
+
+  opacity: 1 !important;}
 
 .sih-holo-ring-228 {
   position: absolute;
@@ -561,13 +572,15 @@ onUnmounted(() => {
   border-radius: 50%;
   transform: translate(-50%, -50%);
   pointer-events: none;
-}
+
+  opacity: 1 !important;}
 
 .sih-ring-inner-228 {
   width: 100%;
   height: 100%;
   border: 1px solid rgba(100, 200, 255, 0.2);
-}
+
+  opacity: 1 !important;}
 
 .sih-hologram-container-228 {
   position: relative;
@@ -587,7 +600,8 @@ onUnmounted(() => {
   height: 400px;
   object-fit: cover;
   display: block;
-}
+
+  opacity: 1 !important;}
 
 .sih-hologram-layer-228 {
   position: absolute;
@@ -597,7 +611,8 @@ onUnmounted(() => {
   height: 100%;
   z-index: 2;
   pointer-events: none;
-}
+
+  opacity: 1 !important;}
 
 .sih-hologram-tint-228 {
   position: absolute;
@@ -607,7 +622,8 @@ onUnmounted(() => {
   height: 100%;
   background: linear-gradient(135deg, rgba(100, 200, 255, 0.1), rgba(0, 255, 255, 0.05));
   mix-blend-mode: color-dodge;
-}
+
+  opacity: 1 !important;}
 
 .sih-scanlines-228 {
   position: absolute;
@@ -623,7 +639,8 @@ onUnmounted(() => {
     rgba(100, 200, 255, 0.1) 4px
   );
   background-size: 100% 20px;
-}
+
+  opacity: 1 !important;}
 
 .sih-hologram-noise-228 {
   position: absolute;
@@ -652,7 +669,8 @@ onUnmounted(() => {
   position: relative;
   width: 100%;
   height: 100%;
-}
+
+  opacity: 1 !important;}
 
 .sih-hologram-glow-228 {
   position: absolute;
@@ -665,7 +683,8 @@ onUnmounted(() => {
   background: transparent;
   filter: blur(20px);
   pointer-events: none;
-}
+
+  opacity: 1 !important;}
 
 .sih-holo-scanline-228 {
   position: absolute;
@@ -676,7 +695,8 @@ onUnmounted(() => {
   z-index: 3;
   pointer-events: none;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .sih-scan-line-228 {
   position: absolute;
@@ -690,7 +710,8 @@ onUnmounted(() => {
     rgba(100, 200, 255, 0.5),
     transparent
   );
-}
+
+  opacity: 1 !important;}
 
 .sih-hologram-overlay-228 {
   position: absolute;
@@ -701,7 +722,8 @@ onUnmounted(() => {
   background: linear-gradient(transparent, rgba(10, 10, 26, 0.95));
   z-index: 10;
   border-top: 1px solid rgba(100, 200, 255, 0.3);
-}
+
+  opacity: 1 !important;}
 
 .sih-hologram-content-228 {
   transform: translateZ(20px);
@@ -719,7 +741,8 @@ onUnmounted(() => {
   letter-spacing: 2px;
   text-transform: uppercase;
   margin-bottom: 12px;
-}
+
+  opacity: 1 !important;}
 
 .sih-card-title-228 {
   font-size: 1.5rem;
@@ -727,14 +750,16 @@ onUnmounted(() => {
   color: #64c8ff;
   margin-bottom: 8px;
   text-shadow: 0 0 20px rgba(100, 200, 255, 0.5);
-}
+
+  opacity: 1 !important;}
 
 .sih-card-desc-228 {
   font-size: 1rem;
   color: #94a3b8;
   margin-bottom: 20px;
   line-height: 1.6;
-}
+
+  opacity: 1 !important;}
 
 .sih-hologram-metrics-228 {
   display: flex;
@@ -752,13 +777,15 @@ onUnmounted(() => {
   color: #64748b;
   text-transform: uppercase;
   letter-spacing: 1px;
-}
+
+  opacity: 1 !important;}
 
 .sih-metric-value-228 {
   font-size: 14px;
   color: #00ffff;
   font-weight: 600;
-}
+
+  opacity: 1 !important;}
 
 .sih-hologram-status-228 {
   display: flex;
@@ -770,7 +797,8 @@ onUnmounted(() => {
   border: 1px solid rgba(100, 200, 255, 0.2);
   border-radius: 12px;
   backdrop-filter: blur(10px);
-}
+
+  opacity: 1 !important;}
 
 .sih-status-display-228 {
   display: flex;
@@ -783,7 +811,8 @@ onUnmounted(() => {
   height: 50px;
   color: #00ffff;
   animation: sih-icon-pulse-228 2s ease-in-out infinite;
-}
+
+  opacity: 1 !important;}
 
 @keyframes sih-icon-pulse-228 {
   0%, 100% { transform: scale(1); opacity: 0.8; }
@@ -801,20 +830,23 @@ onUnmounted(() => {
   color: #64748b;
   text-transform: uppercase;
   letter-spacing: 1px;
-}
+
+  opacity: 1 !important;}
 
 .sih-status-text-228 {
   font-size: 14px;
   color: #00ffff;
   font-weight: 600;
-}
+
+  opacity: 1 !important;}
 
 .sih-status-wave-228 {
   display: flex;
   align-items: center;
   gap: 4px;
   height: 30px;
-}
+
+  opacity: 1 !important;}
 
 .sih-wave-line-228 {
   width: 3px;
@@ -827,7 +859,8 @@ onUnmounted(() => {
 @media (max-width: 768px) {
   .sih-title-228 {
     font-size: 2rem;
-  }
+  
+  opacity: 1 !important;}
 
   .sih-holographic-gallery-228 {
     grid-template-columns: 1fr;

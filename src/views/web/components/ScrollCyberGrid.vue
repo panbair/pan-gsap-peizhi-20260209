@@ -154,13 +154,16 @@ onMounted(() => {
 </script>
 
 <style scoped>
+/* GSAP opacity fix: ensure content is always visible */
+
 .cg-container-185 {
   min-height: 100vh;
   padding: 80px 20px;
   background: linear-gradient(135deg, #0a0a0a 0%, #1a1a4e 50%, #0a0a0a 100%);
   position: relative;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .cg-container-185::before {
   content: '';
@@ -183,12 +186,14 @@ onMounted(() => {
   color: #fff;
   margin-bottom: 60px;
   text-shadow: 0 0 20px rgba(0, 255, 255, 0.5), 0 0 40px rgba(0, 255, 255, 0.3);
-}
+
+  opacity: 1 !important;}
 
 .cg-stage-185 {
   max-width: 1400px;
   margin: 0 auto;
-}
+
+  opacity: 1 !important;}
 
 .cg-grid-185 {
   display: grid;
@@ -207,7 +212,8 @@ onMounted(() => {
   transition: all 0.3s ease;
   overflow: hidden;
   transform-style: preserve-3d;
-}
+
+  opacity: 1 !important;}
 
 .cg-cell-185::before {
   content: '';
@@ -251,14 +257,16 @@ onMounted(() => {
   z-index: 1;
   text-align: center;
   transform: translateZ(20px);
-}
+
+  opacity: 1 !important;}
 
 .cg-icon-185 {
   font-size: 3rem;
   margin-bottom: 20px;
   display: inline-block;
   transition: transform 0.5s ease;
-}
+
+  opacity: 1 !important;}
 
 .cg-content-185 h3 {
   font-size: 1.4rem;
@@ -274,19 +282,31 @@ onMounted(() => {
 }
 
 /* 不同颜色的单元格 */
-.cg-cell-0-185 { --cell-color: #00ffff; }
-.cg-cell-1-185 { --cell-color: #ff00ff; }
-.cg-cell-2-185 { --cell-color: #ffff00; }
-.cg-cell-3-185 { --cell-color: #00ff00; }
-.cg-cell-4-185 { --cell-color: #ff6600; }
-.cg-cell-5-185 { --cell-color: #6600ff; }
+.cg-cell-0-185 { --cell-color: #00ffff; 
+  opacity: 1 !important;}
+.cg-cell-1-185 { --cell-color: #ff00ff; 
+  opacity: 1 !important;}
+.cg-cell-2-185 { --cell-color: #ffff00; 
+  opacity: 1 !important;}
+.cg-cell-3-185 { --cell-color: #00ff00; 
+  opacity: 1 !important;}
+.cg-cell-4-185 { --cell-color: #ff6600; 
+  opacity: 1 !important;}
+.cg-cell-5-185 { --cell-color: #6600ff; 
+  opacity: 1 !important;}
 
-.cg-cell-0-185 .cg-glow-185 { background: radial-gradient(circle, rgba(0, 255, 255, 0.4) 0%, transparent 70%); }
-.cg-cell-1-185 .cg-glow-185 { background: radial-gradient(circle, rgba(255, 0, 255, 0.4) 0%, transparent 70%); }
-.cg-cell-2-185 .cg-glow-185 { background: radial-gradient(circle, rgba(255, 255, 0, 0.4) 0%, transparent 70%); }
-.cg-cell-3-185 .cg-glow-185 { background: radial-gradient(circle, rgba(0, 255, 0, 0.4) 0%, transparent 70%); }
-.cg-cell-4-185 .cg-glow-185 { background: radial-gradient(circle, rgba(255, 102, 0, 0.4) 0%, transparent 70%); }
-.cg-cell-5-185 .cg-glow-185 { background: radial-gradient(circle, rgba(102, 0, 255, 0.4) 0%, transparent 70%); }
+.cg-cell-0-185 .cg-glow-185 { background: radial-gradient(circle, rgba(0, 255, 255, 0.4) 0%, transparent 70%); 
+  opacity: 1 !important;}
+.cg-cell-1-185 .cg-glow-185 { background: radial-gradient(circle, rgba(255, 0, 255, 0.4) 0%, transparent 70%); 
+  opacity: 1 !important;}
+.cg-cell-2-185 .cg-glow-185 { background: radial-gradient(circle, rgba(255, 255, 0, 0.4) 0%, transparent 70%); 
+  opacity: 1 !important;}
+.cg-cell-3-185 .cg-glow-185 { background: radial-gradient(circle, rgba(0, 255, 0, 0.4) 0%, transparent 70%); 
+  opacity: 1 !important;}
+.cg-cell-4-185 .cg-glow-185 { background: radial-gradient(circle, rgba(255, 102, 0, 0.4) 0%, transparent 70%); 
+  opacity: 1 !important;}
+.cg-cell-5-185 .cg-glow-185 { background: radial-gradient(circle, rgba(102, 0, 255, 0.4) 0%, transparent 70%); 
+  opacity: 1 !important;}
 
 @media (max-width: 1024px) {
   .cg-grid-185 {
@@ -297,7 +317,8 @@ onMounted(() => {
 @media (max-width: 768px) {
   .cg-title-185 {
     font-size: 1.8rem;
-  }
+  
+  opacity: 1 !important;}
   
   .cg-grid-185 {
     grid-template-columns: 1fr;

@@ -169,12 +169,15 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
+/* GSAP opacity fix: ensure content is always visible */
+
 .plasma-waves-container-195 {
   min-height: 100vh;
   background: #0a0514;
   position: relative;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .pw-header-195 {
   position: absolute;
@@ -185,7 +188,8 @@ onUnmounted(() => {
   padding: 60px 20px;
   z-index: 10;
   background: linear-gradient(180deg, rgba(10, 5, 20, 0.9), transparent);
-}
+
+  opacity: 1 !important;}
 
 .pw-title-195 {
   font-size: 56px;
@@ -196,24 +200,28 @@ onUnmounted(() => {
   background-clip: text;
   text-shadow: 0 0 40px rgba(196, 76, 255, 0.5);
   margin-bottom: 10px;
-}
+
+  opacity: 1 !important;}
 
 .pw-hint-195 {
   font-size: 18px;
   color: #b88cff;
-}
+
+  opacity: 1 !important;}
 
 .pw-canvas-container-195 {
   width: 100%;
   height: 100vh;
   position: relative;
-}
+
+  opacity: 1 !important;}
 
 .pw-canvas-195 {
   width: 100%;
   height: 100%;
   display: block;
-}
+
+  opacity: 1 !important;}
 
 .pw-info-195 {
   position: absolute;
@@ -228,35 +236,41 @@ onUnmounted(() => {
   border: 1px solid rgba(196, 76, 255, 0.3);
   backdrop-filter: blur(10px);
   z-index: 10;
-}
+
+  opacity: 1 !important;}
 
 .pw-stat-195 {
   text-align: center;
-}
+
+  opacity: 1 !important;}
 
 .pw-stat-value-195 {
   font-size: 36px;
   font-weight: 700;
   color: #c44cff;
   margin-bottom: 5px;
-}
+
+  opacity: 1 !important;}
 
 .pw-stat-label-195 {
   font-size: 14px;
   color: #b88cff;
   text-transform: uppercase;
   letter-spacing: 1px;
-}
+
+  opacity: 1 !important;}
 
 @media (max-width: 768px) {
   .pw-title-195 {
     font-size: 36px;
-  }
+  
+  opacity: 1 !important;}
 
   .pw-info-195 {
     flex-direction: column;
     gap: 20px;
     padding: 20px 30px;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

@@ -361,7 +361,8 @@ onUnmounted(() => {
   align-items: center;
   overflow: hidden;
   position: relative;
-}
+
+  opacity: 1 !important;}
 
 // 背景网格
 .px-bg-grid-232 {
@@ -392,7 +393,8 @@ onUnmounted(() => {
   text-align: center;
   margin-bottom: 50px;
   z-index: 10;
-}
+
+  opacity: 1 !important;}
 
 .px-title-container-232 {
   animation: titleFloat 4s ease-in-out infinite;
@@ -412,7 +414,8 @@ onUnmounted(() => {
   align-items: center;
   justify-content: center;
   gap: 20px;
-}
+
+  opacity: 1 !important;}
 
 .px-title-text-232 {
   background: linear-gradient(135deg, #22d3ee, #818cf8);
@@ -420,7 +423,8 @@ onUnmounted(() => {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   text-shadow: 0 0 40px rgba(34, 211, 238, 0.5);
-}
+
+  opacity: 1 !important;}
 
 .px-title-accent-232 {
   background: linear-gradient(135deg, #a3e635, #22d3ee);
@@ -428,7 +432,8 @@ onUnmounted(() => {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   text-shadow: 0 0 40px rgba(163, 230, 53, 0.5);
-}
+
+  opacity: 1 !important;}
 
 .px-subtitle-232 {
   margin-top: 20px;
@@ -440,7 +445,8 @@ onUnmounted(() => {
   letter-spacing: 6px;
   text-transform: uppercase;
   font-weight: 500;
-}
+
+  opacity: 1 !important;}
 
 // 主容器
 .px-main-container-232 {
@@ -451,7 +457,8 @@ onUnmounted(() => {
   z-index: 10;
   width: 100%;
   max-width: 800px;
-}
+
+  opacity: 1 !important;}
 
 // 画布包装器
 .px-canvas-wrapper-232 {
@@ -490,7 +497,8 @@ onUnmounted(() => {
   display: block;
   border-radius: 16px;
   background: rgba(0, 0, 0, 0.3);
-}
+
+  opacity: 1 !important;}
 
 // 扫描线效果
 .px-scanline-232 {
@@ -504,7 +512,8 @@ onUnmounted(() => {
   background-size: 100% 4px;
   animation: scanline 0.1s linear infinite;
   pointer-events: none;
-}
+
+  opacity: 1 !important;}
 
 @keyframes scanline {
   0% { transform: translateY(0); }
@@ -536,6 +545,7 @@ onUnmounted(() => {
     flex-direction: column;
     gap: 10px;
     letter-spacing: 4px;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

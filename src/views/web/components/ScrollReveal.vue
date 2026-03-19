@@ -244,18 +244,22 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
+/* GSAP opacity fix: ensure content is always visible */
+
 .sr-scroll-reveal-section-52 {
   min-height: 100vh;
   padding: 80px 40px;
   background: linear-gradient(135deg, #0d1b2a 0%, #1b263b 50%, #415a77 100%);
   position: relative;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .sr-section-header-52 {
   text-align: center;
   margin-bottom: 80px;
-}
+
+  opacity: 1 !important;}
 
 .sr-title-52 {
   font-size: 56px;
@@ -264,7 +268,8 @@ onUnmounted(() => {
   letter-spacing: 6px;
   text-transform: uppercase;
   text-shadow: 0 0 30px rgba(65, 90, 119, 0.5);
-}
+
+  opacity: 1 !important;}
 
 .sr-subtitle-52 {
   font-size: 18px;
@@ -272,7 +277,8 @@ onUnmounted(() => {
   margin-top: 16px;
   letter-spacing: 3px;
   text-transform: uppercase;
-}
+
+  opacity: 1 !important;}
 
 .sr-reveal-container-52 {
   display: flex;
@@ -281,7 +287,8 @@ onUnmounted(() => {
   max-width: 800px;
   margin: 0 auto;
   padding: 40px 0;
-}
+
+  opacity: 1 !important;}
 
 .sr-reveal-item-52 {
   display: flex;
@@ -292,7 +299,8 @@ onUnmounted(() => {
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   transition: box-shadow 0.4s ease;
-}
+
+  opacity: 1 !important;}
 
 .sr-reveal-item-52:hover {
   box-shadow: 0 15px 40px rgba(65, 90, 119, 0.3);
@@ -305,7 +313,8 @@ onUnmounted(() => {
   height: 200px;
   border-radius: 16px;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .sr-image-inner-52 {
   width: 100%;
@@ -313,7 +322,8 @@ onUnmounted(() => {
   background-size: cover;
   background-position: center;
   transition: transform 0.4s ease;
-}
+
+  opacity: 1 !important;}
 
 .sr-item-number-52 {
   position: absolute;
@@ -332,7 +342,8 @@ onUnmounted(() => {
   color: #fff;
   border: 2px solid rgba(65, 90, 119, 0.5);
   transition: all 0.4s ease;
-}
+
+  opacity: 1 !important;}
 
 .sr-item-content-52 {
   display: flex;
@@ -360,14 +371,16 @@ onUnmounted(() => {
   transform: translateX(-50%);
   text-align: center;
   z-index: 10;
-}
+
+  opacity: 1 !important;}
 
 .sr-arrow-52 {
   font-size: 32px;
   color: #fff;
   margin-bottom: 8px;
   animation: bounce 2s infinite;
-}
+
+  opacity: 1 !important;}
 
 @keyframes bounce {
   0%, 20%, 50%, 80%, 100% {
@@ -392,11 +405,13 @@ onUnmounted(() => {
   .sr-title-52 {
     font-size: 32px;
     letter-spacing: 3px;
-  }
+  
+  opacity: 1 !important;}
 
   .sr-subtitle-52 {
     font-size: 14px;
-  }
+  
+  opacity: 1 !important;}
 
   .sr-reveal-item-52 {
     flex-direction: column;
@@ -406,6 +421,7 @@ onUnmounted(() => {
   .sr-item-image-52 {
     width: 100%;
     height: 200px;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

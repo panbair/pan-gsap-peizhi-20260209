@@ -507,6 +507,8 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
+/* GSAP opacity fix: ensure content is always visible */
+
 .scroll-zen-garden-cards-231 {
   min-height: 600px;
   background: linear-gradient(180deg, #f5f0eb 0%, #e8ded6 50%, #d4c4b5 100%);
@@ -514,7 +516,8 @@ onUnmounted(() => {
   position: relative;
   overflow: visible;
   z-index: 1;
-}
+
+  opacity: 1 !important;}
 
 /* 禅意背景 */
 .zen-bg-231 {
@@ -536,7 +539,8 @@ onUnmounted(() => {
   background: 
     radial-gradient(circle at 20% 30%, rgba(255, 183, 197, 0.15) 0%, transparent 50%),
     radial-gradient(circle at 80% 70%, rgba(125, 211, 192, 0.15) 0%, transparent 50%);
-}
+
+  opacity: 1 !important;}
 
 .zen-pattern-231 {
   position: absolute;
@@ -567,7 +571,8 @@ onUnmounted(() => {
   width: 3px;
   background: linear-gradient(to top, #5a7a5a, #7dd3c0);
   border-radius: 2px;
-}
+
+  opacity: 1 !important;}
 
 /* 飘落的樱花 */
 .falling-petals-231 {
@@ -584,7 +589,8 @@ onUnmounted(() => {
   position: absolute;
   width: 20px;
   height: 20px;
-}
+
+  opacity: 1 !important;}
 
 .petal-shape-231 {
   width: 100%;
@@ -592,7 +598,8 @@ onUnmounted(() => {
   background: radial-gradient(circle at 50% 50%, #ffb7c5 0%, transparent 70%);
   border-radius: 50% 0 50% 50%;
   animation: petalSway 3s ease-in-out infinite;
-}
+
+  opacity: 1 !important;}
 
 @keyframes petalSway {
   0%, 100% { transform: rotate(0deg); }
@@ -609,7 +616,8 @@ onUnmounted(() => {
   pointer-events: none;
   z-index: 0;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .ripple-231 {
   position: absolute;
@@ -619,7 +627,8 @@ onUnmounted(() => {
   border: 1px solid rgba(52, 152, 219, 0.3);
   border-radius: 50%;
   animation: rippleExpand 4s linear infinite;
-}
+
+  opacity: 1 !important;}
 
 @keyframes rippleExpand {
   0% {
@@ -638,7 +647,8 @@ onUnmounted(() => {
   margin-bottom: 80px;
   position: relative;
   z-index: 10;
-}
+
+  opacity: 1 !important;}
 
 .title-circle-231 {
   position: relative;
@@ -654,7 +664,8 @@ onUnmounted(() => {
   border: 1px solid rgba(125, 211, 192, 0.3);
   border-radius: 50%;
   animation: circleBreath 4s ease-in-out infinite;
-}
+
+  opacity: 1 !important;}
 
 .circle-ring-231:nth-child(1) { width: 120px; height: 120px; }
 .circle-ring-231:nth-child(2) { width: 160px; height: 160px; }
@@ -683,21 +694,24 @@ onUnmounted(() => {
   color: #5a5a5a;
   letter-spacing: 15px;
   margin-bottom: 10px;
-}
+
+  opacity: 1 !important;}
 
 .title-sub-231 {
   display: block;
   font-size: 16px;
   color: #999;
   letter-spacing: 8px;
-}
+
+  opacity: 1 !important;}
 
 .title-divider-231 {
   width: 100px;
   height: 1px;
   background: linear-gradient(90deg, transparent, #7dd3c0, transparent);
   margin: 20px auto;
-}
+
+  opacity: 1 !important;}
 
 /* 卡片容器 */
 .garden-container-231 {
@@ -709,7 +723,8 @@ onUnmounted(() => {
   padding: 20px;
   position: relative;
   z-index: 10;
-}
+
+  opacity: 1 !important;}
 
 /* 卡片样式 */
 .zen-card-231 {
@@ -722,6 +737,8 @@ onUnmounted(() => {
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
   transform-style: preserve-3d;
   perspective: 1000px;
+  /* 确保内容始终可见 */
+  opacity: 1 !important;
 }
 
 /* 背景光晕 */
@@ -732,6 +749,8 @@ onUnmounted(() => {
   right: -50%;
   bottom: -50%;
   pointer-events: none;
+  /* 确保背景光晕始终可见 */
+  opacity: 1 !important;
 }
 
 /* 装饰边框 */
@@ -744,6 +763,8 @@ onUnmounted(() => {
   border: 1px solid;
   border-radius: 15px;
   pointer-events: none;
+  /* 确保边框始终可见 */
+  opacity: 1 !important;
 }
 
 .border-corner-231 {
@@ -800,6 +821,8 @@ onUnmounted(() => {
   display: flex;
   align-items: center;
   justify-content: center;
+  /* 确保图标始终可见 */
+  opacity: 1 !important;
 }
 
 .icon-circle-231 {
@@ -809,13 +832,15 @@ onUnmounted(() => {
   border-radius: 50%;
   border: 2px solid;
   transition: all 0.3s ease;
-}
+
+  opacity: 1 !important;}
 
 .icon-emoji-231 {
   position: relative;
   z-index: 1;
   font-size: 48px;
-}
+
+  opacity: 1 !important;}
 
 /* 元素名称 */
 .element-name-231 {
@@ -824,6 +849,8 @@ onUnmounted(() => {
   text-align: center;
   margin-bottom: 5px;
   position: relative;
+  /* 确保名称始终可见 */
+  opacity: 1 !important;
 }
 
 .name-jp-231 {
@@ -839,6 +866,8 @@ onUnmounted(() => {
   font-size: 14px;
   margin-bottom: 25px;
   letter-spacing: 2px;
+  /* 确保描述始终可见 */
+  opacity: 1 !important;
 }
 
 /* 禅意格言 */
@@ -848,6 +877,8 @@ onUnmounted(() => {
   padding: 20px;
   background: rgba(0, 0, 0, 0.02);
   border-radius: 10px;
+  /* 确保格言始终可见 */
+  opacity: 1 !important;
 }
 
 .quote-icon-231 {
@@ -855,18 +886,22 @@ onUnmounted(() => {
   color: rgba(125, 211, 192, 0.5);
   display: block;
   margin-bottom: 10px;
-}
+
+  opacity: 1 !important;}
 
 .quote-text-231 {
   font-size: 14px;
   color: #666;
   letter-spacing: 1px;
   line-height: 1.8;
-}
+
+  opacity: 1 !important;}
 
 /* 属性展示 */
 .element-attributes-231 {
   margin-bottom: 30px;
+  /* 确保属性始终可见 */
+  opacity: 1 !important;
 }
 
 .attr-row-231 {
@@ -880,7 +915,8 @@ onUnmounted(() => {
   font-size: 13px;
   color: #999;
   letter-spacing: 2px;
-}
+
+  opacity: 1 !important;}
 
 .attr-dots-231 {
   flex: 1;
@@ -895,7 +931,8 @@ onUnmounted(() => {
   border: 1px solid;
   background: rgba(255, 255, 255, 0.5);
   transition: all 0.3s ease;
-}
+
+  opacity: 1 !important;}
 
 .attr-dot-231.active {
   box-shadow: 0 0 10px currentColor;
@@ -914,6 +951,8 @@ onUnmounted(() => {
   position: relative;
   overflow: hidden;
   transition: all 0.3s ease;
+  /* 确保按钮始终可见 */
+  opacity: 1 !important;
 }
 
 .meditate-btn-231:hover {
@@ -937,7 +976,8 @@ onUnmounted(() => {
   border-radius: 50%;
   border: 1px solid;
   animation: btnPetalFall 3s linear infinite;
-}
+
+  opacity: 1 !important;}
 
 @keyframes btnPetalFall {
   0% { transform: translate(0, -10px); opacity: 0; }
@@ -967,7 +1007,8 @@ onUnmounted(() => {
   margin-top: 60px;
   position: relative;
   z-index: 10;
-}
+
+  opacity: 1 !important;}
 
 .footer-koi-231 {
   display: inline-block;
@@ -982,7 +1023,8 @@ onUnmounted(() => {
   background: linear-gradient(90deg, #e74c3c, #c0392b);
   border-radius: 50%;
   animation: koiSwim 6s ease-in-out infinite;
-}
+
+  opacity: 1 !important;}
 
 .koi-fish-231:nth-child(1) { left: -60px; top: 0; }
 .koi-fish-231:nth-child(2) { left: -30px; top: 15px; animation-delay: -2s; }
@@ -998,14 +1040,16 @@ onUnmounted(() => {
   color: #999;
   font-size: 16px;
   letter-spacing: 3px;
-}
+
+  opacity: 1 !important;}
 
 /* 响应式 */
 @media (max-width: 768px) {
   .title-main-231 {
     font-size: 32px;
     letter-spacing: 8px;
-  }
+  
+  opacity: 1 !important;}
 
   .garden-container-231 {
     grid-template-columns: 1fr;

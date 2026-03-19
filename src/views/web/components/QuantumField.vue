@@ -186,12 +186,14 @@ onUnmounted(() => {
   position: relative;
   overflow: hidden;
   background: #0a0a1a;
-}
+
+  opacity: 1 !important;}
 
 .qf-content-26 {
   text-align: center;
   position: relative;
-}
+
+  opacity: 1 !important;}
 
 .qf-section-title-26 {
   font-size: clamp(2rem, 4vw, 2.5rem);
@@ -199,20 +201,23 @@ onUnmounted(() => {
   margin-bottom: 16px;
   color: #a78bfa;
   text-shadow: 0 0 20px rgba(167, 139, 250, 0.6);
-}
+
+  opacity: 1 !important;}
 
 .qf-subtitle-26 {
   font-size: 1.1rem;
   color: #94a3b8;
   margin-bottom: 60px;
-}
+
+  opacity: 1 !important;}
 
 .qf-quantum-container-26 {
   position: relative;
   width: 600px;
   height: 600px;
   perspective: 1000px;
-}
+
+  opacity: 1 !important;}
 
 .qf-quantum-grid-26 {
   position: absolute;
@@ -230,7 +235,8 @@ onUnmounted(() => {
   background: rgba(139, 92, 246, 0.5);
   border-radius: 50%;
   animation: qfNodePulse 1s ease-in-out infinite;
-}
+
+  opacity: 1 !important;}
 
 @keyframes qfNodePulse {
   0%, 100% {
@@ -257,7 +263,8 @@ onUnmounted(() => {
   background: linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.6), transparent);
   transform-origin: left center;
   animation: qfConnectionFlash 0.5s ease-in-out infinite;
-}
+
+  opacity: 1 !important;}
 
 @keyframes qfConnectionFlash {
   0%, 100% {
@@ -282,7 +289,8 @@ onUnmounted(() => {
   border-radius: 50%;
   box-shadow: 0 0 10px rgba(167, 139, 250, 0.8);
   animation: qfParticleOrbit 4s linear infinite;
-}
+
+  opacity: 1 !important;}
 
 @keyframes qfParticleOrbit {
   0% {
@@ -300,14 +308,16 @@ onUnmounted(() => {
   transform: translate(-50%, -50%);
   width: 100px;
   height: 100px;
-}
+
+  opacity: 1 !important;}
 
 .qf-core-ring-26 {
   position: absolute;
   inset: 0;
   border-radius: 50%;
   border: 2px solid rgba(139, 92, 246, 0.5);
-}
+
+  opacity: 1 !important;}
 
 .qf-ring-1 {
   transform: rotateX(60deg);
@@ -331,7 +341,8 @@ onUnmounted(() => {
   background: radial-gradient(circle, rgba(167, 139, 250, 0.8), transparent);
   border-radius: 50%;
   box-shadow: 0 0 30px rgba(167, 139, 250, 0.6);
-}
+
+  opacity: 1 !important;}
 
 .qf-quantum-waves-26 {
   position: absolute;
@@ -351,7 +362,8 @@ onUnmounted(() => {
   border: 2px solid rgba(139, 92, 246, 0.3);
   border-radius: 50%;
   animation: qfWaveExpand 3s ease-out infinite;
-}
+
+  opacity: 1 !important;}
 
 @keyframes qfWaveExpand {
   0% {
@@ -368,7 +380,8 @@ onUnmounted(() => {
   .qf-quantum-container-26 {
     width: 400px;
     height: 400px;
-  }
+  
+  opacity: 1 !important;}
 
   .qf-quantum-grid-26 {
     inset: 30px;

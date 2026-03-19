@@ -315,7 +315,8 @@ onUnmounted(() => {
       radial-gradient(circle at 30% 40%, rgba(236, 72, 153, 0.08) 0%, transparent 50%),
       radial-gradient(circle at 70% 60%, rgba(168, 85, 247, 0.08) 0%, transparent 50%);
     pointer-events: none;
-  }
+  
+  opacity: 1 !important;}
 }
 
 .smg-container-152 {
@@ -323,7 +324,8 @@ onUnmounted(() => {
   margin: 0 auto;
   position: relative;
   z-index: 1;
-}
+
+  opacity: 1 !important;}
 
 .smg-title-152 {
   text-align: center;
@@ -335,7 +337,8 @@ onUnmounted(() => {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-}
+
+  opacity: 1 !important;}
 
 .smg-subtitle-152 {
   text-align: center;
@@ -344,7 +347,8 @@ onUnmounted(() => {
   margin-bottom: 80px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-}
+
+  opacity: 1 !important;}
 
 .smg-grid-152 {
   display: grid;
@@ -368,21 +372,24 @@ onUnmounted(() => {
 
   &:hover {
     box-shadow: 0 25px 60px rgba(236, 72, 153, 0.25);
-  }
+  
+  opacity: 1 !important;}
 }
 
 .smg-item-content-152 {
   text-align: center;
   padding: 30px;
   transition: transform 0.3s ease;
-}
+
+  opacity: 1 !important;}
 
 .smg-item-icon-152 {
   font-size: 3rem;
   margin-bottom: 16px;
   display: inline-block;
   transition: all 0.4s ease;
-}
+
+  opacity: 1 !important;}
 
 .smg-item-title-152 {
   font-size: 1.5rem;
@@ -390,13 +397,15 @@ onUnmounted(() => {
   color: #fff;
   margin-bottom: 8px;
   letter-spacing: 0.05em;
-}
+
+  opacity: 1 !important;}
 
 .smg-item-desc-152 {
   font-size: 0.9rem;
   color: rgba(255, 255, 255, 0.6);
   line-height: 1.4;
-}
+
+  opacity: 1 !important;}
 
 .smg-magnetic-field-152 {
   position: absolute;
@@ -421,15 +430,18 @@ onUnmounted(() => {
 
   .smg-item-icon-152 {
     font-size: 2.5rem;
-  }
+  
+  opacity: 1 !important;}
 
   .smg-item-title-152 {
     font-size: 1.2rem;
-  }
+  
+  opacity: 1 !important;}
 
   .smg-item-desc-152 {
     font-size: 0.8rem;
-  }
+  
+  opacity: 1 !important;}
 }
 
 @media (max-width: 480px) {

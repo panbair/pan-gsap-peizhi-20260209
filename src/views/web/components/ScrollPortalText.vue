@@ -302,14 +302,16 @@ onUnmounted(() => {
   background: radial-gradient(ellipse at center, #1a0a2e 0%, #0a0a1a 50%, #000000 100%);
   position: relative;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .spt-container-182 {
   position: relative;
   max-width: 1400px;
   margin: 0 auto;
   z-index: 1;
-}
+
+  opacity: 1 !important;}
 
 .spt-title-182 {
   text-align: center;
@@ -320,7 +322,8 @@ onUnmounted(() => {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-}
+
+  opacity: 1 !important;}
 
 .spt-subtitle-182 {
   text-align: center;
@@ -329,7 +332,8 @@ onUnmounted(() => {
   margin-bottom: 120px;
   letter-spacing: 0.5em;
   text-transform: uppercase;
-}
+
+  opacity: 1 !important;}
 
 .spt-text-stage-182 {
   position: relative;
@@ -340,7 +344,8 @@ onUnmounted(() => {
   justify-content: center;
   gap: 100px;
   perspective: 2000px;
-}
+
+  opacity: 1 !important;}
 
 .spt-portal-rings-182 {
   position: absolute;
@@ -359,7 +364,8 @@ onUnmounted(() => {
   left: 50%;
   transform: translate(-50%, -50%);
   animation: portalRingPulse-182 8s ease-in-out infinite;
-}
+
+  opacity: 1 !important;}
 
 .spt-portal-ring-182:nth-child(1) { width: 600px; height: 600px; }
 .spt-portal-ring-182:nth-child(2) { width: 500px; height: 500px; }
@@ -386,7 +392,8 @@ onUnmounted(() => {
   display: flex;
   align-items: center;
   justify-content: center;
-}
+
+  opacity: 1 !important;}
 
 .spt-portal-182 {
   position: relative;
@@ -396,7 +403,8 @@ onUnmounted(() => {
   align-items: center;
   justify-content: center;
   transform-style: preserve-3d;
-}
+
+  opacity: 1 !important;}
 
 .spt-portal-inner-182 {
   position: absolute;
@@ -408,7 +416,8 @@ onUnmounted(() => {
   left: 50%;
   transform: translate(-50%, -50%);
   filter: blur(20px);
-}
+
+  opacity: 1 !important;}
 
 .spt-portal-outer-182 {
   position: absolute;
@@ -422,7 +431,8 @@ onUnmounted(() => {
   box-shadow: 
     0 0 20px rgba(168, 85, 247, 0.5),
     inset 0 0 20px rgba(168, 85, 247, 0.3);
-}
+
+  opacity: 1 !important;}
 
 .spt-text-182 {
   position: relative;
@@ -432,7 +442,8 @@ onUnmounted(() => {
   text-transform: uppercase;
   letter-spacing: 0.2em;
   z-index: 1;
-}
+
+  opacity: 1 !important;}
 
 .spt-text-dim-182 {
   position: absolute;
@@ -444,7 +455,8 @@ onUnmounted(() => {
   bottom: -30px;
   left: 50%;
   transform: translateX(-50%);
-}
+
+  opacity: 1 !important;}
 
 .spt-energy-stream-182 {
   position: absolute;
@@ -455,7 +467,8 @@ onUnmounted(() => {
   pointer-events: none;
   z-index: 0;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .spt-energy-line-182 {
   position: absolute;
@@ -463,7 +476,8 @@ onUnmounted(() => {
   height: 100%;
   background: linear-gradient(180deg, transparent, rgba(168, 85, 247, 0.4), rgba(192, 132, 252, 0.4), transparent);
   filter: blur(2px);
-}
+
+  opacity: 1 !important;}
 
 @for $i from 1 through 12 {
   .spt-energy-line-182:nth-child(#{$i}) {
@@ -479,7 +493,8 @@ onUnmounted(() => {
   height: 100%;
   pointer-events: none;
   z-index: 0;
-}
+
+  opacity: 1 !important;}
 
 .spt-star-182 {
   position: absolute;
@@ -488,7 +503,8 @@ onUnmounted(() => {
   background: #fff;
   border-radius: 50%;
   box-shadow: 0 0 6px rgba(255, 255, 255, 0.8);
-}
+
+  opacity: 1 !important;}
 
 @for $i from 1 through 50 {
   .spt-star-182:nth-child(#{$i}) {
@@ -501,16 +517,19 @@ onUnmounted(() => {
   .spt-text-wrapper-182 {
     width: 300px;
     height: 180px;
-  }
+  
+  opacity: 1 !important;}
 
   .spt-portal-182 {
     width: 250px;
     height: 100px;
-  }
+  
+  opacity: 1 !important;}
 
   .spt-text-182 {
     font-size: 2.5rem;
-  }
+  
+  opacity: 1 !important;}
 
   .spt-portal-ring-182:nth-child(1) { width: 400px; height: 400px; }
   .spt-portal-ring-182:nth-child(2) { width: 350px; height: 350px; }

@@ -309,7 +309,8 @@ onUnmounted(() => {
     background-size: 20px 20px;
     animation: grid-move 20s linear infinite;
     pointer-events: none;
-  }
+  
+  opacity: 1 !important;}
 }
 
 @keyframes grid-move {
@@ -326,7 +327,8 @@ onUnmounted(() => {
   margin: 0 auto;
   position: relative;
   z-index: 1;
-}
+
+  opacity: 1 !important;}
 
 .sgt-section-title-134 {
   text-align: center;
@@ -347,7 +349,8 @@ onUnmounted(() => {
     left: 0;
     width: 100%;
     height: 100%;
-  }
+  
+  opacity: 1 !important;}
 
   &::before {
     color: #0ff;
@@ -406,7 +409,8 @@ onUnmounted(() => {
   letter-spacing: 0.3em;
   text-transform: uppercase;
   text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
-}
+
+  opacity: 1 !important;}
 
 .sgt-glitch-stage-134 {
   position: relative;
@@ -417,14 +421,16 @@ onUnmounted(() => {
   justify-content: center;
   gap: 180px;
   perspective: 1500px;
-}
+
+  opacity: 1 !important;}
 
 .sgt-word-wrapper-134 {
   text-align: center;
   position: relative;
   cursor: pointer;
   transition: transform 0.3s ease;
-}
+
+  opacity: 1 !important;}
 
 .sgt-glitch-text-134 {
   position: relative;
@@ -434,7 +440,8 @@ onUnmounted(() => {
   text-transform: uppercase;
   letter-spacing: 0.1em;
   text-shadow: 0 0 40px rgba(0, 255, 255, 0.5);
-}
+
+  opacity: 1 !important;}
 
 .sgt-text-original-134,
 .sgt-text-1-134,
@@ -473,7 +480,8 @@ onUnmounted(() => {
   margin-top: 20px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-}
+
+  opacity: 1 !important;}
 
 .sgt-decorations-134 {
   position: absolute;
@@ -483,7 +491,8 @@ onUnmounted(() => {
   height: 100%;
   pointer-events: none;
   z-index: 0;
-}
+
+  opacity: 1 !important;}
 
 .sgt-decoration-134 {
   position: absolute;
@@ -503,7 +512,8 @@ onUnmounted(() => {
 @media (max-width: 768px) {
   .sgt-glitch-text-134 {
     font-size: clamp(3rem, 12vw, 5rem);
-  }
+  
+  opacity: 1 !important;}
 
   .sgt-word-wrapper-134 {
     gap: 100px;
@@ -516,10 +526,12 @@ onUnmounted(() => {
   .sgt-section-subtitle-134 {
     margin-bottom: 80px;
     font-size: 0.9rem;
-  }
+  
+  opacity: 1 !important;}
 
   .sgt-description-134 {
     font-size: 1rem;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

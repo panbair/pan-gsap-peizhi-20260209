@@ -226,18 +226,22 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
+/* GSAP opacity fix: ensure content is always visible */
+
 .fp-fixed-parallax-section-54 {
   min-height: 100vh;
   padding: 80px 40px;
   background: linear-gradient(135deg, #0f0f23 0%, #1a1a3e 50%, #2d1b69 100%);
   position: relative;
   overflow-x: hidden;
-}
+
+  opacity: 1 !important;}
 
 .fp-section-header-54 {
   text-align: center;
   margin-bottom: 80px;
-}
+
+  opacity: 1 !important;}
 
 .fp-title-54 {
   font-size: 56px;
@@ -246,7 +250,8 @@ onUnmounted(() => {
   letter-spacing: 6px;
   text-transform: uppercase;
   text-shadow: 0 0 30px rgba(45, 27, 105, 0.5);
-}
+
+  opacity: 1 !important;}
 
 .fp-subtitle-54 {
   font-size: 18px;
@@ -254,11 +259,13 @@ onUnmounted(() => {
   margin-top: 16px;
   letter-spacing: 3px;
   text-transform: uppercase;
-}
+
+  opacity: 1 !important;}
 
 .fp-parallax-spacer-54 {
   height: 100vh;
-}
+
+  opacity: 1 !important;}
 
 .fp-fixed-parallax-container-54 {
   position: relative;
@@ -270,7 +277,8 @@ onUnmounted(() => {
   max-width: 1400px;
   margin: 0 auto;
   padding: 40px;
-}
+
+  opacity: 1 !important;}
 
 .fp-fixed-card-54 {
   flex: 1;
@@ -283,7 +291,8 @@ onUnmounted(() => {
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
   position: relative;
   transition: box-shadow 0.4s ease;
-}
+
+  opacity: 1 !important;}
 
 .fp-fixed-card-54:hover {
   box-shadow: 0 20px 60px rgba(45, 27, 105, 0.4);
@@ -295,7 +304,8 @@ onUnmounted(() => {
   background-size: cover;
   background-position: center;
   transition: transform 0.4s ease;
-}
+
+  opacity: 1 !important;}
 
 .fp-card-info-54 {
   position: absolute;
@@ -306,7 +316,8 @@ onUnmounted(() => {
   padding: 24px;
   background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
   transform: translateZ(20px);
-}
+
+  opacity: 1 !important;}
 
 .fp-card-number-54 {
   position: absolute;
@@ -325,7 +336,8 @@ onUnmounted(() => {
   color: #fff;
   border: 2px solid rgba(45, 27, 105, 0.5);
   transition: all 0.4s ease;
-}
+
+  opacity: 1 !important;}
 
 .fp-card-info-54 h3 {
   font-size: 28px;
@@ -349,41 +361,48 @@ onUnmounted(() => {
   height: 4px;
   background: rgba(255, 255, 255, 0.1);
   z-index: 100;
-}
+
+  opacity: 1 !important;}
 
 .fp-progress-bar-54 {
   width: 0;
   height: 100%;
   background: linear-gradient(90deg, #2d1b69, #5c3d7a, #8b5fb8);
   transition: width 0.1s linear;
-}
+
+  opacity: 1 !important;}
 
 @media (max-width: 1024px) {
   .fp-fixed-parallax-container-54 {
     flex-direction: column;
     height: auto;
     min-height: 100vh;
-  }
+  
+  opacity: 1 !important;}
 
   .fp-fixed-card-54 {
     width: 100%;
     max-width: 400px;
     height: 450px;
-  }
+  
+  opacity: 1 !important;}
 }
 
 @media (max-width: 768px) {
   .fp-title-54 {
     font-size: 32px;
     letter-spacing: 3px;
-  }
+  
+  opacity: 1 !important;}
 
   .fp-subtitle-54 {
     font-size: 14px;
-  }
+  
+  opacity: 1 !important;}
 
   .fp-fixed-card-54 {
     height: 380px;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

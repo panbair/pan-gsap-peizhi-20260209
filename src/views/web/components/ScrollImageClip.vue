@@ -358,7 +358,8 @@ onUnmounted(() => {
       radial-gradient(circle at 20% 20%, rgba(229, 62, 62, 0.08) 0%, transparent 50%),
       radial-gradient(circle at 80% 80%, rgba(15, 52, 96, 0.15) 0%, transparent 50%);
     pointer-events: none;
-  }
+  
+  opacity: 1 !important;}
 }
 
 .sic-container-215 {
@@ -366,7 +367,8 @@ onUnmounted(() => {
   margin: 0 auto;
   position: relative;
   z-index: 1;
-}
+
+  opacity: 1 !important;}
 
 .sic-title-215 {
   text-align: center;
@@ -378,7 +380,8 @@ onUnmounted(() => {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-}
+
+  opacity: 1 !important;}
 
 .sic-subtitle-215 {
   text-align: center;
@@ -387,7 +390,8 @@ onUnmounted(() => {
   margin-bottom: 60px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-}
+
+  opacity: 1 !important;}
 
 .sic-shape-selector-215 {
   display: flex;
@@ -411,14 +415,16 @@ onUnmounted(() => {
   &:hover {
     background: rgba(255, 255, 255, 0.1);
     transform: translateY(-2px);
-  }
+  
+  opacity: 1 !important;}
 
   &.sic-active-215 {
     background: linear-gradient(135deg, #e53e3e, #ed8936);
     border-color: transparent;
     color: #fff;
     box-shadow: 0 8px 25px rgba(229, 62, 62, 0.3);
-  }
+  
+  opacity: 1 !important;}
 }
 
 .sic-clip-gallery-215 {
@@ -432,7 +438,8 @@ onUnmounted(() => {
   position: relative;
   height: 400px;
   perspective: 1000px;
-}
+
+  opacity: 1 !important;}
 
 .sic-image-wrapper-215 {
   position: relative;
@@ -445,7 +452,8 @@ onUnmounted(() => {
   &:hover {
     transform: translateY(-10px) scale(1.05);
     box-shadow: 0 30px 80px rgba(229, 62, 62, 0.4);
-  }
+  
+  opacity: 1 !important;}
 
   &.sic-shape-circle-215 {
     border-radius: 50%;
@@ -469,7 +477,8 @@ onUnmounted(() => {
   height: 100%;
   object-fit: cover;
   transition: transform 0.5s ease;
-}
+
+  opacity: 1 !important;}
 
 .sic-image-wrapper-215:hover .sic-image-215 {
   transform: scale(1.1);
@@ -486,12 +495,14 @@ onUnmounted(() => {
   align-items: flex-end;
   padding: 30px;
   pointer-events: none;
-}
+
+  opacity: 1 !important;}
 
 .sic-content-215 {
   text-align: center;
   width: 100%;
-}
+
+  opacity: 1 !important;}
 
 .sic-card-title-215 {
   font-size: 1.5rem;
@@ -499,13 +510,15 @@ onUnmounted(() => {
   color: #fff;
   margin-bottom: 10px;
   letter-spacing: 0.05em;
-}
+
+  opacity: 1 !important;}
 
 .sic-card-desc-215 {
   font-size: 1rem;
   color: rgba(255, 255, 255, 0.8);
   line-height: 1.5;
-}
+
+  opacity: 1 !important;}
 
 .sic-custom-section-215 {
   padding-top: 80px;
@@ -518,7 +531,8 @@ onUnmounted(() => {
   font-weight: 700;
   color: #fff;
   margin-bottom: 50px;
-}
+
+  opacity: 1 !important;}
 
 .sic-custom-grid-215 {
   display: grid;
@@ -529,7 +543,8 @@ onUnmounted(() => {
 .sic-custom-item-215 {
   height: 300px;
   position: relative;
-}
+
+  opacity: 1 !important;}
 
 .sic-custom-wrapper-215 {
   width: 100%;
@@ -541,7 +556,8 @@ onUnmounted(() => {
   &:hover {
     transform: translateY(-8px) rotateY(5deg);
     box-shadow: 0 25px 60px rgba(229, 62, 62, 0.4);
-  }
+  
+  opacity: 1 !important;}
 }
 
 .sic-custom-image-215 {
@@ -549,7 +565,8 @@ onUnmounted(() => {
   height: 100%;
   object-fit: cover;
   transition: transform 0.4s ease;
-}
+
+  opacity: 1 !important;}
 
 .sic-custom-wrapper-215:hover .sic-custom-image-215 {
   transform: scale(1.15);
@@ -562,14 +579,16 @@ onUnmounted(() => {
   right: 0;
   padding: 20px;
   background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
-}
+
+  opacity: 1 !important;}
 
 .sic-custom-name-215 {
   font-size: 1.1rem;
   font-weight: 600;
   color: #fff;
   text-align: center;
-}
+
+  opacity: 1 !important;}
 
 @media (max-width: 768px) {
   .sic-clip-gallery-215 {
@@ -585,7 +604,8 @@ onUnmounted(() => {
   .sic-shape-btn-215 {
     padding: 10px 20px;
     font-size: 0.85rem;
-  }
+  
+  opacity: 1 !important;}
 
   .sic-custom-grid-215 {
     grid-template-columns: 1fr;
@@ -593,6 +613,7 @@ onUnmounted(() => {
 
   .sic-clip-item-215 {
     height: 350px;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

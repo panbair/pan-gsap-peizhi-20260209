@@ -192,7 +192,8 @@ onUnmounted(() => {
   align-items: center;
   overflow: hidden;
   position: relative;
-}
+
+  opacity: 1 !important;}
 
 .is-bg-particles-227 {
   position: absolute;
@@ -219,7 +220,8 @@ onUnmounted(() => {
   text-align: center;
   margin-bottom: 40px;
   z-index: 10;
-}
+
+  opacity: 1 !important;}
 
 .is-title-227 {
   font-size: 3rem;
@@ -231,7 +233,8 @@ onUnmounted(() => {
   background-clip: text;
   letter-spacing: 2px;
   animation: titleGlow 3s ease-in-out infinite;
-}
+
+  opacity: 1 !important;}
 
 @keyframes titleGlow {
   0%, 100% {
@@ -247,7 +250,8 @@ onUnmounted(() => {
   color: rgba(255, 255, 255, 0.6);
   font-weight: 300;
   letter-spacing: 4px;
-}
+
+  opacity: 1 !important;}
 
 // 碎片容器
 .is-shatter-container-227 {
@@ -258,7 +262,8 @@ onUnmounted(() => {
   perspective: 1500px;
   margin-bottom: 40px;
   z-index: 10;
-}
+
+  opacity: 1 !important;}
 
 .is-shatter-image-227 {
   position: relative;
@@ -268,7 +273,8 @@ onUnmounted(() => {
   border-radius: 20px;
   overflow: hidden;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-}
+
+  opacity: 1 !important;}
 
 .is-shard-227 {
   position: absolute;
@@ -299,16 +305,19 @@ onUnmounted(() => {
     border-radius: 20px;
     box-shadow: 0 25px 80px rgba(244, 114, 182, 0.4);
     filter: brightness(1.2) contrast(1.1);
-  }
+  
+  opacity: 1 !important;}
 }
 
 @media (max-width: 768px) {
   .is-title-227 {
     font-size: 2rem;
-  }
+  
+  opacity: 1 !important;}
 
   .is-shatter-container-227 {
     height: 400px;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

@@ -298,7 +298,8 @@ onUnmounted(() => {
       radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.08) 0%, transparent 60%);
     pointer-events: none;
     animation: bg-glow 12s ease-in-out infinite;
-  }
+  
+  opacity: 1 !important;}
 }
 
 @keyframes bg-glow {
@@ -315,7 +316,8 @@ onUnmounted(() => {
   margin: 0 auto;
   position: relative;
   z-index: 1;
-}
+
+  opacity: 1 !important;}
 
 .smf-section-title-133 {
   text-align: center;
@@ -328,7 +330,8 @@ onUnmounted(() => {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   text-shadow: 0 0 80px rgba(168, 85, 247, 0.5);
-}
+
+  opacity: 1 !important;}
 
 .smf-section-subtitle-133 {
   text-align: center;
@@ -337,7 +340,8 @@ onUnmounted(() => {
   margin-bottom: 120px;
   letter-spacing: 0.3em;
   text-transform: uppercase;
-}
+
+  opacity: 1 !important;}
 
 .smf-fluid-container-133 {
   position: relative;
@@ -346,7 +350,8 @@ onUnmounted(() => {
   align-items: center;
   justify-content: center;
   perspective: 1500px;
-}
+
+  opacity: 1 !important;}
 
 .smf-fluid-stage-133 {
   position: absolute;
@@ -357,7 +362,8 @@ onUnmounted(() => {
   pointer-events: none;
   z-index: 0;
   transition: transform 0.5s ease;
-}
+
+  opacity: 1 !important;}
 
 .smf-fluid-blob-133 {
   position: absolute;
@@ -386,7 +392,8 @@ onUnmounted(() => {
   flex-direction: column;
   gap: 120px;
   padding: 50px;
-}
+
+  opacity: 1 !important;}
 
 .smf-content-item-133 {
   display: flex;
@@ -405,7 +412,8 @@ onUnmounted(() => {
     background: rgba(255, 255, 255, 0.05);
     border-color: rgba(236, 72, 153, 0.3);
     box-shadow: 0 15px 50px rgba(236, 72, 153, 0.2);
-  }
+  
+  opacity: 1 !important;}
 }
 
 .smf-number-133 {
@@ -418,7 +426,8 @@ onUnmounted(() => {
   min-width: 100px;
   text-align: center;
   text-shadow: 0 0 40px rgba(236, 72, 153, 0.5);
-}
+
+  opacity: 1 !important;}
 
 .smf-text-133 {
   flex: 1;
@@ -428,7 +437,8 @@ onUnmounted(() => {
     font-weight: 700;
     color: #fff;
     margin-bottom: 10px;
-  }
+  
+  opacity: 1 !important;}
 
   p {
     font-size: 1rem;
@@ -441,19 +451,22 @@ onUnmounted(() => {
   .smf-content-133 {
     padding: 20px;
     gap: 40px;
-  }
+  
+  opacity: 1 !important;}
 
   .smf-content-item-133 {
     flex-direction: column;
     text-align: center;
     gap: 20px;
     padding: 30px;
-  }
+  
+  opacity: 1 !important;}
 
   .smf-number-133 {
     font-size: 2.5rem;
     min-width: auto;
-  }
+  
+  opacity: 1 !important;}
 
   .smf-section-title-133 {
     margin-bottom: 80px;
@@ -462,6 +475,7 @@ onUnmounted(() => {
   .smf-section-subtitle-133 {
     margin-bottom: 80px;
     font-size: 0.9rem;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

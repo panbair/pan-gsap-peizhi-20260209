@@ -187,12 +187,14 @@ onUnmounted(() => {
   padding: 120px 20px;
   background: linear-gradient(180deg, #0d0d1d 0%, #1a1a3a 50%, #0d0d1d 100%);
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .scmr-container-178 {
   max-width: 1400px;
   margin: 0 auto;
-}
+
+  opacity: 1 !important;}
 
 .scmr-title-178 {
   text-align: center;
@@ -203,7 +205,8 @@ onUnmounted(() => {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-}
+
+  opacity: 1 !important;}
 
 .scmr-subtitle-178 {
   text-align: center;
@@ -212,7 +215,8 @@ onUnmounted(() => {
   margin-bottom: 100px;
   letter-spacing: 0.3em;
   text-transform: uppercase;
-}
+
+  opacity: 1 !important;}
 
 .scmr-cards-grid-178 {
   display: grid;
@@ -237,7 +241,8 @@ onUnmounted(() => {
     background: rgba(255, 255, 255, 0.05);
     border-color: rgba(255, 154, 158, 0.4);
     transform: translateY(-10px);
-  }
+  
+  opacity: 1 !important;}
 }
 
 .scmr-card-visual-178 {
@@ -247,7 +252,8 @@ onUnmounted(() => {
   display: flex;
   align-items: center;
   justify-content: center;
-}
+
+  opacity: 1 !important;}
 
 .scmr-shape-178 {
   position: absolute;
@@ -284,7 +290,8 @@ onUnmounted(() => {
 .scmr-card-info-178 {
   text-align: center;
   position: relative;
-}
+
+  opacity: 1 !important;}
 
 .scmr-card-id-178 {
   position: absolute;
@@ -298,21 +305,24 @@ onUnmounted(() => {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   line-height: 1;
-}
+
+  opacity: 1 !important;}
 
 .scmr-card-name-178 {
   font-size: 1.5rem;
   font-weight: 700;
   color: #fff;
   margin-bottom: 8px;
-}
+
+  opacity: 1 !important;}
 
 .scmr-card-type-178 {
   font-size: 0.85rem;
   color: rgba(255, 255, 255, 0.6);
   letter-spacing: 0.2em;
   text-transform: uppercase;
-}
+
+  opacity: 1 !important;}
 
 @media (max-width: 768px) {
   .scmr-cards-grid-178 {
@@ -322,24 +332,29 @@ onUnmounted(() => {
 
   .scmr-morph-card-178 {
     padding: 30px;
-  }
+  
+  opacity: 1 !important;}
 
   .scmr-card-visual-178 {
     width: 100px;
     height: 100px;
-  }
+  
+  opacity: 1 !important;}
 
   .scmr-shape-178 {
     width: 60px;
     height: 60px;
-  }
+  
+  opacity: 1 !important;}
 
   .scmr-card-id-178 {
     font-size: 2rem;
-  }
+  
+  opacity: 1 !important;}
 
   .scmr-card-name-178 {
     font-size: 1.2rem;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

@@ -132,7 +132,8 @@ const initAnimations = () => {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-}
+
+  opacity: 1 !important;}
 
 .section-title-8 {
   font-size: 2.5rem;
@@ -143,11 +144,13 @@ const initAnimations = () => {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   text-align: center;
-}
+
+  opacity: 1 !important;}
 
 .counter-section-8 {
   background: linear-gradient(180deg, transparent, rgba(139, 92, 246, 0.1), transparent);
-}
+
+  opacity: 1 !important;}
 
 .counter-container-8 {
   display: grid;
@@ -155,7 +158,8 @@ const initAnimations = () => {
   gap: 30px;
   max-width: 1000px;
   width: 100%;
-}
+
+  opacity: 1 !important;}
 
 .counter-item-8 {
   display: flex;
@@ -170,7 +174,8 @@ const initAnimations = () => {
 
   &:hover {
     transform: translateY(-5px);
-  }
+  
+  opacity: 1 !important;}
 }
 
 .counter-value-8 {
@@ -181,18 +186,21 @@ const initAnimations = () => {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   margin-bottom: 10px;
-}
+
+  opacity: 1 !important;}
 
 .counter-label-8 {
   font-size: 1rem;
   color: #94a3b8;
   margin-bottom: 5px;
-}
+
+  opacity: 1 !important;}
 
 .counter-unit-8 {
   font-size: 1.5rem;
   color: #fff;
-}
+
+  opacity: 1 !important;}
 
 @media (max-width: 768px) {
   .counter-container-8 {
@@ -202,10 +210,12 @@ const initAnimations = () => {
 
   .counter-item-8 {
     padding: 30px;
-  }
+  
+  opacity: 1 !important;}
 
   .counter-value-8 {
     font-size: 2rem;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

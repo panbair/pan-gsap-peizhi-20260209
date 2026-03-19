@@ -169,13 +169,16 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
+/* GSAP opacity fix: ensure content is always visible */
+
 .pc-container-190 {
   min-height: 100vh;
   padding: 80px 20px;
   background: linear-gradient(135deg, #0a0a0a 0%, #1a1a9e 50%, #0a0a0a 100%);
   position: relative;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .pc-container-190::before {
   content: '';
@@ -198,13 +201,15 @@ onUnmounted(() => {
   text-transform: uppercase;
   letter-spacing: 3px;
   text-shadow: 4px 4px 0 #ff00ff, 8px 8px 0 #00ffff;
-}
+
+  opacity: 1 !important;}
 
 .pc-stage-190 {
   max-width: 1400px;
   margin: 0 auto;
   position: relative;
-}
+
+  opacity: 1 !important;}
 
 .pc-pixel-grid-190 {
   position: absolute;
@@ -223,7 +228,8 @@ onUnmounted(() => {
   height: 8px;
   background: rgba(255, 255, 255, 0.2);
   transition: all 0.3s ease;
-}
+
+  opacity: 1 !important;}
 
 .pc-cards-190 {
   display: grid;
@@ -240,7 +246,8 @@ onUnmounted(() => {
   border: 4px solid #fff;
   image-rendering: pixelated;
   transition: all 0.3s ease;
-}
+
+  opacity: 1 !important;}
 
 .pc-card-190:hover {
   transform: translateY(-10px);
@@ -256,16 +263,19 @@ onUnmounted(() => {
   height: 120px;
   margin: 0 auto 30px;
   transition: all 0.5s ease;
-}
+
+  opacity: 1 !important;}
 
 .pc-pixel-190 {
   background: rgba(255, 255, 255, 0.3);
   transition: all 0.3s ease;
-}
+
+  opacity: 1 !important;}
 
 .pc-content-190 {
   text-align: center;
-}
+
+  opacity: 1 !important;}
 
 .pc-content-190 h3 {
   font-size: 1.5rem;
@@ -285,7 +295,8 @@ onUnmounted(() => {
   .pc-title-190 {
     font-size: 1.8rem;
     text-shadow: 2px 2px 0 #ff00ff, 4px 4px 0 #00ffff;
-  }
+  
+  opacity: 1 !important;}
   
   .pc-cards-190 {
     grid-template-columns: 1fr;

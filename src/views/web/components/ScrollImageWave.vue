@@ -215,6 +215,7 @@ onMounted(() => {
             height: 70vh;
             object-fit: cover;
             transition: transform 0.3s ease;
+            opacity: 1 !important;
           }
 
           .wave-overlay {
@@ -230,6 +231,7 @@ onMounted(() => {
               color: #fff;
               margin: 0 0 15px 0;
               text-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+              opacity: 1 !important;
             }
 
             p {
@@ -270,7 +272,8 @@ onMounted(() => {
         transition: transform 0.3s ease;
 
         @for $i from 1 through 5 {
-          &:nth-child(#{$i}) {
+          &:nth-child(#{$i
+  opacity: 1 !important;}) {
             --scale: #{0.3 + ($i * 0.15)};
             animation: wave 1.5s ease-in-out infinite;
             animation-delay: calc(var(--i) * 0.2s);
@@ -291,23 +294,28 @@ onMounted(() => {
 }
 
 @media (max-width: 768px) {
+
   .scroll-image-wave {
     .wave-container {
+
       .wave-track {
-        .wave-item {
+    .wave-item {
           padding: 20px;
 
+
           .wave-card {
-            .wave-image {
+    .wave-image {
               height: 50vh;
-            }
+            
+  opacity: 1 !important;}
 
             .wave-overlay {
               padding: 20px;
 
               h3 {
                 font-size: 1.5rem;
-              }
+              
+  opacity: 1 !important;}
 
               p {
                 font-size: 0.9rem;
@@ -321,11 +329,13 @@ onMounted(() => {
     .wave-indicator {
       right: 15px;
 
+
       .wave-lines {
-        .wave-line {
+    .wave-line {
           width: 3px;
           height: 30px;
-        }
+        
+  opacity: 1 !important;}
       }
     }
   }

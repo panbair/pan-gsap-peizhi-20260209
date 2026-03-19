@@ -228,7 +228,8 @@ onUnmounted(() => {
       radial-gradient(circle at 20% 30%, rgba(72, 219, 251, 0.1) 0%, transparent 40%),
       radial-gradient(circle at 80% 70%, rgba(253, 203, 110, 0.1) 0%, transparent 40%);
     pointer-events: none;
-  }
+  
+  opacity: 1 !important;}
 }
 
 .dp-container-35 {
@@ -237,7 +238,8 @@ onUnmounted(() => {
   padding: 0 40px;
   position: relative;
   z-index: 1;
-}
+
+  opacity: 1 !important;}
 
 .dp-section-title-35 {
   text-align: center;
@@ -259,7 +261,8 @@ onUnmounted(() => {
     background: linear-gradient(90deg, #48dbfb, #0abde3, #fdcb6e);
     margin: 20px auto 0;
     border-radius: 2px;
-  }
+  
+  opacity: 1 !important;}
 }
 
 .dp-parallax-grid-35 {
@@ -268,7 +271,8 @@ onUnmounted(() => {
   gap: 40px;
   padding: 60px 0;
   perspective: 1000px;
-}
+
+  opacity: 1 !important;}
 
 .dp-parallax-card-35 {
   position: relative;
@@ -282,15 +286,16 @@ onUnmounted(() => {
   &:hover {
     transform: translateY(-15px) scale(1.02);
     z-index: 10;
-  }
+  
+  opacity: 1 !important;}
 }
 
-.dp-card-wrapper-35 {
-  width: 100%;
+.dp-card-wrapper-35 { width: 100%;
   height: 100%;
   position: relative;
   overflow: hidden;
-}
+      opacity: 1;
+    }
 
 img {
   width: 100%;
@@ -303,8 +308,7 @@ img {
   filter: brightness(1.1);
 }
 
-.dp-card-overlay-35 {
-  position: absolute;
+.dp-card-overlay-35 { position: absolute;
   top: 0;
   left: 0;
   right: 0;
@@ -315,7 +319,8 @@ img {
   justify-content: flex-end;
   padding: 30px;
   pointer-events: none;
-}
+      opacity: 1;
+    }
 
 .dp-card-index-35 {
   font-size: 4rem;
@@ -329,18 +334,18 @@ img {
   opacity: 0.9;
 }
 
-.dp-card-heading-35 {
-  font-size: 1.6rem;
+.dp-card-heading-35 { font-size: 1.6rem;
   font-weight: 700;
   color: #fff;
   margin: 0 0 10px;
-}
+      opacity: 1;
+    }
 
-.dp-card-text-35 {
-  font-size: 1rem;
+.dp-card-text-35 { font-size: 1rem;
   color: rgba(255, 255, 255, 0.8);
   margin: 0;
-}
+      opacity: 1;
+    }
 
 @media (max-width: 1024px) {
   .dp-parallax-grid-35 {
@@ -355,6 +360,7 @@ img {
 
   .dp-section-title-35 {
     font-size: 2rem;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

@@ -282,25 +282,30 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
+/* GSAP opacity fix: ensure content is always visible */
+
 .perspective-wrapper-213 {
   position: relative;
   min-height: 100vh;
   background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 50%, #0f172a 100%);
   overflow: hidden;
   padding: 60px 20px;
-}
+
+  opacity: 1 !important;}
 
 .ps-container-213 {
   position: relative;
   max-width: 1400px;
   margin: 0 auto;
   z-index: 10;
-}
+
+  opacity: 1 !important;}
 
 .ps-header-213 {
   text-align: center;
   margin-bottom: 60px;
-}
+
+  opacity: 1 !important;}
 
 .ps-title-213 {
   font-size: 3rem;
@@ -310,12 +315,14 @@ onUnmounted(() => {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   margin-bottom: 16px;
-}
+
+  opacity: 1 !important;}
 
 .ps-subtitle-213 {
   font-size: 1.2rem;
   color: #94a3b8;
-}
+
+  opacity: 1 !important;}
 
 .ps-scene-213 {
   position: relative;
@@ -324,7 +331,8 @@ onUnmounted(() => {
   display: flex;
   align-items: center;
   justify-content: center;
-}
+
+  opacity: 1 !important;}
 
 .ps-perspective-213 {
   width: 100%;
@@ -336,7 +344,8 @@ onUnmounted(() => {
   justify-content: center;
   gap: 40px;
   flex-wrap: wrap;
-}
+
+  opacity: 1 !important;}
 
 .ps-card-213 {
   position: relative;
@@ -352,7 +361,8 @@ onUnmounted(() => {
   cursor: pointer;
   transition: border-color 0.3s;
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-}
+
+  opacity: 1 !important;}
 
 .ps-card-213:hover {
   border-color: rgba(59, 130, 246, 0.5);
@@ -366,7 +376,8 @@ onUnmounted(() => {
   flex-direction: column;
   align-items: center;
   text-align: center;
-}
+
+  opacity: 1 !important;}
 
 .ps-card-icon-213 {
   width: 100px;
@@ -379,21 +390,24 @@ onUnmounted(() => {
   font-size: 3rem;
   margin-bottom: 20px;
   box-shadow: 0 10px 30px rgba(59, 130, 246, 0.4);
-}
+
+  opacity: 1 !important;}
 
 .ps-card-title-213 {
   font-size: 1.5rem;
   font-weight: 700;
   color: #fff;
   margin-bottom: 10px;
-}
+
+  opacity: 1 !important;}
 
 .ps-card-desc-213 {
   font-size: 1rem;
   color: #94a3b8;
   margin-bottom: 20px;
   line-height: 1.6;
-}
+
+  opacity: 1 !important;}
 
 .ps-card-depth-213 {
   display: flex;
@@ -408,14 +422,16 @@ onUnmounted(() => {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-}
+
+  opacity: 1 !important;}
 
 .ps-depth-label-213 {
   font-size: 0.8rem;
   color: #64748b;
   text-transform: uppercase;
   letter-spacing: 1px;
-}
+
+  opacity: 1 !important;}
 
 .ps-card-glow-213 {
   position: absolute;
@@ -453,7 +469,8 @@ onUnmounted(() => {
   font-weight: 600;
   cursor: pointer;
   transition: transform 0.3s, box-shadow 0.3s;
-}
+
+  opacity: 1 !important;}
 
 .ps-control-btn-213:hover {
   transform: translateY(-3px);
@@ -466,14 +483,16 @@ onUnmounted(() => {
   background: rgba(255, 255, 255, 0.1);
   border-radius: 2px;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .ps-indicator-bar-213 {
   width: 0;
   height: 100%;
   background: linear-gradient(90deg, #3b82f6 0%, #8b5cf6 100%);
   border-radius: 2px;
-}
+
+  opacity: 1 !important;}
 
 .ps-particles-213 {
   position: fixed;
@@ -485,7 +504,8 @@ onUnmounted(() => {
   z-index: 1;
   perspective: 1000px;
   transform-style: preserve-3d;
-}
+
+  opacity: 1 !important;}
 
 .ps-particle-213 {
   position: absolute;
@@ -494,11 +514,13 @@ onUnmounted(() => {
 @media (max-width: 768px) {
   .ps-title-213 {
     font-size: 2rem;
-  }
+  
+  opacity: 1 !important;}
 
   .ps-scene-213 {
     height: 800px;
-  }
+  
+  opacity: 1 !important;}
 
   .ps-perspective-213 {
     gap: 20px;
@@ -507,6 +529,7 @@ onUnmounted(() => {
   .ps-card-213 {
     width: 240px;
     height: 300px;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

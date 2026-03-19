@@ -269,7 +269,8 @@ onUnmounted(() => {
       radial-gradient(circle at 50% 50%, rgba(236, 72, 153, 0.1) 0%, transparent 60%);
     pointer-events: none;
     animation: glow 8s ease-in-out infinite;
-  }
+  
+  opacity: 1 !important;}
 }
 
 @keyframes glow {
@@ -286,7 +287,8 @@ onUnmounted(() => {
   margin: 0 auto;
   position: relative;
   z-index: 1;
-}
+
+  opacity: 1 !important;}
 
 .spart-section-title-131 {
   text-align: center;
@@ -299,7 +301,8 @@ onUnmounted(() => {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   text-shadow: 0 0 80px rgba(168, 85, 247, 0.5);
-}
+
+  opacity: 1 !important;}
 
 .spart-section-subtitle-131 {
   text-align: center;
@@ -308,7 +311,8 @@ onUnmounted(() => {
   margin-bottom: 150px;
   letter-spacing: 0.3em;
   text-transform: uppercase;
-}
+
+  opacity: 1 !important;}
 
 .spart-particle-stage-131 {
   position: relative;
@@ -317,7 +321,8 @@ onUnmounted(() => {
   align-items: center;
   justify-content: center;
   perspective: 1500px;
-}
+
+  opacity: 1 !important;}
 
 .spart-text-container-131 {
   position: relative;
@@ -349,7 +354,8 @@ onUnmounted(() => {
   background-clip: text;
   text-shadow: 0 0 40px rgba(168, 85, 247, 0.4);
   transition: all 0.3s ease;
-}
+
+  opacity: 1 !important;}
 
 .spart-particles-131 {
   position: absolute;
@@ -359,7 +365,8 @@ onUnmounted(() => {
   height: 100%;
   pointer-events: none;
   z-index: 0;
-}
+
+  opacity: 1 !important;}
 
 .spart-particle-131 {
   position: absolute;
@@ -378,7 +385,8 @@ onUnmounted(() => {
   letter-spacing: 0.2em;
   text-transform: uppercase;
   animation: hint-pulse 2s ease-in-out infinite;
-}
+
+  opacity: 1 !important;}
 
 @keyframes hint-pulse {
   0%, 100% {
@@ -392,7 +400,8 @@ onUnmounted(() => {
 @media (max-width: 768px) {
   .spart-letter-131 {
     font-size: clamp(2.5rem, 8vw, 4rem);
-  }
+  
+  opacity: 1 !important;}
 
   .spart-word-131 {
     gap: 0.05em;
@@ -405,10 +414,12 @@ onUnmounted(() => {
   .spart-section-subtitle-131 {
     margin-bottom: 100px;
     font-size: 0.9rem;
-  }
+  
+  opacity: 1 !important;}
 
   .spart-particle-stage-131 {
     min-height: 400px;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

@@ -345,12 +345,14 @@ onUnmounted(() => {
   padding: 100px 20px;
   background: linear-gradient(180deg, #0a0e27 0%, #1a1f3a 100%);
   position: relative;
-}
+
+  opacity: 1 !important;}
 
 .mo-container-101 {
   max-width: 1000px;
   margin: 0 auto;
-}
+
+  opacity: 1 !important;}
 
 .mo-title-101 {
   text-align: center;
@@ -358,7 +360,8 @@ onUnmounted(() => {
   font-weight: 800;
   margin-bottom: 15px;
   color: #fff;
-}
+
+  opacity: 1 !important;}
 
 .mo-subtitle-101 {
   text-align: center;
@@ -367,7 +370,8 @@ onUnmounted(() => {
   margin-bottom: 80px;
   letter-spacing: 6px;
   text-transform: uppercase;
-}
+
+  opacity: 1 !important;}
 
 .mo-orbit-container-101 {
   position: relative;
@@ -377,7 +381,8 @@ onUnmounted(() => {
   justify-content: center;
   align-items: center;
   margin-bottom: 60px;
-}
+
+  opacity: 1 !important;}
 
 .mo-magnet-101 {
   position: absolute;
@@ -387,7 +392,8 @@ onUnmounted(() => {
   justify-content: center;
   align-items: center;
   z-index: 10;
-}
+
+  opacity: 1 !important;}
 
 .mo-magnet-core-101 {
   width: 40px;
@@ -395,7 +401,8 @@ onUnmounted(() => {
   background: radial-gradient(circle, #ffffff 0%, #e0e7ff 100%);
   border-radius: 50%;
   box-shadow: 0 0 40px rgba(255, 255, 255, 0.5);
-}
+
+  opacity: 1 !important;}
 
 .mo-magnet-field-101 {
   position: absolute;
@@ -403,7 +410,8 @@ onUnmounted(() => {
   height: 120px;
   border-radius: 50%;
   background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
-}
+
+  opacity: 1 !important;}
 
 .mo-orbit-101 {
   position: absolute;
@@ -420,14 +428,16 @@ onUnmounted(() => {
   border-radius: 50%;
   border: 1px solid rgba(255, 255, 255, 0.15);
   box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.02);
-}
+
+  opacity: 1 !important;}
 
 .mo-planet-101 {
   position: absolute;
   width: 0;
   height: 0;
   transform: rotate(var(--angle)) translate(var(--orbit-radius)) rotate(calc(-1 * var(--angle)));
-}
+
+  opacity: 1 !important;}
 
 .mo-planet-body-101 {
   position: absolute;
@@ -453,7 +463,8 @@ onUnmounted(() => {
   border-radius: 50%;
   background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
   pointer-events: none;
-}
+
+  opacity: 1 !important;}
 
 .mo-planet-trail-101 {
   position: absolute;
@@ -464,7 +475,8 @@ onUnmounted(() => {
   height: 2px;
   transform-origin: right center;
   pointer-events: none;
-}
+
+  opacity: 1 !important;}
 
 .mo-trail-segment-101 {
   position: absolute;
@@ -473,7 +485,8 @@ onUnmounted(() => {
   width: 10px;
   height: 100%;
   background: linear-gradient(to left, rgba(255, 255, 255, 0.3), transparent);
-}
+
+  opacity: 1 !important;}
 
 .mo-gravity-waves-101 {
   position: absolute;
@@ -492,7 +505,8 @@ onUnmounted(() => {
   height: 100px;
   border-radius: 50%;
   border: 1px solid rgba(255, 255, 255, 0.1);
-}
+
+  opacity: 1 !important;}
 
 .mo-physics-panel-101 {
   display: grid;
@@ -502,7 +516,8 @@ onUnmounted(() => {
   background: rgba(255, 255, 255, 0.03);
   border-radius: 16px;
   border: 1px solid rgba(255, 255, 255, 0.08);
-}
+
+  opacity: 1 !important;}
 
 .mo-param-101 {
   display: flex;
@@ -515,7 +530,8 @@ onUnmounted(() => {
   color: rgba(255, 255, 255, 0.5);
   letter-spacing: 2px;
   text-transform: uppercase;
-}
+
+  opacity: 1 !important;}
 
 .mo-param-bar-101 {
   width: 100%;
@@ -523,7 +539,8 @@ onUnmounted(() => {
   background: rgba(255, 255, 255, 0.1);
   border-radius: 2px;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .mo-param-fill-101 {
   width: 0%;
@@ -531,21 +548,25 @@ onUnmounted(() => {
   background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
   border-radius: 2px;
   transition: width 0.3s ease;
-}
+
+  opacity: 1 !important;}
 
 @media (max-width: 768px) {
   .mo-title-101 {
     font-size: 2rem;
-  }
+  
+  opacity: 1 !important;}
 
   .mo-subtitle-101 {
     font-size: 0.85rem;
     letter-spacing: 3px;
-  }
+  
+  opacity: 1 !important;}
 
   .mo-orbit-container-101 {
     height: 500px;
-  }
+  
+  opacity: 1 !important;}
 
   .mo-physics-panel-101 {
     grid-template-columns: 1fr;

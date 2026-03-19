@@ -185,13 +185,16 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
+/* GSAP opacity fix: ensure content is always visible */
+
 .gm-container-193 {
   min-height: 100vh;
   padding: 80px 20px;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
   position: relative;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .gm-container-193::before {
   content: '';
@@ -213,12 +216,14 @@ onUnmounted(() => {
   color: #fff;
   margin-bottom: 60px;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-}
+
+  opacity: 1 !important;}
 
 .gm-stage-193 {
   max-width: 1400px;
   margin: 0 auto;
-}
+
+  opacity: 1 !important;}
 
 .gm-cards-193 {
   display: grid;
@@ -242,7 +247,8 @@ onUnmounted(() => {
   transition: all 0.5s ease;
   transform-style: preserve-3d;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .gm-glass-193::before {
   content: '';
@@ -279,14 +285,16 @@ onUnmounted(() => {
   z-index: 1;
   text-align: center;
   transform: translateZ(20px);
-}
+
+  opacity: 1 !important;}
 
 .gm-icon-193 {
   font-size: 3rem;
   margin-bottom: 20px;
   display: inline-block;
   transition: transform 0.5s ease;
-}
+
+  opacity: 1 !important;}
 
 .gm-content-193 h3 {
   font-size: 1.5rem;
@@ -305,7 +313,8 @@ onUnmounted(() => {
 @media (max-width: 768px) {
   .gm-title-193 {
     font-size: 1.8rem;
-  }
+  
+  opacity: 1 !important;}
   
   .gm-cards-193 {
     grid-template-columns: 1fr;

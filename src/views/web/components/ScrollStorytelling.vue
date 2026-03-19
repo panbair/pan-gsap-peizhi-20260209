@@ -449,12 +449,15 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
+/* GSAP opacity fix: ensure content is always visible */
+
 .sst-scroll-storytelling-226 {
   min-height: 100vh;
   position: relative;
   overflow: hidden;
   background: #0a0a0f;
-}
+
+  opacity: 1 !important;}
 
 /* 背景层 */
 .sst-background-226 {
@@ -465,7 +468,8 @@ onUnmounted(() => {
   height: 100%;
   pointer-events: none;
   z-index: 0;
-}
+
+  opacity: 1 !important;}
 
 .sst-gradient-layer-226 {
   position: absolute;
@@ -476,15 +480,18 @@ onUnmounted(() => {
 
 .sst-layer-1-226 {
   background: radial-gradient(circle at 20% 30%, #667eea 0%, transparent 50%);
-}
+
+  opacity: 1 !important;}
 
 .sst-layer-2-226 {
   background: radial-gradient(circle at 80% 70%, #f093fb 0%, transparent 50%);
-}
+
+  opacity: 1 !important;}
 
 .sst-layer-3-226 {
   background: radial-gradient(circle at 50% 50%, #4facfe 0%, transparent 50%);
-}
+
+  opacity: 1 !important;}
 
 .sst-container-226 {
   max-width: 1400px;
@@ -492,7 +499,8 @@ onUnmounted(() => {
   padding: 60px 20px;
   position: relative;
   z-index: 10;
-}
+
+  opacity: 1 !important;}
 
 /* 故事标题 */
 .sst-story-header-226 {
@@ -503,7 +511,8 @@ onUnmounted(() => {
   justify-content: center;
   text-align: center;
   padding: 40px 20px;
-}
+
+  opacity: 1 !important;}
 
 .sst-story-title-226 {
   font-size: clamp(3rem, 8vw, 6rem);
@@ -516,7 +525,8 @@ onUnmounted(() => {
   margin-bottom: 20px;
   letter-spacing: 0.1em;
   animation: gradient-shift 8s ease infinite;
-}
+
+  opacity: 1 !important;}
 
 @keyframes gradient-shift {
   0%, 100% { background-position: 0% center; }
@@ -529,7 +539,8 @@ onUnmounted(() => {
   letter-spacing: 0.3em;
   text-transform: uppercase;
   font-weight: 300;
-}
+
+  opacity: 1 !important;}
 
 .sst-scroll-indicator-226 {
   position: absolute;
@@ -545,13 +556,15 @@ onUnmounted(() => {
   font-size: 0.9rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-}
+
+  opacity: 1 !important;}
 
 .sst-scroll-arrow-226 {
   font-size: 2rem;
   color: #667eea;
   animation: scroll-bounce 2s ease-in-out infinite;
-}
+
+  opacity: 1 !important;}
 
 @keyframes scroll-bounce {
   0%, 100% { transform: translateY(0); }
@@ -561,7 +574,8 @@ onUnmounted(() => {
 /* 章节容器 */
 .sst-chapters-226 {
   padding: 100px 0;
-}
+
+  opacity: 1 !important;}
 
 .sst-chapter-226 {
   min-height: 100vh;
@@ -571,7 +585,8 @@ onUnmounted(() => {
   gap: 80px;
   margin: 100px 0;
   padding: 60px 40px;
-}
+
+  opacity: 1 !important;}
 
 .sst-chapter-226:nth-child(even) {
   flex-direction: row-reverse;
@@ -596,7 +611,8 @@ onUnmounted(() => {
   overflow: visible;
   box-shadow: 0 25px 80px rgba(0, 0, 0, 0.5),
               inset 0 1px 0 rgba(255, 255, 255, 0.1);
-}
+
+  opacity: 1 !important;}
 
 .sst-visual-content-226 {
   width: 100%;
@@ -607,49 +623,57 @@ onUnmounted(() => {
   display: flex;
   align-items: center;
   justify-content: center;
-}
+
+  opacity: 1 !important;}
 
 .sst-visual-shape-226 {
   width: 200px;
   height: 200px;
   position: relative;
-}
+
+  opacity: 1 !important;}
 
 .sst-shape-circle {
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.2);
   box-shadow: 0 0 60px rgba(255, 255, 255, 0.3);
-}
+
+  opacity: 1 !important;}
 
 .sst-shape-star {
   clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
   background: rgba(255, 255, 255, 0.2);
   box-shadow: 0 0 60px rgba(255, 255, 255, 0.3);
-}
+
+  opacity: 1 !important;}
 
 .sst-shape-hexagon {
   clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
   background: rgba(255, 255, 255, 0.2);
   box-shadow: 0 0 60px rgba(255, 255, 255, 0.3);
-}
+
+  opacity: 1 !important;}
 
 .sst-shape-triangle {
   clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
   background: rgba(255, 255, 255, 0.2);
   box-shadow: 0 0 60px rgba(255, 255, 255, 0.3);
-}
+
+  opacity: 1 !important;}
 
 .sst-shape-diamond {
   clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
   background: rgba(255, 255, 255, 0.2);
   box-shadow: 0 0 60px rgba(255, 255, 255, 0.3);
-}
+
+  opacity: 1 !important;}
 
 .sst-shape-heart {
   clip-path: path('M 100 20 C 100 20, 20 20, 20 70 C 20 130, 100 180, 100 180 C 100 180, 180 130, 180 70 C 180 20, 100 20, 100 20 Z');
   background: rgba(255, 255, 255, 0.2);
   box-shadow: 0 0 60px rgba(255, 255, 255, 0.3);
-}
+
+  opacity: 1 !important;}
 
 .sst-visual-particles-226 {
   position: absolute;
@@ -666,7 +690,8 @@ onUnmounted(() => {
   top: 50%;
   left: 50%;
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-}
+
+  opacity: 1 !important;}
 
 .sst-chapter-number-226 {
   position: absolute;
@@ -688,7 +713,8 @@ onUnmounted(() => {
 
 .sst-content-inner-226 {
   padding: 40px;
-}
+
+  opacity: 1 !important;}
 
 .sst-chapter-title-226 {
   font-size: clamp(2.5rem, 5vw, 3.5rem);
@@ -699,7 +725,8 @@ onUnmounted(() => {
   background-clip: text;
   margin-bottom: 20px;
   letter-spacing: 0.05em;
-}
+
+  opacity: 1 !important;}
 
 .sst-chapter-divider-226 {
   width: 100%;
@@ -707,7 +734,8 @@ onUnmounted(() => {
   background: linear-gradient(90deg, #667eea, #f093fb, transparent);
   margin-bottom: 30px;
   border-radius: 2px;
-}
+
+  opacity: 1 !important;}
 
 .sst-chapter-text-226 {
   font-size: clamp(1.1rem, 2.5vw, 1.4rem);
@@ -715,7 +743,8 @@ onUnmounted(() => {
   color: #b0b0c0;
   margin-bottom: 30px;
   letter-spacing: 0.02em;
-}
+
+  opacity: 1 !important;}
 
 .sst-chapter-quote-226 {
   font-size: 1.2rem;
@@ -725,7 +754,8 @@ onUnmounted(() => {
   border-left: 3px solid #667eea;
   padding-left: 20px;
   position: relative;
-}
+
+  opacity: 1 !important;}
 
 .sst-quote-mark-226 {
   font-size: 3rem;
@@ -744,11 +774,13 @@ onUnmounted(() => {
   justify-content: center;
   text-align: center;
   padding: 80px 20px;
-}
+
+  opacity: 1 !important;}
 
 .sst-footer-content-226 {
   max-width: 800px;
-}
+
+  opacity: 1 !important;}
 
 .sst-footer-title-226 {
   font-size: clamp(2.5rem, 6vw, 4rem);
@@ -758,13 +790,15 @@ onUnmounted(() => {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   margin-bottom: 20px;
-}
+
+  opacity: 1 !important;}
 
 .sst-footer-text-226 {
   font-size: clamp(1.2rem, 3vw, 1.8rem);
   color: #a0a0b0;
   letter-spacing: 0.1em;
-}
+
+  opacity: 1 !important;}
 
 .sst-footer-decoration-226 {
   display: flex;
@@ -777,7 +811,8 @@ onUnmounted(() => {
   width: 100px;
   height: 2px;
   background: linear-gradient(90deg, transparent, #667eea, transparent);
-}
+
+  opacity: 1 !important;}
 
 /* 进度指示器 */
 .sst-progress-226 {
@@ -791,7 +826,8 @@ onUnmounted(() => {
   gap: 15px;
   z-index: 100;
   padding: 20px;
-}
+
+  opacity: 1 !important;}
 
 .sst-progress-bar-226 {
   width: 300px;
@@ -799,7 +835,8 @@ onUnmounted(() => {
   background: rgba(255, 255, 255, 0.1);
   border-radius: 2px;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .sst-progress-fill-226 {
   height: 100%;
@@ -807,7 +844,8 @@ onUnmounted(() => {
   background: linear-gradient(90deg, #667eea, #f093fb);
   border-radius: 2px;
   transition: width 0.1s ease;
-}
+
+  opacity: 1 !important;}
 
 .sst-progress-dots-226 {
   display: flex;
@@ -821,7 +859,8 @@ onUnmounted(() => {
   background: rgba(255, 255, 255, 0.2);
   cursor: pointer;
   transition: all 0.3s ease;
-}
+
+  opacity: 1 !important;}
 
 .sst-progress-dot-226:hover {
   background: rgba(102, 126, 234, 0.5);
@@ -832,7 +871,8 @@ onUnmounted(() => {
   background: #667eea;
   box-shadow: 0 0 15px rgba(102, 126, 234, 0.5);
   transform: scale(1.3);
-}
+
+  opacity: 1 !important;}
 
 /* 响应式设计 */
 @media (max-width: 1024px) {
@@ -849,53 +889,64 @@ onUnmounted(() => {
   .sst-visual-frame-226 {
     width: 300px;
     height: 300px;
-  }
+  
+  opacity: 1 !important;}
 
   .sst-visual-shape-226 {
     width: 150px;
     height: 150px;
-  }
+  
+  opacity: 1 !important;}
 }
 
 @media (max-width: 768px) {
   .sst-container-226 {
     padding: 40px 15px;
-  }
+  
+  opacity: 1 !important;}
 
   .sst-chapter-226 {
     padding: 40px 20px;
     margin: 60px 0;
-  }
+  
+  opacity: 1 !important;}
 
   .sst-visual-frame-226 {
     width: 250px;
     height: 250px;
-  }
+  
+  opacity: 1 !important;}
 
   .sst-visual-shape-226 {
     width: 120px;
     height: 120px;
-  }
+  
+  opacity: 1 !important;}
 
   .sst-content-inner-226 {
     padding: 20px;
-  }
+  
+  opacity: 1 !important;}
 
   .sst-progress-bar-226 {
     width: 200px;
-  }
+  
+  opacity: 1 !important;}
 
   .sst-progress-dot-226 {
     width: 8px;
     height: 8px;
-  }
+  
+  opacity: 1 !important;}
 
   .sst-footer-title-226 {
     font-size: 2rem;
-  }
+  
+  opacity: 1 !important;}
 
   .sst-footer-text-226 {
     font-size: 1.2rem;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

@@ -169,13 +169,16 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
+/* GSAP opacity fix: ensure content is always visible */
+
 .oc-container-192 {
   min-height: 100vh;
   padding: 80px 20px;
   background: linear-gradient(135deg, #0a0a0a 0%, #1a1abe 50%, #0a0a0a 100%);
   position: relative;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .oc-container-192::before {
   content: '';
@@ -197,12 +200,14 @@ onUnmounted(() => {
   color: #fff;
   margin-bottom: 60px;
   text-shadow: 2px 2px 0 #ff6464, 4px 4px 0 #64ff64;
-}
+
+  opacity: 1 !important;}
 
 .oc-stage-192 {
   max-width: 1400px;
   margin: 0 auto;
-}
+
+  opacity: 1 !important;}
 
 .oc-cards-192 {
   display: grid;
@@ -220,7 +225,8 @@ onUnmounted(() => {
   backdrop-filter: blur(10px);
   transition: all 0.3s ease;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .oc-card-192:hover {
   transform: translateY(-10px);
@@ -234,14 +240,16 @@ onUnmounted(() => {
   height: 120px;
   margin: 0 auto 30px;
   transition: all 0.5s ease;
-}
+
+  opacity: 1 !important;}
 
 .oc-fold-192 {
   position: absolute;
   background: linear-gradient(135deg, rgba(255, 100, 100, 0.6) 0%, rgba(255, 100, 100, 0.3) 100%);
   transition: all 0.5s ease;
   border: 2px solid rgba(255, 255, 255, 0.3);
-}
+
+  opacity: 1 !important;}
 
 .oc-fold-1-192 {
   top: 0;
@@ -249,7 +257,8 @@ onUnmounted(() => {
   width: 50%;
   height: 50%;
   transform-origin: right bottom;
-}
+
+  opacity: 1 !important;}
 
 .oc-fold-2-192 {
   top: 0;
@@ -258,7 +267,8 @@ onUnmounted(() => {
   height: 50%;
   transform-origin: left bottom;
   background: linear-gradient(135deg, rgba(100, 255, 100, 0.6) 0%, rgba(100, 255, 100, 0.3) 100%);
-}
+
+  opacity: 1 !important;}
 
 .oc-fold-3-192 {
   bottom: 0;
@@ -267,7 +277,8 @@ onUnmounted(() => {
   height: 50%;
   transform-origin: right top;
   background: linear-gradient(135deg, rgba(100, 100, 255, 0.6) 0%, rgba(100, 100, 255, 0.3) 100%);
-}
+
+  opacity: 1 !important;}
 
 .oc-fold-4-192 {
   bottom: 0;
@@ -276,7 +287,8 @@ onUnmounted(() => {
   height: 50%;
   transform-origin: left top;
   background: linear-gradient(135deg, rgba(255, 255, 100, 0.6) 0%, rgba(255, 255, 100, 0.3) 100%);
-}
+
+  opacity: 1 !important;}
 
 .oc-center-192 {
   position: absolute;
@@ -289,11 +301,13 @@ onUnmounted(() => {
   border-radius: 50%;
   box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
   transition: all 0.3s ease;
-}
+
+  opacity: 1 !important;}
 
 .oc-content-192 {
   text-align: center;
-}
+
+  opacity: 1 !important;}
 
 .oc-content-192 h3 {
   font-size: 1.5rem;
@@ -311,7 +325,8 @@ onUnmounted(() => {
   .oc-title-192 {
     font-size: 1.8rem;
     text-shadow: 1px 1px 0 #ff6464, 2px 2px 0 #64ff64;
-  }
+  
+  opacity: 1 !important;}
   
   .oc-cards-192 {
     grid-template-columns: 1fr;

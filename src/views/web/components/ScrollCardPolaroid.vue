@@ -280,7 +280,8 @@ onUnmounted(() => {
       radial-gradient(ellipse at 50% 30%, rgba(236, 72, 153, 0.08) 0%, transparent 60%),
       radial-gradient(ellipse at 30% 70%, rgba(59, 130, 246, 0.08) 0%, transparent 60%);
     pointer-events: none;
-  }
+  
+  opacity: 1 !important;}
 }
 
 .scp-container-129 {
@@ -288,7 +289,8 @@ onUnmounted(() => {
   margin: 0 auto;
   position: relative;
   z-index: 1;
-}
+
+  opacity: 1 !important;}
 
 .scp-section-title-129 {
   text-align: center;
@@ -301,7 +303,8 @@ onUnmounted(() => {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   text-shadow: 0 0 60px rgba(236, 72, 153, 0.4);
-}
+
+  opacity: 1 !important;}
 
 .scp-section-subtitle-129 {
   text-align: center;
@@ -310,7 +313,8 @@ onUnmounted(() => {
   margin-bottom: 150px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-}
+
+  opacity: 1 !important;}
 
 .scp-scatter-container-129 {
   position: relative;
@@ -321,7 +325,8 @@ onUnmounted(() => {
   align-items: center;
   gap: 30px;
   perspective: 1500px;
-}
+
+  opacity: 1 !important;}
 
 .scp-card-129 {
   position: absolute;
@@ -329,7 +334,8 @@ onUnmounted(() => {
   height: 400px;
   cursor: pointer;
   transition: z-index 0.3s ease;
-}
+
+  opacity: 1 !important;}
 
 .scp-polaroid-129 {
   width: 100%;
@@ -343,7 +349,8 @@ onUnmounted(() => {
   position: relative;
   transform-style: preserve-3d;
   transition: box-shadow 0.4s ease;
-}
+
+  opacity: 1 !important;}
 
 .scp-photo-129 {
   width: 100%;
@@ -359,13 +366,15 @@ onUnmounted(() => {
     height: 100%;
     object-fit: cover;
     display: block;
-  }
+  
+  opacity: 1 !important;}
 }
 
 .scp-caption-129 {
   padding: 20px 0 0;
   text-align: center;
-}
+
+  opacity: 1 !important;}
 
 .scp-caption-title-129 {
   font-size: 1.3rem;
@@ -373,21 +382,24 @@ onUnmounted(() => {
   color: #1a1a2e;
   margin-bottom: 8px;
   font-family: 'Georgia', serif;
-}
+
+  opacity: 1 !important;}
 
 .scp-caption-date-129 {
   font-size: 0.85rem;
   color: #666;
   margin-bottom: 10px;
   font-style: italic;
-}
+
+  opacity: 1 !important;}
 
 .scp-caption-text-129 {
   font-size: 0.9rem;
   color: #444;
   line-height: 1.5;
   font-family: 'Georgia', serif;
-}
+
+  opacity: 1 !important;}
 
 .scp-tape-129 {
   position: absolute;
@@ -409,57 +421,67 @@ onUnmounted(() => {
   width: 100%;
   height: 200px;
   pointer-events: none;
-}
+
+  opacity: 1 !important;}
 
 .scp-floor-129 {
   position: absolute;
   width: 100%;
   border-radius: 50%;
   background: radial-gradient(ellipse, rgba(59, 130, 246, 0.1) 0%, transparent 70%);
-}
+
+  opacity: 1 !important;}
 
 .scp-floor-1 {
   height: 300px;
   bottom: -100px;
   left: 10%;
   width: 80%;
-}
+
+  opacity: 1 !important;}
 
 .scp-floor-2 {
   height: 250px;
   bottom: -80px;
   left: 20%;
   width: 60%;
-}
+
+  opacity: 1 !important;}
 
 .scp-floor-3 {
   height: 200px;
   bottom: -60px;
   left: 30%;
   width: 40%;
-}
+
+  opacity: 1 !important;}
 
 @media (max-width: 768px) {
   .scp-card-129 {
     width: 250px;
     height: 340px;
-  }
+  
+  opacity: 1 !important;}
 
   .scp-photo-129 {
     height: 230px;
-  }
+  
+  opacity: 1 !important;}
 
   .scp-caption-title-129 {
     font-size: 1.1rem;
-  }
+  
+  opacity: 1 !important;}
 
   .scp-caption-text-129 {
     font-size: 0.8rem;
-  }
+  
+  opacity: 1 !important;}
 
   .scp-scatter-container-129 {
     min-height: 600px;
-  }
+  
+  opacity: 1 !important;}
 
   .scp-section-title-129 {
     margin-bottom: 80px;
@@ -468,10 +490,12 @@ onUnmounted(() => {
   .scp-section-subtitle-129 {
     margin-bottom: 60px;
     font-size: 0.9rem;
-  }
+  
+  opacity: 1 !important;}
 
   .scp-container-129 {
     padding: 0 20px;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

@@ -331,7 +331,8 @@ function initHoverRevealAnimation() {
       radial-gradient(circle at 20% 30%, rgba(167, 139, 250, 0.1) 0%, transparent 50%),
       radial-gradient(circle at 80% 70%, rgba(96, 165, 250, 0.1) 0%, transparent 50%);
     pointer-events: none;
-  }
+  
+  opacity: 1 !important;}
 }
 
 .scroll-hover-reveal-section-192 {
@@ -339,7 +340,8 @@ function initHoverRevealAnimation() {
   margin: 0 auto;
   position: relative;
   z-index: 1;
-}
+
+  opacity: 1 !important;}
 
 .scroll-hover-reveal-title-192 {
   font-size: clamp(2rem, 5vw, 3.5rem);
@@ -352,7 +354,8 @@ function initHoverRevealAnimation() {
   background-clip: text;
   transform-style: preserve-3d;
   will-change: transform, opacity;
-}
+
+  opacity: 1 !important;}
 
 .scroll-hover-reveal-subtitle-192 {
   font-size: 1.1rem;
@@ -361,7 +364,8 @@ function initHoverRevealAnimation() {
   margin-bottom: 80px;
   transform-style: preserve-3d;
   will-change: transform, opacity;
-}
+
+  opacity: 1 !important;}
 
 .scroll-hover-reveal-cards-192 {
   display: grid;
@@ -377,7 +381,8 @@ function initHoverRevealAnimation() {
   cursor: pointer;
   transform-style: preserve-3d;
   will-change: transform, opacity;
-}
+
+  opacity: 1 !important;}
 
 .scroll-hover-reveal-card-inner-192 {
   position: relative;
@@ -385,7 +390,8 @@ function initHoverRevealAnimation() {
   height: 100%;
   transform-style: preserve-3d;
   transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-}
+
+  opacity: 1 !important;}
 
 .scroll-hover-reveal-front-192,
 .scroll-hover-reveal-back-192 {
@@ -397,14 +403,16 @@ function initHoverRevealAnimation() {
   border-radius: 20px;
   overflow: hidden;
   backface-visibility: hidden;
-}
+
+  opacity: 1 !important;}
 
 .scroll-hover-reveal-front-192 {
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   z-index: 2;
-}
+
+  opacity: 1 !important;}
 
 .card-image {
   width: 100%;
@@ -416,7 +424,8 @@ function initHoverRevealAnimation() {
     height: 100%;
     object-fit: cover;
     transition: transform 0.5s ease;
-  }
+  
+  opacity: 1 !important;}
 
   .scroll-hover-reveal-card-192:hover & img {
     transform: scale(1.1);
@@ -431,7 +440,8 @@ function initHoverRevealAnimation() {
   padding: 30px 20px;
   background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
   z-index: 3;
-}
+
+  opacity: 1 !important;}
 
 .card-title {
   font-size: 1.5rem;
@@ -439,14 +449,16 @@ function initHoverRevealAnimation() {
   color: #fff;
   margin-bottom: 8px;
   will-change: transform, opacity;
-}
+
+  opacity: 1 !important;}
 
 .card-subtitle {
   font-size: 0.85rem;
   color: #a78bfa;
   font-weight: 500;
   will-change: transform, opacity;
-}
+
+  opacity: 1 !important;}
 
 .scroll-hover-reveal-back-192 {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -455,7 +467,8 @@ function initHoverRevealAnimation() {
   align-items: center;
   justify-content: center;
   padding: 30px;
-}
+
+  opacity: 1 !important;}
 
 .back-content {
   text-align: center;
@@ -465,7 +478,8 @@ function initHoverRevealAnimation() {
     font-size: 1.3rem;
     font-weight: 700;
     margin-bottom: 16px;
-  }
+  
+  opacity: 1 !important;}
 
   p {
     font-size: 0.9rem;
@@ -491,7 +505,8 @@ function initHoverRevealAnimation() {
     background: rgba(255, 255, 255, 0.3);
     transform: translateY(-2px);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-  }
+  
+  opacity: 1 !important;}
 }
 
 .scroll-hover-reveal-info-192 {
@@ -506,7 +521,8 @@ function initHoverRevealAnimation() {
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 24px;
   transform-style: preserve-3d;
-}
+
+  opacity: 1 !important;}
 
 .info-item {
   display: flex;
@@ -523,13 +539,15 @@ function initHoverRevealAnimation() {
     transform: translateY(-5px);
     background: rgba(255, 255, 255, 0.08);
     border-color: rgba(167, 139, 250, 0.3);
-  }
+  
+  opacity: 1 !important;}
 }
 
 .info-icon {
   font-size: 2rem;
   flex-shrink: 0;
-}
+
+  opacity: 1 !important;}
 
 .info-text {
   h4 {
@@ -537,7 +555,8 @@ function initHoverRevealAnimation() {
     font-weight: 700;
     color: #fff;
     margin-bottom: 4px;
-  }
+  
+  opacity: 1 !important;}
 
   p {
     font-size: 0.85rem;
@@ -554,10 +573,12 @@ function initHoverRevealAnimation() {
     flex-direction: column;
     gap: 20px;
     padding: 30px;
-  }
+  
+  opacity: 1 !important;}
 
   .info-item {
     width: 100%;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

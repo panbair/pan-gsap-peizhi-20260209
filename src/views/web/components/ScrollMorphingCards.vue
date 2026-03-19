@@ -321,7 +321,8 @@ onUnmounted(() => {
       radial-gradient(circle at 30% 20%, rgba(236, 72, 153, 0.08) 0%, transparent 50%),
       radial-gradient(circle at 70% 80%, rgba(168, 85, 247, 0.08) 0%, transparent 50%);
     pointer-events: none;
-  }
+  
+  opacity: 1 !important;}
 }
 
 .smc-container-149 {
@@ -329,7 +330,8 @@ onUnmounted(() => {
   margin: 0 auto;
   position: relative;
   z-index: 1;
-}
+
+  opacity: 1 !important;}
 
 .smc-title-149 {
   text-align: center;
@@ -341,7 +343,8 @@ onUnmounted(() => {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-}
+
+  opacity: 1 !important;}
 
 .smc-subtitle-149 {
   text-align: center;
@@ -350,7 +353,8 @@ onUnmounted(() => {
   margin-bottom: 80px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-}
+
+  opacity: 1 !important;}
 
 .smc-cards-wrapper-149 {
   display: grid;
@@ -365,7 +369,8 @@ onUnmounted(() => {
   height: 400px;
   cursor: pointer;
   perspective: 1000px;
-}
+
+  opacity: 1 !important;}
 
 .smc-card-inner-149 {
   width: 100%;
@@ -373,7 +378,8 @@ onUnmounted(() => {
   position: relative;
   transform-style: preserve-3d;
   transition: transform 0.8s ease;
-}
+
+  opacity: 1 !important;}
 
 .smc-card-front-149,
 .smc-card-back-149 {
@@ -394,12 +400,14 @@ onUnmounted(() => {
   align-items: center;
   text-align: center;
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
-}
+
+  opacity: 1 !important;}
 
 .smc-card-back-149 {
   transform: rotateY(180deg);
   background: linear-gradient(135deg, rgba(236, 72, 153, 0.15), rgba(168, 85, 247, 0.15));
-}
+
+  opacity: 1 !important;}
 
 .smc-card-number-149 {
   position: absolute;
@@ -409,7 +417,8 @@ onUnmounted(() => {
   font-weight: 900;
   color: rgba(255, 255, 255, 0.2);
   font-family: monospace;
-}
+
+  opacity: 1 !important;}
 
 .smc-card-title-149 {
   font-size: 2rem;
@@ -417,31 +426,36 @@ onUnmounted(() => {
   color: #fff;
   margin-bottom: 16px;
   letter-spacing: 0.05em;
-}
+
+  opacity: 1 !important;}
 
 .smc-card-desc-149 {
   font-size: 1rem;
   color: rgba(255, 255, 255, 0.7);
   line-height: 1.6;
-}
+
+  opacity: 1 !important;}
 
 .smc-card-icon-149 {
   font-size: 4rem;
   margin-bottom: 20px;
-}
+
+  opacity: 1 !important;}
 
 .smc-card-back-title-149 {
   font-size: 1.5rem;
   font-weight: 700;
   color: #fff;
   margin-bottom: 16px;
-}
+
+  opacity: 1 !important;}
 
 .smc-card-back-text-149 {
   font-size: 0.95rem;
   color: rgba(255, 255, 255, 0.8);
   line-height: 1.7;
-}
+
+  opacity: 1 !important;}
 
 .smc-shape-decoration-149 {
   position: absolute;
@@ -466,7 +480,8 @@ onUnmounted(() => {
   right: 5%;
   border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
   border-color: rgba(236, 72, 153, 0.2);
-}
+
+  opacity: 1 !important;}
 
 .smc-shape-2-149 {
   width: 150px;
@@ -475,7 +490,8 @@ onUnmounted(() => {
   left: 10%;
   border-radius: 50%;
   border-color: rgba(168, 85, 247, 0.2);
-}
+
+  opacity: 1 !important;}
 
 .smc-shape-3-149 {
   width: 180px;
@@ -485,7 +501,8 @@ onUnmounted(() => {
   transform: translate(-50%, -50%);
   border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
   border-color: rgba(96, 165, 250, 0.2);
-}
+
+  opacity: 1 !important;}
 
 @media (max-width: 768px) {
   .smc-cards-wrapper-149 {
@@ -495,19 +512,23 @@ onUnmounted(() => {
 
   .smc-card-149 {
     height: 350px;
-  }
+  
+  opacity: 1 !important;}
 
   .smc-card-front-149,
   .smc-card-back-149 {
     padding: 30px;
-  }
+  
+  opacity: 1 !important;}
 
   .smc-card-title-149 {
     font-size: 1.5rem;
-  }
+  
+  opacity: 1 !important;}
 
   .smc-card-icon-149 {
     font-size: 3rem;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

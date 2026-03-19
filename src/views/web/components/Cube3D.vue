@@ -142,7 +142,8 @@ const initAnimations = () => {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-}
+
+  opacity: 1 !important;}
 
 .section-title-6 {
   font-size: 2.5rem;
@@ -153,11 +154,13 @@ const initAnimations = () => {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   text-align: center;
-}
+
+  opacity: 1 !important;}
 
 .cube-section-6 {
   background: linear-gradient(180deg, transparent, rgba(67, 233, 123, 0.15), transparent);
-}
+
+  opacity: 1 !important;}
 
 .cube-container-6 {
   perspective: 1500px;
@@ -167,7 +170,8 @@ const initAnimations = () => {
   align-items: center;
   justify-content: center;
   position: relative;
-}
+
+  opacity: 1 !important;}
 
 .cube-container-6::before {
   content: '';
@@ -184,7 +188,8 @@ const initAnimations = () => {
   height: 200px;
   position: relative;
   transform-style: preserve-3d;
-}
+
+  opacity: 1 !important;}
 
 .cube-6 {
   width: 100%;
@@ -192,7 +197,8 @@ const initAnimations = () => {
   position: relative;
   transform-style: preserve-3d;
   transform: rotateX(-20deg) rotateY(-30deg);
-}
+
+  opacity: 1 !important;}
 
 .cube-face-6 {
   position: absolute;
@@ -212,7 +218,8 @@ const initAnimations = () => {
   transition: all 0.4s ease;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
   cursor: pointer;
-}
+
+  opacity: 1 !important;}
 
 .cube-face-6:hover {
   box-shadow:
@@ -223,12 +230,14 @@ const initAnimations = () => {
 
 .cube-6:hover .cube-face-6 {
   border-color: rgba(255, 255, 255, 0.8);
-}
+
+  opacity: 1 !important;}
 
 .cube-face-6.front-6 {
   background: linear-gradient(135deg, rgba(102, 126, 234, 0.95), rgba(102, 126, 234, 0.7));
   transform: translateZ(60px);
-}
+
+  opacity: 1 !important;}
 
 .cube-face-6.front-6:hover {
   background: linear-gradient(135deg, rgba(102, 126, 234, 1), rgba(102, 126, 234, 0.85));
@@ -237,7 +246,8 @@ const initAnimations = () => {
 .cube-face-6.back-6 {
   background: linear-gradient(135deg, rgba(240, 147, 251, 0.95), rgba(240, 147, 251, 0.7));
   transform: rotateY(180deg) translateZ(60px);
-}
+
+  opacity: 1 !important;}
 
 .cube-face-6.back-6:hover {
   background: linear-gradient(135deg, rgba(240, 147, 251, 1), rgba(240, 147, 251, 0.85));
@@ -246,7 +256,8 @@ const initAnimations = () => {
 .cube-face-6.right-6 {
   background: linear-gradient(135deg, rgba(79, 172, 254, 0.95), rgba(79, 172, 254, 0.7));
   transform: rotateY(90deg) translateZ(60px);
-}
+
+  opacity: 1 !important;}
 
 .cube-face-6.right-6:hover {
   background: linear-gradient(135deg, rgba(79, 172, 254, 1), rgba(79, 172, 254, 0.85));
@@ -255,7 +266,8 @@ const initAnimations = () => {
 .cube-face-6.left-6 {
   background: linear-gradient(135deg, rgba(67, 233, 123, 0.95), rgba(67, 233, 123, 0.7));
   transform: rotateY(-90deg) translateZ(60px);
-}
+
+  opacity: 1 !important;}
 
 .cube-face-6.left-6:hover {
   background: linear-gradient(135deg, rgba(67, 233, 123, 1), rgba(67, 233, 123, 0.85));
@@ -264,7 +276,8 @@ const initAnimations = () => {
 .cube-face-6.top-6 {
   background: linear-gradient(135deg, rgba(245, 87, 108, 0.95), rgba(245, 87, 108, 0.7));
   transform: rotateX(90deg) translateZ(60px);
-}
+
+  opacity: 1 !important;}
 
 .cube-face-6.top-6:hover {
   background: linear-gradient(135deg, rgba(245, 87, 108, 1), rgba(245, 87, 108, 0.85));
@@ -273,7 +286,8 @@ const initAnimations = () => {
 .cube-face-6.bottom-6 {
   background: linear-gradient(135deg, rgba(253, 186, 116, 0.95), rgba(253, 186, 116, 0.7));
   transform: rotateX(-90deg) translateZ(60px);
-}
+
+  opacity: 1 !important;}
 
 .cube-face-6.bottom-6:hover {
   background: linear-gradient(135deg, rgba(253, 186, 116, 1), rgba(253, 186, 116, 0.85));
@@ -283,18 +297,21 @@ const initAnimations = () => {
   .cube-container-6 {
     width: 180px;
     height: 180px;
-  }
+  
+  opacity: 1 !important;}
 
   .cube-scene-6 {
     width: 150px;
     height: 150px;
-  }
+  
+  opacity: 1 !important;}
 
   .cube-face-6 {
     width: 150px;
     height: 150px;
     font-size: 2rem;
-  }
+  
+  opacity: 1 !important;}
 
   .cube-face-6.front-6 {
     transform: translateZ(45px);

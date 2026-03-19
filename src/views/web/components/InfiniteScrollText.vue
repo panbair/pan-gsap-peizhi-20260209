@@ -163,7 +163,8 @@ onUnmounted(() => {
     bottom: 0;
     background: radial-gradient(ellipse at 50% 50%, rgba(59, 130, 246, 0.08), transparent 60%);
     pointer-events: none;
-  }
+  
+  opacity: 1 !important;}
 }
 
 .content-17 {
@@ -171,7 +172,8 @@ onUnmounted(() => {
   position: relative;
   z-index: 1;
   width: 100%;
-}
+
+  opacity: 1 !important;}
 
 .section-title-17 {
   font-size: clamp(2rem, 4vw, 2.5rem);
@@ -181,13 +183,15 @@ onUnmounted(() => {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-}
+
+  opacity: 1 !important;}
 
 .subtitle-17 {
   font-size: 1.1rem;
   color: #94a3b8;
   margin-bottom: 60px;
-}
+
+  opacity: 1 !important;}
 
 .scroll-container-17 {
   display: flex;
@@ -204,7 +208,8 @@ onUnmounted(() => {
 
   &.reverse-17 {
     flex-direction: row-reverse;
-  }
+  
+  opacity: 1 !important;}
 }
 
 .scroll-text-17 {
@@ -217,7 +222,8 @@ onUnmounted(() => {
   background-clip: text;
   white-space: nowrap;
   text-shadow: 0 0 40px rgba(167, 139, 250, 0.3);
-}
+
+  opacity: 1 !important;}
 
 .scroll-indicator-17 {
   color: #94a3b8;
@@ -226,7 +232,8 @@ onUnmounted(() => {
   p {
     font-size: 0.9rem;
     letter-spacing: 2px;
-  }
+  
+  opacity: 1 !important;}
 }
 
 @keyframes pulse {
@@ -241,6 +248,7 @@ onUnmounted(() => {
 @media (max-width: 768px) {
   .scroll-text-17 {
     font-size: clamp(1.5rem, 8vw, 2.5rem);
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

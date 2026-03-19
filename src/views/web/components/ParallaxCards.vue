@@ -175,13 +175,15 @@ onUnmounted(() => {
   position: relative;
   overflow: hidden;
   background: linear-gradient(180deg, transparent, rgba(139, 92, 246, 0.05), transparent);
-}
+
+  opacity: 1 !important;}
 
 .pc-content-13 {
   max-width: 1200px;
   margin: 0 auto;
   text-align: center;
-}
+
+  opacity: 1 !important;}
 
 .pc-section-title-13 {
   font-size: clamp(2rem, 4vw, 2.5rem);
@@ -191,13 +193,15 @@ onUnmounted(() => {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-}
+
+  opacity: 1 !important;}
 
 .pc-subtitle-13 {
   font-size: 1.1rem;
   color: #94a3b8;
   margin-bottom: 80px;
-}
+
+  opacity: 1 !important;}
 
 .pc-cards-container-13 {
   display: grid;
@@ -222,7 +226,8 @@ onUnmounted(() => {
     inset: 0;
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), transparent);
     pointer-events: none;
-  }
+  
+  opacity: 1 !important;}
 }
 
 .pc-card-bg-13 {
@@ -233,7 +238,8 @@ onUnmounted(() => {
   left: -25%;
   background: radial-gradient(circle at center, rgba(139, 92, 246, 0.2), transparent 70%);
   pointer-events: none;
-}
+
+  opacity: 1 !important;}
 
 .pc-card-content-13 {
   position: relative;
@@ -244,13 +250,15 @@ onUnmounted(() => {
   align-items: center;
   justify-content: center;
   padding: 30px;
-}
+
+  opacity: 1 !important;}
 
 .pc-card-icon-13 {
   font-size: 4rem;
   margin-bottom: 20px;
   filter: drop-shadow(0 0 20px rgba(167, 139, 250, 0.5));
-}
+
+  opacity: 1 !important;}
 
 .pc-card-13 h3 {
   font-size: 1.5rem;

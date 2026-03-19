@@ -146,6 +146,8 @@ onMounted(() => {
 </script>
 
 <style scoped>
+/* GSAP opacity fix: ensure content is always visible */
+
 .lt-container-186 {
   min-height: 100vh;
   padding: 80px 20px;
@@ -156,7 +158,8 @@ onMounted(() => {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
+
+  opacity: 1 !important;}
 
 .lt-container-186::before {
   content: '';
@@ -183,7 +186,8 @@ onMounted(() => {
   background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: lt-glow-186 3s ease-in-out infinite;
-}
+
+  opacity: 1 !important;}
 
 @keyframes lt-glow-186 {
   0%, 100% { background-position: 0% center; }
@@ -195,7 +199,8 @@ onMounted(() => {
   width: 100%;
   position: relative;
   perspective: 1000px;
-}
+
+  opacity: 1 !important;}
 
 .lt-text-186 {
   position: relative;
@@ -208,7 +213,8 @@ onMounted(() => {
   white-space: pre-wrap;
   word-wrap: break-word;
   line-height: 1.5;
-}
+
+  opacity: 1 !important;}
 
 .lt-char-186 {
   display: inline-block;
@@ -240,7 +246,8 @@ onMounted(() => {
   background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.5), transparent);
   transform-origin: center;
   animation: lt-wave-anim-186 2s ease-in-out infinite;
-}
+
+  opacity: 1 !important;}
 
 @keyframes lt-wave-anim-186 {
   0%, 100% { transform: scaleX(0.5); opacity: 0.3; }
@@ -250,29 +257,34 @@ onMounted(() => {
 .lt-info-186 {
   text-align: center;
   margin-top: 60px;
-}
+
+  opacity: 1 !important;}
 
 .lt-subtitle-186 {
   font-size: 1.5rem;
   color: rgba(255, 255, 255, 0.7);
   text-transform: uppercase;
   letter-spacing: 5px;
-}
+
+  opacity: 1 !important;}
 
 @media (max-width: 768px) {
   .lt-title-186 {
     font-size: 1.8rem;
     margin-bottom: 60px;
-  }
+  
+  opacity: 1 !important;}
   
   .lt-text-186 {
     font-size: 2rem;
     padding: 40px 15px;
-  }
+  
+  opacity: 1 !important;}
   
   .lt-subtitle-186 {
     font-size: 1.1rem;
     letter-spacing: 3px;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

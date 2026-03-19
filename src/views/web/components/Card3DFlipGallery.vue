@@ -166,7 +166,8 @@ const initAnimations = () => {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-}
+
+  opacity: 1 !important;}
 
 .c3d-section-title-1 {
   font-size: 2.5rem;
@@ -177,11 +178,13 @@ const initAnimations = () => {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   text-align: center;
-}
+
+  opacity: 1 !important;}
 
 .c3d-card-section-1 {
   background: linear-gradient(180deg, transparent, rgba(139, 92, 246, 0.1), transparent);
-}
+
+  opacity: 1 !important;}
 
 .c3d-card-container-1 {
   display: flex;
@@ -190,14 +193,16 @@ const initAnimations = () => {
   justify-content: center;
   max-width: 1200px;
   perspective: 1500px;
-}
+
+  opacity: 1 !important;}
 
 .c3d-card3d-1 {
   width: 280px;
   height: 380px;
   perspective: 1500px;
   cursor: pointer;
-}
+
+  opacity: 1 !important;}
 
 .c3d-card-inner-1 {
   position: relative;
@@ -205,7 +210,8 @@ const initAnimations = () => {
   height: 100%;
   transform-style: preserve-3d;
   transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
+
+  opacity: 1 !important;}
 
 .c3d-card-front-1,
 .c3d-card-back-1 {
@@ -220,23 +226,27 @@ const initAnimations = () => {
   align-items: center;
   padding: 30px;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
-}
+
+  opacity: 1 !important;}
 
 .c3d-card-front-1 {
   background: linear-gradient(145deg, #ffffff 0%, #f5f5f5 100%);
   border: 2px solid rgba(102, 126, 234, 0.2);
-}
+
+  opacity: 1 !important;}
 
 .c3d-card-back-1 {
   transform: rotateY(180deg);
   border: 2px solid rgba(255, 255, 255, 0.2);
-}
+
+  opacity: 1 !important;}
 
 .c3d-card-icon-1 {
   font-size: 4rem;
   margin-bottom: 20px;
   filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
-}
+
+  opacity: 1 !important;}
 
 .c3d-card-front-1 h3 {
   font-size: 1.5rem;
@@ -284,14 +294,16 @@ const initAnimations = () => {
   font-weight: bold;
   color: #fff;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-}
+
+  opacity: 1 !important;}
 
 .c3d-stat-1 .c3d-label-1 {
   font-size: 0.8rem;
   color: rgba(255, 255, 255, 0.8);
   text-transform: uppercase;
   letter-spacing: 1px;
-}
+
+  opacity: 1 !important;}
 
 .c3d-scroll-hint-1 {
   position: absolute;
@@ -303,13 +315,15 @@ const initAnimations = () => {
   align-items: center;
   gap: 10px;
   color: #94a3b8;
-}
+
+  opacity: 1 !important;}
 
 .c3d-scroll-text-1 {
   font-size: 0.9rem;
   text-transform: uppercase;
   letter-spacing: 2px;
-}
+
+  opacity: 1 !important;}
 
 .c3d-scroll-arrow-1 {
   width: 20px;
@@ -318,7 +332,8 @@ const initAnimations = () => {
   border-bottom: 2px solid #94a3b8;
   transform: rotate(45deg);
   animation: scrollBounce 2s ease-in-out infinite;
-}
+
+  opacity: 1 !important;}
 
 @keyframes scrollBounce {
   0%,
@@ -338,6 +353,7 @@ const initAnimations = () => {
   .c3d-card3d-1 {
     width: 240px;
     height: 320px;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

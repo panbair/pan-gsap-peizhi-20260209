@@ -252,25 +252,30 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
+/* GSAP opacity fix: ensure content is always visible */
+
 .image-sepia-section-217 {
   position: relative;
   min-height: 100vh;
   background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
   padding: 80px 20px;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .container {
   max-width: 1400px;
   margin: 0 auto;
   position: relative;
   z-index: 1;
-}
+
+  opacity: 1 !important;}
 
 .title-wrapper-217 {
   text-align: center;
   margin-bottom: 60px;
-}
+
+  opacity: 1 !important;}
 
 .section-title-217 {
   font-size: 3.5rem;
@@ -280,7 +285,8 @@ onUnmounted(() => {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   margin-bottom: 10px;
-}
+
+  opacity: 1 !important;}
 
 .title-text-217 {
   display: block;
@@ -318,7 +324,8 @@ onUnmounted(() => {
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
   transition: transform 0.3s ease;
-}
+
+  opacity: 1 !important;}
 
 .sepia-image-wrapper-217:hover {
   transform: translateY(-10px);
@@ -329,14 +336,16 @@ onUnmounted(() => {
   width: 100%;
   height: 400px;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .sepia-img-217 {
   width: 100%;
   height: 100%;
   object-fit: cover;
   transition: transform 0.5s ease;
-}
+
+  opacity: 1 !important;}
 
 .sepia-image-wrapper-217:hover .sepia-img-217 {
   transform: scale(1.05);
@@ -362,20 +371,23 @@ onUnmounted(() => {
   padding: 30px;
   position: relative;
   z-index: 2;
-}
+
+  opacity: 1 !important;}
 
 .sepia-title-217 {
   font-size: 2rem;
   font-weight: 700;
   color: #fff;
   margin-bottom: 10px;
-}
+
+  opacity: 1 !important;}
 
 .sepia-description-217 {
   font-size: 1rem;
   color: rgba(255, 255, 255, 0.7);
   margin-bottom: 20px;
-}
+
+  opacity: 1 !important;}
 
 .sepia-badge-217 {
   display: flex;
@@ -387,12 +399,14 @@ onUnmounted(() => {
   border-radius: 50px;
   width: fit-content;
   transition: all 0.3s ease;
-}
+
+  opacity: 1 !important;}
 
 .sepia-image-wrapper-217:hover .sepia-badge-217 {
   background: rgba(245, 175, 25, 0.2);
   box-shadow: 0 0 30px rgba(245, 175, 25, 0.3);
-}
+
+  opacity: 1 !important;}
 
 .badge-era-217 {
   font-size: 0.9rem;
@@ -400,7 +414,8 @@ onUnmounted(() => {
   color: #f5af19;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-}
+
+  opacity: 1 !important;}
 
 .badge-arrow-217 {
   font-size: 1.5rem;
@@ -414,7 +429,8 @@ onUnmounted(() => {
   color: #fff;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-}
+
+  opacity: 1 !important;}
 
 .sepia-indicator-217 {
   margin-top: 60px;
@@ -423,7 +439,8 @@ onUnmounted(() => {
   backdrop-filter: blur(10px);
   border-radius: 20px;
   border: 1px solid rgba(255, 255, 255, 0.1);
-}
+
+  opacity: 1 !important;}
 
 .indicator-bar-217 {
   width: 100%;
@@ -432,7 +449,8 @@ onUnmounted(() => {
   border-radius: 4px;
   overflow: hidden;
   position: relative;
-}
+
+  opacity: 1 !important;}
 
 .indicator-fill-217 {
   width: 0;
@@ -440,7 +458,8 @@ onUnmounted(() => {
   background: linear-gradient(90deg, #f5af19 0%, #f12711 100%);
   border-radius: 4px;
   transition: width 0.3s ease;
-}
+
+  opacity: 1 !important;}
 
 .indicator-labels-217 {
   display: flex;
@@ -451,22 +470,26 @@ onUnmounted(() => {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-}
+
+  opacity: 1 !important;}
 
 .label-sepia-217 {
   color: #f5af19;
-}
+
+  opacity: 1 !important;}
 
 .label-current-217 {
   color: #fff;
   font-size: 1.5rem;
   min-width: 60px;
   text-align: center;
-}
+
+  opacity: 1 !important;}
 
 .label-color-217 {
   color: #f12711;
-}
+
+  opacity: 1 !important;}
 
 .sepia-particles-217 {
   position: absolute;
@@ -476,16 +499,19 @@ onUnmounted(() => {
   height: 100%;
   pointer-events: none;
   z-index: 0;
-}
+
+  opacity: 1 !important;}
 
 @media (max-width: 768px) {
   .section-title-217 {
     font-size: 2rem;
-  }
+  
+  opacity: 1 !important;}
 
   .title-subtitle-217 {
     font-size: 1rem;
-  }
+  
+  opacity: 1 !important;}
 
   .sepia-images-217 {
     grid-template-columns: 1fr;
@@ -493,10 +519,12 @@ onUnmounted(() => {
 
   .sepia-image-container-217 {
     height: 300px;
-  }
+  
+  opacity: 1 !important;}
 
   .sepia-title-217 {
     font-size: 1.5rem;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

@@ -529,17 +529,21 @@ function initParticleAnimation() {
 </script>
 
 <style scoped>
+/* GSAP opacity fix: ensure content is always visible */
+
 .ink-diffusion-container-218 {
   min-height: 100vh;
   background: linear-gradient(180deg, #f8f9fa 0%, #e9ecef 50%, #dee2e6 100%);
   padding: 40px 20px;
   overflow-x: hidden;
-}
+
+  opacity: 1 !important;}
 
 .ink-header-218 {
   text-align: center;
   margin-bottom: 60px;
-}
+
+  opacity: 1 !important;}
 
 .ink-title-218 {
   font-size: 3rem;
@@ -549,13 +553,15 @@ function initParticleAnimation() {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-}
+
+  opacity: 1 !important;}
 
 .ink-subtitle-218 {
   font-size: 1.2rem;
   color: #6c757d;
   margin-bottom: 30px;
-}
+
+  opacity: 1 !important;}
 
 .scroll-progress-218 {
   width: 300px;
@@ -565,14 +571,16 @@ function initParticleAnimation() {
   margin: 0 auto;
   position: relative;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .progress-bar-218 {
   width: 0%;
   height: 100%;
   background: linear-gradient(90deg, #1a1a2e, #0f3460, #1a1a2e);
   border-radius: 4px;
-}
+
+  opacity: 1 !important;}
 
 .progress-text-218 {
   position: absolute;
@@ -582,7 +590,8 @@ function initParticleAnimation() {
   font-size: 0.9rem;
   font-weight: 700;
   color: #495057;
-}
+
+  opacity: 1 !important;}
 
 /* 墨滴扩散 */
 .ink-drops-218 {
@@ -607,7 +616,8 @@ function initParticleAnimation() {
   align-items: center;
   justify-content: center;
   position: relative;
-}
+
+  opacity: 1 !important;}
 
 .drop-ripple-218 {
   position: absolute;
@@ -615,7 +625,8 @@ function initParticleAnimation() {
   height: 60px;
   border: 3px solid rgba(26, 26, 46, 0.4);
   border-radius: 50%;
-}
+
+  opacity: 1 !important;}
 
 .ripple-delay-218 {
   animation-delay: 0.3s;
@@ -625,7 +636,8 @@ function initParticleAnimation() {
   font-size: 0.9rem;
   font-weight: 600;
   color: #495057;
-}
+
+  opacity: 1 !important;}
 
 /* 墨水流动 */
 .ink-flows-218 {
@@ -634,7 +646,8 @@ function initParticleAnimation() {
   gap: 30px;
   max-width: 1200px;
   margin: 0 auto 80px;
-}
+
+  opacity: 1 !important;}
 
 .ink-flow-card-218 {
   background: white;
@@ -642,7 +655,8 @@ function initParticleAnimation() {
   padding: 30px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .ink-water-218 {
   position: relative;
@@ -650,7 +664,8 @@ function initParticleAnimation() {
   border-radius: 15px;
   overflow: hidden;
   background: linear-gradient(180deg, #f8f9fa, #e9ecef);
-}
+
+  opacity: 1 !important;}
 
 .ink-liquid-218 {
   position: absolute;
@@ -661,19 +676,23 @@ function initParticleAnimation() {
   height: 150px;
   border-radius: 50%;
   background: radial-gradient(circle, rgba(26, 26, 46, 0.6), rgba(26, 26, 46, 0.8));
-}
+
+  opacity: 1 !important;}
 
 .ink-flow-1-218 {
   background: radial-gradient(circle, rgba(26, 26, 46, 0.5), rgba(15, 52, 96, 0.7));
-}
+
+  opacity: 1 !important;}
 
 .ink-flow-2-218 {
   background: radial-gradient(circle, rgba(26, 26, 46, 0.6), rgba(22, 33, 62, 0.8));
-}
+
+  opacity: 1 !important;}
 
 .ink-flow-3-218 {
   background: radial-gradient(circle, rgba(26, 26, 46, 0.4), rgba(15, 52, 96, 0.6));
-}
+
+  opacity: 1 !important;}
 
 .ink-content-218 {
   position: absolute;
@@ -683,13 +702,15 @@ function initParticleAnimation() {
   text-align: center;
   z-index: 2;
   color: white;
-}
+
+  opacity: 1 !important;}
 
 .flow-title-218 {
   font-size: 1.5rem;
   font-weight: 700;
   margin-bottom: 8px;
-}
+
+  opacity: 1 !important;}
 
 .flow-desc-218 {
   font-size: 0.9rem;
@@ -703,20 +724,23 @@ function initParticleAnimation() {
   gap: 40px;
   max-width: 1000px;
   margin: 0 auto 80px;
-}
+
+  opacity: 1 !important;}
 
 .ink-reveal-section-218 {
   background: white;
   border-radius: 25px;
   overflow: hidden;
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
-}
+
+  opacity: 1 !important;}
 
 .ink-reveal-container-218 {
   position: relative;
   height: 300px;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .ink-ink-218 {
   position: absolute;
@@ -727,15 +751,18 @@ function initParticleAnimation() {
   height: 400px;
   border-radius: 50%;
   background: radial-gradient(circle, rgba(26, 26, 46, 0.9), rgba(26, 26, 46, 1));
-}
+
+  opacity: 1 !important;}
 
 .ink-ink-1-218 {
   background: radial-gradient(circle, rgba(26, 26, 46, 0.85), rgba(15, 52, 96, 0.95));
-}
+
+  opacity: 1 !important;}
 
 .ink-ink-2-218 {
   background: radial-gradient(circle, rgba(26, 26, 46, 0.8), rgba(22, 33, 62, 0.9));
-}
+
+  opacity: 1 !important;}
 
 .reveal-content-218 {
   position: absolute;
@@ -745,18 +772,21 @@ function initParticleAnimation() {
   text-align: center;
   z-index: 2;
   color: white;
-}
+
+  opacity: 1 !important;}
 
 .reveal-icon-218 {
   font-size: 4rem;
   margin-bottom: 15px;
-}
+
+  opacity: 1 !important;}
 
 .reveal-title-218 {
   font-size: 1.8rem;
   font-weight: 700;
   margin-bottom: 10px;
-}
+
+  opacity: 1 !important;}
 
 .reveal-desc-218 {
   font-size: 1rem;
@@ -767,7 +797,8 @@ function initParticleAnimation() {
 .ink-washes-218 {
   max-width: 800px;
   margin: 0 auto 80px;
-}
+
+  opacity: 1 !important;}
 
 .ink-wash-container-218 {
   background: white;
@@ -775,7 +806,8 @@ function initParticleAnimation() {
   padding: 60px;
   text-align: center;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-}
+
+  opacity: 1 !important;}
 
 .ink-wash-218 {
   position: relative;
@@ -783,7 +815,8 @@ function initParticleAnimation() {
   display: flex;
   align-items: center;
   justify-content: center;
-}
+
+  opacity: 1 !important;}
 
 .wash-spot-218 {
   position: absolute;
@@ -792,13 +825,15 @@ function initParticleAnimation() {
   border-radius: 50%;
   background: radial-gradient(circle, rgba(26, 26, 46, 0.4), rgba(26, 26, 46, 0.1));
   filter: blur(20px);
-}
+
+  opacity: 1 !important;}
 
 .wash-caption-218 {
   color: #6c757d;
   font-size: 1rem;
   margin-top: 30px;
-}
+
+  opacity: 1 !important;}
 
 /* 墨水文字 */
 .ink-texts-218 {
@@ -814,7 +849,8 @@ function initParticleAnimation() {
   border-radius: 50px;
   padding: 20px 50px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-}
+
+  opacity: 1 !important;}
 
 .ink-text-mask-218 {
   overflow: hidden;
@@ -825,13 +861,15 @@ function initParticleAnimation() {
   font-weight: 700;
   color: white;
   white-space: nowrap;
-}
+
+  opacity: 1 !important;}
 
 /* 墨水粒子 */
 .ink-particles-218 {
   max-width: 1000px;
   margin: 0 auto 80px;
-}
+
+  opacity: 1 !important;}
 
 .ink-particle-container-218 {
   position: relative;
@@ -840,7 +878,8 @@ function initParticleAnimation() {
   border-radius: 25px;
   overflow: hidden;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-}
+
+  opacity: 1 !important;}
 
 .ink-canvas-218 {
   position: absolute;
@@ -848,7 +887,8 @@ function initParticleAnimation() {
   left: 0;
   width: 100%;
   height: 100%;
-}
+
+  opacity: 1 !important;}
 
 .particle-content-218 {
   position: absolute;
@@ -857,19 +897,22 @@ function initParticleAnimation() {
   transform: translate(-50%, -50%);
   text-align: center;
   z-index: 2;
-}
+
+  opacity: 1 !important;}
 
 .particle-title-218 {
   font-size: 2rem;
   font-weight: 700;
   color: #1a1a2e;
   margin-bottom: 10px;
-}
+
+  opacity: 1 !important;}
 
 .particle-desc-218 {
   font-size: 1rem;
   color: #6c757d;
-}
+
+  opacity: 1 !important;}
 
 /* 墨水变换 */
 .ink-morphs-218 {
@@ -890,7 +933,8 @@ function initParticleAnimation() {
   display: flex;
   align-items: center;
   justify-content: center;
-}
+
+  opacity: 1 !important;}
 
 .morph-ink-218 {
   width: 120px;
@@ -898,13 +942,15 @@ function initParticleAnimation() {
   background: radial-gradient(circle, rgba(26, 26, 46, 0.7), rgba(26, 26, 46, 0.9));
   border-radius: 50%;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-}
+
+  opacity: 1 !important;}
 
 /* 响应式 */
 @media (max-width: 768px) {
   .ink-title-218 {
     font-size: 2rem;
-  }
+  
+  opacity: 1 !important;}
 
   .ink-drops-218 {
     gap: 40px;
@@ -920,11 +966,13 @@ function initParticleAnimation() {
 
   .ink-text-container-218 {
     padding: 15px 30px;
-  }
+  
+  opacity: 1 !important;}
 
   .ink-text-218 {
     font-size: 1.5rem;
-  }
+  
+  opacity: 1 !important;}
 
   .ink-morphs-218 {
     gap: 30px;
@@ -933,11 +981,13 @@ function initParticleAnimation() {
   .ink-morph-shape-218 {
     width: 100px;
     height: 100px;
-  }
+  
+  opacity: 1 !important;}
 
   .morph-ink-218 {
     width: 80px;
     height: 80px;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

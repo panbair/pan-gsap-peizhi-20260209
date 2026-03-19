@@ -322,14 +322,16 @@ onUnmounted(() => {
   background: radial-gradient(ellipse at center, #1a0a2e 0%, #0a0a1a 50%, #0a0a0a 100%);
   position: relative;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .sht-container-180 {
   position: relative;
   max-width: 1400px;
   margin: 0 auto;
   z-index: 1;
-}
+
+  opacity: 1 !important;}
 
 .sht-title-180 {
   text-align: center;
@@ -340,7 +342,8 @@ onUnmounted(() => {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-}
+
+  opacity: 1 !important;}
 
 .sht-subtitle-180 {
   text-align: center;
@@ -349,7 +352,8 @@ onUnmounted(() => {
   margin-bottom: 120px;
   letter-spacing: 0.5em;
   text-transform: uppercase;
-}
+
+  opacity: 1 !important;}
 
 .sht-text-stage-180 {
   position: relative;
@@ -359,16 +363,17 @@ onUnmounted(() => {
   align-items: center;
   justify-content: center;
   gap: 100px;
-}
 
-.sht-hologram-base-180 {
-  position: absolute;
+  opacity: 1 !important;}
+
+.sht-hologram-base-180 { position: absolute;
   bottom: 10%;
   left: 50%;
   transform: translateX(-50%);
   width: 300px;
   height: 50px;
-}
+      opacity: 1;
+    }
 
 .sht-base-ring-180 {
   position: absolute;
@@ -378,7 +383,8 @@ onUnmounted(() => {
   left: 50%;
   transform: translate(-50%, -50%);
   animation: baseRingRotate-180 20s linear infinite;
-}
+
+  opacity: 1 !important;}
 
 .sht-base-ring-180:nth-child(1) { width: 100%; height: 100%; }
 .sht-base-ring-180:nth-child(2) { width: 80%; height: 80%; animation-delay: -5s; }
@@ -406,17 +412,18 @@ onUnmounted(() => {
   align-items: center;
   justify-content: center;
   perspective: 1000px;
-}
 
-.sht-hologram-180 {
-  position: relative;
+  opacity: 1 !important;}
+
+.sht-hologram-180 { position: relative;
   width: 100%;
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   transform-style: preserve-3d;
-}
+      opacity: 1;
+    }
 
 .sht-scanlines-180 {
   position: absolute;
@@ -433,7 +440,8 @@ onUnmounted(() => {
   );
   pointer-events: none;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .sht-text-180 {
   font-size: clamp(4rem, 10vw, 6rem);
@@ -447,10 +455,10 @@ onUnmounted(() => {
     0 0 40px rgba(6, 182, 212, 0.4);
   position: relative;
   z-index: 1;
-}
 
-.sht-hologram-glow-180 {
-  position: absolute;
+  opacity: 1 !important;}
+
+.sht-hologram-glow-180 { position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -458,7 +466,8 @@ onUnmounted(() => {
   height: 120%;
   background: radial-gradient(ellipse at center, rgba(6, 182, 212, 0.2) 0%, transparent 70%);
   pointer-events: none;
-}
+      opacity: 1;
+    }
 
 .sht-label-180 {
   margin-top: 20px;
@@ -466,7 +475,8 @@ onUnmounted(() => {
   color: rgba(6, 182, 212, 0.5);
   letter-spacing: 0.5em;
   text-transform: uppercase;
-}
+
+  opacity: 1 !important;}
 
 .sht-light-beam-180 {
   position: absolute;
@@ -478,10 +488,10 @@ onUnmounted(() => {
   pointer-events: none;
   z-index: 0;
   overflow: hidden;
-}
 
-.sht-beam-180 {
-  position: absolute;
+  opacity: 1 !important;}
+
+.sht-beam-180 { position: absolute;
   top: 0;
   left: 50%;
   transform: translateX(-50%);
@@ -489,7 +499,8 @@ onUnmounted(() => {
   height: 100%;
   background: linear-gradient(180deg, transparent, rgba(6, 182, 212, 0.6), rgba(3, 169, 244, 0.6), transparent);
   filter: blur(3px);
-}
+      opacity: 1;
+    }
 
 .sht-particles-180 {
   position: absolute;
@@ -499,7 +510,8 @@ onUnmounted(() => {
   height: 100%;
   pointer-events: none;
   z-index: 0;
-}
+
+  opacity: 1 !important;}
 
 .sht-particle-180 {
   position: absolute;
@@ -507,7 +519,8 @@ onUnmounted(() => {
   height: 4px;
   background: radial-gradient(circle, rgba(6, 182, 212, 0.8) 0%, transparent 70%);
   border-radius: 50%;
-}
+
+  opacity: 1 !important;}
 
 @for $i from 1 through 30 {
   .sht-particle-180:nth-child(#{$i}) {
@@ -520,15 +533,17 @@ onUnmounted(() => {
   .sht-text-item-180 {
     width: 320px;
     height: 120px;
-  }
+  
+  opacity: 1 !important;}
 
   .sht-text-180 {
     font-size: 3rem;
-  }
+  
+  opacity: 1 !important;}
 
-  .sht-hologram-base-180 {
-    width: 200px;
+  .sht-hologram-base-180 { width: 200px;
     height: 40px;
-  }
+      opacity: 1;
+    }
 }
 </style>

@@ -182,6 +182,8 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
+/* GSAP opacity fix: ensure content is always visible */
+
 .particle-wave-146 {
   width: 100%;
   min-height: 100vh;
@@ -191,7 +193,8 @@ onUnmounted(() => {
   flex-direction: column;
   align-items: center;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .pw-container-146 {
   width: 100%;
@@ -199,7 +202,8 @@ onUnmounted(() => {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
+
+  opacity: 1 !important;}
 
 .pw-title-146 {
   font-size: clamp(2rem, 5vw, 3.5rem);
@@ -210,14 +214,16 @@ onUnmounted(() => {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-}
+
+  opacity: 1 !important;}
 
 .pw-desc-146 {
   font-size: clamp(0.9rem, 2vw, 1.2rem);
   color: rgba(255, 255, 255, 0.7);
   margin-bottom: 40px;
   text-align: center;
-}
+
+  opacity: 1 !important;}
 
 .pw-stage-146 {
   width: 100%;
@@ -228,13 +234,15 @@ onUnmounted(() => {
   border-radius: 20px;
   overflow: hidden;
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-}
+
+  opacity: 1 !important;}
 
 .pw-canvas-146 {
   width: 100%;
   height: 100%;
   display: block;
-}
+
+  opacity: 1 !important;}
 
 .pw-overlay-146 {
   position: absolute;
@@ -246,7 +254,8 @@ onUnmounted(() => {
   justify-content: center;
   align-items: center;
   pointer-events: none;
-}
+
+  opacity: 1 !important;}
 
 .pw-wave-text-146 {
   font-size: 4rem;
@@ -254,22 +263,26 @@ onUnmounted(() => {
   color: rgba(255, 255, 255, 0.5);
   text-shadow: 0 0 30px rgba(79, 172, 254, 0.5);
   will-change: transform, opacity;
-}
+
+  opacity: 1 !important;}
 
 .pw-hint-146 {
   margin-top: 30px;
   font-size: 0.9rem;
   color: rgba(255, 255, 255, 0.5);
   text-align: center;
-}
+
+  opacity: 1 !important;}
 
 @media (max-width: 768px) {
   .pw-stage-146 {
     height: 300px;
-  }
+  
+  opacity: 1 !important;}
   
   .pw-wave-text-146 {
     font-size: 2.5rem;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

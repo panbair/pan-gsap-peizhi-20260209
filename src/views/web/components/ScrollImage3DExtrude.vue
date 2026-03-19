@@ -691,6 +691,8 @@ onUnmounted(() => {
       radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.1) 0%, transparent 50%);
     pointer-events: none;
     animation: bgPulse 8s ease-in-out infinite;
+  
+  opacity: 1 !important;
   }
 }
 
@@ -711,7 +713,9 @@ onUnmounted(() => {
     radial-gradient(circle at 70% 30%, rgba(240, 147, 251, 0.1) 0%, transparent 50%);
   pointer-events: none;
   z-index: 1;
-}
+
+  opacity: 1 !important;
+  }
 
 .ie-particles-228 {
   position: absolute;
@@ -721,14 +725,18 @@ onUnmounted(() => {
   height: 100%;
   pointer-events: none;
   z-index: 2;
-}
+
+  opacity: 1 !important;
+  }
 
 .ie-header-228 {
   text-align: center;
   margin-bottom: 60px;
   z-index: 10;
   position: relative;
-}
+
+  opacity: 1 !important;
+  }
 
 .ie-title-228 {
   font-size: clamp(2rem, 5vw, 3.5rem);
@@ -747,6 +755,8 @@ onUnmounted(() => {
     background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);
     margin: 20px auto 0;
     border-radius: 2px;
+  
+  opacity: 1 !important;
   }
 }
 
@@ -755,7 +765,9 @@ onUnmounted(() => {
   color: rgba(255, 255, 255, 0.6);
   letter-spacing: 0.2em;
   text-transform: uppercase;
-}
+
+  opacity: 1 !important;
+  }
 
 // 控制面板
 .ie-control-panel-228 {
@@ -771,20 +783,26 @@ onUnmounted(() => {
   margin-bottom: 60px;
   z-index: 10;
   position: relative;
-}
+
+  opacity: 1 !important;
+  }
 
 .ie-control-group-228 {
   display: flex;
   flex-direction: column;
   gap: 10px;
   min-width: 150px;
-}
+
+  opacity: 1 !important;
+  }
 
 .ie-label-228 {
   font-size: 14px;
   color: #94a3b8;
   font-weight: 500;
-}
+
+  opacity: 1 !important;
+  }
 
 .ie-slider-228 {
   width: 100%;
@@ -806,7 +824,9 @@ onUnmounted(() => {
 
     &:hover {
       transform: scale(1.2);
-    }
+    
+  opacity: 1 !important;
+  }
   }
 }
 
@@ -814,7 +834,9 @@ onUnmounted(() => {
   font-size: 13px;
   color: #667eea;
   font-weight: 600;
-}
+
+  opacity: 1 !important;
+  }
 
 .ie-mode-btn-228 {
   padding: 8px 12px;
@@ -828,11 +850,15 @@ onUnmounted(() => {
 
   &:hover {
     background: rgba(255, 255, 255, 0.2);
+  
+  opacity: 1 !important;
   }
 
   &.ie-active-228 {
     background: linear-gradient(135deg, #667eea, #764ba2);
     border-color: transparent;
+  
+  opacity: 1 !important;
   }
 }
 
@@ -843,7 +869,9 @@ onUnmounted(() => {
   max-width: 1400px;
   padding: 0 40px;
   z-index: 10;
-}
+
+  opacity: 1 !important;
+  }
 
 .ie-carousel-wrapper-228 {
   width: 100%;
@@ -852,7 +880,9 @@ onUnmounted(() => {
   align-items: center;
   justify-content: center;
   position: relative;
-}
+
+  opacity: 1 !important;
+  }
 
 .ie-carousel-track-228 {
   width: 100%;
@@ -862,7 +892,9 @@ onUnmounted(() => {
   display: flex;
   justify-content: center;
   align-items: center;
-}
+
+  opacity: 1 !important;
+  }
 
 .ie-carousel-item-228 {
   position: absolute;
@@ -872,13 +904,16 @@ onUnmounted(() => {
   cursor: pointer;
   transform-style: preserve-3d;
 
-  &.ie-active-228 {
+  &
+.ie-active-228 {
     .ie-layer-front-228 {
       box-shadow:
         0 40px 80px rgba(102, 126, 234, 0.4),
         0 0 60px rgba(236, 72, 153, 0.3),
         inset 0 0 60px rgba(236, 72, 153, 0.2);
-    }
+    
+  opacity: 1 !important;
+  }
   }
 
   &:hover {
@@ -895,6 +930,8 @@ onUnmounted(() => {
     height: 100%;
     position: relative;
     transform-style: preserve-3d;
+  
+  opacity: 1 !important;
   }
 }
 
@@ -907,17 +944,23 @@ onUnmounted(() => {
   backface-visibility: hidden;
   transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-}
+
+  opacity: 1 !important;
+  }
 
 .ie-layer-back-228 {
   background: rgba(99, 102, 241, 0.1);
   border: 2px solid rgba(99, 102, 241, 0.3);
-}
+
+  opacity: 1 !important;
+  }
 
 .ie-layer-mid-228 {
   background: rgba(168, 85, 247, 0.05);
   border: 1px solid rgba(168, 85, 247, 0.2);
-}
+
+  opacity: 1 !important;
+  }
 
 .ie-layer-front-228 {
   z-index: 100;
@@ -927,7 +970,9 @@ onUnmounted(() => {
     0 0 40px rgba(236, 72, 153, 0.3),
     inset 0 0 60px rgba(236, 72, 153, 0.1);
   transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-}
+
+  opacity: 1 !important;
+  }
 
 .ie-layer-content-228 {
   position: relative;
@@ -941,6 +986,8 @@ onUnmounted(() => {
     height: 100%;
     object-fit: cover;
     transition: transform 0.4s ease;
+  
+  opacity: 1 !important;
   }
 }
 
@@ -979,7 +1026,9 @@ onUnmounted(() => {
   border-radius: 50%;
   filter: blur(60px);
   mix-blend-mode: screen;
-}
+
+  opacity: 1 !important;
+  }
 
 // 模糊层
 .ie-blur-layer-228 {
@@ -992,7 +1041,9 @@ onUnmounted(() => {
   pointer-events: none;
   z-index: 60;
   border-radius: 16px;
-}
+
+  opacity: 1 !important;
+  }
 
 // 极光光效
 .ie-aurora-glow-228 {
@@ -1027,21 +1078,25 @@ onUnmounted(() => {
 
 .ie-carousel-item-228:hover .ie-card-info-228 {
   transform: translateY(0);
-  opacity: 1;
-}
+      opacity: 1;
+    }
 
 .ie-card-title-228 {
   font-size: 1.2rem;
   font-weight: 700;
   color: #fff;
   margin-bottom: 5px;
-}
+
+  opacity: 1 !important;
+  }
 
 .ie-card-desc-228 {
   font-size: 0.9rem;
   color: rgba(255, 255, 255, 0.8);
   margin-bottom: 15px;
-}
+
+  opacity: 1 !important;
+  }
 
 .ie-blur-indicator-228 {
   display: flex;
@@ -1050,19 +1105,27 @@ onUnmounted(() => {
   gap: 10px;
   font-size: 0.85rem;
   font-weight: 600;
-}
+
+  opacity: 1 !important;
+  }
 
 .ie-blur-from-228 {
   color: #a78bfa;
-}
+
+  opacity: 1 !important;
+  }
 
 .ie-blur-arrow-228 {
   color: rgba(255, 255, 255, 0.5);
-}
+
+  opacity: 1 !important;
+  }
 
 .ie-blur-to-228 {
   color: #4ade80;
-}
+
+  opacity: 1 !important;
+  }
 
 // 轮播导航
 .ie-carousel-nav-228 {
@@ -1089,6 +1152,8 @@ onUnmounted(() => {
   svg {
     width: 24px;
     height: 24px;
+  
+  opacity: 1 !important;
   }
 
   &:hover {
@@ -1122,6 +1187,8 @@ onUnmounted(() => {
     border-color: transparent;
     transform: scale(1.4);
     box-shadow: 0 0 15px rgba(102, 126, 234, 0.5);
+  
+  opacity: 1 !important;
   }
 
   &:hover {
@@ -1138,13 +1205,17 @@ onUnmounted(() => {
   border-radius: 2px;
   overflow: hidden;
   margin-top: 40px;
-}
+
+  opacity: 1 !important;
+  }
 
 .ie-progress-fill-228 {
   height: 100%;
   background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);
   transition: width 0.3s;
-}
+
+  opacity: 1 !important;
+  }
 
 // 装饰性光效
 .ie-decorative-lights-228 {
@@ -1168,7 +1239,9 @@ onUnmounted(() => {
   top: 20%;
   left: 10%;
   animation-delay: 0s;
-}
+
+  opacity: 1 !important;
+  }
 
 .ie-light-2-228 {
   width: 250px;
@@ -1177,7 +1250,9 @@ onUnmounted(() => {
   top: 60%;
   right: 15%;
   animation-delay: 2s;
-}
+
+  opacity: 1 !important;
+  }
 
 .ie-light-3-228 {
   width: 180px;
@@ -1186,7 +1261,9 @@ onUnmounted(() => {
   bottom: 20%;
   left: 30%;
   animation-delay: 4s;
-}
+
+  opacity: 1 !important;
+  }
 
 @keyframes lightFloat {
   0%, 100% {
@@ -1204,33 +1281,47 @@ onUnmounted(() => {
 @media (max-width: 768px) {
   .ie-title-228 {
     font-size: 2rem;
+  
+  opacity: 1 !important;
   }
 
   .ie-subtitle-228 {
     font-size: 0.9rem;
     letter-spacing: 0.1em;
+  
+  opacity: 1 !important;
   }
 
   .ie-control-panel-228 {
     padding: 20px;
     gap: 20px;
+  
+  opacity: 1 !important;
   }
 
   .ie-control-group-228 {
     min-width: 120px;
+  
+  opacity: 1 !important;
   }
 
   .ie-extrude-container-228 {
     padding: 0 20px;
+  
+  opacity: 1 !important;
   }
 
   .ie-carousel-track-228 {
     height: 350px;
+  
+  opacity: 1 !important;
   }
 
   .ie-carousel-item-228 {
     width: 260px;
     height: 195px;
+  
+  opacity: 1 !important;
   }
 
   .ie-carousel-nav-228 {
@@ -1244,17 +1335,23 @@ onUnmounted(() => {
     svg {
       width: 20px;
       height: 20px;
-    }
+    
+  opacity: 1 !important;
+  }
   }
 
   .ie-indicator-228 {
     width: 12px;
     height: 12px;
+  
+  opacity: 1 !important;
   }
 
   .ie-light-228 {
     width: 120px;
     height: 120px;
+  
+  opacity: 1 !important;
   }
 }
 
@@ -1266,6 +1363,8 @@ onUnmounted(() => {
 
   .ie-control-group-228 {
     min-width: auto;
+  
+  opacity: 1 !important;
   }
 }
 </style>

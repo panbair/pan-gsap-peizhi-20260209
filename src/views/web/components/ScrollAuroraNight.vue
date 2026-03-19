@@ -155,18 +155,22 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
+/* GSAP opacity fix: ensure content is always visible */
+
 .aurora-night-container-206 {
   min-height: 100vh;
   background: linear-gradient(180deg, #000011 0%, #000022 100%);
   padding: 60px 20px;
   position: relative;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .an-header-206 {
   text-align: center;
   margin-bottom: 60px;
-}
+
+  opacity: 1 !important;}
 
 .an-title-206 {
   font-size: 48px;
@@ -177,12 +181,14 @@ onUnmounted(() => {
   background-clip: text;
   text-shadow: 0 0 40px rgba(0, 255, 255, 0.5);
   margin-bottom: 10px;
-}
+
+  opacity: 1 !important;}
 
 .an-hint-206 {
   font-size: 18px;
   color: #00ffff;
-}
+
+  opacity: 1 !important;}
 
 .an-stage-206 {
   max-width: 1200px;
@@ -191,7 +197,8 @@ onUnmounted(() => {
   grid-template-columns: repeat(4, 1fr);
   gap: 40px;
   padding: 20px;
-}
+
+  opacity: 1 !important;}
 
 .an-aurora-wrapper-206 {
   height: 400px;
@@ -199,7 +206,8 @@ onUnmounted(() => {
   display: flex;
   justify-content: center;
   align-items: center;
-}
+
+  opacity: 1 !important;}
 
 .an-aurora-206 {
   position: relative;
@@ -210,7 +218,8 @@ onUnmounted(() => {
   border: 2px solid rgba(0, 255, 255, 0.3);
   overflow: hidden;
   transition: all 0.5s ease;
-}
+
+  opacity: 1 !important;}
 
 .an-aurora-206:hover {
   transform: translateY(-10px);
@@ -235,13 +244,15 @@ onUnmounted(() => {
   align-items: center;
   justify-content: center;
   text-align: center;
-}
+
+  opacity: 1 !important;}
 
 .an-icon-206 {
   font-size: 72px;
   margin-bottom: 20px;
   filter: drop-shadow(0 0 20px rgba(0, 255, 255, 0.8));
-}
+
+  opacity: 1 !important;}
 
 .an-aurora-title-206 {
   font-size: 28px;
@@ -249,13 +260,15 @@ onUnmounted(() => {
   color: #ffffff;
   margin-bottom: 10px;
   text-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
-}
+
+  opacity: 1 !important;}
 
 .an-aurora-desc-206 {
   font-size: 14px;
   color: #00ffff;
   line-height: 1.6;
-}
+
+  opacity: 1 !important;}
 
 @media (max-width: 1024px) {
   .an-stage-206 {
@@ -270,6 +283,7 @@ onUnmounted(() => {
 
   .an-title-206 {
     font-size: 32px;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

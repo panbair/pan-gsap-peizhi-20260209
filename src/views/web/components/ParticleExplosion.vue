@@ -103,7 +103,8 @@ const initAnimations = () => {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-}
+
+  opacity: 1 !important;}
 
 .section-title-4 {
   font-size: 2.5rem;
@@ -114,11 +115,13 @@ const initAnimations = () => {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   text-align: center;
-}
+
+  opacity: 1 !important;}
 
 .explosion-section-4 {
   background: linear-gradient(180deg, transparent, rgba(240, 147, 251, 0.1), transparent);
-}
+
+  opacity: 1 !important;}
 
 .explosion-container-4 {
   position: relative;
@@ -127,7 +130,8 @@ const initAnimations = () => {
   display: flex;
   align-items: center;
   justify-content: center;
-}
+
+  opacity: 1 !important;}
 
 .explosion-center-4 {
   position: absolute;
@@ -136,7 +140,8 @@ const initAnimations = () => {
   display: flex;
   align-items: center;
   justify-content: center;
-}
+
+  opacity: 1 !important;}
 
 .explosion-core-4 {
   width: 100%;
@@ -144,14 +149,16 @@ const initAnimations = () => {
   background: linear-gradient(135deg, #667eea, #764ba2);
   border-radius: 50%;
   box-shadow: 0 0 40px rgba(102, 126, 234, 0.6);
-}
+
+  opacity: 1 !important;}
 
 .explosion-particles-4 {
   position: absolute;
   width: 100%;
   height: 100%;
   pointer-events: none;
-}
+
+  opacity: 1 !important;}
 
 .explosion-particle-4 {
   position: absolute;
@@ -162,5 +169,6 @@ const initAnimations = () => {
   background: rgba(255, 255, 255, 0.8);
   border-radius: 50%;
   transform: translate(-50%, -50%);
-}
+
+  opacity: 1 !important;}
 </style>

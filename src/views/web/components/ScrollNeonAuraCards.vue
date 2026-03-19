@@ -1,5 +1,5 @@
 <template>
-  <div class="neon-aura-section-229" ref="componentRoot">
+  <div ref="componentRoot" class="neon-aura-section-229">
     <div class="nau-container-229">
       <h2 class="nau-title-229">霓虹光晕</h2>
       <p class="nau-subtitle-229">Neon Aura Cards</p>
@@ -7,7 +7,7 @@
       <div class="nau-aura-stage-229">
         <!-- 动态光晕背景 -->
         <div class="nau-aura-background-229">
-          <div class="nau-aura-wave-229" v-for="i in 5" :key="i" :data-wave="i"></div>
+          <div v-for="i in 5" :key="i" class="nau-aura-wave-229" :data-wave="i"></div>
         </div>
 
         <!-- 光晕粒子 -->
@@ -22,7 +22,7 @@
 
         <!-- 能量场 -->
         <div class="nau-energy-field-229">
-          <div class="nau-energy-ring-229" v-for="i in 3" :key="i" :data-ring="i"></div>
+          <div v-for="i in 3" :key="i" class="nau-energy-ring-229" :data-ring="i"></div>
         </div>
 
         <!-- 卡片网格 -->
@@ -30,10 +30,18 @@
           <div
             v-for="(card, index) in cards"
             :key="index"
+            :ref="
+              el => {
+                if (el) cardRefs[index] = el as HTMLElement
+              }
+            "
             class="nau-aura-card-229"
-            :ref="el => { if (el) cardRefs[index] = el as HTMLElement }"
             :data-card="index"
-            :style="{ '--card-color': card.primaryColor, '--card-glow': card.glowColor, '--card-aura': card.auraColor }"
+            :style="{
+              '--card-color': card.primaryColor,
+              '--card-glow': card.glowColor,
+              '--card-aura': card.auraColor
+            }"
             @mousemove="handleCardHover($event, index)"
             @mouseleave="handleCardLeave(index)"
           >
@@ -49,7 +57,7 @@
 
             <!-- 边框光效 -->
             <div class="nau-border-glow-229">
-              <div class="nau-border-segment-229" v-for="i in 4" :key="i" :data-side="i"></div>
+              <div v-for="i in 4" :key="i" class="nau-border-segment-229" :data-side="i"></div>
             </div>
 
             <!-- 卡片内容 -->
@@ -79,7 +87,10 @@
 
               <!-- 标签 -->
               <div class="nau-card-tags-229">
-                <span class="nau-tag-229" :style="{ borderColor: card.tagColor, color: card.tagColor }">
+                <span
+                  class="nau-tag-229"
+                  :style="{ borderColor: card.tagColor, color: card.tagColor }"
+                >
                   {{ card.category }}
                 </span>
                 <span class="nau-power-badge-229">
@@ -384,7 +395,7 @@ const handleCardLeave = (index: number) => {
 
   // 边框复位
   const borderSegments = card.querySelectorAll('.nau-border-segment-229')
-  borderSegments.forEach((segment) => {
+  borderSegments.forEach(segment => {
     gsap.to(segment, {
       opacity: 0.4,
       duration: 0.6,
@@ -444,16 +455,16 @@ onMounted(() => {
         duration: 1.2,
         ease: 'elastic.out(1, 0.6)'
       })
-
-      // 标题光晕脉冲
-      gsap.to(titleEl, {
-        filter: 'drop-shadow(0 0 30px var(--card-color))',
-        duration: 1,
-        repeat: -1,
-        yoyo: true,
-        ease: 'sine.inOut'
-      })
     }
+
+    // 标题光晕脉冲
+    gsap.to(titleEl, {
+      filter: 'drop-shadow(0 0 30px var(--card-color))',
+      duration: 1,
+      repeat: -1,
+      yoyo: true,
+      ease: 'sine.inOut'
+    })
 
     if (subtitleEl.length) {
       gsap.from(subtitleEl, {
@@ -516,7 +527,7 @@ onMounted(() => {
       })
 
       // 粒子持续飘浮
-      particles.forEach((particle) => {
+      particles.forEach(particle => {
         const yMove = -60 - Math.random() * 120
         gsap.to(particle, {
           y: yMove,
@@ -620,7 +631,7 @@ onMounted(() => {
       })
 
       // 图标持续脉动
-      cardIcons.forEach((icon) => {
+      cardIcons.forEach(icon => {
         gsap.to(icon, {
           scale: 1.1,
           filter: 'brightness(1.3)',
@@ -666,7 +677,8 @@ onMounted(() => {
 
     // 能量条动画
     if (energyBars.length) {
-      gsap.fromTo(energyBars,
+      gsap.fromTo(
+        energyBars,
         { width: 0 },
         {
           scrollTrigger: {
@@ -674,7 +686,8 @@ onMounted(() => {
             start: 'top 65%',
             toggleActions: 'play none none reverse'
           },
-          width: (index) => `${cards[index as number]?.getAttribute('data-card') ? cards[index as number] as HTMLElement : '0'}%`,
+          width: index =>
+            `${cards[index as number]?.getAttribute('data-card') ? (cards[index as number] as HTMLElement) : '0'}%`,
           duration: 1.1,
           stagger: 0.15,
           delay: 1.4,
@@ -699,8 +712,11 @@ onMounted(() => {
       })
 
       // 光流持续流动
-      const flowSegments = gsap.utils.toArray<HTMLElement>('.nau-flow-segment-229', componentRoot.value)
-      flowSegments.forEach((segment) => {
+      const flowSegments = gsap.utils.toArray<HTMLElement>(
+        '.nau-flow-segment-229',
+        componentRoot.value
+      )
+      flowSegments.forEach(segment => {
         gsap.to(segment, {
           x: '100%',
           duration: 1.8,
@@ -716,11 +732,11 @@ onMounted(() => {
         trigger: stageEl[0],
         start: 'top 85%',
         end: 'bottom 20%',
-        onUpdate: (self) => {
+        onUpdate: self => {
           const progress = self.progress
 
           // 卡片光晕随滚动增强
-          cards.forEach((card) => {
+          cards.forEach(card => {
             const auraGlow = card.querySelector('.nau-aura-glow-229') as HTMLElement
             if (auraGlow) {
               gsap.to(auraGlow, {
@@ -818,26 +834,26 @@ onUnmounted(() => {
   left: -20%;
   opacity: 0.12;
 
-  &[data-wave="1"] {
+  &[data-wave='1'] {
     background: radial-gradient(ellipse at 30% 50%, #ffd70020, transparent 60%);
   }
 
-  &[data-wave="2"] {
+  &[data-wave='2'] {
     background: radial-gradient(ellipse at 70% 30%, #ff69b420, transparent 60%);
     top: 20%;
   }
 
-  &[data-wave="3"] {
+  &[data-wave='3'] {
     background: radial-gradient(ellipse at 50% 80%, #9b59b620, transparent 60%);
     top: 40%;
   }
 
-  &[data-wave="4"] {
+  &[data-wave='4'] {
     background: radial-gradient(ellipse at 20% 70%, #ff450020, transparent 60%);
     top: 60%;
   }
 
-  &[data-wave="5"] {
+  &[data-wave='5'] {
     background: radial-gradient(ellipse at 80% 60%, #00d4ff20, transparent 60%);
     top: 30%;
   }
@@ -873,20 +889,20 @@ onUnmounted(() => {
   transform: translate(-50%, -50%);
   border-radius: 50%;
 
-  &[data-ring="1"] {
+  &[data-ring='1'] {
     width: 600px;
     height: 600px;
     border: 2px solid rgba(255, 215, 0, 0.15);
     border-style: dashed;
   }
 
-  &[data-ring="2"] {
+  &[data-ring='2'] {
     width: 800px;
     height: 800px;
     border: 2px solid rgba(255, 105, 180, 0.1);
   }
 
-  &[data-ring="3"] {
+  &[data-ring='3'] {
     width: 1000px;
     height: 1000px;
     border: 1px solid rgba(155, 89, 182, 0.08);
@@ -918,6 +934,7 @@ onUnmounted(() => {
 
   &:hover {
     border-color: var(--card-glow);
+    opacity: 1;
   }
 }
 
@@ -983,7 +1000,7 @@ onUnmounted(() => {
   opacity: 0.4;
   transition: all 0.3s ease;
 
-  &[data-side="1"] {
+  &[data-side='1'] {
     top: 0;
     left: 0;
     right: 0;
@@ -991,7 +1008,7 @@ onUnmounted(() => {
     background: linear-gradient(90deg, transparent, var(--card-color), transparent);
   }
 
-  &[data-side="2"] {
+  &[data-side='2'] {
     bottom: 0;
     left: 0;
     right: 0;
@@ -999,7 +1016,7 @@ onUnmounted(() => {
     background: linear-gradient(90deg, transparent, var(--card-color), transparent);
   }
 
-  &[data-side="3"] {
+  &[data-side='3'] {
     left: 0;
     top: 0;
     bottom: 0;
@@ -1007,7 +1024,7 @@ onUnmounted(() => {
     background: linear-gradient(180deg, transparent, var(--card-color), transparent);
   }
 
-  &[data-side="4"] {
+  &[data-side='4'] {
     right: 0;
     top: 0;
     bottom: 0;
@@ -1026,6 +1043,7 @@ onUnmounted(() => {
   align-items: center;
   text-align: center;
   height: 100%;
+  opacity: 1;
 }
 
 .nau-card-number-229 {
@@ -1069,7 +1087,7 @@ onUnmounted(() => {
   width: 90px;
   height: 90px;
   border-radius: 50%;
-  background: radial-gradient(circle, var(--card-color)30 0%, transparent 70%);
+  background: radial-gradient(circle, var(--card-color) 30 0%, transparent 70%);
   opacity: 0.4;
   transition: all 0.4s ease;
 }
@@ -1131,7 +1149,9 @@ onUnmounted(() => {
 }
 
 @keyframes energyPulse {
-  to { transform: translateX(300%); }
+  to {
+    transform: translateX(300%);
+  }
 }
 
 .nau-energy-value-229 {
@@ -1219,7 +1239,8 @@ onUnmounted(() => {
 }
 
 @keyframes hintRingPulse {
-  0%, 100% {
+  0%,
+  100% {
     transform: scale(1);
     opacity: 0.6;
   }
@@ -1244,6 +1265,7 @@ onUnmounted(() => {
 
   .nau-aura-card-229 {
     min-height: 380px;
+    opacity: 1;
   }
 
   .nau-card-icon-229 {
@@ -1259,17 +1281,17 @@ onUnmounted(() => {
   }
 
   .nau-energy-ring-229 {
-    &[data-ring="1"] {
+    &[data-ring='1'] {
       width: 300px;
       height: 300px;
     }
 
-    &[data-ring="2"] {
+    &[data-ring='2'] {
       width: 400px;
       height: 400px;
     }
 
-    &[data-ring="3"] {
+    &[data-ring='3'] {
       width: 500px;
       height: 500px;
     }

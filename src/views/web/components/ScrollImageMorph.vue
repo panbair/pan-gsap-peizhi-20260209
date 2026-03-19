@@ -453,7 +453,8 @@ onUnmounted(() => {
       radial-gradient(circle at 30% 40%, rgba(34, 197, 94, 0.05) 0%, transparent 50%),
       radial-gradient(circle at 70% 60%, rgba(234, 179, 8, 0.05) 0%, transparent 50%);
     pointer-events: none;
-  }
+  
+  opacity: 1 !important;}
 }
 
 .sim-container-231 {
@@ -461,7 +462,8 @@ onUnmounted(() => {
   margin: 0 auto;
   position: relative;
   z-index: 1;
-}
+
+  opacity: 1 !important;}
 
 .sim-title-231 {
   font-size: 3rem;
@@ -473,7 +475,8 @@ onUnmounted(() => {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   animation: sim-gradient-flow-231 6s ease infinite;
-}
+
+  opacity: 1 !important;}
 
 @keyframes sim-gradient-flow-231 {
   0%, 100% { filter: hue-rotate(0deg); }
@@ -487,7 +490,8 @@ onUnmounted(() => {
   margin-bottom: 40px;
   letter-spacing: 3px;
   text-transform: uppercase;
-}
+
+  opacity: 1 !important;}
 
 .sim-morph-control-panel-231 {
   display: flex;
@@ -500,7 +504,8 @@ onUnmounted(() => {
   border: 1px solid rgba(34, 197, 94, 0.3);
   border-radius: 16px;
   backdrop-filter: blur(10px);
-}
+
+  opacity: 1 !important;}
 
 .sim-control-group-231 {
   display: flex;
@@ -513,7 +518,8 @@ onUnmounted(() => {
   font-size: 14px;
   font-weight: 600;
   white-space: nowrap;
-}
+
+  opacity: 1 !important;}
 
 .sim-slider-231 {
   width: 120px;
@@ -531,7 +537,8 @@ onUnmounted(() => {
     border-radius: 50%;
     cursor: pointer;
     box-shadow: 0 0 10px rgba(34, 197, 94, 0.8);
-  }
+  
+  opacity: 1 !important;}
 }
 
 .sim-value-231 {
@@ -539,7 +546,8 @@ onUnmounted(() => {
   font-size: 14px;
   font-weight: 600;
   min-width: 50px;
-}
+
+  opacity: 1 !important;}
 
 .sim-mode-buttons-231 {
   display: flex;
@@ -559,14 +567,16 @@ onUnmounted(() => {
   &:hover {
     background: rgba(34, 197, 94, 0.2);
     border-color: rgba(34, 197, 94, 0.6);
-  }
+  
+  opacity: 1 !important;}
 
   &.sim-active-231 {
     background: linear-gradient(135deg, #22c55e, #eab308);
     border-color: transparent;
     color: #0a0a1a;
     font-weight: 600;
-  }
+  
+  opacity: 1 !important;}
 }
 
 .sim-morph-gallery-231 {
@@ -590,7 +600,8 @@ onUnmounted(() => {
     0 0 60px rgba(34, 197, 94, 0.2),
     inset 0 0 60px rgba(34, 197, 94, 0.05);
   transform-style: preserve-3d;
-}
+
+  opacity: 1 !important;}
 
 .sim-morph-container-231 {
   position: relative;
@@ -610,7 +621,8 @@ onUnmounted(() => {
   height: 400px;
   object-fit: cover;
   display: block;
-}
+
+  opacity: 1 !important;}
 
 .sim-morphed-layer-231 {
   position: absolute;
@@ -620,14 +632,16 @@ onUnmounted(() => {
   height: 100%;
   z-index: 2;
   pointer-events: none;
-}
+
+  opacity: 1 !important;}
 
 .sim-morph-canvas-231 {
   width: 100%;
   height: 400px;
   object-fit: cover;
   display: block;
-}
+
+  opacity: 1 !important;}
 
 .sim-morph-grid-231 {
   position: absolute;
@@ -637,7 +651,8 @@ onUnmounted(() => {
   height: 100%;
   z-index: 3;
   pointer-events: none;
-}
+
+  opacity: 1 !important;}
 
 .sim-grid-point-231 {
   position: absolute;
@@ -649,7 +664,8 @@ onUnmounted(() => {
   left: 20%;
   transform: translate(calc(var(--i) * 20px), calc(var(--i) * 15px));
   box-shadow: 0 0 10px rgba(34, 197, 94, 0.8);
-}
+
+  opacity: 1 !important;}
 
 .sim-liquid-ripple-231 {
   position: absolute;
@@ -660,7 +676,8 @@ onUnmounted(() => {
   transform: translate(-50%, -50%);
   z-index: 4;
   pointer-events: none;
-}
+
+  opacity: 1 !important;}
 
 .sim-ripple-231 {
   position: absolute;
@@ -672,7 +689,8 @@ onUnmounted(() => {
   border: 2px solid rgba(34, 197, 94, 0.3);
   border-radius: 50%;
   box-shadow: 0 0 20px rgba(34, 197, 94, 0.5);
-}
+
+  opacity: 1 !important;}
 
 .sim-morph-overlay-231 {
   position: absolute;
@@ -683,7 +701,8 @@ onUnmounted(() => {
   background: linear-gradient(transparent, rgba(10, 10, 26, 0.95));
   z-index: 10;
   border-top: 1px solid rgba(34, 197, 94, 0.3);
-}
+
+  opacity: 1 !important;}
 
 .sim-morph-content-231 {
   transform: translateZ(10px);
@@ -703,7 +722,8 @@ onUnmounted(() => {
   letter-spacing: 1px;
   text-transform: uppercase;
   margin-bottom: 12px;
-}
+
+  opacity: 1 !important;}
 
 .sim-card-title-231 {
   font-size: 1.5rem;
@@ -711,14 +731,16 @@ onUnmounted(() => {
   color: #eab308;
   margin-bottom: 8px;
   text-shadow: 0 0 20px rgba(234, 179, 8, 0.5);
-}
+
+  opacity: 1 !important;}
 
 .sim-card-desc-231 {
   font-size: 1rem;
   color: #94a3b8;
   margin-bottom: 20px;
   line-height: 1.6;
-}
+
+  opacity: 1 !important;}
 
 .sim-morph-metrics-231 {
   display: flex;
@@ -736,13 +758,15 @@ onUnmounted(() => {
   color: #64748b;
   text-transform: uppercase;
   letter-spacing: 1px;
-}
+
+  opacity: 1 !important;}
 
 .sim-metric-value-231 {
   font-size: 14px;
   color: #eab308;
   font-weight: 600;
-}
+
+  opacity: 1 !important;}
 
 .sim-morph-status-231 {
   display: flex;
@@ -754,7 +778,8 @@ onUnmounted(() => {
   border: 1px solid rgba(34, 197, 94, 0.3);
   border-radius: 12px;
   backdrop-filter: blur(10px);
-}
+
+  opacity: 1 !important;}
 
 .sim-status-display-231 {
   display: flex;
@@ -766,12 +791,14 @@ onUnmounted(() => {
   width: 50px;
   height: 50px;
   color: #22c55e;
-}
+
+  opacity: 1 !important;}
 
 .sim-icon-svg-231 {
   width: 100%;
   height: 100%;
-}
+
+  opacity: 1 !important;}
 
 .sim-status-info-231 {
   display: flex;
@@ -784,20 +811,23 @@ onUnmounted(() => {
   color: #64748b;
   text-transform: uppercase;
   letter-spacing: 1px;
-}
+
+  opacity: 1 !important;}
 
 .sim-status-text-231 {
   font-size: 14px;
   color: #eab308;
   font-weight: 600;
-}
+
+  opacity: 1 !important;}
 
 .sim-morph-wave-231 {
   display: flex;
   align-items: center;
   gap: 4px;
   height: 30px;
-}
+
+  opacity: 1 !important;}
 
 .sim-wave-line-231 {
   width: 3px;
@@ -810,7 +840,8 @@ onUnmounted(() => {
 @media (max-width: 768px) {
   .sim-title-231 {
     font-size: 2rem;
-  }
+  
+  opacity: 1 !important;}
 
   .sim-morph-gallery-231 {
     grid-template-columns: 1fr;

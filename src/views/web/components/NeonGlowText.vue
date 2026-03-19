@@ -166,14 +166,16 @@ onUnmounted(() => {
     bottom: 0;
     background: radial-gradient(circle at 50% 50%, rgba(255, 0, 255, 0.05), transparent 70%);
     pointer-events: none;
-  }
+  
+  opacity: 1 !important;}
 }
 
 .ngt-content-19 {
   text-align: center;
   position: relative;
   z-index: 1;
-}
+
+  opacity: 1 !important;}
 
 .ngt-section-title-19 {
   font-size: clamp(2rem, 4vw, 2.5rem);
@@ -181,14 +183,16 @@ onUnmounted(() => {
   margin-bottom: 16px;
   color: #ff00ff;
   text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff, 0 0 30px #ff00ff;
-}
+
+  opacity: 1 !important;}
 
 .ngt-subtitle-19 {
   font-size: 1.1rem;
   color: #c084fc;
   margin-bottom: 60px;
   text-shadow: 0 0 10px rgba(192, 132, 252, 0.5);
-}
+
+  opacity: 1 !important;}
 
 .ngt-neon-container-19 {
   display: flex;
@@ -203,7 +207,8 @@ onUnmounted(() => {
   display: flex;
   justify-content: center;
   gap: 0.1em;
-}
+
+  opacity: 1 !important;}
 
 .ngt-letter-19 {
   display: inline-block;
@@ -212,11 +217,13 @@ onUnmounted(() => {
                0 0 10px rgba(255, 0, 255, 0.2);
   transition: all 0.3s ease;
   transform-style: preserve-3d;
-}
+
+  opacity: 1 !important;}
 
 @media (max-width: 768px) {
   .ngt-neon-text-19 {
     font-size: clamp(2rem, 12vw, 3rem);
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

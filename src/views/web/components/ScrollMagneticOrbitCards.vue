@@ -694,7 +694,8 @@ onUnmounted(() => {
     linear-gradient(135deg, #0a0a1a 0%, #1a0a2a 50%, #0a1a2a 100%);
   position: relative;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 // 粒子背景
 .smoc-particles-158 {
@@ -714,7 +715,8 @@ onUnmounted(() => {
   border-radius: 50%;
   animation: particleFloat var(--duration) ease-in-out infinite;
   animation-delay: var(--delay);
-}
+
+  opacity: 1 !important;}
 
 @keyframes particleFloat {
   0%, 100% {
@@ -746,7 +748,8 @@ onUnmounted(() => {
   left: -200px;
   background: radial-gradient(circle, rgba(139, 92, 246, 0.5) 0%, transparent 70%);
   animation-delay: 0s;
-}
+
+  opacity: 1 !important;}
 
 .smoc-glow-2-158 {
   width: 500px;
@@ -755,7 +758,8 @@ onUnmounted(() => {
   right: -150px;
   background: radial-gradient(circle, rgba(217, 70, 239, 0.5) 0%, transparent 70%);
   animation-delay: 2s;
-}
+
+  opacity: 1 !important;}
 
 .smoc-glow-3-158 {
   width: 400px;
@@ -765,7 +769,8 @@ onUnmounted(() => {
   transform: translate(-50%, -50%);
   background: radial-gradient(circle, rgba(249, 115, 22, 0.4) 0%, transparent 70%);
   animation-delay: 4s;
-}
+
+  opacity: 1 !important;}
 
 @keyframes glowPulse {
   0%, 100% {
@@ -783,7 +788,8 @@ onUnmounted(() => {
   max-width: 1600px;
   margin: 0 auto;
   z-index: 1;
-}
+
+  opacity: 1 !important;}
 
 .smoc-title-158 {
   text-align: center;
@@ -794,7 +800,8 @@ onUnmounted(() => {
   display: inline-block;
   left: 50%;
   transform: translateX(-50%);
-}
+
+  opacity: 1 !important;}
 
 .smoc-title-text-158 {
   display: block;
@@ -805,7 +812,8 @@ onUnmounted(() => {
   background-clip: text;
   animation: gradientShift 5s ease infinite;
   filter: drop-shadow(0 0 30px rgba(139, 92, 246, 0.6));
-}
+
+  opacity: 1 !important;}
 
 .smoc-title-glow-158 {
   position: absolute;
@@ -816,7 +824,8 @@ onUnmounted(() => {
   background: linear-gradient(90deg, transparent, #8b5cf6, #d946ef, #f97316, transparent);
   transform: scaleX(0);
   transform-origin: center;
-}
+
+  opacity: 1 !important;}
 
 @keyframes gradientShift {
   0%, 100% {
@@ -835,7 +844,8 @@ onUnmounted(() => {
   letter-spacing: 0.4em;
   text-transform: uppercase;
   font-weight: 500;
-}
+
+  opacity: 1 !important;}
 
 .smoc-stage-158 {
   position: relative;
@@ -843,7 +853,8 @@ onUnmounted(() => {
   display: flex;
   align-items: center;
   justify-content: center;
-}
+
+  opacity: 1 !important;}
 
 .smoc-orbit-center-158 {
   position: absolute;
@@ -863,7 +874,8 @@ onUnmounted(() => {
   border-radius: 50%;
   border: 2px solid rgba(139, 92, 246, 0.4);
   animation: pulseRing 3s ease-out infinite;
-}
+
+  opacity: 1 !important;}
 
 .smoc-center-pulse-2-158 {
   animation-delay: 1.5s;
@@ -896,12 +908,14 @@ onUnmounted(() => {
     inset 0 0 40px rgba(255, 255, 255, 0.1);
   z-index: 2;
   backdrop-filter: blur(20px);
-}
+
+  opacity: 1 !important;}
 
 .smoc-center-icon-158 {
   font-size: 3rem;
   animation: iconFloat 2s ease-in-out infinite;
-}
+
+  opacity: 1 !important;}
 
 @keyframes iconFloat {
   0%, 100% {
@@ -918,7 +932,8 @@ onUnmounted(() => {
   font-weight: 700;
   margin-top: 5px;
   letter-spacing: 0.2em;
-}
+
+  opacity: 1 !important;}
 
 .smoc-center-ring-158 {
   position: absolute;
@@ -958,7 +973,8 @@ onUnmounted(() => {
   border-radius: 50%;
   animation: rotateRing var(--duration) linear infinite;
   animation-direction: var(--direction);
-}
+
+  opacity: 1 !important;}
 
 .smoc-ring-dot-158 {
   position: absolute;
@@ -970,13 +986,15 @@ onUnmounted(() => {
   background: radial-gradient(circle, rgba(139, 92, 246, 0.9), rgba(217, 70, 239, 0.9));
   border-radius: 50%;
   box-shadow: 0 0 10px rgba(139, 92, 246, 0.6);
-}
+
+  opacity: 1 !important;}
 
 .smoc-cards-158 {
   position: absolute;
   width: 100%;
   height: 100%;
-}
+
+  opacity: 1 !important;}
 
 .smoc-orbit-card-158 {
   position: absolute;
@@ -1000,7 +1018,8 @@ onUnmounted(() => {
     0 0 0 1px rgba(139, 92, 246, 0.1),
     inset 0 0 40px rgba(139, 92, 246, 0.05);
   cursor: pointer;
-}
+
+  opacity: 1 !important;}
 
 .smoc-card-glow-158 {
   position: absolute;
@@ -1031,18 +1050,21 @@ onUnmounted(() => {
   position: relative;
   overflow: hidden;
   transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
+
+  opacity: 1 !important;}
 
 .smoc-image-overlay-158 {
   position: absolute;
   inset: 0;
   background: linear-gradient(180deg, transparent 0%, rgba(20, 15, 30, 0.5) 100%);
-}
+
+  opacity: 1 !important;}
 
 .smoc-card-content-158 {
   position: relative;
   padding: 24px;
-}
+
+  opacity: 1 !important;}
 
 .smoc-card-number-158 {
   position: absolute;
@@ -1053,7 +1075,8 @@ onUnmounted(() => {
   display: flex;
   align-items: center;
   justify-content: center;
-}
+
+  opacity: 1 !important;}
 
 .smoc-number-text-158 {
   position: relative;
@@ -1066,7 +1089,8 @@ onUnmounted(() => {
   background-clip: text;
   line-height: 1;
   filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.3));
-}
+
+  opacity: 1 !important;}
 
 .smoc-number-ring-158 {
   position: absolute;
@@ -1081,7 +1105,8 @@ onUnmounted(() => {
   color: #fff;
   margin-bottom: 8px;
   text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
-}
+
+  opacity: 1 !important;}
 
 .smoc-card-desc-158 {
   font-size: 0.85rem;
@@ -1089,7 +1114,8 @@ onUnmounted(() => {
   text-transform: uppercase;
   letter-spacing: 0.15em;
   margin-bottom: 16px;
-}
+
+  opacity: 1 !important;}
 
 .smoc-card-tags-158 {
   display: flex;
@@ -1107,7 +1133,8 @@ onUnmounted(() => {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-}
+
+  opacity: 1 !important;}
 
 .smoc-magnetic-lines-158 {
   position: absolute;
@@ -1147,7 +1174,8 @@ onUnmounted(() => {
   color: rgba(139, 92, 246, 0.7);
   letter-spacing: 0.3em;
   text-transform: uppercase;
-}
+
+  opacity: 1 !important;}
 
 .smoc-scroll-arrow-158 {
   display: flex;
@@ -1161,7 +1189,8 @@ onUnmounted(() => {
   height: 15px;
   background: linear-gradient(to bottom, transparent, rgba(139, 92, 246, 0.8));
   border-radius: 2px;
-}
+
+  opacity: 1 !important;}
 
 .smoc-progress-bar-158 {
   width: 200px;
@@ -1169,7 +1198,8 @@ onUnmounted(() => {
   background: rgba(139, 92, 246, 0.2);
   border-radius: 2px;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .smoc-progress-fill-158 {
   width: 0%;
@@ -1177,7 +1207,8 @@ onUnmounted(() => {
   background: linear-gradient(90deg, #8b5cf6, #d946ef, #f97316);
   border-radius: 2px;
   box-shadow: 0 0 10px rgba(139, 92, 246, 0.6);
-}
+
+  opacity: 1 !important;}
 
 .smoc-progress-text-158 {
   display: flex;
@@ -1190,7 +1221,8 @@ onUnmounted(() => {
   color: rgba(139, 92, 246, 0.6);
   letter-spacing: 0.1em;
   text-transform: uppercase;
-}
+
+  opacity: 1 !important;}
 
 .smoc-progress-value-158 {
   font-size: 0.9rem;
@@ -1202,12 +1234,14 @@ onUnmounted(() => {
   padding: 2px 8px;
   border-radius: 4px;
   border: 1px solid rgba(139, 92, 246, 0.3);
-}
+
+  opacity: 1 !important;}
 
 @media (max-width: 768px) {
   .smoc-magnetic-orbit-cards-section-158 {
     padding: 80px 20px 120px;
-  }
+  
+  opacity: 1 !important;}
 
   .smoc-orbit-card-158 {
     transform: rotate(var(--angle)deg) translateX(calc(var(--radius) * 0.6)) rotate(calc(var(--angle) * -1));
@@ -1215,47 +1249,57 @@ onUnmounted(() => {
 
   .smoc-card-inner-158 {
     width: 180px;
-  }
+  
+  opacity: 1 !important;}
 
   .smoc-card-image-158 {
     height: 120px;
-  }
+  
+  opacity: 1 !important;}
 
   .smoc-card-number-158 {
     top: -25px;
     width: 50px;
     height: 50px;
-  }
+  
+  opacity: 1 !important;}
 
   .smoc-number-text-158 {
     font-size: 1.8rem;
-  }
+  
+  opacity: 1 !important;}
 
   .smoc-card-title-158 {
     font-size: 1.2rem;
-  }
+  
+  opacity: 1 !important;}
 
   .smoc-card-desc-158 {
     font-size: 0.7rem;
-  }
+  
+  opacity: 1 !important;}
 
   .smoc-tag-158 {
     padding: 3px 10px;
     font-size: 0.65rem;
-  }
+  
+  opacity: 1 !important;}
 
   .smoc-center-content-158 {
     width: 100px;
     height: 100px;
-  }
+  
+  opacity: 1 !important;}
 
   .smoc-center-icon-158 {
     font-size: 2rem;
-  }
+  
+  opacity: 1 !important;}
 
   .smoc-center-text-158 {
     font-size: 0.65rem;
-  }
+  
+  opacity: 1 !important;}
 
   .smoc-scroll-hint-158 {
     bottom: 50px;
@@ -1263,6 +1307,7 @@ onUnmounted(() => {
 
   .smoc-progress-bar-158 {
     width: 150px;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

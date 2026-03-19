@@ -209,11 +209,13 @@ onUnmounted(() => {
   position: relative;
   overflow: hidden;
   background: linear-gradient(180deg, #0a1a2a 0%, #0a2a3a 30%, #051a2a 70%, #020a1a 100%);
-}
+
+  opacity: 1 !important;}
 
 .ow-content-25 {
   text-align: center;
-}
+
+  opacity: 1 !important;}
 
 .ow-section-title-25 {
   font-size: clamp(2rem, 4vw, 2.5rem);
@@ -223,13 +225,15 @@ onUnmounted(() => {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-}
+
+  opacity: 1 !important;}
 
 .ow-subtitle-25 {
   font-size: 1.1rem;
   color: #94a3b8;
   margin-bottom: 40px;
-}
+
+  opacity: 1 !important;}
 
 .ow-ocean-container-25 {
   position: relative;
@@ -240,7 +244,8 @@ onUnmounted(() => {
   border-radius: 20px;
   overflow: hidden;
   box-shadow: 0 0 60px rgba(6, 182, 212, 0.2);
-}
+
+  opacity: 1 !important;}
 
 .ow-ocean-surface-25 {
   position: absolute;
@@ -252,7 +257,8 @@ onUnmounted(() => {
   align-items: flex-end;
   gap: 4px;
   padding: 0 10px;
-}
+
+  opacity: 1 !important;}
 
 .ow-wave-25 {
   display: flex;
@@ -267,7 +273,8 @@ onUnmounted(() => {
   border-radius: 50% 50% 0 0;
   transition: height 0.3s ease;
   animation: wavePulse 2s ease-in-out infinite;
-}
+
+  opacity: 1 !important;}
 
 .ow-wave-1 .ow-wave-segment-25 {
   animation-delay: 0s;
@@ -305,7 +312,8 @@ onUnmounted(() => {
   background: radial-gradient(circle, rgba(255, 255, 255, 0.6), transparent);
   border: 1px solid rgba(255, 255, 255, 0.3);
   animation: bubbleRise 5s ease-out infinite;
-}
+
+  opacity: 1 !important;}
 
 @keyframes bubbleRise {
   0% {
@@ -331,7 +339,8 @@ onUnmounted(() => {
   background: linear-gradient(180deg, #f97316, #ea580c);
   border-radius: 50% 50% 50% 50%;
   animation: fishSwim 8s ease-in-out infinite;
-}
+
+  opacity: 1 !important;}
 
 .ow-fish-25::before {
   content: '';
@@ -371,7 +380,8 @@ onUnmounted(() => {
   right: 0;
   height: 200px;
   pointer-events: none;
-}
+
+  opacity: 1 !important;}
 
 .ow-light-ray-25 {
   position: absolute;
@@ -380,7 +390,8 @@ onUnmounted(() => {
   height: 100%;
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.1), transparent);
   animation: lightShimmer 2s ease-in-out infinite;
-}
+
+  opacity: 1 !important;}
 
 @keyframes lightShimmer {
   0%, 100% {
@@ -398,7 +409,8 @@ onUnmounted(() => {
   right: 0;
   height: 100px;
   background: linear-gradient(180deg, transparent, rgba(5, 26, 42, 0.8));
-}
+
+  opacity: 1 !important;}
 
 .ow-seaweed-25 {
   position: absolute;
@@ -408,7 +420,8 @@ onUnmounted(() => {
   border-radius: 20px 20px 0 0;
   transform-origin: bottom center;
   animation: seaweedSway 3s ease-in-out infinite;
-}
+
+  opacity: 1 !important;}
 
 @keyframes seaweedSway {
   0%, 100% {
@@ -422,6 +435,7 @@ onUnmounted(() => {
 @media (max-width: 768px) {
   .ocean-container-25 {
     height: 400px;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

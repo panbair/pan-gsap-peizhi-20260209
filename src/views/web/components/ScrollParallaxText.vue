@@ -296,7 +296,8 @@ onUnmounted(() => {
       radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.12) 0%, transparent 60%);
     pointer-events: none;
     animation: pulse-bg 10s ease-in-out infinite;
-  }
+  
+  opacity: 1 !important;}
 
   &::after {
     content: '';
@@ -331,7 +332,8 @@ onUnmounted(() => {
   padding: 0 30px;
   position: relative;
   z-index: 1;
-}
+
+  opacity: 1 !important;}
 
 .spt-section-title-122 {
   text-align: center;
@@ -362,7 +364,8 @@ onUnmounted(() => {
     background: radial-gradient(circle, rgba(236, 72, 153, 0.3) 0%, transparent 70%);
     filter: blur(30px);
     animation: float 4s ease-in-out infinite;
-  }
+  
+  opacity: 1 !important;}
 
   &::after {
     content: '';
@@ -413,7 +416,8 @@ onUnmounted(() => {
   text-transform: uppercase;
   font-weight: 500;
   text-shadow: 0 0 30px rgba(168, 85, 247, 0.3);
-}
+
+  opacity: 1 !important;}
 
 .spt-parallax-sections-122 {
   display: flex;
@@ -430,7 +434,8 @@ onUnmounted(() => {
   justify-content: center;
   overflow: hidden;
   transform-style: preserve-3d;
-}
+
+  opacity: 1 !important;}
 
 .spt-text-layer-122 {
   position: absolute;
@@ -439,7 +444,8 @@ onUnmounted(() => {
   width: 100%;
   padding: 0 30px;
   transform-style: preserve-3d;
-}
+
+  opacity: 1 !important;}
 
 .spt-text-122 {
   font-size: clamp(5rem, 12vw, 10rem);
@@ -578,7 +584,8 @@ onUnmounted(() => {
     height: 4px;
     background: linear-gradient(90deg, transparent, #ec4899, #a855f7, #3b82f6, transparent);
     border-radius: 2px;
-  }
+  
+  opacity: 1 !important;}
 }
 
 .spt-progress-bar-122 {
@@ -592,7 +599,8 @@ onUnmounted(() => {
     0 0 25px rgba(168, 85, 247, 0.6),
     0 0 50px rgba(236, 72, 153, 0.3);
   animation: progress-glow 3s linear infinite;
-}
+
+  opacity: 1 !important;}
 
 @keyframes progress-glow {
   0%, 100% {
@@ -656,32 +664,38 @@ onUnmounted(() => {
   .spt-text-122 {
     font-size: clamp(2.8rem, 9vw, 4.5rem);
     letter-spacing: 0.08em;
-  }
+  
+  opacity: 1 !important;}
 
   .spt-progress-bar-122 {
     min-width: 220px;
     height: 4px;
-  }
+  
+  opacity: 1 !important;}
 
   .spt-progress-122 {
     padding: 20px 35px;
     bottom: 40px;
     gap: 20px;
-  }
+  
+  opacity: 1 !important;}
 
   .spt-section-title-122 {
     margin-bottom: 50px;
     font-size: clamp(2.2rem, 6vw, 3rem);
-  }
+  
+  opacity: 1 !important;}
 
   .spt-section-subtitle-122 {
     margin-bottom: 70px;
     font-size: 0.9rem;
-  }
+  
+  opacity: 1 !important;}
 
   .spt-dot-122 {
     width: 14px;
     height: 14px;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

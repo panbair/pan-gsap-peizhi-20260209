@@ -258,13 +258,16 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
+/* GSAP opacity fix: ensure content is always visible */
+
 .wavy-text-wrapper-192 {
   position: relative;
   width: 100%;
   min-height: 100vh;
   background: linear-gradient(180deg, #001a33 0%, #003366 50%, #004d80 100%);
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .wt-stage-192 {
   position: relative;
@@ -274,7 +277,8 @@ onUnmounted(() => {
   align-items: center;
   justify-content: center;
   padding: 60px 20px;
-}
+
+  opacity: 1 !important;}
 
 .wt-ocean-bg-192 {
   position: absolute;
@@ -288,7 +292,8 @@ onUnmounted(() => {
 .wt-wave-canvas-192 {
   width: 100%;
   height: 100%;
-}
+
+  opacity: 1 !important;}
 
 .wt-wave-layers-192 {
   position: absolute;
@@ -296,7 +301,8 @@ onUnmounted(() => {
   left: 0;
   right: 0;
   height: 300px;
-}
+
+  opacity: 1 !important;}
 
 .wt-wave-layer-192 {
   position: absolute;
@@ -307,7 +313,8 @@ onUnmounted(() => {
   background: linear-gradient(90deg, transparent, rgba(0, 150, 255, 0.3), transparent);
   border-radius: 50% 50% 0 0;
   animation: wt-wave-192 3s ease-in-out infinite;
-}
+
+  opacity: 1 !important;}
 
 .wt-wave-layer-192:nth-child(1) {
   opacity: 0.3;
@@ -351,14 +358,16 @@ onUnmounted(() => {
   background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, transparent 70%);
   border-radius: 50%;
   border: 1px solid rgba(255, 255, 255, 0.3);
-}
+
+  opacity: 1 !important;}
 
 .wt-container-192 {
   position: relative;
   text-align: center;
   z-index: 10;
   max-width: 900px;
-}
+
+  opacity: 1 !important;}
 
 .wt-title-192 {
   font-size: 3rem;
@@ -367,7 +376,8 @@ onUnmounted(() => {
   margin-bottom: 60px;
   text-shadow: 0 0 30px rgba(0, 191, 255, 0.8);
   letter-spacing: 6px;
-}
+
+  opacity: 1 !important;}
 
 .wt-text-container-192 {
   padding: 40px 60px;
@@ -376,7 +386,8 @@ onUnmounted(() => {
   backdrop-filter: blur(10px);
   border: 1px solid rgba(0, 191, 255, 0.3);
   margin-bottom: 40px;
-}
+
+  opacity: 1 !important;}
 
 .wt-wavy-line-192 {
   display: flex;
@@ -392,7 +403,8 @@ onUnmounted(() => {
   color: #fff;
   transition: all 0.3s ease;
   min-width: 20px;
-}
+
+  opacity: 1 !important;}
 
 .wt-wave-indicator-192 {
   display: flex;
@@ -400,22 +412,26 @@ onUnmounted(() => {
   align-items: flex-end;
   gap: 8px;
   height: 60px;
-}
+
+  opacity: 1 !important;}
 
 .wt-wave-bar-192 {
   width: 8px;
   background: linear-gradient(180deg, #00bfff, #0066cc);
   border-radius: 4px;
   transform-origin: bottom;
-}
+
+  opacity: 1 !important;}
 
 @media (max-width: 768px) {
   .wt-title-192 {
     font-size: 2rem;
-  }
+  
+  opacity: 1 !important;}
 
   .wt-char-192 {
     font-size: 2rem;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

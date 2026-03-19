@@ -166,12 +166,14 @@ onUnmounted(() => {
   padding: 120px 20px;
   background: linear-gradient(180deg, #0a0a1a 0%, #1a1a2e 50%, #0a0a1a 100%);
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .spcs-container-170 {
   max-width: 1400px;
   margin: 0 auto;
-}
+
+  opacity: 1 !important;}
 
 .spcs-title-170 {
   text-align: center;
@@ -183,7 +185,8 @@ onUnmounted(() => {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   text-shadow: 0 0 40px rgba(102, 126, 234, 0.3);
-}
+
+  opacity: 1 !important;}
 
 .spcs-subtitle-170 {
   text-align: center;
@@ -192,7 +195,8 @@ onUnmounted(() => {
   margin-bottom: 100px;
   letter-spacing: 0.3em;
   text-transform: uppercase;
-}
+
+  opacity: 1 !important;}
 
 .spcs-cards-wrapper-170 {
   display: flex;
@@ -200,8 +204,7 @@ onUnmounted(() => {
   gap: 120px;
 }
 
-.spcs-parallax-card-170 {
-  position: relative;
+.spcs-parallax-card-170 { position: relative;
   width: 100%;
   max-width: 1000px;
   height: 400px;
@@ -209,7 +212,8 @@ onUnmounted(() => {
   border-radius: 24px;
   overflow: hidden;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
-}
+      opacity: 1;
+    }
 
 .spcs-card-bg-170 {
   position: absolute;
@@ -220,9 +224,9 @@ onUnmounted(() => {
   transition: transform 0.5s ease;
 }
 
-.spcs-parallax-card-170:hover .spcs-card-bg-170 {
-  transform: scale(1.05);
-}
+.spcs-parallax-card-170:hover .spcs-card-bg-170 { transform: scale(1.05);
+      opacity: 1;
+    }
 
 .spcs-card-content-170 {
   position: absolute;
@@ -232,7 +236,8 @@ onUnmounted(() => {
   flex-direction: column;
   justify-content: flex-end;
   background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, transparent 100%);
-}
+
+  opacity: 1 !important;}
 
 .spcs-card-number-170 {
   font-size: 5rem;
@@ -244,7 +249,8 @@ onUnmounted(() => {
   line-height: 1;
   margin-bottom: 20px;
   text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-}
+
+  opacity: 1 !important;}
 
 .spcs-card-title-170 {
   font-size: 2.5rem;
@@ -252,34 +258,39 @@ onUnmounted(() => {
   color: #fff;
   margin-bottom: 10px;
   text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-}
+
+  opacity: 1 !important;}
 
 .spcs-card-desc-170 {
   font-size: 1rem;
   color: rgba(255, 255, 255, 0.8);
   letter-spacing: 0.2em;
   text-transform: uppercase;
-}
+
+  opacity: 1 !important;}
 
 @media (max-width: 768px) {
   .spcs-cards-wrapper-170 {
     gap: 80px;
   }
 
-  .spcs-parallax-card-170 {
-    height: 300px;
-  }
+  .spcs-parallax-card-170 { height: 300px;
+      opacity: 1;
+    }
 
   .spcs-card-content-170 {
     padding: 40px;
-  }
+  
+  opacity: 1 !important;}
 
   .spcs-card-number-170 {
     font-size: 3rem;
-  }
+  
+  opacity: 1 !important;}
 
   .spcs-card-title-170 {
     font-size: 1.8rem;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

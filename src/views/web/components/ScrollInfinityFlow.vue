@@ -336,7 +336,8 @@ onUnmounted(() => {
   position: relative;
   background: linear-gradient(180deg, #0a0a1a 0%, #1a1a3a 50%, #0a0a2a 100%);
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 // 背景网格
 .grid-background {
@@ -347,7 +348,8 @@ onUnmounted(() => {
   height: 100%;
   pointer-events: none;
   z-index: 0;
-}
+
+  opacity: 1 !important;}
 
 .grid-line {
   position: absolute;
@@ -360,7 +362,8 @@ onUnmounted(() => {
     transparent 100%
   );
   animation: gridMove 20s linear infinite;
-}
+
+  opacity: 1 !important;}
 
 @keyframes gridMove {
   0% { transform: translateY(0); }
@@ -373,7 +376,8 @@ onUnmounted(() => {
   padding: 120px 40px;
   text-align: center;
   z-index: 1;
-}
+
+  opacity: 1 !important;}
 
 .hero-title {
   font-size: clamp(3rem, 8vw, 6rem);
@@ -382,7 +386,8 @@ onUnmounted(() => {
   line-height: 1.1;
   perspective: 1000px;
   transform-style: preserve-3d;
-}
+
+  opacity: 1 !important;}
 
 .title-line {
   display: block;
@@ -391,7 +396,8 @@ onUnmounted(() => {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   transform-style: preserve-3d;
-}
+
+  opacity: 1 !important;}
 
 .hero-subtitle {
   font-size: 1rem;
@@ -399,7 +405,8 @@ onUnmounted(() => {
   color: #94a3b8;
   margin-bottom: 30px;
   text-transform: uppercase;
-}
+
+  opacity: 1 !important;}
 
 .hero-divider {
   width: 200px;
@@ -410,7 +417,8 @@ onUnmounted(() => {
     transparent 100%
   );
   margin: 0 auto;
-}
+
+  opacity: 1 !important;}
 
 // 卡片包装器
 .cards-wrapper {
@@ -419,7 +427,8 @@ onUnmounted(() => {
   max-width: 1400px;
   margin: 0 auto;
   z-index: 2;
-}
+
+  opacity: 1 !important;}
 
 // 卡片
 .flow-card {
@@ -498,7 +507,8 @@ onUnmounted(() => {
   color: #fff;
   margin-bottom: 12px;
   letter-spacing: -0.02em;
-}
+
+  opacity: 1 !important;}
 
 .card-description {
   font-size: 0.9rem;
@@ -506,13 +516,15 @@ onUnmounted(() => {
   margin-bottom: 30px;
   text-transform: uppercase;
   letter-spacing: 2px;
-}
+
+  opacity: 1 !important;}
 
 .card-icon {
   font-size: 3rem;
   margin-top: auto;
   filter: drop-shadow(0 0 20px hsla(var(--card-hue), 80%, 60%, 0.5));
-}
+
+  opacity: 1 !important;}
 
 // 粒子
 .card-particles {
@@ -532,7 +544,8 @@ onUnmounted(() => {
   top: 50%;
   left: 50%;
   transform: rotate(var(--particle-angle)) translateX(60px);
-}
+
+  opacity: 1 !important;}
 
 // 进度指示器
 .progress-indicator {
@@ -549,7 +562,8 @@ onUnmounted(() => {
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 50px;
   z-index: 100;
-}
+
+  opacity: 1 !important;}
 
 .progress-bar {
   position: relative;
@@ -558,7 +572,8 @@ onUnmounted(() => {
   background: rgba(255, 255, 255, 0.1);
   border-radius: 2px;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .progress-fill {
   position: absolute;
@@ -568,7 +583,8 @@ onUnmounted(() => {
   width: 0;
   background: linear-gradient(90deg, #a78bfa, #60a5fa);
   border-radius: 2px;
-}
+
+  opacity: 1 !important;}
 
 .progress-glow {
   position: absolute;
@@ -586,12 +602,14 @@ onUnmounted(() => {
   font-weight: 600;
   color: #94a3b8;
   white-space: nowrap;
-}
+
+  opacity: 1 !important;}
 
 .progress-current {
   color: #a78bfa;
   font-size: 1rem;
-}
+
+  opacity: 1 !important;}
 
 // 返回顶部按钮
 .back-top-btn {
@@ -635,39 +653,47 @@ onUnmounted(() => {
 @media (max-width: 768px) {
   .hero-title {
     font-size: 2.5rem;
-  }
+  
+  opacity: 1 !important;}
 
   .flow-card {
     padding: 30px;
     min-height: 240px;
-  }
+  
+  opacity: 1 !important;}
 
   .card-number {
     font-size: 3rem;
-  }
+  
+  opacity: 1 !important;}
 
   .card-title {
     font-size: 1.5rem;
-  }
+  
+  opacity: 1 !important;}
 
   .card-icon {
     font-size: 2.5rem;
-  }
+  
+  opacity: 1 !important;}
 
   .back-top-btn {
     bottom: 100px;
     right: 20px;
     width: 45px;
     height: 45px;
-  }
+  
+  opacity: 1 !important;}
 
   .progress-indicator {
     bottom: 20px;
     padding: 12px 24px;
-  }
+  
+  opacity: 1 !important;}
 
   .progress-bar {
     width: 120px;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

@@ -501,13 +501,16 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
+/* GSAP opacity fix: ensure content is always visible */
+
 .scroll-drag-reveal-250 {
   min-height: 100vh;
   padding: 80px 40px;
   background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
   overflow: hidden;
   position: relative;
-}
+
+  opacity: 1 !important;}
 
 .scroll-drag-reveal-250::before {
   content: '';
@@ -527,7 +530,8 @@ onUnmounted(() => {
   margin-bottom: 40px;
   position: relative;
   z-index: 1;
-}
+
+  opacity: 1 !important;}
 
 .scroll-drag-reveal-title-250 {
   font-size: clamp(2.5rem, 5vw, 3.5rem);
@@ -539,14 +543,16 @@ onUnmounted(() => {
   background-clip: text;
   transform-style: preserve-3d;
   will-change: transform, opacity;
-}
+
+  opacity: 1 !important;}
 
 .scroll-drag-reveal-subtitle-250 {
   font-size: 1.2rem;
   color: #94a3b8;
   transform-style: preserve-3d;
   will-change: transform, opacity;
-}
+
+  opacity: 1 !important;}
 
 /* 交互说明 */
 .scroll-drag-reveal-instructions-250 {
@@ -569,7 +575,8 @@ onUnmounted(() => {
   color: #e2e8f0;
   font-size: 0.95rem;
   transition: all 0.3s ease;
-}
+
+  opacity: 1 !important;}
 
 .scroll-drag-reveal-icon-wrapper-250 {
   width: 40px;
@@ -580,12 +587,14 @@ onUnmounted(() => {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   border-radius: 8px;
   color: white;
-}
+
+  opacity: 1 !important;}
 
 .scroll-drag-reveal-icon-250 {
   width: 24px;
   height: 24px;
-}
+
+  opacity: 1 !important;}
 
 /* 拖拽容器 */
 .scroll-drag-reveal-container-250 {
@@ -598,7 +607,8 @@ onUnmounted(() => {
   border: 1px solid rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(20px);
   box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
-}
+
+  opacity: 1 !important;}
 
 .scroll-drag-reveal-mask-250 {
   position: absolute;
@@ -614,7 +624,8 @@ onUnmounted(() => {
   justify-content: center;
   padding: 40px;
   pointer-events: none;
-}
+
+  opacity: 1 !important;}
 
 .scroll-drag-reveal-progress-250 {
   width: 100%;
@@ -624,14 +635,16 @@ onUnmounted(() => {
   border-radius: 2px;
   margin-bottom: 20px;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .scroll-drag-reveal-progress-bar-250 {
   width: 0%;
   height: 100%;
   background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
   border-radius: 2px;
-}
+
+  opacity: 1 !important;}
 
 .scroll-drag-reveal-percentage-250 {
   font-size: 4rem;
@@ -641,13 +654,15 @@ onUnmounted(() => {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   margin-bottom: 10px;
-}
+
+  opacity: 1 !important;}
 
 .scroll-drag-reveal-hint-250 {
   font-size: 1rem;
   color: #94a3b8;
   animation: bounce 2s infinite;
-}
+
+  opacity: 1 !important;}
 
 @keyframes bounce {
   0%, 100% { transform: translateY(0); }
@@ -666,7 +681,8 @@ onUnmounted(() => {
   scrollbar-width: none;
   -ms-overflow-style: none;
   transform-style: preserve-3d;
-}
+
+  opacity: 1 !important;}
 
 .scroll-drag-reveal-content-250::-webkit-scrollbar {
   display: none;
@@ -681,7 +697,8 @@ onUnmounted(() => {
   backdrop-filter: blur(10px);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
   transition: all 0.4s ease;
-}
+
+  opacity: 1 !important;}
 
 .scroll-drag-reveal-card-image-250 {
   height: 200px;
@@ -689,7 +706,8 @@ onUnmounted(() => {
   align-items: flex-end;
   padding: 20px;
   position: relative;
-}
+
+  opacity: 1 !important;}
 
 .scroll-drag-reveal-card-overlay-250 h3 {
   font-size: 1.5rem;
@@ -705,7 +723,8 @@ onUnmounted(() => {
 
 .scroll-drag-reveal-card-content-250 {
   padding: 24px;
-}
+
+  opacity: 1 !important;}
 
 .scroll-drag-reveal-card-content-250 h4 {
   font-size: 1.25rem;
@@ -729,13 +748,15 @@ onUnmounted(() => {
   margin-top: 40px;
   color: #94a3b8;
   font-size: 1rem;
-}
+
+  opacity: 1 !important;}
 
 .scroll-drag-reveal-footer-percentage-250 {
   font-size: 1.5rem;
   font-weight: 700;
   color: #a78bfa;
-}
+
+  opacity: 1 !important;}
 
 .scroll-drag-reveal-reset-btn-250 {
   display: flex;
@@ -749,7 +770,8 @@ onUnmounted(() => {
   font-size: 0.95rem;
   cursor: pointer;
   transition: all 0.3s ease;
-}
+
+  opacity: 1 !important;}
 
 .scroll-drag-reveal-reset-btn-250 svg {
   width: 18px;
@@ -764,7 +786,8 @@ onUnmounted(() => {
 @media (max-width: 768px) {
   .scroll-drag-reveal-250 {
     padding: 40px 20px;
-  }
+  
+  opacity: 1 !important;}
 
   .scroll-drag-reveal-instructions-250 {
     flex-direction: column;
@@ -783,10 +806,12 @@ onUnmounted(() => {
 
   .scroll-drag-reveal-mask-250 {
     padding: 20px;
-  }
+  
+  opacity: 1 !important;}
 
   .scroll-drag-reveal-percentage-250 {
     font-size: 3rem;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

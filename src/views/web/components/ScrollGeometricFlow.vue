@@ -237,6 +237,8 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
+/* GSAP opacity fix: ensure content is always visible */
+
 .gf-container-176 {
   width: 100%;
   min-height: 100vh;
@@ -246,7 +248,8 @@ onUnmounted(() => {
   flex-direction: column;
   align-items: center;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .gf-title-176 {
   font-size: clamp(2rem, 5vw, 3.5rem);
@@ -259,7 +262,8 @@ onUnmounted(() => {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   animation: shimmer 3s linear infinite;
-}
+
+  opacity: 1 !important;}
 
 @keyframes shimmer {
   to { background-position: 200% center; }
@@ -270,7 +274,8 @@ onUnmounted(() => {
   color: rgba(255, 255, 255, 0.7);
   margin-bottom: 40px;
   text-align: center;
-}
+
+  opacity: 1 !important;}
 
 .gf-stage-176 {
   width: 100%;
@@ -281,7 +286,8 @@ onUnmounted(() => {
   overflow: hidden;
   background: radial-gradient(circle at center, rgba(100, 200, 255, 0.1) 0%, transparent 70%);
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-}
+
+  opacity: 1 !important;}
 
 .gf-canvas-176 {
   position: absolute;
@@ -290,7 +296,8 @@ onUnmounted(() => {
   width: 100%;
   height: 100%;
   pointer-events: none;
-}
+
+  opacity: 1 !important;}
 
 .gf-foreground-176 {
   position: absolute;
@@ -313,14 +320,16 @@ onUnmounted(() => {
   border-radius: 50%;
   background: linear-gradient(135deg, #e056fd, #686de0);
   box-shadow: 0 10px 30px rgba(224, 86, 253, 0.4);
-}
+
+  opacity: 1 !important;}
 
 .gf-shape-square-176 {
   width: 50px;
   height: 50px;
   background: linear-gradient(135deg, #22a6b3, #0984e3);
   box-shadow: 0 10px 30px rgba(34, 166, 179, 0.4);
-}
+
+  opacity: 1 !important;}
 
 .gf-shape-triangle-176 {
   width: 0;
@@ -329,7 +338,8 @@ onUnmounted(() => {
   border-right: 30px solid transparent;
   border-bottom: 52px solid #ff9f43;
   filter: drop-shadow(0 10px 20px rgba(255, 159, 67, 0.4));
-}
+
+  opacity: 1 !important;}
 
 .gf-shape-diamond-176 {
   width: 45px;
@@ -337,7 +347,8 @@ onUnmounted(() => {
   background: linear-gradient(135deg, #ff6b6b, #ee5a24);
   transform: rotate(45deg);
   box-shadow: 0 10px 30px rgba(255, 107, 107, 0.4);
-}
+
+  opacity: 1 !important;}
 
 .gf-overlay-176 {
   position: absolute;
@@ -354,7 +365,8 @@ onUnmounted(() => {
 .gf-text-176 {
   text-align: center;
   z-index: 10;
-}
+
+  opacity: 1 !important;}
 
 .gf-text-main-176 {
   font-size: clamp(3rem, 8vw, 5rem);
@@ -363,7 +375,8 @@ onUnmounted(() => {
   text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
   margin-bottom: 10px;
   will-change: transform, opacity;
-}
+
+  opacity: 1 !important;}
 
 .gf-text-sub-176 {
   font-size: clamp(1.2rem, 3vw, 2rem);
@@ -371,19 +384,22 @@ onUnmounted(() => {
   letter-spacing: 4px;
   text-transform: uppercase;
   will-change: transform, opacity;
-}
+
+  opacity: 1 !important;}
 
 .gf-hint-176 {
   margin-top: 30px;
   font-size: 0.9rem;
   color: rgba(255, 255, 255, 0.5);
   text-align: center;
-}
+
+  opacity: 1 !important;}
 
 @media (max-width: 768px) {
   .gf-stage-176 {
     height: 500px;
-  }
+  
+  opacity: 1 !important;}
   
   .gf-shape-176 {
     transform: scale(0.7);

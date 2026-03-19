@@ -217,7 +217,8 @@ onUnmounted(() => {
     height: 600px;
     background: radial-gradient(circle, rgba(102, 126, 234, 0.15) 0%, transparent 70%);
     pointer-events: none;
-  }
+  
+  opacity: 1 !important;}
 }
 
 .rc-container-31 {
@@ -226,7 +227,8 @@ onUnmounted(() => {
   padding: 0 40px;
   position: relative;
   z-index: 1;
-}
+
+  opacity: 1 !important;}
 
 .rc-section-title-31 {
   text-align: center;
@@ -248,7 +250,8 @@ onUnmounted(() => {
     background: linear-gradient(90deg, #f093fb, #f5576c, #4facfe);
     margin: 20px auto 0;
     border-radius: 2px;
-  }
+  
+  opacity: 1 !important;}
 }
 
 .rc-carousel-wrapper-31 {
@@ -259,7 +262,8 @@ onUnmounted(() => {
   align-items: center;
   justify-content: center;
   position: relative;
-}
+
+  opacity: 1 !important;}
 
 .rc-carousel-track-31 {
   width: 100%;
@@ -269,7 +273,8 @@ onUnmounted(() => {
   display: flex;
   justify-content: center;
   align-items: center;
-}
+
+  opacity: 1 !important;}
 
 .rc-carousel-item-31 {
   position: absolute;
@@ -283,7 +288,8 @@ onUnmounted(() => {
 
   &.active-31 {
     box-shadow: 0 40px 80px rgba(102, 126, 234, 0.4);
-  }
+  
+  opacity: 1 !important;}
 
   &:hover {
     transform: translateY(-20px);
@@ -296,7 +302,8 @@ onUnmounted(() => {
   position: relative;
   background: #fff;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .rc-carousel-item-31:hover img {
   transform: scale(1.1);
@@ -306,7 +313,8 @@ onUnmounted(() => {
   padding: 20px;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   text-align: center;
-}
+
+  opacity: 1 !important;}
 
 .rc-card-title-31 {
   display: block;
@@ -314,13 +322,15 @@ onUnmounted(() => {
   font-weight: 700;
   color: #fff;
   margin-bottom: 5px;
-}
+
+  opacity: 1 !important;}
 
 .rc-card-desc-31 {
   display: block;
   font-size: 0.9rem;
   color: rgba(255, 255, 255, 0.8);
-}
+
+  opacity: 1 !important;}
 
 .rc-carousel-nav-31 {
   margin-top: 60px;
@@ -345,7 +355,8 @@ onUnmounted(() => {
     background: rgba(102, 126, 234, 0.8);
     border-color: #667eea;
     transform: scale(1.1);
-  }
+  
+  opacity: 1 !important;}
 }
 
 .rc-indicators-31 {
@@ -366,7 +377,8 @@ onUnmounted(() => {
     background: linear-gradient(135deg, #667eea, #764ba2);
     border-color: transparent;
     transform: scale(1.3);
-  }
+  
+  opacity: 1 !important;}
 
   &:hover {
     transform: scale(1.2);
@@ -377,12 +389,14 @@ onUnmounted(() => {
 @media (max-width: 768px) {
   .rc-section-title-31 {
     font-size: 2rem;
-  }
+  
+  opacity: 1 !important;}
 
   .rc-carousel-item-31 {
     width: 260px;
     height: 340px;
-  }
+  
+  opacity: 1 !important;}
 
   img {
     height: 260px;

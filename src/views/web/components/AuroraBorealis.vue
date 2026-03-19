@@ -222,11 +222,13 @@ onUnmounted(() => {
   position: relative;
   overflow: hidden;
   background: linear-gradient(180deg, #0a0a1a 0%, #0a0a2a 40%, #0a1a2a 100%);
-}
+
+  opacity: 1 !important;}
 
 .content-23 {
   text-align: center;
-}
+
+  opacity: 1 !important;}
 
 .section-title-23 {
   font-size: clamp(2rem, 4vw, 2.5rem);
@@ -236,13 +238,15 @@ onUnmounted(() => {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-}
+
+  opacity: 1 !important;}
 
 .subtitle-23 {
   font-size: 1.1rem;
   color: #94a3b8;
   margin-bottom: 40px;
-}
+
+  opacity: 1 !important;}
 
 .aurora-container-23 {
   position: relative;
@@ -252,13 +256,15 @@ onUnmounted(() => {
   border-radius: 20px;
   overflow: hidden;
   box-shadow: 0 0 60px rgba(74, 222, 128, 0.2);
-}
+
+  opacity: 1 !important;}
 
 .aurora-sky-23 {
   position: absolute;
   inset: 0;
   background: linear-gradient(180deg, #0a0a1a 0%, #0a0a2a 60%, #0a1a2a 100%);
-}
+
+  opacity: 1 !important;}
 
 .star-23 {
   position: absolute;
@@ -267,7 +273,8 @@ onUnmounted(() => {
   background: #fff;
   border-radius: 50%;
   animation: starTwinkle 1s ease-in-out infinite;
-}
+
+  opacity: 1 !important;}
 
 @keyframes starTwinkle {
   0%, 100% {
@@ -291,14 +298,16 @@ onUnmounted(() => {
   gap: 10px;
   padding: 20px;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .wave-23 {
   display: flex;
   align-items: flex-end;
   height: 80px;
   gap: 4px;
-}
+
+  opacity: 1 !important;}
 
 .wave-segment-23 {
   flex: 1;
@@ -326,33 +335,38 @@ onUnmounted(() => {
   right: 0;
   height: 300px;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .mountain-23 {
   position: absolute;
   bottom: 0;
   border-radius: 50% 50% 0 0;
   background: linear-gradient(180deg, #1a1a3a, #0a0a2a);
-}
+
+  opacity: 1 !important;}
 
 .mountain-1 {
   left: -10%;
   width: 60%;
   height: 250px;
-}
+
+  opacity: 1 !important;}
 
 .mountain-2 {
   left: 40%;
   width: 70%;
   height: 280px;
-}
+
+  opacity: 1 !important;}
 
 .mountain-3 {
   left: -20%;
   width: 50%;
   height: 200px;
   z-index: 1;
-}
+
+  opacity: 1 !important;}
 
 .aurora-reflection-23 {
   position: absolute;
@@ -362,7 +376,8 @@ onUnmounted(() => {
   height: 100px;
   overflow: hidden;
   pointer-events: none;
-}
+
+  opacity: 1 !important;}
 
 .reflection-wave-23 {
   position: absolute;
@@ -373,7 +388,8 @@ onUnmounted(() => {
   background: linear-gradient(180deg, transparent, rgba(74, 222, 128, 0.2));
   filter: blur(10px);
   animation: reflectionWave 2s ease-in-out infinite;
-}
+
+  opacity: 1 !important;}
 
 @keyframes reflectionWave {
   0%, 100% {
@@ -389,14 +405,17 @@ onUnmounted(() => {
 @media (max-width: 768px) {
   .aurora-container-23 {
     height: 400px;
-  }
+  
+  opacity: 1 !important;}
 
   .aurora-waves-23 {
     height: 250px;
-  }
+  
+  opacity: 1 !important;}
 
   .wave-23 {
     height: 60px;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

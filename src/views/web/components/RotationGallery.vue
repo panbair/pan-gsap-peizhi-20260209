@@ -199,7 +199,8 @@ onUnmounted(() => {
     height: 800px;
     background: radial-gradient(circle, rgba(48, 43, 99, 0.3) 0%, transparent 70%);
     pointer-events: none;
-  }
+  
+  opacity: 1 !important;}
 
   &::after {
     content: '';
@@ -219,7 +220,8 @@ onUnmounted(() => {
   padding: 0 40px;
   position: relative;
   z-index: 1;
-}
+
+  opacity: 1 !important;}
 
 .rg-section-title-36 {
   text-align: center;
@@ -241,7 +243,8 @@ onUnmounted(() => {
     background: linear-gradient(90deg, transparent, #667eea, #764ba2, transparent);
     margin: 25px auto 0;
     border-radius: 2px;
-  }
+  
+  opacity: 1 !important;}
 }
 
 .rg-gallery-container-36 {
@@ -253,7 +256,8 @@ onUnmounted(() => {
   justify-content: center;
   align-items: center;
   transform-style: preserve-3d;
-}
+
+  opacity: 1 !important;}
 
 .rg-gallery-item-36 {
   position: absolute;
@@ -279,7 +283,8 @@ onUnmounted(() => {
       0 40px 80px rgba(0, 0, 0, 0.7),
       0 0 60px rgba(102, 126, 234, 0.4),
       inset 0 0 60px rgba(255, 255, 255, 0.1);
-  }
+  
+  opacity: 1 !important;}
 }
 
 .rg-item-inner-36 {
@@ -289,7 +294,8 @@ onUnmounted(() => {
   overflow: hidden;
   border-radius: 20px;
   background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-}
+
+  opacity: 1 !important;}
 
 .rg-gallery-item-36:hover img {
   filter: brightness(1.15) saturate(1.1);
@@ -314,7 +320,8 @@ onUnmounted(() => {
   padding: 25px;
   pointer-events: none;
   backdrop-filter: blur(2px);
-}
+
+  opacity: 1 !important;}
 
 .rg-item-number-36 {
   font-size: 4.5rem;
@@ -336,32 +343,38 @@ onUnmounted(() => {
   margin: 0;
   text-shadow: 0 2px 15px rgba(0, 0, 0, 0.7);
   letter-spacing: 1px;
-}
+
+  opacity: 1 !important;}
 
 @media (max-width: 768px) {
   .rg-gallery-container-36 {
     height: 500px;
     perspective: 1500px;
-  }
+  
+  opacity: 1 !important;}
 
   .rg-gallery-item-36 {
     width: 220px;
     height: 300px;
     margin-left: -110px;
     margin-top: -150px;
-  }
+  
+  opacity: 1 !important;}
 
   .rg-section-title-36 {
     font-size: 2.2rem;
     margin-bottom: 60px;
-  }
+  
+  opacity: 1 !important;}
 
   .rg-item-number-36 {
     font-size: 3.5rem;
-  }
+  
+  opacity: 1 !important;}
 
   .rg-item-title-36 {
     font-size: 1.1rem;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

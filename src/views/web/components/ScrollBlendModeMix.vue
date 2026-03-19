@@ -85,6 +85,8 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
+/* GSAP opacity fix: ensure content is always visible */
+
 .sbm-scroll-blend-mode-mix-222 {
   min-height: 100vh;
   padding: 60px 20px;
@@ -92,13 +94,15 @@ onUnmounted(() => {
   display: flex;
   align-items: center;
   justify-content: center;
-}
+
+  opacity: 1 !important;}
 
 .sbm-container-222 {
   width: 100%;
   max-width: 1200px;
   text-align: center;
-}
+
+  opacity: 1 !important;}
 
 .sbm-header-222 {
   margin-bottom: 60px;
@@ -111,7 +115,8 @@ onUnmounted(() => {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-}
+
+  opacity: 1 !important;}
 
 .sbm-blend-area-222 {
   width: 100%;
@@ -123,14 +128,16 @@ onUnmounted(() => {
   position: relative;
   background: #0f172a;
   box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
-}
+
+  opacity: 1 !important;}
 
 .sbm-layer {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
-}
+
+  opacity: 1 !important;}
 
 .sbm-background-layer-222 {
   z-index: 1;
@@ -141,7 +148,8 @@ onUnmounted(() => {
   inset: 0;
   background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #8b5cf6 100%);
   animation: gradientShift 10s ease-in-out infinite alternate;
-}
+
+  opacity: 1 !important;}
 
 .sbm-gradient-2-222 {
   position: absolute;
@@ -164,28 +172,32 @@ onUnmounted(() => {
   border-radius: 30px;
   mix-blend-mode: multiply;
   transition: mix-blend-mode 0.3s ease;
-}
+
+  opacity: 1 !important;}
 
 .sbm-shape-1-222 {
   top: 5%;
   left: 10%;
   background: linear-gradient(135deg, #ef4444, #f97316);
   transform: rotate(-20deg);
-}
+
+  opacity: 1 !important;}
 
 .sbm-shape-2-222 {
   top: 35%;
   right: 10%;
   background: linear-gradient(135deg, #10b981, #06b6d4);
   transform: rotate(15deg);
-}
+
+  opacity: 1 !important;}
 
 .sbm-shape-3-222 {
   bottom: 10%;
   left: 35%;
   background: linear-gradient(135deg, #8b5cf6, #ec4899);
   transform: rotate(-10deg);
-}
+
+  opacity: 1 !important;}
 
 .sbm-foreground-layer-222 {
   z-index: 3;
@@ -213,7 +225,8 @@ onUnmounted(() => {
   transition: mix-blend-mode 0.3s ease;
   box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
   animation: rotate 25s linear infinite;
-}
+
+  opacity: 1 !important;}
 
 @keyframes gradientShift {
   0% { filter: hue-rotate(0deg); }
@@ -228,21 +241,25 @@ onUnmounted(() => {
 @media (max-width: 768px) {
   .sbm-title-222 {
     font-size: 2rem;
-  }
+  
+  opacity: 1 !important;}
 
   .sbm-blend-area-222 {
     height: 400px;
-  }
+  
+  opacity: 1 !important;}
 
   .sbm-shape-222 {
     width: 150px;
     height: 150px;
     border-radius: 20px;
-  }
+  
+  opacity: 1 !important;}
 
   .sbm-active-blend-222 {
     width: 200px;
     height: 200px;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

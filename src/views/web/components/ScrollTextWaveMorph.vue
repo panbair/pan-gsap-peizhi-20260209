@@ -643,19 +643,22 @@ onUnmounted(() => {
   background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #0f172a 100%);
   overflow: visible;
   padding: 60px 20px;
-}
+
+  opacity: 1 !important;}
 
 .twm-container-219 {
   position: relative;
   max-width: 1400px;
   margin: 0 auto;
   z-index: 10;
-}
+
+  opacity: 1 !important;}
 
 .twm-header-219 {
   text-align: center;
   margin-bottom: 50px;
-}
+
+  opacity: 1 !important;}
 
 .twm-title-219 {
   font-size: clamp(2.5rem, 6vw, 4rem);
@@ -666,13 +669,15 @@ onUnmounted(() => {
   background-clip: text;
   margin-bottom: 16px;
   text-shadow: 0 0 60px rgba(168, 85, 247, 0.4);
-}
+
+  opacity: 1 !important;}
 
 .twm-subtitle-219 {
   font-size: 1.1rem;
   color: #94a3b8;
   letter-spacing: 0.1em;
-}
+
+  opacity: 1 !important;}
 
 .twm-controls-219 {
   display: flex;
@@ -702,7 +707,8 @@ onUnmounted(() => {
     border-color: rgba(168, 85, 247, 0.6);
     color: #a855f7;
     box-shadow: 0 0 20px rgba(168, 85, 247, 0.3);
-  }
+  
+  opacity: 1 !important;}
 
   &:hover {
     background: rgba(168, 85, 247, 0.15);
@@ -720,12 +726,14 @@ onUnmounted(() => {
   &:hover {
     background: linear-gradient(135deg, #9333ea 0%, #db2777 100%);
     box-shadow: 0 8px 30px rgba(236, 72, 153, 0.4);
-  }
+  
+  opacity: 1 !important;}
 }
 
 .twm-btn-icon-219 {
   font-size: 1.1rem;
-}
+
+  opacity: 1 !important;}
 
 .twm-text-stage-219 {
   display: flex;
@@ -735,7 +743,8 @@ onUnmounted(() => {
   margin-bottom: 60px;
   min-height: 350px;
   justify-content: center;
-}
+
+  opacity: 1 !important;}
 
 .twm-word-219 {
   display: flex;
@@ -753,7 +762,8 @@ onUnmounted(() => {
   cursor: pointer;
   will-change: transform;
   user-select: none;
-}
+
+  opacity: 1 !important;}
 
 .twm-info-219 {
   display: flex;
@@ -778,7 +788,8 @@ onUnmounted(() => {
     background: rgba(255, 255, 255, 0.05);
     border-color: rgba(168, 85, 247, 0.3);
     transform: translateY(-3px);
-  }
+  
+  opacity: 1 !important;}
 }
 
 .twm-info-value-219 {
@@ -789,7 +800,8 @@ onUnmounted(() => {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   margin-bottom: 6px;
-}
+
+  opacity: 1 !important;}
 
 .twm-info-label-219 {
   font-size: 0.8rem;
@@ -797,7 +809,8 @@ onUnmounted(() => {
   text-transform: uppercase;
   letter-spacing: 1px;
   font-weight: 500;
-}
+
+  opacity: 1 !important;}
 
 .twm-sliders-219 {
   display: flex;
@@ -812,13 +825,15 @@ onUnmounted(() => {
   flex-direction: column;
   gap: 10px;
   min-width: 180px;
-}
+
+  opacity: 1 !important;}
 
 .twm-slider-label-219 {
   font-size: 0.85rem;
   color: #e2e8f0;
   font-weight: 600;
-}
+
+  opacity: 1 !important;}
 
 .twm-slider-219 {
   -webkit-appearance: none;
@@ -843,7 +858,8 @@ onUnmounted(() => {
 
     &:hover {
       transform: scale(1.2);
-    }
+    
+  opacity: 1 !important;}
   }
 }
 
@@ -851,7 +867,8 @@ onUnmounted(() => {
   font-size: 0.8rem;
   color: #94a3b8;
   text-align: right;
-}
+
+  opacity: 1 !important;}
 
 .twm-progress-219 {
   width: 100%;
@@ -859,14 +876,16 @@ onUnmounted(() => {
   background: rgba(255, 255, 255, 0.1);
   border-radius: 2px;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .twm-progress-bar-219 {
   width: 0;
   height: 100%;
   background: linear-gradient(90deg, #a855f7 0%, #ec4899 50%, #f43f5e 100%);
   border-radius: 2px;
-}
+
+  opacity: 1 !important;}
 
 .twm-canvas-219 {
   position: absolute;
@@ -876,7 +895,8 @@ onUnmounted(() => {
   height: 100%;
   pointer-events: none;
   z-index: 1;
-}
+
+  opacity: 1 !important;}
 
 .twm-particles-219 {
   position: absolute;
@@ -886,7 +906,8 @@ onUnmounted(() => {
   height: 100%;
   pointer-events: none;
   z-index: 1;
-}
+
+  opacity: 1 !important;}
 
 .twm-particle-219 {
   position: absolute;
@@ -898,11 +919,13 @@ onUnmounted(() => {
 @media (max-width: 768px) {
   .twm-title-219 {
     font-size: 2rem;
-  }
+  
+  opacity: 1 !important;}
 
   .twm-subtitle-219 {
     font-size: 0.9rem;
-  }
+  
+  opacity: 1 !important;}
 
   .twm-controls-219 {
     gap: 8px;
@@ -911,11 +934,13 @@ onUnmounted(() => {
   .twm-btn-219 {
     padding: 10px 16px;
     font-size: 0.75rem;
-  }
+  
+  opacity: 1 !important;}
 
   .twm-char-219 {
     font-size: clamp(2rem, 8vw, 4rem);
-  }
+  
+  opacity: 1 !important;}
 
   .twm-info-219 {
     gap: 15px;
@@ -924,11 +949,13 @@ onUnmounted(() => {
   .twm-info-item-219 {
     padding: 14px 20px;
     min-width: 90px;
-  }
+  
+  opacity: 1 !important;}
 
   .twm-info-value-219 {
     font-size: 1.4rem;
-  }
+  
+  opacity: 1 !important;}
 
   .twm-sliders-219 {
     gap: 20px;
@@ -936,6 +963,7 @@ onUnmounted(() => {
 
   .twm-slider-group-219 {
     min-width: 140px;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

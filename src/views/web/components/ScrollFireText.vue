@@ -308,7 +308,8 @@ onUnmounted(() => {
   justify-content: center;
   background: linear-gradient(180deg, #1a0a00 0%, #0a0500 50%, #0a0500 100%);
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .ft-stage-178 {
   position: relative;
@@ -318,7 +319,8 @@ onUnmounted(() => {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
+
+  opacity: 1 !important;}
 
 .ft-fire-bg-178 {
   position: absolute;
@@ -348,7 +350,8 @@ onUnmounted(() => {
   border-radius: 20px;
   overflow: hidden;
   backdrop-filter: blur(5px);
-}
+
+  opacity: 1 !important;}
 
 .ft-fire-container-178::before {
   content: '';
@@ -370,7 +373,8 @@ onUnmounted(() => {
   text-transform: uppercase;
   letter-spacing: 6px;
   margin-bottom: 30px;
-}
+
+  opacity: 1 !important;}
 
 .ft-embers-178 {
   position: absolute;
@@ -388,7 +392,8 @@ onUnmounted(() => {
   background: #ff6600;
   border-radius: 50%;
   box-shadow: 0 0 10px #ff4500, 0 0 20px #ff0000;
-}
+
+  opacity: 1 !important;}
 
 .ft-fire-text-178 {
   display: flex;
@@ -396,7 +401,8 @@ onUnmounted(() => {
   flex-wrap: wrap;
   gap: 4px;
   margin: 50px 0;
-}
+
+  opacity: 1 !important;}
 
 .ft-char-178 {
   font-size: clamp(3rem, 8vw, 6rem);
@@ -405,7 +411,8 @@ onUnmounted(() => {
   position: relative;
   display: inline-block;
   transition: all 0.3s ease;
-}
+
+  opacity: 1 !important;}
 
 .ft-smoke-trails-178 {
   display: flex;
@@ -421,7 +428,8 @@ onUnmounted(() => {
   border-radius: 30px;
   transform-origin: bottom center;
   filter: blur(5px);
-}
+
+  opacity: 1 !important;}
 
 .ft-heat-waves-178 {
   position: absolute;
@@ -439,7 +447,8 @@ onUnmounted(() => {
   height: 80px;
   background: linear-gradient(180deg, transparent, rgba(255, 100, 0, 0.2), transparent);
   transform-origin: center;
-}
+
+  opacity: 1 !important;}
 
 @keyframes fireBorder {
   0% {

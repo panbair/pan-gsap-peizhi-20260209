@@ -209,7 +209,8 @@ onUnmounted(() => {
       radial-gradient(circle at 30% 30%, rgba(167, 139, 250, 0.06) 0%, transparent 50%),
       radial-gradient(circle at 70% 70%, rgba(96, 165, 250, 0.06) 0%, transparent 50%);
     pointer-events: none;
-  }
+  
+  opacity: 1 !important;}
 }
 
 .sts-container-119 {
@@ -218,7 +219,8 @@ onUnmounted(() => {
   padding: 0 30px;
   position: relative;
   z-index: 1;
-}
+
+  opacity: 1 !important;}
 
 .sts-section-title-119 {
   text-align: center;
@@ -233,7 +235,8 @@ onUnmounted(() => {
   text-shadow: 0 0 30px rgba(240, 147, 251, 0.4);
   perspective: 1000px;
   transform-style: preserve-3d;
-}
+
+  opacity: 1 !important;}
 
 .sts-section-subtitle-119 {
   text-align: center;
@@ -242,7 +245,8 @@ onUnmounted(() => {
   margin-bottom: 80px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-}
+
+  opacity: 1 !important;}
 
 .sts-content-119 {
   display: flex;
@@ -286,14 +290,16 @@ onUnmounted(() => {
   color: #fff;
   margin-bottom: 20px;
   line-height: 1.3;
-}
+
+  opacity: 1 !important;}
 
 .sts-text-description-119 {
   font-size: 1rem;
   color: rgba(203, 213, 225, 0.9);
   line-height: 1.8;
   letter-spacing: 0.01em;
-}
+
+  opacity: 1 !important;}
 
 .sts-decoration-119 {
   position: absolute;
@@ -311,21 +317,24 @@ onUnmounted(() => {
   position: absolute;
   border-radius: 50%;
   border: 2px solid rgba(167, 139, 250, 0.25);
-}
+
+  opacity: 1 !important;}
 
 .sts-circle-1 {
   width: 250px;
   height: 250px;
   top: 15%;
   right: -125px;
-}
+
+  opacity: 1 !important;}
 
 .sts-circle-2 {
   width: 180px;
   height: 180px;
   top: 55%;
   left: -90px;
-}
+
+  opacity: 1 !important;}
 
 .sts-circle-3 {
   width: 120px;
@@ -333,12 +342,14 @@ onUnmounted(() => {
   top: 35%;
   right: 15%;
   border-color: rgba(96, 165, 250, 0.25);
-}
+
+  opacity: 1 !important;}
 
 @media (max-width: 768px) {
   .sts-text-block-119 {
     padding: 36px 24px;
-  }
+  
+  opacity: 1 !important;}
 
   .sts-section-title-119 {
     margin-bottom: 12px;
@@ -354,6 +365,7 @@ onUnmounted(() => {
 
   .sts-container-119 {
     padding: 0 20px;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

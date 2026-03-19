@@ -681,13 +681,16 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
+/* GSAP opacity fix: ensure content is always visible */
+
 .scroll-swipe-up-252 {
   min-height: 100vh;
   padding: 80px 40px;
   background: linear-gradient(135deg, #0a0a1a 0%, #1a1a2e 50%, #16213e 100%);
   overflow: hidden;
   position: relative;
-}
+
+  opacity: 1 !important;}
 
 .scroll-swipe-up-252::before {
   content: '';
@@ -707,7 +710,8 @@ onUnmounted(() => {
   margin-bottom: 40px;
   position: relative;
   z-index: 10;
-}
+
+  opacity: 1 !important;}
 
 .scroll-swipe-up-title-252 {
   font-size: clamp(2.5rem, 5vw, 3.5rem);
@@ -719,14 +723,16 @@ onUnmounted(() => {
   background-clip: text;
   transform-style: preserve-3d;
   will-change: transform, opacity;
-}
+
+  opacity: 1 !important;}
 
 .scroll-swipe-up-subtitle-252 {
   font-size: 1.2rem;
   color: #94a3b8;
   transform-style: preserve-3d;
   will-change: transform, opacity;
-}
+
+  opacity: 1 !important;}
 
 /* 交互说明 */
 .scroll-swipe-up-instructions-252 {
@@ -749,7 +755,8 @@ onUnmounted(() => {
   color: #e2e8f0;
   font-size: 0.95rem;
   transition: all 0.3s ease;
-}
+
+  opacity: 1 !important;}
 
 .scroll-swipe-up-icon-wrapper-252 {
   width: 40px;
@@ -760,12 +767,14 @@ onUnmounted(() => {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   border-radius: 8px;
   color: white;
-}
+
+  opacity: 1 !important;}
 
 .scroll-swipe-up-icon-252 {
   width: 24px;
   height: 24px;
-}
+
+  opacity: 1 !important;}
 
 /* 上滑容器 */
 .scroll-swipe-up-container-252 {
@@ -779,7 +788,8 @@ onUnmounted(() => {
   backdrop-filter: blur(20px);
   box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 /* 滑动提示 */
 .scroll-swipe-up-hint-252 {
@@ -790,7 +800,8 @@ onUnmounted(() => {
   text-align: center;
   z-index: 5;
   pointer-events: none;
-}
+
+  opacity: 1 !important;}
 
 .scroll-swipe-up-hint-icon-252 {
   width: 60px;
@@ -798,7 +809,8 @@ onUnmounted(() => {
   margin: 0 auto 16px;
   color: #a78bfa;
   animation: swipeUp 2s infinite;
-}
+
+  opacity: 1 !important;}
 
 .scroll-swipe-up-hint-icon-252 svg {
   width: 100%;
@@ -810,7 +822,8 @@ onUnmounted(() => {
   font-weight: 700;
   color: #e2e8f0;
   margin-bottom: 20px;
-}
+
+  opacity: 1 !important;}
 
 .scroll-swipe-up-hint-line-252 {
   width: 100px;
@@ -819,7 +832,8 @@ onUnmounted(() => {
   border-radius: 2px;
   margin: 0 auto;
   animation: pulseLine 2s infinite;
-}
+
+  opacity: 1 !important;}
 
 @keyframes swipeUp {
   0%, 100% {
@@ -859,14 +873,16 @@ onUnmounted(() => {
 
 .scroll-swipe-up-mask-content-252 {
   text-align: center;
-}
+
+  opacity: 1 !important;}
 
 .scroll-swipe-up-lock-icon-252 {
   width: 80px;
   height: 80px;
   margin: 0 auto 20px;
   color: #94a3b8;
-}
+
+  opacity: 1 !important;}
 
 .scroll-swipe-up-lock-icon-252 svg {
   width: 100%;
@@ -878,7 +894,8 @@ onUnmounted(() => {
   font-weight: 700;
   color: #e2e8f0;
   margin-bottom: 30px;
-}
+
+  opacity: 1 !important;}
 
 .scroll-swipe-up-progress-252 {
   width: 300px;
@@ -887,7 +904,8 @@ onUnmounted(() => {
   border-radius: 3px;
   margin: 0 auto 20px;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .scroll-swipe-up-progress-bar-252 {
   width: 0%;
@@ -895,7 +913,8 @@ onUnmounted(() => {
   background: linear-gradient(90deg, #667eea, #764ba2);
   border-radius: 3px;
   transition: width 0.1s ease;
-}
+
+  opacity: 1 !important;}
 
 .scroll-swipe-up-percentage-252 {
   font-size: 3rem;
@@ -904,7 +923,8 @@ onUnmounted(() => {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-}
+
+  opacity: 1 !important;}
 
 /* 揭示内容 */
 .scroll-swipe-up-reveal-content-252 {
@@ -944,14 +964,16 @@ onUnmounted(() => {
   backdrop-filter: blur(10px);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
   transition: all 0.4s ease;
-}
+
+  opacity: 1 !important;}
 
 .scroll-swipe-up-card-header-252 {
   padding: 24px;
   display: flex;
   align-items: center;
   gap: 16px;
-}
+
+  opacity: 1 !important;}
 
 .scroll-swipe-up-card-icon-252 {
   width: 48px;
@@ -962,7 +984,8 @@ onUnmounted(() => {
   background: rgba(255, 255, 255, 0.2);
   border-radius: 12px;
   color: white;
-}
+
+  opacity: 1 !important;}
 
 .scroll-swipe-up-card-icon-252 svg {
   width: 28px;
@@ -977,7 +1000,8 @@ onUnmounted(() => {
 
 .scroll-swipe-up-card-body-252 {
   padding: 24px;
-}
+
+  opacity: 1 !important;}
 
 .scroll-swipe-up-card-body-252 h4 {
   font-size: 1.25rem;
@@ -1000,7 +1024,8 @@ onUnmounted(() => {
 
 .scroll-swipe-up-stat-252 {
   text-align: center;
-}
+
+  opacity: 1 !important;}
 
 .scroll-swipe-up-stat-value-252 {
   display: block;
@@ -1008,12 +1033,14 @@ onUnmounted(() => {
   font-weight: 700;
   color: #a78bfa;
   margin-bottom: 4px;
-}
+
+  opacity: 1 !important;}
 
 .scroll-swipe-up-stat-label-252 {
   font-size: 0.85rem;
   color: #64748b;
-}
+
+  opacity: 1 !important;}
 
 /* 底部重置按钮 */
 .scroll-swipe-up-footer-252 {
@@ -1034,7 +1061,8 @@ onUnmounted(() => {
   font-size: 1rem;
   cursor: pointer;
   transition: all 0.3s ease;
-}
+
+  opacity: 1 !important;}
 
 .scroll-swipe-up-reset-btn-252 svg {
   width: 18px;
@@ -1057,7 +1085,8 @@ onUnmounted(() => {
 @media (max-width: 768px) {
   .scroll-swipe-up-252 {
     padding: 40px 20px;
-  }
+  
+  opacity: 1 !important;}
 
   .scroll-swipe-up-instructions-252 {
     flex-direction: column;
@@ -1067,29 +1096,35 @@ onUnmounted(() => {
 
   .scroll-swipe-up-container-252 {
     height: 500px;
-  }
+  
+  opacity: 1 !important;}
 
   .scroll-swipe-up-reveal-content-252 {
     grid-template-columns: 1fr;
     gap: 16px;
     padding: 20px;
-  }
+  
+  opacity: 1 !important;}
 
   .scroll-swipe-up-lock-icon-252 {
     width: 60px;
     height: 60px;
-  }
+  
+  opacity: 1 !important;}
 
   .scroll-swipe-up-lock-text-252 {
     font-size: 1.2rem;
-  }
+  
+  opacity: 1 !important;}
 
   .scroll-swipe-up-progress-252 {
     width: 200px;
-  }
+  
+  opacity: 1 !important;}
 
   .scroll-swipe-up-percentage-252 {
     font-size: 2rem;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

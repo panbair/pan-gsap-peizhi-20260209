@@ -701,25 +701,30 @@ function initMouseFollow() {
 </script>
 
 <style scoped>
+/* GSAP opacity fix: ensure content is always visible */
+
 .elastic-morph-container-217 {
   min-height: 100vh;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
   padding: 40px 20px;
   overflow-x: hidden;
-}
+
+  opacity: 1 !important;}
 
 .elastic-header-217 {
   text-align: center;
   margin-bottom: 60px;
   color: white;
-}
+
+  opacity: 1 !important;}
 
 .elastic-title-217 {
   font-size: 3rem;
   font-weight: 800;
   margin-bottom: 15px;
   text-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-}
+
+  opacity: 1 !important;}
 
 .elastic-subtitle-217 {
   font-size: 1.2rem;
@@ -735,14 +740,16 @@ function initMouseFollow() {
   margin: 0 auto;
   position: relative;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .progress-bar-217 {
   width: 0%;
   height: 100%;
   background: linear-gradient(90deg, #fff, #a78bfa, #fff);
   border-radius: 4px;
-}
+
+  opacity: 1 !important;}
 
 .progress-text-217 {
   position: absolute;
@@ -761,7 +768,8 @@ function initMouseFollow() {
   gap: 30px;
   max-width: 1200px;
   margin: 0 auto 60px;
-}
+
+  opacity: 1 !important;}
 
 .elastic-card-217 {
   background: rgba(255, 255, 255, 0.15);
@@ -773,7 +781,8 @@ function initMouseFollow() {
   align-items: center;
   gap: 20px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-}
+
+  opacity: 1 !important;}
 
 .elastic-jelly-217 {
   flex-direction: row;
@@ -792,7 +801,8 @@ function initMouseFollow() {
     inset 0 -5px 20px rgba(0, 0, 0, 0.1);
   position: relative;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .jelly-item-217::before {
   content: '';
@@ -812,11 +822,13 @@ function initMouseFollow() {
   font-size: 1rem;
   text-align: center;
   z-index: 1;
-}
+
+  opacity: 1 !important;}
 
 .elastic-slime-217 {
   background: rgba(255, 255, 255, 0.1);
-}
+
+  opacity: 1 !important;}
 
 .slime-blob-217 {
   width: 80px;
@@ -827,23 +839,28 @@ function initMouseFollow() {
   box-shadow: 
     0 15px 35px rgba(168, 237, 234, 0.5),
     inset 0 -5px 15px rgba(0, 0, 0, 0.1);
-}
+
+  opacity: 1 !important;}
 
 .slime-scroll-1-217 {
   background: linear-gradient(135deg, #ff9a9e, #fecfef);
-}
+
+  opacity: 1 !important;}
 
 .slime-scroll-2-217 {
   background: linear-gradient(135deg, #a18cd1, #fbc2eb);
-}
+
+  opacity: 1 !important;}
 
 .slime-scroll-3-217 {
   background: linear-gradient(135deg, #84fab0, #8fd3f4);
-}
+
+  opacity: 1 !important;}
 
 .elastic-gooey-217 {
   background: rgba(255, 255, 255, 0.1);
-}
+
+  opacity: 1 !important;}
 
 .gooey-item-217 {
   width: 90px;
@@ -857,13 +874,15 @@ function initMouseFollow() {
   font-weight: 700;
   font-size: 1rem;
   box-shadow: 0 10px 30px rgba(240, 147, 251, 0.5);
-}
+
+  opacity: 1 !important;}
 
 /* 弹性形状 */
 .elastic-shapes-217 {
   max-width: 1200px;
   margin: 0 auto 60px;
-}
+
+  opacity: 1 !important;}
 
 .shape-row-217 {
   display: flex;
@@ -882,7 +901,8 @@ function initMouseFollow() {
   box-shadow: 0 10px 40px rgba(252, 182, 159, 0.5);
   cursor: pointer;
   transition: box-shadow 0.3s;
-}
+
+  opacity: 1 !important;}
 
 .elastic-shape-217:hover {
   box-shadow: 0 15px 50px rgba(252, 182, 159, 0.6);
@@ -899,21 +919,24 @@ function initMouseFollow() {
 .shape-morph-217 {
   border-radius: 50%;
   background: linear-gradient(135deg, #a8edea, #fed6e3);
-}
+
+  opacity: 1 !important;}
 
 .shape-label-217 {
   color: #333;
   font-weight: 700;
   font-size: 0.9rem;
   text-align: center;
-}
+
+  opacity: 1 !important;}
 
 /* 弹性波浪 */
 .elastic-waves-217 {
   max-width: 1200px;
   margin: 0 auto 60px;
   text-align: center;
-}
+
+  opacity: 1 !important;}
 
 .wave-container-217 {
   display: flex;
@@ -922,7 +945,8 @@ function initMouseFollow() {
   gap: 30px;
   height: 150px;
   margin-bottom: 20px;
-}
+
+  opacity: 1 !important;}
 
 .elastic-wave-217 {
   width: 60px;
@@ -930,7 +954,8 @@ function initMouseFollow() {
   border-radius: 50%;
   background: linear-gradient(135deg, #667eea, #764ba2);
   box-shadow: 0 10px 30px rgba(102, 126, 234, 0.5);
-}
+
+  opacity: 1 !important;}
 
 .wave-caption-217 {
   color: white;
@@ -957,7 +982,8 @@ function initMouseFollow() {
   color: white;
   transform-style: preserve-3d;
   transition: box-shadow 0.3s;
-}
+
+  opacity: 1 !important;}
 
 .elastic-btn-217 span {
   display: inline-block;
@@ -966,17 +992,20 @@ function initMouseFollow() {
 .btn-squish-217 {
   background: linear-gradient(135deg, #667eea, #764ba2);
   box-shadow: 0 10px 30px rgba(102, 126, 234, 0.5);
-}
+
+  opacity: 1 !important;}
 
 .btn-stretch-217 {
   background: linear-gradient(135deg, #f093fb, #f5576c);
   box-shadow: 0 10px 30px rgba(240, 147, 251, 0.5);
-}
+
+  opacity: 1 !important;}
 
 .btn-wobble-217 {
   background: linear-gradient(135deg, #a8edea, #84fab0);
   box-shadow: 0 10px 30px rgba(168, 237, 234, 0.5);
-}
+
+  opacity: 1 !important;}
 
 .elastic-btn-217:hover {
   transform: translateY(-3px);
@@ -989,7 +1018,8 @@ function initMouseFollow() {
   gap: 30px;
   max-width: 1000px;
   margin: 0 auto 60px;
-}
+
+  opacity: 1 !important;}
 
 .interactive-card-217 {
   background: rgba(255, 255, 255, 0.2);
@@ -1001,7 +1031,8 @@ function initMouseFollow() {
   transition: box-shadow 0.3s;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   transform-style: preserve-3d;
-}
+
+  opacity: 1 !important;}
 
 .interactive-card-217:hover {
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
@@ -1011,19 +1042,22 @@ function initMouseFollow() {
   font-size: 4rem;
   margin-bottom: 15px;
   display: inline-block;
-}
+
+  opacity: 1 !important;}
 
 .card-title-217 {
   color: white;
   font-size: 1.5rem;
   font-weight: 700;
   margin-bottom: 10px;
-}
+
+  opacity: 1 !important;}
 
 .card-desc-217 {
   color: rgba(255, 255, 255, 0.8);
   font-size: 1rem;
-}
+
+  opacity: 1 !important;}
 
 /* 加载器 */
 .elastic-loaders-217 {
@@ -1049,7 +1083,8 @@ function initMouseFollow() {
   align-items: center;
   justify-content: center;
   position: relative;
-}
+
+  opacity: 1 !important;}
 
 .pulse-core-217 {
   width: 40px;
@@ -1059,7 +1094,8 @@ function initMouseFollow() {
   box-shadow: 0 5px 20px rgba(102, 126, 234, 0.5);
   position: relative;
   z-index: 2;
-}
+
+  opacity: 1 !important;}
 
 .pulse-ring-217 {
   position: absolute;
@@ -1080,7 +1116,8 @@ function initMouseFollow() {
   align-items: center;
   justify-content: flex-end;
   position: relative;
-}
+
+  opacity: 1 !important;}
 
 .bounce-ball-217 {
   width: 40px;
@@ -1091,7 +1128,8 @@ function initMouseFollow() {
     0 5px 15px rgba(240, 147, 251, 0.4),
     inset 0 -5px 10px rgba(0, 0, 0, 0.2);
   position: relative;
-}
+
+  opacity: 1 !important;}
 
 .bounce-shadow-217 {
   width: 40px;
@@ -1099,7 +1137,8 @@ function initMouseFollow() {
   background: rgba(0, 0, 0, 0.2);
   border-radius: 50%;
   margin-top: 10px;
-}
+
+  opacity: 1 !important;}
 
 /* 挤压加载器 */
 .elastic-loader-squish-217 {
@@ -1111,7 +1150,8 @@ function initMouseFollow() {
   background: rgba(255, 255, 255, 0.1);
   border-radius: 20px;
   backdrop-filter: blur(10px);
-}
+
+  opacity: 1 !important;}
 
 .squish-cube-217 {
   width: 50px;
@@ -1121,14 +1161,16 @@ function initMouseFollow() {
   box-shadow: 
     0 8px 25px rgba(168, 237, 234, 0.4),
     inset 0 -3px 10px rgba(0, 0, 0, 0.15);
-}
+
+  opacity: 1 !important;}
 
 .elastic-loader-217 {
   width: 60px;
   height: 60px;
   background: linear-gradient(135deg, #fff, #f0f0f0);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-}
+
+  opacity: 1 !important;}
 
 .loader-label-217 {
   color: white;
@@ -1147,7 +1189,8 @@ function initMouseFollow() {
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
   border-radius: 20px;
-}
+
+  opacity: 1 !important;}
 
 .morph-section-217 {
   display: flex;
@@ -1161,7 +1204,8 @@ function initMouseFollow() {
   height: 80px;
   background: linear-gradient(135deg, #667eea, #764ba2);
   box-shadow: 0 10px 30px rgba(102, 126, 234, 0.5);
-}
+
+  opacity: 1 !important;}
 
 /* 鼠标跟随 */
 .mouse-follow-217 {
@@ -1178,7 +1222,8 @@ function initMouseFollow() {
   position: relative;
   overflow: hidden;
   cursor: crosshair;
-}
+
+  opacity: 1 !important;}
 
 .follow-elastic-217 {
   position: absolute;
@@ -1187,7 +1232,8 @@ function initMouseFollow() {
   border-radius: 50%;
   background: radial-gradient(circle, rgba(255, 255, 255, 0.3), transparent);
   pointer-events: none;
-}
+
+  opacity: 1 !important;}
 
 .follow-core-217 {
   position: absolute;
@@ -1199,7 +1245,8 @@ function initMouseFollow() {
   background: linear-gradient(135deg, #fff, #f0f0f0);
   border-radius: 50%;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
-}
+
+  opacity: 1 !important;}
 
 .follow-ripple-217 {
   position: absolute;
@@ -1211,7 +1258,8 @@ function initMouseFollow() {
   border: 3px solid rgba(255, 255, 255, 0.5);
   border-radius: 50%;
   animation: ripple-217 2s ease-out infinite;
-}
+
+  opacity: 1 !important;}
 
 @keyframes ripple-217 {
   0% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
@@ -1230,7 +1278,8 @@ function initMouseFollow() {
 @media (max-width: 768px) {
   .elastic-title-217 {
     font-size: 2rem;
-  }
+  
+  opacity: 1 !important;}
 
   .elastic-cards-217,
   .shape-row-217,
@@ -1242,19 +1291,22 @@ function initMouseFollow() {
 
   .elastic-card-217 {
     padding: 20px;
-  }
+  
+  opacity: 1 !important;}
 
   .jelly-item-217,
   .slime-blob-217,
   .gooey-item-217 {
     width: 70px;
     height: 70px;
-  }
+  
+  opacity: 1 !important;}
 
   .elastic-shape-217 {
     width: 100px;
     height: 100px;
-  }
+  
+  opacity: 1 !important;}
 
   .interactive-cards-217 {
     grid-template-columns: 1fr;
@@ -1263,10 +1315,12 @@ function initMouseFollow() {
   .morph-element-217 {
     width: 60px;
     height: 60px;
-  }
+  
+  opacity: 1 !important;}
 
   .scroll-progress-217 {
     width: 200px;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

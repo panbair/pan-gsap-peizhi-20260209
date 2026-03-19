@@ -255,11 +255,13 @@ onUnmounted(() => {
   position: relative;
   overflow: hidden;
   background: #000;
-}
+
+  opacity: 1 !important;}
 
 .content-28 {
   text-align: center;
-}
+
+  opacity: 1 !important;}
 
 .ss-section-title-28 {
   font-size: clamp(2rem, 4vw, 2.5rem);
@@ -269,13 +271,15 @@ onUnmounted(() => {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-}
+
+  opacity: 1 !important;}
 
 .ss-subtitle-28 {
   font-size: 1.1rem;
   color: #94a3b8;
   margin-bottom: 40px;
-}
+
+  opacity: 1 !important;}
 
 .solar-container-28 {
   position: relative;
@@ -285,7 +289,8 @@ onUnmounted(() => {
   margin: 0 auto;
   border-radius: 50%;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .stars-background-28 {
   position: absolute;
@@ -300,7 +305,8 @@ onUnmounted(() => {
   background: #fff;
   border-radius: 50%;
   animation: starTwinkle 1s ease-in-out infinite;
-}
+
+  opacity: 1 !important;}
 
 @keyframes starTwinkle {
   0%, 100% {
@@ -319,7 +325,8 @@ onUnmounted(() => {
   width: 100px;
   height: 100px;
   z-index: 10;
-}
+
+  opacity: 1 !important;}
 
 .sun-core-28 {
   position: absolute;
@@ -327,7 +334,8 @@ onUnmounted(() => {
   background: radial-gradient(circle, #fff 0%, #fbbf24 30%, #f97316 60%, #ef4444 100%);
   border-radius: 50%;
   box-shadow: 0 0 60px #fbbf24, 0 0 120px #f97316;
-}
+
+  opacity: 1 !important;}
 
 .sun-corona-28 {
   position: absolute;
@@ -335,7 +343,8 @@ onUnmounted(() => {
   background: radial-gradient(circle, rgba(251, 191, 36, 0.3), transparent 70%);
   border-radius: 50%;
   filter: blur(10px);
-}
+
+  opacity: 1 !important;}
 
 .sun-flares-28 {
   position: absolute;
@@ -351,7 +360,8 @@ onUnmounted(() => {
   background: linear-gradient(to top, #fbbf24, transparent);
   border-radius: 2px;
   animation: flarePulse 1s ease-in-out infinite;
-}
+
+  opacity: 1 !important;}
 
 @keyframes flarePulse {
   0%, 100% {
@@ -376,16 +386,25 @@ onUnmounted(() => {
   transform: translate(-50%, -50%);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 50%;
-}
 
-.orbit-mercury-28 { width: 140px; height: 140px; }
-.orbit-venus-28 { width: 180px; height: 180px; }
-.orbit-earth-28 { width: 240px; height: 240px; }
-.orbit-mars-28 { width: 300px; height: 300px; }
-.orbit-jupiter-28 { width: 400px; height: 400px; }
-.orbit-saturn-28 { width: 500px; height: 500px; }
-.orbit-uranus-28 { width: 600px; height: 600px; }
-.orbit-neptune-28 { width: 700px; height: 700px; }
+  opacity: 1 !important;}
+
+.orbit-mercury-28 { width: 140px; height: 140px; 
+  opacity: 1 !important;}
+.orbit-venus-28 { width: 180px; height: 180px; 
+  opacity: 1 !important;}
+.orbit-earth-28 { width: 240px; height: 240px; 
+  opacity: 1 !important;}
+.orbit-mars-28 { width: 300px; height: 300px; 
+  opacity: 1 !important;}
+.orbit-jupiter-28 { width: 400px; height: 400px; 
+  opacity: 1 !important;}
+.orbit-saturn-28 { width: 500px; height: 500px; 
+  opacity: 1 !important;}
+.orbit-uranus-28 { width: 600px; height: 600px; 
+  opacity: 1 !important;}
+.orbit-neptune-28 { width: 700px; height: 700px; 
+  opacity: 1 !important;}
 
 .planet-28 {
   position: absolute;
@@ -394,29 +413,46 @@ onUnmounted(() => {
   transform: translate(-50%, -50%);
 }
 
-.mercury-28 { width: 12px; height: 12px; }
-.venus-28 { width: 18px; height: 18px; }
-.earth-28 { width: 20px; height: 20px; }
-.mars-28 { width: 16px; height: 16px; }
-.jupiter-28 { width: 40px; height: 40px; }
-.saturn-28 { width: 35px; height: 35px; }
-.uranus-28 { width: 28px; height: 28px; }
-.neptune-28 { width: 26px; height: 26px; }
+.mercury-28 { width: 12px; height: 12px; 
+  opacity: 1 !important;}
+.venus-28 { width: 18px; height: 18px; 
+  opacity: 1 !important;}
+.earth-28 { width: 20px; height: 20px; 
+  opacity: 1 !important;}
+.mars-28 { width: 16px; height: 16px; 
+  opacity: 1 !important;}
+.jupiter-28 { width: 40px; height: 40px; 
+  opacity: 1 !important;}
+.saturn-28 { width: 35px; height: 35px; 
+  opacity: 1 !important;}
+.uranus-28 { width: 28px; height: 28px; 
+  opacity: 1 !important;}
+.neptune-28 { width: 26px; height: 26px; 
+  opacity: 1 !important;}
 
 .planet-body-28 {
   width: 100%;
   height: 100%;
   border-radius: 50%;
-}
 
-.mercury-28 .planet-body-28 { background: radial-gradient(circle, #9ca3af, #6b7280); }
-.venus-28 .planet-body-28 { background: radial-gradient(circle, #fbbf24, #f59e0b); }
-.earth-28 .planet-body-28 { background: radial-gradient(circle, #3b82f6, #1d4ed8); }
-.mars-28 .planet-body-28 { background: radial-gradient(circle, #ef4444, #dc2626); }
-.jupiter-28 .planet-body-28 { background: radial-gradient(circle, #d97706, #b45309); }
-.saturn-28 .planet-body-28 { background: radial-gradient(circle, #fcd34d, #f59e0b); }
-.uranus-28 .planet-body-28 { background: radial-gradient(circle, #22d3ee, #0891b2); }
-.neptune-28 .planet-body-28 { background: radial-gradient(circle, #3b82f6, #1e40af); }
+  opacity: 1 !important;}
+
+.mercury-28 .planet-body-28 { background: radial-gradient(circle, #9ca3af, #6b7280); 
+  opacity: 1 !important;}
+.venus-28 .planet-body-28 { background: radial-gradient(circle, #fbbf24, #f59e0b); 
+  opacity: 1 !important;}
+.earth-28 .planet-body-28 { background: radial-gradient(circle, #3b82f6, #1d4ed8); 
+  opacity: 1 !important;}
+.mars-28 .planet-body-28 { background: radial-gradient(circle, #ef4444, #dc2626); 
+  opacity: 1 !important;}
+.jupiter-28 .planet-body-28 { background: radial-gradient(circle, #d97706, #b45309); 
+  opacity: 1 !important;}
+.saturn-28 .planet-body-28 { background: radial-gradient(circle, #fcd34d, #f59e0b); 
+  opacity: 1 !important;}
+.uranus-28 .planet-body-28 { background: radial-gradient(circle, #22d3ee, #0891b2); 
+  opacity: 1 !important;}
+.neptune-28 .planet-body-28 { background: radial-gradient(circle, #3b82f6, #1e40af); 
+  opacity: 1 !important;}
 
 .moon-orbit-28 {
   position: absolute;
@@ -425,7 +461,8 @@ onUnmounted(() => {
   transform: translate(-50%, -50%);
   width: 40px;
   height: 40px;
-}
+
+  opacity: 1 !important;}
 
 .moon-28 {
   position: absolute;
@@ -436,7 +473,8 @@ onUnmounted(() => {
   height: 6px;
   background: #9ca3af;
   border-radius: 50%;
-}
+
+  opacity: 1 !important;}
 
 .planet-rings-28 {
   position: absolute;
@@ -444,12 +482,14 @@ onUnmounted(() => {
   border: 2px solid rgba(252, 211, 77, 0.6);
   border-radius: 50%;
   transform: rotateX(75deg);
-}
+
+  opacity: 1 !important;}
 
 .saturn-rings-28 {
   inset: -8px;
   border-width: 3px;
-}
+
+  opacity: 1 !important;}
 
 .asteroid-belt-28 {
   position: absolute;
@@ -459,17 +499,20 @@ onUnmounted(() => {
   width: 340px;
   height: 340px;
   pointer-events: none;
-}
+
+  opacity: 1 !important;}
 
 .asteroid-28 {
   position: absolute;
   background: #6b7280;
   border-radius: 50%;
-}
+
+  opacity: 1 !important;}
 
 @media (max-width: 768px) {
   .solar-container-28 {
     height: 600px;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

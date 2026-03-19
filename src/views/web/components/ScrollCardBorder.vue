@@ -202,13 +202,16 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
+/* GSAP opacity fix: ensure content is always visible */
+
 .card-border-wrapper-200 {
   position: relative;
   width: 100%;
   min-height: 100vh;
   background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .cb-stage-200 {
   position: relative;
@@ -218,7 +221,8 @@ onUnmounted(() => {
   align-items: center;
   justify-content: center;
   padding: 60px 20px;
-}
+
+  opacity: 1 !important;}
 
 .cb-bg-lines-200 {
   position: absolute;
@@ -235,14 +239,16 @@ onUnmounted(() => {
   height: 1px;
   background: linear-gradient(90deg, transparent, rgba(100, 200, 255, 0.3), transparent);
   transform: translateX(-100%);
-}
+
+  opacity: 1 !important;}
 
 .cb-container-200 {
   position: relative;
   text-align: center;
   z-index: 10;
   max-width: 1200px;
-}
+
+  opacity: 1 !important;}
 
 .cb-title-200 {
   font-size: 3rem;
@@ -251,7 +257,8 @@ onUnmounted(() => {
   letter-spacing: 6px;
   color: #ffffff;
   text-shadow: 0 0 30px rgba(100, 200, 255, 0.5);
-}
+
+  opacity: 1 !important;}
 
 .cb-subtitle-200 {
   font-size: 1.2rem;
@@ -259,14 +266,16 @@ onUnmounted(() => {
   letter-spacing: 2px;
   margin-bottom: 60px;
   text-transform: uppercase;
-}
+
+  opacity: 1 !important;}
 
 .cb-cards-grid-200 {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 30px;
   padding: 20px;
-}
+
+  opacity: 1 !important;}
 
 .cb-card-200 {
   position: relative;
@@ -286,7 +295,8 @@ onUnmounted(() => {
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .cb-card-content-200 {
   position: relative;
@@ -296,26 +306,30 @@ onUnmounted(() => {
 .cb-card-icon-200 {
   font-size: 3rem;
   margin-bottom: 20px;
-}
+
+  opacity: 1 !important;}
 
 .cb-card-title-200 {
   font-size: 1.5rem;
   font-weight: 700;
   color: #ffffff;
   margin-bottom: 10px;
-}
+
+  opacity: 1 !important;}
 
 .cb-card-desc-200 {
   font-size: 1rem;
   color: rgba(255, 255, 255, 0.6);
-}
+
+  opacity: 1 !important;}
 
 .cb-corner-200 {
   position: absolute;
   width: 60px;
   height: 60px;
   pointer-events: none;
-}
+
+  opacity: 1 !important;}
 
 .cb-corner-tl-200 {
   top: 0;
@@ -342,7 +356,8 @@ onUnmounted(() => {
   height: 2px;
   background: linear-gradient(90deg, #64c8ff, #96e6a1);
   transition: width 0.3s ease;
-}
+
+  opacity: 1 !important;}
 
 .cb-corner-tl-200 .cb-corner-h-200,
 .cb-corner-bl-200 .cb-corner-h-200 {
@@ -363,7 +378,8 @@ onUnmounted(() => {
   width: 2px;
   background: linear-gradient(180deg, #64c8ff, #96e6a1);
   transition: height 0.3s ease;
-}
+
+  opacity: 1 !important;}
 
 .cb-corner-tl-200 .cb-corner-v-200,
 .cb-corner-tr-200 .cb-corner-v-200 {
@@ -382,7 +398,8 @@ onUnmounted(() => {
 @media (max-width: 768px) {
   .cb-title-200 {
     font-size: 2rem;
-  }
+  
+  opacity: 1 !important;}
 
   .cb-cards-grid-200 {
     grid-template-columns: repeat(2, 1fr);
@@ -391,6 +408,7 @@ onUnmounted(() => {
 
   .cb-card-inner-200 {
     padding: 30px 20px;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

@@ -220,12 +220,14 @@ onUnmounted(() => {
   position: relative;
   overflow: hidden;
   background: linear-gradient(180deg, #0a0a1a, #1a0a2a, #0a0a1a);
-}
+
+  opacity: 1 !important;}
 
 .content-22 {
   text-align: center;
   position: relative;
-}
+
+  opacity: 1 !important;}
 
 .section-title-22 {
   font-size: clamp(2rem, 4vw, 2.5rem);
@@ -235,13 +237,15 @@ onUnmounted(() => {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-}
+
+  opacity: 1 !important;}
 
 .subtitle-22 {
   font-size: 1.1rem;
   color: #94a3b8;
   margin-bottom: 80px;
-}
+
+  opacity: 1 !important;}
 
 .dna-container-22 {
   position: relative;
@@ -253,14 +257,16 @@ onUnmounted(() => {
   justify-content: center;
   gap: 60px;
   perspective: 1000px;
-}
+
+  opacity: 1 !important;}
 
 .dna-helix-22 {
   position: relative;
   width: 300px;
   height: 700px;
   transform-style: preserve-3d;
-}
+
+  opacity: 1 !important;}
 
 .dna-strand-22 {
   position: absolute;
@@ -281,7 +287,8 @@ onUnmounted(() => {
   height: 20px;
   margin-left: -100px;
   margin-top: -10px;
-}
+
+  opacity: 1 !important;}
 
 .base-22 {
   position: absolute;
@@ -289,31 +296,36 @@ onUnmounted(() => {
   height: 20px;
   border-radius: 50%;
   transform-style: preserve-3d;
-}
+
+  opacity: 1 !important;}
 
 .base-a-22 {
   left: 0;
   background: radial-gradient(circle, #06b6d4, #0891b2);
   box-shadow: 0 0 15px rgba(6, 182, 212, 0.6);
-}
+
+  opacity: 1 !important;}
 
 .base-t-22 {
   right: 0;
   background: radial-gradient(circle, #8b5cf6, #7c3aed);
   box-shadow: 0 0 15px rgba(139, 92, 246, 0.6);
-}
+
+  opacity: 1 !important;}
 
 .base-c-22 {
   left: 0;
   background: radial-gradient(circle, #ec4899, #db2777);
   box-shadow: 0 0 15px rgba(236, 72, 153, 0.6);
-}
+
+  opacity: 1 !important;}
 
 .base-g-22 {
   right: 0;
   background: radial-gradient(circle, #10b981, #059669);
   box-shadow: 0 0 15px rgba(16, 185, 129, 0.6);
-}
+
+  opacity: 1 !important;}
 
 .connection-22 {
   position: absolute;
@@ -323,7 +335,8 @@ onUnmounted(() => {
   height: 2px;
   background: linear-gradient(90deg, rgba(6, 182, 212, 0.5), rgba(139, 92, 246, 0.5));
   transform: translateY(-50%);
-}
+
+  opacity: 1 !important;}
 
 .dna-particles-22 {
   position: absolute;
@@ -339,7 +352,8 @@ onUnmounted(() => {
   border-radius: 50%;
   box-shadow: 0 0 10px rgba(139, 92, 246, 0.4);
   animation: particleFloat 3s ease-in-out infinite;
-}
+
+  opacity: 1 !important;}
 
 @keyframes particleFloat {
   0%, 100% {
@@ -372,7 +386,8 @@ onUnmounted(() => {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-  }
+  
+  opacity: 1 !important;}
 
   p {
     font-size: 1rem;
@@ -389,11 +404,13 @@ onUnmounted(() => {
   .dna-helix-22 {
     width: 200px;
     height: 500px;
-  }
+  
+  opacity: 1 !important;}
 
   .base-pair-22 {
     width: 140px;
     margin-left: -70px;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

@@ -424,19 +424,23 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
+/* GSAP opacity fix: ensure content is always visible */
+
 .scroll-scale-on-scroll-wrapper-221 {
   position: relative;
   width: 100%;
   min-height: 100vh;
   background: linear-gradient(135deg, #0f0f1a 0%, #1a1a2e 50%, #16213e 100%);
   padding-bottom: 100px;
-}
+
+  opacity: 1 !important;}
 
 /* 标题 */
 .ssos-header-221 {
   text-align: center;
   padding: 80px 20px 60px;
-}
+
+  opacity: 1 !important;}
 
 .ssos-title-221 {
   font-size: clamp(2.5rem, 6vw, 4rem);
@@ -446,14 +450,16 @@ onUnmounted(() => {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-}
+
+  opacity: 1 !important;}
 
 .ssos-subtitle-221 {
   font-size: 1.2rem;
   color: #94a3b8;
   max-width: 600px;
   margin: 0 auto;
-}
+
+  opacity: 1 !important;}
 
 /* 区域 */
 .ssos-section-221 {
@@ -463,7 +469,8 @@ onUnmounted(() => {
   justify-content: center;
   align-items: center;
   padding: 40px 20px;
-}
+
+  opacity: 1 !important;}
 
 .ssos-container-221 {
   position: relative;
@@ -472,7 +479,8 @@ onUnmounted(() => {
   display: flex;
   justify-content: center;
   align-items: center;
-}
+
+  opacity: 1 !important;}
 
 .ssos-container-221.ssos-multi-221 {
   gap: 40px;
@@ -490,53 +498,63 @@ onUnmounted(() => {
   max-width: 500px;
   text-align: center;
   transform-origin: center center;
-}
+
+  opacity: 1 !important;}
 
 .ssos-purple-221 {
   border-color: rgba(167, 139, 250, 0.3);
   box-shadow: 0 20px 60px rgba(167, 139, 250, 0.2);
-}
+
+  opacity: 1 !important;}
 
 .ssos-blue-221 {
   border-color: rgba(96, 165, 250, 0.3);
   box-shadow: 0 20px 60px rgba(96, 165, 250, 0.2);
-}
+
+  opacity: 1 !important;}
 
 .ssos-pink-221 {
   border-color: rgba(244, 114, 182, 0.3);
   box-shadow: 0 20px 60px rgba(244, 114, 182, 0.2);
-}
+
+  opacity: 1 !important;}
 
 .ssos-green-221 {
   border-color: rgba(74, 222, 128, 0.3);
   box-shadow: 0 20px 60px rgba(74, 222, 128, 0.2);
-}
+
+  opacity: 1 !important;}
 
 .ssos-orange-221 {
   border-color: rgba(251, 146, 60, 0.3);
   box-shadow: 0 20px 60px rgba(251, 146, 60, 0.2);
-}
+
+  opacity: 1 !important;}
 
 .ssos-cyan-221 {
   border-color: rgba(34, 211, 238, 0.3);
   box-shadow: 0 20px 60px rgba(34, 211, 238, 0.2);
-}
+
+  opacity: 1 !important;}
 
 /* 多元素尺寸 */
 .ssos-small-221 {
   width: 200px;
   padding: 30px;
-}
+
+  opacity: 1 !important;}
 
 .ssos-medium-221 {
   width: 280px;
   padding: 40px;
-}
+
+  opacity: 1 !important;}
 
 .ssos-large-221 {
   width: 360px;
   padding: 50px;
-}
+
+  opacity: 1 !important;}
 
 /* 3D 效果 */
 .ssos-3d-221 {
@@ -569,27 +587,31 @@ onUnmounted(() => {
 .ssos-icon-221 {
   font-size: 4rem;
   margin-bottom: 24px;
-}
+
+  opacity: 1 !important;}
 
 .ssos-item-title-221 {
   font-size: 2rem;
   font-weight: 800;
   color: #e2e8f0;
   margin-bottom: 16px;
-}
+
+  opacity: 1 !important;}
 
 .ssos-item-desc-221 {
   font-size: 1.1rem;
   color: #94a3b8;
   line-height: 1.8;
   margin-bottom: 24px;
-}
+
+  opacity: 1 !important;}
 
 .ssos-item-text-221 {
   font-size: 1.2rem;
   font-weight: 600;
   color: #e2e8f0;
-}
+
+  opacity: 1 !important;}
 
 /* 指示器 */
 .ssos-indicator-221 {
@@ -600,19 +622,22 @@ onUnmounted(() => {
   padding: 16px;
   background: rgba(0, 0, 0, 0.3);
   border-radius: 12px;
-}
+
+  opacity: 1 !important;}
 
 .ssos-indicator-text-221 {
   font-size: 0.9rem;
   color: #94a3b8;
-}
+
+  opacity: 1 !important;}
 
 .ssos-indicator-value-221 {
   font-size: 1.2rem;
   font-weight: 700;
   color: #60a5fa;
   font-family: monospace;
-}
+
+  opacity: 1 !important;}
 
 /* 图像缩放 */
 .ssos-image-wrapper-221 {
@@ -623,7 +648,8 @@ onUnmounted(() => {
   display: flex;
   justify-content: center;
   align-items: center;
-}
+
+  opacity: 1 !important;}
 
 .ssos-image-layer-221 {
   position: absolute;
@@ -635,7 +661,8 @@ onUnmounted(() => {
   display: flex;
   justify-content: center;
   align-items: center;
-}
+
+  opacity: 1 !important;}
 
 .ssos-img-layer-1-221 {
   z-index: 3;
@@ -657,19 +684,22 @@ onUnmounted(() => {
   display: flex;
   justify-content: center;
   align-items: center;
-}
+
+  opacity: 1 !important;}
 
 .ssos-image-label-221 {
   font-size: 1.5rem;
   font-weight: 700;
   color: #fff;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-}
+
+  opacity: 1 !important;}
 
 /* 文字缩放 */
 .ssos-text-scale-221 {
   text-align: center;
-}
+
+  opacity: 1 !important;}
 
 .ssos-text-line-221 {
   font-size: 2rem;
@@ -677,19 +707,23 @@ onUnmounted(() => {
   color: #e2e8f0;
   margin: 24px 0;
   transform-origin: center center;
-}
+
+  opacity: 1 !important;}
 
 .ssos-text-1-221 {
   color: #a78bfa;
-}
+
+  opacity: 1 !important;}
 
 .ssos-text-2-221 {
   color: #60a5fa;
-}
+
+  opacity: 1 !important;}
 
 .ssos-text-3-221 {
   color: #f472b6;
-}
+
+  opacity: 1 !important;}
 
 /* 进度条 */
 .ssos-progress-221 {
@@ -710,31 +744,36 @@ onUnmounted(() => {
   background: rgba(255, 255, 255, 0.1);
   border-radius: 3px;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .ssos-progress-fill-221 {
   width: 0;
   height: 100%;
   background: linear-gradient(90deg, #a78bfa, #60a5fa, #f472b6);
   border-radius: 3px;
-}
+
+  opacity: 1 !important;}
 
 .ssos-progress-label-221 {
   font-size: 0.9rem;
   color: #94a3b8;
   font-weight: 500;
-}
+
+  opacity: 1 !important;}
 
 /* 响应式 */
 @media (max-width: 768px) {
   .ssos-title-221 {
     font-size: 2rem;
-  }
+  
+  opacity: 1 !important;}
 
   .ssos-scale-item-221 {
     padding: 40px 24px;
     max-width: 100%;
-  }
+  
+  opacity: 1 !important;}
 
   .ssos-container-221.ssos-multi-221 {
     flex-direction: column;
@@ -744,19 +783,23 @@ onUnmounted(() => {
   .ssos-medium-221,
   .ssos-large-221 {
     width: 100%;
-  }
+  
+  opacity: 1 !important;}
 
   .ssos-image-wrapper-221 {
     height: 300px;
-  }
+  
+  opacity: 1 !important;}
 
   .ssos-image-layer-221 {
     width: 200px;
     height: 200px;
-  }
+  
+  opacity: 1 !important;}
 
   .ssos-progress-bar-221 {
     width: 200px;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

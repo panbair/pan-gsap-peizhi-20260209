@@ -214,7 +214,8 @@ onUnmounted(() => {
     height: 700px;
     background: radial-gradient(circle, rgba(102, 126, 234, 0.15) 0%, transparent 70%);
     pointer-events: none;
-  }
+  
+  opacity: 1 !important;}
 }
 
 .cg-container-46 {
@@ -223,7 +224,8 @@ onUnmounted(() => {
   padding: 0 40px;
   position: relative;
   z-index: 1;
-}
+
+  opacity: 1 !important;}
 
 .cg-section-title-46 {
   text-align: center;
@@ -245,7 +247,8 @@ onUnmounted(() => {
     background: linear-gradient(90deg, #667eea, #764ba2);
     margin: 20px auto 0;
     border-radius: 2px;
-  }
+  
+  opacity: 1 !important;}
 }
 
 .cg-circle-container-46 {
@@ -256,7 +259,8 @@ onUnmounted(() => {
   justify-content: center;
   align-items: center;
   perspective: 1000px;
-}
+
+  opacity: 1 !important;}
 
 .cg-circle-item-46 {
   position: absolute;
@@ -273,7 +277,8 @@ onUnmounted(() => {
     z-index: 10;
     transform: translate(var(--x), var(--y)) scale(1.2);
     box-shadow: 0 30px 70px rgba(0, 0, 0, 0.5);
-  }
+  
+  opacity: 1 !important;}
 }
 
 .cg-item-inner-46 {
@@ -281,7 +286,8 @@ onUnmounted(() => {
   height: 100%;
   position: relative;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 img {
   width: 100%;
@@ -305,7 +311,8 @@ img {
   align-items: center;
   justify-content: center;
   pointer-events: none;
-}
+
+  opacity: 1 !important;}
 
 .cg-item-number-46 {
   font-size: 3rem;
@@ -313,7 +320,8 @@ img {
   color: #fff;
   text-shadow: 0 0 20px rgba(102, 126, 234, 0.8);
   font-family: 'Arial', sans-serif;
-}
+
+  opacity: 1 !important;}
 
 .cg-center-circle-46 {
   position: absolute;
@@ -331,32 +339,38 @@ img {
   justify-content: center;
   box-shadow: 0 20px 50px rgba(102, 126, 234, 0.5);
   z-index: 5;
-}
+
+  opacity: 1 !important;}
 
 .cg-center-text-46 {
   font-size: 1.5rem;
   font-weight: 800;
   color: #fff;
   letter-spacing: 3px;
-}
+
+  opacity: 1 !important;}
 
 @media (max-width: 768px) {
   .cg-circle-item-46 {
     width: 120px;
     height: 120px;
-  }
+  
+  opacity: 1 !important;}
 
   .cg-center-circle-46 {
     width: 100px;
     height: 100px;
-  }
+  
+  opacity: 1 !important;}
 
   .cg-item-number-46 {
     font-size: 2rem;
-  }
+  
+  opacity: 1 !important;}
 
   .cg-section-title-46 {
     font-size: 2rem;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

@@ -251,13 +251,16 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
+/* GSAP opacity fix: ensure content is always visible */
+
 .text-scramble-wrapper-190 {
   position: relative;
   width: 100%;
   min-height: 100vh;
   background: linear-gradient(180deg, #000 0%, #0a0a0a 100%);
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .ts-stage-190 {
   position: relative;
@@ -267,7 +270,8 @@ onUnmounted(() => {
   align-items: center;
   justify-content: center;
   padding: 60px 20px;
-}
+
+  opacity: 1 !important;}
 
 .ts-matrix-bg-190 {
   position: absolute;
@@ -292,7 +296,8 @@ onUnmounted(() => {
   font-size: 12px;
   color: #00ff88;
   text-shadow: 0 0 5px rgba(0, 255, 136, 0.5);
-}
+
+  opacity: 1 !important;}
 
 .ts-container-190 {
   position: relative;
@@ -304,7 +309,8 @@ onUnmounted(() => {
   border-radius: 10px;
   backdrop-filter: blur(10px);
   border: 2px solid rgba(0, 255, 136, 0.3);
-}
+
+  opacity: 1 !important;}
 
 .ts-title-190 {
   font-size: 3rem;
@@ -314,7 +320,8 @@ onUnmounted(() => {
   text-shadow: 0 0 30px rgba(0, 255, 136, 0.8);
   letter-spacing: 4px;
   font-family: 'Courier New', monospace;
-}
+
+  opacity: 1 !important;}
 
 .ts-content-190 {
   display: flex;
@@ -339,7 +346,8 @@ onUnmounted(() => {
   text-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
   transition: all 0.3s ease;
   min-width: 12px;
-}
+
+  opacity: 1 !important;}
 
 .ts-progress-190 {
   width: 100%;
@@ -348,14 +356,16 @@ onUnmounted(() => {
   border-radius: 2px;
   overflow: hidden;
   margin-bottom: 30px;
-}
+
+  opacity: 1 !important;}
 
 .ts-progress-bar-190 {
   height: 100%;
   background: linear-gradient(90deg, #00ff88, #00cc6a);
   box-shadow: 0 0 20px rgba(0, 255, 136, 0.8);
   border-radius: 2px;
-}
+
+  opacity: 1 !important;}
 
 .ts-indicator-190 {
   display: flex;
@@ -370,20 +380,24 @@ onUnmounted(() => {
   border: 2px solid rgba(0, 255, 136, 0.5);
   border-radius: 50%;
   transition: all 0.3s ease;
-}
+
+  opacity: 1 !important;}
 
 .ts-dot-190.active {
   background: #00ff88;
   box-shadow: 0 0 15px rgba(0, 255, 136, 0.8);
-}
+
+  opacity: 1 !important;}
 
 @media (max-width: 768px) {
   .ts-title-190 {
     font-size: 2rem;
-  }
+  
+  opacity: 1 !important;}
 
   .ts-char-190 {
     font-size: 1rem;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

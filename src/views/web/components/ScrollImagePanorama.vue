@@ -241,7 +241,8 @@ onUnmounted(() => {
           min-height: 100%;
           object-fit: cover;
           transition: transform 0.3s ease;
-        }
+        
+  opacity: 1 !important;}
 
         .panorama-info {
           position: absolute;
@@ -256,7 +257,8 @@ onUnmounted(() => {
             color: #fff;
             margin: 0 0 10px 0;
             text-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
-          }
+          
+  opacity: 1 !important;}
 
           p {
             font-size: 1.2rem;
@@ -294,7 +296,8 @@ onUnmounted(() => {
       &:hover {
         background: rgba(255, 255, 255, 0.2);
         transform: scale(1.1);
-      }
+      
+  opacity: 1 !important;}
     }
 
     .panorama-dots {
@@ -312,7 +315,8 @@ onUnmounted(() => {
         &.active {
           background: #667eea;
           transform: scale(1.3);
-        }
+        
+  opacity: 1 !important;}
 
         &:hover {
           background: rgba(255, 255, 255, 0.5);
@@ -323,16 +327,19 @@ onUnmounted(() => {
 }
 
 @media (max-width: 768px) {
+
   .scroll-image-panorama {
     .panorama-container {
+
       .panorama-track {
-        .panorama-item {
+    .panorama-item {
           .panorama-info {
             bottom: 120px;
 
             h3 {
               font-size: 1.8rem;
-            }
+            
+  opacity: 1 !important;}
 
             p {
               font-size: 1rem;
@@ -350,13 +357,17 @@ onUnmounted(() => {
         width: 40px;
         height: 40px;
         font-size: 1.2rem;
-      }
+      
+  opacity: 1 !important;
+  }
+
 
       .panorama-dots {
-        .dot {
+    .dot {
           width: 10px;
           height: 10px;
-        }
+        
+  opacity: 1 !important;}
       }
     }
   }

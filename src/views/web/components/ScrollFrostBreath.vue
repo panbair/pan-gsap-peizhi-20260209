@@ -183,18 +183,22 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
+/* GSAP opacity fix: ensure content is always visible */
+
 .frost-breath-container-208 {
   min-height: 100vh;
   background: linear-gradient(180deg, #0a1020 0%, #102030 100%);
   padding: 60px 20px;
   position: relative;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .fb-header-208 {
   text-align: center;
   margin-bottom: 60px;
-}
+
+  opacity: 1 !important;}
 
 .fb-title-208 {
   font-size: 48px;
@@ -205,12 +209,14 @@ onUnmounted(() => {
   background-clip: text;
   text-shadow: 0 0 40px rgba(200, 230, 255, 0.5);
   margin-bottom: 10px;
-}
+
+  opacity: 1 !important;}
 
 .fb-hint-208 {
   font-size: 18px;
   color: #cce6ff;
-}
+
+  opacity: 1 !important;}
 
 .fb-stage-208 {
   max-width: 1200px;
@@ -219,7 +225,8 @@ onUnmounted(() => {
   grid-template-columns: repeat(4, 1fr);
   gap: 40px;
   padding: 20px;
-}
+
+  opacity: 1 !important;}
 
 .fb-frost-wrapper-208 {
   height: 400px;
@@ -227,7 +234,8 @@ onUnmounted(() => {
   display: flex;
   justify-content: center;
   align-items: center;
-}
+
+  opacity: 1 !important;}
 
 .fb-frost-208 {
   position: relative;
@@ -238,7 +246,8 @@ onUnmounted(() => {
   border: 2px solid rgba(200, 230, 255, 0.3);
   overflow: hidden;
   transition: all 0.5s ease;
-}
+
+  opacity: 1 !important;}
 
 .fb-frost-208:hover {
   transform: translateY(-10px);
@@ -263,13 +272,15 @@ onUnmounted(() => {
   align-items: center;
   justify-content: center;
   text-align: center;
-}
+
+  opacity: 1 !important;}
 
 .fb-icon-208 {
   font-size: 72px;
   margin-bottom: 20px;
   filter: drop-shadow(0 0 20px rgba(200, 230, 255, 0.8));
-}
+
+  opacity: 1 !important;}
 
 .fb-frost-title-208 {
   font-size: 28px;
@@ -277,13 +288,15 @@ onUnmounted(() => {
   color: #ffffff;
   margin-bottom: 10px;
   text-shadow: 0 0 20px rgba(200, 230, 255, 0.5);
-}
+
+  opacity: 1 !important;}
 
 .fb-frost-desc-208 {
   font-size: 14px;
   color: #cce6ff;
   line-height: 1.6;
-}
+
+  opacity: 1 !important;}
 
 @media (max-width: 1024px) {
   .fb-stage-208 {
@@ -298,6 +311,7 @@ onUnmounted(() => {
 
   .fb-title-208 {
     font-size: 32px;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

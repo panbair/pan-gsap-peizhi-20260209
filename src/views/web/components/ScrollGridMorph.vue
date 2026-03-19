@@ -555,25 +555,30 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
+/* GSAP opacity fix: ensure content is always visible */
+
 .sgm-scroll-grid-morph-223 {
   min-height: 100vh;
   padding: 60px 20px;
   background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #0f172a 100%);
   position: relative;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .sgm-container-223 {
   max-width: 1400px;
   margin: 0 auto;
   position: relative;
   z-index: 10;
-}
+
+  opacity: 1 !important;}
 
 .sgm-header-223 {
   text-align: center;
   margin-bottom: 50px;
-}
+
+  opacity: 1 !important;}
 
 .sgm-title-223 {
   font-size: clamp(2.5rem, 5vw, 4rem);
@@ -584,18 +589,21 @@ onUnmounted(() => {
   background-clip: text;
   margin-bottom: 16px;
   text-shadow: 0 0 60px rgba(59, 130, 246, 0.4);
-}
+
+  opacity: 1 !important;}
 
 .sgm-subtitle-223 {
   font-size: 1.2rem;
   color: #94a3b8;
   letter-spacing: 0.1em;
-}
+
+  opacity: 1 !important;}
 
 .sgm-grid-area-223 {
   width: 100%;
   margin: 0 auto 40px;
-}
+
+  opacity: 1 !important;}
 
 .sgm-grid-container-223 {
   display: grid;
@@ -609,7 +617,8 @@ onUnmounted(() => {
   backdrop-filter: blur(10px);
   min-height: 500px;
   transition: all 0.5s ease;
-}
+
+  opacity: 1 !important;}
 
 .sgm-grid-item-223 {
   aspect-ratio: 1;
@@ -655,12 +664,14 @@ onUnmounted(() => {
   font-weight: 700;
   color: rgba(255, 255, 255, 0.9);
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-}
+
+  opacity: 1 !important;}
 
 .sgm-item-icon-223 {
   font-size: 2rem;
   filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.3));
-}
+
+  opacity: 1 !important;}
 
 .sgm-particles-223 {
   position: fixed;
@@ -670,7 +681,8 @@ onUnmounted(() => {
   height: 100%;
   pointer-events: none;
   z-index: 1;
-}
+
+  opacity: 1 !important;}
 
 .sgm-particle-223 {
   position: absolute;
@@ -680,16 +692,19 @@ onUnmounted(() => {
 @media (max-width: 768px) {
   .sgm-title-223 {
     font-size: 2rem;
-  }
+  
+  opacity: 1 !important;}
 
   .sgm-subtitle-223 {
     font-size: 1rem;
-  }
+  
+  opacity: 1 !important;}
 
   .sgm-grid-container-223 {
     grid-template-columns: repeat(2, 1fr) !important;
     grid-template-rows: auto !important;
     min-height: 400px;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

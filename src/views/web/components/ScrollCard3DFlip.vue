@@ -202,13 +202,15 @@ onUnmounted(() => {
   background: linear-gradient(180deg, #0a0a1a 0%, #1a1a3a 30%, #0f0f2a 60%, #1a1a3a 100%);
   position: relative;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .cf3d-container-134 {
   max-width: 1400px;
   margin: 0 auto;
   position: relative;
-}
+
+  opacity: 1 !important;}
 
 .cf3d-title-134 {
   text-align: center;
@@ -220,7 +222,8 @@ onUnmounted(() => {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   text-shadow: 0 0 80px rgba(168, 85, 247, 0.5);
-}
+
+  opacity: 1 !important;}
 
 .cf3d-subtitle-134 {
   text-align: center;
@@ -229,7 +232,8 @@ onUnmounted(() => {
   margin-bottom: 120px;
   letter-spacing: 0.3em;
   text-transform: uppercase;
-}
+
+  opacity: 1 !important;}
 
 .cf3d-stage-134 {
   position: relative;
@@ -240,14 +244,16 @@ onUnmounted(() => {
   gap: 40px;
   flex-wrap: wrap;
   perspective: 2000px;
-}
+
+  opacity: 1 !important;}
 
 .cf3d-card-134 {
   width: 300px;
   height: 400px;
   cursor: pointer;
   perspective: 1000px;
-}
+
+  opacity: 1 !important;}
 
 .cf3d-card-inner-134 {
   position: relative;
@@ -255,7 +261,8 @@ onUnmounted(() => {
   height: 100%;
   transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   transform-style: preserve-3d;
-}
+
+  opacity: 1 !important;}
 
 .cf3d-card-inner-134.flipped {
   transform: rotateY(180deg);
@@ -274,20 +281,23 @@ onUnmounted(() => {
   align-items: center;
   padding: 40px;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-}
+
+  opacity: 1 !important;}
 
 .cf3d-card-front-134 {
   background: linear-gradient(135deg, rgba(168, 85, 247, 0.2), rgba(59, 130, 246, 0.2));
   backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.1);
-}
+
+  opacity: 1 !important;}
 
 .cf3d-card-back-134 {
   background: linear-gradient(135deg, rgba(236, 72, 153, 0.2), rgba(168, 85, 247, 0.2));
   backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   transform: rotateY(180deg);
-}
+
+  opacity: 1 !important;}
 
 .cf3d-card-number-134 {
   position: absolute;
@@ -297,7 +307,8 @@ onUnmounted(() => {
   font-weight: 900;
   color: rgba(255, 255, 255, 0.1);
   font-family: monospace;
-}
+
+  opacity: 1 !important;}
 
 .cf3d-card-title-134 {
   font-size: 2rem;
@@ -305,7 +316,8 @@ onUnmounted(() => {
   color: #fff;
   margin-bottom: 10px;
   text-align: center;
-}
+
+  opacity: 1 !important;}
 
 .cf3d-card-desc-134 {
   font-size: 1rem;
@@ -313,12 +325,14 @@ onUnmounted(() => {
   text-transform: uppercase;
   letter-spacing: 0.2em;
   margin-bottom: 30px;
-}
+
+  opacity: 1 !important;}
 
 .cf3d-card-icon-134 {
   font-size: 4rem;
   filter: drop-shadow(0 0 20px rgba(168, 85, 247, 0.5));
-}
+
+  opacity: 1 !important;}
 
 .cf3d-card-back-title-134 {
   font-size: 1.5rem;
@@ -326,7 +340,8 @@ onUnmounted(() => {
   color: #fff;
   margin-bottom: 20px;
   text-align: center;
-}
+
+  opacity: 1 !important;}
 
 .cf3d-card-back-text-134 {
   font-size: 1rem;
@@ -334,12 +349,14 @@ onUnmounted(() => {
   text-align: center;
   line-height: 1.8;
   margin-bottom: 30px;
-}
+
+  opacity: 1 !important;}
 
 .cf3d-card-back-icon-134 {
   font-size: 3rem;
   animation: sparkle 2s ease-in-out infinite;
-}
+
+  opacity: 1 !important;}
 
 @keyframes sparkle {
   0%, 100% {
@@ -359,25 +376,30 @@ onUnmounted(() => {
   letter-spacing: 0.2em;
   text-transform: uppercase;
   margin-top: 60px;
-}
+
+  opacity: 1 !important;}
 
 @media (max-width: 768px) {
   .cf3d-stage-134 {
     gap: 30px;
     min-height: 600px;
-  }
+  
+  opacity: 1 !important;}
 
   .cf3d-card-134 {
     width: 260px;
     height: 350px;
-  }
+  
+  opacity: 1 !important;}
 
   .cf3d-card-title-134 {
     font-size: 1.5rem;
-  }
+  
+  opacity: 1 !important;}
 
   .cf3d-card-icon-134 {
     font-size: 3rem;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

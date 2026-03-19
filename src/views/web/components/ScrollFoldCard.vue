@@ -224,7 +224,8 @@ onUnmounted(() => {
       radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.08) 0%, transparent 60%);
     pointer-events: none;
     animation: bg-pulse 10s ease-in-out infinite;
-  }
+  
+  opacity: 1 !important;}
 }
 
 @keyframes bg-pulse {
@@ -241,7 +242,8 @@ onUnmounted(() => {
   margin: 0 auto;
   position: relative;
   z-index: 1;
-}
+
+  opacity: 1 !important;}
 
 .sfc-section-title-132 {
   text-align: center;
@@ -254,7 +256,8 @@ onUnmounted(() => {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   text-shadow: 0 0 80px rgba(168, 85, 247, 0.5);
-}
+
+  opacity: 1 !important;}
 
 .sfc-section-subtitle-132 {
   text-align: center;
@@ -263,7 +266,8 @@ onUnmounted(() => {
   margin-bottom: 120px;
   letter-spacing: 0.3em;
   text-transform: uppercase;
-}
+
+  opacity: 1 !important;}
 
 .sfc-cards-container-132 {
   display: grid;
@@ -271,21 +275,24 @@ onUnmounted(() => {
   gap: 50px;
   perspective: 2000px;
   padding: 80px 0;
-}
+
+  opacity: 1 !important;}
 
 .sfc-card-wrapper-132 {
   position: relative;
   height: 420px;
   transform-style: preserve-3d;
   cursor: pointer;
-}
+
+  opacity: 1 !important;}
 
 .sfc-card-132 {
   width: 100%;
   height: 100%;
   position: relative;
   transform-style: preserve-3d;
-}
+
+  opacity: 1 !important;}
 
 .sfc-card-inner-132 {
   width: 100%;
@@ -293,7 +300,8 @@ onUnmounted(() => {
   position: relative;
   transform-style: preserve-3d;
   transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1);
-}
+
+  opacity: 1 !important;}
 
 .sfc-card-front-132,
 .sfc-card-back-132 {
@@ -306,7 +314,8 @@ onUnmounted(() => {
   border-radius: 20px;
   overflow: hidden;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
-}
+
+  opacity: 1 !important;}
 
 .sfc-card-front-132 {
   img {
@@ -315,7 +324,8 @@ onUnmounted(() => {
     object-fit: cover;
     filter: brightness(0.9) contrast(110%);
     transition: filter 0.3s ease;
-  }
+  
+  opacity: 1 !important;}
 
   &:hover img {
     filter: brightness(1) contrast(120%);
@@ -335,7 +345,8 @@ onUnmounted(() => {
     font-size: 1.8rem;
     font-weight: 700;
     text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-  }
+  
+  opacity: 1 !important;}
 }
 
 .sfc-card-back-132 {
@@ -357,7 +368,8 @@ onUnmounted(() => {
       radial-gradient(circle at 30% 30%, rgba(236, 72, 153, 0.1) 0%, transparent 50%),
       radial-gradient(circle at 70% 70%, rgba(168, 85, 247, 0.1) 0%, transparent 50%);
     pointer-events: none;
-  }
+  
+  opacity: 1 !important;}
 }
 
 .sfc-back-content-132 {
@@ -373,7 +385,8 @@ onUnmounted(() => {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-  }
+  
+  opacity: 1 !important;}
 
   p {
     font-size: 1rem;
@@ -398,7 +411,8 @@ onUnmounted(() => {
   &:hover {
     transform: translateY(-2px);
     box-shadow: 0 8px 30px rgba(236, 72, 153, 0.5);
-  }
+  
+  opacity: 1 !important;}
 }
 
 @media (max-width: 768px) {
@@ -409,7 +423,8 @@ onUnmounted(() => {
 
   .sfc-card-wrapper-132 {
     height: 350px;
-  }
+  
+  opacity: 1 !important;}
 
   .sfc-section-title-132 {
     margin-bottom: 80px;
@@ -418,6 +433,7 @@ onUnmounted(() => {
   .sfc-section-subtitle-132 {
     margin-bottom: 80px;
     font-size: 0.9rem;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

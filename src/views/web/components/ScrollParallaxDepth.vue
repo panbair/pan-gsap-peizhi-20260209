@@ -182,6 +182,8 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
+/* GSAP opacity fix: ensure content is always visible */
+
 .pd-container-174 {
   width: 100%;
   min-height: 100vh;
@@ -191,7 +193,8 @@ onUnmounted(() => {
   flex-direction: column;
   align-items: center;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .pd-title-174 {
   font-size: clamp(2rem, 5vw, 3.5rem);
@@ -204,7 +207,8 @@ onUnmounted(() => {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   animation: shimmer 3s linear infinite;
-}
+
+  opacity: 1 !important;}
 
 @keyframes shimmer {
   to { background-position: 200% center; }
@@ -215,7 +219,8 @@ onUnmounted(() => {
   color: rgba(255, 255, 255, 0.7);
   margin-bottom: 40px;
   text-align: center;
-}
+
+  opacity: 1 !important;}
 
 .pd-stage-174 {
   width: 100%;
@@ -226,7 +231,8 @@ onUnmounted(() => {
   justify-content: center;
   align-items: center;
   perspective: 1000px;
-}
+
+  opacity: 1 !important;}
 
 .pd-layer-174 {
   position: absolute;
@@ -236,7 +242,8 @@ onUnmounted(() => {
   justify-content: center;
   align-items: center;
   will-change: transform, opacity;
-}
+
+  opacity: 1 !important;}
 
 .pd-shape-174 {
   position: absolute;
@@ -251,7 +258,8 @@ onUnmounted(() => {
   top: 15%;
   left: 20%;
   box-shadow: 0 10px 30px rgba(0, 210, 255, 0.2);
-}
+
+  opacity: 1 !important;}
 
 .pd-shape-back-2-174 {
   width: 80px;
@@ -260,7 +268,8 @@ onUnmounted(() => {
   bottom: 20%;
   right: 25%;
   box-shadow: 0 10px 30px rgba(255, 105, 180, 0.2);
-}
+
+  opacity: 1 !important;}
 
 .pd-shape-mid-1-174 {
   width: 100px;
@@ -269,7 +278,8 @@ onUnmounted(() => {
   top: 25%;
   right: 15%;
   box-shadow: 0 10px 30px rgba(0, 255, 136, 0.3);
-}
+
+  opacity: 1 !important;}
 
 .pd-shape-mid-2-174 {
   width: 60px;
@@ -278,7 +288,8 @@ onUnmounted(() => {
   top: 55%;
   left: 15%;
   box-shadow: 0 10px 30px rgba(255, 193, 7, 0.3);
-}
+
+  opacity: 1 !important;}
 
 .pd-shape-mid-3-174 {
   width: 90px;
@@ -287,7 +298,8 @@ onUnmounted(() => {
   bottom: 15%;
   left: 35%;
   box-shadow: 0 10px 30px rgba(156, 39, 176, 0.3);
-}
+
+  opacity: 1 !important;}
 
 .pd-shape-front-1-174 {
   width: 70px;
@@ -296,7 +308,8 @@ onUnmounted(() => {
   top: 40%;
   right: 10%;
   box-shadow: 0 10px 30px rgba(233, 30, 99, 0.4);
-}
+
+  opacity: 1 !important;}
 
 .pd-shape-front-2-174 {
   width: 50px;
@@ -305,7 +318,8 @@ onUnmounted(() => {
   top: 65%;
   right: 20%;
   box-shadow: 0 10px 30px rgba(0, 150, 136, 0.4);
-}
+
+  opacity: 1 !important;}
 
 .pd-shape-front-3-174 {
   width: 55px;
@@ -314,7 +328,8 @@ onUnmounted(() => {
   top: 30%;
   left: 30%;
   box-shadow: 0 10px 30px rgba(255, 87, 34, 0.4);
-}
+
+  opacity: 1 !important;}
 
 .pd-shape-front-4-174 {
   width: 65px;
@@ -323,7 +338,8 @@ onUnmounted(() => {
   bottom: 35%;
   right: 35%;
   box-shadow: 0 10px 30px rgba(63, 81, 181, 0.4);
-}
+
+  opacity: 1 !important;}
 
 .pd-center-174 {
   position: relative;
@@ -343,7 +359,8 @@ onUnmounted(() => {
     0 0 100px rgba(58, 123, 213, 0.4),
     inset 0 0 30px rgba(255, 255, 255, 0.3);
   will-change: transform;
-}
+
+  opacity: 1 !important;}
 
 .pd-ring-174 {
   position: absolute;
@@ -353,29 +370,34 @@ onUnmounted(() => {
   border: 3px solid rgba(0, 210, 255, 0.5);
   box-shadow: 0 0 40px rgba(0, 210, 255, 0.3);
   will-change: transform;
-}
+
+  opacity: 1 !important;}
 
 .pd-hint-174 {
   margin-top: 30px;
   font-size: 0.9rem;
   color: rgba(255, 255, 255, 0.5);
   text-align: center;
-}
+
+  opacity: 1 !important;}
 
 @media (max-width: 768px) {
   .pd-stage-174 {
     height: 500px;
-  }
+  
+  opacity: 1 !important;}
   
   .pd-circle-174 {
     width: 100px;
     height: 100px;
-  }
+  
+  opacity: 1 !important;}
   
   .pd-ring-174 {
     width: 140px;
     height: 140px;
-  }
+  
+  opacity: 1 !important;}
   
   .pd-shape-174 {
     transform: scale(0.7);

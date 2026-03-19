@@ -376,14 +376,16 @@ onUnmounted(() => {
   background: linear-gradient(135deg, #0a0a1a 0%, #1a1a3a 50%, #0a0a2a 100%);
   position: relative;
   overflow: visible;
-}
+
+  opacity: 1 !important;}
 
 .sir-container-227 {
   max-width: 1400px;
   margin: 0 auto;
   position: relative;
   z-index: 1;
-}
+
+  opacity: 1 !important;}
 
 .sir-title-227 {
   font-size: 3rem;
@@ -396,7 +398,8 @@ onUnmounted(() => {
   background-clip: text;
   background-size: 300% 300%;
   animation: sir-gradient-shift-227 8s ease infinite;
-}
+
+  opacity: 1 !important;}
 
 @keyframes sir-gradient-shift-227 {
   0%, 100% { background-position: 0% 50%; }
@@ -410,7 +413,8 @@ onUnmounted(() => {
   margin-bottom: 40px;
   letter-spacing: 3px;
   text-transform: uppercase;
-}
+
+  opacity: 1 !important;}
 
 .sir-control-panel-227 {
   display: flex;
@@ -423,7 +427,8 @@ onUnmounted(() => {
   border-radius: 16px;
   border: 1px solid rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
-}
+
+  opacity: 1 !important;}
 
 .sir-control-group-227 {
   display: flex;
@@ -436,7 +441,8 @@ onUnmounted(() => {
   font-size: 14px;
   font-weight: 500;
   white-space: nowrap;
-}
+
+  opacity: 1 !important;}
 
 .sir-slider-227 {
   width: 120px;
@@ -454,7 +460,8 @@ onUnmounted(() => {
     border-radius: 50%;
     cursor: pointer;
     box-shadow: 0 2px 10px rgba(255, 107, 107, 0.5);
-  }
+  
+  opacity: 1 !important;}
 }
 
 .sir-value-227 {
@@ -462,7 +469,8 @@ onUnmounted(() => {
   font-size: 14px;
   font-weight: 600;
   min-width: 50px;
-}
+
+  opacity: 1 !important;}
 
 .sir-mode-buttons-227 {
   display: flex;
@@ -482,14 +490,16 @@ onUnmounted(() => {
   &:hover {
     background: rgba(255, 255, 255, 0.2);
     border-color: rgba(78, 205, 196, 0.5);
-  }
+  
+  opacity: 1 !important;}
 
   &.sir-active-227 {
     background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
     border-color: transparent;
     color: white;
     font-weight: 600;
-  }
+  
+  opacity: 1 !important;}
 }
 
 .sir-spectrum-gallery-227 {
@@ -510,14 +520,16 @@ onUnmounted(() => {
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
   background: rgba(0, 0, 0, 0.3);
   transform-style: preserve-3d;
-}
+
+  opacity: 1 !important;}
 
 .sir-image-layers-227 {
   position: relative;
   overflow: hidden;
   min-height: 400px;
   background: linear-gradient(135deg, #1a1a3a 0%, #0a0a2a 100%);
-}
+
+  opacity: 1 !important;}
 
 .sir-fallback-bg-227 {
   position: absolute;
@@ -527,7 +539,8 @@ onUnmounted(() => {
   height: 100%;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   z-index: 0;
-}
+
+  opacity: 1 !important;}
 
 .sir-base-image-227 {
   width: 100%;
@@ -538,7 +551,8 @@ onUnmounted(() => {
   min-width: 100%;
   position: relative;
   z-index: 1;
-}
+
+  opacity: 1 !important;}
 
 .sir-spectrum-scan-227 {
   position: absolute;
@@ -563,7 +577,8 @@ onUnmounted(() => {
     rgba(255, 0, 0, 0) 100%
   );
   filter: blur(20px);
-}
+
+  opacity: 1 !important;}
 
 .sir-spectrum-rgb-227 {
   position: absolute;
@@ -573,7 +588,8 @@ onUnmounted(() => {
   height: 100%;
   z-index: 1;
   pointer-events: none;
-}
+
+  opacity: 1 !important;}
 
 .sir-channel-227 {
   position: absolute;
@@ -582,22 +598,26 @@ onUnmounted(() => {
   width: 100%;
   height: 100%;
   mix-blend-mode: screen;
-}
+
+  opacity: 1 !important;}
 
 .sir-red-227 {
   background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg"><rect width="100%" height="100%" fill="rgba(255, 0, 0, 0.1)"/></svg>');
   transform: translateX(2px);
-}
+
+  opacity: 1 !important;}
 
 .sir-green-227 {
   background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg"><rect width="100%" height="100%" fill="rgba(0, 255, 0, 0.1)"/></svg>');
   transform: translateX(-2px);
-}
+
+  opacity: 1 !important;}
 
 .sir-rgb-227 {
   background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg"><rect width="100%" height="100%" fill="rgba(0, 0, 255, 0.2)"/></svg>');
   transform: translateY(0);
-}
+
+  opacity: 1 !important;}
 
 .sir-overlay-227 {
   position: absolute;
@@ -607,7 +627,8 @@ onUnmounted(() => {
   padding: 30px;
   background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
   z-index: 10;
-}
+
+  opacity: 1 !important;}
 
 .sir-content-227 {
   transform: translateZ(30px);
@@ -619,14 +640,16 @@ onUnmounted(() => {
   color: white;
   margin-bottom: 10px;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-}
+
+  opacity: 1 !important;}
 
 .sir-card-desc-227 {
   font-size: 1rem;
   color: #94a3b8;
   margin-bottom: 20px;
   line-height: 1.6;
-}
+
+  opacity: 1 !important;}
 
 .sir-scanner-227 {
   position: relative;
@@ -634,7 +657,8 @@ onUnmounted(() => {
   background: rgba(255, 255, 255, 0.1);
   border-radius: 4px;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .sir-scan-line-227 {
   position: absolute;
@@ -645,7 +669,8 @@ onUnmounted(() => {
   background: linear-gradient(90deg, transparent, #4ecdc4, transparent);
   transform: translateY(-50%);
   animation: sir-scan-227 2s ease-in-out infinite;
-}
+
+  opacity: 1 !important;}
 
 @keyframes sir-scan-227 {
   0%, 100% { transform: translateY(-50%) translateX(-100%); }
@@ -665,7 +690,8 @@ onUnmounted(() => {
     rgba(78, 205, 196, 0.5) 10px,
     rgba(78, 205, 196, 0.5) 20px
   );
-}
+
+  opacity: 1 !important;}
 
 .sir-live-scanner-227 {
   display: flex;
@@ -677,7 +703,8 @@ onUnmounted(() => {
   border-radius: 12px;
   border: 1px solid rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
-}
+
+  opacity: 1 !important;}
 
 .sir-scanner-frame-227 {
   width: 300px;
@@ -686,7 +713,8 @@ onUnmounted(() => {
   border-radius: 10px;
   overflow: hidden;
   position: relative;
-}
+
+  opacity: 1 !important;}
 
 .sir-scan-bar-227 {
   position: absolute;
@@ -697,7 +725,8 @@ onUnmounted(() => {
   background: linear-gradient(90deg, #ff6b6b, #4ecdc4);
   border-radius: 10px;
   box-shadow: 0 0 20px rgba(78, 205, 196, 0.5);
-}
+
+  opacity: 1 !important;}
 
 .sir-spectrum-display-227 {
   position: absolute;
@@ -708,13 +737,15 @@ onUnmounted(() => {
   gap: 5px;
   width: 20px;
   height: 12px;
-}
+
+  opacity: 1 !important;}
 
 .sir-color-bar-227 {
   flex: 1;
   border-radius: 2px;
 
-  &:nth-child(1) { background: #ff6b6b; }
+  &:nth-child(1) { background: #ff6b6b; 
+  opacity: 1 !important;}
   &:nth-child(2) { background: #4ecdc4; }
   &:nth-child(3) { background: #45b7d1; }
 }
@@ -724,25 +755,29 @@ onUnmounted(() => {
   flex-direction: column;
   gap: 5px;
   min-width: 200px;
-}
+
+  opacity: 1 !important;}
 
 .sir-info-label-227 {
   font-size: 12px;
   color: #64748b;
   text-transform: uppercase;
   letter-spacing: 1px;
-}
+
+  opacity: 1 !important;}
 
 .sir-info-value-227 {
   font-size: 16px;
   font-weight: 600;
   color: #4ecdc4;
-}
+
+  opacity: 1 !important;}
 
 @media (max-width: 768px) {
   .sir-title-227 {
     font-size: 2rem;
-  }
+  
+  opacity: 1 !important;}
 
   .sir-spectrum-gallery-227 {
     grid-template-columns: 1fr;

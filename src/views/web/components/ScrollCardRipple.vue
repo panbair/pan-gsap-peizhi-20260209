@@ -263,25 +263,30 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
+/* GSAP opacity fix: ensure content is always visible */
+
 .card-ripple-wrapper-210 {
   position: relative;
   min-height: 100vh;
   background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
   overflow: hidden;
   padding: 60px 20px;
-}
+
+  opacity: 1 !important;}
 
 .cr-container-210 {
   position: relative;
   max-width: 1400px;
   margin: 0 auto;
   z-index: 10;
-}
+
+  opacity: 1 !important;}
 
 .cr-header-210 {
   text-align: center;
   margin-bottom: 60px;
-}
+
+  opacity: 1 !important;}
 
 .cr-title-210 {
   font-size: 3rem;
@@ -291,12 +296,14 @@ onUnmounted(() => {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   margin-bottom: 16px;
-}
+
+  opacity: 1 !important;}
 
 .cr-subtitle-210 {
   font-size: 1.2rem;
   color: #94a3b8;
-}
+
+  opacity: 1 !important;}
 
 .cr-cards-210 {
   display: grid;
@@ -315,7 +322,8 @@ onUnmounted(() => {
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   transition: border-color 0.3s;
-}
+
+  opacity: 1 !important;}
 
 .cr-card-210:hover {
   border-color: rgba(59, 130, 246, 0.5);
@@ -336,7 +344,8 @@ onUnmounted(() => {
   );
   pointer-events: none;
   border-radius: 50%;
-}
+
+  opacity: 1 !important;}
 
 .cr-card-inner-210 {
   position: relative;
@@ -353,21 +362,24 @@ onUnmounted(() => {
   justify-content: center;
   font-size: 2.5rem;
   margin-bottom: 20px;
-}
+
+  opacity: 1 !important;}
 
 .cr-card-title-210 {
   font-size: 1.8rem;
   font-weight: 700;
   color: #fff;
   margin-bottom: 10px;
-}
+
+  opacity: 1 !important;}
 
 .cr-card-desc-210 {
   font-size: 1rem;
   color: #94a3b8;
   margin-bottom: 20px;
   line-height: 1.6;
-}
+
+  opacity: 1 !important;}
 
 .cr-card-stats-210 {
   display: flex;
@@ -386,14 +398,16 @@ onUnmounted(() => {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-}
+
+  opacity: 1 !important;}
 
 .cr-stat-label-210 {
   font-size: 0.9rem;
   color: #64748b;
   text-transform: uppercase;
   letter-spacing: 1px;
-}
+
+  opacity: 1 !important;}
 
 .cr-controls-210 {
   display: flex;
@@ -412,7 +426,8 @@ onUnmounted(() => {
   font-weight: 600;
   cursor: pointer;
   transition: transform 0.3s, box-shadow 0.3s;
-}
+
+  opacity: 1 !important;}
 
 .cr-control-btn-210:hover {
   transform: translateY(-3px);
@@ -425,14 +440,16 @@ onUnmounted(() => {
   background: rgba(255, 255, 255, 0.1);
   border-radius: 2px;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .cr-progress-bar-210 {
   width: 0;
   height: 100%;
   background: linear-gradient(90deg, #3b82f6 0%, #06b6d4 100%);
   border-radius: 2px;
-}
+
+  opacity: 1 !important;}
 
 .cr-particles-210 {
   position: fixed;
@@ -442,7 +459,8 @@ onUnmounted(() => {
   height: 100%;
   pointer-events: none;
   z-index: 1;
-}
+
+  opacity: 1 !important;}
 
 .cr-particle-210 {
   position: absolute;
@@ -451,7 +469,8 @@ onUnmounted(() => {
 @media (max-width: 768px) {
   .cr-title-210 {
     font-size: 2rem;
-  }
+  
+  opacity: 1 !important;}
 
   .cr-cards-210 {
     grid-template-columns: 1fr;

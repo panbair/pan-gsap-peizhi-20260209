@@ -376,7 +376,8 @@ watch([flowSpeed, waveAmplitude, distortIntensity], () => {
   padding: 60px 20px;
   position: relative;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .sli-section-230::before {
   content: '';
@@ -396,7 +397,8 @@ watch([flowSpeed, waveAmplitude, distortIntensity], () => {
   margin: 0 auto;
   position: relative;
   z-index: 1;
-}
+
+  opacity: 1 !important;}
 
 .sli-title-230 {
   font-size: 3rem;
@@ -407,14 +409,16 @@ watch([flowSpeed, waveAmplitude, distortIntensity], () => {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   text-align: center;
-}
+
+  opacity: 1 !important;}
 
 .sli-subtitle-230 {
   font-size: 1.2rem;
   color: #94a3b8;
   text-align: center;
   margin-bottom: 40px;
-}
+
+  opacity: 1 !important;}
 
 .sli-control-panel-230 {
   display: flex;
@@ -427,20 +431,23 @@ watch([flowSpeed, waveAmplitude, distortIntensity], () => {
   border-radius: 16px;
   border: 1px solid rgba(255, 255, 255, 0.1);
   margin-bottom: 40px;
-}
+
+  opacity: 1 !important;}
 
 .sli-control-group-230 {
   display: flex;
   flex-direction: column;
   gap: 10px;
   min-width: 200px;
-}
+
+  opacity: 1 !important;}
 
 .sli-label-230 {
   font-size: 14px;
   color: #94a3b8;
   font-weight: 500;
-}
+
+  opacity: 1 !important;}
 
 .sli-slider-230 {
   width: 100%;
@@ -461,7 +468,8 @@ watch([flowSpeed, waveAmplitude, distortIntensity], () => {
 
     &:hover {
       transform: scale(1.2);
-    }
+    
+  opacity: 1 !important;}
   }
 }
 
@@ -469,7 +477,8 @@ watch([flowSpeed, waveAmplitude, distortIntensity], () => {
   font-size: 13px;
   color: #60a5fa;
   font-weight: 600;
-}
+
+  opacity: 1 !important;}
 
 .sli-liquid-gallery-230 {
   display: grid;
@@ -490,7 +499,8 @@ watch([flowSpeed, waveAmplitude, distortIntensity], () => {
   &.sli-active-230 {
     border-color: #60a5fa;
     box-shadow: 0 0 30px rgba(96, 165, 250, 0.3);
-  }
+  
+  opacity: 1 !important;}
 
   &:hover {
     transform: translateY(-5px);
@@ -504,13 +514,15 @@ watch([flowSpeed, waveAmplitude, distortIntensity], () => {
   height: 250px;
   overflow: hidden;
   background: rgba(0, 0, 0, 0.3);
-}
+
+  opacity: 1 !important;}
 
 .sli-liquid-canvas-230 {
   width: 100%;
   height: 100%;
   object-fit: cover;
-}
+
+  opacity: 1 !important;}
 
 .sli-wave-overlay-230 {
   position: absolute;
@@ -535,7 +547,8 @@ watch([flowSpeed, waveAmplitude, distortIntensity], () => {
   border-radius: 20px;
   filter: blur(20px);
   mix-blend-mode: screen;
-}
+
+  opacity: 1 !important;}
 
 .sli-droplet-230 {
   position: absolute;
@@ -544,25 +557,29 @@ watch([flowSpeed, waveAmplitude, distortIntensity], () => {
   background: radial-gradient(circle, rgba(96, 165, 250, 0.6) 0%, transparent 70%);
   border-radius: 50%;
   pointer-events: none;
-}
+
+  opacity: 1 !important;}
 
 .sli-image-info-230 {
   padding: 20px;
   background: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(10px);
-}
+
+  opacity: 1 !important;}
 
 .sli-image-title-230 {
   font-size: 1.2rem;
   font-weight: 600;
   color: #e2e8f0;
   margin-bottom: 5px;
-}
+
+  opacity: 1 !important;}
 
 .sli-image-desc-230 {
   font-size: 0.9rem;
   color: #94a3b8;
-}
+
+  opacity: 1 !important;}
 
 .sli-liquid-controls-230 {
   display: flex;
@@ -587,12 +604,14 @@ watch([flowSpeed, waveAmplitude, distortIntensity], () => {
     background: rgba(96, 165, 250, 0.3);
     transform: translateY(-2px);
     box-shadow: 0 4px 20px rgba(96, 165, 250, 0.4);
-  }
+  
+  opacity: 1 !important;}
 
   &.sli-active-230 {
     background: linear-gradient(135deg, #60a5fa, #22d3ee);
     border-color: transparent;
-  }
+  
+  opacity: 1 !important;}
 }
 
 .sli-flow-indicator-230 {
@@ -602,7 +621,8 @@ watch([flowSpeed, waveAmplitude, distortIntensity], () => {
   backdrop-filter: blur(10px);
   border-radius: 16px;
   border: 1px solid rgba(255, 255, 255, 0.1);
-}
+
+  opacity: 1 !important;}
 
 .sli-flow-bar-230 {
   height: 6px;
@@ -610,19 +630,22 @@ watch([flowSpeed, waveAmplitude, distortIntensity], () => {
   border-radius: 3px;
   overflow: hidden;
   margin-bottom: 10px;
-}
+
+  opacity: 1 !important;}
 
 .sli-flow-fill-230 {
   height: 100%;
   background: linear-gradient(90deg, #60a5fa, #22d3ee, #60a5fa);
   background-size: 200% 100%;
   animation: flowGradient 2s linear infinite;
-}
+
+  opacity: 1 !important;}
 
 .sli-flow-text-230 {
   font-size: 13px;
   color: #94a3b8;
-}
+
+  opacity: 1 !important;}
 
 @keyframes flowGradient {
   0% { background-position: 0% 50%; }

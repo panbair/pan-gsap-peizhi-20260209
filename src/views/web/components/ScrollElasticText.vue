@@ -284,14 +284,16 @@ onUnmounted(() => {
   background: linear-gradient(180deg, #0a1a2a 0%, #1a2a4a 50%, #0a1a2a 100%);
   position: relative;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .set-container-173 {
   position: relative;
   max-width: 1400px;
   margin: 0 auto;
   z-index: 1;
-}
+
+  opacity: 1 !important;}
 
 .set-title-173 {
   text-align: center;
@@ -302,7 +304,8 @@ onUnmounted(() => {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-}
+
+  opacity: 1 !important;}
 
 .set-subtitle-173 {
   text-align: center;
@@ -311,7 +314,8 @@ onUnmounted(() => {
   margin-bottom: 120px;
   letter-spacing: 0.5em;
   text-transform: uppercase;
-}
+
+  opacity: 1 !important;}
 
 .set-text-stage-173 {
   position: relative;
@@ -321,7 +325,8 @@ onUnmounted(() => {
   align-items: center;
   justify-content: center;
   gap: 80px;
-}
+
+  opacity: 1 !important;}
 
 .set-text-container-173 {
   display: flex;
@@ -344,7 +349,8 @@ onUnmounted(() => {
   gap: 0.05em;
   font-size: clamp(4rem, 10vw, 7rem);
   font-weight: 900;
-}
+
+  opacity: 1 !important;}
 
 .set-letter-173 {
   position: relative;
@@ -353,7 +359,8 @@ onUnmounted(() => {
   text-transform: uppercase;
   text-shadow: 0 0 20px rgba(6, 182, 212, 0.5);
   transition: all 0.3s ease;
-}
+
+  opacity: 1 !important;}
 
 .set-elastic-bands-173 {
   position: absolute;
@@ -363,7 +370,8 @@ onUnmounted(() => {
   height: 100%;
   pointer-events: none;
   z-index: 0;
-}
+
+  opacity: 1 !important;}
 
 .set-elastic-band-173 {
   position: absolute;
@@ -371,7 +379,8 @@ onUnmounted(() => {
   height: 3px;
   background: linear-gradient(90deg, transparent, rgba(6, 182, 212, 0.2), rgba(59, 130, 246, 0.2), transparent);
   transform-origin: center;
-}
+
+  opacity: 1 !important;}
 
 @for $i from 1 through 5 {
   .set-elastic-band-173:nth-child(#{$i}) {
@@ -387,7 +396,8 @@ onUnmounted(() => {
   height: 100%;
   pointer-events: none;
   z-index: 0;
-}
+
+  opacity: 1 !important;}
 
 .set-bounce-particle-173 {
   position: absolute;
@@ -395,7 +405,8 @@ onUnmounted(() => {
   height: 8px;
   background: radial-gradient(circle, rgba(6, 182, 212, 0.8) 0%, rgba(59, 130, 246, 0.3) 70%, transparent 100%);
   border-radius: 50%;
-}
+
+  opacity: 1 !important;}
 
 @for $i from 1 through 20 {
   .set-bounce-particle-173:nth-child(#{$i}) {
@@ -418,7 +429,8 @@ onUnmounted(() => {
   height: 30%;
   pointer-events: none;
   z-index: 0;
-}
+
+  opacity: 1 !important;}
 
 .set-spring-line-173 {
   position: absolute;
@@ -426,7 +438,8 @@ onUnmounted(() => {
   height: 100%;
   background: linear-gradient(180deg, transparent, rgba(6, 182, 212, 0.1), rgba(59, 130, 246, 0.1), transparent);
   animation: springLinePulse-173 2s ease-in-out infinite;
-}
+
+  opacity: 1 !important;}
 
 @for $i from 1 through 10 {
   .set-spring-line-173:nth-child(#{$i}) {
@@ -443,7 +456,8 @@ onUnmounted(() => {
 @media (max-width: 768px) {
   .set-letters-173 {
     font-size: 3rem;
-  }
+  
+  opacity: 1 !important;}
 
   .set-text-container-173 {
     gap: 60px;

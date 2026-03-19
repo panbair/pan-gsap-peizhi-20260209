@@ -227,7 +227,8 @@ onUnmounted(() => {
       radial-gradient(circle at 50% 50%, rgba(167, 139, 250, 0.08) 0%, transparent 50%),
       radial-gradient(circle at 20% 80%, rgba(96, 165, 250, 0.05) 0%, transparent 50%);
     pointer-events: none;
-  }
+  
+  opacity: 1 !important;}
 }
 
 .scf-container-120 {
@@ -236,7 +237,8 @@ onUnmounted(() => {
   padding: 0 40px;
   position: relative;
   z-index: 1;
-}
+
+  opacity: 1 !important;}
 
 .scf-section-title-120 {
   text-align: center;
@@ -258,7 +260,8 @@ onUnmounted(() => {
     background: linear-gradient(90deg, #60a5fa, #a78bfa, #f472b6);
     margin: 24px auto 0;
     border-radius: 2px;
-  }
+  
+  opacity: 1 !important;}
 }
 
 .scf-cards-grid-120 {
@@ -266,7 +269,8 @@ onUnmounted(() => {
   grid-template-columns: repeat(4, 1fr);
   gap: 30px;
   padding: 40px 0;
-}
+
+  opacity: 1 !important;}
 
 .scf-card-120 {
   position: relative;
@@ -298,25 +302,29 @@ onUnmounted(() => {
   align-items: center;
   text-align: center;
   gap: 16px;
-}
+
+  opacity: 1 !important;}
 
 .scf-card-icon-120 {
   font-size: 4rem;
   line-height: 1;
   transition: all 0.3s ease;
-}
+
+  opacity: 1 !important;}
 
 .scf-card-title-120 {
   font-size: 1.5rem;
   font-weight: 700;
   color: #fff;
-}
+
+  opacity: 1 !important;}
 
 .scf-card-desc-120 {
   font-size: 0.95rem;
   color: #94a3b8;
   line-height: 1.6;
-}
+
+  opacity: 1 !important;}
 
 .scf-card-progress-120 {
   width: 100%;
@@ -325,14 +333,16 @@ onUnmounted(() => {
   border-radius: 2px;
   margin-top: 12px;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .scf-progress-bar-120 {
   height: 100%;
   background: linear-gradient(90deg, #60a5fa, #a78bfa, #f472b6);
   border-radius: 2px;
   width: 0;
-}
+
+  opacity: 1 !important;}
 
 .scf-particles-120 {
   position: absolute;
@@ -351,7 +361,8 @@ onUnmounted(() => {
   background: rgba(167, 139, 250, 0.4);
   border-radius: 50%;
   animation: float-120 4s ease-in-out infinite;
-}
+
+  opacity: 1 !important;}
 
 @keyframes float-120 {
   0%, 100% {
@@ -379,7 +390,8 @@ onUnmounted(() => {
 
   .scf-card-120 {
     padding: 40px 24px;
-  }
+  
+  opacity: 1 !important;}
 
   .scf-section-title-120 {
     margin-bottom: 80px;

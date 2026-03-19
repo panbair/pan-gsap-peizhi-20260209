@@ -259,13 +259,16 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
+/* GSAP opacity fix: ensure content is always visible */
+
 .card-rotate-3d-wrapper-199 {
   position: relative;
   width: 100%;
   min-height: 100vh;
   background: radial-gradient(ellipse at center, #1a1a2e 0%, #0f0f1a 100%);
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .cr3d-stage-199 {
   position: relative;
@@ -276,7 +279,8 @@ onUnmounted(() => {
   justify-content: center;
   padding: 60px 20px;
   perspective: 2000px;
-}
+
+  opacity: 1 !important;}
 
 .cr3d-particles-199 {
   position: absolute;
@@ -295,14 +299,16 @@ onUnmounted(() => {
   background: rgba(100, 200, 255, 0.6);
   border-radius: 50%;
   box-shadow: 0 0 10px rgba(100, 200, 255, 0.8);
-}
+
+  opacity: 1 !important;}
 
 .cr3d-container-199 {
   position: relative;
   text-align: center;
   z-index: 10;
   max-width: 1200px;
-}
+
+  opacity: 1 !important;}
 
 .cr3d-title-199 {
   font-size: 3rem;
@@ -312,7 +318,8 @@ onUnmounted(() => {
   color: #ffffff;
   text-shadow: 0 0 30px rgba(100, 200, 255, 0.5);
   transform-style: preserve-3d;
-}
+
+  opacity: 1 !important;}
 
 .cr3d-subtitle-199 {
   font-size: 1.2rem;
@@ -320,7 +327,8 @@ onUnmounted(() => {
   letter-spacing: 2px;
   margin-bottom: 60px;
   text-transform: uppercase;
-}
+
+  opacity: 1 !important;}
 
 .cr3d-cards-scene-199 {
   display: flex;
@@ -330,7 +338,8 @@ onUnmounted(() => {
   padding: 60px 20px;
   perspective: 3000px;
   transform-style: preserve-3d;
-}
+
+  opacity: 1 !important;}
 
 .cr3d-card-199 {
   width: 220px;
@@ -339,7 +348,8 @@ onUnmounted(() => {
   perspective: 1500px;
   cursor: pointer;
   transform-style: preserve-3d;
-}
+
+  opacity: 1 !important;}
 
 .cr3d-card-inner-199 {
   position: relative;
@@ -347,7 +357,8 @@ onUnmounted(() => {
   height: 100%;
   transform-style: preserve-3d;
   transition: transform 0.1s ease;
-}
+
+  opacity: 1 !important;}
 
 .cr3d-card-front-199,
 .cr3d-card-back-199 {
@@ -361,14 +372,16 @@ onUnmounted(() => {
   align-items: center;
   justify-content: center;
   padding: 30px;
-}
+
+  opacity: 1 !important;}
 
 .cr3d-card-front-199 {
   background: linear-gradient(145deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.05));
   border: 1px solid rgba(255, 255, 255, 0.3);
   backdrop-filter: blur(20px);
   box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
-}
+
+  opacity: 1 !important;}
 
 .cr3d-card-back-199 {
   background: linear-gradient(145deg, rgba(100, 200, 255, 0.2), rgba(100, 200, 255, 0.05));
@@ -376,13 +389,15 @@ onUnmounted(() => {
   transform: rotateY(180deg);
   backdrop-filter: blur(20px);
   box-shadow: 0 25px 50px rgba(100, 200, 255, 0.3);
-}
+
+  opacity: 1 !important;}
 
 .cr3d-card-icon-199 {
   font-size: 4rem;
   margin-bottom: 20px;
   filter: drop-shadow(0 0 20px rgba(100, 200, 255, 0.6));
-}
+
+  opacity: 1 !important;}
 
 .cr3d-card-title-199 {
   font-size: 1.8rem;
@@ -390,14 +405,16 @@ onUnmounted(() => {
   color: #ffffff;
   margin-bottom: 10px;
   text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
-}
+
+  opacity: 1 !important;}
 
 .cr3d-card-desc-199 {
   font-size: 1rem;
   color: rgba(255, 255, 255, 0.7);
   text-align: center;
   line-height: 1.5;
-}
+
+  opacity: 1 !important;}
 
 .cr3d-card-number-199 {
   font-size: 4rem;
@@ -405,14 +422,16 @@ onUnmounted(() => {
   color: rgba(255, 255, 255, 0.9);
   text-shadow: 0 0 30px rgba(100, 200, 255, 0.8);
   margin-bottom: 20px;
-}
+
+  opacity: 1 !important;}
 
 .cr3d-card-detail-199 {
   font-size: 1.2rem;
   color: rgba(255, 255, 255, 0.8);
   text-transform: uppercase;
   letter-spacing: 3px;
-}
+
+  opacity: 1 !important;}
 
 .cr3d-card-shadow-199 {
   position: absolute;
@@ -425,7 +444,8 @@ onUnmounted(() => {
   filter: blur(20px);
   transform: translateX(-50%) rotateX(90deg);
   transform-style: preserve-3d;
-}
+
+  opacity: 1 !important;}
 
 .cr3d-controls-199 {
   display: flex;
@@ -447,7 +467,8 @@ onUnmounted(() => {
   text-transform: uppercase;
   letter-spacing: 1px;
   backdrop-filter: blur(10px);
-}
+
+  opacity: 1 !important;}
 
 .cr3d-btn-199:hover {
   background: rgba(100, 200, 255, 0.3);
@@ -463,7 +484,8 @@ onUnmounted(() => {
 @media (max-width: 768px) {
   .cr3d-title-199 {
     font-size: 2rem;
-  }
+  
+  opacity: 1 !important;}
 
   .cr3d-cards-scene-199 {
     gap: 20px;
@@ -472,15 +494,18 @@ onUnmounted(() => {
   .cr3d-card-199 {
     width: 160px;
     height: 220px;
-  }
+  
+  opacity: 1 !important;}
 
   .cr3d-card-icon-199 {
     font-size: 3rem;
-  }
+  
+  opacity: 1 !important;}
 
   .cr3d-card-title-199 {
     font-size: 1.4rem;
-  }
+  
+  opacity: 1 !important;}
 
   .cr3d-controls-199 {
     flex-wrap: wrap;
@@ -490,6 +515,7 @@ onUnmounted(() => {
   .cr3d-btn-199 {
     padding: 12px 20px;
     font-size: 0.9rem;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

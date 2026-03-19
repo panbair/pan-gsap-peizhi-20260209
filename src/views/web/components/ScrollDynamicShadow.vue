@@ -632,7 +632,8 @@ onUnmounted(() => {
     background:
       radial-gradient(circle at 50% 50%, rgba(255, 215, 0, 0.05) 0%, transparent 50%);
     pointer-events: none;
-  }
+  
+  opacity: 1 !important;}
 }
 
 .sds-container-218 {
@@ -640,12 +641,14 @@ onUnmounted(() => {
   margin: 0 auto;
   position: relative;
   z-index: 10;
-}
+
+  opacity: 1 !important;}
 
 .sds-header-218 {
   text-align: center;
   margin-bottom: 60px;
-}
+
+  opacity: 1 !important;}
 
 .sds-title-218 {
   font-size: clamp(2.5rem, 5vw, 4rem);
@@ -658,14 +661,16 @@ onUnmounted(() => {
   background-clip: text;
   text-shadow: 0 0 60px rgba(255, 215, 0, 0.4);
   transform-style: preserve-3d;
-}
+
+  opacity: 1 !important;}
 
 .sds-subtitle-218 {
   font-size: 1.3rem;
   color: rgba(255, 255, 255, 0.6);
   letter-spacing: 0.3em;
   text-transform: uppercase;
-}
+
+  opacity: 1 !important;}
 
 .sds-light-source-218 {
   position: fixed;
@@ -679,7 +684,8 @@ onUnmounted(() => {
   justify-content: center;
   z-index: 100;
   pointer-events: none;
-}
+
+  opacity: 1 !important;}
 
 .sds-light-core-218 {
   width: 40px;
@@ -688,7 +694,8 @@ onUnmounted(() => {
   border-radius: 50%;
   box-shadow: 0 0 30px #ffd700;
   transition: background-color 0.5s ease, box-shadow 0.5s ease;
-}
+
+  opacity: 1 !important;}
 
 .sds-light-rays-218 {
   position: absolute;
@@ -697,7 +704,8 @@ onUnmounted(() => {
   border: 2px dashed rgba(255, 215, 0, 0.3);
   border-radius: 50%;
   animation: rotate 20s linear infinite;
-}
+
+  opacity: 1 !important;}
 
 .sds-light-label-218 {
   margin-top: 10px;
@@ -705,7 +713,8 @@ onUnmounted(() => {
   color: rgba(255, 215, 0, 0.8);
   text-transform: uppercase;
   letter-spacing: 0.1em;
-}
+
+  opacity: 1 !important;}
 
 @keyframes rotate {
   to {
@@ -719,7 +728,8 @@ onUnmounted(() => {
   gap: 60px;
   margin: 80px 0;
   perspective: 1000px;
-}
+
+  opacity: 1 !important;}
 
 .sds-card-218 {
   position: relative;
@@ -730,7 +740,8 @@ onUnmounted(() => {
   cursor: pointer;
   transform-style: preserve-3d;
   transition: transform 0.3s ease;
-}
+
+  opacity: 1 !important;}
 
 .sds-card-front-218 {
   width: 100%;
@@ -746,7 +757,8 @@ onUnmounted(() => {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   z-index: 2;
   position: relative;
-}
+
+  opacity: 1 !important;}
 
 .sds-card-front-218 h3 {
   font-size: 1.4rem;
@@ -772,48 +784,57 @@ onUnmounted(() => {
   z-index: 1;
   pointer-events: none;
   transition: filter 0.3s ease;
-}
+
+  opacity: 1 !important;}
 
 .sds-shadow-1-218 {
   background: rgba(0, 0, 0, 0.2);
   filter: blur(15px);
-}
+
+  opacity: 1 !important;}
 
 .sds-shadow-2-218 {
   background: rgba(0, 0, 0, 0.15);
   filter: blur(10px);
-}
+
+  opacity: 1 !important;}
 
 .sds-shadow-2-a-218 {
   background: rgba(0, 0, 0, 0.1);
   filter: blur(15px);
-}
+
+  opacity: 1 !important;}
 
 .sds-shadow-2-b-218 {
   background: rgba(0, 0, 0, 0.2);
   filter: blur(5px);
-}
+
+  opacity: 1 !important;}
 
 .sds-shadow-3-218 {
   background: rgba(0, 0, 0, 0.1);
   filter: blur(30px);
-}
+
+  opacity: 1 !important;}
 
 .sds-shadow-4-218 {
   background: rgba(255, 0, 0, 0.3);
   filter: blur(15px);
   transition: background-color 0.3s ease;
-}
+
+  opacity: 1 !important;}
 
 .sds-shadow-5-218 {
   background: rgba(255, 215, 0, 0.4);
   filter: blur(20px);
-}
+
+  opacity: 1 !important;}
 
 .sds-shadow-6-218 {
   background: rgba(0, 0, 0, 0.2);
   filter: blur(15px);
-}
+
+  opacity: 1 !important;}
 
 .sds-controls-218 {
   display: flex;
@@ -821,7 +842,8 @@ onUnmounted(() => {
   gap: 40px;
   margin: 60px 0;
   flex-wrap: wrap;
-}
+
+  opacity: 1 !important;}
 
 .sds-control-group-218 {
   display: flex;
@@ -829,14 +851,16 @@ onUnmounted(() => {
   align-items: center;
   gap: 12px;
   min-width: 200px;
-}
+
+  opacity: 1 !important;}
 
 .sds-control-label-218 {
   font-size: 0.9rem;
   color: rgba(255, 255, 255, 0.7);
   text-transform: uppercase;
   letter-spacing: 0.1em;
-}
+
+  opacity: 1 !important;}
 
 .sds-slider-218 {
   width: 100%;
@@ -860,7 +884,8 @@ onUnmounted(() => {
 
     &:hover {
       transform: scale(1.2);
-    }
+    
+  opacity: 1 !important;}
   }
 
   &::-moz-range-thumb {
@@ -878,7 +903,8 @@ onUnmounted(() => {
   font-size: 1rem;
   font-weight: 600;
   color: #ffd700;
-}
+
+  opacity: 1 !important;}
 
 .sds-presets-218 {
   display: flex;
@@ -886,7 +912,8 @@ onUnmounted(() => {
   gap: 15px;
   margin: 40px 0;
   flex-wrap: wrap;
-}
+
+  opacity: 1 !important;}
 
 .sds-preset-btn-218 {
   padding: 12px 28px;
@@ -901,7 +928,8 @@ onUnmounted(() => {
   text-transform: uppercase;
   letter-spacing: 0.1em;
   backdrop-filter: blur(10px);
-}
+
+  opacity: 1 !important;}
 
 .sds-preset-btn-218:hover {
   background: linear-gradient(135deg, #ffd700, #ff8c00);
@@ -935,14 +963,16 @@ onUnmounted(() => {
   color: rgba(255, 255, 255, 0.6);
   text-transform: uppercase;
   letter-spacing: 0.1em;
-}
+
+  opacity: 1 !important;}
 
 .sds-data-value-218 {
   font-size: 1.2rem;
   font-weight: 700;
   color: #ffd700;
   font-family: 'Courier New', monospace;
-}
+
+  opacity: 1 !important;}
 
 .sds-light-trail-218 {
   position: fixed;
@@ -965,7 +995,8 @@ onUnmounted(() => {
 
   .sds-control-group-218 {
     min-width: 100%;
-  }
+  
+  opacity: 1 !important;}
 
   .sds-data-218 {
     gap: 30px;
@@ -974,15 +1005,18 @@ onUnmounted(() => {
   .sds-light-source-218 {
     width: 60px;
     height: 60px;
-  }
+  
+  opacity: 1 !important;}
 
   .sds-light-core-218 {
     width: 25px;
     height: 25px;
-  }
+  
+  opacity: 1 !important;}
 
   .sds-light-label-218 {
     font-size: 0.6rem;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

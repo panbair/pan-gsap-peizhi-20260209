@@ -197,7 +197,8 @@ onUnmounted(() => {
     height: 800px;
     background: radial-gradient(circle, rgba(233, 69, 96, 0.1) 0%, transparent 70%);
     pointer-events: none;
-  }
+  
+  opacity: 1 !important;}
 }
 
 .hs-container-34 {
@@ -207,7 +208,8 @@ onUnmounted(() => {
   padding: 0 40px;
   position: relative;
   z-index: 1;
-}
+
+  opacity: 1 !important;}
 
 .hs-section-title-34 {
   text-align: center;
@@ -230,7 +232,8 @@ onUnmounted(() => {
     background: linear-gradient(90deg, #e94560, #ff6b6b, #feca57);
     margin: 20px auto 0;
     border-radius: 2px;
-  }
+  
+  opacity: 1 !important;}
 }
 
 .hs-scroll-track-34 {
@@ -241,7 +244,8 @@ onUnmounted(() => {
   overflow: hidden;
   width: 100%;
   height: 500px;
-}
+
+  opacity: 1 !important;}
 
 .hs-scroll-item-34 {
   flex: 0 0 auto;
@@ -255,7 +259,8 @@ onUnmounted(() => {
 
   &:hover {
     transform: translateY(-10px);
-  }
+  
+  opacity: 1 !important;}
 }
 
 .hs-card-inner-34 {
@@ -263,7 +268,8 @@ onUnmounted(() => {
   height: 100%;
   position: relative;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .hs-scroll-item-34 img {
   width: 100%;
@@ -280,7 +286,8 @@ onUnmounted(() => {
   padding: 30px;
   background: linear-gradient(135deg, #e94560 0%, #ff6b6b 100%);
   text-align: center;
-}
+
+  opacity: 1 !important;}
 
 .hs-card-number-34 {
   display: block;
@@ -297,13 +304,15 @@ onUnmounted(() => {
   font-weight: 700;
   color: #fff;
   margin: 0 0 8px;
-}
+
+  opacity: 1 !important;}
 
 .hs-card-desc-34 {
   font-size: 1rem;
   color: rgba(255, 255, 255, 0.9);
   margin: 0;
-}
+
+  opacity: 1 !important;}
 
 .hs-scroll-indicator-34 {
   position: fixed;
@@ -316,7 +325,8 @@ onUnmounted(() => {
   border-radius: 30px;
   border: 1px solid rgba(255, 255, 255, 0.2);
   z-index: 100;
-}
+
+  opacity: 1 !important;}
 
 .hs-indicator-text-34 {
   font-size: 1.1rem;
@@ -324,7 +334,8 @@ onUnmounted(() => {
   font-weight: 500;
   letter-spacing: 2px;
   animation: pulse 2s infinite;
-}
+
+  opacity: 1 !important;}
 
 @keyframes pulse {
   0%, 100% {
@@ -343,7 +354,8 @@ onUnmounted(() => {
   .hs-scroll-item-34 {
     width: 300px;
     height: 400px;
-  }
+  
+  opacity: 1 !important;}
 
   .hs-scroll-item-34 img {
     height: 280px;
@@ -351,6 +363,7 @@ onUnmounted(() => {
 
   .hs-section-title-34 {
     font-size: 2rem;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

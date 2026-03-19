@@ -481,6 +481,8 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
+/* GSAP opacity fix: ensure content is always visible */
+
 .spb-scroll-physics-bounce-224 {
   min-height: 100vh;
   padding: 60px 40px;
@@ -488,12 +490,14 @@ onUnmounted(() => {
   color: #fff;
   position: relative;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .spb-header-224 {
   text-align: center;
   margin-bottom: 40px;
-}
+
+  opacity: 1 !important;}
 
 .spb-title-224 {
   font-size: 3rem;
@@ -503,17 +507,20 @@ onUnmounted(() => {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   margin-bottom: 10px;
-}
+
+  opacity: 1 !important;}
 
 .spb-subtitle-224 {
   font-size: 1.2rem;
   color: #94a3b8;
-}
+
+  opacity: 1 !important;}
 
 .spb-container-224 {
   max-width: 1200px;
   margin: 0 auto;
-}
+
+  opacity: 1 !important;}
 
 .spb-physics-area-224 {
   position: relative;
@@ -523,7 +530,8 @@ onUnmounted(() => {
   border: 1px solid rgba(148, 163, 184, 0.1);
   margin-bottom: 30px;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .spb-ground-224 {
   position: absolute;
@@ -533,7 +541,8 @@ onUnmounted(() => {
   height: 10px;
   background: linear-gradient(90deg, #ec4899, #8b5cf6, #0ea5e9);
   border-radius: 5px;
-}
+
+  opacity: 1 !important;}
 
 .spb-ball-224 {
   position: absolute;
@@ -553,7 +562,8 @@ onUnmounted(() => {
 
 .spb-ball-icon-224 {
   font-size: 1.5rem;
-}
+
+  opacity: 1 !important;}
 
 .spb-spring-container-224 {
   position: absolute;
@@ -567,7 +577,8 @@ onUnmounted(() => {
   position: relative;
   width: 100px;
   height: 250px;
-}
+
+  opacity: 1 !important;}
 
 .spb-spring-mass-224 {
   position: absolute;
@@ -579,7 +590,8 @@ onUnmounted(() => {
   background: linear-gradient(135deg, #f59e0b, #d97706);
   border-radius: 50%;
   box-shadow: 0 4px 15px rgba(245, 158, 11, 0.5);
-}
+
+  opacity: 1 !important;}
 
 .spb-spring-coil-224 {
   position: absolute;
@@ -588,7 +600,8 @@ onUnmounted(() => {
   width: 100%;
   height: 100%;
   color: #f59e0b;
-}
+
+  opacity: 1 !important;}
 
 .spb-collision-balls-224 {
   position: absolute;
@@ -596,7 +609,8 @@ onUnmounted(() => {
   left: 0;
   right: 0;
   height: 150px;
-}
+
+  opacity: 1 !important;}
 
 .spb-collision-ball-224 {
   position: absolute;
@@ -607,15 +621,18 @@ onUnmounted(() => {
 @media (max-width: 768px) {
   .spb-title-224 {
     font-size: 2rem;
-  }
+  
+  opacity: 1 !important;}
 
   .spb-subtitle-224 {
     font-size: 1rem;
-  }
+  
+  opacity: 1 !important;}
 
   .spb-physics-area-224 {
     height: 400px;
-  }
+  
+  opacity: 1 !important;}
 
   .spb-spring-container-224 {
     right: 10px;

@@ -368,13 +368,16 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
+/* GSAP opacity fix: ensure content is always visible */
+
 .scroll-tab-switch-section-224 {
   min-height: 100vh;
   padding: 80px 20px;
   background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
   position: relative;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .particle-canvas-224 {
   position: fixed;
@@ -384,14 +387,16 @@ onUnmounted(() => {
   height: 100%;
   pointer-events: none;
   z-index: 1;
-}
+
+  opacity: 1 !important;}
 
 .section-header-224 {
   text-align: center;
   margin-bottom: 60px;
   position: relative;
   z-index: 2;
-}
+
+  opacity: 1 !important;}
 
 .section-title-224 {
   font-size: 3rem;
@@ -402,14 +407,16 @@ onUnmounted(() => {
   background-clip: text;
   margin-bottom: 16px;
   text-shadow: 0 0 40px rgba(236, 72, 153, 0.3);
-}
+
+  opacity: 1 !important;}
 
 .section-subtitle-224 {
   font-size: 1.25rem;
   color: #64748b;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-}
+
+  opacity: 1 !important;}
 
 .tab-demo-224 {
   max-width: 1000px;
@@ -421,7 +428,8 @@ onUnmounted(() => {
   border: 1px solid rgba(236, 72, 153, 0.1);
   position: relative;
   z-index: 2;
-}
+
+  opacity: 1 !important;}
 
 .demo-label-224 {
   font-size: 0.875rem;
@@ -433,7 +441,8 @@ onUnmounted(() => {
   display: inline-block;
   font-weight: 600;
   letter-spacing: 0.05em;
-}
+
+  opacity: 1 !important;}
 
 .tab-container-224 {
   position: relative;
@@ -448,7 +457,8 @@ onUnmounted(() => {
   background: rgba(255, 255, 255, 0.03);
   border-radius: 16px;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .tab-indicator-224 {
   position: absolute;
@@ -460,7 +470,8 @@ onUnmounted(() => {
   border-radius: 12px;
   transition: all 0.3s ease;
   box-shadow: 0 4px 15px rgba(236, 72, 153, 0.3);
-}
+
+  opacity: 1 !important;}
 
 .tab-indicator-glow-224 {
   box-shadow: 0 0 20px rgba(236, 72, 153, 0.6),
@@ -499,7 +510,8 @@ onUnmounted(() => {
   gap: 8px;
   white-space: nowrap;
   z-index: 1;
-}
+
+  opacity: 1 !important;}
 
 .tab-button-224:hover {
   color: #e2e8f0;
@@ -509,11 +521,13 @@ onUnmounted(() => {
 .tab-active-224 {
   color: #fff;
   font-weight: 600;
-}
+
+  opacity: 1 !important;}
 
 .tab-icon-224 {
   font-size: 1.1rem;
-}
+
+  opacity: 1 !important;}
 
 .tab-label-224 {
   flex-shrink: 0;
@@ -535,25 +549,29 @@ onUnmounted(() => {
   align-items: center;
   justify-content: center;
   box-shadow: 0 2px 8px rgba(236, 72, 153, 0.4);
-}
+
+  opacity: 1 !important;}
 
 .tab-number-224 {
   font-size: 0.875rem;
   font-weight: 700;
   color: #64748b;
   font-family: monospace;
-}
+
+  opacity: 1 !important;}
 
 .tab-active-224 .tab-number-224 {
   color: #ec4899;
-}
+
+  opacity: 1 !important;}
 
 .tab-content-224 {
   padding: 24px;
   background: rgba(255, 255, 255, 0.02);
   border-radius: 16px;
   border: 1px solid rgba(236, 72, 153, 0.1);
-}
+
+  opacity: 1 !important;}
 
 .tab-pane-224 {
   animation: fade-in-224 0.3s ease;
@@ -575,13 +593,15 @@ onUnmounted(() => {
   font-weight: 700;
   color: #e2e8f0;
   margin-bottom: 16px;
-}
+
+  opacity: 1 !important;}
 
 .pane-text-224 {
   font-size: 1rem;
   color: #94a3b8;
   line-height: 1.8;
-}
+
+  opacity: 1 !important;}
 
 /* 垂直标签 */
 .tab-vertical-224 {
@@ -594,24 +614,28 @@ onUnmounted(() => {
   flex-direction: column;
   width: 200px;
   min-width: 200px;
-}
+
+  opacity: 1 !important;}
 
 .tab-vertical-224 .tab-button-224 {
   justify-content: flex-start;
   padding: 16px 20px;
-}
+
+  opacity: 1 !important;}
 
 .tab-indicator-vertical-224 {
   width: calc(100% - 16px);
   height: auto;
   left: 8px;
   top: 8px;
-}
+
+  opacity: 1 !important;}
 
 /* 圆形标签 */
 .tab-button-circle-224 {
   padding: 14px 28px;
-}
+
+  opacity: 1 !important;}
 
 .tab-indicator-circle-224 {
   border-radius: 20px;
@@ -621,7 +645,8 @@ onUnmounted(() => {
 .tab-button-glow-224 {
   font-size: 1rem;
   padding: 16px 24px;
-}
+
+  opacity: 1 !important;}
 
 .tab-button-glow-224:hover {
   color: #ec4899;
@@ -636,30 +661,36 @@ onUnmounted(() => {
 @media (max-width: 768px) {
   .section-title-224 {
     font-size: 2rem;
-  }
+  
+  opacity: 1 !important;}
 
   .tab-demo-224 {
     padding: 24px;
-  }
+  
+  opacity: 1 !important;}
 
   .tab-header-224 {
     gap: 4px;
     padding: 6px;
-  }
+  
+  opacity: 1 !important;}
 
   .tab-indicator-224 {
     top: 6px;
     height: calc(100% - 12px);
-  }
+  
+  opacity: 1 !important;}
 
   .tab-button-224 {
     padding: 10px 12px;
     font-size: 0.85rem;
-  }
+  
+  opacity: 1 !important;}
 
   .tab-icon-224 {
     font-size: 1rem;
-  }
+  
+  opacity: 1 !important;}
 
   .tab-vertical-224 {
     flex-direction: column;
@@ -669,7 +700,8 @@ onUnmounted(() => {
     width: 100%;
     min-width: unset;
     flex-direction: row;
-  }
+  
+  opacity: 1 !important;}
 
   .tab-vertical-224 .tab-button-224 {
     justify-content: center;
@@ -680,6 +712,7 @@ onUnmounted(() => {
     height: calc(100% - 12px);
     left: 6px;
     top: 6px;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

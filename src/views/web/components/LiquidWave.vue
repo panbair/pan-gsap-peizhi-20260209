@@ -132,7 +132,8 @@ const initAnimations = () => {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-}
+
+  opacity: 1 !important;}
 
 .section-title-2 {
   font-size: 2.5rem;
@@ -143,12 +144,14 @@ const initAnimations = () => {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   text-align: center;
-}
+
+  opacity: 1 !important;}
 
 .wave-section-2 {
   background: linear-gradient(180deg, transparent, rgba(59, 130, 246, 0.1), transparent);
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .wave-container-2 {
   position: relative;
@@ -159,7 +162,8 @@ const initAnimations = () => {
   border-radius: 20px;
   overflow: hidden;
   box-shadow: 0 0 60px rgba(102, 126, 234, 0.4);
-}
+
+  opacity: 1 !important;}
 
 .wave-layer-2 {
   position: absolute;
@@ -170,7 +174,8 @@ const initAnimations = () => {
   background: rgba(255, 255, 255, 0.1);
   border-radius: 50% 50% 0 0;
   filter: blur(20px);
-}
+
+  opacity: 1 !important;}
 
 .wave-content-2 {
   position: absolute;
@@ -183,7 +188,8 @@ const initAnimations = () => {
   justify-content: center;
   align-items: center;
   z-index: 2;
-}
+
+  opacity: 1 !important;}
 
 .wave-text-2 {
   text-align: center;
@@ -193,7 +199,8 @@ const initAnimations = () => {
   text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
   letter-spacing: 10px;
   text-transform: uppercase;
-}
+
+  opacity: 1 !important;}
 
 .wave-text-2 span {
   display: block;
@@ -205,7 +212,8 @@ const initAnimations = () => {
   width: 100%;
   height: 100%;
   pointer-events: none;
-}
+
+  opacity: 1 !important;}
 
 .particle-2 {
   position: absolute;
@@ -216,11 +224,13 @@ const initAnimations = () => {
   top: 50%;
   left: 50%;
   filter: blur(4px);
-}
+
+  opacity: 1 !important;}
 
 @media (max-width: 768px) {
   .wave-text-2 {
     font-size: 2.5rem;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

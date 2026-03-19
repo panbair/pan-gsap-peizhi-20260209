@@ -328,7 +328,8 @@ onUnmounted(() => {
   align-items: center;
   overflow: hidden;
   position: relative;
-}
+
+  opacity: 1 !important;}
 
 // 动态背景
 .fold-bg-grid-233 {
@@ -354,14 +355,16 @@ onUnmounted(() => {
     radial-gradient(circle at 30% 40%, rgba(250, 204, 21, 0.1) 0%, transparent 50%),
     radial-gradient(circle at 70% 60%, rgba(251, 146, 60, 0.1) 0%, transparent 50%);
   pointer-events: none;
-}
+
+  opacity: 1 !important;}
 
 // 标题
 .fold-header-233 {
   text-align: center;
   margin-bottom: 50px;
   z-index: 10;
-}
+
+  opacity: 1 !important;}
 
 .fold-title-233 {
   font-size: 4rem;
@@ -372,7 +375,8 @@ onUnmounted(() => {
   justify-content: center;
   gap: 20px;
   letter-spacing: 6px;
-}
+
+  opacity: 1 !important;}
 
 .fold-title-main-233 {
   background: linear-gradient(135deg, #facc15, #f97316);
@@ -381,7 +385,8 @@ onUnmounted(() => {
   background-clip: text;
   text-shadow: 0 0 40px rgba(250, 204, 21, 0.5);
   animation: titleGlow 3s ease-in-out infinite;
-}
+
+  opacity: 1 !important;}
 
 @keyframes titleGlow {
   0%, 100% {
@@ -397,7 +402,8 @@ onUnmounted(() => {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-}
+
+  opacity: 1 !important;}
 
 .fold-subtitle-233 {
   font-size: 1.1rem;
@@ -405,7 +411,8 @@ onUnmounted(() => {
   letter-spacing: 6px;
   text-transform: uppercase;
   font-weight: 500;
-}
+
+  opacity: 1 !important;}
 
 // 展示区
 .fold-display-233 {
@@ -416,7 +423,8 @@ onUnmounted(() => {
   perspective: 2000px;
   margin-bottom: 40px;
   z-index: 10;
-}
+
+  opacity: 1 !important;}
 
 .fold-origami-233 {
   position: relative;
@@ -455,27 +463,31 @@ onUnmounted(() => {
   transition: box-shadow 0.3s;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
   cursor: pointer;
-}
+
+  opacity: 1 !important;}
 
 .fold-panel-image-233 {
   width: 100%;
   height: 100%;
   background-repeat: no-repeat;
-}
+
+  opacity: 1 !important;}
 
 .fold-panel-shine-233 {
   position: absolute;
   inset: 0;
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
   pointer-events: none;
-}
+
+  opacity: 1 !important;}
 
 .fold-panel-shadow-233 {
   position: absolute;
   inset: 0;
   background: radial-gradient(circle at center, transparent 0%, rgba(0, 0, 0, 0.3) 100%);
   pointer-events: none;
-}
+
+  opacity: 1 !important;}
 
 .fold-center-glow-233 {
   position: absolute;
@@ -488,7 +500,8 @@ onUnmounted(() => {
   border-radius: 50%;
   pointer-events: none;
   z-index: 0;
-}
+
+  opacity: 1 !important;}
 
 // 折痕线
 .fold-lines-233 {
@@ -500,7 +513,8 @@ onUnmounted(() => {
   height: 100%;
   pointer-events: none;
   z-index: 5;
-}
+
+  opacity: 1 !important;}
 
 .fold-line-233 {
   position: absolute;
@@ -516,10 +530,12 @@ onUnmounted(() => {
     flex-direction: column;
     gap: 10px;
     letter-spacing: 4px;
-  }
+  
+  opacity: 1 !important;}
 
   .fold-display-233 {
     height: 350px;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

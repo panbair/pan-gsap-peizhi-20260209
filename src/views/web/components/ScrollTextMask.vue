@@ -205,13 +205,16 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
+/* GSAP opacity fix: ensure content is always visible */
+
 .text-mask-wrapper-196 {
   position: relative;
   width: 100%;
   min-height: 100vh;
   background: #000;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .tm-stage-196 {
   position: relative;
@@ -221,7 +224,8 @@ onUnmounted(() => {
   align-items: center;
   justify-content: center;
   padding: 60px 20px;
-}
+
+  opacity: 1 !important;}
 
 .tm-mask-bg-196 {
   position: absolute;
@@ -249,7 +253,8 @@ onUnmounted(() => {
   text-align: center;
   z-index: 10;
   max-width: 900px;
-}
+
+  opacity: 1 !important;}
 
 .tm-title-196 {
   font-size: 3rem;
@@ -258,7 +263,8 @@ onUnmounted(() => {
   letter-spacing: 6px;
   color: #ffffff;
   text-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
-}
+
+  opacity: 1 !important;}
 
 .tm-text-stage-196 {
   padding: 40px 60px;
@@ -267,7 +273,8 @@ onUnmounted(() => {
   backdrop-filter: blur(20px);
   border: 2px solid rgba(255, 255, 255, 0.1);
   margin-bottom: 40px;
-}
+
+  opacity: 1 !important;}
 
 .tm-text-line-196 {
   display: flex;
@@ -288,7 +295,8 @@ onUnmounted(() => {
   background-clip: text;
   transition: all 0.3s ease;
   min-width: 20px;
-}
+
+  opacity: 1 !important;}
 
 .tm-mask-selector-196 {
   display: flex;
@@ -301,7 +309,8 @@ onUnmounted(() => {
   border-radius: 10px;
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1);
-}
+
+  opacity: 1 !important;}
 
 .tm-mask-option-196 {
   padding: 12px 24px;
@@ -315,7 +324,8 @@ onUnmounted(() => {
   cursor: pointer;
   transition: all 0.3s ease;
   text-transform: uppercase;
-}
+
+  opacity: 1 !important;}
 
 .tm-mask-option-196:hover {
   background: rgba(255, 255, 255, 0.1);
@@ -328,27 +338,32 @@ onUnmounted(() => {
   border-color: #4ecdc4;
   color: #ffffff;
   box-shadow: 0 0 20px rgba(78, 205, 196, 0.4);
-}
+
+  opacity: 1 !important;}
 
 .tm-hint-196 {
   font-size: 1rem;
   color: rgba(255, 255, 255, 0.5);
   letter-spacing: 2px;
   text-transform: uppercase;
-}
+
+  opacity: 1 !important;}
 
 @media (max-width: 768px) {
   .tm-title-196 {
     font-size: 2rem;
-  }
+  
+  opacity: 1 !important;}
 
   .tm-char-196 {
     font-size: 2.5rem;
-  }
+  
+  opacity: 1 !important;}
 
   .tm-text-stage-196 {
     padding: 30px 20px;
-  }
+  
+  opacity: 1 !important;}
 
   .tm-mask-selector-196 {
     gap: 10px;
@@ -357,6 +372,7 @@ onUnmounted(() => {
   .tm-mask-option-196 {
     padding: 10px 16px;
     font-size: 0.85rem;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

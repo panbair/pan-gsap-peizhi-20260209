@@ -154,7 +154,8 @@ onUnmounted(() => {
   justify-content: center;
   background: linear-gradient(180deg, #0a0a1a 0%, #1a1a3a 50%, #0a0a2a 100%);
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .nt-stage-174 {
   position: relative;
@@ -164,7 +165,8 @@ onUnmounted(() => {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
+
+  opacity: 1 !important;}
 
 .nt-neon-container-174 {
   position: relative;
@@ -174,7 +176,8 @@ onUnmounted(() => {
   border: 2px solid transparent;
   border-radius: 20px;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .nt-neon-container-174::before {
   content: '';
@@ -196,14 +199,16 @@ onUnmounted(() => {
   text-transform: uppercase;
   letter-spacing: 8px;
   margin-bottom: 20px;
-}
+
+  opacity: 1 !important;}
 
 .nt-subtitle-174 {
   font-size: 1.2rem;
   color: #f0f;
   margin-bottom: 40px;
   letter-spacing: 4px;
-}
+
+  opacity: 1 !important;}
 
 .nt-neon-text-174 {
   display: flex;
@@ -211,7 +216,8 @@ onUnmounted(() => {
   flex-wrap: wrap;
   gap: 4px;
   margin: 40px 0;
-}
+
+  opacity: 1 !important;}
 
 .nt-letter-174 {
   font-size: clamp(3rem, 8vw, 6rem);
@@ -220,7 +226,8 @@ onUnmounted(() => {
   position: relative;
   display: inline-block;
   transition: all 0.3s ease;
-}
+
+  opacity: 1 !important;}
 
 .nt-letter-174:hover {
   transform: scale(1.2);
@@ -240,7 +247,8 @@ onUnmounted(() => {
   background: linear-gradient(90deg, transparent, #0ff, transparent);
   border-radius: 2px;
   transform-origin: center;
-}
+
+  opacity: 1 !important;}
 
 .nt-cyber-grid-174 {
   position: absolute;
@@ -257,7 +265,8 @@ onUnmounted(() => {
   width: 1px;
   height: 100%;
   background: linear-gradient(180deg, transparent, rgba(0, 255, 255, 0.2), transparent);
-}
+
+  opacity: 1 !important;}
 
 @for $i from 1 through 10 {
   .nt-grid-line-174:nth-child(#{$i}) {

@@ -229,13 +229,16 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
+/* GSAP opacity fix: ensure content is always visible */
+
 .text-glow-wrapper-197 {
   position: relative;
   width: 100%;
   min-height: 100vh;
   background: radial-gradient(ellipse at center, #1a1a2e 0%, #0f0f1a 100%);
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .tg-stage-197 {
   position: relative;
@@ -245,7 +248,8 @@ onUnmounted(() => {
   align-items: center;
   justify-content: center;
   padding: 60px 20px;
-}
+
+  opacity: 1 !important;}
 
 .tg-glow-orbs-197 {
   position: absolute;
@@ -263,14 +267,16 @@ onUnmounted(() => {
   border-radius: 50%;
   background: radial-gradient(circle, rgba(255, 200, 100, 0.6) 0%, transparent 70%);
   filter: blur(20px);
-}
+
+  opacity: 1 !important;}
 
 .tg-container-197 {
   position: relative;
   text-align: center;
   z-index: 10;
   max-width: 900px;
-}
+
+  opacity: 1 !important;}
 
 .tg-title-197 {
   font-size: 3rem;
@@ -278,7 +284,8 @@ onUnmounted(() => {
   margin-bottom: 60px;
   letter-spacing: 6px;
   color: #ffffff;
-}
+
+  opacity: 1 !important;}
 
 .tg-text-stage-197 {
   padding: 40px 60px;
@@ -288,7 +295,8 @@ onUnmounted(() => {
   border: 2px solid rgba(255, 200, 100, 0.3);
   margin-bottom: 40px;
   transition: all 0.3s ease;
-}
+
+  opacity: 1 !important;}
 
 .tg-text-line-197 {
   display: flex;
@@ -305,7 +313,8 @@ onUnmounted(() => {
   color: #ffffff;
   transition: all 0.3s ease;
   min-width: 25px;
-}
+
+  opacity: 1 !important;}
 
 .tg-glow-intensity-197 {
   display: flex;
@@ -317,7 +326,8 @@ onUnmounted(() => {
   border-radius: 10px;
   backdrop-filter: blur(10px);
   height: 80px;
-}
+
+  opacity: 1 !important;}
 
 .tg-intensity-bar-197 {
   width: 8px;
@@ -325,14 +335,16 @@ onUnmounted(() => {
   border-radius: 4px;
   background: linear-gradient(180deg, rgba(255, 200, 100, 0.8), rgba(255, 150, 50, 0.4));
   transform-origin: bottom;
-}
+
+  opacity: 1 !important;}
 
 .tg-hint-197 {
   font-size: 1rem;
   color: rgba(255, 255, 255, 0.5);
   letter-spacing: 2px;
   text-transform: uppercase;
-}
+
+  opacity: 1 !important;}
 
 @keyframes breathe {
   0%, 100% {
@@ -346,14 +358,17 @@ onUnmounted(() => {
 @media (max-width: 768px) {
   .tg-title-197 {
     font-size: 2rem;
-  }
+  
+  opacity: 1 !important;}
 
   .tg-char-197 {
     font-size: 2.5rem;
-  }
+  
+  opacity: 1 !important;}
 
   .tg-text-stage-197 {
     padding: 30px 20px;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

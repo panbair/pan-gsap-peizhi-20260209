@@ -220,7 +220,8 @@ onUnmounted(() => {
       radial-gradient(circle at 20% 30%, rgba(240, 147, 251, 0.1) 0%, transparent 40%),
       radial-gradient(circle at 80% 70%, rgba(79, 172, 254, 0.1) 0%, transparent 40%);
     pointer-events: none;
-  }
+  
+  opacity: 1 !important;}
 }
 
 .container-39 {
@@ -229,7 +230,8 @@ onUnmounted(() => {
   padding: 0 40px;
   position: relative;
   z-index: 1;
-}
+
+  opacity: 1 !important;}
 
 .section-title-39 {
   text-align: center;
@@ -251,7 +253,8 @@ onUnmounted(() => {
     background: linear-gradient(90deg, #f093fb, #f5576c, #4facfe);
     margin: 20px auto 0;
     border-radius: 2px;
-  }
+  
+  opacity: 1 !important;}
 }
 
 .flow-container-39 {
@@ -260,7 +263,8 @@ onUnmounted(() => {
   gap: 30px;
   padding: 40px 0;
   perspective: 1000px;
-}
+
+  opacity: 1 !important;}
 
 .flow-card-39 {
   position: relative;
@@ -274,7 +278,8 @@ onUnmounted(() => {
   &:hover {
     transform: translateY(-10px) scale(1.02);
     box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
-  }
+  
+  opacity: 1 !important;}
 }
 
 .card-glow-39 {
@@ -286,7 +291,8 @@ onUnmounted(() => {
   background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
   pointer-events: none;
   transition: opacity 0.3s ease;
-}
+
+  opacity: 1 !important;}
 
 .card-content-39 {
   position: relative;
@@ -300,7 +306,8 @@ onUnmounted(() => {
   color: rgba(255, 255, 255, 0.3);
   margin-bottom: -30px;
   font-family: 'Arial', sans-serif;
-}
+
+  opacity: 1 !important;}
 
 .card-title-39 {
   font-size: 2rem;
@@ -308,30 +315,36 @@ onUnmounted(() => {
   color: #fff;
   margin: 0 0 10px;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-}
+
+  opacity: 1 !important;}
 
 .card-desc-39 {
   font-size: 1.2rem;
   color: rgba(255, 255, 255, 0.9);
   margin: 0;
   font-weight: 500;
-}
+
+  opacity: 1 !important;}
 
 @media (max-width: 768px) {
   .card-number-39 {
     font-size: 3.5rem;
-  }
+  
+  opacity: 1 !important;}
   
   .card-title-39 {
     font-size: 1.5rem;
-  }
+  
+  opacity: 1 !important;}
   
   .flow-card-39 {
     padding: 35px 25px;
-  }
+  
+  opacity: 1 !important;}
   
   .section-title-39 {
     font-size: 2rem;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

@@ -130,18 +130,22 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
+/* GSAP opacity fix: ensure content is always visible */
+
 .cosmic-dust-container-207 {
   min-height: 100vh;
   background: linear-gradient(180deg, #050505 0%, #0a0a15 100%);
   padding: 60px 20px;
   position: relative;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .cd-header-207 {
   text-align: center;
   margin-bottom: 60px;
-}
+
+  opacity: 1 !important;}
 
 .cd-title-207 {
   font-size: 48px;
@@ -152,12 +156,14 @@ onUnmounted(() => {
   background-clip: text;
   text-shadow: 0 0 40px rgba(255, 255, 255, 0.5);
   margin-bottom: 10px;
-}
+
+  opacity: 1 !important;}
 
 .cd-hint-207 {
   font-size: 18px;
   color: #aaaaff;
-}
+
+  opacity: 1 !important;}
 
 .cd-stage-207 {
   max-width: 1200px;
@@ -166,7 +172,8 @@ onUnmounted(() => {
   grid-template-columns: repeat(4, 1fr);
   gap: 40px;
   padding: 20px;
-}
+
+  opacity: 1 !important;}
 
 .cd-dust-wrapper-207 {
   height: 400px;
@@ -174,7 +181,8 @@ onUnmounted(() => {
   display: flex;
   justify-content: center;
   align-items: center;
-}
+
+  opacity: 1 !important;}
 
 .cd-dust-207 {
   position: relative;
@@ -185,7 +193,8 @@ onUnmounted(() => {
   border: 2px solid rgba(170, 170, 255, 0.3);
   overflow: hidden;
   transition: all 0.5s ease;
-}
+
+  opacity: 1 !important;}
 
 .cd-dust-207:hover {
   transform: translateY(-10px);
@@ -209,13 +218,15 @@ onUnmounted(() => {
   align-items: center;
   justify-content: center;
   text-align: center;
-}
+
+  opacity: 1 !important;}
 
 .cd-icon-207 {
   font-size: 72px;
   margin-bottom: 20px;
   filter: drop-shadow(0 0 20px rgba(170, 170, 255, 0.8));
-}
+
+  opacity: 1 !important;}
 
 .cd-dust-title-207 {
   font-size: 28px;
@@ -223,13 +234,15 @@ onUnmounted(() => {
   color: #ffffff;
   margin-bottom: 10px;
   text-shadow: 0 0 20px rgba(170, 170, 255, 0.5);
-}
+
+  opacity: 1 !important;}
 
 .cd-dust-desc-207 {
   font-size: 14px;
   color: #aaaaff;
   line-height: 1.6;
-}
+
+  opacity: 1 !important;}
 
 @media (max-width: 1024px) {
   .cd-stage-207 {
@@ -244,6 +257,7 @@ onUnmounted(() => {
 
   .cd-title-207 {
     font-size: 32px;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

@@ -295,7 +295,8 @@ onUnmounted(() => {
   justify-content: center;
   background: linear-gradient(180deg, #050a15 0%, #0a0f25 50%, #050a15 100%);
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .tt-stage-180 {
   position: relative;
@@ -305,7 +306,8 @@ onUnmounted(() => {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
+
+  opacity: 1 !important;}
 
 .tt-thunder-bg-180 {
   position: absolute;
@@ -335,7 +337,8 @@ onUnmounted(() => {
   border-radius: 20px;
   overflow: hidden;
   backdrop-filter: blur(10px);
-}
+
+  opacity: 1 !important;}
 
 .tt-title-180 {
   font-size: clamp(2rem, 5vw, 3rem);
@@ -344,7 +347,8 @@ onUnmounted(() => {
   text-transform: uppercase;
   letter-spacing: 6px;
   margin-bottom: 30px;
-}
+
+  opacity: 1 !important;}
 
 .tt-bolts-180 {
   display: flex;
@@ -359,7 +363,8 @@ onUnmounted(() => {
   background: linear-gradient(180deg, #9370db, #ba55d3, #da70d6);
   transform-origin: top center;
   box-shadow: 0 0 20px #9370db, 0 0 40px #ba55d3;
-}
+
+  opacity: 1 !important;}
 
 .tt-thunder-text-180 {
   display: flex;
@@ -367,7 +372,8 @@ onUnmounted(() => {
   flex-wrap: wrap;
   gap: 6px;
   margin: 50px 0;
-}
+
+  opacity: 1 !important;}
 
 .tt-char-180 {
   font-size: clamp(3rem, 8vw, 6rem);
@@ -377,7 +383,8 @@ onUnmounted(() => {
   display: inline-block;
   color: #e6e6fa;
   transition: all 0.3s ease;
-}
+
+  opacity: 1 !important;}
 
 .tt-electric-arcs-180 {
   display: flex;
@@ -392,7 +399,8 @@ onUnmounted(() => {
   background: linear-gradient(90deg, transparent, #9370db, #ba55d3, transparent);
   transform-origin: center;
   box-shadow: 0 0 15px #9370db;
-}
+
+  opacity: 1 !important;}
 
 .tt-spark-particles-180 {
   position: absolute;
@@ -410,5 +418,6 @@ onUnmounted(() => {
   background: #fff;
   border-radius: 50%;
   box-shadow: 0 0 10px #9370db, 0 0 20px #ba55d3;
-}
+
+  opacity: 1 !important;}
 </style>

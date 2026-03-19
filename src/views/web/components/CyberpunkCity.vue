@@ -158,11 +158,13 @@ onUnmounted(() => {
   position: relative;
   overflow: hidden;
   background: linear-gradient(180deg, #0a0a1a 0%, #1a0a2a 50%, #0a0a1a 100%);
-}
+
+  opacity: 1 !important;}
 
 .content-21 {
   text-align: center;
-}
+
+  opacity: 1 !important;}
 
 .section-title-21 {
   font-size: clamp(2rem, 4vw, 2.5rem);
@@ -170,14 +172,16 @@ onUnmounted(() => {
   margin-bottom: 16px;
   color: #ff00ff;
   text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff, 0 0 40px #ff00ff;
-}
+
+  opacity: 1 !important;}
 
 .subtitle-21 {
   font-size: 1.1rem;
   color: #00ffff;
   margin-bottom: 40px;
   text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
-}
+
+  opacity: 1 !important;}
 
 .city-container-21 {
   position: relative;
@@ -189,7 +193,8 @@ onUnmounted(() => {
   border-radius: 20px;
   box-shadow: 0 0 40px rgba(255, 0, 255, 0.3),
               inset 0 0 60px rgba(0, 0, 0, 0.5);
-}
+
+  opacity: 1 !important;}
 
 .city-skyline-21 {
   position: absolute;
@@ -200,7 +205,8 @@ onUnmounted(() => {
   display: flex;
   align-items: flex-end;
   padding: 0 20px;
-}
+
+  opacity: 1 !important;}
 
 .building-21 {
   position: absolute;
@@ -211,7 +217,8 @@ onUnmounted(() => {
   overflow: hidden;
   box-shadow: 0 0 20px rgba(255, 0, 255, 0.2);
   transform-origin: bottom;
-}
+
+  opacity: 1 !important;}
 
 .building-windows-21 {
   position: absolute;
@@ -230,7 +237,8 @@ onUnmounted(() => {
   &.lit-21 {
     background: rgba(255, 255, 100, 0.8);
     box-shadow: 0 0 10px rgba(255, 255, 100, 0.5);
-  }
+  
+  opacity: 1 !important;}
 }
 
 .building-neon-21 {
@@ -257,7 +265,8 @@ onUnmounted(() => {
   height: 20px;
   background: linear-gradient(to bottom, transparent, rgba(0, 255, 255, 0.5));
   animation: rain 1s linear infinite;
-}
+
+  opacity: 1 !important;}
 
 @keyframes rain {
   0% {
@@ -275,7 +284,8 @@ onUnmounted(() => {
   right: 0;
   height: 100px;
   background: linear-gradient(180deg, transparent, #0a0a1a);
-}
+
+  opacity: 1 !important;}
 
 .ground-neon-21 {
   position: absolute;
@@ -288,7 +298,8 @@ onUnmounted(() => {
   animation: neonMove 3s linear infinite;
   box-shadow: 0 0 20px #ff00ff, 0 0 40px #00ffff;
   filter: blur(4px);
-}
+
+  opacity: 1 !important;}
 
 @keyframes neonMove {
   0% {
@@ -307,7 +318,8 @@ onUnmounted(() => {
   height: 50px;
   background: linear-gradient(180deg, transparent, rgba(255, 0, 255, 0.1));
   filter: blur(10px);
-}
+
+  opacity: 1 !important;}
 
 .flying-car-21 {
   position: absolute;
@@ -315,7 +327,8 @@ onUnmounted(() => {
   height: 20px;
   left: -60px;
   animation: fly linear infinite;
-}
+
+  opacity: 1 !important;}
 
 .car-body-21 {
   width: 100%;
@@ -324,7 +337,8 @@ onUnmounted(() => {
   border-radius: 4px;
   border: 1px solid rgba(255, 0, 255, 0.5);
   box-shadow: 0 0 10px rgba(255, 0, 255, 0.3);
-}
+
+  opacity: 1 !important;}
 
 .car-lights-21 {
   position: absolute;
@@ -335,7 +349,8 @@ onUnmounted(() => {
   height: 4px;
   background: linear-gradient(90deg, rgba(255, 0, 255, 0.8), transparent);
   filter: blur(2px);
-}
+
+  opacity: 1 !important;}
 
 @keyframes fly {
   0% {
@@ -349,10 +364,12 @@ onUnmounted(() => {
 @media (max-width: 768px) {
   .city-container-21 {
     height: 400px;
-  }
+  
+  opacity: 1 !important;}
 
   .building-21 {
     width: 40px;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

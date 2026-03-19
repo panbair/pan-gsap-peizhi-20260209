@@ -453,7 +453,8 @@ onUnmounted(() => {
       radial-gradient(circle at 30% 20%, rgba(0, 255, 255, 0.03) 0%, transparent 50%),
       radial-gradient(circle at 70% 80%, rgba(128, 0, 255, 0.03) 0%, transparent 50%);
     pointer-events: none;
-  }
+  
+  opacity: 1 !important;}
 }
 
 .qw-container-100 {
@@ -461,7 +462,8 @@ onUnmounted(() => {
   margin: 0 auto;
   position: relative;
   z-index: 1;
-}
+
+  opacity: 1 !important;}
 
 .qw-title-100 {
   text-align: center;
@@ -475,7 +477,8 @@ onUnmounted(() => {
   background-clip: text;
   animation: gradientShift 3s ease infinite;
   text-shadow: 0 0 50px rgba(0, 255, 255, 0.5);
-}
+
+  opacity: 1 !important;}
 
 .qw-subtitle-100 {
   text-align: center;
@@ -484,7 +487,8 @@ onUnmounted(() => {
   margin-bottom: 80px;
   letter-spacing: 8px;
   text-transform: uppercase;
-}
+
+  opacity: 1 !important;}
 
 .qw-wormhole-container-100 {
   position: relative;
@@ -499,7 +503,8 @@ onUnmounted(() => {
 
   &:active {
     cursor: grabbing;
-  }
+  
+  opacity: 1 !important;}
 }
 
 .qw-particle-system-100 {
@@ -507,7 +512,8 @@ onUnmounted(() => {
   width: 100%;
   height: 100%;
   pointer-events: none;
-}
+
+  opacity: 1 !important;}
 
 .qw-particle-100 {
   position: absolute;
@@ -523,7 +529,8 @@ onUnmounted(() => {
   justify-content: center;
   align-items: center;
   pointer-events: none;
-}
+
+  opacity: 1 !important;}
 
 .qw-energy-ring-100 {
   position: absolute;
@@ -540,7 +547,8 @@ onUnmounted(() => {
   justify-content: center;
   align-items: center;
   pointer-events: none;
-}
+
+  opacity: 1 !important;}
 
 .qw-core-glow-100 {
   position: absolute;
@@ -549,7 +557,8 @@ onUnmounted(() => {
   background: radial-gradient(circle, rgba(0, 255, 255, 0.3) 0%, transparent 70%);
   border-radius: 50%;
   animation: corePulse 2s ease-in-out infinite;
-}
+
+  opacity: 1 !important;}
 
 .qw-core-pulse-100 {
   position: absolute;
@@ -558,7 +567,8 @@ onUnmounted(() => {
   border-radius: 50%;
   border: 2px solid rgba(0, 255, 255, 0.5);
   animation: pulseRing 1.5s ease-out infinite;
-}
+
+  opacity: 1 !important;}
 
 .qw-core-inner-100 {
   position: absolute;
@@ -568,7 +578,8 @@ onUnmounted(() => {
   border-radius: 50%;
   box-shadow: 0 0 30px rgba(0, 255, 255, 0.8), 0 0 60px rgba(0, 255, 255, 0.4);
   animation: innerGlow 1s ease-in-out infinite;
-}
+
+  opacity: 1 !important;}
 
 .qw-nucleus-100 {
   position: absolute;
@@ -578,14 +589,16 @@ onUnmounted(() => {
   border-radius: 50%;
   box-shadow: 0 0 20px rgba(255, 255, 255, 0.9), 0 0 40px rgba(0, 255, 255, 0.6);
   animation: nucleusPulse 0.5s ease-in-out infinite;
-}
+
+  opacity: 1 !important;}
 
 .qw-dimensional-cracks-100 {
   position: absolute;
   width: 100%;
   height: 100%;
   pointer-events: none;
-}
+
+  opacity: 1 !important;}
 
 .qw-crack-100 {
   position: absolute;
@@ -602,7 +615,8 @@ onUnmounted(() => {
   width: 100%;
   height: 100%;
   pointer-events: none;
-}
+
+  opacity: 1 !important;}
 
 .qw-ripple-100 {
   position: absolute;
@@ -617,7 +631,8 @@ onUnmounted(() => {
   width: 100%;
   height: 100%;
   pointer-events: none;
-}
+
+  opacity: 1 !important;}
 
 .qw-light-beam-100 {
   position: absolute;
@@ -650,34 +665,39 @@ onUnmounted(() => {
   border-radius: 8px;
   backdrop-filter: blur(10px);
   min-width: 200px;
-}
+
+  opacity: 1 !important;}
 
 .qw-hud-label-100 {
   font-size: 0.85rem;
   color: rgba(255, 255, 255, 0.6);
   text-transform: uppercase;
   letter-spacing: 2px;
-}
+
+  opacity: 1 !important;}
 
 .qw-hud-value-100 {
   font-size: 1.1rem;
   font-weight: 700;
   color: #00ffff;
   text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
-}
+
+  opacity: 1 !important;}
 
 .qw-interaction-hint-100 {
   text-align: center;
   margin-top: 60px;
   padding: 15px 30px;
-}
+
+  opacity: 1 !important;}
 
 .qw-hint-text-100 {
   font-size: 0.9rem;
   color: rgba(255, 255, 255, 0.4);
   letter-spacing: 4px;
   text-transform: uppercase;
-}
+
+  opacity: 1 !important;}
 
 @keyframes gradientShift {
   0%, 100% { background-position: 0% 50%; }
@@ -727,16 +747,19 @@ onUnmounted(() => {
 @media (max-width: 768px) {
   .qw-title-100 {
     font-size: 2.5rem;
-  }
+  
+  opacity: 1 !important;}
 
   .qw-subtitle-100 {
     font-size: 1rem;
     letter-spacing: 4px;
-  }
+  
+  opacity: 1 !important;}
 
   .qw-wormhole-container-100 {
     height: 600px;
-  }
+  
+  opacity: 1 !important;}
 
   .qw-hud-100 {
     bottom: 10px;
@@ -747,10 +770,12 @@ onUnmounted(() => {
   .qw-hud-item-100 {
     padding: 8px 15px;
     min-width: auto;
-  }
+  
+  opacity: 1 !important;}
 
   .qw-hud-value-100 {
     font-size: 0.9rem;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

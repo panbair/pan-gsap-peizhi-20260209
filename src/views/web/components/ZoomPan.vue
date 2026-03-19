@@ -223,18 +223,22 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
+/* GSAP opacity fix: ensure content is always visible */
+
 .zp-zoom-pan-section-50 {
   min-height: 100vh;
   padding: 80px 40px;
   background: linear-gradient(135deg, #0f0f23 0%, #1a1a3e 50%, #2d1b4e 100%);
   position: relative;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .zp-section-header-50 {
   text-align: center;
   margin-bottom: 80px;
-}
+
+  opacity: 1 !important;}
 
 .zp-title-50 {
   font-size: 56px;
@@ -243,7 +247,8 @@ onUnmounted(() => {
   letter-spacing: 8px;
   text-transform: uppercase;
   text-shadow: 0 0 30px rgba(138, 43, 226, 0.5);
-}
+
+  opacity: 1 !important;}
 
 .zp-subtitle-50 {
   font-size: 18px;
@@ -251,7 +256,8 @@ onUnmounted(() => {
   margin-top: 16px;
   letter-spacing: 3px;
   text-transform: uppercase;
-}
+
+  opacity: 1 !important;}
 
 .zp-zoom-pan-container-50 {
   display: grid;
@@ -260,7 +266,8 @@ onUnmounted(() => {
   max-width: 1400px;
   margin: 0 auto;
   padding: 40px 0;
-}
+
+  opacity: 1 !important;}
 
 .zp-zoom-pan-card-50 {
   position: relative;
@@ -270,7 +277,8 @@ onUnmounted(() => {
   cursor: pointer;
   transform-style: preserve-3d;
   transition: box-shadow 0.4s ease;
-}
+
+  opacity: 1 !important;}
 
 .zp-zoom-pan-card-50:hover {
   box-shadow: 0 25px 70px rgba(138, 43, 226, 0.3);
@@ -281,7 +289,8 @@ onUnmounted(() => {
   height: 100%;
   position: relative;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .zp-card-bg-50 {
   width: 100%;
@@ -289,7 +298,8 @@ onUnmounted(() => {
   background-size: cover;
   background-position: center;
   transition: transform 0.6s ease;
-}
+
+  opacity: 1 !important;}
 
 .zp-card-overlay-50 {
   position: absolute;
@@ -300,7 +310,8 @@ onUnmounted(() => {
   background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, transparent 60%);
   pointer-events: none;
   transition: opacity 0.4s ease;
-}
+
+  opacity: 1 !important;}
 
 .zp-card-number-50 {
   position: absolute;
@@ -319,7 +330,8 @@ onUnmounted(() => {
   color: #fff;
   border: 2px solid rgba(138, 43, 226, 0.5);
   transition: all 0.5s ease;
-}
+
+  opacity: 1 !important;}
 
 .zp-card-content-50 {
   position: absolute;
@@ -328,7 +340,8 @@ onUnmounted(() => {
   width: 100%;
   padding: 32px;
   transform: translateZ(30px);
-}
+
+  opacity: 1 !important;}
 
 .zp-card-content-50 h3 {
   font-size: 32px;
@@ -351,17 +364,20 @@ onUnmounted(() => {
   color: rgba(255, 255, 255, 0.5);
   letter-spacing: 2px;
   text-transform: uppercase;
-}
+
+  opacity: 1 !important;}
 
 @media (max-width: 768px) {
   .zp-title-50 {
     font-size: 32px;
     letter-spacing: 4px;
-  }
+  
+  opacity: 1 !important;}
 
   .zp-subtitle-50 {
     font-size: 14px;
-  }
+  
+  opacity: 1 !important;}
 
   .zp-zoom-pan-container-50 {
     gap: 24px;
@@ -369,6 +385,7 @@ onUnmounted(() => {
 
   .zp-zoom-pan-card-50 {
     height: 320px;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

@@ -231,7 +231,8 @@ onUnmounted(() => {
   justify-content: center;
   background: #000;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .mt-stage-176 {
   position: relative;
@@ -241,7 +242,8 @@ onUnmounted(() => {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
+
+  opacity: 1 !important;}
 
 .mt-matrix-canvas-176 {
   position: absolute;
@@ -261,7 +263,8 @@ onUnmounted(() => {
   border-radius: 5px;
   overflow: hidden;
   backdrop-filter: blur(5px);
-}
+
+  opacity: 1 !important;}
 
 .mt-title-176 {
   font-size: clamp(2rem, 5vw, 3rem);
@@ -271,7 +274,8 @@ onUnmounted(() => {
   letter-spacing: 8px;
   margin-bottom: 30px;
   font-family: 'Courier New', monospace;
-}
+
+  opacity: 1 !important;}
 
 .mt-binary-stream-176 {
   font-family: 'Courier New', monospace;
@@ -289,7 +293,8 @@ onUnmounted(() => {
   flex-wrap: wrap;
   gap: 4px;
   margin: 40px 0;
-}
+
+  opacity: 1 !important;}
 
 .mt-char-176 {
   font-size: clamp(3rem, 8vw, 6rem);
@@ -299,7 +304,8 @@ onUnmounted(() => {
   display: inline-block;
   font-family: 'Courier New', monospace;
   transition: all 0.3s ease;
-}
+
+  opacity: 1 !important;}
 
 .mt-char-176:hover {
   transform: scale(1.2);
@@ -319,5 +325,6 @@ onUnmounted(() => {
   background: linear-gradient(180deg, transparent, #0f0, transparent);
   transform-origin: center;
   border-radius: 2px;
-}
+
+  opacity: 1 !important;}
 </style>

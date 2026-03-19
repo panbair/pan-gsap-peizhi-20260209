@@ -226,13 +226,15 @@ const initAnimations = () => {
   align-items: center;
   background: linear-gradient(180deg, #0a0a1a 0%, #1a1a3a 50%, #0a0a1a 100%);
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .bb-header-9 {
   text-align: center;
   margin-bottom: 60px;
   z-index: 10;
-}
+
+  opacity: 1 !important;}
 
 .bb-section-title-9 {
   font-size: 3rem;
@@ -243,7 +245,8 @@ const initAnimations = () => {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   letter-spacing: 2px;
-}
+
+  opacity: 1 !important;}
 
 .bb-subtitle-9 {
   font-size: 1.1rem;
@@ -251,7 +254,8 @@ const initAnimations = () => {
   font-weight: 300;
   letter-spacing: 4px;
   text-transform: uppercase;
-}
+
+  opacity: 1 !important;}
 
 .bb-ball-container-9 {
   position: relative;
@@ -262,7 +266,8 @@ const initAnimations = () => {
   align-items: flex-end;
   justify-content: center;
   margin-bottom: 60px;
-}
+
+  opacity: 1 !important;}
 
 // 轨道网格
 .bb-track-grid-9 {
@@ -270,7 +275,8 @@ const initAnimations = () => {
   width: 100%;
   height: 100%;
   pointer-events: none;
-}
+
+  opacity: 1 !important;}
 
 .bb-track-line-9 {
   position: absolute;
@@ -278,7 +284,8 @@ const initAnimations = () => {
   width: 1px;
   height: 100%;
   background: linear-gradient(to top, rgba(255, 255, 255, 0.1), transparent);
-}
+
+  opacity: 1 !important;}
 
 // 地面
 .bb-ground-9 {
@@ -289,13 +296,15 @@ const initAnimations = () => {
   display: flex;
   align-items: flex-end;
   justify-content: center;
-}
+
+  opacity: 1 !important;}
 
 .bb-ground-line-9 {
   width: 100%;
   height: 2px;
   background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-}
+
+  opacity: 1 !important;}
 
 .bb-ground-glow-9 {
   position: absolute;
@@ -326,7 +335,8 @@ const initAnimations = () => {
 
   &:hover {
     transform: scale(1.1);
-  }
+  
+  opacity: 1 !important;}
 }
 
 .bb-ball-inner-9 {
@@ -340,7 +350,8 @@ const initAnimations = () => {
     0 0 60px var(--ball-color),
     inset 0 -10px 20px rgba(0, 0, 0, 0.3);
   animation: ballGlow 2s ease-in-out infinite;
-}
+
+  opacity: 1 !important;}
 
 .bb-ball-highlight-9 {
   position: absolute;
@@ -350,7 +361,8 @@ const initAnimations = () => {
   height: 20%;
   background: radial-gradient(circle, rgba(255, 255, 255, 0.9) 0%, transparent 70%);
   border-radius: 50%;
-}
+
+  opacity: 1 !important;}
 
 .bb-ball-shadow-9 {
   position: absolute;
@@ -361,7 +373,8 @@ const initAnimations = () => {
   height: 20%;
   background: radial-gradient(ellipse, rgba(0, 0, 0, 0.4) 0%, transparent 70%);
   filter: blur(5px);
-}
+
+  opacity: 1 !important;}
 
 @keyframes ballGlow {
   0%, 100% {
@@ -402,14 +415,16 @@ const initAnimations = () => {
   width: 100%;
   height: 100%;
   pointer-events: none;
-}
+
+  opacity: 1 !important;}
 
 .bb-particle-9 {
   position: absolute;
   background: rgba(255, 255, 255, 0.6);
   border-radius: 50%;
   animation: floatParticle infinite ease-in-out;
-}
+
+  opacity: 1 !important;}
 
 @keyframes floatParticle {
   0% {
@@ -436,14 +451,16 @@ const initAnimations = () => {
   background: rgba(255, 255, 255, 0.1);
   border-radius: 3px;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .bb-bar-fill-9 {
   height: 100%;
   width: 0;
   background: linear-gradient(90deg, #ff6b6b, #4ecdc4);
   border-radius: 3px;
-}
+
+  opacity: 1 !important;}
 
 
 .bb-info-card-9 {
@@ -459,12 +476,14 @@ const initAnimations = () => {
   &:hover {
     transform: translateY(-5px);
     background: rgba(255, 255, 255, 0.08);
-  }
+  
+  opacity: 1 !important;}
 }
 
 .bb-info-icon-9 {
   font-size: 2.5rem;
-}
+
+  opacity: 1 !important;}
 
 .bb-info-text-9 {
   flex: 1;
@@ -475,12 +494,14 @@ const initAnimations = () => {
   font-weight: bold;
   color: #fff;
   margin-bottom: 4px;
-}
+
+  opacity: 1 !important;}
 
 .bb-info-desc-9 {
   font-size: 0.85rem;
   color: rgba(255, 255, 255, 0.6);
-}
+
+  opacity: 1 !important;}
 
 @media (max-width: 1024px) {
   .bb-balls-wrapper-9 {
@@ -495,11 +516,13 @@ const initAnimations = () => {
 @media (max-width: 768px) {
   .bb-section-title-9 {
     font-size: 2rem;
-  }
+  
+  opacity: 1 !important;}
 
   .bb-ball-container-9 {
     height: 400px;
-  }
+  
+  opacity: 1 !important;}
 
   .bb-balls-wrapper-9 {
     gap: 20px;
@@ -517,7 +540,8 @@ const initAnimations = () => {
     grid-template-columns: 1fr;
     gap: 15px;
     padding: 25px;
-  }
+  
+  opacity: 1 !important;}
 
   .bb-energy-bars-9 {
     top: 10px;
@@ -526,6 +550,7 @@ const initAnimations = () => {
 
   .bb-energy-bar-9 {
     width: 80px;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

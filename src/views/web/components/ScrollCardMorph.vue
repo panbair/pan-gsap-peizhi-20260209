@@ -252,13 +252,16 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
+/* GSAP opacity fix: ensure content is always visible */
+
 .card-morph-wrapper-201 {
   position: relative;
   width: 100%;
   min-height: 100vh;
   background: linear-gradient(135deg, #0f0f1a 0%, #1a1a2e 50%, #16213e 100%);
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .cm-stage-201 {
   position: relative;
@@ -268,7 +271,8 @@ onUnmounted(() => {
   align-items: center;
   justify-content: center;
   padding: 60px 20px;
-}
+
+  opacity: 1 !important;}
 
 .cm-bg-particles-201 {
   position: absolute;
@@ -286,14 +290,16 @@ onUnmounted(() => {
   background: rgba(100, 200, 255, 0.5);
   border-radius: 50%;
   box-shadow: 0 0 10px rgba(100, 200, 255, 0.6);
-}
+
+  opacity: 1 !important;}
 
 .cm-container-201 {
   position: relative;
   text-align: center;
   z-index: 10;
   max-width: 1200px;
-}
+
+  opacity: 1 !important;}
 
 .cm-title-201 {
   font-size: 3rem;
@@ -302,7 +308,8 @@ onUnmounted(() => {
   letter-spacing: 6px;
   color: #ffffff;
   text-shadow: 0 0 30px rgba(100, 200, 255, 0.5);
-}
+
+  opacity: 1 !important;}
 
 .cm-subtitle-201 {
   font-size: 1.2rem;
@@ -310,7 +317,8 @@ onUnmounted(() => {
   letter-spacing: 2px;
   margin-bottom: 60px;
   text-transform: uppercase;
-}
+
+  opacity: 1 !important;}
 
 .cm-shapes-scene-201 {
   display: flex;
@@ -319,7 +327,8 @@ onUnmounted(() => {
   gap: 50px;
   padding: 60px 20px;
   flex-wrap: wrap;
-}
+
+  opacity: 1 !important;}
 
 .cm-shape-card-201 {
   width: 200px;
@@ -333,17 +342,20 @@ onUnmounted(() => {
   display: flex;
   align-items: center;
   justify-content: center;
-}
+
+  opacity: 1 !important;}
 
 .cm-shape-inner-201 {
   text-align: center;
   padding: 20px;
-}
+
+  opacity: 1 !important;}
 
 .cm-shape-icon-201 {
   font-size: 3rem;
   margin-bottom: 15px;
-}
+
+  opacity: 1 !important;}
 
 .cm-shape-title-201 {
   font-size: 1.5rem;
@@ -351,12 +363,14 @@ onUnmounted(() => {
   color: #ffffff;
   margin-bottom: 8px;
   text-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
-}
+
+  opacity: 1 !important;}
 
 .cm-shape-desc-201 {
   font-size: 0.9rem;
   color: rgba(255, 255, 255, 0.6);
-}
+
+  opacity: 1 !important;}
 
 .cm-shape-glow-201 {
   position: absolute;
@@ -368,7 +382,8 @@ onUnmounted(() => {
   background: radial-gradient(circle, rgba(100, 200, 255, 0.4) 0%, transparent 70%);
   transform: translate(-50%, -50%);
   pointer-events: none;
-}
+
+  opacity: 1 !important;}
 
 .cm-morph-indicator-201 {
   display: flex;
@@ -386,7 +401,8 @@ onUnmounted(() => {
   cursor: pointer;
   transition: all 0.3s ease;
   backdrop-filter: blur(10px);
-}
+
+  opacity: 1 !important;}
 
 .cm-indicator-shape-201:hover {
   background: rgba(100, 200, 255, 0.1);
@@ -398,7 +414,8 @@ onUnmounted(() => {
   background: rgba(100, 200, 255, 0.2);
   border-color: rgba(100, 200, 255, 0.8);
   box-shadow: 0 0 20px rgba(100, 200, 255, 0.4);
-}
+
+  opacity: 1 !important;}
 
 .cm-indicator-label-201 {
   font-size: 1rem;
@@ -406,12 +423,14 @@ onUnmounted(() => {
   color: #ffffff;
   text-transform: uppercase;
   letter-spacing: 1px;
-}
+
+  opacity: 1 !important;}
 
 @media (max-width: 768px) {
   .cm-title-201 {
     font-size: 2rem;
-  }
+  
+  opacity: 1 !important;}
 
   .cm-shapes-scene-201 {
     gap: 30px;
@@ -420,15 +439,18 @@ onUnmounted(() => {
   .cm-shape-card-201 {
     width: 150px;
     height: 150px;
-  }
+  
+  opacity: 1 !important;}
 
   .cm-shape-icon-201 {
     font-size: 2.5rem;
-  }
+  
+  opacity: 1 !important;}
 
   .cm-shape-title-201 {
     font-size: 1.2rem;
-  }
+  
+  opacity: 1 !important;}
 
   .cm-morph-indicator-201 {
     gap: 10px;
@@ -436,6 +458,7 @@ onUnmounted(() => {
 
   .cm-indicator-shape-201 {
     padding: 12px 20px;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

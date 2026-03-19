@@ -232,13 +232,16 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
+/* GSAP opacity fix: ensure content is always visible */
+
 .card-glass-wrapper-202 {
   position: relative;
   width: 100%;
   min-height: 100vh;
   background: linear-gradient(135deg, #0f0f1a 0%, #1a1a2e 50%, #16213e 100%);
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .cg-stage-202 {
   position: relative;
@@ -248,7 +251,8 @@ onUnmounted(() => {
   align-items: center;
   justify-content: center;
   padding: 60px 20px;
-}
+
+  opacity: 1 !important;}
 
 .cg-glass-bg-202 {
   position: absolute;
@@ -274,14 +278,16 @@ onUnmounted(() => {
   );
   background-size: 400% 400%;
   mix-blend-mode: overlay;
-}
+
+  opacity: 1 !important;}
 
 .cg-container-202 {
   position: relative;
   text-align: center;
   z-index: 10;
   max-width: 1200px;
-}
+
+  opacity: 1 !important;}
 
 .cg-title-202 {
   font-size: 3rem;
@@ -290,7 +296,8 @@ onUnmounted(() => {
   letter-spacing: 6px;
   color: #ffffff;
   text-shadow: 0 0 30px rgba(100, 200, 255, 0.5);
-}
+
+  opacity: 1 !important;}
 
 .cg-subtitle-202 {
   font-size: 1.2rem;
@@ -298,14 +305,16 @@ onUnmounted(() => {
   letter-spacing: 2px;
   margin-bottom: 60px;
   text-transform: uppercase;
-}
+
+  opacity: 1 !important;}
 
 .cg-glass-cards-202 {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 40px;
   padding: 20px;
-}
+
+  opacity: 1 !important;}
 
 .cg-glass-card-202 {
   position: relative;
@@ -322,7 +331,8 @@ onUnmounted(() => {
   border-radius: 20px;
   border: 1px solid rgba(255, 255, 255, 0.2);
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .cg-glass-border-202 {
   position: absolute;
@@ -335,7 +345,8 @@ onUnmounted(() => {
   box-shadow: 0 0 10px rgba(100, 200, 255, 0.3);
   pointer-events: none;
   transition: all 0.3s ease;
-}
+
+  opacity: 1 !important;}
 
 .cg-glass-highlight-202 {
   position: absolute;
@@ -346,7 +357,8 @@ onUnmounted(() => {
   transform: translate(-50%, -50%);
   pointer-events: none;
   transition: left 0.2s ease, top 0.2s ease;
-}
+
+  opacity: 1 !important;}
 
 .cg-glass-content-202 {
   position: relative;
@@ -357,7 +369,8 @@ onUnmounted(() => {
   font-size: 3.5rem;
   margin-bottom: 20px;
   filter: drop-shadow(0 0 20px rgba(100, 200, 255, 0.6));
-}
+
+  opacity: 1 !important;}
 
 .cg-glass-title-202 {
   font-size: 1.8rem;
@@ -365,13 +378,15 @@ onUnmounted(() => {
   color: #ffffff;
   margin-bottom: 10px;
   text-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
-}
+
+  opacity: 1 !important;}
 
 .cg-glass-desc-202 {
   font-size: 1rem;
   color: rgba(255, 255, 255, 0.6);
   margin-bottom: 25px;
-}
+
+  opacity: 1 !important;}
 
 .cg-glass-stats-202 {
   display: flex;
@@ -382,7 +397,8 @@ onUnmounted(() => {
 
 .cg-stat-202 {
   text-align: center;
-}
+
+  opacity: 1 !important;}
 
 .cg-stat-value-202 {
   display: block;
@@ -390,7 +406,8 @@ onUnmounted(() => {
   font-weight: 700;
   color: #64c8ff;
   text-shadow: 0 0 15px rgba(100, 200, 255, 0.6);
-}
+
+  opacity: 1 !important;}
 
 .cg-stat-label-202 {
   display: block;
@@ -399,12 +416,14 @@ onUnmounted(() => {
   text-transform: uppercase;
   letter-spacing: 1px;
   margin-top: 5px;
-}
+
+  opacity: 1 !important;}
 
 @media (max-width: 768px) {
   .cg-title-202 {
     font-size: 2rem;
-  }
+  
+  opacity: 1 !important;}
 
   .cg-glass-cards-202 {
     grid-template-columns: 1fr;
@@ -413,14 +432,17 @@ onUnmounted(() => {
 
   .cg-glass-inner-202 {
     padding: 30px;
-  }
+  
+  opacity: 1 !important;}
 
   .cg-glass-icon-202 {
     font-size: 3rem;
-  }
+  
+  opacity: 1 !important;}
 
   .cg-glass-title-202 {
     font-size: 1.5rem;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

@@ -268,7 +268,8 @@ onUnmounted(() => {
   padding: 60px 20px;
   position: relative;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .sii-section-229::before {
   content: '';
@@ -288,7 +289,8 @@ onUnmounted(() => {
   margin: 0 auto;
   position: relative;
   z-index: 1;
-}
+
+  opacity: 1 !important;}
 
 .sii-title-229 {
   font-size: 3rem;
@@ -299,14 +301,16 @@ onUnmounted(() => {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   text-align: center;
-}
+
+  opacity: 1 !important;}
 
 .sii-subtitle-229 {
   font-size: 1.2rem;
   color: #94a3b8;
   text-align: center;
   margin-bottom: 40px;
-}
+
+  opacity: 1 !important;}
 
 .sii-control-panel-229 {
   display: flex;
@@ -319,20 +323,23 @@ onUnmounted(() => {
   border-radius: 16px;
   border: 1px solid rgba(255, 255, 255, 0.1);
   margin-bottom: 40px;
-}
+
+  opacity: 1 !important;}
 
 .sii-control-group-229 {
   display: flex;
   flex-direction: column;
   gap: 10px;
   min-width: 200px;
-}
+
+  opacity: 1 !important;}
 
 .sii-label-229 {
   font-size: 14px;
   color: #94a3b8;
   font-weight: 500;
-}
+
+  opacity: 1 !important;}
 
 .sii-slider-229 {
   width: 100%;
@@ -353,7 +360,8 @@ onUnmounted(() => {
 
     &:hover {
       transform: scale(1.2);
-    }
+    
+  opacity: 1 !important;}
   }
 }
 
@@ -361,21 +369,24 @@ onUnmounted(() => {
   font-size: 13px;
   color: #c084fc;
   font-weight: 600;
-}
+
+  opacity: 1 !important;}
 
 .sii-crystal-stage-229 {
   perspective: 2000px;
   height: 500px;
   position: relative;
   margin-bottom: 30px;
-}
+
+  opacity: 1 !important;}
 
 .sii-prism-container-229 {
   position: relative;
   width: 100%;
   height: 100%;
   transform-style: preserve-3d;
-}
+
+  opacity: 1 !important;}
 
 .sii-crystal-layer-229 {
   position: absolute;
@@ -388,21 +399,24 @@ onUnmounted(() => {
   overflow: hidden;
   transition: transform 0.5s;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-}
+
+  opacity: 1 !important;}
 
 .sii-crystal-fragment-229 {
   position: relative;
   width: 100%;
   height: 100%;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .sii-crystal-image-229 {
   width: 100%;
   height: 100%;
   object-fit: cover;
   filter: brightness(1.1) contrast(1.1);
-}
+
+  opacity: 1 !important;}
 
 .sii-reflection-layer-229 {
   position: absolute;
@@ -426,7 +440,8 @@ onUnmounted(() => {
   border-radius: 50%;
   filter: blur(40px);
   mix-blend-mode: screen;
-}
+
+  opacity: 1 !important;}
 
 .sii-spectrum-overlay-229 {
   position: absolute;
@@ -446,7 +461,8 @@ onUnmounted(() => {
   filter: blur(8px);
   mix-blend-mode: screen;
 
-  &:nth-child(1) { background: rgba(255, 0, 0, 0.4); top: 10%; }
+  &:nth-child(1) { background: rgba(255, 0, 0, 0.4); top: 10%; 
+  opacity: 1 !important;}
   &:nth-child(2) { background: rgba(255, 165, 0, 0.4); top: 25%; }
   &:nth-child(3) { background: rgba(255, 255, 0, 0.4); top: 40%; }
   &:nth-child(4) { background: rgba(0, 255, 0, 0.4); top: 55%; }
@@ -462,20 +478,23 @@ onUnmounted(() => {
   backdrop-filter: blur(10px);
   border-radius: 16px;
   border: 1px solid rgba(255, 255, 255, 0.1);
-}
+
+  opacity: 1 !important;}
 
 .sii-current-title-229 {
   font-size: 1.8rem;
   font-weight: 600;
   color: #e2e8f0;
   margin-bottom: 10px;
-}
+
+  opacity: 1 !important;}
 
 .sii-current-desc-229 {
   font-size: 1.1rem;
   color: #94a3b8;
   margin-bottom: 20px;
-}
+
+  opacity: 1 !important;}
 
 .sii-indicator-229 {
   display: flex;
@@ -495,7 +514,8 @@ onUnmounted(() => {
     background: linear-gradient(135deg, #c084fc, #f472b6);
     transform: scale(1.2);
     box-shadow: 0 0 20px rgba(192, 132, 252, 0.6);
-  }
+  
+  opacity: 1 !important;}
 
   &:hover {
     transform: scale(1.1);

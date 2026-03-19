@@ -89,8 +89,7 @@ const initAnimations = () => {
   const items = gsap.utils.toArray('.circle-item') as HTMLElement[]
 
   // Initial positioning
-  items.forEach((item) => {
-    const angle = parseFloat(item.dataset.angle || '0')
+  items.forEach((item) => { const angle = parseFloat(item.dataset.angle || '0')
     const radius = 300
 
     gsap.set(item, {
@@ -121,9 +120,7 @@ const initAnimations = () => {
     // Image scale
     gsap.fromTo(
       image,
-      {
-        scale: 1.2
-      },
+      { scale: 1.2, opacity: 1 },
       {
         scale: 1,
         ease: 'none',
@@ -205,8 +202,7 @@ onMounted(() => {
       width: 0;
       height: 0;
 
-      .circle-item {
-        position: absolute;
+      .circle-item { position: absolute;
         top: 50%;
         left: 50%;
         width: 200px;
@@ -229,13 +225,14 @@ onMounted(() => {
           &:hover {
             transform: scale(1.1);
             border-color: rgba(102, 126, 234, 0.8);
-          }
+      opacity: 1;
+    }
 
-          .circle-image {
-            width: 100%;
+          .circle-image { width: 100%;
             height: 100%;
             object-fit: cover;
-          }
+      opacity: 1;
+    }
 
           .circle-overlay {
             position: absolute;
@@ -250,7 +247,8 @@ onMounted(() => {
               font-size: 1.2rem;
               color: #fff;
               margin: 0 0 5px 0;
-            }
+            
+  opacity: 1 !important;}
 
             p {
               font-size: 0.8rem;
@@ -285,7 +283,8 @@ onMounted(() => {
         font-size: 2rem;
         color: #fff;
         margin: 0 0 10px 0;
-      }
+      
+  opacity: 1 !important;}
 
       p {
         font-size: 1rem;
@@ -297,22 +296,25 @@ onMounted(() => {
 }
 
 @media (max-width: 768px) {
+
   .scroll-image-circle {
     .circle-container {
+
       .circle-wrapper {
-        .circle-item {
-          width: 150px;
+    .circle-item { width: 150px;
           height: 150px;
           margin-left: -75px;
           margin-top: -75px;
 
+
           .circle-card {
-            .circle-overlay {
+    .circle-overlay {
               padding: 10px;
 
               h3 {
                 font-size: 1rem;
-              }
+      opacity: 1;
+    }
 
               p {
                 font-size: 0.7rem;
@@ -330,7 +332,8 @@ onMounted(() => {
       .center-content {
         h2 {
           font-size: 1.5rem;
-        }
+        
+  opacity: 1 !important;}
 
         p {
           font-size: 0.9rem;

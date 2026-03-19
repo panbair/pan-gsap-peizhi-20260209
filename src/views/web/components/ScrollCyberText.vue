@@ -251,7 +251,8 @@ onUnmounted(() => {
   justify-content: center;
   background: linear-gradient(180deg, #0a0a1a 0%, #0f0f2f 50%, #0a0a1a 100%);
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .ct-stage-175 {
   position: relative;
@@ -261,7 +262,8 @@ onUnmounted(() => {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
+
+  opacity: 1 !important;}
 
 .ct-hologram-bg-175 {
   position: absolute;
@@ -291,7 +293,8 @@ onUnmounted(() => {
   border-radius: 10px;
   overflow: hidden;
   backdrop-filter: blur(10px);
-}
+
+  opacity: 1 !important;}
 
 .ct-cyber-container-175::before {
   content: '';
@@ -318,7 +321,8 @@ onUnmounted(() => {
   letter-spacing: 6px;
   margin-bottom: 30px;
   text-shadow: 0 0 10px #0ff;
-}
+
+  opacity: 1 !important;}
 
 .ct-code-block-175 {
   font-family: 'Courier New', monospace;
@@ -331,7 +335,8 @@ onUnmounted(() => {
   margin-bottom: 40px;
   max-width: 400px;
   white-space: pre;
-}
+
+  opacity: 1 !important;}
 
 .ct-cyber-text-175 {
   display: flex;
@@ -339,7 +344,8 @@ onUnmounted(() => {
   flex-wrap: wrap;
   gap: 2px;
   margin: 40px 0;
-}
+
+  opacity: 1 !important;}
 
 .ct-char-175 {
   font-size: clamp(2.5rem, 7vw, 5rem);
@@ -348,7 +354,8 @@ onUnmounted(() => {
   position: relative;
   display: inline-block;
   transition: all 0.3s ease;
-}
+
+  opacity: 1 !important;}
 
 .ct-char-175:hover {
   transform: scale(1.3);
@@ -367,7 +374,8 @@ onUnmounted(() => {
   background: linear-gradient(180deg, transparent, #0ff, transparent);
   transform-origin: center;
   border-radius: 2px;
-}
+
+  opacity: 1 !important;}
 
 .ct-particles-175 {
   position: absolute;
@@ -385,5 +393,6 @@ onUnmounted(() => {
   background: #0ff;
   border-radius: 50%;
   box-shadow: 0 0 10px #0ff;
-}
+
+  opacity: 1 !important;}
 </style>

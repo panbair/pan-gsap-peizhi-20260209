@@ -234,7 +234,8 @@ onUnmounted(() => {
   justify-content: center;
   background: radial-gradient(ellipse at center, #0a1a2a 0%, #050a10 100%);
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .ht-stage-177 {
   position: relative;
@@ -244,7 +245,8 @@ onUnmounted(() => {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
+
+  opacity: 1 !important;}
 
 .ht-hologram-bg-177 {
   position: absolute;
@@ -274,7 +276,8 @@ onUnmounted(() => {
   right: 0;
   height: 2px;
   background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.5), transparent);
-}
+
+  opacity: 1 !important;}
 
 .ht-scan-horizontal-177 {
   position: absolute;
@@ -282,7 +285,8 @@ onUnmounted(() => {
   bottom: 0;
   width: 2px;
   background: linear-gradient(180deg, transparent, rgba(0, 255, 255, 0.5), transparent);
-}
+
+  opacity: 1 !important;}
 
 .ht-holo-container-177 {
   position: relative;
@@ -293,7 +297,8 @@ onUnmounted(() => {
   border-radius: 50%;
   overflow: hidden;
   backdrop-filter: blur(10px);
-}
+
+  opacity: 1 !important;}
 
 .ht-base-ring-177 {
   position: absolute;
@@ -304,7 +309,8 @@ onUnmounted(() => {
   border: 2px solid rgba(0, 255, 255, 0.2);
   border-radius: 50%;
   animation: pulse 3s ease-in-out infinite;
-}
+
+  opacity: 1 !important;}
 
 .ht-rotating-ring-177 {
   position: absolute;
@@ -314,7 +320,8 @@ onUnmounted(() => {
   bottom: -20px;
   border: 2px dashed rgba(0, 255, 255, 0.4);
   border-radius: 50%;
-}
+
+  opacity: 1 !important;}
 
 .ht-title-177 {
   font-size: clamp(1.8rem, 4vw, 2.5rem);
@@ -324,7 +331,8 @@ onUnmounted(() => {
   letter-spacing: 6px;
   margin-bottom: 30px;
   position: relative;
-}
+
+  opacity: 1 !important;}
 
 .ht-holo-text-177 {
   display: flex;
@@ -333,7 +341,8 @@ onUnmounted(() => {
   gap: 6px;
   margin: 40px 0;
   perspective: 1000px;
-}
+
+  opacity: 1 !important;}
 
 .ht-char-177 {
   font-size: clamp(3rem, 8vw, 6rem);
@@ -344,7 +353,8 @@ onUnmounted(() => {
   color: #0ff;
   transition: all 0.3s ease;
   transform-style: preserve-3d;
-}
+
+  opacity: 1 !important;}
 
 .ht-data-dots-177 {
   position: absolute;
@@ -362,7 +372,8 @@ onUnmounted(() => {
   background: #0ff;
   border-radius: 50%;
   box-shadow: 0 0 10px #0ff;
-}
+
+  opacity: 1 !important;}
 
 .ht-light-rays-177 {
   position: absolute;
@@ -372,7 +383,8 @@ onUnmounted(() => {
   height: 800px;
   transform: translate(-50%, -50%);
   pointer-events: none;
-}
+
+  opacity: 1 !important;}
 
 .ht-ray-177 {
   position: absolute;
@@ -382,7 +394,8 @@ onUnmounted(() => {
   height: 50%;
   background: linear-gradient(180deg, transparent, rgba(0, 255, 255, 0.3));
   transform-origin: top center;
-}
+
+  opacity: 1 !important;}
 
 @keyframes pulse {
   0%, 100% {

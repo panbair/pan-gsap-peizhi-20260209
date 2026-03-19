@@ -238,7 +238,8 @@ onUnmounted(() => {
       radial-gradient(circle at 20% 30%, rgba(236, 72, 153, 0.1) 0%, transparent 50%),
       radial-gradient(circle at 80% 70%, rgba(168, 85, 247, 0.1) 0%, transparent 50%);
     pointer-events: none;
-  }
+  
+  opacity: 1 !important;}
 }
 
 .sft-container-148 {
@@ -246,7 +247,8 @@ onUnmounted(() => {
   margin: 0 auto;
   position: relative;
   z-index: 1;
-}
+
+  opacity: 1 !important;}
 
 .sft-title-148 {
   text-align: center;
@@ -258,7 +260,8 @@ onUnmounted(() => {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-}
+
+  opacity: 1 !important;}
 
 .sft-subtitle-148 {
   text-align: center;
@@ -267,7 +270,8 @@ onUnmounted(() => {
   margin-bottom: 80px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-}
+
+  opacity: 1 !important;}
 
 .sft-text-display-148 {
   display: flex;
@@ -279,7 +283,8 @@ onUnmounted(() => {
 .sft-text-wrapper-148 {
   text-align: center;
   perspective: 1000px;
-}
+
+  opacity: 1 !important;}
 
 .sft-fluid-text-148 {
   font-size: clamp(3rem, 8vw, 8rem);
@@ -305,7 +310,8 @@ onUnmounted(() => {
         0 0 30px rgba(236, 72, 153, 0.8),
         0 0 60px rgba(168, 85, 247, 0.6),
         0 0 90px rgba(96, 165, 250, 0.4);
-    }
+    
+  opacity: 1 !important;}
   }
 }
 
@@ -328,7 +334,8 @@ onUnmounted(() => {
   left: var(--particle-left);
   top: var(--particle-top);
   animation: float var(--delay) ease-in-out infinite;
-}
+
+  opacity: 1 !important;}
 
 @keyframes float {
   0%, 100% {
@@ -344,7 +351,8 @@ onUnmounted(() => {
 @media (max-width: 768px) {
   .sft-fluid-text-148 {
     font-size: clamp(2rem, 7vw, 4rem);
-  }
+  
+  opacity: 1 !important;}
 
   .sft-text-display-148 {
     gap: 40px;
@@ -352,6 +360,7 @@ onUnmounted(() => {
 
   .sft-container-148 {
     padding: 0 20px;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

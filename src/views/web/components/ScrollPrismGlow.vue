@@ -168,6 +168,8 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
+/* GSAP opacity fix: ensure content is always visible */
+
 .prism-glow-container-201 {
   min-height: 100vh;
   background: linear-gradient(180deg, #0a0a0a 0%, #0a0a1a 100%);
@@ -175,12 +177,14 @@ onUnmounted(() => {
   position: relative;
   overflow: hidden;
   perspective: 2000px;
-}
+
+  opacity: 1 !important;}
 
 .pg-header-201 {
   text-align: center;
   margin-bottom: 60px;
-}
+
+  opacity: 1 !important;}
 
 .pg-title-201 {
   font-size: 48px;
@@ -191,12 +195,14 @@ onUnmounted(() => {
   background-clip: text;
   text-shadow: 0 0 40px rgba(255, 255, 255, 0.3);
   margin-bottom: 10px;
-}
+
+  opacity: 1 !important;}
 
 .pg-hint-201 {
   font-size: 18px;
   color: #ffffff;
-}
+
+  opacity: 1 !important;}
 
 .pg-stage-201 {
   max-width: 1200px;
@@ -205,7 +211,8 @@ onUnmounted(() => {
   grid-template-columns: repeat(3, 1fr);
   gap: 60px;
   padding: 20px;
-}
+
+  opacity: 1 !important;}
 
 .pg-prism-wrapper-201 {
   height: 400px;
@@ -214,7 +221,8 @@ onUnmounted(() => {
   justify-content: center;
   align-items: center;
   perspective: 1000px;
-}
+
+  opacity: 1 !important;}
 
 .pg-prism-201 {
   position: relative;
@@ -222,7 +230,8 @@ onUnmounted(() => {
   height: 360px;
   transform-style: preserve-3d;
   transition: all 0.5s ease;
-}
+
+  opacity: 1 !important;}
 
 .pg-light-rays-201 {
   position: absolute;
@@ -248,7 +257,8 @@ onUnmounted(() => {
   box-shadow: 
     0 20px 40px rgba(0, 0, 0, 0.3),
     inset 0 0 30px rgba(255, 255, 255, 0.1);
-}
+
+  opacity: 1 !important;}
 
 .pg-crystal-face-201::before {
   content: '';
@@ -279,13 +289,15 @@ onUnmounted(() => {
   justify-content: center;
   text-align: center;
   transform: translateZ(50px);
-}
+
+  opacity: 1 !important;}
 
 .pg-icon-201 {
   font-size: 72px;
   margin-bottom: 20px;
   filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.8));
-}
+
+  opacity: 1 !important;}
 
 .pg-prism-title-201 {
   font-size: 28px;
@@ -293,13 +305,15 @@ onUnmounted(() => {
   color: #ffffff;
   margin-bottom: 10px;
   text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
-}
+
+  opacity: 1 !important;}
 
 .pg-prism-desc-201 {
   font-size: 14px;
   color: #e0e0e0;
   line-height: 1.6;
-}
+
+  opacity: 1 !important;}
 
 .pg-spectrum-201 {
   position: absolute;
@@ -336,6 +350,7 @@ onUnmounted(() => {
   .pg-prism-201 {
     width: 220px;
     height: 320px;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

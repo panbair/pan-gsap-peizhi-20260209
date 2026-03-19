@@ -169,12 +169,14 @@ onUnmounted(() => {
   padding: 120px 20px;
   background: linear-gradient(180deg, #0e0e1e 0%, #1e1e3e 50%, #0e0e1e 100%);
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .sst-container-173 {
   max-width: 1200px;
   margin: 0 auto;
-}
+
+  opacity: 1 !important;}
 
 .sst-title-173 {
   text-align: center;
@@ -185,7 +187,8 @@ onUnmounted(() => {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-}
+
+  opacity: 1 !important;}
 
 .sst-subtitle-173 {
   text-align: center;
@@ -194,7 +197,8 @@ onUnmounted(() => {
   margin-bottom: 100px;
   letter-spacing: 0.3em;
   text-transform: uppercase;
-}
+
+  opacity: 1 !important;}
 
 .sst-transition-stage-173 {
   display: flex;
@@ -212,7 +216,8 @@ onUnmounted(() => {
   border-radius: 24px;
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
-}
+
+  opacity: 1 !important;}
 
 .sst-split-left-173 {
   flex: 1;
@@ -232,19 +237,22 @@ onUnmounted(() => {
   background-clip: text;
   line-height: 1;
   margin-bottom: 15px;
-}
+
+  opacity: 1 !important;}
 
 .sst-item-title-173 {
   font-size: 2rem;
   font-weight: 700;
   color: #fff;
-}
+
+  opacity: 1 !important;}
 
 .sst-divider-173 {
   width: 2px;
   background: linear-gradient(180deg, transparent, rgba(168, 237, 234, 0.6), transparent);
   margin: 0 40px;
-}
+
+  opacity: 1 !important;}
 
 .sst-split-right-173 {
   flex: 1.5;
@@ -257,7 +265,8 @@ onUnmounted(() => {
   font-size: 1.1rem;
   color: rgba(255, 255, 255, 0.7);
   line-height: 1.8;
-}
+
+  opacity: 1 !important;}
 
 @media (max-width: 768px) {
   .sst-transition-stage-173 {
@@ -268,21 +277,24 @@ onUnmounted(() => {
     flex-direction: column;
     padding: 30px;
     min-height: auto;
-  }
+  
+  opacity: 1 !important;}
 
   .sst-split-left-173 {
     padding-right: 0;
     padding-bottom: 30px;
     align-items: center;
     text-align: center;
-  }
+  
+  opacity: 1 !important;}
 
   .st-divider-173 {
     width: 100%;
     height: 2px;
     margin: 30px 0;
     background: linear-gradient(90deg, transparent, rgba(168, 237, 234, 0.6), transparent);
-  }
+  
+  opacity: 1 !important;}
 
   .sst-split-right-173 {
     padding-left: 0;
@@ -290,14 +302,17 @@ onUnmounted(() => {
 
   .sst-item-number-173 {
     font-size: 2.5rem;
-  }
+  
+  opacity: 1 !important;}
 
   .sst-item-title-173 {
     font-size: 1.5rem;
-  }
+  
+  opacity: 1 !important;}
 
   .sst-item-desc-173 {
     font-size: 1rem;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

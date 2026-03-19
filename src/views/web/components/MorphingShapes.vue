@@ -123,11 +123,13 @@ onUnmounted(() => {
   position: relative;
   overflow: hidden;
   background: linear-gradient(180deg, transparent, rgba(167, 139, 250, 0.03), transparent);
-}
+
+  opacity: 1 !important;}
 
 .content-20 {
   text-align: center;
-}
+
+  opacity: 1 !important;}
 
 .section-title-20 {
   font-size: clamp(2rem, 4vw, 2.5rem);
@@ -139,7 +141,8 @@ onUnmounted(() => {
   background-clip: text;
   background-size: 300% 300%;
   animation: gradientShift 3s ease infinite;
-}
+
+  opacity: 1 !important;}
 
 @keyframes gradientShift {
   0%, 100% {
@@ -154,7 +157,8 @@ onUnmounted(() => {
   font-size: 1.1rem;
   color: #94a3b8;
   margin-bottom: 80px;
-}
+
+  opacity: 1 !important;}
 
 .shapes-container-20 {
   display: grid;
@@ -162,7 +166,8 @@ onUnmounted(() => {
   gap: 40px;
   max-width: 1000px;
   margin: 0 auto 60px;
-}
+
+  opacity: 1 !important;}
 
 .shape-wrapper-20 {
   display: flex;
@@ -170,50 +175,58 @@ onUnmounted(() => {
   align-items: center;
   justify-content: center;
   height: 200px;
-}
+
+  opacity: 1 !important;}
 
 .morphing-shape-20 {
   width: 120px;
   height: 120px;
   transition: all 0.5s ease;
   position: relative;
-}
+
+  opacity: 1 !important;}
 
 .shape-1 {
   background: linear-gradient(135deg, #a78bfa, #818cf8);
   border-radius: 50%;
   animation: morph1 4s ease-in-out infinite;
-}
+
+  opacity: 1 !important;}
 
 .shape-2 {
   background: linear-gradient(135deg, #60a5fa, #3b82f6);
   clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
   animation: morph2 4s ease-in-out infinite;
-}
+
+  opacity: 1 !important;}
 
 .shape-3 {
   background: linear-gradient(135deg, #f472b6, #ec4899);
   border-radius: 10px;
   animation: morph3 4s ease-in-out infinite;
-}
+
+  opacity: 1 !important;}
 
 .shape-4 {
   background: linear-gradient(135deg, #34d399, #10b981);
   clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
   animation: morph4 4s ease-in-out infinite;
-}
+
+  opacity: 1 !important;}
 
 .shape-5 {
   background: linear-gradient(135deg, #fbbf24, #f59e0b);
   clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
   animation: morph5 4s ease-in-out infinite;
-}
+
+  opacity: 1 !important;}
 
 .shape-6 {
   background: linear-gradient(135deg, #f87171, #ef4444);
   clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
   animation: morph6 4s ease-in-out infinite;
-}
+
+  opacity: 1 !important;}
 
 @keyframes morph1 {
   0%, 100% {
@@ -284,7 +297,8 @@ onUnmounted(() => {
   font-size: 0.9rem;
   letter-spacing: 2px;
   animation: pulse 2s infinite;
-}
+
+  opacity: 1 !important;}
 
 @keyframes pulse {
   0%, 100% {

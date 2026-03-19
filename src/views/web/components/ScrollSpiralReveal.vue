@@ -291,7 +291,8 @@ onUnmounted(() => {
   display: flex;
   align-items: center;
   justify-content: center;
-}
+
+  opacity: 1 !important;}
 
 .ssr-container-155 {
   width: 100%;
@@ -299,7 +300,8 @@ onUnmounted(() => {
   margin: 0 auto;
   position: relative;
   z-index: 1;
-}
+
+  opacity: 1 !important;}
 
 .ssr-title-155 {
   text-align: center;
@@ -311,7 +313,8 @@ onUnmounted(() => {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-}
+
+  opacity: 1 !important;}
 
 .ssr-subtitle-155 {
   text-align: center;
@@ -320,7 +323,8 @@ onUnmounted(() => {
   margin-bottom: 80px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-}
+
+  opacity: 1 !important;}
 
 .ssr-spiral-wrapper-155 {
   position: relative;
@@ -329,7 +333,8 @@ onUnmounted(() => {
   display: flex;
   align-items: center;
   justify-content: center;
-}
+
+  opacity: 1 !important;}
 
 .ssr-spiral-path-155 {
   position: relative;
@@ -338,7 +343,8 @@ onUnmounted(() => {
   display: flex;
   align-items: center;
   justify-content: center;
-}
+
+  opacity: 1 !important;}
 
 .ssr-spiral-item-155 {
   position: absolute;
@@ -361,7 +367,8 @@ onUnmounted(() => {
 
   &:hover {
     box-shadow: 0 25px 60px rgba(236, 72, 153, 0.3);
-  }
+  
+  opacity: 1 !important;}
 }
 
 .ssr-card-image-155 {
@@ -370,24 +377,28 @@ onUnmounted(() => {
   background-size: cover;
   background-position: center;
   transition: transform 0.4s ease;
-}
+
+  opacity: 1 !important;}
 
 .ssr-card-info-155 {
   padding: 20px;
-}
+
+  opacity: 1 !important;}
 
 .ssr-card-title-155 {
   font-size: 1.2rem;
   font-weight: 700;
   color: #fff;
   margin-bottom: 8px;
-}
+
+  opacity: 1 !important;}
 
 .ssr-card-desc-155 {
   font-size: 0.9rem;
   color: rgba(255, 255, 255, 0.7);
   line-height: 1.4;
-}
+
+  opacity: 1 !important;}
 
 .ssr-spiral-lines-155 {
   position: absolute;
@@ -407,7 +418,8 @@ onUnmounted(() => {
   border: 1px solid rgba(236, 72, 153, 0.1);
   border-radius: 50%;
   animation: rotate var(--duration) linear infinite;
-}
+
+  opacity: 1 !important;}
 
 .ssr-spiral-line-155:nth-child(1) {
   width: 300px;
@@ -436,23 +448,28 @@ onUnmounted(() => {
 @media (max-width: 768px) {
   .ssr-spiral-wrapper-155 {
     height: 600px;
-  }
+  
+  opacity: 1 !important;}
 
   .ssr-item-card-155 {
     width: 160px;
-  }
+  
+  opacity: 1 !important;}
 
   .ssr-card-image-155 {
     height: 120px;
-  }
+  
+  opacity: 1 !important;}
 
   .ssr-card-title-155 {
     font-size: 1rem;
-  }
+  
+  opacity: 1 !important;}
 
   .ssr-card-desc-155 {
     font-size: 0.8rem;
-  }
+  
+  opacity: 1 !important;}
 
   .ssr-spiral-line-155 {
     transform: translate(-50%, -50%) scale(0.7);

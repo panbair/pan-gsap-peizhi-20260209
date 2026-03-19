@@ -224,6 +224,8 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
+/* GSAP opacity fix: ensure content is always visible */
+
 .sbp-background-pattern-225 {
   min-height: 100vh;
   padding: 60px 40px;
@@ -231,12 +233,14 @@ onUnmounted(() => {
   color: #fff;
   position: relative;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .sbp-header-225 {
   text-align: center;
   margin-bottom: 40px;
-}
+
+  opacity: 1 !important;}
 
 .sbp-title-225 {
   font-size: 3rem;
@@ -246,17 +250,20 @@ onUnmounted(() => {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   margin-bottom: 10px;
-}
+
+  opacity: 1 !important;}
 
 .sbp-subtitle-225 {
   font-size: 1.2rem;
   color: #94a3b8;
-}
+
+  opacity: 1 !important;}
 
 .sbp-container-225 {
   max-width: 1200px;
   margin: 0 auto;
-}
+
+  opacity: 1 !important;}
 
 .sbp-background-stage-225 {
   position: relative;
@@ -271,7 +278,8 @@ onUnmounted(() => {
   overflow: hidden;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
   transition: all 0.5s ease;
-}
+
+  opacity: 1 !important;}
 
 .sbp-pattern-layer-225 {
   position: absolute;
@@ -284,14 +292,16 @@ onUnmounted(() => {
   height: 40px;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.3);
-}
+
+  opacity: 1 !important;}
 
 .sbp-pattern-square-225 {
   width: 35px;
   height: 35px;
   background: rgba(255, 255, 255, 0.3);
   transform: rotate(45deg);
-}
+
+  opacity: 1 !important;}
 
 .sbp-pattern-triangle-225 {
   width: 0;
@@ -299,21 +309,24 @@ onUnmounted(() => {
   border-left: 20px solid transparent;
   border-right: 20px solid transparent;
   border-bottom: 35px solid rgba(255, 255, 255, 0.3);
-}
+
+  opacity: 1 !important;}
 
 .sbp-pattern-star-225 {
   width: 40px;
   height: 40px;
   background: rgba(255, 255, 255, 0.3);
   clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
-}
+
+  opacity: 1 !important;}
 
 .sbp-pattern-diamond-225 {
   width: 35px;
   height: 35px;
   background: rgba(255, 255, 255, 0.3);
   transform: rotate(45deg);
-}
+
+  opacity: 1 !important;}
 
 .sbp-content-overlay-225 {
   position: absolute;
@@ -322,20 +335,23 @@ onUnmounted(() => {
   transform: translate(-50%, -50%);
   text-align: center;
   z-index: 10;
-}
+
+  opacity: 1 !important;}
 
 .sbp-content-title-225 {
   font-size: 2rem;
   font-weight: 700;
   margin-bottom: 10px;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-}
+
+  opacity: 1 !important;}
 
 .sbp-content-desc-225 {
   font-size: 1rem;
   color: rgba(255, 255, 255, 0.9);
   text-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
-}
+
+  opacity: 1 !important;}
 
 @keyframes waveMotion {
   0%, 100% {
@@ -349,14 +365,17 @@ onUnmounted(() => {
 @media (max-width: 768px) {
   .sbp-title-225 {
     font-size: 2rem;
-  }
+  
+  opacity: 1 !important;}
 
   .sbp-subtitle-225 {
     font-size: 1rem;
-  }
+  
+  opacity: 1 !important;}
 
   .sbp-background-display-225 {
     height: 300px;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

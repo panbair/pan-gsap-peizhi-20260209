@@ -203,18 +203,22 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
+/* GSAP opacity fix: ensure content is always visible */
+
 .ts-timeline-sequence-section-55 {
   min-height: 100vh;
   padding: 80px 40px;
   background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
   position: relative;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .ts-section-header-55 {
   text-align: center;
   margin-bottom: 80px;
-}
+
+  opacity: 1 !important;}
 
 .ts-title-55 {
   font-size: 56px;
@@ -223,7 +227,8 @@ onUnmounted(() => {
   letter-spacing: 6px;
   text-transform: uppercase;
   text-shadow: 0 0 30px rgba(15, 52, 96, 0.5);
-}
+
+  opacity: 1 !important;}
 
 .ts-subtitle-55 {
   font-size: 18px;
@@ -231,7 +236,8 @@ onUnmounted(() => {
   margin-top: 16px;
   letter-spacing: 3px;
   text-transform: uppercase;
-}
+
+  opacity: 1 !important;}
 
 .ts-sequence-container-55 {
   display: grid;
@@ -240,7 +246,8 @@ onUnmounted(() => {
   max-width: 1400px;
   margin: 0 auto;
   padding: 40px 0;
-}
+
+  opacity: 1 !important;}
 
 .ts-sequence-item-55 {
   display: flex;
@@ -251,7 +258,8 @@ onUnmounted(() => {
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   transition: box-shadow 0.4s ease;
-}
+
+  opacity: 1 !important;}
 
 .ts-sequence-item-55:hover {
   box-shadow: 0 15px 40px rgba(15, 52, 96, 0.3);
@@ -264,7 +272,8 @@ onUnmounted(() => {
   height: 160px;
   border-radius: 16px;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .ts-item-image-55 {
   width: 100%;
@@ -272,7 +281,8 @@ onUnmounted(() => {
   background-size: cover;
   background-position: center;
   transition: transform 0.4s ease;
-}
+
+  opacity: 1 !important;}
 
 .ts-item-number-55 {
   position: absolute;
@@ -291,7 +301,8 @@ onUnmounted(() => {
   color: #fff;
   border: 2px solid rgba(15, 52, 96, 0.5);
   transition: all 0.4s ease;
-}
+
+  opacity: 1 !important;}
 
 .ts-item-content-55 {
   display: flex;
@@ -330,13 +341,15 @@ onUnmounted(() => {
   transition: all 0.3s ease;
   text-transform: uppercase;
   letter-spacing: 2px;
-}
+
+  opacity: 1 !important;}
 
 .ts-play-btn-55 {
   background: linear-gradient(135deg, #0f3460 0%, #e94560 100%);
   color: #fff;
   box-shadow: 0 10px 30px rgba(233, 69, 96, 0.3);
-}
+
+  opacity: 1 !important;}
 
 .ts-play-btn-55:hover {
   transform: translateY(-3px);
@@ -347,7 +360,8 @@ onUnmounted(() => {
   background: rgba(255, 255, 255, 0.1);
   color: #fff;
   border: 2px solid rgba(255, 255, 255, 0.2);
-}
+
+  opacity: 1 !important;}
 
 .ts-reverse-btn-55:hover {
   background: rgba(255, 255, 255, 0.2);
@@ -358,11 +372,13 @@ onUnmounted(() => {
   .ts-title-55 {
     font-size: 32px;
     letter-spacing: 3px;
-  }
+  
+  opacity: 1 !important;}
 
   .ts-subtitle-55 {
     font-size: 14px;
-  }
+  
+  opacity: 1 !important;}
 
   .ts-sequence-item-55 {
     flex-direction: column;
@@ -372,6 +388,7 @@ onUnmounted(() => {
   .ts-item-stage-55 {
     width: 100%;
     height: 200px;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>

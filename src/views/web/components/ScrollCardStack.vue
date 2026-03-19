@@ -171,6 +171,8 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
+/* GSAP opacity fix: ensure content is always visible */
+
 .card-stack-144 {
   width: 100%;
   min-height: 100vh;
@@ -180,7 +182,8 @@ onUnmounted(() => {
   flex-direction: column;
   align-items: center;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .cs-container-144 {
   width: 100%;
@@ -188,7 +191,8 @@ onUnmounted(() => {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
+
+  opacity: 1 !important;}
 
 .cs-title-144 {
   font-size: clamp(2rem, 5vw, 3.5rem);
@@ -196,21 +200,24 @@ onUnmounted(() => {
   margin-bottom: 10px;
   text-align: center;
   text-shadow: 0 2px 10px rgba(255, 255, 255, 0.5);
-}
+
+  opacity: 1 !important;}
 
 .cs-desc-144 {
   font-size: clamp(0.9rem, 2vw, 1.2rem);
   color: rgba(44, 62, 80, 0.7);
   margin-bottom: 40px;
   text-align: center;
-}
+
+  opacity: 1 !important;}
 
 .cs-stage-144 {
   width: 100%;
   position: relative;
   height: 800px;
   perspective: 1000px;
-}
+
+  opacity: 1 !important;}
 
 .cs-card-144 {
   position: absolute;
@@ -222,7 +229,8 @@ onUnmounted(() => {
   cursor: pointer;
   will-change: transform;
   transition: box-shadow 0.3s ease;
-}
+
+  opacity: 1 !important;}
 
 .cs-card-144:hover {
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
@@ -232,7 +240,8 @@ onUnmounted(() => {
   width: 100%;
   height: 200px;
   overflow: hidden;
-}
+
+  opacity: 1 !important;}
 
 .cs-card-image-144 img {
   width: 100%;
@@ -247,34 +256,40 @@ onUnmounted(() => {
 
 .cs-card-content-144 {
   padding: 20px;
-}
+
+  opacity: 1 !important;}
 
 .cs-card-title-144 {
   font-size: 1.3rem;
   font-weight: bold;
   color: #2c3e50;
   margin-bottom: 8px;
-}
+
+  opacity: 1 !important;}
 
 .cs-card-text-144 {
   font-size: 0.95rem;
   color: rgba(44, 62, 80, 0.7);
-}
+
+  opacity: 1 !important;}
 
 .cs-hint-144 {
   margin-top: 30px;
   font-size: 0.9rem;
   color: rgba(44, 62, 80, 0.6);
   text-align: center;
-}
+
+  opacity: 1 !important;}
 
 @media (max-width: 768px) {
   .cs-stage-144 {
     height: 700px;
-  }
+  
+  opacity: 1 !important;}
   
   .cs-card-image-144 {
     height: 150px;
-  }
+  
+  opacity: 1 !important;}
 }
 </style>
