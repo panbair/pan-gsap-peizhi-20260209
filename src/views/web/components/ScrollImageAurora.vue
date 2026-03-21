@@ -1,285 +1,368 @@
 <template>
-  <div class="sai-section-228" ref="componentRoot">
-    <div class="sai-container-228">
-      <h2 class="sai-title-228">极光图片流动</h2>
-      <p class="sai-subtitle-228">Aurora Image Flow</p>
-
-      <!-- 控制面板 -->
-      <div class="sai-control-panel-228">
-        <div class="sai-control-group-228">
-          <label class="sai-label-228">流动速度</label>
-          <input
-            type="range"
-            min="1"
-            max="10"
-            v-model.number="flowSpeed"
-            class="sai-slider-228"
-          />
-          <span class="sai-value-228">{{ flowSpeed }}x</span>
-        </div>
-        <div class="sai-control-group-228">
-          <label class="sai-label-228">光晕强度</label>
-          <input
-            type="range"
-            min="0"
-            max="100"
-            v-model.number="glowIntensity"
-            class="sai-slider-228"
-          />
-          <span class="sai-value-228">{{ glowIntensity }}%</span>
-        </div>
-        <div class="sai-control-group-228">
-          <label class="sai-label-228">混合模式</label>
+  <div class="sia-265">
+    <div class="sia-wrapper-265">
+      <div class="sia-header-265">
+        <h2 class="sia-title-265">🌌 极光图片效果</h2>
+        <div class="sia-controls-265">
           <button
-            class="sai-mode-btn-228"
-            :class="{ 'sai-active-228': currentMode === mode }"
-            v-for="mode in blendModes"
-            :key="mode"
-            @click="setMode(mode)"
+            v-for="(type, index) in auroraTypes"
+            :key="index"
+            class="sia-type-btn-265"
+            :class="{ active: currentTypeIndex === index }"
+            @click="changeType(index)"
           >
-            {{ mode }}
+            {{ type }}
           </button>
         </div>
-      </div>
-
-      <!-- 极光图片画廊 -->
-      <div class="sai-aurora-gallery-228">
-        <div
-          v-for="(item, index) in images"
-          :key="index"
-          class="sai-aurora-item-228"
-          :class="{ 'sai-active-228': currentIndex === index }"
-          @click="setCurrentImage(index)"
-        >
-          <div class="sai-image-wrapper-228">
-            <img
-              :src="item.src"
-              :alt="item.title"
-              class="sai-base-image-228"
-            />
-            <div class="sai-aurora-overlay-228">
-              <div class="sai-aurora-wave-228" v-for="i in 3" :key="i"></div>
-            </div>
-            <div class="sai-glow-effect-228"></div>
+        <div class="sia-sliders-265">
+          <div class="sia-slider-group-265">
+            <label>极光强度: {{ intensity.toFixed(1) }}x</label>
+            <input
+              type="range"
+              v-model.number="intensity"
+              min="0.1"
+              max="2"
+              step="0.1"
+              class="sia-slider-265"
+            >
           </div>
-          <div class="sai-image-info-228">
-            <h3 class="sai-image-title-228">{{ item.title }}</h3>
-            <p class="sai-image-desc-228">{{ item.desc }}</p>
+          <div class="sia-slider-group-265">
+            <label>流动速度: {{ speed.toFixed(1) }}x</label>
+            <input
+              type="range"
+              v-model.number="speed"
+              min="0.2"
+              max="3"
+              step="0.1"
+              class="sia-slider-265"
+            >
           </div>
+        </div>
+        <div class="sia-info-265">
+          <span>类型: {{ auroraTypes[currentTypeIndex] }}</span>
+          <span>极光高度: {{ auroraHeight.toFixed(0) }}%</span>
         </div>
       </div>
 
-      <!-- 极光进度条 -->
-      <div class="sai-progress-bar-228">
-        <div class="sai-progress-fill-228" :style="{ width: progress + '%' }"></div>
+      <div class="sia-images-container-265">
+        <div
+          v-for="(image, index) in images"
+          :key="index"
+          class="sia-image-wrapper-265"
+          :class="`sia-type-${currentTypeIndex}-265`"
+        >
+          <div class="sia-aurora-curtain-265"></div>
+          <div class="sia-aurora-wave-1-265"></div>
+          <div class="sia-aurora-wave-2-265"></div>
+          <div class="sia-aurora-wave-3-265"></div>
+          <div class="sia-image-container-265">
+            <img
+              :src="image.src"
+              :alt="image.alt"
+              class="sia-image-265"
+            >
+            <div class="sia-aurora-overlay-265"></div>
+            <div class="sia-stardust-265"></div>
+          </div>
+          <div class="sia-aurora-glow-265"></div>
+        </div>
+      </div>
+
+      <div class="sia-progress-265">
+        <div class="sia-progress-bar-265" :style="{ width: `${progress}%` }"></div>
+        <span class="sia-progress-text-265">{{ progress.toFixed(0) }}%</span>
       </div>
     </div>
   </div>
 </template>
 
-<script setup lang="ts">
-import { ref, computed, onMounted, onUnmounted, watch } from 'vue'
+<script setup>
+import { ref, onMounted, onUnmounted, watch } from 'vue'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 gsap.registerPlugin(ScrollTrigger)
 
-const componentRoot = ref<HTMLElement>()
-const currentIndex = ref(0)
-const flowSpeed = ref(5)
-const glowIntensity = ref(60)
-const currentMode = ref('overlay')
+const currentTypeIndex = ref(0)
+const intensity = ref(1.0)
+const speed = ref(1.0)
 const progress = ref(0)
+const auroraHeight = ref(0)
 
-const blendModes = ['overlay', 'screen', 'color-dodge', 'exclusion']
+const auroraTypes = ['北极光', '南极光', '极光帷幕', '星空极光']
 
-interface AuroraImage {
-  src: string
-  title: string
-  desc: string
-}
-
-const images: AuroraImage[] = [
+// 示例图片
+const images = [
   {
-    src: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600',
-    title: '山川日落',
-    desc: 'Mountain Sunset'
+    src: 'https://images.unsplash.com/photo-1682687220742-aba13b6e50ba?w=600&h=400&fit=crop',
+    alt: '极光1'
   },
   {
-    src: 'https://images.unsplash.com/photo-1472214103451-9374bd1c798e?w=600',
-    title: '碧海蓝天',
-    desc: 'Ocean Blue'
+    src: 'https://images.unsplash.com/photo-1682687982501-1e58ab814714?w=600&h=400&fit=crop',
+    alt: '极光2'
   },
   {
-    src: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=600',
-    title: '森林晨光',
-    desc: 'Forest Morning'
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1519681393784-d120267933ba?w=600',
-    title: '星空璀璨',
-    desc: 'Starry Night'
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600',
-    title: '都市繁华',
-    desc: 'City Lights'
+    src: 'https://images.unsplash.com/photo-1682687220198-88e9bdea9931?w=600&h=400&fit=crop',
+    alt: '极光3'
   }
 ]
 
-const setCurrentImage = (index: number) => {
-  currentIndex.value = index
-  updateAuroraAnimation()
-}
+let scrollTrigger = null
+let auroraAnimations = []
 
-const setMode = (mode: string) => {
-  currentMode.value = mode
-  updateGlowEffect()
-}
-
-const updateGlowEffect = () => {
-  const glows = document.querySelectorAll('.sai-glow-effect-228')
-  glows.forEach(glow => {
-    const el = glow as HTMLElement
-    el.style.mixBlendMode = currentMode.value
-    el.style.opacity = glowIntensity.value / 100
-  })
-}
-
-let auroraTimeline: gsap.core.Timeline | null = null
-
-const updateAuroraAnimation = () => {
-  if (auroraTimeline) {
-    auroraTimeline.kill()
-  }
-
-  const waves = document.querySelectorAll('.sai-aurora-wave-228')
-  const overlays = document.querySelectorAll('.sai-aurora-overlay-228')
-
-  auroraTimeline = gsap.timeline({ repeat: -1, yoyo: true })
-
-  waves.forEach((wave, index) => {
-    auroraTimeline!.to(wave, {
-      xPercent: -50,
-      yPercent: -30,
-      rotation: 15,
-      duration: 3 + index,
-      ease: 'sine.inOut',
-      opacity: 0.3 + (index * 0.2)
-    }, 0)
-  })
-
-  overlays.forEach(overlay => {
-    auroraTimeline!.to(overlay, {
-      opacity: 0.4,
-      duration: 2,
-      ease: 'power1.inOut'
-    }, 0)
-  })
+const changeType = (index) => {
+  currentTypeIndex.value = index
+  initAnimations()
 }
 
 const initAnimations = () => {
-  // 极光波浪动画
-  updateAuroraAnimation()
-
-  // 滚动触发图片流动
-  const items = document.querySelectorAll('.sai-aurora-item-228')
-
-  items.forEach((item, index) => {
-    gsap.fromTo(item,
-      {
-        y: 100,
-        opacity: 0,
-        scale: 0.8
-      },
-      {
-        y: 0,
-        opacity: 1,
-        scale: 1,
-        duration: 1,
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: item,
-          start: 'top 80%',
-          end: 'top 20%',
-          scrub: 1,
-          toggleActions: 'play none none reverse'
-        }
-      }
-    )
-  })
-
-  // 滚动进度
-  ScrollTrigger.create({
-    trigger: componentRoot.value,
-    start: 'top top',
-    end: 'bottom bottom',
-    scrub: 0.3,
-    onUpdate: (self) => {
-      progress.value = self.progress * 100
+  auroraAnimations.forEach(anim => anim.kill())
+  auroraAnimations = []
+  ScrollTrigger.getAll().forEach(trigger => {
+    if (trigger.trigger.classList && trigger.trigger.classList.contains('sia-image-wrapper-265')) {
+      trigger.kill()
     }
   })
 
-  // 图片悬停效果
-  items.forEach(item => {
-    const image = item.querySelector('.sai-base-image-228') as HTMLElement
-    const glow = item.querySelector('.sai-glow-effect-228') as HTMLElement
+  const wrappers = gsap.utils.toArray('.sia-image-wrapper-265')
 
-    gsap.to(image, {
-      scale: 1.1,
-      duration: 0.5,
-      ease: 'power2.out',
-      paused: true,
-      onReverseComplete: () => {
-        gsap.set(image, { scale: 1 })
-      }
-    })
+  wrappers.forEach((wrapper, wrapperIndex) => {
+    const image = wrapper.querySelector('.sia-image-265')
+    const overlay = wrapper.querySelector('.sia-aurora-overlay-265')
+    const stardust = wrapper.querySelector('.sia-stardust-265')
+    const curtain = wrapper.querySelector('.sia-aurora-curtain-265')
+    const waves = wrapper.querySelectorAll('[class^="sia-aurora-wave-"]')
+    const glow = wrapper.querySelector('.sia-aurora-glow-265')
 
-    item.addEventListener('mouseenter', () => {
-      gsap.to(image, { scale: 1.1, duration: 0.5, ease: 'power2.out' })
-      gsap.to(glow, { opacity: glowIntensity.value / 100, duration: 0.3 })
-    })
+    const baseDelay = wrapperIndex * 0.15
+    const animSpeed = 1 / speed.value
 
-    item.addEventListener('mouseleave', () => {
-      gsap.to(image, { scale: 1, duration: 0.5, ease: 'power2.out' })
-      gsap.to(glow, { opacity: 0, duration: 0.3 })
-    })
+    let timeline
+
+    switch (currentTypeIndex.value) {
+      case 0: // 北极光
+        timeline = gsap.timeline({
+          scrollTrigger: {
+            trigger: wrapper,
+            start: 'top 80%',
+            end: 'bottom 20%',
+            scrub: 1
+          }
+        })
+        timeline
+          .to(image, {
+            opacity: 0.7,
+            filter: 'brightness(1.2) contrast(1.1) saturate(1.3)',
+            duration: 1,
+            ease: 'power2.inOut'
+          })
+          .to(curtain, {
+            opacity: 0.8,
+            height: '100%',
+            duration: 1,
+            ease: 'power1.inOut'
+          }, 0)
+          .to(waves, {
+            translateY: (i) => (i + 1) * -20 * intensity.value + '%',
+            opacity: (i) => 0.6 - i * 0.15,
+            duration: 1,
+            ease: 'sine.inOut'
+          }, 0)
+          .to(overlay, {
+            opacity: 0.5,
+            mixBlendMode: 'overlay',
+            duration: 0.75,
+            ease: 'power2.out'
+          }, 0)
+          .to(glow, {
+            opacity: 0.6,
+            duration: 1,
+            ease: 'power1.inOut'
+          }, 0)
+        break
+
+      case 1: // 南极光
+        timeline = gsap.timeline({
+          scrollTrigger: {
+            trigger: wrapper,
+            start: 'top 80%',
+            end: 'bottom 20%',
+            scrub: 1
+          }
+        })
+        timeline
+          .to(image, {
+            opacity: 0.6,
+            filter: 'brightness(1.3) hue-rotate(20deg)',
+            duration: 1,
+            ease: 'power2.inOut'
+          })
+          .to(curtain, {
+            opacity: 0.7,
+            height: '80%',
+            duration: 1,
+            ease: 'power1.inOut'
+          }, 0)
+          .to(waves, {
+            translateY: (i) => (i + 1) * 25 * intensity.value + '%',
+            scaleY: (i) => 1.2 - i * 0.1,
+            duration: 1,
+            ease: 'sine.inOut'
+          }, 0)
+          .to(overlay, {
+            opacity: 0.4,
+            mixBlendMode: 'screen',
+            duration: 0.75,
+            ease: 'power2.out'
+          }, 0)
+          .to(stardust, {
+            scale: 1.5,
+            opacity: 0.8,
+            duration: 0.75,
+            ease: 'power2.out'
+          }, 0)
+          .to(glow, {
+            opacity: 0.5,
+            filter: 'blur(20px)',
+            duration: 1,
+            ease: 'power1.inOut'
+          }, 0)
+        break
+
+      case 2: // 极光帷幕
+        timeline = gsap.timeline({
+          scrollTrigger: {
+            trigger: wrapper,
+            start: 'top 80%',
+            end: 'bottom 20%',
+            scrub: 1
+          }
+        })
+        timeline
+          .to(image, {
+            opacity: 0.5,
+            filter: 'blur(2px) brightness(1.4)',
+            duration: 1,
+            ease: 'power2.inOut'
+          })
+          .to(curtain, {
+            opacity: 0.9,
+            height: '120%',
+            scaleY: 1.5 * intensity.value,
+            duration: 1,
+            ease: 'power3.inOut'
+          }, 0)
+          .to(waves, {
+            translateY: (i) => Math.sin(i) * 30 * intensity.value + '%',
+            scaleX: (i) => 1.3 - i * 0.1,
+            duration: 1,
+            ease: 'elastic.out(1, 0.3)'
+          }, 0)
+          .to(overlay, {
+            opacity: 0.6,
+            mixBlendMode: 'multiply',
+            duration: 0.75,
+            ease: 'power2.out'
+          }, 0)
+          .to(glow, {
+            opacity: 0.7,
+            scaleY: 1.8,
+            duration: 1,
+            ease: 'power1.inOut'
+          }, 0)
+        break
+
+      case 3: // 星空极光
+        timeline = gsap.timeline({
+          scrollTrigger: {
+            trigger: wrapper,
+            start: 'top 80%',
+            end: 'bottom 20%',
+            scrub: 1
+          }
+        })
+        timeline
+          .to(image, {
+            opacity: 0.4,
+            filter: 'brightness(1.5) contrast(1.3)',
+            duration: 1,
+            ease: 'power2.inOut'
+          })
+          .to(curtain, {
+            opacity: 0.5,
+            height: '100%',
+            duration: 1,
+            ease: 'power1.inOut'
+          }, 0)
+          .to(waves, {
+            translateY: (i) => (i + 1) * 15 * intensity.value + '%',
+            opacity: (i) => 0.7 - i * 0.1,
+            duration: 1,
+            ease: 'sine.inOut'
+          }, 0)
+          .to(overlay, {
+            opacity: 0.5,
+            mixBlendMode: 'color-dodge',
+            duration: 0.75,
+            ease: 'power2.out'
+          }, 0)
+          .to(stardust, {
+            scale: 2,
+            opacity: 1,
+            duration: 0.75,
+            ease: 'power2.out'
+          }, 0)
+          .to(glow, {
+            opacity: 0.8,
+            filter: 'blur(25px)',
+            duration: 1,
+            ease: 'power1.inOut'
+          }, 0)
+        break
+    }
+
+    if (timeline) {
+      auroraAnimations.push(timeline)
+    }
   })
-}
-
-const cleanup = () => {
-  if (auroraTimeline) {
-    auroraTimeline.kill()
-    auroraTimeline = null
-  }
-  ScrollTrigger.getAll().forEach(trigger => trigger.kill())
 }
 
 onMounted(() => {
   initAnimations()
+
+  scrollTrigger = ScrollTrigger.create({
+    trigger: '.sia-images-container-265',
+    start: 'top 80%',
+    end: 'bottom 20%',
+    scrub: 1,
+    onUpdate: (self) => {
+      progress.value = self.progress * 100
+      auroraHeight.value = self.progress * 100
+    }
+  })
 })
 
 onUnmounted(() => {
-  cleanup()
+  if (scrollTrigger) scrollTrigger.kill()
+  auroraAnimations.forEach(anim => anim.kill())
 })
 
-watch([flowSpeed, glowIntensity], () => {
-  updateAuroraAnimation()
-  updateGlowEffect()
+watch([intensity, speed], () => {
+  initAnimations()
 })
 </script>
 
-<style scoped lang="scss">
-.sai-section-228 {
+<style scoped>
+.sia-265 {
+  width: 100%;
   min-height: 100vh;
-  background: linear-gradient(135deg, #0a0a1a 0%, #1a1a3a 50%, #0a0a2a 100%);
-  padding: 60px 20px;
+  background: linear-gradient(135deg, #0a0a1a 0%, #1a0a2e 50%, #0a1a2e 100%);
+  padding: 40px 20px;
   position: relative;
   overflow: hidden;
+}
 
-  opacity: 1 !important;}
-
-.sai-section-228::before {
+.sia-265::before {
   content: '';
   position: absolute;
   top: 0;
@@ -287,237 +370,291 @@ watch([flowSpeed, glowIntensity], () => {
   right: 0;
   bottom: 0;
   background:
-    radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.15) 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.1) 0%, transparent 50%);
+    radial-gradient(circle at 20% 80%, rgba(16, 185, 129, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(6, 182, 212, 0.1) 0%, transparent 50%);
   pointer-events: none;
 }
 
-.sai-container-228 {
+.sia-wrapper-265 {
   max-width: 1400px;
   margin: 0 auto;
   position: relative;
   z-index: 1;
+}
 
-  opacity: 1 !important;}
+.sia-header-265 {
+  text-align: center;
+  margin-bottom: 60px;
+}
 
-.sai-title-228 {
-  font-size: 3rem;
-  font-weight: 800;
-  margin-bottom: 10px;
-  background: linear-gradient(135deg, #a78bfa, #60a5fa, #f472b6);
+.sia-title-265 {
+  font-size: 48px;
+  font-weight: 700;
+  background: linear-gradient(135deg, #10b981, #06b6d4, #8b5cf6);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  text-align: center;
+  margin-bottom: 30px;
+  text-shadow: 0 0 30px rgba(16, 185, 129, 0.5);
+}
 
-  opacity: 1 !important;}
-
-.sai-subtitle-228 {
-  font-size: 1.2rem;
-  color: #94a3b8;
-  text-align: center;
-  margin-bottom: 40px;
-
-  opacity: 1 !important;}
-
-.sai-control-panel-228 {
+.sia-controls-265 {
   display: flex;
-  gap: 30px;
   justify-content: center;
+  gap: 15px;
+  margin-bottom: 25px;
   flex-wrap: wrap;
-  padding: 25px;
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  margin-bottom: 40px;
+}
 
-  opacity: 1 !important;}
+.sia-type-btn-265 {
+  padding: 12px 24px;
+  background: rgba(16, 185, 129, 0.2);
+  border: 2px solid rgba(16, 185, 129, 0.4);
+  border-radius: 25px;
+  color: #6ee7b7;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
 
-.sai-control-group-228 {
+.sia-type-btn-265:hover {
+  background: rgba(16, 185, 129, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 20px rgba(16, 185, 129, 0.4);
+}
+
+.sia-type-btn-265.active {
+  background: linear-gradient(135deg, #10b981, #059669);
+  border-color: #34d399;
+  color: white;
+  box-shadow: 0 5px 25px rgba(16, 185, 129, 0.6);
+}
+
+.sia-sliders-265 {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 25px;
+  flex-wrap: wrap;
+}
+
+.sia-slider-group-265 {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  min-width: 200px;
+  align-items: center;
+  gap: 8px;
+}
 
-  opacity: 1 !important;}
-
-.sai-label-228 {
+.sia-slider-group-265 label {
+  color: #6ee7b7;
   font-size: 14px;
-  color: #94a3b8;
-  font-weight: 500;
+  font-weight: 600;
+}
 
-  opacity: 1 !important;}
-
-.sai-slider-228 {
-  width: 100%;
+.sia-slider-265 {
+  width: 200px;
   height: 6px;
   -webkit-appearance: none;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(16, 185, 129, 0.3);
   border-radius: 3px;
   outline: none;
-
-  &::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    width: 18px;
-    height: 18px;
-    background: linear-gradient(135deg, #a78bfa, #60a5fa);
-    border-radius: 50%;
-    cursor: pointer;
-    transition: transform 0.2s;
-
-    &:hover {
-      transform: scale(1.2);
-    
-  opacity: 1 !important;}
-  }
 }
 
-.sai-value-228 {
-  font-size: 13px;
-  color: #a78bfa;
-  font-weight: 600;
-
-  opacity: 1 !important;}
-
-.sai-mode-btn-228 {
-  padding: 8px 16px;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 8px;
-  color: #fff;
+.sia-slider-265::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  background: linear-gradient(135deg, #10b981, #059669);
+  border-radius: 50%;
   cursor: pointer;
-  transition: all 0.3s;
-  font-size: 13px;
-
-  &:hover {
-    background: rgba(255, 255, 255, 0.2);
-  
-  opacity: 1 !important;}
-
-  &.sai-active-228 {
-    background: linear-gradient(135deg, #a78bfa, #60a5fa);
-    border-color: transparent;
-  
-  opacity: 1 !important;}
+  box-shadow: 0 2px 10px rgba(16, 185, 129, 0.5);
 }
 
-.sai-aurora-gallery-228 {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+.sia-info-265 {
+  display: flex;
+  justify-content: center;
   gap: 30px;
-  margin-bottom: 30px;
+  flex-wrap: wrap;
 }
 
-.sai-aurora-item-228 {
-  position: relative;
-  cursor: pointer;
-  border-radius: 16px;
-  overflow: hidden;
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  transition: all 0.4s;
-
-  &.sai-active-228 {
-    border-color: #a78bfa;
-    box-shadow: 0 0 30px rgba(167, 139, 250, 0.3);
-  
-  opacity: 1 !important;}
-
-  &:hover {
-    transform: translateY(-5px);
-    border-color: #60a5fa;
-  }
+.sia-info-265 span {
+  color: #6ee7b7;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 8px 16px;
+  background: rgba(16, 185, 129, 0.1);
+  border-radius: 20px;
+  border: 1px solid rgba(16, 185, 129, 0.2);
 }
 
-.sai-image-wrapper-228 {
+.sia-images-container-265 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 40px;
+  padding: 40px 0;
+}
+
+.sia-image-wrapper-265 {
   position: relative;
   width: 100%;
-  height: 250px;
+  aspect-ratio: 3/2;
+  border-radius: 20px;
   overflow: hidden;
+  cursor: pointer;
+}
 
-  opacity: 1 !important;}
+.sia-aurora-curtain-265 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 0%;
+  background: linear-gradient(
+    180deg,
+    rgba(16, 185, 129, 0.4) 0%,
+    rgba(6, 182, 212, 0.3) 50%,
+    rgba(139, 92, 246, 0.2) 100%
+  );
+  opacity: 0;
+  pointer-events: none;
+}
 
-.sai-base-image-228 {
+.sia-aurora-wave-1-265,
+.sia-aurora-wave-2-265,
+.sia-aurora-wave-3-265 {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 60%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(16, 185, 129, 0.3) 25%,
+    rgba(6, 182, 212, 0.3) 50%,
+    rgba(16, 185, 129, 0.3) 75%,
+    transparent 100%
+  );
+  transform: translateY(-50%);
+  opacity: 0;
+  filter: blur(10px);
+}
+
+.sia-aurora-wave-1-265 {
+  top: 30%;
+}
+
+.sia-aurora-wave-2-265 {
+  top: 50%;
+}
+
+.sia-aurora-wave-3-265 {
+  top: 70%;
+}
+
+.sia-image-container-265 {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.sia-image-265 {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.5s;
+  border-radius: 20px;
+}
 
-  opacity: 1 !important;}
-
-.sai-aurora-overlay-228 {
+.sia-aurora-overlay-265 {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  pointer-events: none;
-  overflow: hidden;
-}
-
-.sai-aurora-wave-228 {
-  position: absolute;
-  width: 200%;
-  height: 200%;
   background: linear-gradient(
     135deg,
-    rgba(167, 139, 250, 0.3) 0%,
-    rgba(96, 165, 250, 0.2) 50%,
-    rgba(244, 114, 182, 0.3) 100%
+    rgba(16, 185, 129, 0.2) 0%,
+    rgba(6, 182, 212, 0.2) 50%,
+    rgba(139, 92, 246, 0.2) 100%
   );
-  border-radius: 50%;
-  filter: blur(60px);
-  mix-blend-mode: screen;
+  opacity: 0;
+}
 
-  opacity: 1 !important;}
-
-.sai-glow-effect-228 {
+.sia-stardust-265 {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: radial-gradient(circle at center, rgba(167, 139, 250, 0.6) 0%, transparent 70%);
+  background-image:
+    radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.6) 1px, transparent 1px),
+    radial-gradient(circle at 80% 70%, rgba(255, 255, 255, 0.6) 1px, transparent 1px),
+    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.6) 1px, transparent 1px),
+    radial-gradient(circle at 30% 80%, rgba(255, 255, 255, 0.6) 1px, transparent 1px),
+    radial-gradient(circle at 70% 20%, rgba(255, 255, 255, 0.6) 1px, transparent 1px);
+  background-size: 60px 60px, 70px 70px, 80px 80px, 50px 50px, 90px 90px;
+  opacity: 0.6;
+}
+
+.sia-aurora-glow-265 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 50% 30%, rgba(16, 185, 129, 0.3) 0%, transparent 70%);
   opacity: 0;
-  transition: opacity 0.3s;
-  mix-blend-mode: overlay;
   pointer-events: none;
 }
 
-.sai-image-info-228 {
-  padding: 20px;
-  background: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(10px);
+.sia-image-wrapper-265:hover .sia-aurora-glow-265 {
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
+}
 
-  opacity: 1 !important;}
-
-.sai-image-title-228 {
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: #e2e8f0;
-  margin-bottom: 5px;
-
-  opacity: 1 !important;}
-
-.sai-image-desc-228 {
-  font-size: 0.9rem;
-  color: #94a3b8;
-
-  opacity: 1 !important;}
-
-.sai-progress-bar-228 {
-  height: 4px;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 2px;
+.sia-progress-265 {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  max-width: 400px;
+  height: 8px;
+  background: rgba(16, 185, 129, 0.2);
+  border-radius: 4px;
   overflow: hidden;
+}
 
-  opacity: 1 !important;}
-
-.sai-progress-fill-228 {
+.sia-progress-bar-265 {
   height: 100%;
-  background: linear-gradient(90deg, #a78bfa, #60a5fa, #f472b6);
-  transition: width 0.3s;
+  background: linear-gradient(90deg, #10b981, #06b6d4, #8b5cf6);
+  border-radius: 4px;
+  transition: width 0.1s ease;
+}
 
-  opacity: 1 !important;}
+.sia-progress-text-265 {
+  position: absolute;
+  top: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #6ee7b7;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .sia-title-265 {
+    font-size: 32px;
+  }
+
+  .sia-images-container-265 {
+    grid-template-columns: 1fr;
+  }
+
+  .sia-sliders-265 {
+    flex-direction: column;
+    align-items: center;
+  }
+}
 </style>

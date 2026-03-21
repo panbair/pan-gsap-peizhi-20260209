@@ -1,42 +1,87 @@
 <template>
-  <section class="sid-scroll-image-distort-127">
-    <div class="sid-container-127">
-      <h2 class="sid-section-title-127">滚动图片扭曲</h2>
-      <p class="sid-section-subtitle-127">Scroll Image Distortion Animation</p>
+  <section class="sid-image-distort-section-256">
+    <div class="sid-container-256">
+      <!-- 标题 -->
+      <h2 class="sid-title-256">图片扭曲变形</h2>
 
-      <div class="sid-distort-wrapper-127">
-        <div class="sid-main-image-127" ref="mainImage">
-          <div class="sid-image-layers-127">
-            <div
-              v-for="(img, index) in images"
-              :key="index"
-              class="sid-image-layer-127"
-              :data-layer="index"
-              :ref="el => { if (el) imageLayers[index] = el as HTMLElement }"
-            >
-              <img :src="img.url" :alt="`Image ${index + 1}`" />
-              <div class="sid-layer-overlay-127">
-                <h3 class="sid-layer-title-127">{{ img.title }}</h3>
-              </div>
-            </div>
-          </div>
+      <!-- 控制面板 -->
+      <div class="sid-control-panel-256">
+        <div class="sid-control-group-256">
+          <button
+            v-for="type in distortTypes"
+            :key="type.value"
+            @click="changeDistortType(type.value)"
+            :class="['sid-btn-256', { 'sid-active-256': currentType === type.value }]"
+          >
+            {{ type.label }}
+          </button>
         </div>
 
-        <div class="sid-info-panel-127" ref="infoPanel">
-          <div class="sid-info-content-127">
-            <div class="sid-indicator-127">
-              <span class="sid-current-127" ref="currentNum">01</span>
-              <span class="sid-separator-127">/</span>
-              <span class="sid-total-127">06</span>
-            </div>
-            <div class="sid-progress-bar-127" ref="progressBar">
-              <div class="sid-progress-fill-127" ref="progressFill"></div>
-            </div>
-            <h3 class="sid-main-title-127" ref="mainTitle">视觉扭曲</h3>
-            <p class="sid-main-desc-127" ref="mainDesc">
-              通过滚动扭曲图片，创造独特的视觉体验，每个角度都是艺术品。
-            </p>
+        <div class="sid-slider-group-256">
+          <label class="sid-label-256">扭曲强度: {{ intensityValue }}</label>
+          <input
+            type="range"
+            v-model.number="intensityValue"
+            min="0.1"
+            max="2"
+            step="0.1"
+            class="sid-slider-256"
+            @input="applyDistortAnimation"
+          />
+        </div>
+
+        <div class="sid-slider-group-256">
+          <label class="sid-label-256">动画速度: {{ speedValue }}x</label>
+          <input
+            type="range"
+            v-model.number="speedValue"
+            min="0.2"
+            max="3"
+            step="0.1"
+            class="sid-slider-256"
+            @input="applyDistortAnimation"
+          />
+        </div>
+      </div>
+
+      <!-- 图片容器 -->
+      <div class="sid-images-container-256">
+        <div
+          v-for="(img, index) in images"
+          :key="index"
+          class="sid-image-item-256"
+          ref="imageItems"
+        >
+          <div class="sid-image-wrapper-256">
+            <img
+              :src="img.src"
+              :alt="img.alt"
+              class="sid-image-256"
+            />
+            <div class="sid-distort-layer-256"></div>
           </div>
+        </div>
+      </div>
+
+      <!-- 进度指示器 -->
+      <div class="sid-progress-256">
+        <div class="sid-progress-bar-256" ref="progressBar"></div>
+        <span class="sid-progress-text-256">滚动进度: {{ progress }}%</span>
+      </div>
+
+      <!-- 状态显示 -->
+      <div class="sid-status-256">
+        <div class="sid-status-item-256">
+          <span class="sid-status-label-256">类型:</span>
+          <span class="sid-status-value-256">{{ currentTypeLabel }}</span>
+        </div>
+        <div class="sid-status-item-256">
+          <span class="sid-status-label-256">强度:</span>
+          <span class="sid-status-value-256">{{ intensityValue }}x</span>
+        </div>
+        <div class="sid-status-item-256">
+          <span class="sid-status-label-256">速度:</span>
+          <span class="sid-status-value-256">{{ speedValue }}x</span>
         </div>
       </div>
     </div>
@@ -44,473 +89,433 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, onMounted, onUnmounted, computed } from 'vue'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 gsap.registerPlugin(ScrollTrigger)
 
-const mainImage = ref<HTMLElement | null>(null)
-const infoPanel = ref<HTMLElement | null>(null)
-const imageLayers = ref<HTMLElement[]>([])
-const currentNum = ref<HTMLElement | null>(null)
-const progressBar = ref<HTMLElement | null>(null)
-const progressFill = ref<HTMLElement | null>(null)
-const mainTitle = ref<HTMLElement | null>(null)
-const mainDesc = ref<HTMLElement | null>(null)
+// 扭曲变形类型
+const distortTypes = [
+  { value: 'wave', label: '波浪扭曲' },
+  { value: 'spiral', label: '螺旋扭曲' },
+  { value: 'ripple', label: '涟漪扭曲' },
+  { value: 'zigzag', label: '锯齿扭曲' }
+]
 
+// 响应式数据
+const currentType = ref('wave')
+const intensityValue = ref(1)
+const speedValue = ref(1)
+const progress = ref(0)
+const imageItems = ref<HTMLElement[]>([])
+const progressBar = ref<HTMLElement>()
+
+// 示例图片
 const images = [
-  { url: new URL('@/assets/image/1.png', import.meta.url).href, title: '第一层' },
-  { url: new URL('@/assets/image/2.png', import.meta.url).href, title: '第二层' },
-  { url: new URL('@/assets/image/3.png', import.meta.url).href, title: '第三层' },
-  { url: new URL('@/assets/image/4.png', import.meta.url).href, title: '第四层' },
-  { url: new URL('@/assets/image/5.png', import.meta.url).href, title: '第五层' },
-  { url: new URL('@/assets/image/6.png', import.meta.url).href, title: '第六层' }
+  {
+    src: 'https://images.unsplash.com/photo-1682687220742-aba13b6e50ba?w=600&h=400&fit=crop',
+    alt: '自然1'
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1682687982501-1e58ab814714?w=600&h=400&fit=crop',
+    alt: '自然2'
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1682687220198-88e9bdea9931?w=600&h=400&fit=crop',
+    alt: '自然3'
+  }
 ]
 
-const titles = ['视觉扭曲', '空间变换', '角度重构', '维度探索', '形态演变', '艺术创造']
-const descriptions = [
-  '通过滚动扭曲图片，创造独特的视觉体验。',
-  '在空间中变换视角，发现新的视觉语言。',
-  '重新构建观看角度，打破传统认知。',
-  '探索多维度的视觉表现，拓展创作边界。',
-  '观察形态的演变过程，感受动态之美。',
-  '将技术转化为艺术，每帧都是创作。'
-]
+// 存储触发器
+let triggers: ScrollTrigger[] = []
+let mainTrigger: ScrollTrigger | null = null
 
-let ctx: gsap.Context
+// 计算当前类型标签
+const currentTypeLabel = computed(() => {
+  const type = distortTypes.find(t => t.value === currentType.value)
+  return type?.label || currentType.value
+})
 
-onMounted(() => {
-  ctx = gsap.context(() => {
-    // 标题扭曲动画
-    gsap.from('.sid-section-title-127', {
-      scrollTrigger: {
-        trigger: '.sid-scroll-image-distort-127',
-        start: 'top 90%'
-      },
-      skewX: 20,
-      skewY: 10,
-      scale: 1.3,
-      opacity: 0,
-      duration: 1.2,
-      ease: 'power3.out'
-    })
+// 改变扭曲类型
+const changeDistortType = (type: string) => {
+  currentType.value = type
+  applyDistortAnimation()
+}
 
-    // 副标题淡入
-    gsap.from('.sid-section-subtitle-127', {
-      scrollTrigger: {
-        trigger: '.sid-scroll-image-distort-127',
-        start: 'top 85%'
-      },
-      x: -80,
-      opacity: 0,
-      duration: 1,
-      delay: 0.2,
-      ease: 'power3.out'
-    })
+// 应用扭曲动画
+const applyDistortAnimation = () => {
+  if (!imageItems.value.length) return
 
-    // 延迟执行图片层动画，确保refs已填充
-    setTimeout(() => {
-      imageLayers.value.forEach((layer, index) => {
-        if (!layer) return
+  // 清除之前的动画
+  triggers.forEach(trigger => trigger.kill())
+  triggers = []
 
-        const overlay = layer.querySelector('.sid-layer-overlay-127') as HTMLElement
-        const title = layer.querySelector('.sid-layer-title-127') as HTMLElement
-
-        // 初始状态 - 错位分布
-        gsap.set(layer, {
-          x: (index - 2.5) * 120,
-          y: (index - 2.5) * 40,
-          scale: 1 - Math.abs(index - 2.5) * 0.1,
-          rotation: (index - 2.5) * 12,
-          skewX: (index - 2.5) * 8,
-          opacity: 0
-        })
-
-        if (overlay) gsap.set(overlay, { opacity: 0 })
-        if (title) gsap.set(title, { scale: 0, rotation: -180 })
-
-        // 滚动扭曲动画 - 简化为固定值
-        gsap.to(layer, {
-          scrollTrigger: {
-            trigger: mainImage.value,
-            start: 'top 80%',
-            end: 'bottom 20%',
-            scrub: 1.5
-          },
-          x: (index - 2.5) * 60,
-          y: (index - 2.5) * 20,
-          scale: 1 - Math.abs(index - 2.5) * 0.05,
-          rotation: (index - 2.5) * 6,
-          skewX: (index - 2.5) * 4,
-          opacity: 1 - Math.abs(index - 2.5) * 0.15,
-          ease: 'power2.out'
-        })
-
-        // 覆盖层动画
-        if (overlay) {
-          gsap.to(overlay, {
-            scrollTrigger: {
-              trigger: mainImage.value,
-              start: 'top 70%',
-              end: 'bottom 30%',
-              scrub: 1
-            },
-            opacity: 1 - Math.abs(index - 2.5) * 0.2,
-            ease: 'power2.out'
-          })
-        }
-
-        // 标题展开
-        if (title) {
-          gsap.to(title, {
-            scrollTrigger: {
-              trigger: mainImage.value,
-              start: 'top 60%',
-              end: 'bottom 40%',
-              scrub: 1
-            },
-            scale: 1 - Math.abs(index - 2.5) * 0.1,
-            rotation: 0,
-            opacity: 1 - Math.abs(index - 2.5) * 0.2,
-            ease: 'back.out(1.7)'
-          })
-        }
-
-        // 悬停效果
-        layer.addEventListener('mouseenter', () => {
-          gsap.to(layer, {
-            scale: 1.1,
-            rotation: (index - 2.5) * 12 + 5,
-            duration: 0.4,
-            ease: 'power2.out'
-          })
-        })
-
-        layer.addEventListener('mouseleave', () => {
-          gsap.to(layer, {
-            scale: 1 - Math.abs(index - 2.5) * 0.05,
-            rotation: (index - 2.5) * 6,
-            duration: 0.4,
-            ease: 'power2.out'
-          })
-        })
-      })
-    }, 100)
-
-    // 信息面板动画
-    if (infoPanel.value) {
-      gsap.fromTo(infoPanel.value,
-        {
-          x: 100,
-          opacity: 0,
-          rotationY: 30
-        },
-        {
-          scrollTrigger: {
-            trigger: mainImage.value,
-            start: 'top 80%',
-            end: 'top 40%',
-            scrub: 1
-          },
-          x: 0,
-          opacity: 1,
-          rotationY: 0,
-          ease: 'power3.out'
-        }
-      )
-    }
-
-    // 数字切换动画
-    gsap.to({}, {
-      scrollTrigger: {
-        trigger: mainImage.value,
-        start: 'top 80%',
-        end: 'bottom 20%',
-        scrub: 1,
-        onUpdate: (self) => {
-          const progress = self.progress
-          const index = Math.floor(progress * 6)
-          const safeIndex = Math.min(Math.max(index, 0), 5)
-          if (currentNum.value) {
-            currentNum.value.textContent = String(safeIndex + 1).padStart(2, '0')
-          }
-          if (progressFill.value) {
-            progressFill.value.style.width = `${progress * 100}%`
-          }
-          if (mainTitle.value) {
-            mainTitle.value.textContent = titles[safeIndex]
-          }
-          if (mainDesc.value) {
-            mainDesc.value.textContent = descriptions[safeIndex]
-          }
-        }
-      }
+  // 重置所有图片
+  gsap.utils.toArray<HTMLElement>('.sid-image-256').forEach(img => {
+    gsap.set(img, {
+      scale: 1,
+      rotate: 0,
+      skewX: 0,
+      skewY: 0,
+      filter: 'none'
     })
   })
+
+  imageItems.value.forEach((item, index) => {
+    const img = item.querySelector('.sid-image-256')
+    const distortLayer = item.querySelector('.sid-distort-layer-256')
+    if (!img || !distortLayer) return
+
+    const intensity = intensityValue.value
+
+    const distortTimeline = gsap.timeline({
+      scrollTrigger: {
+        trigger: item,
+        start: 'top 80%',
+        end: 'bottom 20%',
+        scrub: 1
+      }
+    })
+
+    switch (currentType.value) {
+      case 'wave':
+        // 波浪扭曲效果
+        const waveAmount = intensity * 20
+        distortTimeline
+          .fromTo(
+            img,
+            { scale: 1 },
+            { scale: 1.1, ease: 'sine.inOut' },
+            0
+          )
+          .fromTo(
+            img,
+            { skewX: 0 },
+            { skewX: waveAmount, ease: 'sine.inOut' },
+            0
+          )
+          .fromTo(
+            distortLayer,
+            { opacity: 0 },
+            { opacity: 0.3, ease: 'sine.inOut' },
+            0
+          )
+        break
+
+      case 'spiral':
+        // 螺旋扭曲效果
+        const spiralRotate = intensity * 45
+        distortTimeline
+          .fromTo(
+            img,
+            { rotate: 0 },
+            { rotate: spiralRotate, ease: 'power1.inOut' },
+            0
+          )
+          .fromTo(
+            img,
+            { scale: 1 },
+            { scale: 1.2, ease: 'power1.inOut' },
+            0
+          )
+          .fromTo(
+            distortLayer,
+            { opacity: 0, rotate: 0 },
+            { opacity: 0.4, rotate: -spiralRotate, ease: 'power1.inOut' },
+            0
+          )
+        break
+
+      case 'ripple':
+        // 涟漪扭曲效果
+        const rippleScale = 1 + (intensity * 0.3)
+        distortTimeline
+          .fromTo(
+            img,
+            { scale: 0.9 },
+            { scale: rippleScale, ease: 'elastic.out(1, 0.5)' },
+            0
+          )
+          .fromTo(
+            img,
+            { filter: 'blur(0px)' },
+            { filter: `blur(${intensity * 3}px)`, ease: 'elastic.out(1, 0.5)' },
+            0
+          )
+          .fromTo(
+            distortLayer,
+            { opacity: 0, scale: 0.5 },
+            { opacity: 0.5, scale: 1.5, ease: 'elastic.out(1, 0.5)' },
+            0
+          )
+        break
+
+      case 'zigzag':
+        // 锯齿扭曲效果
+        const zigzagSkew = intensity * 25
+        distortTimeline
+          .fromTo(
+            img,
+            { skewX: 0 },
+            { skewX: zigzagSkew, ease: 'steps(5)' },
+            0
+          )
+          .fromTo(
+            img,
+            { scale: 1 },
+            { scale: 1.15, ease: 'steps(5)' },
+            0
+          )
+          .fromTo(
+            distortLayer,
+            { opacity: 0 },
+            { opacity: 0.4, ease: 'steps(5)' },
+            0
+          )
+        break
+    }
+
+    triggers.push(distortTimeline.scrollTrigger!)
+  })
+}
+
+// 初始化进度条动画
+const initProgressBar = () => {
+  if (!progressBar.value) return
+
+  mainTrigger = ScrollTrigger.create({
+    trigger: '.sid-images-container-256',
+    start: 'top center',
+    end: 'bottom center',
+    onUpdate: (self) => {
+      progress.value = Math.round(self.progress * 100)
+      if (progressBar.value) {
+        progressBar.value.style.width = `${progress.value}%`
+      }
+    }
+  })
+}
+
+// 生命周期钩子
+onMounted(() => {
+  setTimeout(() => {
+    applyDistortAnimation()
+    initProgressBar()
+  }, 100)
 })
 
 onUnmounted(() => {
-  ctx?.revert()
+  triggers.forEach(trigger => trigger.kill())
+  if (mainTrigger) {
+    mainTrigger.kill()
+  }
+  ScrollTrigger.refresh()
 })
 </script>
 
-<style scoped lang="scss">
-.sid-scroll-image-distort-127 {
+<style scoped>
+.sid-image-distort-section-256 {
   min-height: 100vh;
-  padding: 100px 20px;
-  background: linear-gradient(180deg, #0a0a1a 0%, #1e1e3f 50%, #0a0a1a 100%);
+  padding: 40px 20px;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  color: #fff;
   position: relative;
   overflow: hidden;
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background:
-      radial-gradient(ellipse at 50% 50%, rgba(236, 72, 153, 0.05) 0%, transparent 70%),
-      radial-gradient(ellipse at 20% 80%, rgba(168, 85, 247, 0.05) 0%, transparent 50%),
-      radial-gradient(ellipse at 80% 20%, rgba(59, 130, 246, 0.05) 0%, transparent 50%);
-    pointer-events: none;
-  
-  opacity: 1 !important;}
 }
 
-.sid-container-127 {
-  max-width: 1400px;
+.sid-container-256 {
+  max-width: 1200px;
   margin: 0 auto;
-  position: relative;
-  z-index: 1;
+}
 
-  opacity: 1 !important;}
-
-.sid-section-title-127 {
+.sid-title-256 {
+  font-size: 2.5rem;
   text-align: center;
-  font-size: clamp(2.5rem, 5vw, 4rem);
-  font-weight: 900;
-  color: #fff;
-  margin-bottom: 20px;
-  background: linear-gradient(135deg, #ec4899, #a855f7, #3b82f6);
+  margin-bottom: 30px;
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  text-shadow: 0 0 60px rgba(236, 72, 153, 0.4);
+  font-weight: bold;
+}
 
-  opacity: 1 !important;}
+.sid-control-panel-256 {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  padding: 20px;
+  margin-bottom: 40px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
 
-.sid-section-subtitle-127 {
-  text-align: center;
-  font-size: 1.2rem;
-  color: rgba(255, 255, 255, 0.6);
-  margin-bottom: 150px;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-
-  opacity: 1 !important;}
-
-.sid-distort-wrapper-127 {
+.sid-control-group-256 {
   display: flex;
-  gap: 60px;
-  align-items: flex-start;
-  max-width: 1300px;
-  margin: 0 auto;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
 
-  opacity: 1 !important;}
+.sid-btn-256 {
+  padding: 10px 20px;
+  background: rgba(240, 147, 251, 0.3);
+  border: 2px solid rgba(240, 147, 251, 0.5);
+  border-radius: 8px;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+}
 
-.sid-main-image-127 {
+.sid-btn-256:hover {
+  background: rgba(240, 147, 251, 0.5);
+  transform: translateY(-2px);
+}
+
+.sid-active-256 {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  border-color: #f093fb;
+  box-shadow: 0 0 20px rgba(240, 147, 251, 0.5);
+}
+
+.sid-slider-group-256 {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.sid-label-256 {
+  min-width: 120px;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.sid-slider-256 {
   flex: 1;
-  position: relative;
-  height: 600px;
-  perspective: 2000px;
+  height: 6px;
+  -webkit-appearance: none;
+  appearance: none;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+  outline: none;
+}
 
-  opacity: 1 !important;}
+.sid-slider-256::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(240, 147, 251, 0.5);
+}
 
-.sid-image-layers-127 {
+.sid-images-container-256 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.sid-image-item-256 {
+  aspect-ratio: 3/2;
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+.sid-image-wrapper-256 {
   width: 100%;
   height: 100%;
   position: relative;
+  overflow: hidden;
+}
 
-  opacity: 1 !important;}
+.sid-image-256 {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all 0.3s ease;
+  display: block;
+}
 
-.sid-image-layer-127 {
+.sid-distort-layer-256 {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  border-radius: 30px;
-  overflow: hidden;
-  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.4);
-  cursor: pointer;
-  transition: box-shadow 0.3s ease;
-
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  
-  opacity: 1 !important;}
-
-  &:hover {
-    box-shadow: 0 35px 100px rgba(236, 72, 153, 0.5);
-  }
-}
-
-.sid-layer-overlay-127 {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 40px;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, transparent 100%);
+  background: linear-gradient(135deg, rgba(240, 147, 251, 0.3) 0%, rgba(245, 87, 108, 0.3) 100%);
   pointer-events: none;
-
-  opacity: 1 !important;}
-
-.sid-layer-title-127 {
-  font-size: 2rem;
-  font-weight: 800;
-  color: #fff;
-  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-
-  opacity: 1 !important;}
-
-.sid-info-panel-127 {
-  flex: 0 0 350px;
-  position: sticky;
-  top: 100px;
-  background: linear-gradient(135deg, rgba(30, 30, 63, 0.9) 0%, rgba(15, 15, 47, 0.9) 100%);
-  border-radius: 24px;
-  padding: 40px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-
-  opacity: 1 !important;}
-
-.sid-info-content-127 {
-  position: relative;
+  mix-blend-mode: overlay;
 }
 
-.sid-indicator-127 {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 30px;
-  font-size: 1.5rem;
-  font-weight: 900;
-  color: #fff;
-
-  opacity: 1 !important;}
-
-.sid-current-127 {
-  font-size: 3rem;
-  background: linear-gradient(135deg, #ec4899, #a855f7);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-
-  opacity: 1 !important;}
-
-.sid-separator-127 {
-  color: rgba(255, 255, 255, 0.3);
-
-  opacity: 1 !important;}
-
-.sid-total-127 {
-  color: rgba(255, 255, 255, 0.3);
-
-  opacity: 1 !important;}
-
-.sid-progress-bar-127 {
-  width: 100%;
-  height: 4px;
+.sid-progress-256 {
   background: rgba(255, 255, 255, 0.1);
-  border-radius: 2px;
-  margin-bottom: 40px;
-  overflow: hidden;
-
-  opacity: 1 !important;}
-
-.sid-progress-fill-127 {
-  height: 100%;
-  width: 0%;
-  background: linear-gradient(90deg, #ec4899, #a855f7, #3b82f6);
-  border-radius: 2px;
-  transition: width 0.1s ease;
-
-  opacity: 1 !important;}
-
-.sid-main-title-127 {
-  font-size: 2rem;
-  font-weight: 800;
-  color: #fff;
+  border-radius: 10px;
+  padding: 15px;
   margin-bottom: 20px;
-  line-height: 1.3;
-  background: linear-gradient(135deg, #fff, rgba(255, 255, 255, 0.8));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  overflow: hidden;
+}
 
-  opacity: 1 !important;}
+.sid-progress-bar-256 {
+  height: 4px;
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  border-radius: 2px;
+  width: 0%;
+  transition: width 0.1s linear;
+}
 
-.sid-main-desc-127 {
-  font-size: 1rem;
+.sid-progress-text-256 {
+  display: block;
+  text-align: center;
+  margin-top: 10px;
+  font-size: 0.9rem;
   color: rgba(255, 255, 255, 0.7);
-  line-height: 1.8;
+}
 
-  opacity: 1 !important;}
+.sid-status-256 {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  flex-wrap: wrap;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  padding: 15px;
+}
+
+.sid-status-item-256 {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.sid-status-label-256 {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.sid-status-value-256 {
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #f093fb;
+}
 
 @media (max-width: 768px) {
-  .sid-distort-wrapper-127 {
+  .sid-title-256 {
+    font-size: 1.8rem;
+  }
+
+  .sid-images-container-256 {
+    grid-template-columns: 1fr;
+  }
+
+  .sid-status-256 {
     flex-direction: column;
-    gap: 40px;
+    gap: 15px;
   }
-
-  .sid-main-image-127 {
-    height: 400px;
-  
-  opacity: 1 !important;}
-
-  .sid-info-panel-127 {
-    flex: none;
-    width: 100%;
-    position: static;
-  
-  opacity: 1 !important;}
-
-  .sid-current-127 {
-    font-size: 2rem;
-  
-  opacity: 1 !important;}
-
-  .sid-main-title-127 {
-    font-size: 1.5rem;
-  
-  opacity: 1 !important;}
-
-  .sid-layer-title-127 {
-    font-size: 1.5rem;
-  
-  opacity: 1 !important;}
-
-  .sid-section-title-127 {
-    margin-bottom: 80px;
-  }
-
-  .sid-section-subtitle-127 {
-    margin-bottom: 60px;
-    font-size: 0.9rem;
-  
-  opacity: 1 !important;}
-
-  .sid-container-127 {
-    padding: 0 20px;
-  
-  opacity: 1 !important;}
 }
 </style>

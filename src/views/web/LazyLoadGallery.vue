@@ -95,20 +95,18 @@
         </div>
 
         <!-- 懒加载组件或占位符 -->
-        <template v-if="index <= visibleIndex">
-          <KeepAlive>
-            <Suspense>
-              <template #default>
-                <component :is="item.component" :key="item.id" />
-              </template>
-              <template #fallback>
-                <div class="component-loading">
-                  <div class="loading-spinner"></div>
-                  <p>加载组件中...</p>
-                </div>
-              </template>
-            </Suspense>
-          </KeepAlive>
+        <template v-if="index <= visibleIndex && visibleIndex >= 0">
+          <Suspense>
+            <template #default>
+              <component :is="item.component" :key="`${item.id}-${visibleIndex}`" />
+            </template>
+            <template #fallback>
+              <div class="component-loading">
+                <div class="loading-spinner"></div>
+                <p>加载组件中...</p>
+              </div>
+            </template>
+          </Suspense>
         </template>
         <div v-else class="component-placeholder">
           <div class="placeholder-content">
@@ -328,11 +326,15 @@ const filteredComponents = computed(() => {
 // 处理滚动加载
 let refreshTimeout: ReturnType<typeof setTimeout> | null = null
 let isScrolling = false
+let searchDebounce: ReturnType<typeof setTimeout> | null = null
 
 const handleScroll = () => {
   // 检查是否显示返回顶部按钮
   const scrollY = window.scrollY || document.documentElement.scrollTop
   showBackToTop.value = scrollY > 300
+
+  // 如果visibleIndex为负数，跳过检查
+  if (visibleIndex.value < 0) return
 
   if (isScrolling) return
   isScrolling = true
@@ -375,25 +377,35 @@ const scrollToTop = () => {
 
 // 搜索相关方法
 const handleSearch = () => {
-  // 搜索时重置可见索引
-  visibleIndex.value = -1
-  nextTick(() => {
+  // 使用防抖减少频繁更新
+  if (searchDebounce.value) {
+    clearTimeout(searchDebounce.value)
+  }
+  searchDebounce.value = setTimeout(async () => {
+    // 搜索时重置可见索引
+    visibleIndex.value = -1
+    await nextTick()
     visibleIndex.value = 0
     // 延迟检查可见组件
-    setTimeout(() => {
-      checkVisibleComponents()
-    }, 100)
-  })
+    setTimeout(async () => {
+      await checkVisibleComponents()
+    }, 200)
+    searchDebounce.value = null
+  }, 300)
 }
 
 const clearSearch = () => {
   searchQuery.value = ''
+  if (searchDebounce.value) {
+    clearTimeout(searchDebounce.value)
+    searchDebounce.value = null
+  }
   visibleIndex.value = -1
   nextTick(() => {
     visibleIndex.value = 0
-    setTimeout(() => {
-      checkVisibleComponents()
-    }, 100)
+    setTimeout(async () => {
+      await checkVisibleComponents()
+    }, 200)
   })
 }
 
@@ -535,6 +547,9 @@ const handleLoadCollection = (selections: string[]) => {
 const checkVisibleComponents = async () => {
   if (!containerRef.value || isLoading.value) return
 
+  // 如果visibleIndex为负数，跳过检查
+  if (visibleIndex.value < 0) return
+
   const container = containerRef.value
   const containerRect = container.getBoundingClientRect()
   const viewportHeight = window.innerHeight
@@ -648,6 +663,9 @@ onUnmounted(() => {
   window.removeEventListener('resize', handleScroll)
   if (refreshTimeout) {
     clearTimeout(refreshTimeout)
+  }
+  if (searchDebounce) {
+    clearTimeout(searchDebounce)
   }
 
   // 清理所有 ScrollTrigger 实例

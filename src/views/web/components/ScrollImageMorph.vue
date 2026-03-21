@@ -1,127 +1,139 @@
 <template>
-  <div class="sim-morph-section-231" ref="componentRoot">
-    <div class="sim-container-231">
-      <h2 class="sim-title-231">图片变形</h2>
-      <p class="sim-subtitle-231">Image Morphing Effect</p>
+  <div class="sim-image-morph-section-253" ref="componentRoot">
+    <div class="sim-container-253">
+      <h2 class="sim-title-253">图片变形动画</h2>
+      <p class="sim-subtitle-253">Image Morphing Animation</p>
 
-      <!-- 变形控制面板 -->
-      <div class="sim-morph-control-panel-231">
-        <div class="sim-control-group-231">
-          <label class="sim-label-231">变形强度</label>
-          <input
-            type="range"
-            min="0"
-            max="100"
-            v-model.number="morphIntensity"
-            class="sim-slider-231"
-          />
-          <span class="sim-value-231">{{ morphIntensity }}%</span>
-        </div>
-        <div class="sim-control-group-231">
-          <label class="sim-label-231">变形速度</label>
-          <input
-            type="range"
-            min="1"
-            max="10"
-            v-model.number="morphSpeed"
-            class="sim-slider-231"
-          />
-          <span class="sim-value-231">{{ morphSpeed }}x</span>
-        </div>
-        <div class="sim-control-group-231">
-          <label class="sim-label-231">变形模式</label>
-          <div class="sim-mode-buttons-231">
+      <!-- 控制面板 -->
+      <div class="sim-control-panel-253">
+        <div class="sim-control-group-253">
+          <label class="sim-control-label-253">变形类型</label>
+          <div class="sim-button-group-253">
             <button
-              v-for="mode in modes"
-              :key="mode.id"
-              class="sim-mode-btn-231"
-              :class="{ 'sim-active-231': currentMode === mode.id }"
-              @click="setMode(mode.id)"
+              v-for="type in morphTypes"
+              :key="type.id"
+              class="sim-type-btn-253"
+              :class="{ 'sim-active-253': currentType === type.id }"
+              @click="setType(type.id)"
             >
-              {{ mode.name }}
+              {{ type.name }}
             </button>
           </div>
         </div>
+
+        <div class="sim-control-group-253">
+          <label class="sim-control-label-253">变形程度: {{ morphIntensity }}%</label>
+          <input
+            type="range"
+            v-model="morphIntensity"
+            min="10"
+            max="100"
+            step="10"
+            class="sim-slider-253"
+          />
+        </div>
+
+        <div class="sim-control-group-253">
+          <label class="sim-control-label-253">动画速度: {{ speedValue }}x</label>
+          <input
+            type="range"
+            v-model="speedValue"
+            min="0.2"
+            max="3"
+            step="0.2"
+            class="sim-slider-253"
+          />
+        </div>
+
+        <div class="sim-control-group-253">
+          <label class="sim-control-label-253">弹性: {{ elasticityValue }}</label>
+          <input
+            type="range"
+            v-model="elasticityValue"
+            min="0.1"
+            max="1"
+            step="0.1"
+            class="sim-slider-253"
+          />
+        </div>
       </div>
 
-      <!-- 变形画廊 -->
-      <div class="sim-morph-gallery-231">
+      <!-- 图片展示区 -->
+      <div class="sim-gallery-253">
         <div
           v-for="(item, index) in galleryItems"
           :key="index"
-          class="sim-morph-item-231"
-          ref="morphItems"
+          class="sim-image-item-253"
+          ref="imageItems"
         >
-          <div class="sim-morph-wrapper-231">
-            <!-- 变形容器 -->
-            <div class="sim-morph-container-231">
-              <!-- 原始图片 -->
-              <div class="sim-original-layer-231">
-                <img :src="item.image" :alt="item.title" class="sim-morph-image-231" />
-              </div>
-
-              <!-- 变形层 -->
-              <div class="sim-morphed-layer-231">
-                <canvas
-                  :ref="el => { if (el) canvasRefs[index] = el as HTMLCanvasElement }"
-                  class="sim-morph-canvas-231"
-                ></canvas>
-              </div>
-
-              <!-- 变形网格 -->
-              <div class="sim-morph-grid-231" ref="morphGrids">
-                <div class="sim-grid-point-231" v-for="i in 16" :key="i" :style="{ '--i': i }"></div>
-              </div>
-
-              <!-- 液体波纹 -->
-              <div class="sim-liquid-ripple-231" ref="liquidRipples">
-                <div class="sim-ripple-231" v-for="i in 8" :key="i" :style="{ '--delay': i * 0.3 }"></div>
+          <div class="sim-morph-wrapper-253">
+            <!-- 原始图片 -->
+            <div class="sim-morph-container-253 sim-morph-original-253">
+              <img
+                :src="item.original"
+                :alt="item.title"
+                class="sim-morph-image-253"
+                ref="originalImages"
+              />
+              <div class="sim-morph-overlay-253">
+                <div class="sim-morph-content-253">
+                  <h3 class="sim-card-title-253">{{ item.title }}</h3>
+                  <p class="sim-card-desc-253">原始状态</p>
+                </div>
               </div>
             </div>
 
-            <!-- 信息覆盖层 -->
-            <div class="sim-morph-overlay-231">
-              <div class="sim-morph-content-231">
-                <div class="sim-morph-badge-231">
-                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
-                  </svg>
-                  变形 {{ morphIntensity }}%
-                </div>
-                <h3 class="sim-card-title-231">{{ item.title }}</h3>
-                <p class="sim-card-desc-231">{{ item.desc }}</p>
-                <div class="sim-morph-metrics-231">
-                  <div class="sim-metric-231">
-                    <span class="sim-metric-label-231">强度</span>
-                    <span class="sim-metric-value-231">{{ morphIntensity }}%</span>
-                  </div>
-                  <div class="sim-metric-231">
-                    <span class="sim-metric-label-231">速度</span>
-                    <span class="sim-metric-value-231">{{ morphSpeed }}x</span>
-                  </div>
+            <!-- 变形图片 -->
+            <div class="sim-morph-container-253 sim-morph-transformed-253">
+              <img
+                :src="item.transformed"
+                :alt="item.title"
+                class="sim-morph-image-253"
+                ref="transformedImages"
+              />
+              <div class="sim-morph-overlay-253">
+                <div class="sim-morph-content-253">
+                  <h3 class="sim-card-title-253">{{ item.title }}</h3>
+                  <p class="sim-card-desc-253">变形状态</p>
                 </div>
               </div>
+            </div>
+
+            <!-- 装饰元素 -->
+            <div class="sim-morph-decorations-253">
+              <div class="sim-decoration-253 sim-deco-1-253"></div>
+              <div class="sim-decoration-253 sim-deco-2-253"></div>
+              <div class="sim-decoration-253 sim-deco-3-253"></div>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- 变形状态指示器 -->
-      <div class="sim-morph-status-231" ref="statusIndicator">
-        <div class="sim-status-display-231">
-          <div class="sim-morph-icon-231">
-            <svg viewBox="0 0 50 50" class="sim-icon-svg-231">
-              <path d="M25 5 L45 25 L25 45 L5 25 Z" fill="none" stroke="currentColor" stroke-width="2"/>
-              <circle cx="25" cy="25" r="5" fill="currentColor"/>
-            </svg>
-          </div>
-          <div class="sim-status-info-231">
-            <span class="sim-status-label-231">变形引擎</span>
-            <span class="sim-status-text-231">{{ statusText }}</span>
-          </div>
+      <!-- 滚动进度 -->
+      <div class="sim-progress-253">
+        <div class="sim-progress-bar-253">
+          <div class="sim-progress-fill-253" ref="progressFill"></div>
         </div>
-        <div class="sim-morph-wave-231">
-          <div class="sim-wave-line-231" v-for="i in 6" :key="i"></div>
+        <div class="sim-progress-text-253" ref="progressText">0%</div>
+      </div>
+
+      <!-- 实时数据显示 -->
+      <div class="sim-status-253">
+        <div class="sim-status-item-253">
+          <span class="sim-status-label-253">变形类型:</span>
+          <span class="sim-status-value-253">{{ getTypeName(currentType) }}</span>
+        </div>
+        <div class="sim-status-item-253">
+          <span class="sim-status-label-253">变形程度:</span>
+          <span class="sim-status-value-253">{{ morphIntensity }}%</span>
+        </div>
+        <div class="sim-status-item-253">
+          <span class="sim-status-label-253">速度:</span>
+          <span class="sim-status-value-253">{{ speedValue }}x</span>
+        </div>
+        <div class="sim-status-item-253">
+          <span class="sim-status-label-253">弹性:</span>
+          <span class="sim-status-value-253">{{ elasticityValue }}</span>
         </div>
       </div>
     </div>
@@ -129,313 +141,226 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted, onUnmounted, watch } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 gsap.registerPlugin(ScrollTrigger)
 
 const componentRoot = ref<HTMLElement>()
-const morphItems = ref<HTMLElement[]>([])
-const canvasRefs = ref<(HTMLCanvasElement | null)[]>([])
-const morphGrids = ref<HTMLElement[]>([])
-const liquidRipples = ref<HTMLElement[]>([])
-const statusIndicator = ref<HTMLElement>()
+const imageItems = ref<HTMLElement[]>([])
+const originalImages = ref<HTMLElement[]>([])
+const transformedImages = ref<HTMLElement[]>([])
+const progressFill = ref<HTMLElement>()
+const progressText = ref<HTMLElement>()
 
+const currentType = ref<'circle' | 'triangle' | 'star' | 'diamond' | 'hexagon' | 'wave'>('circle')
 const morphIntensity = ref(60)
-const morphSpeed = ref(5)
-const currentMode = ref<'wave' | 'twist' | 'expand'>('wave')
+const speedValue = ref(1.0)
+const elasticityValue = ref(0.5)
 
-const statusText = computed(() => {
-  return `模式: ${currentMode.value} | 强度: ${morphIntensity.value}%`
-})
-
-interface MorphMode {
-  id: 'wave' | 'twist' | 'expand'
+interface MorphType {
+  id: 'circle' | 'triangle' | 'star' | 'diamond' | 'hexagon' | 'wave'
   name: string
+  clipPath: string
 }
 
-const modes: MorphMode[] = [
-  { id: 'wave', name: '波浪' },
-  { id: 'twist', name: '扭曲' },
-  { id: 'expand', name: '扩散' }
+const morphTypes: MorphType[] = [
+  { id: 'circle', name: '圆形', clipPath: 'circle(50% at 50% 50%)' },
+  { id: 'triangle', name: '三角形', clipPath: 'polygon(50% 0%, 0% 100%, 100% 100%)' },
+  { id: 'star', name: '星形', clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)' },
+  { id: 'diamond', name: '菱形', clipPath: 'polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)' },
+  { id: 'hexagon', name: '六边形', clipPath: 'polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)' },
+  { id: 'wave', name: '波浪', clipPath: 'polygon(0% 50%, 25% 0%, 50% 50%, 75% 100%, 100% 50%, 75% 0%, 50% 50%, 25% 100%)' }
 ]
 
+const getTypeName = (type: string): string => {
+  const found = morphTypes.find(t => t.id === type)
+  return found ? found.name : type
+}
+
 interface GalleryItem {
-  image: string
+  original: string
+  transformed: string
   title: string
   desc: string
 }
 
-const galleryItems: GalleryItem[] = [
+const galleryItems = ref<GalleryItem[]>([
   {
-    image: 'https://images.unsplash.com/photo-1519681393784-d120267933ba?w=800',
-    title: '星空变形',
-    desc: '银河的流动变换'
-  },
-  {
-    image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800',
+    original: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600',
+    transformed: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=600',
     title: '山脉变形',
-    desc: '山峰的形态变换'
+    desc: '从不同角度欣赏山脉'
   },
   {
-    image: 'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=800',
+    original: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600',
+    transformed: 'https://images.unsplash.com/photo-1505118380757-91f5f5632de0?w=600',
+    title: '海滩变形',
+    desc: '不同时刻的海滩景色'
+  },
+  {
+    original: 'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=600',
+    transformed: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=600',
     title: '森林变形',
-    desc: '树木的有机变换'
-  },
-  {
-    image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800',
-    title: '海洋变形',
-    desc: '波浪的形态变化'
+    desc: '森林在不同天气下的变化'
   }
-]
+])
 
-let ctx: gsap.Context
+let triggers: ScrollTrigger[] = []
 
-const setMode = (mode: 'wave' | 'twist' | 'expand') => {
-  currentMode.value = mode
-  ScrollTrigger.refresh()
+const setType = (type: 'circle' | 'triangle' | 'star' | 'diamond' | 'hexagon' | 'wave') => {
+  currentType.value = type
+  applyMorphAnimation()
 }
 
-const applyMorphEffect = (canvas: HTMLCanvasElement, imageUrl: string, intensity: number) => {
-  const ctx = canvas.getContext('2d')
-  if (!ctx) return
+const applyMorphAnimation = () => {
+  if (!imageItems.value.length || !originalImages.value.length || !transformedImages.value.length) return
 
-  const img = new Image()
-  img.crossOrigin = 'anonymous'
-  img.src = imageUrl
+  // 清除之前的动画
+  triggers.forEach(trigger => trigger.kill())
+  triggers = []
 
-  img.onload = () => {
-    canvas.width = img.width
-    canvas.height = img.height
+  const currentMorphType = morphTypes.find(t => t.id === currentType.value)
+  if (!currentMorphType) return
 
-    // 简单的变形效果 - 使用波浪滤镜
-    ctx.filter = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='wave'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.01 0.02' numOctaves='3' seed='1'/%3E%3CfeDisplacementMap in='SourceGraphic' scale='${intensity * 0.5}'/%3E%3C/filter%3E%3C/svg%3E#wave")`
-    ctx.drawImage(img, 0, 0)
-  }
-}
+  const morphClipPath = currentMorphType.clipPath
 
-const initAnimations = () => {
-  ctx = gsap.context(() => {
-    const items = gsap.utils.toArray('.sim-morph-item-231') as HTMLElement[]
+  // 重置所有元素
+  gsap.utils.toArray('.sim-morph-container-253').forEach(container => {
+    gsap.set(container, {
+      clipPath: 'none',
+      borderRadius: '0px',
+      rotation: 0,
+      scale: 1,
+      opacity: 1
+    })
+  })
 
-    items.forEach((item, index) => {
-      const wrapper = item.querySelector('.sim-morph-wrapper-231') as HTMLElement
-      const morphContainer = item.querySelector('.sim-morph-container-231') as HTMLElement
-      const morphedLayer = item.querySelector('.sim-morphed-layer-231') as HTMLElement
-      const morphGrid = item.querySelector('.sim-morph-grid-231') as HTMLElement
-      const liquidRipple = item.querySelector('.sim-liquid-ripple-231') as HTMLElement
-      const overlay = item.querySelector('.sim-morph-overlay-231') as HTMLElement
+  imageItems.value.forEach((item, index) => {
+    const originalContainer = item.querySelector('.sim-morph-original-253') as HTMLElement
+    const transformedContainer = item.querySelector('.sim-morph-transformed-253') as HTMLElement
+    const deco1 = item.querySelector('.sim-deco-1-253') as HTMLElement
+    const deco2 = item.querySelector('.sim-deco-2-253') as HTMLElement
+    const deco3 = item.querySelector('.sim-deco-3-253') as HTMLElement
 
-      // 初始化变形canvas
-      const canvas = canvasRefs.value[index]
-      if (canvas && galleryItems[index]) {
-        applyMorphEffect(canvas, galleryItems[index].image, morphIntensity.value)
+    if (!originalContainer || !transformedContainer) return
+
+    const intensity = parseInt(morphIntensity.value.toString()) / 100
+    const speed = parseFloat(speedValue.value.toString())
+    const elasticity = parseFloat(elasticityValue.toString())
+
+    const morphTimeline = gsap.timeline({
+      scrollTrigger: {
+        trigger: item,
+        start: 'top 80%',
+        end: 'bottom 20%',
+        scrub: 1
       }
-
-      // Initial reveal animation
-      gsap.fromTo(
-        wrapper,
-        { y: 100, opacity: 0, scale: 0.95 },
-        {
-          y: 0,
-          opacity: 1,
-          scale: 1,
-          duration: 1.2,
-          ease: 'power3.out',
-          scrollTrigger: {
-            trigger: item,
-            start: 'top 85%',
-            end: 'top 35%',
-            scrub: 1
-          }
-        }
-      )
-
-      // Morph animation based on mode
-      if (currentMode.value === 'wave') {
-        gsap.to(morphContainer, {
-          rotationY: () => gsap.utils.random(-5, 5),
-          rotationX: () => gsap.utils.random(-5, 5),
-          duration: 3 / (morphSpeed.value / 5),
-          ease: 'sine.inOut',
-          repeat: -1,
-          yoyo: true,
-          scrollTrigger: {
-            trigger: item,
-            start: 'top 60%',
-            end: 'bottom 20%',
-            toggleActions: 'play pause pause pause'
-          }
-        })
-      } else if (currentMode.value === 'twist') {
-        gsap.to(morphContainer, {
-          rotation: 5,
-          skewX: 3,
-          duration: 2 / (morphSpeed.value / 5),
-          ease: 'sine.inOut',
-          repeat: -1,
-          yoyo: true,
-          scrollTrigger: {
-            trigger: item,
-            start: 'top 60%',
-            end: 'bottom 20%',
-            toggleActions: 'play pause pause pause'
-          }
-        })
-      } else if (currentMode.value === 'expand') {
-        gsap.to(morphContainer, {
-          scale: 1.05,
-          duration: 2.5 / (morphSpeed.value / 5),
-          ease: 'sine.inOut',
-          repeat: -1,
-          yoyo: true,
-          scrollTrigger: {
-            trigger: item,
-            start: 'top 60%',
-            end: 'bottom 20%',
-            toggleActions: 'play pause pause pause'
-          }
-        })
-      }
-
-      // Morphed layer opacity
-      gsap.fromTo(
-        morphedLayer,
-        { opacity: 0 },
-        {
-          opacity: morphIntensity.value / 100,
-          duration: 1.5,
-          ease: 'power2.out',
-          scrollTrigger: {
-            trigger: item,
-            start: 'top 70%',
-            end: 'top 40%',
-            scrub: 1
-          }
-        }
-      )
-
-      // Grid points animation
-      const gridPoints = morphGrid.querySelectorAll('.sim-grid-point-231')
-      gridPoints.forEach((point) => {
-        const i = parseFloat(point.style.getPropertyValue('--i'))
-        gsap.to(point, {
-          x: () => gsap.utils.random(-20, 20) * (morphIntensity.value / 100),
-          y: () => gsap.utils.random(-20, 20) * (morphIntensity.value / 100),
-          scale: () => 0.8 + Math.random() * 0.4,
-          duration: 2 / (morphSpeed.value / 5),
-          ease: 'sine.inOut',
-          repeat: -1,
-          yoyo: true,
-          delay: i * 0.1,
-          scrollTrigger: {
-            trigger: item,
-            start: 'top 60%',
-            end: 'bottom 20%',
-            toggleActions: 'play pause pause pause'
-          }
-        })
-      })
-
-      // Liquid ripple animation
-      const ripples = liquidRipple.querySelectorAll('.sim-ripple-231')
-      ripples.forEach((ripple) => {
-        gsap.to(ripple, {
-          scale: 1 + (morphIntensity.value / 50),
-          opacity: 0,
-          duration: 3 / (morphSpeed.value / 5),
-          ease: 'power2.out',
-          repeat: -1,
-          delay: parseFloat(ripple.style.getPropertyValue('--delay')),
-          scrollTrigger: {
-            trigger: item,
-            start: 'top 60%',
-            end: 'bottom 20%',
-            toggleActions: 'play pause pause pause'
-          }
-        })
-      })
-
-      // Overlay reveal
-      gsap.fromTo(
-        overlay,
-        { opacity: 0, y: 60 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 1,
-          ease: 'power2.out',
-          scrollTrigger: {
-            trigger: item,
-            start: 'top 45%',
-            toggleActions: 'play none none reverse'
-          }
-        }
-      )
-
-      // Content stagger animation
-      const contentElements = overlay.querySelectorAll('.sim-morph-badge-231, h3, p, .sim-morph-metrics-231')
-      gsap.from(contentElements, {
-        y: 25,
-        opacity: 0,
-        duration: 0.8,
-        stagger: 0.1,
-        ease: 'power2.out',
-        scrollTrigger: {
-          trigger: item,
-          start: 'top 40%',
-          toggleActions: 'play none none reverse'
-        }
-      })
     })
 
-    // Status indicator wave animation
-    if (statusIndicator.value) {
-      const iconSvg = statusIndicator.value.querySelector('.sim-icon-svg-231')
-      const waveLines = statusIndicator.value.querySelectorAll('.sim-wave-line-231')
+    // 原始图片变形效果
+    morphTimeline
+      .to(originalContainer, {
+        clipPath: morphClipPath,
+        borderRadius: `${50 * intensity}px`,
+        rotation: -15 * intensity,
+        scale: 1 - (0.2 * intensity),
+        opacity: 0.3,
+        duration: 1 / speed,
+        ease: `elastic.out(${elasticity}, 0.5)`
+      }, 0)
 
-      gsap.to(iconSvg, {
-        rotation: 360,
-        duration: 15,
-        ease: 'none',
-        repeat: -1
-      })
+    // 变形图片显现效果
+    morphTimeline.fromTo(
+      transformedContainer,
+      {
+        clipPath: morphClipPath,
+        borderRadius: `${50 * intensity}px`,
+        rotation: 15 * intensity,
+        scale: 0.8,
+        opacity: 0
+      },
+      {
+        clipPath: 'none',
+        borderRadius: '0px',
+        rotation: 0,
+        scale: 1,
+        opacity: 1,
+        duration: 1 / speed,
+        ease: `elastic.out(${elasticity}, 0.5)`
+      },
+      0.2
+    )
 
-      gsap.to(waveLines, {
-        scaleY: 0.3,
-        duration: 0.6,
-        stagger: 0.1,
-        ease: 'sine.inOut',
-        repeat: -1,
-        yoyo: true
-      })
+    // 装饰元素动画
+    if (deco1) {
+      morphTimeline.fromTo(
+        deco1,
+        { scale: 0, rotation: 0, opacity: 0 },
+        { scale: 1, rotation: 360, opacity: 0.5 },
+        0.3
+      )
     }
-  }, componentRoot.value)
+
+    if (deco2) {
+      morphTimeline.fromTo(
+        deco2,
+        { scale: 0, rotation: 0, opacity: 0 },
+        { scale: 1.5, rotation: -360, opacity: 0.3 },
+        0.4
+      )
+    }
+
+    if (deco3) {
+      morphTimeline.fromTo(
+        deco3,
+        { scale: 0, rotation: 0, opacity: 0 },
+        { scale: 2, rotation: 180, opacity: 0.2 },
+        0.5
+      )
+    }
+
+    triggers.push(morphTimeline.scrollTrigger!)
+  })
 }
 
-// Update morph effect when settings change
-watch([morphIntensity, morphSpeed, currentMode], () => {
-  canvasRefs.value.forEach((canvas, index) => {
-    if (canvas && galleryItems[index]) {
-      applyMorphEffect(canvas, galleryItems[index].image, morphIntensity.value)
+const setupProgressIndicator = () => {
+  if (!componentRoot.value || !progressFill.value || !progressText.value) return
+
+  const progressTrigger = ScrollTrigger.create({
+    trigger: componentRoot.value,
+    start: 'top bottom',
+    end: 'bottom top',
+    onUpdate: (self) => {
+      const progress = Math.round(self.progress * 100)
+      if (progressFill.value) {
+        progressFill.value.style.width = `${progress}%`
+      }
+      if (progressText.value) {
+        progressText.value.textContent = `${progress}%`
+      }
     }
   })
-  ScrollTrigger.refresh()
-})
+
+  triggers.push(progressTrigger)
+}
 
 onMounted(() => {
-  initAnimations()
+  setTimeout(() => {
+    applyMorphAnimation()
+    setupProgressIndicator()
+  }, 100)
 })
 
 onUnmounted(() => {
-  if (ctx) ctx.revert()
-  ScrollTrigger.getAll().forEach(t => t.kill())
+  triggers.forEach(trigger => trigger.kill())
+  triggers = []
 })
 </script>
 
 <style scoped lang="scss">
-.sim-morph-section-231 {
+.sim-image-morph-section-253 {
   min-height: 100vh;
   padding: 60px 20px;
   background: linear-gradient(135deg, #0a0a1a 0%, #1a1a3a 50%, #0a0a2a 100%);
@@ -449,407 +374,284 @@ onUnmounted(() => {
     left: 0;
     right: 0;
     bottom: 0;
-    background:
-      radial-gradient(circle at 30% 40%, rgba(34, 197, 94, 0.05) 0%, transparent 50%),
-      radial-gradient(circle at 70% 60%, rgba(234, 179, 8, 0.05) 0%, transparent 50%);
+    background: radial-gradient(circle at 50% 50%, rgba(0, 191, 255, 0.05) 0%, transparent 50%);
     pointer-events: none;
-  
-  opacity: 1 !important;}
+  }
 }
 
-.sim-container-231 {
+.sim-container-253 {
   max-width: 1400px;
   margin: 0 auto;
   position: relative;
   z-index: 1;
+}
 
-  opacity: 1 !important;}
-
-.sim-title-231 {
-  font-size: 3rem;
-  font-weight: 800;
+.sim-title-253 {
+  font-size: 48px;
+  font-weight: 700;
+  color: #ffffff;
   text-align: center;
   margin-bottom: 10px;
-  background: linear-gradient(135deg, #22c55e, #eab308, #f97316, #ef4444);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: sim-gradient-flow-231 6s ease infinite;
-
-  opacity: 1 !important;}
-
-@keyframes sim-gradient-flow-231 {
-  0%, 100% { filter: hue-rotate(0deg); }
-  50% { filter: hue-rotate(180deg); }
+  text-shadow: 0 0 20px rgba(0, 191, 255, 0.5);
 }
 
-.sim-subtitle-231 {
+.sim-subtitle-253 {
+  font-size: 20px;
+  color: #8888aa;
   text-align: center;
-  color: #22c55e;
-  font-size: 1.2rem;
   margin-bottom: 40px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-
-  opacity: 1 !important;}
-
-.sim-morph-control-panel-231 {
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  flex-wrap: wrap;
-  margin-bottom: 50px;
-  padding: 25px;
-  background: rgba(34, 197, 94, 0.03);
-  border: 1px solid rgba(34, 197, 94, 0.3);
-  border-radius: 16px;
-  backdrop-filter: blur(10px);
-
-  opacity: 1 !important;}
-
-.sim-control-group-231 {
-  display: flex;
-  align-items: center;
-  gap: 15px;
 }
 
-.sim-label-231 {
-  color: #22c55e;
+.sim-control-panel-253 {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 30px;
+  margin-bottom: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+}
+
+.sim-control-group-253 {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 200px;
+}
+
+.sim-control-label-253 {
   font-size: 14px;
-  font-weight: 600;
-  white-space: nowrap;
+  color: #aaaacc;
+  font-weight: 500;
+}
 
-  opacity: 1 !important;}
+.sim-button-group-253 {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
 
-.sim-slider-231 {
-  width: 120px;
-  height: 6px;
-  -webkit-appearance: none;
-  background: rgba(34, 197, 94, 0.2);
-  border-radius: 3px;
+.sim-type-btn-253 {
+  padding: 10px 16px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  color: #ffffff;
+  font-size: 13px;
   cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.3);
+  }
+
+  &.sim-active-253 {
+    background: rgba(0, 191, 255, 0.3);
+    border-color: rgba(0, 191, 255, 0.6);
+    box-shadow: 0 0 15px rgba(0, 191, 255, 0.4);
+  }
+}
+
+.sim-slider-253 {
+  width: 100%;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+  outline: none;
+  -webkit-appearance: none;
 
   &::-webkit-slider-thumb {
     -webkit-appearance: none;
-    width: 16px;
-    height: 16px;
-    background: linear-gradient(135deg, #22c55e, #eab308);
+    width: 18px;
+    height: 18px;
+    background: linear-gradient(135deg, #00bfff, #1e90ff);
     border-radius: 50%;
     cursor: pointer;
-    box-shadow: 0 0 10px rgba(34, 197, 94, 0.8);
-  
-  opacity: 1 !important;}
+    box-shadow: 0 0 10px rgba(0, 191, 255, 0.5);
+  }
 }
 
-.sim-value-231 {
-  color: #eab308;
-  font-size: 14px;
-  font-weight: 600;
-  min-width: 50px;
-
-  opacity: 1 !important;}
-
-.sim-mode-buttons-231 {
-  display: flex;
-  gap: 8px;
-}
-
-.sim-mode-btn-231 {
-  padding: 8px 16px;
-  background: rgba(34, 197, 94, 0.1);
-  border: 1px solid rgba(34, 197, 94, 0.3);
-  color: #22c55e;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  font-size: 13px;
-
-  &:hover {
-    background: rgba(34, 197, 94, 0.2);
-    border-color: rgba(34, 197, 94, 0.6);
-  
-  opacity: 1 !important;}
-
-  &.sim-active-231 {
-    background: linear-gradient(135deg, #22c55e, #eab308);
-    border-color: transparent;
-    color: #0a0a1a;
-    font-weight: 600;
-  
-  opacity: 1 !important;}
-}
-
-.sim-morph-gallery-231 {
+.sim-gallery-253 {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(700px, 1fr));
   gap: 50px;
-  margin-bottom: 60px;
+  margin-bottom: 50px;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
 }
 
-.sim-morph-item-231 {
-  perspective: 2000px;
-}
-
-.sim-morph-wrapper-231 {
+.sim-image-item-253 {
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 20px;
+  padding: 20px;
   position: relative;
+}
+
+.sim-morph-wrapper-253 {
+  position: relative;
+  width: 100%;
+  padding-top: 100%;
   border-radius: 16px;
-  padding: 40px;
-  background: rgba(10, 10, 26, 0.8);
-  border: 1px solid rgba(34, 197, 94, 0.3);
-  box-shadow:
-    0 0 60px rgba(34, 197, 94, 0.2),
-    inset 0 0 60px rgba(34, 197, 94, 0.05);
-  transform-style: preserve-3d;
-
-  opacity: 1 !important;}
-
-.sim-morph-container-231 {
-  position: relative;
-  border-radius: 12px;
   overflow: hidden;
-  transform-style: preserve-3d;
-  perspective: 1000px;
 }
 
-.sim-original-layer-231 {
-  position: relative;
+.sim-morph-container-253 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.sim-morph-original-253 {
+  z-index: 2;
+}
+
+.sim-morph-transformed-253 {
   z-index: 1;
 }
 
-.sim-morph-image-231 {
+.sim-morph-image-253 {
   width: 100%;
-  height: 400px;
+  height: 100%;
   object-fit: cover;
-  display: block;
+  will-change: transform, clip-path;
+}
 
-  opacity: 1 !important;}
-
-.sim-morphed-layer-231 {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 2;
-  pointer-events: none;
-
-  opacity: 1 !important;}
-
-.sim-morph-canvas-231 {
-  width: 100%;
-  height: 400px;
-  object-fit: cover;
-  display: block;
-
-  opacity: 1 !important;}
-
-.sim-morph-grid-231 {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 3;
-  pointer-events: none;
-
-  opacity: 1 !important;}
-
-.sim-grid-point-231 {
-  position: absolute;
-  width: 8px;
-  height: 8px;
-  background: rgba(34, 197, 94, 0.5);
-  border-radius: 50%;
-  top: 20%;
-  left: 20%;
-  transform: translate(calc(var(--i) * 20px), calc(var(--i) * 15px));
-  box-shadow: 0 0 10px rgba(34, 197, 94, 0.8);
-
-  opacity: 1 !important;}
-
-.sim-liquid-ripple-231 {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 100%;
-  height: 100%;
-  transform: translate(-50%, -50%);
-  z-index: 4;
-  pointer-events: none;
-
-  opacity: 1 !important;}
-
-.sim-ripple-231 {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 200px;
-  height: 200px;
-  border: 2px solid rgba(34, 197, 94, 0.3);
-  border-radius: 50%;
-  box-shadow: 0 0 20px rgba(34, 197, 94, 0.5);
-
-  opacity: 1 !important;}
-
-.sim-morph-overlay-231 {
+.sim-morph-overlay-253 {
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
-  padding: 30px;
-  background: linear-gradient(transparent, rgba(10, 10, 26, 0.95));
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, transparent 100%);
+  padding: 20px;
   z-index: 10;
-  border-top: 1px solid rgba(34, 197, 94, 0.3);
-
-  opacity: 1 !important;}
-
-.sim-morph-content-231 {
-  transform: translateZ(10px);
 }
 
-.sim-morph-badge-231 {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 6px 14px;
-  background: rgba(34, 197, 94, 0.2);
-  border: 1px solid rgba(34, 197, 94, 0.4);
-  border-radius: 6px;
-  color: #22c55e;
-  font-size: 12px;
+.sim-morph-content-253 {
+  color: #ffffff;
+}
+
+.sim-card-title-253 {
+  font-size: 20px;
   font-weight: 600;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  margin-bottom: 12px;
+  margin-bottom: 4px;
+}
 
-  opacity: 1 !important;}
+.sim-card-desc-253 {
+  font-size: 14px;
+  color: #cccccc;
+}
 
-.sim-card-title-231 {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #eab308;
-  margin-bottom: 8px;
-  text-shadow: 0 0 20px rgba(234, 179, 8, 0.5);
+.sim-morph-decorations-253 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 5;
+}
 
-  opacity: 1 !important;}
+.sim-decoration-253 {
+  position: absolute;
+  border: 2px solid rgba(0, 191, 255, 0.3);
+  border-radius: 50%;
+}
 
-.sim-card-desc-231 {
-  font-size: 1rem;
-  color: #94a3b8;
-  margin-bottom: 20px;
-  line-height: 1.6;
+.sim-deco-1-253 {
+  top: 10%;
+  left: 10%;
+  width: 80px;
+  height: 80px;
+}
 
-  opacity: 1 !important;}
+.sim-deco-2-253 {
+  top: 60%;
+  right: 10%;
+  width: 120px;
+  height: 120px;
+}
 
-.sim-morph-metrics-231 {
+.sim-deco-3-253 {
+  bottom: 10%;
+  left: 30%;
+  width: 60px;
+  height: 60px;
+}
+
+.sim-progress-253 {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 15px 20px;
+  margin-bottom: 30px;
   display: flex;
+  align-items: center;
   gap: 20px;
 }
 
-.sim-metric-231 {
-  display: flex;
-  align-items: center;
-  gap: 8px;
+.sim-progress-bar-253 {
+  flex: 1;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  overflow: hidden;
 }
 
-.sim-metric-label-231 {
-  font-size: 12px;
-  color: #64748b;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+.sim-progress-fill-253 {
+  height: 100%;
+  background: linear-gradient(90deg, #00bfff, #1e90ff);
+  width: 0%;
+  transition: width 0.1s ease;
+  box-shadow: 0 0 10px rgba(0, 191, 255, 0.5);
+}
 
-  opacity: 1 !important;}
-
-.sim-metric-value-231 {
-  font-size: 14px;
-  color: #eab308;
+.sim-progress-text-253 {
+  font-size: 16px;
   font-weight: 600;
+  color: #ffffff;
+  min-width: 50px;
+  text-align: right;
+}
 
-  opacity: 1 !important;}
-
-.sim-morph-status-231 {
+.sim-status-253 {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  padding: 20px;
   display: flex;
-  align-items: center;
+  flex-wrap: wrap;
+  gap: 30px;
   justify-content: center;
-  gap: 40px;
-  padding: 30px;
-  background: rgba(34, 197, 94, 0.03);
-  border: 1px solid rgba(34, 197, 94, 0.3);
-  border-radius: 12px;
-  backdrop-filter: blur(10px);
+}
 
-  opacity: 1 !important;}
-
-.sim-status-display-231 {
+.sim-status-item-253 {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 10px;
 }
 
-.sim-morph-icon-231 {
-  width: 50px;
-  height: 50px;
-  color: #22c55e;
-
-  opacity: 1 !important;}
-
-.sim-icon-svg-231 {
-  width: 100%;
-  height: 100%;
-
-  opacity: 1 !important;}
-
-.sim-status-info-231 {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.sim-status-label-231 {
-  font-size: 12px;
-  color: #64748b;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-
-  opacity: 1 !important;}
-
-.sim-status-text-231 {
+.sim-status-label-253 {
   font-size: 14px;
-  color: #eab308;
-  font-weight: 600;
-
-  opacity: 1 !important;}
-
-.sim-morph-wave-231 {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  height: 30px;
-
-  opacity: 1 !important;}
-
-.sim-wave-line-231 {
-  width: 3px;
-  height: 100%;
-  background: linear-gradient(to top, #22c55e, #eab308);
-  border-radius: 2px;
-  opacity: 0.8;
+  color: #8888aa;
 }
 
-@media (max-width: 768px) {
-  .sim-title-231 {
-    font-size: 2rem;
-  
-  opacity: 1 !important;}
-
-  .sim-morph-gallery-231 {
-    grid-template-columns: 1fr;
-  }
-
-  .sim-morph-control-panel-231 {
-    flex-direction: column;
-    gap: 20px;
-  }
+.sim-status-value-253 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffffff;
+  padding: 4px 12px;
+  background: rgba(0, 191, 255, 0.2);
+  border-radius: 4px;
 }
 </style>

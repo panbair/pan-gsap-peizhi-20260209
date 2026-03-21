@@ -63,6 +63,19 @@ const routes: RouteRecordRaw[] = [
     meta: { title: '杰作动画' }
   },
 
+  {
+    path: '/template',
+    name: 'template',
+    component: () => import('@/views/template/index.vue'),
+    meta: { title: '模板中心' }
+  },
+
+  {
+    path: '/template-view',
+    name: 'templateView',
+    component: () => import('@/views/template/template-view/index.vue'),
+    meta: { title: '查看模板' }
+  },
 
   {
     path: '/:pathMatch(.*)*',

@@ -1,654 +1,511 @@
 <template>
-  <div class="sli-section-230" ref="componentRoot">
-    <div class="sli-container-230">
-      <h2 class="sli-title-230">液体图片流动</h2>
-      <p class="sli-subtitle-230">Liquid Image Flow</p>
+  <section class="simd-image-liquid-section-255">
+    <div class="simd-container-255">
+      <!-- 标题 -->
+      <h2 class="simd-title-255">液体图片变形</h2>
 
       <!-- 控制面板 -->
-      <div class="sli-control-panel-230">
-        <div class="sli-control-group-230">
-          <label class="sli-label-230">流动速度</label>
-          <input
-            type="range"
-            min="1"
-            max="10"
-            v-model.number="flowSpeed"
-            class="sli-slider-230"
-          />
-          <span class="sli-value-230">{{ flowSpeed }}x</span>
+      <div class="simd-control-panel-255">
+        <div class="simd-control-group-255">
+          <button
+            v-for="type in liquidTypes"
+            :key="type.value"
+            @click="changeLiquidType(type.value)"
+            :class="['simd-btn-255', { 'simd-active-255': currentType === type.value }]"
+          >
+            {{ type.label }}
+          </button>
         </div>
-        <div class="sli-control-group-230">
-          <label class="sli-label-230">波浪幅度</label>
+
+        <div class="simd-slider-group-255">
+          <label class="simd-label-255">变形强度: {{ intensityValue }}</label>
           <input
             type="range"
-            min="10"
-            max="100"
-            v-model.number="waveAmplitude"
-            class="sli-slider-230"
+            v-model.number="intensityValue"
+            min="0.1"
+            max="2"
+            step="0.1"
+            class="simd-slider-255"
+            @input="applyLiquidAnimation"
           />
-          <span class="sli-value-230">{{ waveAmplitude }}px</span>
         </div>
-        <div class="sli-control-group-230">
-          <label class="sli-label-230">扭曲强度</label>
+
+        <div class="simd-slider-group-255">
+          <label class="simd-label-255">动画速度: {{ speedValue }}x</label>
           <input
             type="range"
-            min="0"
-            max="100"
-            v-model.number="distortIntensity"
-            class="sli-slider-230"
+            v-model.number="speedValue"
+            min="0.2"
+            max="3"
+            step="0.1"
+            class="simd-slider-255"
+            @input="applyLiquidAnimation"
           />
-          <span class="sli-value-230">{{ distortIntensity }}%</span>
         </div>
       </div>
 
-      <!-- 液体流动画廊 -->
-      <div class="sli-liquid-gallery-230">
+      <!-- 图片容器 -->
+      <div class="simd-images-container-255">
         <div
-          v-for="(image, index) in images"
+          v-for="(img, index) in images"
           :key="index"
-          class="sli-liquid-item-230"
-          :class="{ 'sli-active-230': currentIndex === index }"
-          @click="setCurrentImage(index)"
+          class="simd-image-item-255"
+          ref="imageItems"
         >
-          <div class="sli-liquid-wrapper-230">
-            <canvas
-              :ref="(el) => { if (el) canvasRefs[index] = el as HTMLCanvasElement }"
-              class="sli-liquid-canvas-230"
-              :width="300"
-              :height="200"
-            ></canvas>
-            <div class="sli-wave-overlay-230">
-              <div class="sli-wave-230" v-for="i in 5" :key="i"></div>
-            </div>
-            <div class="sli-droplet-230" v-for="i in 8" :key="i"></div>
-          </div>
-          <div class="sli-image-info-230">
-            <h3 class="sli-image-title-230">{{ image.title }}</h3>
-            <p class="sli-image-desc-230">{{ image.desc }}</p>
+          <div class="simd-image-wrapper-255">
+            <img
+              :src="img.src"
+              :alt="img.alt"
+              class="simd-image-255"
+              :style="{ filter: getLiquidFilter(index) }"
+            />
           </div>
         </div>
       </div>
 
-      <!-- 液体效果控制器 -->
-      <div class="sli-liquid-controls-230">
-        <button
-          class="sli-control-btn-230"
-          @click="toggleFlow"
-          :class="{ 'sli-active-230': isFlowing }"
-        >
-          {{ isFlowing ? '⏸ 暂停流动' : '▶ 开始流动' }}
-        </button>
-        <button
-          class="sli-control-btn-230"
-          @click="dropDroplet"
-        >
-          💧 添加水滴
-        </button>
-        <button
-          class="sli-control-btn-230"
-          @click="resetFlow"
-        >
-          🔄 重置流动
-        </button>
+      <!-- 进度指示器 -->
+      <div class="simd-progress-255">
+        <div class="simd-progress-bar-255" ref="progressBar"></div>
+        <span class="simd-progress-text-255">滚动进度: {{ progress }}%</span>
       </div>
 
-      <!-- 液体流动指示器 -->
-      <div class="sli-flow-indicator-230">
-        <div class="sli-flow-bar-230">
-          <div
-            class="sli-flow-fill-230"
-            :style="{ width: flowProgress + '%' }"
-          ></div>
+      <!-- 状态显示 -->
+      <div class="simd-status-255">
+        <div class="simd-status-item-255">
+          <span class="simd-status-label-255">类型:</span>
+          <span class="simd-status-value-255">{{ currentTypeLabel }}</span>
         </div>
-        <span class="sli-flow-text-230">液体流动强度</span>
+        <div class="simd-status-item-255">
+          <span class="simd-status-label-255">强度:</span>
+          <span class="simd-status-value-255">{{ intensityValue }}x</span>
+        </div>
+        <div class="simd-status-item-255">
+          <span class="simd-status-label-255">速度:</span>
+          <span class="simd-status-value-255">{{ speedValue }}x</span>
+        </div>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted, watch } from 'vue'
+import { ref, onMounted, onUnmounted, computed } from 'vue'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 gsap.registerPlugin(ScrollTrigger)
 
-const componentRoot = ref<HTMLElement>()
-const currentIndex = ref(0)
-const flowSpeed = ref(5)
-const waveAmplitude = ref(50)
-const distortIntensity = ref(60)
-const isFlowing = ref(true)
-const flowProgress = ref(0)
-const canvasRefs = ref<(HTMLCanvasElement | null)[]>([])
+// 液体变形类型
+const liquidTypes = [
+  { value: 'liquid', label: '液体波动' },
+  { value: 'drip', label: '水滴效果' },
+  { value: 'melt', label: '融化变形' },
+  { value: 'bubble', label: '气泡效果' }
+]
 
-interface LiquidImage {
-  src: string
-  title: string
-  desc: string
-}
+// 响应式数据
+const currentType = ref('liquid')
+const intensityValue = ref(1)
+const speedValue = ref(1)
+const progress = ref(0)
+const imageItems = ref<HTMLElement[]>([])
+const progressBar = ref<HTMLElement>()
 
-const images: LiquidImage[] = [
+// 示例图片
+const images = [
   {
-    src: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600',
-    title: '山川流动',
-    desc: 'Mountain Flow'
+    src: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&h=400&fit=crop',
+    alt: '山景1'
   },
   {
-    src: 'https://images.unsplash.com/photo-1472214103451-9374bd1c798e?w=600',
-    title: '海洋波浪',
-    desc: 'Ocean Waves'
+    src: 'https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=600&h=400&fit=crop',
+    alt: '自然2'
   },
   {
-    src: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=600',
-    title: '森林涟漪',
-    desc: 'Forest Ripples'
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1519681393784-d120267933ba?w=600',
-    title: '星空流体',
-    desc: 'Starry Fluid'
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600',
-    title: '都市液态',
-    desc: 'City Liquid'
+    src: 'https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?w=600&h=400&fit=crop',
+    alt: '森林3'
   }
 ]
 
-let liquidAnimations: gsap.core.Timeline[] = []
-let flowInterval: number | null = null
-let waveAnimations: gsap.core.Tween[] = []
+// 存储触发器
+let triggers: ScrollTrigger[] = []
+let mainTrigger: ScrollTrigger | null = null
 
-const setCurrentImage = (index: number) => {
-  currentIndex.value = index
-}
+// 计算当前类型标签
+const currentTypeLabel = computed(() => {
+  const type = liquidTypes.find(t => t.value === currentType.value)
+  return type?.label || currentType.value
+})
 
-const toggleFlow = () => {
-  isFlowing.value = !isFlowing.value
-  if (isFlowing.value) {
-    startFlowAnimation()
-  } else {
-    stopFlowAnimation()
+// 获取液体滤镜
+const getLiquidFilter = (index: number) => {
+  const offset = index * 30
+  switch (currentType.value) {
+    case 'liquid':
+      return `url(#liquid-filter-255-${index})`
+    case 'drip':
+      return `url(#drip-filter-255-${index})`
+    case 'melt':
+      return `url(#melt-filter-255-${index})`
+    case 'bubble':
+      return `url(#bubble-filter-255-${index})`
+    default:
+      return 'none'
   }
 }
 
-const dropDroplet = () => {
-  const activeItem = document.querySelector('.sli-liquid-item-230.sli-active-230')
-  if (!activeItem) return
+// 改变液体类型
+const changeLiquidType = (type: string) => {
+  currentType.value = type
+  applyLiquidAnimation()
+}
 
-  const droplet = document.createElement('div')
-  droplet.className = 'sli-droplet-effect-230'
-  droplet.style.cssText = `
-    position: absolute;
-    width: 30px;
-    height: 30px;
-    background: radial-gradient(circle, rgba(96, 165, 250, 0.6) 0%, transparent 70%);
-    border-radius: 50%;
-    pointer-events: none;
-    left: ${Math.random() * 80 + 10}%;
-    top: 0;
-  `
-  activeItem.appendChild(droplet)
+// 应用液体动画
+const applyLiquidAnimation = () => {
+  if (!imageItems.value.length) return
 
-  gsap.to(droplet, {
-    y: 300,
-    scale: 1.5,
-    opacity: 0,
-    duration: 2 / flowSpeed.value,
-    ease: 'power1.in',
-    onComplete: () => {
-      droplet.remove()
+  // 清除之前的动画
+  triggers.forEach(trigger => trigger.kill())
+  triggers = []
+
+  // 重置所有图片
+  gsap.utils.toArray<HTMLElement>('.simd-image-255').forEach(img => {
+    gsap.set(img, {
+      scale: 1,
+      filter: 'none'
+    })
+  })
+
+  imageItems.value.forEach((item, index) => {
+    const img = item.querySelector('.simd-image-255')
+    if (!img) return
+
+    const intensity = intensityValue.value
+
+    const liquidTimeline = gsap.timeline({
+      scrollTrigger: {
+        trigger: item,
+        start: 'top 80%',
+        end: 'bottom 20%',
+        scrub: 1
+      }
+    })
+
+    switch (currentType.value) {
+      case 'liquid':
+        // 液体波动效果
+        const liquidScale = 1 + (intensity * 0.3)
+        liquidTimeline
+          .fromTo(
+            img,
+            { scale: 0.95 },
+            { scale: liquidScale, ease: 'power1.inOut' },
+            0
+          )
+          .fromTo(
+            img,
+            { filter: 'blur(0px) saturate(100%)' },
+            {
+              filter: `blur(${2 * intensity}px) saturate(${120 + intensity * 30}%)`,
+              ease: 'power1.inOut'
+            },
+            0
+          )
+        break
+
+      case 'drip':
+        // 水滴效果
+        liquidTimeline
+          .fromTo(
+            img,
+            { scale: 1 },
+            { scale: 1 + (intensity * 0.4), ease: 'power2.out' },
+            0
+          )
+          .fromTo(
+            img,
+            { filter: 'blur(0px)' },
+            {
+              filter: `blur(${3 * intensity}px)`,
+              ease: 'power2.out'
+            },
+            0
+          )
+        break
+
+      case 'melt':
+        // 融化变形效果
+        liquidTimeline
+          .fromTo(
+            img,
+            { scale: 1, skewY: 0 },
+            {
+              scale: 1.1,
+              skewY: intensity * 3,
+              ease: 'power1.inOut'
+            },
+            0
+          )
+          .fromTo(
+            img,
+            { filter: 'blur(0px) contrast(100%)' },
+            {
+              filter: `blur(${2 * intensity}px) contrast(${110 + intensity * 20}%)`,
+              ease: 'power1.inOut'
+            },
+            0
+          )
+        break
+
+      case 'bubble':
+        // 气泡效果
+        liquidTimeline
+          .fromTo(
+            img,
+            { scale: 1 },
+            { scale: 1 + (intensity * 0.5), ease: 'elastic.out(1, 0.5)' },
+            0
+          )
+          .fromTo(
+            img,
+            { filter: 'blur(0px) brightness(100%)' },
+            {
+              filter: `blur(${1.5 * intensity}px) brightness(${105 + intensity * 15}%)`,
+              ease: 'elastic.out(1, 0.5)'
+            },
+            0
+          )
+        break
+    }
+
+    triggers.push(liquidTimeline.scrollTrigger!)
+  })
+}
+
+// 初始化进度条动画
+const initProgressBar = () => {
+  if (!progressBar.value) return
+
+  mainTrigger = ScrollTrigger.create({
+    trigger: '.simd-images-container-255',
+    start: 'top center',
+    end: 'bottom center',
+    onUpdate: (self) => {
+      progress.value = Math.round(self.progress * 100)
+      if (progressBar.value) {
+        progressBar.value.style.width = `${progress.value}%`
+      }
     }
   })
 }
 
-const resetFlow = () => {
-  flowProgress.value = 0
-  const waves = document.querySelectorAll('.sli-wave-230')
-  gsap.set(waves, { x: 0, rotation: 0, scale: 1 })
-}
-
-const startFlowAnimation = () => {
-  const waves = document.querySelectorAll('.sli-wave-230')
-
-  waveAnimations = Array.from(waves).map((wave, index) => {
-    return gsap.to(wave, {
-      xPercent: -50,
-      rotation: 15,
-      scale: 1.2,
-      duration: 3 / flowSpeed.value,
-      repeat: -1,
-      yoyo: true,
-      ease: 'sine.inOut',
-      delay: index * 0.2
-    })
-  })
-
-  flowInterval = window.setInterval(() => {
-    flowProgress.value = (flowProgress.value + 2) % 100
-  }, 50 / flowSpeed.value)
-}
-
-const stopFlowAnimation = () => {
-  waveAnimations.forEach(anim => {
-    anim.pause()
-  })
-
-  if (flowInterval) {
-    clearInterval(flowInterval)
-    flowInterval = null
-  }
-}
-
-const initLiquidEffects = () => {
-  const items = document.querySelectorAll('.sli-liquid-item-230')
-  const waves = document.querySelectorAll('.sli-wave-230')
-  const droplets = document.querySelectorAll('.sli-droplet-230')
-
-  // 波浪流动
-  waves.forEach((wave, index) => {
-    gsap.to(wave, {
-      xPercent: -50,
-      rotation: 15,
-      scale: 1.2,
-      duration: 3 / flowSpeed.value,
-      repeat: -1,
-      yoyo: true,
-      ease: 'sine.inOut',
-      delay: index * 0.2
-    })
-  })
-
-  // 水滴飘动
-  droplets.forEach((droplet, index) => {
-    gsap.to(droplet, {
-      y: -30,
-      x: Math.sin(index) * 20,
-      rotation: 360,
-      duration: 4 + index,
-      repeat: -1,
-      yoyo: true,
-      ease: 'power1.inOut',
-      delay: index * 0.3
-    })
-  })
-
-  // 滚动触发
-  items.forEach((item, index) => {
-    gsap.fromTo(item,
-      {
-        y: 100,
-        opacity: 0,
-        rotationY: 30
-      },
-      {
-        y: 0,
-        opacity: 1,
-        rotationY: 0,
-        duration: 1,
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: item,
-          start: 'top 85%',
-          end: 'top 25%',
-          scrub: 1,
-          toggleActions: 'play none none reverse'
-        }
-      }
-    )
-  })
-
-  // 初始化Canvas绘制
-  initCanvases()
-
-  // 启动流动
-  startFlowAnimation()
-}
-
-const initCanvases = () => {
-  images.forEach((image, index) => {
-    const canvas = canvasRefs.value[index]
-    if (!canvas) return
-
-    const ctx = canvas.getContext('2d')
-    if (!ctx) return
-
-    const img = new Image()
-    img.crossOrigin = 'anonymous'
-    img.src = image.src
-
-    img.onload = () => {
-      ctx.drawImage(img, 0, 0, 300, 200)
-
-      // 应用液体扭曲效果
-      const imageData = ctx.getImageData(0, 0, 300, 200)
-      const pixels = imageData.data
-
-      for (let y = 0; y < 200; y++) {
-        for (let x = 0; x < 300; x++) {
-          const i = (y * 300 + x) * 4
-          const wave = Math.sin(x / waveAmplitude.value + y / waveAmplitude.value) * distortIntensity.value
-
-          if (wave !== 0) {
-            const sourceX = Math.floor(x + wave)
-            const sourceY = Math.floor(y)
-
-            if (sourceX >= 0 && sourceX < 300 && sourceY >= 0 && sourceY < 200) {
-              const sourceI = (sourceY * 300 + sourceX) * 4
-              pixels[i] = pixels[sourceI]
-              pixels[i + 1] = pixels[sourceI + 1]
-              pixels[i + 2] = pixels[sourceI + 2]
-            }
-          }
-        }
-      }
-
-      ctx.putImageData(imageData, 0, 0)
-    }
-  })
-}
-
-const cleanup = () => {
-  stopFlowAnimation()
-  waveAnimations.forEach(anim => anim.kill())
-  ScrollTrigger.getAll().forEach(trigger => trigger.kill())
-}
-
+// 生命周期钩子
 onMounted(() => {
-  initLiquidEffects()
+  setTimeout(() => {
+    applyLiquidAnimation()
+    initProgressBar()
+  }, 100)
 })
 
 onUnmounted(() => {
-  cleanup()
-})
-
-watch([flowSpeed, waveAmplitude, distortIntensity], () => {
-  stopFlowAnimation()
-  startFlowAnimation()
+  triggers.forEach(trigger => trigger.kill())
+  if (mainTrigger) {
+    mainTrigger.kill()
+  }
+  ScrollTrigger.refresh()
 })
 </script>
 
-<style scoped lang="scss">
-.sli-section-230 {
+<style scoped>
+.simd-image-liquid-section-255 {
   min-height: 100vh;
-  background: linear-gradient(135deg, #0a1a2a 0%, #1a2a3a 50%, #0a2a1a 100%);
-  padding: 60px 20px;
+  padding: 40px 20px;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  color: #fff;
   position: relative;
   overflow: hidden;
-
-  opacity: 1 !important;}
-
-.sli-section-230::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background:
-    radial-gradient(circle at 40% 60%, rgba(96, 165, 250, 0.1) 0%, transparent 50%),
-    radial-gradient(circle at 60% 40%, rgba(167, 139, 250, 0.1) 0%, transparent 50%);
-  pointer-events: none;
 }
 
-.sli-container-230 {
-  max-width: 1400px;
+.simd-container-255 {
+  max-width: 1200px;
   margin: 0 auto;
-  position: relative;
-  z-index: 1;
+}
 
-  opacity: 1 !important;}
-
-.sli-title-230 {
-  font-size: 3rem;
-  font-weight: 800;
-  margin-bottom: 10px;
-  background: linear-gradient(135deg, #60a5fa, #3b82f6, #22d3ee);
+.simd-title-255 {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 30px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  text-align: center;
+  font-weight: bold;
+}
 
-  opacity: 1 !important;}
-
-.sli-subtitle-230 {
-  font-size: 1.2rem;
-  color: #94a3b8;
-  text-align: center;
-  margin-bottom: 40px;
-
-  opacity: 1 !important;}
-
-.sli-control-panel-230 {
-  display: flex;
-  gap: 30px;
-  justify-content: center;
-  flex-wrap: wrap;
-  padding: 25px;
+.simd-control-panel-255 {
   background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 20px;
   margin-bottom: 40px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
 
-  opacity: 1 !important;}
-
-.sli-control-group-230 {
+.simd-control-group-255 {
   display: flex;
-  flex-direction: column;
   gap: 10px;
-  min-width: 200px;
+  justify-content: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
 
-  opacity: 1 !important;}
+.simd-btn-255 {
+  padding: 10px 20px;
+  background: rgba(102, 126, 234, 0.3);
+  border: 2px solid rgba(102, 126, 234, 0.5);
+  border-radius: 8px;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+}
 
-.sli-label-230 {
-  font-size: 14px;
-  color: #94a3b8;
-  font-weight: 500;
+.simd-btn-255:hover {
+  background: rgba(102, 126, 234, 0.5);
+  transform: translateY(-2px);
+}
 
-  opacity: 1 !important;}
+.simd-active-255 {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-color: #667eea;
+  box-shadow: 0 0 20px rgba(102, 126, 234, 0.5);
+}
 
-.sli-slider-230 {
-  width: 100%;
+.simd-slider-group-255 {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.simd-label-255 {
+  min-width: 120px;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.simd-slider-255 {
+  flex: 1;
   height: 6px;
   -webkit-appearance: none;
-  background: rgba(255, 255, 255, 0.1);
+  appearance: none;
+  background: rgba(255, 255, 255, 0.2);
   border-radius: 3px;
   outline: none;
-
-  &::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    width: 18px;
-    height: 18px;
-    background: linear-gradient(135deg, #60a5fa, #22d3ee);
-    border-radius: 50%;
-    cursor: pointer;
-    transition: transform 0.2s;
-
-    &:hover {
-      transform: scale(1.2);
-    
-  opacity: 1 !important;}
-  }
 }
 
-.sli-value-230 {
-  font-size: 13px;
-  color: #60a5fa;
-  font-weight: 600;
+.simd-slider-255::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(102, 126, 234, 0.5);
+}
 
-  opacity: 1 !important;}
-
-.sli-liquid-gallery-230 {
+.simd-images-container-255 {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
   margin-bottom: 40px;
 }
 
-.sli-liquid-item-230 {
-  position: relative;
-  cursor: pointer;
-  border-radius: 20px;
+.simd-image-item-255 {
+  aspect-ratio: 3/2;
   overflow: hidden;
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  transition: all 0.4s;
-
-  &.sli-active-230 {
-    border-color: #60a5fa;
-    box-shadow: 0 0 30px rgba(96, 165, 250, 0.3);
-  
-  opacity: 1 !important;}
-
-  &:hover {
-    transform: translateY(-5px);
-    border-color: #22d3ee;
-  }
+  border-radius: 15px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
 }
 
-.sli-liquid-wrapper-230 {
-  position: relative;
+.simd-image-wrapper-255 {
   width: 100%;
-  height: 250px;
-  overflow: hidden;
-  background: rgba(0, 0, 0, 0.3);
+  height: 100%;
+  position: relative;
+}
 
-  opacity: 1 !important;}
-
-.sli-liquid-canvas-230 {
+.simd-image-255 {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: all 0.3s ease;
+  display: block;
+}
 
-  opacity: 1 !important;}
-
-.sli-wave-overlay-230 {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  pointer-events: none;
+.simd-progress-255 {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 20px;
   overflow: hidden;
 }
 
-.sli-wave-230 {
-  position: absolute;
-  width: 200%;
-  height: 40px;
-  background: linear-gradient(
-    90deg,
-    rgba(96, 165, 250, 0.3) 0%,
-    rgba(34, 211, 238, 0.2) 50%,
-    rgba(96, 165, 250, 0.3) 100%
-  );
-  border-radius: 20px;
-  filter: blur(20px);
-  mix-blend-mode: screen;
+.simd-progress-bar-255 {
+  height: 4px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 2px;
+  width: 0%;
+  transition: width 0.1s linear;
+}
 
-  opacity: 1 !important;}
-
-.sli-droplet-230 {
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  background: radial-gradient(circle, rgba(96, 165, 250, 0.6) 0%, transparent 70%);
-  border-radius: 50%;
-  pointer-events: none;
-
-  opacity: 1 !important;}
-
-.sli-image-info-230 {
-  padding: 20px;
-  background: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(10px);
-
-  opacity: 1 !important;}
-
-.sli-image-title-230 {
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: #e2e8f0;
-  margin-bottom: 5px;
-
-  opacity: 1 !important;}
-
-.sli-image-desc-230 {
+.simd-progress-text-255 {
+  display: block;
+  text-align: center;
+  margin-top: 10px;
   font-size: 0.9rem;
-  color: #94a3b8;
+  color: rgba(255, 255, 255, 0.7);
+}
 
-  opacity: 1 !important;}
-
-.sli-liquid-controls-230 {
+.simd-status-255 {
   display: flex;
-  gap: 20px;
+  gap: 30px;
   justify-content: center;
   flex-wrap: wrap;
-  margin-bottom: 30px;
-}
-
-.sli-control-btn-230 {
-  padding: 12px 24px;
-  background: rgba(96, 165, 250, 0.2);
-  border: 1px solid rgba(96, 165, 250, 0.3);
-  border-radius: 12px;
-  color: #fff;
-  cursor: pointer;
-  transition: all 0.3s;
-  font-size: 14px;
-  font-weight: 600;
-
-  &:hover {
-    background: rgba(96, 165, 250, 0.3);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 20px rgba(96, 165, 250, 0.4);
-  
-  opacity: 1 !important;}
-
-  &.sli-active-230 {
-    background: linear-gradient(135deg, #60a5fa, #22d3ee);
-    border-color: transparent;
-  
-  opacity: 1 !important;}
-}
-
-.sli-flow-indicator-230 {
-  text-align: center;
-  padding: 20px;
   background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 15px;
+}
 
-  opacity: 1 !important;}
+.simd-status-item-255 {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
 
-.sli-flow-bar-230 {
-  height: 6px;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 3px;
-  overflow: hidden;
-  margin-bottom: 10px;
+.simd-status-label-255 {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.6);
+}
 
-  opacity: 1 !important;}
+.simd-status-value-255 {
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #667eea;
+}
 
-.sli-flow-fill-230 {
-  height: 100%;
-  background: linear-gradient(90deg, #60a5fa, #22d3ee, #60a5fa);
-  background-size: 200% 100%;
-  animation: flowGradient 2s linear infinite;
+@media (max-width: 768px) {
+  .simd-title-255 {
+    font-size: 1.8rem;
+  }
 
-  opacity: 1 !important;}
+  .simd-images-container-255 {
+    grid-template-columns: 1fr;
+  }
 
-.sli-flow-text-230 {
-  font-size: 13px;
-  color: #94a3b8;
-
-  opacity: 1 !important;}
-
-@keyframes flowGradient {
-  0% { background-position: 0% 50%; }
-  100% { background-position: 200% 50%; }
+  .simd-status-255 {
+    flex-direction: column;
+    gap: 15px;
+  }
 }
 </style>
