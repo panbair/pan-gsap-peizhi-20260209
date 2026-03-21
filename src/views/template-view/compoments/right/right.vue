@@ -1,17 +1,43 @@
 <template>
   <div class="right">
     <div class="right-header">
-      <div class="label"><el-input v-model="projectName" clearable placeholder="请输入项目名称"></el-input></div>
+      <div class="label">
+        <el-input
+          v-model="projectName"
+          clearable
+          placeholder="✨ 请输入项目名称"
+          class="project-input"
+        >
+          <template #prefix>
+            <el-icon><Document /></el-icon>
+          </template>
+        </el-input>
+      </div>
       <div class="but">
-        <el-button type="primary" :disabled="disBut.verticalDisable" @click="add(false)">添加竖屏</el-button>
-        <el-button type="primary" :disabled="disBut.horizontalDisable" @click="add(true)">添加横屏</el-button>
-        <el-button type="primary" @click="edit" :disabled="!activeId">去编辑</el-button>
-        <el-button type="primary" @click="save">保存</el-button>
-        <el-button type="primary" @click="read">查看效果</el-button>
+        <el-button class="btn-gradient btn-vertical" :disabled="disBut.verticalDisable" @click="add(false)">
+          <el-icon class="btn-icon"><Document /></el-icon>
+          添加竖屏
+        </el-button>
+        <el-button class="btn-gradient btn-horizontal" :disabled="disBut.horizontalDisable" @click="add(true)">
+          <el-icon class="btn-icon"><Picture /></el-icon>
+          添加横屏
+        </el-button>
+        <el-button class="btn-gradient btn-edit" @click="edit" :disabled="!activeId">
+          <el-icon class="btn-icon"><Edit /></el-icon>
+          去编辑
+        </el-button>
+        <el-button class="btn-gradient btn-save" @click="save">
+          <el-icon class="btn-icon"><Select /></el-icon>
+          保存
+        </el-button>
+        <el-button class="btn-gradient btn-preview" @click="read">
+          <el-icon class="btn-icon"><View /></el-icon>
+          查看效果
+        </el-button>
       </div>
     </div>
     <div class="list">
-      <el-scrollbar max-height="calc(100vh - 150px)">
+      <el-scrollbar class="custom-scrollbar" max-height="calc(100vh - 230px)">
         <div class="main" id="SlickListRef" v-if="pageList && pageList.length>0">
           <SlickList axis="y" v-model:list="pageList" appendTo="#SlickListRef">
             <template #item="{ item,index }">
@@ -19,11 +45,11 @@
                 <div class="panel"
                      :style="{...item.style,background: it?.formData?.animationStyle?.bgUrl?  'url(' + it?.formData?.animationStyle?.bgUrl + ')' :   it?.formData?.animationStyle?.background || item?.formData?.animationStyle?.background || it?.style?.backgroundImage,'background-size': '100% 100%','background-repeat': 'no-repeat'}"
                      v-for="(it,i) in item?.children || []" :key="it.id+'_'+i">
-                  <div class="linkName">{{ it.name }}</div>
-                  <div class="linkName">编号:{{ it.linkName }}</div>
-                  <div @mousedown.stop style="margin-top: 10px">
-                    <el-button type="success" :icon="Plus" circle @click.stop="addItem(pageList, item, index,it, i)"/>
-                    <el-button type="danger" :icon="Close" circle @click.stop="removeItem(pageList, item, index,it, i)"/>
+                  <div class="link-name">{{ it.name }}</div>
+                  <div class="link-id">编号:{{ it.linkName }}</div>
+                  <div class="panel-actions">
+                    <el-button class="btn-icon-btn btn-add" :icon="Plus" circle @click.stop="addItem(pageList, item, index,it, i)"/>
+                    <el-button class="btn-icon-btn btn-delete" :icon="Close" circle @click.stop="removeItem(pageList, item, index,it, i)"/>
 <!--                    <el-button type="primary" :icon="Edit" circle @click.stop="editItem(pageList, item, index,it, i)"/>-->
                   </div>
                 </div>
@@ -43,14 +69,18 @@ import EmptyTemplate from '../empty-template/empty-template.vue'
 import {
   Plus,
   Close,
-  Edit
+  Edit,
+  Document,
+  Picture,
+  Select,
+  View
 } from '@element-plus/icons-vue'
 import {SlickList} from 'vue-slicksort'
 import {butOption, getData as getItemData, getItem} from './config'
 import _ from 'lodash'
 import { keys, keys2 } from './keys.js'
-import { useUtil } from './hooks.ts'
-import {UseApi} from '../apiHooks.js'
+import { ElMessage } from 'element-plus'
+import { UseApi } from '../apiHooks.js'
 let {
   router,
   query,
@@ -61,7 +91,6 @@ let {
   addData
 } = UseApi()
 
-let util = useUtil()
 let emits = defineEmits(['showPreview'])
 let visibel = ref(false)
 let activeItem = ref({})
@@ -145,27 +174,53 @@ let submit = (data = {}) => {
 
 let save = async () => {
   if(!projectName.value) {
-    util.error('请输入项目名称')
+    console.log('请输入项目名称') // 调试用
+    ElMessage({
+      message: '请输入项目名称',
+      type: 'error',
+      duration: 3000,
+      showClose: true,
+      offset: 100,
+      zIndex: 9999
+    })
     return
   }
 
-  if(query.state === 'edit' || activeId.value) {
-    return updateData(pageList.value,{
-      id: activeId.value,
-      name: '首页',
-      templateView: query.templateView,
-      projectName: projectName.value
-    }).then((data) => {
-      activeId.value = data?.id || data
+  try {
+    if(query.state === 'edit' || activeId.value) {
+      await updateData(pageList.value,{
+        id: activeId.value,
+        name: '首页',
+        templateView: query.templateView,
+        projectName: projectName.value
+      }).then((data) => {
+        activeId.value = data?.id || data
+      })
+    } else {
+      await addData(pageList.value,{
+        name: '首页',
+        templateView: query.templateView,
+        projectName: projectName.value
+      }).then((data) => {
+        activeId.value = data?.id || data
+      })
+    }
+    ElMessage({
+      message: '保存成功',
+      type: 'success',
+      duration: 2000,
+      offset: 100
+    })
+  } catch (err) {
+    console.error('保存失败:', err)
+    ElMessage({
+      message: '保存失败',
+      type: 'error',
+      duration: 3000,
+      showClose: true,
+      offset: 100
     })
   }
-  return addData(pageList.value,{
-    name: '首页',
-    templateView: query.templateView,
-    projectName: projectName.value
-  }).then((data) => {
-    activeId.value = data?.id || data
-  })
 }
 
 let getCurrent = () => {
@@ -195,13 +250,21 @@ onMounted(() => {
   //padding: 20px;
   box-sizing: border-box;
   max-width: 80%;
+  padding: 5px;
+  border-radius: 12px;
+  border: 1px solid rgba(33, 165, 185, 0.1);
 
   .right-header {
-    height: 80px;
+    height: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding: 15px 0;
+    background: linear-gradient(90deg, rgb(246, 249, 249) 0%, rgb(212 247 245) 100%);
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
   }
 
   .list {
@@ -215,23 +278,75 @@ onMounted(() => {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    //align-items: center;
+    gap: 16px;
+    padding: 10px 0;
   }
 
   .label {
     width: 100%;
-    font-size: 20px;
-    color: #333;
-    height: 50px;
-    line-height: 50px;
-    text-align: center;
+    max-width: 600px;
+
+    // 项目输入框美化
+    .project-input {
+      :deep(.el-input__wrapper) {
+        background: rgba(0, 0, 0, 0.5);
+        border: 2px solid rgba(102, 126, 234, 0.3);
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+
+        &:hover {
+          background: rgba(0, 0, 0, 0.6);
+          border-color: rgba(102, 126, 234, 0.5);
+        }
+
+        &.is-focus {
+          background: rgba(0, 0, 0, 0.7);
+          border-color: #667eea;
+          box-shadow: 0 4px 20px rgba(102, 126, 234, 0.4);
+        }
+      }
+
+      :deep(.el-input__inner) {
+        color: #fff !important;
+        font-size: 16px;
+        font-weight: 500;
+
+        &::placeholder {
+          color: rgba(255, 255, 255, 0.6) !important;
+        }
+      }
+
+      :deep(.el-input__prefix) {
+        color: #667eea;
+        font-size: 18px;
+      }
+
+      :deep(.el-input__suffix) {
+        color: rgba(255, 255, 255, 0.6);
+      }
+    }
   }
 
-  .linkName {
+  .link-name {
     white-space: wrap;
     word-break: break-all;
-    margin-bottom: 10px;
-    font-size: 15px;
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    padding: 0 8px;
+  }
+
+  .link-id {
+    white-space: nowrap;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 8px;
+    text-align: center;
+    padding: 0 8px;
   }
 
   .but {
@@ -239,6 +354,127 @@ onMounted(() => {
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 12px;
+    padding: 10px 20px;
+    flex-wrap: wrap;
+
+    // 美化按钮基础样式
+    .el-button {
+      position: relative;
+      overflow: hidden;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 12px 20px;
+      border-radius: 10px;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      border: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      backdrop-filter: blur(10px);
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.2),
+          transparent
+        );
+        transition: left 0.5s ease;
+      }
+
+      &:hover::before {
+        left: 100%;
+      }
+
+      &:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      }
+
+      &:active {
+        transform: translateY(-1px);
+      }
+
+      .btn-icon {
+        font-size: 16px;
+        transition: transform 0.3s ease;
+      }
+
+      &:hover .btn-icon {
+        transform: scale(1.1);
+      }
+
+      &.is-disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+        filter: grayscale(0.8);
+
+        &:hover {
+          transform: none;
+          box-shadow: none;
+        }
+      }
+    }
+
+    // 渐变按钮变体
+    .btn-gradient {
+      &.btn-vertical {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: #fff;
+
+        &:hover {
+          background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+          box-shadow: 0 10px 30px rgba(102, 126, 234, 0.5);
+        }
+      }
+
+      &.btn-horizontal {
+        background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        color: #fff;
+
+        &:hover {
+          background: linear-gradient(135deg, #f5576c 0%, #f093fb 100%);
+          box-shadow: 0 10px 30px rgba(240, 147, 251, 0.5);
+        }
+      }
+
+      &.btn-edit {
+        background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        color: #fff;
+
+        &:hover {
+          background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
+          box-shadow: 0 10px 30px rgba(79, 172, 254, 0.5);
+        }
+      }
+
+      &.btn-save {
+        background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+        color: #fff;
+
+        &:hover {
+          background: linear-gradient(135deg, #38f9d7 0%, #43e97b 100%);
+          box-shadow: 0 10px 30px rgba(67, 233, 123, 0.5);
+        }
+      }
+
+      &.btn-preview {
+        background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+        color: #fff;
+
+        &:hover {
+          background: linear-gradient(135deg, #fee140 0%, #fa709a 100%);
+          box-shadow: 0 10px 30px rgba(250, 112, 154, 0.5);
+        }
+      }
+    }
   }
 
   .list-main {
@@ -249,7 +485,7 @@ onMounted(() => {
     flex-wrap: nowrap;
 
     .panel {
-      padding: 10px;
+      padding: 12px;
       box-sizing: border-box;
       width: 150px;
       height: 150px;
@@ -259,6 +495,61 @@ onMounted(() => {
       align-items: center;
       background-size: 100% 100%;
       background-repeat: no-repeat;
+      border-radius: 12px;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+
+      &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.2) 0%,
+          rgba(255, 255, 255, 0) 100%
+        );
+        pointer-events: none;
+      }
+
+      &:hover {
+        transform: translateY(-5px) scale(1.02);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+      }
+
+      .panel-actions {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        justify-content: center;
+        margin-top: 8px;
+      }
+    }
+  }
+}
+
+// 自定义滚动条样式
+.custom-scrollbar {
+  :deep(.el-scrollbar__wrap) {
+    padding-right: 8px;
+  }
+
+  :deep(.el-scrollbar__thumb) {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 6px;
+
+    &:hover {
+      background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+    }
+  }
+
+  :deep(.el-scrollbar__bar) {
+    &.is-horizontal {
+      height: 8px !important;
+    }
+
+    &.is-vertical {
+      width: 8px !important;
     }
   }
 }
@@ -268,6 +559,8 @@ onMounted(() => {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
+  gap: 12px;
+  padding: 10px;
 }
 
 .list-main-pbr .panel {
@@ -277,7 +570,62 @@ onMounted(() => {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
+  &:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+}
+
+// 圆形按钮美化
+.btn-icon-btn {
+  width: 38px !important;
+  height: 38px !important;
+  border: none;
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+
+  &.btn-add {
+    background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+    color: #fff;
+
+    &:hover {
+      transform: scale(1.2) rotate(90deg);
+      box-shadow: 0 8px 25px rgba(67, 233, 123, 0.6);
+    }
+
+    &:active {
+      transform: scale(0.95) rotate(90deg);
+    }
+  }
+
+  &.btn-delete {
+    background: linear-gradient(135deg, #f5576c 0%, #f093fb 100%);
+    color: #fff;
+
+    &:hover {
+      transform: scale(1.2) rotate(-90deg);
+      box-shadow: 0 8px 25px rgba(245, 87, 108, 0.6);
+    }
+
+    &:active {
+      transform: scale(0.95) rotate(-90deg);
+    }
+  }
+
+  .el-icon {
+    font-size: 18px;
+  }
 }
 </style>
 
