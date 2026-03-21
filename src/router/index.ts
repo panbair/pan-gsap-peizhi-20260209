@@ -73,7 +73,7 @@ const routes: RouteRecordRaw[] = [
   {
     path: '/template-view',
     name: 'templateView',
-    component: () => import('@/views/template/template-view/index.vue'),
+    component: () => import('@/views/template-view/index.vue'),
     meta: { title: '查看模板' }
   },
 
