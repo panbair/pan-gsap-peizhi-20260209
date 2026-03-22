@@ -216,7 +216,7 @@ export let butOption = {
     description: '面板以分形模式生长展开'
   },
   quantumEntanglementAnimation: {
-    horizontalDisable: false,
+    horizontalDisable: true,
     verticalDisable: false,
     name: '量子纠缠',
     description: '多面板同步量子纠缠动画'
@@ -241,7 +241,7 @@ export let butOption = {
     description: '无限循环拓扑变换'
   },
   auroraFlowAnimation: {
-    horizontalDisable: false,
+    horizontalDisable: true,
     verticalDisable: false,
     name: '极光流淌',
     description: '自然极光光效流动'
@@ -253,7 +253,7 @@ export let butOption = {
     description: '粒子从四周汇聚成形'
   },
   dnaHelixAnimation: {
-    horizontalDisable: false,
+    horizontalDisable: true,
     verticalDisable: false,
     name: 'DNA双螺旋',
     description: '生物双螺旋旋转结构'
@@ -265,13 +265,13 @@ export let butOption = {
     description: '六边形网格有序展开'
   },
   hologramScanAnimation: {
-    horizontalDisable: false,
+    horizontalDisable: true,
     verticalDisable: false,
     name: '全息扫描',
     description: '未来感全息投影扫描'
   },
   kaleidoscopeMirrorAnimation: {
-    horizontalDisable: false,
+    horizontalDisable: true,
     verticalDisable: false,
     name: '万花筒镜像',
     description: '对称镜像几何变换'
@@ -284,7 +284,7 @@ export let butOption = {
     description: '物理表面张力液滴效果'
   },
   electromagneticWaveAnimation: {
-    horizontalDisable: false,
+    horizontalDisable: true,
     verticalDisable: false,
     name: '电磁波动',
     description: 'SVG正弦波电磁场'
@@ -296,13 +296,13 @@ export let butOption = {
     description: '碎片从四面八方汇聚'
   },
   parallaxDepthAnimation: {
-    horizontalDisable: false,
+    horizontalDisable: true,
     verticalDisable: false,
     name: '多层视差',
     description: '多层3D深度视差效果'
   },
   matrixRainAnimation: {
-    horizontalDisable: false,
+    horizontalDisable: true,
     verticalDisable: false,
     name: '矩阵代码雨',
     description: '赛博朋克风格代码雨'
@@ -339,7 +339,7 @@ export let butOption = {
     description: '量子隧穿从粒子态重组'
   },
   cyberspaceAnimation: {
-    horizontalDisable: false,
+    horizontalDisable: true,
     verticalDisable: false,
     name: '赛博空间',
     description: '沉浸式赛博朋克空间'
@@ -363,20 +363,20 @@ export let butOption = {
     description: '星云从混沌到有序的演化'
   },
   neonCityAnimation: {
-    horizontalDisable: false,
+    horizontalDisable: true,
     verticalDisable: false,
     name: '霓虹城市',
     description: '赛博朋克霓虹城市夜景'
   },
   ultimateParallaxAnimation: {
-    horizontalDisable: false,
+    horizontalDisable: true,
     verticalDisable: false,
     name: '极限视差',
     description: '极致深度的3D空间体验'
   },
   // 精华级模板 V36-V43
   smoothHorizontalAnimation: {
-    horizontalDisable: false,
+    horizontalDisable: true,
     verticalDisable: false,
     name: '平滑横向',
     description: '更自然的ease曲线，更流畅的滚动'
@@ -400,7 +400,7 @@ export let butOption = {
     description: '经典淡入向上移动，简洁优雅'
   },
   staggeredHorizontalAnimation: {
-    horizontalDisable: false,
+    horizontalDisable: true,
     verticalDisable: false,
     name: '交错横向',
     description: '不同面板不同速度，更有层次感'
@@ -422,5 +422,54 @@ export let butOption = {
     verticalDisable: false,
     name: '平滑组合',
     description: '横向缩放淡入三合一'
+  },
+  // 大师级模板 V44-V51
+  particleExplosionAnimation: {
+    horizontalDisable: true,
+    verticalDisable: false,
+    name: '粒子爆炸',
+    description: '粒子从中心爆炸散开，形成冲击波'
+  },
+  liquidMorphAnimation: {
+    horizontalDisable: true,
+    verticalDisable: false,
+    name: '液态变形',
+    description: 'CSS border-radius模拟液态流动'
+  },
+  holographicDataflowAnimation: {
+    horizontalDisable: true,
+    verticalDisable: false,
+    name: '全息数据流',
+    description: 'SVG线条绘制 + 霓虹光效'
+  },
+  magneticAttractionAnimation: {
+    horizontalDisable: true,
+    verticalDisable: false,
+    name: '磁力吸引',
+    description: '元素被磁力吸入，形成漩涡'
+  },
+  origamiUnfoldAnimation: {
+    horizontalDisable: true,
+    verticalDisable: false,
+    name: '折纸展开',
+    description: '3D旋转 + 边缘折痕'
+  },
+  auroraRippleAnimation: {
+    horizontalDisable: true,
+    verticalDisable: false,
+    name: '极光波纹',
+    description: 'CSS渐变 + 混合模式'
+  },
+  neonGlitchAnimation: {
+    horizontalDisable: true,
+    verticalDisable: false,
+    name: '霓虹故障',
+    description: 'RGB分离 + 随机故障'
+  },
+  wormholeTravelAnimation: {
+    horizontalDisable: true,
+    verticalDisable: false,
+    name: '虫洞穿越',
+    description: '3D旋转 + 虫洞吸力'
   }
 }

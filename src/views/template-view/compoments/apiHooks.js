@@ -43,6 +43,8 @@ export const UseApi = () => {
     return new Promise(async (resolve, reject) => {
       try {
         util.open()
+        // 确保数据库已初始化
+        await homeApi.open()
         let data = await homeApi.searchData(+param.id)
         console.log(data)
         listData.value = data || {}

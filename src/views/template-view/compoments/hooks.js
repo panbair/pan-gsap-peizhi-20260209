@@ -75,6 +75,18 @@ import {
   smoothComboAnimation
 } from './elitePlusTemplates.js'
 
+// 导入大师级模板 (V44-V51)
+import {
+  particleExplosionAnimation,
+  liquidMorphAnimation,
+  holographicDataflowAnimation,
+  magneticAttractionAnimation,
+  origamiUnfoldAnimation,
+  auroraRippleAnimation,
+  neonGlitchAnimation,
+  wormholeTravelAnimation
+} from './masterTemplates.js'
+
 // ==================== GSAP插件单例管理 ====================
 let pluginsRegistered = false
 const registerPlugins = () => {
@@ -1566,6 +1578,16 @@ export const UseAnimation = () => {
     scaleFadeAnimation,
     infiniteRotateAnimation,
     smoothComboAnimation,
+
+    // 大师级模板 V44-V51
+    particleExplosionAnimation,
+    liquidMorphAnimation,
+    holographicDataflowAnimation,
+    magneticAttractionAnimation,
+    origamiUnfoldAnimation,
+    auroraRippleAnimation,
+    neonGlitchAnimation,
+    wormholeTravelAnimation,
 
     // 管理器实例（用于调试和高级操作）
     _animationManager: animationManager,

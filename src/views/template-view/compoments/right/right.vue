@@ -51,12 +51,7 @@
     <div class="list">
       <el-scrollbar class="custom-scrollbar" max-height="calc(100vh - 230px)">
         <div v-if="pageList && pageList.length > 0" id="SlickListRef" class="main">
-          <SlickList
-            v-model:list="pageList"
-            axis="y"
-            append-to="#SlickListRef"
-            :key="pageListKey"
-          >
+          <SlickList :key="pageListKey" v-model:list="pageList" axis="y" append-to="#SlickListRef">
             <template #item="{ item, index }">
               <div class="list-main list-main-pbr" :style="{ width: `${maxWidth}px` }">
                 <div
@@ -296,16 +291,21 @@ onMounted(() => {
 })
 
 // 监听 pageList 变化，清理 undefined 元素
-watch(pageList, (newVal) => {
-  if (newVal && Array.isArray(newVal)) {
-    let hasUndefined = newVal.some(item => item === undefined || item === null) ||
-                       newVal.some(item => item?.children?.some(child => child === undefined || child === null))
-    if (hasUndefined) {
-      cleanPageList()
-      pageListKey.value++ // 触发 SlickList 重新渲染
+watch(
+  pageList,
+  newVal => {
+    if (newVal && Array.isArray(newVal)) {
+      let hasUndefined =
+        newVal.some(item => item === undefined || item === null) ||
+        newVal.some(item => item?.children?.some(child => child === undefined || child === null))
+      if (hasUndefined) {
+        cleanPageList()
+        pageListKey.value++ // 触发 SlickList 重新渲染
+      }
     }
-  }
-}, { deep: true })
+  },
+  { deep: true }
+)
 </script>
 <style scoped lang="scss">
 .right {

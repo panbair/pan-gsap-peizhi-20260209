@@ -300,32 +300,32 @@ export const staggeredHorizontalAnimation = () => {
     const panels = document.querySelectorAll('.panel')
     if (!panels.length) return
 
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: '.animation-layer',
-        start: 'top top',
-        end: 'bottom bottom',
-        scrub: 1.5
-      }
-    })
-
-    // 交错动画
-    tl.fromTo(panels,
-      {
-        x: (i) => (i % 2 === 0 ? -100 : 100),
-        opacity: 0
-      },
-      {
-        x: 0,
-        opacity: 1,
-        duration: 1,
-        stagger: 0.15, // 交错延迟
-        ease: 'power2.out'
-      }
-    )
-
-    // 添加持续的轻微摆动
+    // 为每个面板单独创建滚动触发器，确保进入视口时立即开始动画
     panels.forEach((panel, index) => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: panel,
+          start: 'top bottom-=100', // 提前100px触发
+          end: 'center center',
+          scrub: 1.2
+        }
+      })
+
+      // 交错动画
+      tl.fromTo(panel,
+        {
+          x: (index % 2 === 0 ? -100 : 100),
+          opacity: 0
+        },
+        {
+          x: 0,
+          opacity: 1,
+          duration: 1,
+          ease: 'power2.out'
+        }
+      )
+
+      // 添加持续的轻微摆动
       gsap.to(panel, {
         rotation: (index % 2 === 0 ? 1 : -1),
         duration: 2 + Math.random(),
@@ -335,9 +335,8 @@ export const staggeredHorizontalAnimation = () => {
       })
 
       cleanupFunctions.push(() => gsap.killTweensOf(panel))
+      cleanupFunctions.push(() => tl.kill())
     })
-
-    cleanupFunctions.push(() => tl.kill())
   })
 
   return () => {

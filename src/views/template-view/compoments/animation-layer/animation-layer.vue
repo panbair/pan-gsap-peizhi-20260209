@@ -129,7 +129,16 @@ const ANIMATION_CONFIG = {
     'staggeredHorizontalAnimation',
     'scaleFadeAnimation',
     'infiniteRotateAnimation',
-    'smoothComboAnimation'
+    'smoothComboAnimation',
+    // 大师级模板 V44-V51
+    'particleExplosionAnimation',
+    'liquidMorphAnimation',
+    'holographicDataflowAnimation',
+    'magneticAttractionAnimation',
+    'origamiUnfoldAnimation',
+    'auroraRippleAnimation',
+    'neonGlitchAnimation',
+    'wormholeTravelAnimation'
   ]
 }
 
