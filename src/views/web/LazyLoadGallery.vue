@@ -3,33 +3,49 @@
     <!-- 页面标题 -->
     <header class="page-header">
       <h1 class="page-title">滚动动画组件库</h1>
-      <p class="page-subtitle">{{ filteredComponents.length }} 个组件 · 懒加载优化</p>
+      <div class="page-subtitle">
+        <span>{{ filteredComponents.length }} 个组件 · 懒加载优化</span>
+      </div>
     </header>
 
     <!-- 搜索框 -->
     <div class="search-container">
-      <div class="search-wrapper">
-        <svg
-          class="search-icon"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-        >
-          <circle cx="11" cy="11" r="8" />
-          <path d="M21 21l-4.35-4.35" />
-        </svg>
-        <input
-          v-model="searchQuery"
-          type="text"
-          class="search-input"
-          placeholder="搜索组件名称..."
-          @input="handleSearch"
-        />
-        <button v-if="searchQuery" class="search-clear" title="清空搜索" @click="clearSearch">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M18 6L6 18M6 6l12 12" />
+      <div class="search-wrapper" :class="{ 'has-search': searchQuery }">
+        <div class="search-input-container">
+          <svg
+            class="search-icon"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <circle cx="11" cy="11" r="8" />
+            <path d="M21 21l-4.35-4.35" />
           </svg>
+          <input
+            v-model="searchQuery"
+            type="text"
+            class="search-input"
+            placeholder="搜索组件名称..."
+            @input="handleSearch"
+          />
+          <button class="search-clear" title="清空搜索" @click="clearSearch">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M18 6L6 18M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+        <button class="nav-btn create-btn" @click="goToCreate" style="margin-left: 80px">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 5v14M5 12h14" />
+          </svg>
+          创建模板
+        </button>
+        <button class="nav-btn project-btn" @click="goToProjectList">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M3 3h7v7H3zM14 3h7v7h-7zM14 14h7v7h-7zM3 14h7v7H3z" />
+          </svg>
+          项目列表
         </button>
       </div>
       <div v-if="searchQuery && filteredComponents.length === 0" class="search-empty">
@@ -57,15 +73,32 @@
         {{ cat.name }} ({{ cat.count }})
       </button>
 
-      <button v-if="selectedComponents.size > 0" :key="88888888" :class="['filter-btn', 'clear-btn']" @click="clearAllSelections" title="清除所有选中">
+      <button
+        v-if="selectedComponents.size > 0"
+        :key="88888888"
+        :class="['filter-btn', 'clear-btn']"
+        title="清除所有选中"
+        @click="clearAllSelections"
+      >
         清除 ({{ selectedComponents.size }})
       </button>
 
-      <button v-if="selectedComponents.size > 0" :key="9999999" :class="['filter-btn', 'save-btn']" @click="saveSelections" title="保存到IndexedDB">
+      <button
+        v-if="selectedComponents.size > 0"
+        :key="9999999"
+        :class="['filter-btn', 'save-btn']"
+        title="保存到IndexedDB"
+        @click="saveSelections"
+      >
         保存到数据库
       </button>
 
-      <button :key="7777777" :class="['filter-btn', 'load-btn']" @click="openCollectionsModal" title="查看已保存的收藏集">
+      <button
+        :key="7777777"
+        :class="['filter-btn', 'load-btn']"
+        title="查看已保存的收藏集"
+        @click="openCollectionsModal"
+      >
         📚 我的收藏
       </button>
     </div>
@@ -172,12 +205,15 @@
 <script setup lang="ts">
 import { ref, shallowRef, computed, onMounted, onUnmounted, markRaw, nextTick, watch } from 'vue'
 import { defineAsyncComponent } from 'vue'
+import { useRouter } from 'vue-router'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { safeRefreshScrollTrigger } from '@/utils/gsapHelper'
 import CollectionsModal from './components/CollectionsModal.vue'
 
 gsap.registerPlugin(ScrollTrigger)
+
+const router = useRouter()
 
 // 状态
 const containerRef = ref<HTMLElement | null>(null)
@@ -451,6 +487,23 @@ const clearAllSelections = () => {
   }
 }
 
+// 跳转到创建模板页面
+const goToCreate = () => {
+  router.push({
+    path: '/template',
+    query: {
+      state: 'create'
+    }
+  })
+}
+
+// 跳转到项目列表页面
+const goToProjectList = () => {
+  router.push({
+    path: '/template-list'
+  })
+}
+
 // IndexedDB 数据库初始化
 const initDB = (): Promise<IDBDatabase> => {
   return new Promise((resolve, reject) => {
@@ -459,7 +512,7 @@ const initDB = (): Promise<IDBDatabase> => {
     request.onerror = () => reject(request.error)
     request.onsuccess = () => resolve(request.result)
 
-    request.onupgradeneeded = (event) => {
+    request.onupgradeneeded = event => {
       const db = (event.target as IDBOpenDBRequest).result
       if (!db.objectStoreNames.contains('collections')) {
         const store = db.createObjectStore('collections', { keyPath: 'id', autoIncrement: true })
@@ -723,33 +776,58 @@ onUnmounted(() => {
 
 .search-wrapper {
   position: relative;
-  max-width: 600px;
+  max-width: 1000px;
   margin: 0 auto;
   display: flex;
+  align-items: stretch;
+  gap: 12px;
+  flex-wrap: wrap;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 14px;
+  padding: 10px 12px;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.15);
+  }
+
+  &.has-search {
+    background: rgba(167, 139, 250, 0.08);
+    border-color: rgba(167, 139, 250, 0.2);
+  }
+}
+
+.search-input-container {
+  position: relative;
+  flex: 1;
+  min-width: 200px;
+  display: flex;
   align-items: center;
-  gap: 10px;
 }
 
 .search-icon {
   position: absolute;
-  left: 16px;
+  left: 22px;
   width: 20px;
   height: 20px;
   color: #94a3b8;
   pointer-events: none;
-  z-index: 1;
+  z-index: 5;
+  transition: color 0.3s;
 }
 
 .search-input {
   width: 100%;
   padding: 14px 50px 14px 45px;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
+  border-radius: 10px;
   color: #fff;
   font-size: 15px;
   transition: all 0.3s;
-  backdrop-filter: blur(10px);
 
   &::placeholder {
     color: #64748b;
@@ -761,31 +839,91 @@ onUnmounted(() => {
     background: rgba(255, 255, 255, 0.08);
     box-shadow: 0 0 0 3px rgba(167, 139, 250, 0.2);
   }
+
+  &:focus ~ .search-icon {
+    color: #a78bfa;
+  }
 }
 
 .search-clear {
   position: absolute;
-  right: 12px;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
   width: 28px;
   height: 28px;
-  background: rgba(255, 255, 255, 0.1);
-  border: none;
+  background: rgba(239, 68, 68, 0.15);
+  border: 1px solid rgba(239, 68, 68, 0.3);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   transition: all 0.2s;
-  color: #94a3b8;
+  color: #f87171;
+  z-index: 10;
+  backdrop-filter: blur(10px);
 
   svg {
     width: 16px;
     height: 16px;
+    pointer-events: none;
   }
 
   &:hover {
-    background: rgba(239, 68, 68, 0.2);
-    color: #f87171;
+    background: rgba(239, 68, 68, 0.3);
+    border-color: rgba(239, 68, 68, 0.5);
+    transform: translateY(-50%) scale(1.15);
+    box-shadow: 0 2px 8px rgba(239, 68, 68, 0.3);
+  }
+
+  &:active {
+    transform: translateY(-50%) scale(1.05);
+  }
+}
+
+// 导航按钮样式
+.nav-btn {
+  padding: 12px 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  color: #e2e8f0;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+
+  &.create-btn {
+    background: linear-gradient(135deg, rgba(34, 197, 94, 0.2), rgba(34, 197, 94, 0.1));
+    border-color: rgba(34, 197, 94, 0.3);
+
+    &:hover {
+      background: linear-gradient(135deg, rgba(34, 197, 94, 0.3), rgba(34, 197, 94, 0.2));
+      border-color: rgba(34, 197, 94, 0.5);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(34, 197, 94, 0.3);
+    }
+  }
+
+  &.project-btn {
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(59, 130, 246, 0.1));
+    border-color: rgba(59, 130, 246, 0.3);
+
+    &:hover {
+      background: linear-gradient(135deg, rgba(59, 130, 246, 0.3), rgba(59, 130, 246, 0.2));
+      border-color: rgba(59, 130, 246, 0.5);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+    }
+  }
+
+  &:active {
+    transform: translateY(0);
   }
 }
 
@@ -882,6 +1020,11 @@ onUnmounted(() => {
   cursor: pointer;
   transition: all 0.3s;
   font-size: 14px;
+
+  &.small {
+    margin-left: 10px;
+    padding: 4px 10px;
+  }
 
   &:hover:not(:disabled) {
     background: rgba(255, 255, 255, 0.2);

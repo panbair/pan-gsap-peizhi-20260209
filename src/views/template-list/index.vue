@@ -8,6 +8,11 @@
           我的项目
         </h1>
         <div class="header-actions">
+          <el-button type="primary" class="btn-create" @click="goToComponent">
+            <el-icon><Plus /></el-icon>
+            创建组件
+          </el-button>
+
           <el-button type="primary" class="btn-create" @click="goToCreate">
             <el-icon><Plus /></el-icon>
             创建新项目
@@ -65,7 +70,7 @@
                 <el-icon><Document /></el-icon>
                 <span>{{ getPageCount(project.list) }} 页</span>
               </div>
-<!--              复制-->
+              <!--              复制-->
             </div>
           </div>
 
@@ -223,6 +228,12 @@ const goToCreate = () => {
   })
 }
 
+const goToComponent = () => {
+  router.push({
+    path: '/web'
+  })
+}
+
 // 查看项目
 const viewProject = project => {
   router.push({
@@ -292,7 +303,7 @@ const confirmDelete = async () => {
 }
 
 // 处理复制 - 兼容大多数浏览器
-const handleCopy = async (project) => {
+const handleCopy = async project => {
   // 将项目数据转换为格式化的 JSON 字符串
   const copyData = {
     id: project.id,
@@ -445,7 +456,7 @@ onMounted(() => {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   padding: 20px;
   position: relative;
-  
+
   &::before {
     content: '';
     position: absolute;
@@ -466,7 +477,7 @@ onMounted(() => {
   border-radius: 20px;
   padding: 28px 32px;
   margin-bottom: 24px;
-  box-shadow: 
+  box-shadow:
     0 10px 40px rgba(0, 0, 0, 0.15),
     0 2px 8px rgba(0, 0, 0, 0.1);
   position: relative;
@@ -519,7 +530,7 @@ onMounted(() => {
   backdrop-filter: blur(20px);
   border-radius: 20px;
   padding: 32px;
-  box-shadow: 
+  box-shadow:
     0 10px 40px rgba(0, 0, 0, 0.15),
     0 2px 8px rgba(0, 0, 0, 0.1);
 }
@@ -537,7 +548,7 @@ onMounted(() => {
   backdrop-filter: blur(20px);
   border-radius: 20px;
   overflow: hidden;
-  box-shadow: 
+  box-shadow:
     0 10px 40px rgba(0, 0, 0, 0.1),
     0 2px 8px rgba(0, 0, 0, 0.05);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -546,7 +557,7 @@ onMounted(() => {
 
   &:hover {
     transform: translateY(-8px) scale(1.02);
-    box-shadow: 
+    box-shadow:
       0 20px 60px rgba(0, 0, 0, 0.2),
       0 8px 24px rgba(0, 0, 0, 0.15);
   }
@@ -567,7 +578,11 @@ onMounted(() => {
       left: 0;
       right: 0;
       bottom: 0;
-      background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+      background: linear-gradient(
+        135deg,
+        rgba(102, 126, 234, 0.1) 0%,
+        rgba(118, 75, 162, 0.1) 100%
+      );
       z-index: 1;
     }
 
@@ -696,7 +711,8 @@ onMounted(() => {
 }
 
 @keyframes pulse {
-  0%, 100% {
+  0%,
+  100% {
     transform: scale(1);
   }
   50% {
@@ -733,14 +749,14 @@ onMounted(() => {
   color: white !important;
   padding: 12px 28px !important;
   font-size: 15px !important;
-  box-shadow: 
+  box-shadow:
     0 4px 16px rgba(102, 126, 234, 0.4),
     0 2px 8px rgba(0, 0, 0, 0.1) !important;
 
   &:hover {
     background: linear-gradient(135deg, #5a6fd6 0%, #6a4190 100%) !important;
     opacity: 1 !important;
-    box-shadow: 
+    box-shadow:
       0 8px 24px rgba(102, 126, 234, 0.5),
       0 4px 12px rgba(0, 0, 0, 0.15) !important;
   }
@@ -842,7 +858,7 @@ onMounted(() => {
 /* 对话框样式优化 */
 :deep(.el-dialog) {
   border-radius: 20px !important;
-  box-shadow: 
+  box-shadow:
     0 20px 60px rgba(0, 0, 0, 0.3),
     0 8px 24px rgba(0, 0, 0, 0.2) !important;
   backdrop-filter: blur(20px);
