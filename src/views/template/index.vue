@@ -54,7 +54,7 @@
                 <div class="but">
                   <el-button type="primary" size="large" class="preview-btn" @click="preview(item)">
                     <span class="btn-icon">👁️</span>
-                    <span>查看模版</span>
+                    <span>创建模版</span>
                   </el-button>
                 </div>
                 <div class="card-overlay"></div>

@@ -42,12 +42,21 @@
           <el-icon class="btn-icon"><Document /></el-icon>
           项目列表
         </el-button>
+        <el-button class="btn-gradient btn-edit" @click="goToTemplate">
+          <el-icon class="btn-icon"><Document /></el-icon>
+          模板选择
+        </el-button>
       </div>
     </div>
     <div class="list">
       <el-scrollbar class="custom-scrollbar" max-height="calc(100vh - 230px)">
         <div v-if="pageList && pageList.length > 0" id="SlickListRef" class="main">
-          <SlickList v-model:list="pageList" axis="y" append-to="#SlickListRef">
+          <SlickList
+            v-model:list="pageList"
+            axis="y"
+            append-to="#SlickListRef"
+            :key="pageListKey"
+          >
             <template #item="{ item, index }">
               <div class="list-main list-main-pbr" :style="{ width: `${maxWidth}px` }">
                 <div
@@ -127,6 +136,7 @@ let disBut = computed(() => {
 
 let activeId = ref('')
 let projectName = ref('')
+let pageListKey = ref(0)
 
 let add = isTrue => {
   let data = getItemData(isTrue, query.templateView)
@@ -146,7 +156,21 @@ let maxWidth = computed(() => {
   })
   return w * 150
 })
+// 清理数组中的 undefined 元素
+const cleanPageList = () => {
+  if (pageList.value && Array.isArray(pageList.value)) {
+    pageList.value = pageList.value.filter(item => item !== undefined && item !== null)
+    pageList.value.forEach(item => {
+      if (item?.children && Array.isArray(item.children)) {
+        item.children = item.children.filter(child => child !== undefined && child !== null)
+      }
+    })
+  }
+}
+
 let addItem = (data, item, index, it, i) => {
+  // 清理数组后再添加
+  cleanPageList()
   let horizontal = item.horizontal
   let panel = getItem(horizontal, query.templateView)
   panel.pid = item.id
@@ -160,6 +184,7 @@ let addItem = (data, item, index, it, i) => {
   console.log('verticalData', verticalData)
   pageList.value.splice(index, 0, verticalData)
 }
+
 let removeItem = (data, item, index, it, i) => {
   let horizontal = item.horizontal
   if (horizontal) {
@@ -169,6 +194,8 @@ let removeItem = (data, item, index, it, i) => {
     return item.children.splice(i, 1)
   }
   pageList.value.splice(index, 1)
+  // 删除后清理数组
+  cleanPageList()
 }
 // let editItem = (data, item, index, it, i) => {
 //   activeItem.value = item
@@ -183,6 +210,11 @@ let read = () => {
 let goToList = async () => {
   router.push({
     path: '/template-list'
+  })
+}
+let goToTemplate = async () => {
+  router.push({
+    path: '/template'
   })
 }
 
@@ -254,12 +286,26 @@ let getCurrent = () => {
 }
 
 onMounted(() => {
+  // 初始化时清理数组
+  cleanPageList()
   if (query.state === 'edit') {
     setTimeout(() => {
       getCurrent()
     }, 1000)
   }
 })
+
+// 监听 pageList 变化，清理 undefined 元素
+watch(pageList, (newVal) => {
+  if (newVal && Array.isArray(newVal)) {
+    let hasUndefined = newVal.some(item => item === undefined || item === null) ||
+                       newVal.some(item => item?.children?.some(child => child === undefined || child === null))
+    if (hasUndefined) {
+      cleanPageList()
+      pageListKey.value++ // 触发 SlickList 重新渲染
+    }
+  }
+}, { deep: true })
 </script>
 <style scoped lang="scss">
 .right {

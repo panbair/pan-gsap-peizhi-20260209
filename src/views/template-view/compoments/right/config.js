@@ -180,7 +180,7 @@ export let butOption = {
   },
   // 新增酷炫模板
   threeDCardFlipAnimation: {
-    horizontalDisable: false,
+    horizontalDisable: true,
     verticalDisable: false,
     name: '3D卡片翻转',
     description: '面板进行3D翻转效果'
