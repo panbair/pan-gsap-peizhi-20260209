@@ -69,7 +69,12 @@ export const UseApi = () => {
       let paramList = delGsap(pageList || [])
       let param = {
         ...optios,
-        list: paramList ? JSON.stringify(paramList) : ''
+        list: paramList ? JSON.stringify(paramList) : '',
+        updateTime: Date.now()
+      }
+      // 如果没有 createTime，说明是旧数据，添加一个默认时间
+      if (!param.createTime) {
+        param.createTime = Date.now()
       }
       console.log(889996)
       console.log(param)
@@ -99,7 +104,9 @@ export const UseApi = () => {
       let paramList = delGsap(pageList || [])
       let param = {
         ...optios,
-        list: paramList ? JSON.stringify(paramList) : ''
+        list: paramList ? JSON.stringify(paramList) : '',
+        createTime: Date.now(),
+        updateTime: Date.now()
       }
       try {
         util.open()

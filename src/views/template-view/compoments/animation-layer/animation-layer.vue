@@ -74,6 +74,65 @@ const add = ($event, data) => {
 let currentAnimationType = ref(null)
 let currentCleanup = null
 
+// 动画配置：区分需要传入pageList和无参数的动画
+const ANIMATION_CONFIG = {
+  // 需要传入pageList的动画
+  withPageList: ['customizeAnimation', 'initHorizontalAnimation'],
+  // 所有支持的动画类型（用于验证）
+  allSupported: [
+    // 基础动画
+    'customizeAnimation',
+    'initHorizontalAnimation',
+    'infinitePanelScrollAnimation',
+    'scalePanelScrollAnimation',
+    // 新模板 V4-V11
+    'threeDCardFlipAnimation',
+    'particleWaveAnimation',
+    'wormholeAnimation',
+    'glassShatterAnimation',
+    'liquidFlowAnimation',
+    'fractalGrowAnimation',
+    'quantumEntanglementAnimation',
+    'magneticDistortionAnimation',
+    // 专业级模板 V12-V19
+    'origamiFoldAnimation',
+    'moebiusTransformAnimation',
+    'auroraFlowAnimation',
+    'particleConvergeAnimation',
+    'dnaHelixAnimation',
+    'honeycombUnfoldAnimation',
+    'hologramScanAnimation',
+    'kaleidoscopeMirrorAnimation',
+    // 精英级模板 V20-V27
+    'liquidSurfaceTensionAnimation',
+    'electromagneticWaveAnimation',
+    'fragmentReassembleAnimation',
+    'parallaxDepthAnimation',
+    'matrixRainAnimation',
+    'galaxyRotationAnimation',
+    'fluidVortexAnimation',
+    'panoramaUnfoldAnimation',
+    // 传奇级模板 V28-V35
+    'interstellarPortalAnimation',
+    'quantumTunnelAnimation',
+    'cyberspaceAnimation',
+    'liquidMetalAnimation',
+    'timeFoldAnimation',
+    'nebulaBirthAnimation',
+    'neonCityAnimation',
+    'ultimateParallaxAnimation',
+    // 精华级模板 V36-V43
+    'smoothHorizontalAnimation',
+    'elasticScaleAnimation',
+    'infiniteSmoothAnimation',
+    'fadeUpAnimation',
+    'staggeredHorizontalAnimation',
+    'scaleFadeAnimation',
+    'infiniteRotateAnimation',
+    'smoothComboAnimation'
+  ]
+}
+
 // 清理所有动画
 const cleanupAllAnimations = () => {
   try {
@@ -99,89 +158,51 @@ const cleanupAllAnimations = () => {
   }
 }
 
-// 执行动画
-const executeAnimation = async animationType => {
+// 执行动画（优化版）
+const executeAnimation = async (animationType) => {
   // 如果动画类型相同，无需重新执行
   if (currentAnimationType.value === animationType) {
     return
   }
 
+  // 验证动画类型是否支持
+  if (!ANIMATION_CONFIG.allSupported.includes(animationType)) {
+    console.warn(`[ExecuteAnimation] 不支持的动画类型: ${animationType}`)
+    return
+  }
+
   console.log(`切换动画: ${currentAnimationType.value} → ${animationType}`)
 
-  // 先清理之前的动画
-  cleanupAllAnimations()
-
-  // 等待DOM更新和清理完成
-  await nextTick()
-  await new Promise(resolve => setTimeout(resolve, 100))
-
-  // 执行新动画
   try {
+    // 先清理之前的动画
+    cleanupAllAnimations()
+
+    // 等待DOM更新和清理完成
+    await nextTick()
+    await new Promise(resolve => setTimeout(resolve, 100))
+
+    // 执行新动画
     let cleanup = null
 
-    if (animationType === 'customizeAnimation') {
+    // 根据是否需要pageList参数来调用
+    if (ANIMATION_CONFIG.withPageList.includes(animationType)) {
       cleanup = animation[animationType](props.pageList)
-    } else if (animationType === 'initHorizontalAnimation') {
-      cleanup = animation[animationType](props.pageList)
-    } else if (
-      animationType === 'infinitePanelScrollAnimation' ||
-      animationType === 'scalePanelScrollAnimation' ||
-      // 专业级模板 V4-V11
-      animationType === 'threeDCardFlipAnimation' ||
-      animationType === 'particleWaveAnimation' ||
-      animationType === 'wormholeAnimation' ||
-      animationType === 'glassShatterAnimation' ||
-      animationType === 'liquidFlowAnimation' ||
-      animationType === 'fractalGrowAnimation' ||
-      animationType === 'quantumEntanglementAnimation' ||
-      animationType === 'magneticDistortionAnimation' ||
-      // 高级模板 V12-V19
-      animationType === 'origamiFoldAnimation' ||
-      animationType === 'moebiusTransformAnimation' ||
-      animationType === 'auroraFlowAnimation' ||
-      animationType === 'particleConvergeAnimation' ||
-      animationType === 'dnaHelixAnimation' ||
-      animationType === 'honeycombUnfoldAnimation' ||
-      animationType === 'hologramScanAnimation' ||
-      animationType === 'kaleidoscopeMirrorAnimation' ||
-      // 精英级模板 V20-V27
-      animationType === 'liquidSurfaceTensionAnimation' ||
-      animationType === 'electromagneticWaveAnimation' ||
-      animationType === 'fragmentReassembleAnimation' ||
-      animationType === 'parallaxDepthAnimation' ||
-      animationType === 'matrixRainAnimation' ||
-      animationType === 'galaxyRotationAnimation' ||
-      animationType === 'fluidVortexAnimation' ||
-      animationType === 'panoramaUnfoldAnimation' ||
-      // 传奇级模板 V28-V35
-      animationType === 'interstellarPortalAnimation' ||
-      animationType === 'quantumTunnelAnimation' ||
-      animationType === 'cyberspaceAnimation' ||
-      animationType === 'liquidMetalAnimation' ||
-      animationType === 'timeFoldAnimation' ||
-      animationType === 'nebulaBirthAnimation' ||
-      animationType === 'neonCityAnimation' ||
-      animationType === 'ultimateParallaxAnimation' ||
-      // 精华级模板 V36-V43
-      animationType === 'smoothHorizontalAnimation' ||
-      animationType === 'elasticScaleAnimation' ||
-      animationType === 'infiniteSmoothAnimation' ||
-      animationType === 'fadeUpAnimation' ||
-      animationType === 'staggeredHorizontalAnimation' ||
-      animationType === 'scaleFadeAnimation' ||
-      animationType === 'infiniteRotateAnimation' ||
-      animationType === 'smoothComboAnimation'
-    ) {
+    } else {
       cleanup = animation[animationType]()
     }
 
-    // 保存cleanup函数
-    currentCleanup = cleanup
-    currentAnimationType.value = animationType
-
-    console.log(`动画 ${animationType} 执行完成`)
+    // 验证返回的cleanup函数
+    if (typeof cleanup === 'function') {
+      currentCleanup = cleanup
+      currentAnimationType.value = animationType
+      console.log(`动画 ${animationType} 执行完成`)
+    } else {
+      console.warn(`[ExecuteAnimation] 动画 ${animationType} 未返回有效的cleanup函数`)
+    }
   } catch (error) {
     console.error(`执行动画 ${animationType} 失败:`, error)
+    // 发生错误时重置状态
+    currentAnimationType.value = null
   }
 }
 
@@ -214,53 +235,41 @@ onBeforeUnmount(() => {
 })
 </script>
 <style scoped lang="scss">
-/* Most of these styles could be removed but are for the demo to look better */
-
+/* 隐藏全局横向滚动条 */
 html,
 body {
   margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* 动画层容器 */
+.animation-layer {
+  position: relative;
+  width: 100vw;
   height: 100%;
   overflow-x: hidden;
 }
 
-body {
-  overflow-x: hidden;
-}
-
+/* 面板容器 */
 .panels-container {
   position: relative;
   height: 100vh;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: nowrap;
   flex-wrap: nowrap;
   padding: 0;
-  //overflow: hidden;
+  overflow: hidden;
 }
-//.animation-layer{
-//  //position: relative;
-//  width: 100vw;
-//  height: 100vh;
-//  position: relative;
-//  overflow: hidden;
-//}
 
+/* 单个面板 */
 .panels-container .panel {
   position: relative;
   width: 100vw;
   height: 100vh;
-  //overflow: hidden;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: block;
   background-size: 100% 100%;
   background-repeat: no-repeat;
+  flex-shrink: 0;
 }
-//.is-absolute{
-//  position: absolute;
-//  width: 100vw;
-//  height: 100vh;
-//}
 </style>
->

@@ -78,6 +78,13 @@ const routes: RouteRecordRaw[] = [
   },
 
   {
+    path: '/template-list',
+    name: 'templateList',
+    component: () => import('@/views/template-list/index.vue'),
+    meta: { title: 'list' }
+  },
+
+  {
     path: '/:pathMatch(.*)*',
     name: 'NotFound',
     component: () => import('@/views/Error/404.vue'),

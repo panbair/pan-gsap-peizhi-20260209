@@ -11,6 +11,25 @@ body {
   height: 100%;
 }
 
+/* 防止页面回弹效果 */
+html,
+body {
+  overscroll-behavior: none;
+}
+
+/* 确保根元素不产生横向滚动 */
+html {
+  position: relative;
+  width: 100%;
+  min-height: 100%;
+}
+
+body {
+  position: relative;
+  width: 100%;
+  min-height: 100%;
+}
+
 a {
   text-decoration: none;
   color: inherit;

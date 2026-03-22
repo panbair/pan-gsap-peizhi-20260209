@@ -1,11 +1,13 @@
 <template>
-  <Dialog @show-preview="showPreview" />
-  <animation-layer
-    v-if="pageList && pageList.length > 0"
-    :page-list="pageList"
-    :disable="false"
-  ></animation-layer>
-  <empty-template v-else></empty-template>
+  <div class="template-view">
+    <Dialog @show-preview="showPreview" />
+    <animation-layer
+      v-if="pageList && pageList.length > 0"
+      :page-list="pageList"
+      :disable="false"
+    ></animation-layer>
+    <empty-template v-else></empty-template>
+  </div>
 </template>
 <script setup lang="ts">
 import Dialog from './compoments/dialog/dialog.vue'
@@ -40,9 +42,8 @@ body {
   overscroll-behavior: none;
   height: 100vh;
 }
-
-.content-warp {
-  overflow-x: hidden;
+.template-view {
+  overflow: hidden;
 }
 
 .container-horizontal {

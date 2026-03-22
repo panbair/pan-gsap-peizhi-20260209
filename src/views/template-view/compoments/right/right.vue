@@ -14,17 +14,21 @@
         </el-input>
       </div>
       <div class="but">
-        <el-button class="btn-gradient btn-vertical" :disabled="disBut.verticalDisable" @click="add(false)">
-          <el-icon class="btn-icon"><Document /></el-icon>
+        <el-button
+          class="btn-gradient btn-vertical"
+          :disabled="disBut.verticalDisable"
+          @click="add(false)"
+        >
+          <el-icon class="btn-icon"><CirclePlus /></el-icon>
           添加竖屏
         </el-button>
-        <el-button class="btn-gradient btn-horizontal" :disabled="disBut.horizontalDisable" @click="add(true)">
-          <el-icon class="btn-icon"><Picture /></el-icon>
+        <el-button
+          class="btn-gradient btn-horizontal"
+          :disabled="disBut.horizontalDisable"
+          @click="add(true)"
+        >
+          <el-icon class="btn-icon"><Remove /></el-icon>
           添加横屏
-        </el-button>
-        <el-button class="btn-gradient btn-edit" @click="edit" :disabled="!activeId">
-          <el-icon class="btn-icon"><Edit /></el-icon>
-          去编辑
         </el-button>
         <el-button class="btn-gradient btn-save" @click="save">
           <el-icon class="btn-icon"><Select /></el-icon>
@@ -34,23 +38,49 @@
           <el-icon class="btn-icon"><View /></el-icon>
           查看效果
         </el-button>
+        <el-button class="btn-gradient btn-edit" @click="goToList">
+          <el-icon class="btn-icon"><Document /></el-icon>
+          项目列表
+        </el-button>
       </div>
     </div>
     <div class="list">
       <el-scrollbar class="custom-scrollbar" max-height="calc(100vh - 230px)">
-        <div class="main" id="SlickListRef" v-if="pageList && pageList.length>0">
-          <SlickList axis="y" v-model:list="pageList" appendTo="#SlickListRef">
-            <template #item="{ item,index }">
-              <div class="list-main list-main-pbr" :style="{width: `${maxWidth}px`}">
-                <div class="panel"
-                     :style="{...item.style,background: it?.formData?.animationStyle?.bgUrl?  'url(' + it?.formData?.animationStyle?.bgUrl + ')' :   it?.formData?.animationStyle?.background || item?.formData?.animationStyle?.background || it?.style?.backgroundImage,'background-size': '100% 100%','background-repeat': 'no-repeat'}"
-                     v-for="(it,i) in item?.children || []" :key="it.id+'_'+i">
+        <div v-if="pageList && pageList.length > 0" id="SlickListRef" class="main">
+          <SlickList v-model:list="pageList" axis="y" append-to="#SlickListRef">
+            <template #item="{ item, index }">
+              <div class="list-main list-main-pbr" :style="{ width: `${maxWidth}px` }">
+                <div
+                  v-for="(it, i) in item?.children || []"
+                  :key="it.id + '_' + i"
+                  class="panel"
+                  :style="{
+                    ...item.style,
+                    background: it?.formData?.animationStyle?.bgUrl
+                      ? 'url(' + it?.formData?.animationStyle?.bgUrl + ')'
+                      : it?.formData?.animationStyle?.background ||
+                        item?.formData?.animationStyle?.background ||
+                        it?.style?.backgroundImage,
+                    'background-size': '100% 100%',
+                    'background-repeat': 'no-repeat'
+                  }"
+                >
                   <div class="link-name">{{ it.name }}</div>
                   <div class="link-id">编号:{{ it.linkName }}</div>
                   <div class="panel-actions">
-                    <el-button class="btn-icon-btn btn-add" :icon="Plus" circle @click.stop="addItem(pageList, item, index,it, i)"/>
-                    <el-button class="btn-icon-btn btn-delete" :icon="Close" circle @click.stop="removeItem(pageList, item, index,it, i)"/>
-<!--                    <el-button type="primary" :icon="Edit" circle @click.stop="editItem(pageList, item, index,it, i)"/>-->
+                    <el-button
+                      class="btn-icon-btn btn-add"
+                      :icon="Plus"
+                      circle
+                      @click.stop="addItem(pageList, item, index, it, i)"
+                    />
+                    <el-button
+                      class="btn-icon-btn btn-delete"
+                      :icon="Close"
+                      circle
+                      @click.stop="removeItem(pageList, item, index, it, i)"
+                    />
+                    <!--                    <el-button type="primary" :icon="Edit" circle @click.stop="editItem(pageList, item, index,it, i)"/>-->
                   </div>
                 </div>
               </div>
@@ -60,7 +90,7 @@
         <empty-template v-else></empty-template>
       </el-scrollbar>
     </div>
-</div>
+  </div>
 </template>
 <script setup lang="ts">
 import EmptyTemplate from '../empty-template/empty-template.vue'
@@ -68,6 +98,8 @@ import EmptyTemplate from '../empty-template/empty-template.vue'
 
 import {
   Plus,
+  Remove,
+  CirclePlus,
   Close,
   Edit,
   Document,
@@ -75,27 +107,20 @@ import {
   Select,
   View
 } from '@element-plus/icons-vue'
-import {SlickList} from 'vue-slicksort'
-import {butOption, getData as getItemData, getItem} from './config'
+
+import { SlickList } from 'vue-slicksort'
+import { butOption, getData as getItemData, getItem } from './config'
 import _ from 'lodash'
 import { keys, keys2 } from './keys.js'
 import { ElMessage } from 'element-plus'
 import { UseApi } from '../apiHooks.js'
-let {
-  router,
-  query,
-  listData,
-  pageList,
-  getData,
-  updateData,
-  addData
-} = UseApi()
+let { router, query, listData, pageList, getData, updateData, addData } = UseApi()
 
 let emits = defineEmits(['showPreview'])
 let visibel = ref(false)
 let activeItem = ref({})
 let activeItItem = ref({})
-let disBut = computed(()=>{
+let disBut = computed(() => {
   let key = query.templateView || 'customizeAnimation'
   return butOption[key]
 })
@@ -103,36 +128,36 @@ let disBut = computed(()=>{
 let activeId = ref('')
 let projectName = ref('')
 
-let add = (isTrue) => {
-  let data = getItemData(isTrue,query.templateView)
+let add = isTrue => {
+  let data = getItemData(isTrue, query.templateView)
   data.formData = {
     animationKeys: query.templateView === 'customizeAnimation' ? [...keys] : [...keys2], // 动画设置
     animationStyle: {
       xPercent: 100
-    }// 滚动动画样式
+    } // 滚动动画样式
   }
   pageList.value.push(data)
   console.log(pageList.value)
 }
 let maxWidth = computed(() => {
   let w = 0
-  pageList.value.forEach((item) => {
+  pageList.value.forEach(item => {
     w = Math.max(w, (item?.children || []).length)
   })
   return w * 150
 })
 let addItem = (data, item, index, it, i) => {
   let horizontal = item.horizontal
-  let panel = getItem(horizontal,query.templateView)
+  let panel = getItem(horizontal, query.templateView)
   panel.pid = item.id
   panel.parentClassName = item.className
   if (horizontal) {
-    console.log('horizontal',panel)
+    console.log('horizontal', panel)
     return item.children.splice(i, 0, panel)
   }
-  let verticalData = getItemData(horizontal,query.templateView)
+  let verticalData = getItemData(horizontal, query.templateView)
 
-  console.log('verticalData',verticalData)
+  console.log('verticalData', verticalData)
   pageList.value.splice(index, 0, verticalData)
 }
 let removeItem = (data, item, index, it, i) => {
@@ -155,16 +180,10 @@ let read = () => {
   let param = JSON.stringify(pageList.value)
   emits('showPreview', param)
 }
-let edit = async () => {
-  // await save()
-  if (activeId.value) {
-    router.push({
-      path: '/edit',
-      query: {
-        id: activeId.value
-      }
-    })
-  }
+let goToList = async () => {
+  router.push({
+    path: '/template-list'
+  })
 }
 
 let submit = (data = {}) => {
@@ -173,7 +192,7 @@ let submit = (data = {}) => {
 }
 
 let save = async () => {
-  if(!projectName.value) {
+  if (!projectName.value) {
     console.log('请输入项目名称') // 调试用
     ElMessage({
       message: '请输入项目名称',
@@ -187,21 +206,23 @@ let save = async () => {
   }
 
   try {
-    if(query.state === 'edit' || activeId.value) {
-      await updateData(pageList.value,{
+    if (query.state === 'edit' || activeId.value) {
+      console.log(pageList.value)
+
+      await updateData(pageList.value, {
         id: activeId.value,
         name: '首页',
         templateView: query.templateView,
         projectName: projectName.value
-      }).then((data) => {
+      }).then(data => {
         activeId.value = data?.id || data
       })
     } else {
-      await addData(pageList.value,{
+      await addData(pageList.value, {
         name: '首页',
         templateView: query.templateView,
         projectName: projectName.value
-      }).then((data) => {
+      }).then(data => {
         activeId.value = data?.id || data
       })
     }
@@ -224,16 +245,16 @@ let save = async () => {
 }
 
 let getCurrent = () => {
-  getData().then((data) => {
+  getData().then(data => {
     console.log(159, data)
-    activeId.value = data?.id  || ''
+    activeId.value = data?.id || ''
     projectName.value = data?.projectName || ''
-    query.templateView = listData.value.templateView ||  query.templateView
+    query.templateView = listData.value.templateView || query.templateView
   })
 }
 
 onMounted(() => {
-  if(query.state === 'edit') {
+  if (query.state === 'edit') {
     setTimeout(() => {
       getCurrent()
     }, 1000)
@@ -380,12 +401,7 @@ onMounted(() => {
         left: -100%;
         width: 100%;
         height: 100%;
-        background: linear-gradient(
-          90deg,
-          transparent,
-          rgba(255, 255, 255, 0.2),
-          transparent
-        );
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
         transition: left 0.5s ease;
       }
 
@@ -628,11 +644,3 @@ onMounted(() => {
   }
 }
 </style>
-
-
-
-
-
-
-
-

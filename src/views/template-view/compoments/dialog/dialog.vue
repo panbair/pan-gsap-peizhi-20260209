@@ -14,7 +14,7 @@
       <el-icon class="button-icon" :class="{ 'icon-rotate': isHover }">
         <DArrowRight />
       </el-icon>
-      <span class="button-text">打开模板</span>
+<!--      <span class="button-text">打开模板</span>-->
     </el-button>
   </div>
 </template>
