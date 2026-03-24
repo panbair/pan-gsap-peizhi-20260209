@@ -1356,7 +1356,7 @@ onUnmounted(() => {
   align-items: center;
   justify-content: center;
   color: white;
-  z-index: 999;
+  z-index: 9999;
   box-shadow: 0 4px 15px rgba(167, 139, 250, 0.4);
   transition: all 0.3s ease;
   opacity: 0;

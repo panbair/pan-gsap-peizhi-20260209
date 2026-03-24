@@ -58,13 +58,6 @@
         <span class="progress-total">/ 100</span>
       </div>
     </div>
-
-    <!-- 返回顶部按钮 -->
-    <button class="back-top-btn" ref="backTopRef" @click="scrollToTop">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-        <path d="M12 19V5M5 12l7-7 7 7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-    </button>
   </div>
 </template>
 
@@ -80,7 +73,6 @@ const containerRef = ref<HTMLElement | null>(null)
 const cardRefs = ref<HTMLElement[]>([])
 const progressBarRef = ref<HTMLElement | null>(null)
 const progressFillRef = ref<HTMLElement | null>(null)
-const backTopRef = ref<HTMLElement | null>(null)
 
 // 状态
 const currentProgress = ref(0)
@@ -287,18 +279,7 @@ const initAnimations = () => {
       }
     })
 
-    // 7. 返回顶部按钮
-    gsap.to(backTopRef.value, {
-      autoAlpha: 1,
-      duration: 0.3,
-      scrollTrigger: {
-        trigger: containerRef.value,
-        start: 'top -300px',
-        toggleActions: 'play none none reverse'
-      }
-    })
-
-    // 8. 背景网格滚动
+    // 7. 背景网格滚动
     gsap.to('.grid-line', {
       y: -100,
       duration: 20,
@@ -308,14 +289,6 @@ const initAnimations = () => {
     })
 
   }, containerRef.value)
-}
-
-// 滚动到顶部
-const scrollToTop = () => {
-  window.scrollTo({
-    top: 0,
-    behavior: 'smooth'
-  })
 }
 
 onMounted(() => {
@@ -611,44 +584,6 @@ onUnmounted(() => {
 
   opacity: 1 !important;}
 
-// 返回顶部按钮
-.back-top-btn {
-  position: fixed;
-  bottom: 120px;
-  right: 40px;
-  width: 50px;
-  height: 50px;
-  background: linear-gradient(135deg, #a78bfa, #60a5fa);
-  border: none;
-  border-radius: 50%;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(20px);
-  z-index: 100;
-  box-shadow: 0 10px 40px rgba(167, 139, 250, 0.4);
-  transition: all 0.3s ease;
-
-  svg {
-    width: 24px;
-    height: 24px;
-    color: white;
-    stroke-width: 2;
-  }
-
-  &:hover {
-    transform: translateY(-3px) scale(1.1);
-    box-shadow: 0 15px 50px rgba(167, 139, 250, 0.6);
-  }
-
-  &:active {
-    transform: translateY(-1px) scale(1.05);
-  }
-}
-
 // 响应式
 @media (max-width: 768px) {
   .hero-title {
@@ -674,14 +609,6 @@ onUnmounted(() => {
 
   .card-icon {
     font-size: 2.5rem;
-  
-  opacity: 1 !important;}
-
-  .back-top-btn {
-    bottom: 100px;
-    right: 20px;
-    width: 45px;
-    height: 45px;
   
   opacity: 1 !important;}
 
