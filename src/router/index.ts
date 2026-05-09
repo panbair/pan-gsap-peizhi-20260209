@@ -92,6 +92,13 @@ const routes: RouteRecordRaw[] = [
   },
 
   {
+    path: '/plan',
+    name: 'plan',
+    component: () => import('@/views/plan/index.vue'),
+    meta: { title: 'plan' }
+  },
+
+  {
     path: '/:pathMatch(.*)*',
     name: 'NotFound',
     component: () => import('@/views/Error/404.vue'),
