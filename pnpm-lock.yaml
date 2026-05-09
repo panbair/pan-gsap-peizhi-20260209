@@ -26,6 +26,9 @@ importers:
       gsap:
         specifier: 3.14.2
         version: 3.14.2
+      lodash:
+        specifier: 4.17.23
+        version: 4.17.23
       lodash-es:
         specifier: ^4.17.21
         version: 4.17.22
@@ -41,6 +44,9 @@ importers:
       pinia-plugin-persistedstate:
         specifier: ^3.2.1
         version: 3.2.3(pinia@2.3.1(typescript@5.4.5)(vue@3.5.27(typescript@5.4.5)))
+      uuid:
+        specifier: 13.0.0
+        version: 13.0.0
       vue:
         specifier: ^3.4.21
         version: 3.5.27(typescript@5.4.5)
@@ -50,6 +56,9 @@ importers:
       vue-router:
         specifier: ^4.3.0
         version: 4.6.4(vue@3.5.27(typescript@5.4.5))
+      vue-slicksort:
+        specifier: 2.0.5
+        version: 2.0.5(vue@3.5.27(typescript@5.4.5))
     devDependencies:
       '@intlify/unplugin-vue-i18n':
         specifier: ^4.0.0
@@ -2233,8 +2242,8 @@ packages:
   lodash.merge@4.6.2:
     resolution: {integrity: sha512-0KpjqXRVvrYyCsX1swR/XTK0va6VQkQM6MNo7PqW77ByjAhoARA8EfrP1N4+KlKj8YS0ZUCtRT/YUuhyYDujIQ==}
 
-  lodash@4.17.21:
-    resolution: {integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==}
+  lodash@4.17.23:
+    resolution: {integrity: sha512-LgVTMpQtIopCi79SJeDiP0TfWi5CNEc/L/aRdTh3yIvmZXTnheWpKjSZhnvMl8iXbC1tFg9gdHHDMLoV7CnG+w==}
 
   lower-case@2.0.2:
     resolution: {integrity: sha512-7fm3l3NAF9WfN6W3JOmf5drwpVqX78JtoGJ3A6W0a6ZnldM41w2fV5D490psKFTpMds8TJse/eHLFFsNHHjHgg==}
@@ -3037,6 +3046,10 @@ packages:
   util-deprecate@1.0.2:
     resolution: {integrity: sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==}
 
+  uuid@13.0.0:
+    resolution: {integrity: sha512-XQegIaBTVUjSHliKqcnFqYypAd4S+WCYt5NIeRs6w/UAry7z8Y9j5ZwRRL4kzq9U3sD6v+85er9FvkEaBpji2w==}
+    hasBin: true
+
   vary@1.1.2:
     resolution: {integrity: sha512-BNGbWLfd0eUPabhkXUVm0j8uuvREyTh5ovRa/dyow/BqAbZJyC+5fU+IzQOzmAKzYqYRAISoRhdQr3eIZ/PXqg==}
     engines: {node: '>= 0.8'}
@@ -3118,6 +3131,11 @@ packages:
     resolution: {integrity: sha512-Hz9q5sa33Yhduglwz6g9skT8OBPii+4bFn88w6J+J4MfEo4KRRpmiNG/hHHkdbRFlLBOqxN8y8gf2Fb0MTUgVg==}
     peerDependencies:
       vue: ^3.5.0
+
+  vue-slicksort@2.0.5:
+    resolution: {integrity: sha512-fXz1YrNjhUbJK7o0tMk27mIr4pMAZYLSYvtmLazCtfpvz+zafPCn34ILDL8B7hT7WLVZKreYs6JVe5VWymqmzA==}
+    peerDependencies:
+      vue: '>=3.0.0'
 
   vue-tsc@2.2.12:
     resolution: {integrity: sha512-P7OP77b2h/Pmk+lZdJ0YWs+5tJ6J2+uOQPo7tlBnY44QqQSPYvS0qVT4wqDJgwrZaLe47etJLLQRFia71GYITw==}
@@ -4663,9 +4681,9 @@ snapshots:
       '@vueuse/core': 10.11.1(vue@3.5.27(typescript@5.4.5))
       async-validator: 4.2.5
       dayjs: 1.11.19
-      lodash: 4.17.21
+      lodash: 4.17.23
       lodash-es: 4.17.22
-      lodash-unified: 1.0.3(@types/lodash-es@4.17.12)(lodash-es@4.17.22)(lodash@4.17.21)
+      lodash-unified: 1.0.3(@types/lodash-es@4.17.12)(lodash-es@4.17.22)(lodash@4.17.23)
       memoize-one: 6.0.0
       normalize-wheel-es: 1.2.0
       vue: 3.5.27(typescript@5.4.5)
@@ -5479,15 +5497,15 @@ snapshots:
 
   lodash-es@4.17.22: {}
 
-  lodash-unified@1.0.3(@types/lodash-es@4.17.12)(lodash-es@4.17.22)(lodash@4.17.21):
+  lodash-unified@1.0.3(@types/lodash-es@4.17.12)(lodash-es@4.17.22)(lodash@4.17.23):
     dependencies:
       '@types/lodash-es': 4.17.12
-      lodash: 4.17.21
+      lodash: 4.17.23
       lodash-es: 4.17.22
 
   lodash.merge@4.6.2: {}
 
-  lodash@4.17.21: {}
+  lodash@4.17.23: {}
 
   lower-case@2.0.2:
     dependencies:
@@ -6448,6 +6466,8 @@ snapshots:
 
   util-deprecate@1.0.2: {}
 
+  uuid@13.0.0: {}
+
   vary@1.1.2: {}
 
   vite-plugin-compression@0.5.1(vite@5.4.21(@types/node@18.19.130)(sass@1.97.2)(terser@5.46.0)):
@@ -6514,7 +6534,7 @@ snapshots:
       eslint-visitor-keys: 3.4.3
       espree: 9.6.1
       esquery: 1.7.0
-      lodash: 4.17.21
+      lodash: 4.17.23
       semver: 7.7.3
     transitivePeerDependencies:
       - supports-color
@@ -6529,6 +6549,10 @@ snapshots:
   vue-router@4.6.4(vue@3.5.27(typescript@5.4.5)):
     dependencies:
       '@vue/devtools-api': 6.6.4
+      vue: 3.5.27(typescript@5.4.5)
+
+  vue-slicksort@2.0.5(vue@3.5.27(typescript@5.4.5)):
+    dependencies:
       vue: 3.5.27(typescript@5.4.5)
 
   vue-tsc@2.2.12(typescript@5.4.5):
